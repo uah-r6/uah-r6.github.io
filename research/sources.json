@@ -2,6 +2,74 @@
   "schema": 1,
   "matches": [
     {
+      "label": "sr-outlast-nal-stage1-2026-07-03",
+      "extraction_label": "candidate-8023",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8023",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D9_OUTvSR.zip",
+      "siegegg_match_id": 4140,
+      "maps": [
+        {
+          "folder": "Match-2026-07-03_17-34-53-12240",
+          "siegegg_game_id": 8330
+        }
+      ],
+      "players": {
+        "Ambi.SR": 3498,
+        "Canadian.SR": 49,
+        "Rexen.SR": 1040,
+        "Spoit.SR": 380,
+        "Surf.SR": 2397,
+        "Trevmak.oL": 2109,
+        "Mili.oL": 3899,
+        "Logan.oL": 3897,
+        "Vrionx.oL": 3896,
+        "Nesta.oL": 3898
+      },
+      "verified_player_aliases": {
+        "Logan.oL": {
+          "siegegg_player_id": 3897,
+          "replay_profile_id": "4be22eb3-13ce-4e25-991d-8bcd682b7bec",
+          "evidence": "https://www.stats.cc/siege/Logan.HKM/4be22eb3-13ce-4e25-991d-8bcd682b7bec",
+          "note": "Matching Ubisoft UUID history contains Logan.oL; Logger is the Outlast player Logan."
+        }
+      }
+    },
+    {
+      "label": "forfun-five-fears-nal-stage1-2026-07-03",
+      "extraction_label": "candidate-8024",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8024",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D9_5FvFF.zip",
+      "siegegg_match_id": 4141,
+      "maps": [
+        {
+          "folder": "Match-2026-07-03_18-43-07-12240",
+          "siegegg_game_id": 8331
+        }
+      ],
+      "players": {
+        "Packer.4FUN": 3001,
+        "MikeW.4FUN": 3465,
+        "Vulspur.4FUN": 3763,
+        "Beeno.4FUN": 2112,
+        "Sylo.4FUN": 3904,
+        "JJBlaztful.5F": 2140,
+        "Forrest.5F": 1318,
+        "Rival.5F": 3471,
+        "Fenz.5F": 3455,
+        "Snake.5F": 2984
+      },
+      "verified_player_aliases": {
+        "JJBlaztful.5F": {
+          "siegegg_player_id": 2140,
+          "replay_profile_id": "26dbbcac-2c96-4534-b35d-dc28b775e721",
+          "evidence": "https://www.opleague.pro/user/10156-JJ",
+          "note": "OPL links Ubisoft JJBlaztful.5F to James Letkovsky, SiegeGG player 2140."
+        }
+      }
+    },
+    {
       "label": "five-fears-wc-nal-stage1-2026-07-02",
       "extraction_label": "candidate-8015",
       "event": "North America League Stage 1 2026",
