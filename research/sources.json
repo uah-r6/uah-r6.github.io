@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "matches": [
+    {
+      "label": "daystar-weibo-2026-06-30",
+      "event": "Asia Pacific League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8125",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S1D7_DAYvWBO.zip",
+      "siegegg_match_id": 3880,
+      "maps": [
+        {"folder": "Match-2026-06-30_23-25-58-20948", "siegegg_game_id": 7625}
+      ],
+      "players": {
+        "SealOrz.Daystar": 3274, "AZuKi86.Daystar": 3713,
+        "Pikanzu.Daystar": 1999, "SouffIe.Daystar": 1986,
+        "Yao.Daystar": 3714, "Terd5G.WBG": 3277,
+        "Hoven5G.WBG": 2924, "SpeakEasy.WBG": 610,
+        "Reeps965G.WBG": 2790, "Gotti5G.WBG": 2518
+      }
+    },
+    {
+      "label": "psykn-soulsheart-2026-06-30",
+      "event": "Asia Pacific League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8124",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S1D7_PSYKNvSH.zip",
+      "siegegg_match_id": 3879,
+      "maps": [
+        {"folder": "Match-2026-06-30_21-56-09-20948", "siegegg_game_id": 7624}
+      ],
+      "players": {
+        "MARKELELE.SH": 2444, "Scatman.SH": 1370,
+        "MrPuuuuuuncH.SH": 2445, "DCH.SH": 1653,
+        "JustOnlyi9.SH": 1642, "K3.uN": 4035,
+        "fenglixiaqiu": 4039, "Neonzao": 4107,
+        "KAF": 4004, "JoeGoR.KZ": 3612
+      },
+      "unverified_player_aliases": ["MARKELELE.SH", "JustOnlyi9.SH", "fenglixiaqiu", "KAF"]
+    },
+    {
+      "label": "daystar-orchid-2026-04-25",
+      "event": "Asia Pacific Kickoff 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/7960",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/KICKOFF/BR62026_ASIA_DAY5_DAYSTARvTO.zip",
+      "siegegg_match_id": 3585,
+      "maps": [
+        {"folder": "Match-2026-04-25_14-02-13-32036", "siegegg_game_id": 6720},
+        {"folder": "Match-2026-04-25_15-09-21-32036", "siegegg_game_id": 6721},
+        {"folder": "Match-2026-04-25_16-19-25-32036", "siegegg_game_id": 6722}
+      ],
+      "players": {
+        "Lycolis.ORC": 616, "Xcerlotic.ORC": 3217,
+        "BGMan.ORC": 2762, "Peeps.ORC": 4038, "Kritj.ORC": 3255,
+        "SealOrz.Daystar": 3274, "Binbin.Daystar": 3709,
+        "SouffIe.Daystar": 1986, "AZuKi86.Daystar": 3713,
+        "Pikanzu.Daystar": 1999
+      }
+    },
+    {
+      "label": "nip-weibo-2026-02-02",
+      "event": "Six Invitational 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/7580",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/SI%202026/SI26_DAY1_NIPvWEIBO.zip",
+      "siegegg_match_id": 3073,
+      "maps": [
+        {"folder": "Match-2026-02-02_14-17-03-11944", "siegegg_game_id": 5718},
+        {"folder": "Match-2026-02-02_14-59-43-11944", "siegegg_game_id": 5719}
+      ],
+      "players": {
+        "pino": 872, "Wizard": 2278, "Fntzy": 2520,
+        "kondz": 2660, "Htz": 2645, "Hoven5G": 2924,
+        "Terd5G": 3277, "Reeps965G": 2790,
+        "Ape5G": 2926, "SpeakEasy5G": 610
+      }
+    },
+    {
+      "label": "weibo-daystar-2026-04-25",
+      "event": "Asia Pacific Kickoff 2026",
+      "official_page": "https://www.ubisoft.com/es-mx/esports/rainbow-six/siege/match/7952",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/KICKOFF/BR62026_ASIA_DAY5_WEIBOvDAYSTAR.zip",
+      "siegegg_match_id": 3579,
+      "maps": [
+        {"folder": "Match-2026-04-25_17-49-30-32036", "siegegg_game_id": 6706},
+        {"folder": "Match-2026-04-25_18-38-09-32036", "siegegg_game_id": 6707}
+      ],
+      "players": {
+        "SealOrz.Daystar": 3274, "SouffIe.Daystar": 1986,
+        "AZuKi86.Daystar": 3713, "Binbin.Daystar": 3709,
+        "Pikanzu.Daystar": 1999, "Terd5G.WBG": 3277,
+        "Ape5G.WBG": 2926, "Hoven5G.WBG": 2924,
+        "Reeps965G.WBG": 2790, "SpeakEasy.WBG": 610
+      }
+    }
+  ]
+}

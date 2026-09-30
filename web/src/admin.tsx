@@ -11,7 +11,8 @@ type Series = { id: string; opponent: string; date: string; week: string; notes:
 type Replay = { id: string; name: string; map?: string; timestamp?: string; match_type?: string; status: string; eligible: boolean; tracked_count?: number; rounds?: number; score?: number[]; our_team?: number | null; duplicate?: boolean }
 type Preview = { preview_token: string; map: string; timestamp: string; match_type: string; game_mode: string; rounds: number; score: number[]; our_team: number | null; tracked_players: string[]; teams: { index: number; players: string[] }[]; ambiguous: string | null; duplicate: boolean; active_season: string | null; competition_if_confirmed: string }
 type MapRow = { id: string; map_name: string; match_type: string; our_score: number; their_score: number; opponent: string; date: string; series_date: string; week: string; notes: string; season_name: string; season_slug: string; series_id: string; competition: string; demo: number }
-type MatchDetail = MapRow & { game_mode: string; tracked_players: string[]; rounds: { number: number; site: string; result: string }[] }
+type ArchiveStatus = { status: string; message: string; rounds: number; path: string }
+type MatchDetail = MapRow & { game_mode: string; tracked_players: string[]; rounds: { number: number; site: string; result: string }[]; archive: ArchiveStatus }
 type Dashboard = { active_season: { slug: string; name: string } | null; roster_count: number; maps_imported: number; demo_maps: number; last_imported: { id: string; map_name: string; opponent: string; date: string; season: string } | null; last_publish: { at: string; commit: string } | null; database: { status: string; path: string; size_bytes: number } }
 type SettingsData = { team_name: string; short_name: string; accent: string; replay_path: string; trade_window_seconds: number; rating_version: string; publishing_enabled: boolean; branch: string; remote_url: string; site_url: string }
 
@@ -243,9 +244,9 @@ function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { m
     } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
   async function remove() {
-    if (!detail || !window.confirm(`Delete ${detail.map_name} vs ${detail.opponent} from your NECC statistics? This removes its rounds and events but keeps player identities.`)) return
+    if (!detail || !window.confirm(`Delete this map and its archived replay? This removes the statistics and private replay archive for ${detail.map_name} vs ${detail.opponent}. Player identities remain. This cannot be undone.`)) return
     setBusy(true); setError('')
-    try { await api(`/matches/${mapId}`, 'DELETE', { confirm_map_id: mapId }); notify('Accidental map deleted. Statistics recalculated; player identities preserved.'); onDeleted(); await after() } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
+    try { await api(`/matches/${mapId}`, 'DELETE', { confirm_map_id: mapId }); notify('Map and private replay archive deleted. Statistics recalculated; player identities preserved.'); onDeleted(); await after() } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
   async function reparse() {
     if (!detail || !replayPath.trim() || !window.confirm(`Reparse ${detail.map_name} from this original replay folder? Season and matchup details will be kept.`)) return
@@ -255,8 +256,38 @@ function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { m
       notify(result.message); await load(); await after()
     } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
+  async function verifyArchive() {
+    setBusy(true); setError('')
+    try {
+      const status = await api<ArchiveStatus>(`/matches/${mapId}/archive`)
+      setDetail(current => current ? { ...current, archive: status } : current)
+      notify(`Replay archive: ${status.status}. ${status.message}`, status.status !== 'Healthy')
+    } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
+  }
+  async function backfillArchive() {
+    if (!replayPath.trim()) return
+    setBusy(true); setError('')
+    try {
+      const status = await api<ArchiveStatus>(`/matches/${mapId}/archive`, 'POST', { path: replayPath.trim(), confirm_map_id: mapId })
+      notify(`Replay archived: ${status.rounds} rounds verified.`)
+      await load()
+    } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
+  }
+  async function reparseArchived() {
+    if (!detail || detail.archive.status !== 'Healthy' || !window.confirm(`Reparse ${detail.map_name} from its verified private archive? Matchup details will be kept.`)) return
+    setBusy(true); setError('')
+    try {
+      const result = await api<{ message: string }>(`/matches/${mapId}/reparse`, 'POST', { from_archive: true, confirm_map_id: mapId })
+      notify(result.message); await load(); await after()
+    } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
+  }
+  async function openArchive() {
+    setBusy(true); setError('')
+    try { await api(`/matches/${mapId}/archive/open`, 'POST', {}); notify('Opened private replay archive in Explorer.') }
+    catch (error) { setError((error as Error).message) } finally { setBusy(false) }
+  }
   if (!detail) return <div className="map-detail"><ErrorBox message={error} /><p className="admin-muted">Loading map…</p></div>
-  return <div className="map-detail"><span className="eyebrow">MAP DETAIL / {detail.id}</span><h3>{detail.map_name} <span>vs {detail.opponent}</span></h3><div className="preview-facts"><div><small>RESULT</small><b>{detail.our_score} – {detail.their_score}</b></div><div><small>ROUNDS</small><b>{detail.rounds.length}</b></div><div><small>MODE</small><b>{detail.game_mode}</b></div><div><small>SEASON</small><b>{detail.season_name}</b></div></div><p className="admin-muted">Tracked players: {detail.tracked_players.join(', ') || 'None identified'}</p><div className="map-rounds">{detail.rounds.map(round => <div key={round.number}><b>R{round.number}</b><span>{round.site}</span><strong className={round.result === 'Win' ? 'positive' : 'negative'}>{round.result}</strong></div>)}</div><div className="form-grid"><label>Map played on<input type="date" value={playedOn} onChange={event => setPlayedOn(event.target.value)} /></label><label>Series grouping<select value={groupChoice} onChange={event => setGroupChoice(event.target.value)}><option value="__same__">Keep current series</option><option value="__new__">Separate into a new series</option>{seasonSeries.filter(group => group.id !== detail.series_id).map(group => <option key={group.id} value={`series:${group.id}`}>Move to vs {group.opponent} · {group.date}</option>)}</select></label></div>{!groupChoice.startsWith('series:') && <><p className="admin-muted">Opponent, week, notes, and matchup date belong to the series. Editing them updates every map in that series.</p><div className="form-grid"><label>Opponent<input value={opponent} onChange={event => setOpponent(event.target.value)} /></label><label>Matchup date<input type="date" value={seriesDate} onChange={event => setSeriesDate(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div></>}<div className="detail-actions"><Button disabled={busy || !playedOn || (!groupChoice.startsWith('series:') && (!opponent.trim() || !seriesDate))} onClick={() => void save()}>Save map</Button><button className="danger-button" disabled={busy} onClick={() => void remove()}>Delete this map</button></div><div className="form-grid"><label className="wide">Original replay folder for reparse<input value={replayPath} onChange={event => setReplayPath(event.target.value)} placeholder="Full path to this map's Match-... folder" /></label><Button secondary disabled={busy || !replayPath.trim()} onClick={() => void reparse()}><RefreshCw size={16} /> Reparse this map</Button></div><ErrorBox message={error} /></div>
+  return <div className="map-detail"><span className="eyebrow">MAP DETAIL / {detail.id}</span><h3>{detail.map_name} <span>vs {detail.opponent}</span></h3><div className="preview-facts"><div><small>RESULT</small><b>{detail.our_score} – {detail.their_score}</b></div><div><small>ROUNDS</small><b>{detail.rounds.length}</b></div><div><small>MODE</small><b>{detail.game_mode}</b></div><div><small>SEASON</small><b>{detail.season_name}</b></div></div><p className="admin-muted">Tracked players: {detail.tracked_players.join(', ') || 'None identified'}</p><div className="map-rounds">{detail.rounds.map(round => <div key={round.number}><b>R{round.number}</b><span>{round.site}</span><strong className={round.result === 'Win' ? 'positive' : 'negative'}>{round.result}</strong></div>)}</div><div className="archive-card"><span className="eyebrow">PRIVATE REPLAY ARCHIVE</span><h4>{detail.archive.status === 'Healthy' ? 'Archived and verified' : detail.archive.status}</h4><p className="admin-muted">{detail.archive.status === 'Healthy' ? `${detail.archive.rounds} rounds ? ${detail.archive.message}` : detail.archive.message}</p><div className="detail-actions"><Button secondary disabled={busy} onClick={() => void verifyArchive()}>Verify archive</Button><Button secondary disabled={busy || detail.archive.status === 'Missing'} onClick={() => void openArchive()}>Open archive folder</Button><Button secondary disabled={busy || detail.archive.status !== 'Healthy'} onClick={() => void reparseArchived()}><RefreshCw size={16} /> Reparse from archive</Button></div></div><div className="form-grid"><label>Map played on<input type="date" value={playedOn} onChange={event => setPlayedOn(event.target.value)} /></label><label>Series grouping<select value={groupChoice} onChange={event => setGroupChoice(event.target.value)}><option value="__same__">Keep current series</option><option value="__new__">Separate into a new series</option>{seasonSeries.filter(group => group.id !== detail.series_id).map(group => <option key={group.id} value={`series:${group.id}`}>Move to vs {group.opponent} · {group.date}</option>)}</select></label></div>{!groupChoice.startsWith('series:') && <><p className="admin-muted">Opponent, week, notes, and matchup date belong to the series. Editing them updates every map in that series.</p><div className="form-grid"><label>Opponent<input value={opponent} onChange={event => setOpponent(event.target.value)} /></label><label>Matchup date<input type="date" value={seriesDate} onChange={event => setSeriesDate(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div></>}<div className="detail-actions"><Button disabled={busy || !playedOn || (!groupChoice.startsWith('series:') && (!opponent.trim() || !seriesDate))} onClick={() => void save()}>Save map</Button><button className="danger-button" disabled={busy} onClick={() => void remove()}>Delete this map</button></div><div className="form-grid"><label className="wide">Original replay folder for reparse or archive backfill<input value={replayPath} onChange={event => setReplayPath(event.target.value)} placeholder="Full path to this map's Match-... folder" /></label><Button secondary disabled={busy || !replayPath.trim()} onClick={() => void reparse()}><RefreshCw size={16} /> Reparse this map</Button>{detail.archive.status === 'Missing' && <Button secondary disabled={busy || !replayPath.trim()} onClick={() => void backfillArchive()}>Archive this map</Button>}</div><ErrorBox message={error} /></div>
 }
 
 function StatisticsPage({ notify }: { notify: (text: string, error?: boolean) => void }) {

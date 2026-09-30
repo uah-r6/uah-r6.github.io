@@ -13,6 +13,7 @@ from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
+from r6stats import replay_archive
 from r6stats.stats.calculate import calculate_match
 
 
@@ -68,7 +69,7 @@ def scan(db, config):
     return paths
 
 
-def import_path(db, config, path, series_id=None, team=None):
+def import_path(db, config, path, series_id=None, team=None, *, archive_root=None):
     if db.execute("SELECT 1 FROM series WHERE demo=1 LIMIT 1").fetchone():
         raise ValueError("Demo data exists. Run `python -m r6stats demo --clear` before importing real NECC maps.")
     match = parse_match(path)
@@ -104,7 +105,17 @@ def import_path(db, config, path, series_id=None, team=None):
     if input("Was this Custom Game an NECC map? Type NECC to import: ").strip() != "NECC":
         print("Cancelled. No statistics were changed.")
         return None
-    map_id = repo.insert_map(db, match, fp, our_team, opponent, week, notes, series_id)
+    archive_root = Path(archive_root) if archive_root else Path("data/replay-archive")
+    prepared = replay_archive.prepare(path, archive_root, fp, len(match.rounds))
+    try:
+        map_id = repo.insert_map(db, match, fp, our_team, opponent, week, notes, series_id)
+        try:
+            replay_archive.commit(prepared, archive_root, db, map_id)
+        except Exception:
+            repo.match_delete(db, map_id)
+            raise
+    finally:
+        prepared.cleanup()
     export(db, config)
     print(f"Imported {len(match.rounds)} rounds as map {map_id}. Website data generated.")
     return map_id

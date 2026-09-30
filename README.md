@@ -44,6 +44,18 @@ Click **Preview** on the Custom Game you recognize as an NECC map. Review the ma
 
 Import refreshes the local public JSON. Open **Publish** and click **Publish website** when ready to update GitHub Pages. Scrims and other Custom Games stay out of the season unless you manually select and confirm them.
 
+## Private replay archive
+
+Every confirmed, successful NECC map import copies its complete `.rec` rounds to `data/replay-archive/<season-id>/<map-id>/`. The original MatchReplay files stay in place. The archive is local and Git-ignored; its manifest records the replay fingerprint, parser hash, source path, original filenames, physical round numbers, file sizes, and SHA-256 hashes. Previewing a replay or rejecting an import does not create a completed archive.
+
+Open a map in **Matches** to see its archive status. **Verify archive** checks every round before **Reparse from archive** can use it. Reparse keeps the map ID, season, opponent, date, week, notes, series, and player identities; a failed reparse leaves stored statistics intact. Older maps show **Not archived** until you backfill from their original complete replay folder or ZIP. Backfill checks the exact stored replay fingerprint and round count and does not change statistics. **Open archive folder** opens the private copy in Explorer.
+
+When you intentionally delete a map, the confirmation also covers its private replay archive. The normal delete removes both, while preserving historical roster identities. Keep independent backups of `data/r6stats.sqlite` and `data/replay-archive/` if you need disaster recovery. Publishing stages only generated website JSON under `web/public/data/`; it never stages archives or research downloads.
+
+## Rating research
+
+The live rating remains `collegiate_v1`. A separate, reproducible research pipeline uses official Ubisoft professional replay downloads and public SiegeGG player-map ratings. Its source manifest and commands are in [research/README.md](research/README.md). All downloaded replays, normalized rounds, targets, and experiment logs stay under ignored `data/research/`. No experimental rating is used by the admin or public site.
+
 ## GitHub Pages setup and publishing
 
 ```powershell

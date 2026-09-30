@@ -118,14 +118,17 @@ class ImportTests(unittest.TestCase):
     def test_confirmed_import_exports_and_second_import_is_idempotent(self):
         folder = Path(self.tmp.name) / "Match-1"
         folder.mkdir()
-        (folder / "round1.rec").write_bytes(b"round one")
-        (folder / "round2.rec").write_bytes(b"round two")
+        (folder / "Match-1-R01.rec").write_bytes(b"round one")
+        (folder / "Match-1-R02.rec").write_bytes(b"round two")
         output = Path(self.tmp.name) / "public"
         from r6stats.export import export
-        with patch("r6stats.cli.parse_match", return_value=normalize(fixture("CustomGameOnline"))), \
+        raw = fixture("CustomGameOnline")
+        raw["rounds"].append({**raw["rounds"][0], "roundNumber": 2})
+        with patch("r6stats.cli.parse_match", return_value=normalize(raw)), \
              patch("builtins.input", side_effect=["Opponent", "Week 1", "", "NECC"]), \
              patch("r6stats.cli.export", side_effect=lambda database, config: export(database, config, output)):
-            map_id = import_path(self.db, self.config, str(folder))
+            map_id = import_path(self.db, self.config, str(folder), archive_root=Path(self.tmp.name) / "archive")
+            assert (Path(self.tmp.name) / "archive/fall-2026" / map_id / "manifest.json").exists()
             self.assertTrue((output / "matches" / f"{map_id}.json").exists())
             map_data = json.loads((output / "matches" / f"{map_id}.json").read_text())
             season_data = json.loads((output / "seasons" / "fall-2026.json").read_text())
@@ -138,12 +141,29 @@ class ImportTests(unittest.TestCase):
                 self.assertIn("disables", row)
             self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 1)
             self.assertEqual(self.db.execute("SELECT competition FROM series").fetchone()[0], "NECC")
-            self.assertEqual(self.db.execute("SELECT count(*) FROM rounds").fetchone()[0], 1)
-            self.assertEqual(self.db.execute("SELECT count(*) FROM round_players").fetchone()[0], 10)
-            self.assertEqual(self.db.execute("SELECT count(*) FROM kill_events").fetchone()[0], 1)
+            self.assertEqual(self.db.execute("SELECT count(*) FROM rounds").fetchone()[0], 2)
+            self.assertEqual(self.db.execute("SELECT count(*) FROM round_players").fetchone()[0], 20)
+            self.assertEqual(self.db.execute("SELECT count(*) FROM kill_events").fetchone()[0], 2)
             with self.assertRaisesRegex(ValueError, "already been imported"):
-                import_path(self.db, self.config, str(folder))
+                import_path(self.db, self.config, str(folder), archive_root=Path(self.tmp.name) / "archive")
             self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 1)
+
+    def test_failed_import_does_not_leave_completed_archive(self):
+        folder = Path(self.tmp.name) / "Match-failed"
+        folder.mkdir()
+        (folder / "Match-failed-R01.rec").write_bytes(b"round one")
+        (folder / "Match-failed-R02.rec").write_bytes(b"round two")
+        raw = fixture("CustomGameOnline")
+        raw["rounds"].append({**raw["rounds"][0], "roundNumber": 2})
+        archive_root = Path(self.tmp.name) / "archive"
+        with patch("r6stats.cli.parse_match", return_value=normalize(raw)), \
+             patch("builtins.input", side_effect=["Opponent", "", "", "NECC"]), \
+             patch("r6stats.cli.repo.insert_map", side_effect=ValueError("database failed")):
+            with self.assertRaisesRegex(ValueError, "database failed"):
+                import_path(self.db, self.config, str(folder), archive_root=archive_root)
+        self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 0)
+        self.assertFalse(list(archive_root.rglob("manifest.json")))
+        self.assertFalse(list(archive_root.glob(".pending-*")))
 
     def test_custom_game_needs_necc_confirmation(self):
         output = io.StringIO()

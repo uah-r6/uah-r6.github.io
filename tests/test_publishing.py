@@ -79,11 +79,16 @@ def test_git_pathspec_stages_only_generated_json():
         data.mkdir(parents=True)
         (data / "index.json").write_text("{}")
         (data / "unrelated.txt").write_text("do not stage")
+        archive = root / "data/replay-archive/fall-2026/map-id"
+        archive.mkdir(parents=True)
+        (archive / "round-R01.rec").write_bytes(b"private replay")
+        (archive / "manifest.json").write_text('{"original_source_path":"private"}')
         subprocess.run(["git", "init", "-q"], cwd=root, check=True)
         subprocess.run(["git", "add", "-A", "--", DATA_PATHSPEC], cwd=root, check=True)
         staged = subprocess.run(["git", "diff", "--cached", "--name-only"], cwd=root,
                                 capture_output=True, text=True, check=True).stdout.splitlines()
         assert staged == ["web/public/data/index.json"]
+        assert all("replay-archive" not in path for path in staged)
         subprocess.run(["git", "-c", "user.name=Test", "-c", "user.email=test@example.invalid",
                         "commit", "-q", "-m", "Generated data", "--", DATA_PATHSPEC], cwd=root, check=True)
         tracked = subprocess.run(["git", "ls-files"], cwd=root,

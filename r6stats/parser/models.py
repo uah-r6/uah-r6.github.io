@@ -11,7 +11,11 @@ class Player:
 
     @property
     def key(self) -> str:
-        return self.profile_id or self.username.strip().casefold()
+        # LAN professional replays can report the nil UUID for every player.
+        # It is not a usable identity; match feedback still carries usernames.
+        return (self.profile_id if self.profile_id and
+                self.profile_id != "00000000-0000-0000-0000-000000000000"
+                else self.username.strip().casefold())
 
 
 @dataclass

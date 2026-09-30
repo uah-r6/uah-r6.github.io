@@ -25,6 +25,7 @@ from r6stats.export import export
 from r6stats.parser.models import Match
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
+from r6stats import replay_archive
 from r6stats.stats.calculate import RATING_VERSION, calculate_match
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -134,6 +135,12 @@ class MatchDelete(BaseModel):
 
 
 class MatchReparse(BaseModel):
+    path: str = ""
+    from_archive: bool = False
+    confirm_map_id: str
+
+
+class ArchiveBackfill(BaseModel):
     path: str = Field(min_length=1)
     confirm_map_id: str
 
@@ -473,9 +480,19 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         team, _ = repo.choose_team(db, match, payload.team)
         config = read_settings(root)
         calculate_match(match, config["stats"]["trade_window_seconds"])
-        map_id = repo.insert_map(db, match, preview.fingerprint, team, payload.opponent.strip(),
-                                 payload.week.strip(), payload.notes.strip(), payload.series_id or None,
-                                 season_slug=payload.season_slug)
+        archive_root = root / "data/replay-archive"
+        prepared = replay_archive.prepare(preview.path, archive_root, preview.fingerprint, len(match.rounds))
+        try:
+            map_id = repo.insert_map(db, match, preview.fingerprint, team, payload.opponent.strip(),
+                                     payload.week.strip(), payload.notes.strip(), payload.series_id or None,
+                                     season_slug=payload.season_slug)
+            try:
+                replay_archive.commit(prepared, archive_root, db, map_id)
+            except Exception:
+                repo.match_delete(db, map_id)
+                raise
+        finally:
+            prepared.cleanup()
         app.state.previews.pop(payload.preview_token, None)
         export(db, config, root / "web/public/data")
         return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC"}
@@ -538,7 +555,40 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         details["tracked_players"] = [r[0] for r in db.execute("""SELECT DISTINCT p.display_name
                     FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
                     JOIN players p ON p.id=rp.player_id WHERE rd.map_id=? ORDER BY p.display_name""", (map_id,))]
+        details["archive"] = replay_archive.verify(db, root / "data/replay-archive", map_id)
         return details
+
+    @app.get("/api/admin/matches/{map_id}/archive")
+    def verify_archive(map_id: str, db: DB):
+        return replay_archive.verify(db, root / "data/replay-archive", map_id)
+
+    @app.post("/api/admin/matches/{map_id}/archive")
+    def backfill_archive(map_id: str, payload: ArchiveBackfill, db: DB):
+        if payload.confirm_map_id != map_id:
+            raise ValueError("Confirm this exact map ID before archiving its replay.")
+        archive_root = root / "data/replay-archive"
+        row = replay_archive.map_record(db, map_id)
+        if not row:
+            raise ValueError("NECC map not found.")
+        if replay_archive.archive_path(archive_root, row).exists():
+            raise ValueError("This map already has a replay archive.")
+        prepared = replay_archive.prepare(payload.path, archive_root, row["fingerprint"],
+                                          len(json.loads(row["normalized_json"])["rounds"]))
+        try:
+            replay_archive.commit(prepared, archive_root, db, map_id)
+        finally:
+            prepared.cleanup()
+        return replay_archive.verify(db, archive_root, map_id)
+
+    @app.post("/api/admin/matches/{map_id}/archive/open")
+    def open_archive(map_id: str, db: DB):
+        status = replay_archive.verify(db, root / "data/replay-archive", map_id)
+        if status["status"] == "Missing":
+            raise ValueError("This map has no replay archive to open.")
+        if os.name != "nt":
+            raise ValueError("Opening Explorer is available only on Windows.")
+        os.startfile(status["path"])
+        return {"ok": True}
 
     @app.patch("/api/admin/matches/{map_id}")
     def edit_match(map_id: str, payload: MatchUpdate, db: DB):
@@ -551,22 +601,31 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     def delete_match(map_id: str, payload: MatchDelete, db: DB):
         if payload.confirm_map_id != map_id:
             raise ValueError("Confirm this exact map ID before deleting it.")
-        repo.match_delete(db, map_id)
+        replay_archive.delete_map_and_archive(db, root / "data/replay-archive", map_id)
         export(db, read_settings(root), root / "web/public/data")
-        return {"ok": True, "message": "Map deleted and website statistics recalculated. Historical player identities remain."}
+        return {"ok": True, "message": "Map and its private replay archive deleted. Statistics recalculated; historical player identities remain."}
 
     @app.post("/api/admin/matches/{map_id}/reparse")
     def reparse_match(map_id: str, payload: MatchReparse, db: DB):
         if payload.confirm_map_id != map_id:
             raise ValueError("Confirm this exact map ID before reparsing it.")
-        path = Path(payload.path).expanduser()
+        if payload.from_archive:
+            status = replay_archive.verify(db, root / "data/replay-archive", map_id)
+            if status["status"] != "Healthy":
+                raise ValueError(f"Archive is {status['status']}: {status['message']}")
+            path = Path(status["path"])
+        elif payload.path.strip():
+            path = Path(payload.path).expanduser()
+        else:
+            raise ValueError("Choose the archive or enter the original replay folder path.")
         match = parse_match(path)
         config = read_settings(root)
         calculate_match(match, config["stats"]["trade_window_seconds"])
         repo.reparse_map(db, map_id, match, fingerprint(path))
         export(db, config, root / "web/public/data")
         return {"ok": True, "map_id": map_id, "rounds": len(match.rounds),
-                "message": "Map reparsed from its original replay. Statistics and local website data regenerated; nothing was published."}
+                "message": "Map reparsed from its verified archive." if payload.from_archive else
+                           "Map reparsed from its original replay. Statistics and local website data regenerated; nothing was published."}
 
     @app.get("/api/admin/settings")
     def settings():

@@ -19,7 +19,8 @@ LOG = logging.getLogger(__name__)
 MAP_IDS = {398899676157: "Fortress", 409325881472: "Villa", 436375283234: "Coastline"}
 MAP_LABELS = {"ClubHouseY10": "Clubhouse", "BorderY10": "Border",
               "KafeDostoyevskyY10": "Kafe Dostoyevsky", "ChaletY10": "Chalet",
-              "LairY10": "Lair", "NighthavenLabsY10": "Nighthaven Labs"}
+              "LairY10": "Lair", "NighthavenLabsY10": "Nighthaven Labs",
+              "ConsulateY10": "Consulate", "BankY10": "Bank"}
 
 
 def parser_executable() -> str | None:

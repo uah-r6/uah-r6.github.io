@@ -1,5 +1,7 @@
 data/raw/
 data/parsed/
+data/replay-archive/
+data/research/
 data/logs/
 data/*.sqlite
 data/publish-status.json
