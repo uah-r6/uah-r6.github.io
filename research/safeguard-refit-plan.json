@@ -1,0 +1,22 @@
+{
+  "name": "rehost-objective-safeguard-raw-nine-family-ridge",
+  "model": "Same nine raw metric families, standardized ridge alpha 1, eight effectively varying because all unverified objective events are omitted. No feature or parameter search.",
+  "alpha": 1.0,
+  "expected_dataset_sha256": "c8c9ac9ea1a31160a18e3465358652b9b201aa3752596d143ffdc86f98b17f39",
+  "expected_train_rows": 292,
+  "expected_validation_rows": 32,
+  "train_events": [
+    "Six Invitational 2026",
+    "Asia Pacific Kickoff 2026",
+    "Salt Lake City Major 2026",
+    "Asia Pacific League Stage 1 2026",
+    "Europe MENA League Stage 1 2026",
+    "North America League Stage 1 2026",
+    "South America League Stage 1 2026"
+  ],
+  "development_validation_event": "Esports World Cup 2026",
+  "historical_final_event": "Europe MENA League Stage 2 2026",
+  "untouched_final_event": "North America League Stage 2 2026",
+  "prior_experiment_id": "expanded-raw-20260930T160858Z",
+  "note": "Provisional data-integrity refit after admitting 26 clean rehost rows and removing unverified objective credits. All objective inputs are zero and their slope is unidentified. August EWC was previously viewed. Both September events are excluded; North America Stage 2 Rating residuals remain untouched."
+}

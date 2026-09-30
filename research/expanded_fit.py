@@ -1,6 +1,7 @@
 """Run the preregistered expanded raw development fit, without final-event ratings."""
 from __future__ import annotations
 
+import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -40,19 +41,27 @@ def raw_slopes(model: dict) -> dict[str, float]:
             for name in FEATURES}
 
 
-def main() -> None:
+def main(plan: dict | None = None) -> None:
+    plan = plan or PLAN
     content = OBSERVATIONS.read_bytes()
     rows = [json.loads(line) for line in content.splitlines()]
-    train, validation, held_out = select_groups(rows, PLAN)
+    train, validation, held_out = select_groups(rows, plan)
     previous = next(row for row in map(json.loads, LOG.read_text(encoding="utf-8").splitlines())
-                    if row.get("experiment_id") == PLAN["prior_experiment_id"])
-    prior_model = next(row["model"] for row in previous["models"]
-                       if row["model"]["method"] == "raw")
+                    if row.get("experiment_id") == plan["prior_experiment_id"])
+    prior_model = (previous["model"] if "model" in previous else
+                   next(row["model"] for row in previous["models"]
+                        if row["model"]["method"] == "raw"))
     digest = hashlib.sha256(content).hexdigest()
-    if any(row.get("experiment_kind") == PLAN["name"] and row.get("dataset_sha256") == digest
+    if plan.get("expected_dataset_sha256") and digest != plan["expected_dataset_sha256"]:
+        raise ValueError("Dataset changed after this development experiment was planned")
+    if plan.get("expected_train_rows") and len(train) != plan["expected_train_rows"]:
+        raise ValueError("Training row count changed after this experiment was planned")
+    if plan.get("expected_validation_rows") and len(validation) != plan["expected_validation_rows"]:
+        raise ValueError("Validation row count changed after this experiment was planned")
+    if any(row.get("experiment_kind") == plan["name"] and row.get("dataset_sha256") == digest
            for row in map(json.loads, LOG.read_text(encoding="utf-8").splitlines())):
         raise ValueError("This dataset already has an expanded raw fit; do not duplicate the experiment")
-    model = fit_ridge(train, {}, "raw", alpha=1.0)
+    model = fit_ridge(train, {}, "raw", alpha=float(plan.get("alpha", 1.0)))
     validation_metrics = evaluate(validation, [predict(model, row, {}) for row in validation])
     prior_metrics = evaluate(validation, [predict(prior_model, row, {}) for row in validation])
     collegiate = evaluate(validation, [row["derived"]["rating"] for row in validation])
@@ -60,21 +69,21 @@ def main() -> None:
     now = datetime.now(timezone.utc)
     record = {
         "experiment_id": now.strftime("expanded-raw-%Y%m%dT%H%M%SZ"),
-        "experiment_kind": PLAN["name"], "created_at": now.isoformat(),
-        "dataset_sha256": digest, "train_events": PLAN["train_events"],
-        "train_rows": len(train), "validation_event": PLAN["development_validation_event"],
+        "experiment_kind": plan["name"], "created_at": now.isoformat(),
+        "dataset_sha256": digest, "train_events": plan["train_events"],
+        "train_rows": len(train), "validation_event": plan["development_validation_event"],
         "validation_rows": len(validation), "held_out_clean_rows": held_out,
         "train_teamkill_player_maps": sum(row["derived"]["teamkills"] > 0 for row in train),
         "train_teamkill_events": sum(row["derived"]["teamkills"] for row in train),
         "model": model, "validation": validation_metrics,
         "prior_model_validation": prior_metrics, "collegiate_v1_validation": collegiate,
-        "prior_experiment_id": PLAN["prior_experiment_id"],
+        "prior_experiment_id": plan["prior_experiment_id"],
         "raw_unit_slopes": new_slopes,
         "prior_raw_unit_slopes": old_slopes,
         "raw_unit_slope_changes": {name: new_slopes[name] - old_slopes[name]
                                    for name in FEATURES},
         "final_test_evaluated": False,
-        "note": "Fixed raw development fit. Both September events excluded. August EWC was previously viewed, so its validation is not an untouched test."
+        "note": plan.get("note", "Fixed raw development fit. Both September events excluded. August EWC was previously viewed, so its validation is not an untouched test.")
     }
     with LOG.open("a", encoding="utf-8") as output:
         output.write(json.dumps(record) + "\n")
@@ -87,4 +96,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--plan", type=Path, default=None)
+    args = parser.parse_args()
+    main(json.loads(args.plan.read_text(encoding="utf-8")) if args.plan else None)
