@@ -1,19 +1,21 @@
 # Professional replay quality audit
 
-250 player-map rows from 25 maps; 174 pass all gates. 16 clean September rows were reserved and evaluated once as the final event.
+260 player-map rows from 26 maps; 182 pass all gates. 16 clean September rows were reserved and evaluated once as the final event.
 
 | Cause | Rows | Treatment |
 | --- | ---: | --- |
-| Replay/public per-player K/D mismatch | 75 | Exclude |
+| Replay/public per-player K/D mismatch | 77 | Exclude |
 | Unverified replay ↔ SiegeGG alias | 2 | Exclude |
 | Map/team/score/round mismatch | 0 | Would reject entire map |
 
-74 rows have a kill discrepancy; 4 have a death discrepancy. 24 of 25 map-wide kill and death totals agree with public targets. The exception is Europe MENA Stage 1 Chalet: the replay has 100 non-teamkill kills and 101 deaths; the public target has 101 kills and 101 deaths. The replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution, not lost rounds. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 268 round winners (0 unaligned) and compared 442 multikill notes by unique operator; 37 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
+76 rows have a kill discrepancy; 4 have a death discrepancy. 25 of 26 map-wide kill and death totals agree with public targets. The exception is Europe MENA Stage 1 Chalet: the replay has 100 non-teamkill kills and 101 deaths; the public target has 101 kills and 101 deaths. The replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution, not lost rounds. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 280 round winners (0 unaligned) and compared 464 multikill notes by unique operator; 38 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
 
 ## Excluded rows
 
 | Event | Map | Replay player | Replay K-D | Public K-D | Cause |
 | --- | --- | --- | ---: | ---: | --- |
+| South America League Stage 1 2026 | Lair | R4re.BD | 6-9 | 7-9 | kills/deaths mismatch |
+| South America League Stage 1 2026 | Lair | guto.BD | 12-10 | 11-10 | kills/deaths mismatch |
 | North America League Stage 1 2026 | Kafe Dostoyevsky | dfuzr.M80 | 6-3 | 5-3 | kills/deaths mismatch |
 | North America League Stage 1 2026 | Kafe Dostoyevsky | Gunnar.M80 | 7-2 | 8-2 | kills/deaths mismatch |
 | Europe MENA League Stage 2 2026 | Bank | vDrillz.SECRET | 14-7 | 13-7 | kills/deaths mismatch |
