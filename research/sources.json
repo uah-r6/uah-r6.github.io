@@ -829,6 +829,18 @@
           "replay_profile_id": "8d24a413-c6d6-4aa6-a0df-5781887b7ea2",
           "evidence": "https://stats.cc/siege/lobin.FX/8d24a413-c6d6-4aa6-a0df-5781887b7ea2/seasons",
           "note": "Profile history contains LOBEX.FX and Lobin.Fluxo; SiegeGG uses L0BINN."
+        },
+        "volpz7.FURIA": {
+          "siegegg_player_id": 2667,
+          "replay_profile_id": "940b5470-b8cc-4c2d-bf76-e90dddb63233",
+          "evidence": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/9/roster",
+          "note": "Ubisoft lists volpz on FURIA. This exact Ubisoft profile UUID and volpz7.FURIA handle recur in the separate official FURIA-FaZe replay; SiegeGG lists VOLPZ on the same five-player FURIA roster."
+        },
+        "Dias.FURIA": {
+          "siegegg_player_id": 2191,
+          "replay_profile_id": "262d4e4a-5b12-4030-a202-5ad1427f2fcb",
+          "evidence": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/9/roster",
+          "note": "Ubisoft lists Dias on FURIA. This exact Ubisoft profile UUID and Dias.FURIA handle recur in the separate official FURIA-FaZe replay; SiegeGG lists DIASLUCAS on the same five-player FURIA roster."
         }
       }
     },
