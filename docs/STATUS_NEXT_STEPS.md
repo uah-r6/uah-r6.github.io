@@ -1,14 +1,14 @@
 # Status and next steps — 2026-09-30
 
-## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 13:32 UTC
+## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 13:35 UTC
 
-- HEAD at checkpoint: `9c9bca1`; working tree was clean before this update. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
+- HEAD before this checkpoint: `db510c5`; working tree was clean before this update. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
 - Fitted data: 24 complete maps, 240 player-map rows, 166 clean rows, seven parsed events. All current operator rounds resolve. September Stage 2's 16 rows were evaluated once and are now a historical benchmark.
 - Fully parsed and target-matched events: Six Invitational 2026, Asia Pacific Kickoff 2026, Salt Lake City Major 2026, Asia Pacific League Stage 1 2026, Europe MENA League Stage 1 2026, Esports World Cup 2026, Europe MENA League Stage 2 2026. Eleven distinct ZIPs back their 24 included maps.
-- Awaiting target matching: North America League Stage 1 2026, official M80–DarkZero July 2 archive `data/research/pro-replays/BR62026_NAL_S1D8_DZvM80.zip` (ignored; ZIP tested, extracted, one seven-round Kafe map parsed with 10 players and zero unresolved Attack operators). SiegeGG match `4133` target API returned HTTP 500 on the previous attempt. Do not include without exact public Rating and quality checks.
+- Target acquired, quality matching pending: North America League Stage 1 2026, official M80–DarkZero July 2 archive `data/research/pro-replays/BR62026_NAL_S1D8_DZvM80.zip` (ignored; ZIP tested, extracted, one seven-round Kafe map parsed with 10 players and zero unresolved Attack operators). Both SiegeGG match `4133` API responses now cached; game `7860` is Kafe, score 7–0, and has ten player Rating rows. Previous HTTP 500 was transient. Do not include until the full quality gates run.
 - Excluded within matched data: 74 player-map rows, mostly per-player K/D discrepancies, plus two unverified aliases; see `research/quality-report.md`. No other event has been rejected in full.
 - Best current validation: raw nine-family ridge `grouped-operator-20260930T103355Z`, August EWC 32 rows, MAE 0.0353. Operator-relative variants were worse. Historical September Stage 2 benchmark: 16 rows, MAE 0.0632; do not tune on it. `collegiate_v1` remains live and unchanged.
-- **NEXT ACTION:** Retry a bounded SiegeGG target availability check, then match the cached North America replay if both endpoints respond. From the repo root: `curl.exe --head --location --max-time 12 https://siege.gg/api/stats/matches/4133` and `curl.exe --head --location --max-time 12 https://siege.gg/api/stats/matches/3554`. If unavailable, preflight a different event with both official replay and public Rating target before another large download. Preserve the cache.
+- **NEXT ACTION:** Add an exact `sources.json` entry for the cached July 2 replay folder `Match-2026-07-02_15-28-09-4828`, SiegeGG match `4133` / game `7860`, with replay username to public player ID mapping; run `pipeline.py all` and the quality audit. Keep the September historical benchmark out of model selection.
 
 ## Part 1: private replay archive
 
