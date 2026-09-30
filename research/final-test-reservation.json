@@ -13,5 +13,6 @@
     "Use its public score, map, roster, round count, K/D and identity data only for the existing quality gates.",
     "Evaluate once, after the candidate and acceptance thresholds are frozen in a separate committed record."
   ],
-  "status": "reserved_not_evaluated"
+  "status": "reserved_not_evaluated",
+  "non_rating_exposure": "On 2026-09-30 an exploratory parser-quality check looked at public plants/disables totals for the seven reserved maps and raw objective feedback for one of them. No Rating residual, model prediction, or candidate selection used this information. Subsequent objective investigation uses only pre-August training and August development maps."
 }
