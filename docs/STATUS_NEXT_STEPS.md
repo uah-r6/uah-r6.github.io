@@ -1,15 +1,15 @@
 # Status and next steps — 2026-09-30
 
-## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 13:41 UTC
+## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 13:43 UTC
 
-- HEAD before this checkpoint: `bab6173`. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
+- HEAD before this checkpoint: `638e2a3`. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
 - Fitted data: 25 complete maps, 250 player-map rows, 174 clean rows, eight parsed events. All current operator rounds resolve. September Stage 2's 16 rows were evaluated once and are now a historical benchmark.
 - Fully parsed and target-matched events: Six Invitational 2026, Asia Pacific Kickoff 2026, Salt Lake City Major 2026, Asia Pacific League Stage 1 2026, Europe MENA League Stage 1 2026, Esports World Cup 2026, Europe MENA League Stage 2 2026, and North America League Stage 1 2026. Twelve distinct ZIPs back their 25 included maps.
 - North America Stage 1 addition: official M80–DarkZero July 2 ZIP `BR62026_NAL_S1D8_DZvM80.zip`, replay folder `Match-2026-07-02_15-28-09-4828`, SiegeGG match `4133` / game `7860`, Kafe 7–0. Both targets cached; 8 of 10 rows pass exact K/D; 2 excluded for kill attribution differences. Previous HTTP 500 was transient. No event is currently awaiting target matching.
 - Excluded within matched data: 76 player-map rows, mostly per-player K/D discrepancies, plus two unverified aliases; see `research/quality-report.md`. No event has been rejected in full.
 - Best current validation: raw nine-family ridge `grouped-operator-20260930T103355Z`, August EWC 32 rows, MAE 0.0353. Operator-relative variants were worse. Historical September Stage 2 benchmark: 16 rows, MAE 0.0632; do not tune on it. `collegiate_v1` remains live and unchanged.
-- South America Stage 1 preflight: official [LOUD–Black Dragons July 4 match](https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8551) links `BR62026_SAL_S1D7_LOUDvBD.zip`; SiegeGG match `4112` player-stats target returned HTTP 200. The replay has not yet been downloaded or mapped.
-- **NEXT ACTION:** Download the single South America archive to ignored `data/research/pro-replays/BR62026_SAL_S1D7_LOUDvBD.zip` using `curl.exe --fail --location --retry 3 --continue-at - --output data/research/pro-replays/BR62026_SAL_S1D7_LOUDvBD.zip "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S1D7_LOUDvBD.zip"`; ZIP-check, extract, and verify replay/map/roster against SiegeGG match `4112` before including it. Keep the September historical benchmark out of model selection.
+- South America Stage 1: official [LOUD–Black Dragons July 4 match](https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8551) archive `data/research/pro-replays/BR62026_SAL_S1D7_LOUDvBD.zip` is downloaded and ZIP integrity passed (`testzip=None`). It contains one folder, `Match-2026-07-04_12-56-31-39776`, with 12 physical `.rec` rounds. SiegeGG match `4112` player-stats target returned HTTP 200. Extraction, parsing, and exact mapping are pending; not in fitted data.
+- **NEXT ACTION:** Cache both `https://siege.gg/api/stats/matches/4112` and `/player-stats` under `data/research/targets/`, safely extract the verified ZIP under `data/research/extracted/`, and parse `Match-2026-07-04_12-56-31-39776`. Verify map, score, roster, operator coverage, and exact player K/D before adding `sources.json`. Keep September out of model selection.
 
 ## Part 1: private replay archive
 
