@@ -20,6 +20,12 @@
   "survived": 7,
   "kost_rounds": 22,
   "rounds_won": 21,
+  "clutches": 2,
+  "clutch_1v1": 0,
+  "clutch_1v2": 2,
+  "clutch_1v3": 0,
+  "clutch_1v4": 0,
+  "clutch_1v5": 0,
   "operators": {
     "Attack": {
       "Striker": 2,

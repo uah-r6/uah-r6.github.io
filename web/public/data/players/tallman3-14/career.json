@@ -21,6 +21,12 @@
   "survived": 5,
   "kost_rounds": 20,
   "rounds_won": 21,
+  "clutches": 1,
+  "clutch_1v1": 0,
+  "clutch_1v2": 0,
+  "clutch_1v3": 1,
+  "clutch_1v4": 0,
+  "clutch_1v5": 0,
   "operators": {
     "Attack": {
       "Lion": 3,

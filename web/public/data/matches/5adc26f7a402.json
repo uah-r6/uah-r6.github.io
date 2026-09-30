@@ -35,6 +35,12 @@
       "survived": 3,
       "kost_rounds": 8,
       "rounds_won": 8,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Striker": 2,
@@ -98,6 +104,12 @@
       "survived": 5,
       "kost_rounds": 10,
       "rounds_won": 8,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Rauora": 1,
@@ -160,6 +172,12 @@
       "survived": 8,
       "kost_rounds": 9,
       "rounds_won": 8,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 1,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Zofia": 3,
@@ -223,6 +241,12 @@
       "survived": 5,
       "kost_rounds": 9,
       "rounds_won": 8,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Capitao": 3,
@@ -286,6 +310,12 @@
       "survived": 2,
       "kost_rounds": 8,
       "rounds_won": 8,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Lion": 3,

@@ -35,6 +35,12 @@
       "survived": 3,
       "kost_rounds": 7,
       "rounds_won": 7,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 1,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Ace": 2,
@@ -95,6 +101,12 @@
       "survived": 4,
       "kost_rounds": 6,
       "rounds_won": 7,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Blackbeard": 1,
@@ -157,6 +169,12 @@
       "survived": 4,
       "kost_rounds": 7,
       "rounds_won": 7,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Striker": 2,
@@ -219,6 +237,12 @@
       "survived": 4,
       "kost_rounds": 8,
       "rounds_won": 7,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 1,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Zofia": 1,
@@ -278,6 +302,12 @@
       "survived": 2,
       "kost_rounds": 4,
       "rounds_won": 7,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 1,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
       "operators": {
         "Attack": {
           "Blitz": 2,
