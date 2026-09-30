@@ -23,11 +23,13 @@
   "rounds_won": 21,
   "operators": {
     "Attack": {
-      "Capitao": 8,
-      "Ace": 2,
-      "Lion": 1,
-      "Blitz": 5,
+      "Lion": 3,
+      "Ace": 3,
+      "Capitao": 2,
+      "Zofia": 1,
+      "Blitz": 6,
       "Blackbeard": 1,
+      "Montagne": 1,
       "Flores": 1
     },
     "Defense": {

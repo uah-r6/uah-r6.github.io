@@ -15,6 +15,7 @@ if (-not (Test-Path -LiteralPath $pythonPath) -or
     Write-Host 'Completing first-time setup...'
     & (Join-Path $projectRoot 'scripts\setup.ps1')
 }
+& (Join-Path $projectRoot 'scripts\install-parser.ps1')
 
 # Activate the project environment for this launcher process. The background
 # server itself is started with its absolute .venv Python path.

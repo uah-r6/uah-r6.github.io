@@ -37,9 +37,8 @@
       "rounds_won": 7,
       "operators": {
         "Attack": {
-          "Ash": 2,
-          "Ace": 1,
-          "Lion": 1
+          "Ace": 2,
+          "Lion": 2
         },
         "Defense": {
           "Fenrir": 1,
@@ -98,8 +97,10 @@
       "rounds_won": 7,
       "operators": {
         "Attack": {
-          "Ram": 3,
-          "Grim": 1
+          "Blackbeard": 1,
+          "Thatcher": 1,
+          "Glaz": 1,
+          "Dokkaebi": 1
         },
         "Defense": {
           "Mira": 1,
@@ -158,9 +159,9 @@
       "rounds_won": 7,
       "operators": {
         "Attack": {
-          "Thermite": 1,
-          "Deimos": 2,
-          "Grim": 1
+          "Striker": 2,
+          "Ace": 1,
+          "Sens": 1
         },
         "Defense": {
           "Azami": 2,
@@ -220,8 +221,9 @@
       "rounds_won": 7,
       "operators": {
         "Attack": {
-          "Zofia": 3,
-          "Flores": 1
+          "Zofia": 1,
+          "Flores": 2,
+          "Nomad": 1
         },
         "Defense": {
           "Melusi": 4,
@@ -278,8 +280,8 @@
       "rounds_won": 7,
       "operators": {
         "Attack": {
-          "Blitz": 1,
-          "Capitao": 2,
+          "Blitz": 2,
+          "Montagne": 1,
           "Flores": 1
         },
         "Defense": {

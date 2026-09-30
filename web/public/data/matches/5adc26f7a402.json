@@ -37,9 +37,11 @@
       "rounds_won": 8,
       "operators": {
         "Attack": {
-          "Twitch": 4,
-          "Ash": 2,
-          "Striker": 1
+          "Striker": 2,
+          "Twitch": 2,
+          "Ash": 1,
+          "Buck": 1,
+          "Grim": 1
         },
         "Defense": {
           "Goyo": 2,
@@ -98,11 +100,12 @@
       "rounds_won": 8,
       "operators": {
         "Attack": {
-          "Flores": 3,
+          "Rauora": 1,
           "Ram": 1,
+          "Flores": 1,
           "Blackbeard": 1,
-          "Buck": 1,
-          "Thatcher": 1
+          "Striker": 1,
+          "Thatcher": 2
         },
         "Defense": {
           "Ela": 2,
@@ -159,9 +162,10 @@
       "rounds_won": 8,
       "operators": {
         "Attack": {
-          "Deimos": 5,
-          "Gridlock": 1,
-          "Zofia": 1
+          "Zofia": 3,
+          "Gridlock": 2,
+          "Deimos": 1,
+          "Grim": 1
         },
         "Defense": {
           "Tubarao": 2,
@@ -221,10 +225,10 @@
       "rounds_won": 8,
       "operators": {
         "Attack": {
-          "Zofia": 3,
-          "Twitch": 2,
-          "Ying": 1,
-          "Capitao": 1
+          "Capitao": 3,
+          "Zofia": 2,
+          "Twitch": 1,
+          "Gridlock": 1
         },
         "Defense": {
           "Wamai": 1,
@@ -284,9 +288,9 @@
       "rounds_won": 8,
       "operators": {
         "Attack": {
-          "Capitao": 4,
-          "Ace": 2,
-          "Lion": 1
+          "Lion": 3,
+          "Ace": 3,
+          "Capitao": 1
         },
         "Defense": {
           "Kaid": 2,

@@ -23,13 +23,14 @@
   "rounds_won": 21,
   "operators": {
     "Attack": {
-      "Twitch": 5,
-      "Ash": 5,
-      "Striker": 1,
+      "Striker": 2,
+      "Twitch": 4,
+      "Ash": 1,
+      "Buck": 1,
+      "Grim": 2,
       "Ace": 3,
-      "Grim": 1,
-      "Thermite": 2,
-      "Lion": 1
+      "Thermite": 3,
+      "Lion": 2
     },
     "Defense": {
       "Goyo": 2,

@@ -23,15 +23,16 @@
   "rounds_won": 21,
   "operators": {
     "Attack": {
-      "Flores": 3,
-      "Ram": 6,
-      "Blackbeard": 2,
-      "Buck": 1,
-      "Thatcher": 2,
-      "Striker": 1,
-      "Zero": 1,
-      "Hibana": 1,
-      "Grim": 1
+      "Rauora": 1,
+      "Ram": 1,
+      "Flores": 2,
+      "Blackbeard": 3,
+      "Striker": 2,
+      "Thatcher": 4,
+      "Sens": 1,
+      "Gridlock": 1,
+      "Dokkaebi": 2,
+      "Glaz": 1
     },
     "Defense": {
       "Ela": 2,

@@ -23,12 +23,14 @@
   "rounds_won": 21,
   "operators": {
     "Attack": {
-      "Deimos": 12,
-      "Gridlock": 1,
-      "Zofia": 1,
+      "Zofia": 4,
+      "Gridlock": 3,
+      "Deimos": 1,
       "Grim": 2,
+      "Ace": 2,
       "Twitch": 1,
-      "Thermite": 1
+      "Striker": 4,
+      "Sens": 1
     },
     "Defense": {
       "Tubarao": 3,

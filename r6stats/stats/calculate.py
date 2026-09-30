@@ -114,8 +114,9 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
                 side["rounds"] += 1
                 side["kills"] += s["kills"]
                 side["deaths"] += s["deaths"]
-                ops = s["operators"][player.side]
-                ops[player.operator] = ops.get(player.operator, 0) + 1
+                if player.operator != "Unknown":
+                    ops = s["operators"][player.side]
+                    ops[player.operator] = ops.get(player.operator, 0) + 1
             merge(totals[key], s)
     return {key: finalize(value) for key, value in totals.items()}
 

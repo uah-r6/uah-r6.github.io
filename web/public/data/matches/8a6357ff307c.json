@@ -37,11 +37,10 @@
       "rounds_won": 6,
       "operators": {
         "Attack": {
-          "Ace": 2,
-          "Twitch": 1,
+          "Ace": 1,
+          "Twitch": 2,
           "Grim": 1,
-          "Thermite": 2,
-          "Ash": 1
+          "Thermite": 3
         },
         "Defense": {
           "Ela": 2,
@@ -101,10 +100,11 @@
         "Attack": {
           "Blackbeard": 1,
           "Striker": 1,
-          "Ram": 2,
+          "Flores": 1,
           "Thatcher": 1,
-          "Zero": 1,
-          "Hibana": 1
+          "Sens": 1,
+          "Gridlock": 1,
+          "Dokkaebi": 1
         },
         "Defense": {
           "Castle": 1,
@@ -165,8 +165,11 @@
       "operators": {
         "Attack": {
           "Grim": 1,
-          "Deimos": 5,
-          "Twitch": 1
+          "Gridlock": 1,
+          "Zofia": 1,
+          "Ace": 1,
+          "Twitch": 1,
+          "Striker": 2
         },
         "Defense": {
           "Fenrir": 1,
@@ -226,9 +229,11 @@
       "rounds_won": 6,
       "operators": {
         "Attack": {
-          "Gridlock": 3,
-          "Ram": 1,
-          "Twitch": 3
+          "Gridlock": 2,
+          "Ram": 2,
+          "Buck": 1,
+          "Nomad": 1,
+          "Zofia": 1
         },
         "Defense": {
           "Goyo": 3,
@@ -286,7 +291,8 @@
       "rounds_won": 6,
       "operators": {
         "Attack": {
-          "Capitao": 2,
+          "Zofia": 1,
+          "Capitao": 1,
           "Blitz": 4,
           "Blackbeard": 1
         },

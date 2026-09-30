@@ -316,3 +316,50 @@ def match_delete(db, map_id: str) -> None:
         db.execute("DELETE FROM maps WHERE id=?", (map_id,))
         db.execute("DELETE FROM series WHERE id=? AND NOT EXISTS (SELECT 1 FROM maps WHERE series_id=?)",
                    (row["series_id"], row["series_id"]))
+
+
+def reparse_map(db, map_id: str, match: Match, fingerprint: str) -> None:
+    """Replace replay-derived rows for one existing map in a single transaction."""
+    row = db.execute("""SELECT m.*,s.demo FROM maps m JOIN series s ON s.id=m.series_id
+                        WHERE m.id=?""", (map_id,)).fetchone()
+    if not row or row["demo"]:
+        raise ValueError("Existing NECC map not found.")
+    if fingerprint != row["fingerprint"] or match.replay_id != row["replay_id"]:
+        raise ValueError("Replay identity or file contents differ from this imported map; no changes were made.")
+    if not is_custom_game(match.match_type):
+        raise ValueError("Only the original Custom Game replay can replace this NECC map.")
+    if not match.rounds:
+        raise ValueError("The reparsed replay has no rounds.")
+    score = [sum(r.winner == team for r in match.rounds) for team in (0, 1)]
+    old_bindings = {r["player_key"]: r["player_id"] for r in db.execute("""SELECT rp.player_key,rp.player_id
+        FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id WHERE rd.map_id=?""", (map_id,))}
+    with db:
+        db.execute("DELETE FROM rounds WHERE map_id=?", (map_id,))
+        db.execute("""UPDATE maps SET map_name=?,match_type=?,game_mode=?,our_score=?,their_score=?,
+                    normalized_json=? WHERE id=?""",
+                   (match.map_name, match.match_type, match.game_mode,
+                    score[row["our_team"]], score[1-row["our_team"]],
+                    json.dumps(match.to_dict(), separators=(",", ":")), map_id))
+        for round_ in match.rounds:
+            cursor = db.execute("INSERT INTO rounds(map_id,number,site,winning_team,win_condition) VALUES(?,?,?,?,?)",
+                                (map_id, round_.number, round_.site, round_.winner, round_.win_condition))
+            round_id = cursor.lastrowid
+            for participant in round_.players:
+                player_id = old_bindings.get(participant.key)
+                db.execute("""INSERT INTO round_players
+                           (round_id,player_key,player_id,username,profile_id,team,operator,side)
+                           VALUES(?,?,?,?,?,?,?,?)""",
+                           (round_id, participant.key, player_id, participant.username,
+                            participant.profile_id or None, participant.team,
+                            participant.operator, participant.side))
+            for kill in round_.kills:
+                db.execute("""INSERT INTO kill_events
+                           (round_id,sequence,remaining,killer_key,victim_key,killer_team,victim_team,headshot,teamkill)
+                           VALUES(?,?,?,?,?,?,?,?,?)""",
+                           (round_id, kill.sequence, kill.remaining, kill.killer or None, kill.victim,
+                            kill.killer_team, kill.victim_team, int(kill.headshot), int(kill.teamkill)))
+            for sequence, objective in enumerate(round_.objectives):
+                db.execute("""INSERT INTO objective_events
+                           (round_id,sequence,kind,player_key,team,remaining) VALUES(?,?,?,?,?,?)""",
+                           (round_id, sequence, objective.kind, objective.player,
+                            objective.team, objective.remaining))

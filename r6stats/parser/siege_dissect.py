@@ -95,10 +95,20 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
         raw_players = row.get("players") or []
         if len(raw_players) < 2 or len(row.get("teams") or []) != 2:
             raise ValueError(f"Round {ordinal} lacks two teams or player identities.")
-        players = [Player(str(p.get("profileID") or ""), str(p.get("username") or ""),
-                          int(p["teamIndex"]), label(p.get("operator")),
-                          label(row["teams"][int(p["teamIndex"])].get("role")))
-                   for p in raw_players]
+        players = []
+        for p in raw_players:
+            team = int(p["teamIndex"])
+            side = label(row["teams"][team].get("role"))
+            operator = label(p.get("operator"))
+            # A Y11 initial selection can precede attacker repick. The local
+            # parser must explicitly confirm the action-start selection.
+            if str(row.get("gameVersion") or "").startswith("Y11") and side == "Attack":
+                if (not row.get("actionPhaseDetected") or
+                        p.get("operatorSource") != "action_start_header" or
+                        not p.get("operatorSeenBeforeAction")):
+                    operator = "Unknown"
+            players.append(Player(str(p.get("profileID") or ""), str(p.get("username") or ""),
+                                  team, operator, side))
         names = {}
         for p in players:
             key = p.username.strip().casefold()

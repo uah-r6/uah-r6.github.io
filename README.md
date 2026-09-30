@@ -5,7 +5,7 @@ A local, NECC-only replay tracker. Python parses explicitly selected Siege match
 ## Requirements
 
 - Windows with Python 3.12 or newer (`py -3.12`), Node.js 22 or newer, and Git.
-- Internet access during the first setup so the script can build [Lumina's siege-dissect](https://github.com/lumina-r6/siege-dissect) from a pinned source revision. It downloads a portable Go toolchain into the ignored `.local-tools` folder if Go is not already installed. A working `siege-dissect` on `PATH` is also supported.
+- Internet access during the first setup so Go dependencies can be downloaded. The script builds the checked-in [local siege-dissect source](third_party/siege-dissect/README.md), based on a pinned Lumina revision. It downloads a portable Go toolchain into the ignored `.local-tools` folder if Go is not already installed.
 - A complete Rainbow Six MatchReplay **match folder** containing all `.rec` rounds. One `.rec` is deliberately rejected.
 
 Double-click **`Start NECC Admin.cmd`** in this repository. On first launch it runs setup, starts the local FastAPI server, and opens the admin dashboard in your default browser. If you prefer to run first-time setup explicitly, use PowerShell in this repository:
@@ -28,11 +28,11 @@ If launching the CMD file from a terminal, keep its spaced filename as one argum
 
 The address is **http://127.0.0.1:8000/admin**. Keep the PowerShell window open if you used the troubleshooting command. The server binds to your PC's loopback address; it does not expose the private database to GitHub Pages.
 
-For troubleshooting, **http://127.0.0.1:8000/api/admin/runtime** shows the running process ID, Python executable, working directory, imported module paths, and startup source hashes. The launcher uses this information to avoid reusing old code. Python is run from this repository's working directory; setup installs dependencies into `.venv`, not a separate copy of `r6stats` into site-packages.
+For troubleshooting, **http://127.0.0.1:8000/api/admin/runtime** shows the running process ID, Python executable, working directory, imported module paths, parser executable and SHA-256 hash, and startup source hashes. The launcher uses this information to avoid reusing old code. Python is run from this repository's working directory; setup installs dependencies into `.venv`, not a separate copy of `r6stats` into site-packages.
 
 In **Settings**, enter your team name and Siege `MatchReplay` folder. The default folder is `Documents\My Games\Rainbow Six - Siege\MatchReplay`. Settings also holds the trade window, Rating version, GitHub repository URL, branch, and optional public website URL. In **Seasons**, create your semester, such as “Fall 2026,” and optionally set start and end dates. You can rename it later without changing its stable ID or historical maps. In **Roster**, add teammates' exact Ubisoft usernames, with optional display names. Matching ignores case and surrounding whitespace. You can update a username, add aliases, edit display names, and deactivate players without deleting past match data. The UI shows whether a Ubisoft profile ID has been linked, without displaying the ID itself prominently.
 
-The **Dashboard** shows the active season, tracked roster count, real maps, last import, last successful publish, and database integrity. **Matches** defaults to the active season. Open any map to review its rounds, edit its date or series grouping, change opponent/week/notes, or delete an accidental import after a confirmation dialog. Deletion removes that map's rounds and events, recalculates public aggregates, and retains roster identities. **Statistics** has separate **Recalculate Statistics** and **Regenerate Website Data** actions. Both read stored normalized matches and rebuild derived values; there is no separate aggregate cache to become stale. **Publish** validates and submits generated website data to GitHub. These routine tasks do not require CLI commands.
+The **Dashboard** shows the active season, tracked roster count, real maps, last import, last successful publish, and database integrity. **Matches** defaults to the active season. Open any map to review its rounds, edit its date or series grouping, change opponent/week/notes, or delete an accidental import after a confirmation dialog. Deletion removes that map's rounds and events, recalculates public aggregates, and retains roster identities. To correct stored replay-derived fields after a parser fix, paste that map's original replay folder path into **Reparse this map**. Reparse verifies the replay ID and content fingerprint, replaces rounds in one transaction, and preserves season, opponent, date, week, notes, series, map ID, and player identities. It regenerates local website data without publishing. **Statistics** has separate **Recalculate Statistics** and **Regenerate Website Data** actions. Both read stored normalized matches and rebuild derived values; there is no separate aggregate cache to become stale. **Publish** validates and submits generated website data to GitHub. These routine tasks do not require CLI commands.
 
 ## Import an NECC map in your browser
 
@@ -112,7 +112,7 @@ $env:R6_TEST_REPLAY_PATH = "C:\path\to\complete\Match-folder"
 
 ## Common problems
 
-- **Parser not found:** rerun `scripts/setup.ps1`; it builds the pinned Lumina source into `.local-tools/bin`.
+- **Parser not found:** rerun `scripts/install-parser.ps1`; it builds the repository parser source into `.local-tools/bin`. The normal launcher also rebuilds when source hashes change.
 - **Wrong replay folder:** set the MatchReplay directory in the admin **Settings** page.
 - **Ranked/Standard/Quick Match rejected:** this is intentional; select the Custom Game replay from your NECC match and confirm it with **NECC**. Other Custom Games, such as scrims, should be left unselected.
 - **Teammate renamed:** add the new username on the admin **Roster** page; conflicting profile IDs are rejected.
@@ -125,3 +125,5 @@ $env:R6_TEST_REPLAY_PATH = "C:\path\to\complete\Match-folder"
 ## Data and methods
 
 `data/*.sqlite`, raw replays, ZIPs, parsed data, and private settings are ignored by Git. The committed website JSON omits Ubisoft profile IDs and all opponent player identities. Rating uses the versioned `collegiate_v1` formula from [kevprakash's collegiate replay analysis](https://github.com/kevprakash/R6-Match-Replay-Analysis); it is not official Ubisoft EPS or SiegeGG Rating. Trades require killing the original killer within the configured eight-second window. KOST counts a round once if any of Kill, Objective, Survival or Traded death applies.
+
+For current Y11 replays, attacker operator usage uses the replay header's post-repick selection after the prep timer resets to the action timer. The parser records the initial selection and its action-start source in its local JSON diagnostics. If that header selection is missing or unknown, the player still receives the round and other statistics, but the operator is marked `Unknown` and excluded from operator usage counts. Defense selection retains the original parser behavior. A corrected parser does not rewrite an already imported map by itself: use **Matches → Open map → Reparse this map** with the original replay folder, then review the local statistics before choosing to publish.

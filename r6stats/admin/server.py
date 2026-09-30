@@ -133,6 +133,11 @@ class MatchDelete(BaseModel):
     confirm_map_id: str
 
 
+class MatchReparse(BaseModel):
+    path: str = Field(min_length=1)
+    confirm_map_id: str
+
+
 class SettingsUpdate(BaseModel):
     team_name: str = Field(min_length=1, max_length=120)
     short_name: str = Field(min_length=1, max_length=24)
@@ -298,10 +303,13 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     def runtime():
         import r6stats
         import r6stats.parser.siege_dissect as adapter
+        executable = adapter.parser_executable()
         return {"pid": os.getpid(), "sys_executable": sys.executable,
                 "cwd": os.getcwd(), "project_root": str(root),
                 "r6stats_file": str(Path(r6stats.__file__).resolve()),
                 "siege_dissect_file": str(Path(adapter.__file__).resolve()),
+                "parser_executable": executable,
+                "parser_sha256": hashlib.sha256(Path(executable).read_bytes()).hexdigest() if executable else None,
                 "server_file": str(Path(__file__).resolve()),
                 "source_hashes": app.state.source_hashes}
 
@@ -546,6 +554,19 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         repo.match_delete(db, map_id)
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True, "message": "Map deleted and website statistics recalculated. Historical player identities remain."}
+
+    @app.post("/api/admin/matches/{map_id}/reparse")
+    def reparse_match(map_id: str, payload: MatchReparse, db: DB):
+        if payload.confirm_map_id != map_id:
+            raise ValueError("Confirm this exact map ID before reparsing it.")
+        path = Path(payload.path).expanduser()
+        match = parse_match(path)
+        config = read_settings(root)
+        calculate_match(match, config["stats"]["trade_window_seconds"])
+        repo.reparse_map(db, map_id, match, fingerprint(path))
+        export(db, config, root / "web/public/data")
+        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds),
+                "message": "Map reparsed from its original replay. Statistics and local website data regenerated; nothing was published."}
 
     @app.get("/api/admin/settings")
     def settings():

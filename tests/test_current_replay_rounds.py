@@ -12,6 +12,7 @@ from fastapi.testclient import TestClient
 from r6stats.admin.server import create_app
 from r6stats.db import repository as repo
 from r6stats.parser.siege_dissect import map_label, normalize, parse_match, physical_round_numbers
+from r6stats.stats.calculate import calculate_match
 
 
 NAME = "Match-2026-09-28_20-43-56-29164"
@@ -111,6 +112,29 @@ def test_current_map_ids_from_replay_metadata():
     assert map_label({"name": "Map(398899676157)", "id": 398899676157}) == "Fortress"
     assert map_label({"name": "Map(436375283234)", "id": 436375283234}) == "Coastline"
     assert map_label({"name": "Map(123)", "id": 123}) == "Map(123)"
+
+
+def test_y11_attack_operator_uses_confirmed_action_start_selection():
+    raw = round_json(0, 0)
+    raw["matchType"] = {"name": "CustomGameOnline", "id": 4}
+    raw["actionPhaseDetected"] = True
+    attacker = raw["players"][0]
+    attacker["initialOperator"] = {"name": "Deimos", "id": 374667787816}
+    attacker["operator"] = {"name": "Zofia", "id": 92270644189}
+    attacker["operatorSource"] = "action_start_header"
+    attacker["operatorSeenBeforeAction"] = True
+    match = normalize(raw)
+    assert match.rounds[0].players[0].operator == "Zofia"
+    stats = calculate_match(match)["ours"]
+    assert stats["operators"]["Attack"] == {"Zofia": 1}
+
+    # A stale parser or a missing Y11 snapshot must not count the initial pick.
+    attacker.pop("operatorSource")
+    match = normalize(raw)
+    assert match.rounds[0].players[0].operator == "Unknown"
+    stats = calculate_match(match)["ours"]
+    assert stats["sides"]["Attack"]["rounds"] == 1
+    assert stats["operators"]["Attack"] == {}
 
 
 def test_admin_scan_endpoint_uses_physical_rounds_for_zero_based_parser_output(tmp_path: Path):

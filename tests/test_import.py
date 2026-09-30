@@ -2,6 +2,8 @@ import json
 import io
 import tempfile
 import unittest
+import sqlite3
+from copy import deepcopy
 from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
@@ -158,6 +160,34 @@ class ImportTests(unittest.TestCase):
         player = self.db.execute("SELECT id,username,profile_id FROM players WHERE profile_id='our-0'").fetchone()
         self.assertEqual(player["username"], "RenamedPlayer")
         self.assertEqual(self.db.execute("SELECT count(*) FROM aliases WHERE player_id=?", (player["id"],)).fetchone()[0], 2)
+
+    def test_reparse_preserves_metadata_and_rolls_back_on_failure(self):
+        original = normalize(fixture())
+        map_id = repo.insert_map(self.db, original, "same-physical-replay", 0,
+                                 "Opponent", "Week 0", "Keep these notes")
+        repo.match_update(self.db, map_id, played_on="2026-09-30")
+        before = dict(self.db.execute("SELECT * FROM maps WHERE id=?", (map_id,)).fetchone())
+        series = dict(self.db.execute("SELECT * FROM series WHERE id=?", (before["series_id"],)).fetchone())
+        player_id = self.db.execute("SELECT player_id FROM round_players WHERE player_key='our-0'").fetchone()[0]
+        replacement = deepcopy(original)
+        replacement.rounds[0].players[0].operator = "Zofia"
+        with self.assertRaisesRegex(ValueError, "identity or file contents"):
+            repo.reparse_map(self.db, map_id, replacement, "wrong-replay")
+        broken = deepcopy(replacement)
+        broken.rounds.append(deepcopy(broken.rounds[0]))
+        with self.assertRaises(sqlite3.IntegrityError):
+            repo.reparse_map(self.db, map_id, broken, "same-physical-replay")
+        self.assertEqual(dict(self.db.execute("SELECT * FROM maps WHERE id=?", (map_id,)).fetchone()), before)
+        self.assertEqual(self.db.execute("SELECT count(*) FROM rounds WHERE map_id=?", (map_id,)).fetchone()[0], 1)
+
+        repo.reparse_map(self.db, map_id, replacement, "same-physical-replay")
+        after = dict(self.db.execute("SELECT * FROM maps WHERE id=?", (map_id,)).fetchone())
+        self.assertEqual({key: after[key] for key in ("id", "series_id", "fingerprint", "replay_id", "played_on")},
+                         {key: before[key] for key in ("id", "series_id", "fingerprint", "replay_id", "played_on")})
+        self.assertEqual(dict(self.db.execute("SELECT * FROM series WHERE id=?", (after["series_id"],)).fetchone()), series)
+        self.assertEqual(self.db.execute("SELECT operator FROM round_players WHERE player_key='our-0'").fetchone()[0], "Zofia")
+        self.assertEqual(self.db.execute("SELECT player_id FROM round_players WHERE player_key='our-0'").fetchone()[0], player_id)
+        self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 1)
 
 
 if __name__ == "__main__":

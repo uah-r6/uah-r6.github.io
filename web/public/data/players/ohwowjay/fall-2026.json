@@ -22,13 +22,14 @@
   "rounds_won": 21,
   "operators": {
     "Attack": {
-      "Zofia": 6,
-      "Twitch": 5,
-      "Ying": 1,
-      "Capitao": 1,
+      "Capitao": 3,
+      "Zofia": 4,
+      "Twitch": 1,
       "Gridlock": 3,
-      "Ram": 1,
-      "Flores": 1
+      "Ram": 2,
+      "Buck": 1,
+      "Nomad": 2,
+      "Flores": 2
     },
     "Defense": {
       "Wamai": 1,
