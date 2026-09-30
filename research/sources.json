@@ -2,6 +2,84 @@
   "schema": 1,
   "matches": [
     {
+      "label": "loud-faze-sal-stage1-2026-07-05",
+      "extraction_label": "candidate-8557",
+      "event": "South America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8557",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S1D8_LOUDvFaZe.zip",
+      "siegegg_match_id": 4118,
+      "maps": [
+        {"folder": "Match-2026-07-05_11-17-25-19616", "siegegg_game_id": 8666}
+      ],
+      "players": {
+        "live.LOUD": 1108, "RESETZ.LOUD": 2659,
+        "Gabu7z.LOUD": 3521, "FLASTRY.LOUD": 2650,
+        "stemp.LOUD": 2783, "vitaking.FaZe": 2323,
+        "cyber.FaZe": 104, "Handyy.FaZe": 2822,
+        "kds.FaZe": 1109, "soulz1.FaZe": 1386
+      },
+      "verified_player_aliases": {
+        "Gabu7z.LOUD": {
+          "siegegg_player_id": 3521,
+          "replay_profile_id": "05f3008b-e2c7-433d-878c-e40c13e267ba",
+          "evidence": "https://stats.cc/siege/Gabu7z.Elevate/05f3008b-e2c7-433d-878c-e40c13e267ba",
+          "note": "Profile history contains Gabu7z.LOUD; SiegeGG names the player GABU."
+        }
+      }
+    },
+    {
+      "label": "imperial-bd-sal-stage1-2026-07-05",
+      "extraction_label": "candidate-8558",
+      "event": "South America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8558",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S1D8_IMPvBD.zip",
+      "siegegg_match_id": 4119,
+      "maps": [
+        {"folder": "Match-2026-07-05_12-16-14-19616", "siegegg_game_id": 8672}
+      ],
+      "players": {
+        "Florio.IMP": 2260, "mitrix.IMP": 2782,
+        "maquina67.IMP": 3126, "xSexyCake.IMP": 101,
+        "yektz.IMP": 2774, "Swag.BD": 3130,
+        "guto.BD": 3131, "Mr6otlaw.BD": 3045,
+        "ROMEO.BD": 2781, "R4re.BD": 2253
+      },
+      "verified_player_aliases": {
+        "ROMEO.BD": {
+          "siegegg_player_id": 2781,
+          "replay_profile_id": "5c4f72b6-dfb8-423b-a4b2-fe0827ef60c9",
+          "evidence": "https://siege.gg/teams/900-black-dragons",
+          "note": "SiegeGG roster lists MRZLL with the name Mateus Romeo."
+        }
+      }
+    },
+    {
+      "label": "furia-fluxo-sal-stage1-2026-07-05",
+      "extraction_label": "candidate-8559",
+      "event": "South America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8559",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S1D8_FURIAvW7M.zip",
+      "siegegg_match_id": 4120,
+      "maps": [
+        {"folder": "Match-2026-07-05_13-23-50-19616", "siegegg_game_id": 8673}
+      ],
+      "players": {
+        "Paluh.FX": 680, "LOBEX.FX": 2655,
+        "dodez.FX": 3129, "dotz.FX": 2264,
+        "kondzz.FX": 2278, "Bokzera.FURIA": 3200,
+        "HerdsZ.FURIA": 1114, "volpz7.FURIA": 2667,
+        "Dias.FURIA": 2191, "Loira.FURIA": 3169
+      },
+      "verified_player_aliases": {
+        "LOBEX.FX": {
+          "siegegg_player_id": 2655,
+          "replay_profile_id": "8d24a413-c6d6-4aa6-a0df-5781887b7ea2",
+          "evidence": "https://stats.cc/siege/lobin.FX/8d24a413-c6d6-4aa6-a0df-5781887b7ea2/seasons",
+          "note": "Profile history contains LOBEX.FX and Lobin.Fluxo; SiegeGG uses L0BINN."
+        }
+      }
+    },
+    {
       "label": "loud-bd-sal-stage1-2026-07-04",
       "event": "South America League Stage 1 2026",
       "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8551",
