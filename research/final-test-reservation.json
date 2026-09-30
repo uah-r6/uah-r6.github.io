@@ -1,0 +1,17 @@
+{
+  "event": "North America League Stage 2 2026",
+  "reserved_at_utc": "2026-09-30T15:46:38Z",
+  "purpose": "A new, later, event-wide untouched final test for a future frozen SiegeGG-style rating candidate.",
+  "scope": "Every match and map from this named event, including any added after this reservation.",
+  "discovery_evidence": {
+    "official_match_ids_sample": [8283, 8284, 8285, 8286, 8287, 8288, 8289, 8290, 8291, 8292],
+    "siegegg_match_ids_sample": [6168, 6169, 6170, 6171, 6172, 6173, 6174, 6175, 6176, 6177]
+  },
+  "rules": [
+    "Do not train, select features, tune hyperparameters, or compare candidate rating residuals on this event.",
+    "Every source-manifest entry from this event must set reserved_for_final_test to true.",
+    "Use its public score, map, roster, round count, K/D and identity data only for the existing quality gates.",
+    "Evaluate once, after the candidate and acceptance thresholds are frozen in a separate committed record."
+  ],
+  "status": "reserved_not_evaluated"
+}

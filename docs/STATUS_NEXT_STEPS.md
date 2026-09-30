@@ -2,6 +2,7 @@
 
 ## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 15:39 UTC
 
+- At 15:46 UTC the entire **North America League Stage 2 2026** event was prospectively reserved as a new untouched final test in `research/final-test-reservation.json`. Ten September 9–10 official Ubisoft replay pages (8283–8292) and corresponding SiegeGG match records (6168–6177) have map/score metadata and replay download links. Do not inspect rating residuals or use any of this event for feature selection. Mark every included source `reserved_for_final_test: true`. The earlier September Europe MENA Stage 2 evaluation remains historical only.
 - HEAD before this checkpoint: `ebaf33b`. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
 - Quality-gated data: 44 complete maps, 440 player-map rows, 314 clean rows, nine parsed events. All included operator rounds resolve. September Stage 2's 16 rows were evaluated once and are now a historical benchmark. No new model has been fitted on this expanded dataset.
 - Fully parsed and target-matched events: Six Invitational 2026, Asia Pacific Kickoff 2026, Salt Lake City Major 2026, Asia Pacific League Stage 1 2026, Europe MENA League Stage 1 2026, Esports World Cup 2026, Europe MENA League Stage 2 2026, North America League Stage 1 2026, and South America League Stage 1 2026. Thirty-one distinct ZIPs back their 44 included maps.
