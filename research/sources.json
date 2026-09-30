@@ -2,6 +2,169 @@
   "schema": 1,
   "matches": [
     {
+      "label": "heretics-vp-eml-stage2-2026-09-07",
+      "event": "Europe MENA League Stage 2 2026",
+      "reserved_for_final_test": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8238",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_EML_S2D1_THvVP.zip",
+      "siegegg_match_id": 6158,
+      "maps": [
+        {"folder": "Match-2026-09-07_17-00-15-20508", "siegegg_game_id": 10563}
+      ],
+      "players": {
+        "RORICK.VP": 3191, "p4sh4.VP": 534,
+        "dan-_-.VP": 358, "Nayqo.VP": 3397,
+        "SkyZs.VP": 3396, "Skeptic.TH": 2304,
+        "Zaara.TH": 3936, "Lasmooo.TH": 3670,
+        "LoIIo.TH": 2497, "aqui-_-.TH": 1517
+      },
+      "verified_player_aliases": {
+        "Zaara.TH": {
+          "siegegg_player_id": 3936,
+          "replay_profile_id": "bf82523d-7a35-4e2f-812d-4e1a882f2d74",
+          "evidence": "https://stats.cc/siege/Zaara.TH/bf82523d-7a35-4e2f-812d-4e1a882f2d74",
+          "note": "Profile history contains Zaara.TH and Zaaramy-."
+        },
+        "LoIIo.TH": {
+          "siegegg_player_id": 2497,
+          "replay_profile_id": "566f6234-8926-4092-8eb5-8e3a1a89d397",
+          "evidence": "https://stats.cc/siege/LoIIo.TH/566f6234-8926-4092-8eb5-8e3a1a89d397",
+          "note": "Profile history contains LoIIo.TH and Lollo.HERETICS."
+        }
+      }
+    },
+    {
+      "label": "heretics-secret-eml-stage2-2026-09-08",
+      "event": "Europe MENA League Stage 2 2026",
+      "reserved_for_final_test": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8246",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_EML_S2D2_THvTS.zip",
+      "siegegg_match_id": 6277,
+      "maps": [
+        {"folder": "Match-2026-09-08_17-58-21-17960", "siegegg_game_id": 10576}
+      ],
+      "players": {
+        "vDrillz.SECRET": 3813, "Croqson.SECRET": 3175,
+        "Hungry.SECRET": 37, "Creedz.SECRET": 3499,
+        "noaDOOM.SECRET": 2895, "matzz-.-": 3806,
+        "Zaara.TH": 3936, "Skeptic.TH": 2304,
+        "LoIIo.TH": 2497, "aqui-_-.TH": 1517
+      },
+      "verified_player_aliases": {
+        "noaDOOM.SECRET": {
+          "siegegg_player_id": 2895,
+          "replay_profile_id": "c36f625e-18f7-4e3f-8f4b-ebfd83556663",
+          "evidence": "https://stats.cc/siege/noaDOOM.SECRET/c36f625e-18f7-4e3f-8f4b-ebfd83556663",
+          "note": "Profile history contains noaDOOM.SECRET and NoaUrz.TT9."
+        },
+        "Zaara.TH": {
+          "siegegg_player_id": 3936,
+          "replay_profile_id": "bf82523d-7a35-4e2f-812d-4e1a882f2d74",
+          "evidence": "https://stats.cc/siege/Zaara.TH/bf82523d-7a35-4e2f-812d-4e1a882f2d74",
+          "note": "Profile history contains Zaara.TH and Zaaramy-."
+        },
+        "LoIIo.TH": {
+          "siegegg_player_id": 2497,
+          "replay_profile_id": "566f6234-8926-4092-8eb5-8e3a1a89d397",
+          "evidence": "https://stats.cc/siege/LoIIo.TH/566f6234-8926-4092-8eb5-8e3a1a89d397",
+          "note": "Profile history contains LoIIo.TH and Lollo.HERETICS."
+        }
+      }
+    },
+    {
+      "label": "vp-geekay-eml-2026-07-06",
+      "event": "Europe MENA League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-gb/esports/rainbow-six/siege/match/8347",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_EML_S1D10_VPvGK.zip",
+      "siegegg_match_id": 4283,
+      "maps": [
+        {"folder": "Match-2026-07-06_19-53-51-17932", "siegegg_game_id": 8685},
+        {"folder": "Match-2026-07-06_20-51-03-17932", "siegegg_game_id": 8686},
+        {"folder": "Match-2026-07-06_22-12-25-17932", "siegegg_game_id": 8687}
+      ],
+      "players": {
+        "GRUBY.Geekay": 2688, "Eupor.Geekay": 3181,
+        "Yoggah.Geekay": 348, "Sarks.Geekay": 3708,
+        "AsK.Geekay": 2258, "dan-_-.VP": 358,
+        "RORICK.VP": 3191, "SkyZs.VP": 3396,
+        "Nayqo.VP": 3397, "p4sh4.VP": 534
+      }
+    },
+    {
+      "label": "dz-shopify-slc-major-2026-05-17",
+      "event": "Salt Lake City Major 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9026",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/SLC26/BR62026_SLC_DAY9_DZ%20vSR.zip",
+      "siegegg_match_id": 3563,
+      "maps": [
+        {"folder": "Match-2026-05-17_16-24-38-14704", "siegegg_game_id": 6673},
+        {"folder": "Match-2026-05-17_18-07-03-14704", "siegegg_game_id": 6675},
+        {"folder": "Match-2026-05-17_19-10-26-14704", "siegegg_game_id": 6676}
+      ],
+      "players": {
+        "J9O": 1810, "Fultz": 1077, "kyno": 1871,
+        "njr": 1809, "Nuers": 2935, "Surf": 2397,
+        "Ambi": 3498, "Rexen": 1040, "Spoit": 380,
+        "Canadian": 49
+      },
+      "note": "Chalet is split across two replay folders, so only the three complete maps are mapped."
+    },
+    {
+      "label": "dz-geekay-ewc-2026-08-15",
+      "extraction_label": "furia-faze-ewc-2026-08-15",
+      "event": "Esports World Cup 2026",
+      "archive_reference_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9070",
+      "archive_url": "https://static-esports.ubisoft.com/esports-platform/r6s/replays/ewc26/StreamA/StreamA/Day%2010-20260817T085159Z-1-001.zip",
+      "siegegg_match_id": 6156,
+      "maps": [
+        {"folder": "Match-2026-08-15_14-49-56-32928", "siegegg_game_id": 10425},
+        {"folder": "Match-2026-08-15_16-05-31-32928", "siegegg_game_id": 10426}
+      ],
+      "players": {
+        "AsK": 2258, "Sarks": 3708, "Gruby": 2688,
+        "Eupor": 3181, "Yoggah": 348, "Nuers": 2935,
+        "J9O": 1810, "Fultz": 1077, "njr": 1809,
+        "kyno": 1871
+      },
+      "note": "The shared Ubisoft Day 10 archive also contains the FURIA-FaZe match. Nighthaven Labs is fragmented, so only complete Kafe and Chalet folders are mapped."
+    },
+    {
+      "label": "furia-faze-ewc-2026-08-15",
+      "event": "Esports World Cup 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9070",
+      "archive_url": "https://static-esports.ubisoft.com/esports-platform/r6s/replays/ewc26/StreamA/StreamA/Day%2010-20260817T085159Z-1-001.zip",
+      "siegegg_match_id": 6157,
+      "maps": [
+        {"folder": "Match-2026-08-15_18-35-09-32928", "siegegg_game_id": 10428},
+        {"folder": "Match-2026-08-15_20-50-40-32928", "siegegg_game_id": 10430}
+      ],
+      "players": {
+        "Bokzera": 3200, "Dias": 2191, "LoiraDEMON": 3169,
+        "VolpsZ": 2667, "HerdsZ": 1114, "vitaking": 2323,
+        "cyber": 104, "soulz1": 1386, "kds": 1109,
+        "handyy": 2822
+      },
+      "note": "Bank and Fortress are split among separate Match folders; only the complete Border and Lair folders are mapped."
+    },
+    {
+      "label": "dz-faze-slc-major-2026-05-16",
+      "event": "Salt Lake City Major 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9027",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/SLC26/BR62026_SLC_DAY8_DZvFAZE.zip",
+      "siegegg_match_id": 3554,
+      "maps": [
+        {"folder": "Match-2026-05-16_17-01-04-3504", "siegegg_game_id": 6677},
+        {"folder": "Match-2026-05-16_18-16-44-3504", "siegegg_game_id": 6678},
+        {"folder": "Match-2026-05-16_19-13-17-3504", "siegegg_game_id": 6679}
+      ],
+      "players": {
+        "kds": 1109, "cyberzera": 104, "vitaking": 2323,
+        "handyy": 2822, "soulz1": 1386, "J9O": 1810,
+        "Fultz": 1077, "kyno": 1871, "njr": 1809,
+        "Nuers": 2935
+      }
+    },
+    {
       "label": "daystar-weibo-2026-06-30",
       "event": "Asia Pacific League Stage 1 2026",
       "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8125",
@@ -34,7 +197,21 @@
         "fenglixiaqiu": 4039, "Neonzao": 4107,
         "KAF": 4004, "JoeGoR.KZ": 3612
       },
-      "unverified_player_aliases": ["MARKELELE.SH", "JustOnlyi9.SH", "fenglixiaqiu", "KAF"]
+      "verified_player_aliases": {
+        "JustOnlyi9.SH": {
+          "siegegg_player_id": 1642,
+          "replay_profile_id": "18e179b7-514a-4bbe-823f-e8c2a7d6e0a5",
+          "evidence": "https://stats.cc/siege/i9.FURY/18e179b7-514a-4bbe-823f-e8c2a7d6e0a5",
+          "note": "The profile UUID matches the replay and the public username history includes JustOnlyi9.SH and Nay..Pew, matching SiegeGG PEW."
+        },
+        "KAF": {
+          "siegegg_player_id": 4004,
+          "replay_profile_id": "7e032343-68ee-4746-b544-0595108b4b6c",
+          "evidence": "https://stats.cc/siege/KAF/7e032343-68ee-4746-b544-0595108b4b6c",
+          "note": "The profile UUID matches the replay and the public username history includes KAF and multiple KarTy names, matching SiegeGG KARTY."
+        }
+      },
+      "unverified_player_aliases": ["MARKELELE.SH", "fenglixiaqiu"]
     },
     {
       "label": "daystar-orchid-2026-04-25",

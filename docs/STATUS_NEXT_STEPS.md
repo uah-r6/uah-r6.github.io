@@ -22,13 +22,17 @@ Verification: 49 Python tests passed, one optional real-replay smoke test skippe
 
 ## Part 2: SiegeGG-style rating research
 
-Five official Ubisoft replay ZIPs downloaded and cached (about 751 MiB compressed), parsed into nine maps. Public SiegeGG player-map target APIs were cached. See [research/README.md](../research/README.md) and [research/sources.json](../research/sources.json) for exact provenance and replay/game mappings. Nine maps yield 90 player-map observations; 57 pass exact K/D and round-count checks plus alias verification. Data, raw and normalized replay files, targets, and generated observations remain in ignored `data/research/`.
+Eleven distinct official Ubisoft replay ZIPs are cached and matched to public SiegeGG targets: 24 complete maps across seven named events, yielding 240 player-map observations. **166 pass strict quality gates.** All currently derived final-operator rounds resolve. Sixteen clean rows from two September Stage 2 maps were reserved for one final evaluation. Downloads, normalized rounds, targets, and observations stay under ignored `data/research/`. Exact provenance, replay/game mappings, and alias evidence are in [research/sources.json](../research/sources.json).
 
-Experiment 1 is a standardized, ridge-regularized raw nine-family model. Training used 32 Kickoff rows. Held-out SI validation had 10 rows, MAE 0.033 and RMSE 0.044. The independent Stage 1 test first had five rows from one map (MAE 0.021) and was expanded **without refitting** to 15 rows from two maps (MAE 0.047). On the expanded holdout, 53% of ratings were within 0.05. The same expanded rows under `collegiate_v1` had MAE 0.232. The exact coefficients, split and accuracy thresholds are in [research/experiment-log.jsonl](../research/experiment-log.jsonl). These results establish that the collection/fit pipeline works, not that the formula is accurate enough for deployment.
+The professional Y11 operator failure was a parser version gate: six earlier verified online builds took the legacy path despite containing the same structural action-start marker and pre-action final operator IDs used by the current UAH build. The existing action-start boundary logic was enabled for those builds; Solid Snake's valid numeric operator ID was added. The original 375 unresolved attacker player-rounds are now resolved, and read-only reparses of all three UAH maps exactly matched their prior 85 operator usage counts. No private map was reimported.
 
-Important unresolved issues: 33 rows fail quality gates; 375 Y11 attacker player-rounds in professional online replays have unresolved final operators; the Stage 1 test is much too small; trade, clutch, multikill, opening and objective definitions remain hypotheses. The model's teamkill coefficient is zero because none occurred in training, and the small negative objective coefficient is unstable. There is no trustworthy operator-relative fit yet, no `siege_style_v2` runtime model, and no UAH comparison report. `collegiate_v1` remains the only live rating and its formula was not changed. No publishing occurred.
+The [quality audit](../research/quality-report.md) lists all 74 excluded observations: 73 have per-player public/replay K/D discrepancies; two lack independent alias confirmation (one overlaps). Twenty-three of 24 map-wide kill/death totals match. Public round logs align on all 261 winners; 35 of 431 multikill notes disagree with replay-derived round kills. Cumulative scoreboard counters were found but their player offsets are not yet reliable enough to correct event attribution. Quality gates were not relaxed.
 
-The current professional data needs investigation before broad fitting: compare replay kill/death logs with SiegeGG map logs, independently verify Stage 1 aliases, and understand why Y11 professional attacker action-start snapshots are missing. Preserve current NECC action-start behavior. Acquire several additional distinct events for train/validation; reserve another later event for final untouched testing. Estimate operator baselines with per-operator sample counts and shrinkage only after final operators are trustworthy. Then compare candidate definitions and generate the requested per-player UAH map/season contribution report for review before any default change.
+The new raw nine-family ridge model trained on 118 clean rows from five earlier events. August EWC validation has 32 clean rows: MAE 0.0353, RMSE 0.0478, 72% within 0.05, versus `collegiate_v1` MAE 0.2615. Operator-relative variants with 20-round shrinkage all performed worse. A controlled metric-definition search did not improve independent August validation. The frozen raw model was evaluated once on September Stage 2's 16 clean rows: MAE 0.0632, RMSE 0.0749, 38% within 0.05, maximum error 0.1553, versus `collegiate_v1` MAE 0.2124. Full split, coefficients, thresholds, and dataset hash are in [experiment-log.jsonl](../research/experiment-log.jsonl). The September result is too small and weak to justify deployment. **Do not tune on or rerun this final event.**
+
+The [UAH comparison report](../research/uah_comparison.md) gives per-player map and season experimental ratings and nine component contributions for the current 38 rounds. UAH results were never used to fit the model. `collegiate_v1` remains the only live/default rating, and no website publishing occurred. See [research/README.md](../research/README.md) for definitions, reproducibility, and limits.
+
+Next: independently resolve replay/public kill attribution where possible; add distinct events with verified aliases; reserve a new later untouched final event before further fitting; build more stable operator baselines and teamkill support. Do not implement a runtime candidate or change the default until new held-out evidence supports it.
 
 ### Exact continuation commands
 
@@ -37,11 +41,11 @@ Run from the repository root in PowerShell:
 ```powershell
 .\.venv\Scripts\python.exe research\pipeline.py all
 .\.venv\Scripts\python.exe research\pipeline.py derive
-.\.venv\Scripts\python.exe research\fit_baseline.py
+.\.venv\Scripts\python.exe research\quality_report.py
 .\.venv\Scripts\python.exe -m pytest -q
 cd web
 npm.cmd run build
 npm.cmd run build:admin
 ```
 
-`pipeline.py all` is cached and resumable. `fit_baseline.py` appends a new experiment record each time, so run it only for a deliberate experiment. Do not commit `data/research/`, `data/replay-archive/`, private SQLite/settings, `.rec`, or ZIP downloads. Do not publish or change the default rating without user review.
+`pipeline.py all` is cached and resumable. Fit scripts append experiment records, so run them only for deliberate new experiments. The recorded September final evaluation must not be rerun or used for tuning. Do not commit `data/research/`, `data/replay-archive/`, private SQLite/settings, `.rec`, or ZIP downloads. Do not publish or change the default rating without user review.

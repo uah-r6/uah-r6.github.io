@@ -1,7 +1,7 @@
 """Exploratory nine-family raw baseline, grouped by independent events.
 
-This intentionally does not produce a deployable model. The small sample and
-missing Y11 operator snapshots make operator-relative baselines untrustworthy.
+This historical experiment intentionally does not produce a deployable model.
+The original nine-map sample predates the professional Y11 operator fix.
 """
 from __future__ import annotations
 

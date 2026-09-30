@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -19,7 +20,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from r6stats.parser.models import Match  # noqa: E402
-from r6stats.parser.siege_dissect import parse_match  # noqa: E402
+from r6stats.parser.siege_dissect import parse_match, parser_executable  # noqa: E402
 from r6stats.stats.calculate import calculate_match  # noqa: E402
 
 DATA = ROOT / "data/research"
@@ -41,14 +42,25 @@ def replay_zip(source: dict) -> Path:
     return DATA / "pro-replays" / unquote(Path(urlparse(source["archive_url"]).path).name)
 
 
-def collect(source: dict) -> None:
+def parser_hash() -> str:
+    parser = parser_executable()
+    if not parser:
+        raise ValueError("Local siege-dissect binary is missing")
+    digest = hashlib.sha256()
+    with Path(parser).open("rb") as binary:
+        for chunk in iter(lambda: binary.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def collect(source: dict, *, force: bool = False) -> None:
     archive = replay_zip(source)
     cache_url(source["archive_url"], archive)
     with zipfile.ZipFile(archive) as bundle:
         bad = bundle.testzip()
         if bad:
             raise ValueError(f"Corrupt ZIP member: {bad}")
-        extraction = DATA / "extracted" / source["label"]
+        extraction = DATA / "extracted" / source.get("extraction_label", source["label"])
         extraction.mkdir(parents=True, exist_ok=True)
         for member in bundle.infolist():
             if member.is_dir():
@@ -67,14 +79,27 @@ def collect(source: dict) -> None:
                   DATA / "targets" / f"siegegg-match-{match_id}-{suffix}.json")
     for mapping in source["maps"]:
         derived = DATA / "derived" / (mapping["folder"] + ".json")
-        if derived.exists():
-            continue
+        cache_record = DATA / "derived" / (mapping["folder"] + ".meta.json")
         folders = [path for path in extraction.rglob(mapping["folder"]) if path.is_dir()]
         if len(folders) != 1:
             raise ValueError(f"Expected one replay folder {mapping['folder']}, found {len(folders)}")
+        source_files = sorted(folders[0].glob("*.rec"))
+        signature = {"schema": 1, "parser_sha256": parser_hash(),
+                     "replay_files": [{"name": path.name, "size": path.stat().st_size,
+                                       "mtime_ns": path.stat().st_mtime_ns}
+                                      for path in source_files]}
+        if derived.exists() and cache_record.exists() and not force:
+            try:
+                if json.loads(cache_record.read_text(encoding="utf-8")) == signature:
+                    continue
+            except (OSError, json.JSONDecodeError):
+                pass
         match = parse_match(folders[0])
         derived.parent.mkdir(parents=True, exist_ok=True)
-        derived.write_text(json.dumps(match.to_dict(), indent=2), encoding="utf-8")
+        temporary = derived.with_name(derived.name + ".partial")
+        temporary.write_text(json.dumps(match.to_dict(), indent=2), encoding="utf-8")
+        temporary.replace(derived)
+        cache_record.write_text(json.dumps(signature, indent=2), encoding="utf-8")
 
 
 def score_by_roster(match: Match, first_round_player_ids: dict[str, int], player_to_roster: dict[int, int]):
@@ -89,13 +114,18 @@ def score_by_roster(match: Match, first_round_player_ids: dict[str, int], player
     return Counter(team_to_roster[round_.winner] for round_ in match.rounds)
 
 
+def canonical_map(name: str) -> str:
+    result = re.sub(r"[^a-z0-9]", "", name.casefold())
+    return "kafe" if result == "kafedostoyevsky" else result
+
+
 def map_rows(source: dict, mapping: dict) -> list[dict]:
     match_id, game_id = source["siegegg_match_id"], mapping["siegegg_game_id"]
     match = Match.from_dict(json.loads((DATA / "derived" / (mapping["folder"] + ".json")).read_text()))
     meta = json.loads((DATA / "targets" / f"siegegg-match-{match_id}-api.json").read_text())
     targets = json.loads((DATA / "targets" / f"siegegg-match-{match_id}-player-stats.json").read_text())
     game = next(game for game in meta["games"] if game["id"] == game_id)
-    if match.map_name.casefold().replace(" ", "") != game["map"]["name"].casefold().replace(" ", ""):
+    if canonical_map(match.map_name) != canonical_map(game["map"]["name"]):
         raise ValueError(f"Map mismatch for {mapping['folder']}")
     player_ids = source["players"]
     usernames = {p.username for p in match.rounds[0].players}
@@ -135,9 +165,14 @@ def map_rows(source: dict, mapping: dict) -> list[dict]:
             issues.append("round count mismatch")
         if player.username in source.get("unverified_player_aliases", []):
             issues.append("player alias lacks independent identity confirmation")
+        verified_alias = source.get("verified_player_aliases", {}).get(player.username)
+        if verified_alias and (player.profile_id != verified_alias["replay_profile_id"] or
+                               player_ids[player.username] != verified_alias["siegegg_player_id"]):
+            issues.append("verified player alias identity does not match replay")
         # A missing operator weakens any operator-normalized model, but raw metrics remain usable.
         unresolved_ops = sum(round_["operator"] == "Unknown" for round_ in rounds)
         rows.append({"event": source["event"], "match_id": match_id, "game_id": game_id,
+                     "reserved_for_final_test": source.get("reserved_for_final_test", False),
                      "replay_folder": mapping["folder"], "map": match.map_name,
                      "player": player.username, "player_id": player_ids[player.username],
                      "roster_id": player_to_roster[player_ids[player.username]],
@@ -170,9 +205,10 @@ def derive() -> list[dict]:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("command", choices=("collect", "derive", "all"))
+    parser.add_argument("--force", action="store_true", help="Reparse cached rounds")
     args = parser.parse_args()
     if args.command in ("collect", "all"):
         for source in SOURCES:
-            collect(source)
+            collect(source, force=args.force)
     if args.command in ("derive", "all"):
         derive()
