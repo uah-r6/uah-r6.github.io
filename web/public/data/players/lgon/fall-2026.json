@@ -1,0 +1,82 @@
+{
+  "slug": "lgon",
+  "name": "Lgon",
+  "rounds": 10,
+  "kills": 12,
+  "deaths": 6,
+  "headshots": 7,
+  "opening_kills": 4,
+  "opening_deaths": 0,
+  "refrag_kills": 2,
+  "deaths_traded": 1,
+  "kills_traded": 1,
+  "untraded_kills": 11,
+  "untraded_deaths": 5,
+  "pivot_kills": 7,
+  "pivot_deaths": 6,
+  "plants": 0,
+  "disables": 0,
+  "teamkills": 0,
+  "survived": 4,
+  "kost_rounds": 7,
+  "rounds_won": 7,
+  "operators": {
+    "Attack": {
+      "Thermite": 1,
+      "Deimos": 2,
+      "Grim": 1
+    },
+    "Defense": {
+      "Azami": 2,
+      "Mozzie": 1,
+      "Tubarao": 1,
+      "Thorn": 1,
+      "Melusi": 1
+    }
+  },
+  "sides": {
+    "Attack": {
+      "rounds": 4,
+      "kills": 1,
+      "deaths": 2,
+      "kd": 0.5,
+      "kpr": 0.25
+    },
+    "Defense": {
+      "rounds": 6,
+      "kills": 11,
+      "deaths": 4,
+      "kd": 2.75,
+      "kpr": 1.8333333333333333
+    }
+  },
+  "maps": 1,
+  "rating": 1.6923781260000004,
+  "kd": 2.0,
+  "kpr": 1.2,
+  "kost": 0.7,
+  "srv": 0.4,
+  "hs": 0.5833333333333334,
+  "entry_diff": 4,
+  "kd_diff": 6,
+  "objectives": 0,
+  "season": "fall-2026",
+  "matches": [
+    {
+      "id": "d64d5478cdb3",
+      "series_id": "170b708e12f1",
+      "season": "fall-2026",
+      "opponent": "Scrim Test",
+      "date": "2026-09-23",
+      "week": "",
+      "notes": "",
+      "map": "Fortress",
+      "mode": "Bomb",
+      "our_score": 7,
+      "their_score": 3,
+      "result": "WIN",
+      "demo": false,
+      "rating": 1.6923781260000004
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+data/raw/
+data/parsed/
+data/logs/
+data/*.sqlite
+data/publish-status.json
+*.rec
+*.zip
+.env
+.venv/
+.local-tools/
+__pycache__/
+.pytest_cache/
+web/node_modules/
+web/dist/
+web/admin-dist/
+web/*.tsbuildinfo
+config/settings.json

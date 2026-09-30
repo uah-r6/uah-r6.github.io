@@ -1,0 +1,6 @@
+{
+  "team": {"name": "NECC Rainbow Six", "short_name": "TEAM", "accent": "#82e3db"},
+  "replays": {"path": ""},
+  "stats": {"trade_window_seconds": 8, "rating_version": "collegiate_v1"},
+  "publishing": {"enabled": true, "branch": "main", "remote_url": "", "site_url": ""}
+}

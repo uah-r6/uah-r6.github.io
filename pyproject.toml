@@ -1,0 +1,8 @@
+[project]
+name = "r6-necc-stats"
+version = "0.1.0"
+requires-python = ">=3.12"
+description = "Local NECC Siege replay statistics and static site exporter"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

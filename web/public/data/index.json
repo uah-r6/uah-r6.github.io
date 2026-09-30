@@ -1,0 +1,44 @@
+{
+  "team": {
+    "name": "NECC Rainbow Six",
+    "short_name": "TEAM",
+    "accent": "#82e3db"
+  },
+  "active_season": "fall-2026",
+  "seasons": [
+    {
+      "slug": "fall-2026",
+      "name": "Fall 2026",
+      "start_date": "2026-09-30",
+      "end_date": "2026-12-25"
+    }
+  ],
+  "players": [
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "active": true
+    },
+    {
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
+      "active": true
+    },
+    {
+      "slug": "lgon",
+      "name": "Lgon",
+      "active": true
+    },
+    {
+      "slug": "ohwowjay",
+      "name": "OhWowJay",
+      "active": true
+    },
+    {
+      "slug": "tallman3-14",
+      "name": "Tallman3.14",
+      "active": true
+    }
+  ],
+  "rating_version": "collegiate_v1"
+}
