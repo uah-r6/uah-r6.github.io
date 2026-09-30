@@ -48,6 +48,37 @@ func TestY11OperatorFreezesAtActionStart(t *testing.T) {
 	}
 }
 
+func TestProfessionalY11BuildsUseVerifiedActionStartSelection(t *testing.T) {
+	for _, code := range []int{Y11S1_Alpha03Pro, Y11S1_Alpha03SLC, Y11S2_Alpha04Pro, Y11S2_Alpha04EML, Y11S2_Alpha04EWC, Y11S3_Alpha04EML} {
+		r := &Reader{prepOperatorIDs: map[Operator]bool{Deimos: true, Zofia: true, SolidSnake: true}, Header: Header{
+			CodeVersion: code,
+			Teams:       [2]Team{{Role: Attack}, {Role: Defense}},
+			Players: []Player{
+				{Username: "repick", TeamIndex: 0, Operator: Deimos, RoleName: "ZOFIA"},
+				{Username: "new operator", TeamIndex: 0, Operator: SolidSnake, RoleName: "SOLID SNAKE"},
+				{Username: "defender", TeamIndex: 1, Operator: Jager, RoleName: "JAGER"},
+			},
+		}}
+		for _, second := range []uint32{44, 43, 0, 179} {
+			feedTimer(t, r, second)
+		}
+		if !r.Header.ActionPhaseDetected || r.Header.Players[0].Operator != Zofia ||
+			r.Header.Players[0].InitialOperator != Deimos ||
+			r.Header.Players[0].OperatorSource != "action_start_header" ||
+			r.Header.Players[1].Operator != SolidSnake ||
+			r.Header.Players[1].OperatorSource != "action_start_header" ||
+			r.Header.Players[2].Operator != Jager {
+			t.Fatalf("professional build %d did not select verified final operators: %+v", code, r.Header.Players)
+		}
+	}
+	if supportsActionStartOperators(Y11S1_Alpha03) || supportsActionStartOperators(Y11S2_Alpha04Pro-1) {
+		t.Fatal("unverified build was enabled")
+	}
+	if SolidSnake.String() != "Solid Snake" || SolidSnake.Role() != Attack {
+		t.Fatal("confirmed Solid Snake ID was not mapped")
+	}
+}
+
 func TestY11UnknownOrMissingHeaderOperatorIsUnresolved(t *testing.T) {
 	r := &Reader{prepOperatorIDs: map[Operator]bool{Capitao: true, Jager: true}, Header: Header{
 		CodeVersion: Y11S3_Alpha04,

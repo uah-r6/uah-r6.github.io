@@ -27,10 +27,25 @@ const (
 	Y10S3_1     int = 9211553
 
 	// Y11 constants below are observed from real replay headers rather than
-	// lifted from an upstream release list. Add more patch builds (Y11S1_1,
-	// Y11S2, ...) as replays for them come in. These names make replay
-	// code-version gates explicit. The action-start
-	// operator selection is verified from Y11S3_Alpha04 replays onward.
+	// lifted from an upstream release list. Add more builds only after
+	// checking the structural action marker and final operator evidence in
+	// real replays. Earlier Y11 builds are explicitly gated below; the
+	// original UAH Y11S3_Alpha04 behavior remains enabled for later builds.
 	Y11S1_Alpha03 int = 9625601
-	Y11S3_Alpha04 int = 9901603
+	// Official professional replay builds verified against real rounds.
+	Y11S1_Alpha03Pro int = 9636829
+	Y11S1_Alpha03SLC int = 9658832
+	Y11S2_Alpha04Pro int = 9751808
+	Y11S2_Alpha04EML int = 9769907
+	Y11S2_Alpha04EWC int = 9820472
+	Y11S3_Alpha04EML int = 9879602
+	Y11S3_Alpha04    int = 9901603
 )
+
+// Restrict action-start operator selection to verified replay layouts.
+func supportsActionStartOperators(codeVersion int) bool {
+	return codeVersion == Y11S1_Alpha03Pro || codeVersion == Y11S1_Alpha03SLC ||
+		codeVersion == Y11S2_Alpha04Pro || codeVersion == Y11S2_Alpha04EML ||
+		codeVersion == Y11S2_Alpha04EWC || codeVersion == Y11S3_Alpha04EML ||
+		codeVersion >= Y11S3_Alpha04
+}

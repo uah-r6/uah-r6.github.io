@@ -16,7 +16,7 @@ func readTime(r *Reader) error {
 	// Current replays count down prep, then reset to the action timer.
 	// The header's role selection is the post-repick snapshot; apply it at
 	// this boundary, before later round packets can be mistaken for repicks.
-	if r.Header.CodeVersion >= Y11S3_Alpha04 && !r.actionPhaseStarted &&
+	if supportsActionStartOperators(r.Header.CodeVersion) && !r.actionPhaseStarted &&
 		r.timerTicksSeen >= 2 && r.lastTimerSeconds <= 60 &&
 		time >= 120 && time > r.lastTimerSeconds+5 {
 		r.actionPhaseStarted = true
@@ -60,7 +60,7 @@ func readY7Time(r *Reader) error {
 
 func (r *Reader) roundEnd() {
 	log.Debug().Msg("round_end")
-	if r.Header.CodeVersion >= Y11S3_Alpha04 && !r.actionPhaseStarted {
+	if supportsActionStartOperators(r.Header.CodeVersion) && !r.actionPhaseStarted {
 		r.markUnresolvedAttackOperators()
 	}
 

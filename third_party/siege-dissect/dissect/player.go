@@ -184,7 +184,7 @@ func readAtkOpSwap(r *Reader) error {
 	// Y11 prep packets use a different identity field, and uiID is not
 	// unique. Record candidate operators but resolve their player identity
 	// from the header snapshot at action start instead.
-	if r.Header.CodeVersion >= Y11S3_Alpha04 {
+	if supportsActionStartOperators(r.Header.CodeVersion) {
 		op, err := r.Uint64()
 		if err != nil {
 			log.Warn().Err(err).Msg("invalid Y11 operator candidate ignored")
