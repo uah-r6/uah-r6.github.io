@@ -127,6 +127,15 @@ class ImportTests(unittest.TestCase):
              patch("r6stats.cli.export", side_effect=lambda database, config: export(database, config, output)):
             map_id = import_path(self.db, self.config, str(folder))
             self.assertTrue((output / "matches" / f"{map_id}.json").exists())
+            map_data = json.loads((output / "matches" / f"{map_id}.json").read_text())
+            season_data = json.loads((output / "seasons" / "fall-2026.json").read_text())
+            player = season_data["players"][0]
+            slug = player["slug"]
+            for row in (next(p for p in map_data["players"] if p["slug"] == slug), player,
+                        json.loads((output / "players" / slug / "fall-2026.json").read_text()),
+                        json.loads((output / "players" / slug / "career.json").read_text())):
+                self.assertEqual(row["clutches"], sum(row[f"clutch_1v{x}"] for x in range(1, 6)))
+                self.assertIn("disables", row)
             self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 1)
             self.assertEqual(self.db.execute("SELECT competition FROM series").fetchone()[0], "NECC")
             self.assertEqual(self.db.execute("SELECT count(*) FROM rounds").fetchone()[0], 1)

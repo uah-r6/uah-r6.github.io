@@ -101,7 +101,7 @@ npm.cmd run build
 npm.cmd run build:admin
 ```
 
-Tests cover adapter normalization, Custom Game eligibility and explicit confirmation in both CLI and admin API, rejection of matchmaking types, duplicate imports, season editing and database upgrades, map grouping and deletion, historical player retention, publishing validation, entries, trades, KOST, survival, pivot examples and a Rating snapshot. A real replay integration test remains dependent on a supplied compatible `.rec` match folder.
+Tests cover adapter normalization, Custom Game eligibility and explicit confirmation in both CLI and admin API, rejection of matchmaking types, duplicate imports, season editing and database upgrades, map grouping and deletion, historical player retention, publishing validation, entries, trades, KOST, survival, clutch wins, pivot examples and a Rating snapshot. A real replay integration test remains dependent on a supplied compatible `.rec` match folder.
 
 To run that optional integration test, set the environment variable for one terminal session before `pytest`:
 
@@ -124,6 +124,6 @@ $env:R6_TEST_REPLAY_PATH = "C:\path\to\complete\Match-folder"
 
 ## Data and methods
 
-`data/*.sqlite`, raw replays, ZIPs, parsed data, and private settings are ignored by Git. The committed website JSON omits Ubisoft profile IDs and all opponent player identities. Rating uses the versioned `collegiate_v1` formula from [kevprakash's collegiate replay analysis](https://github.com/kevprakash/R6-Match-Replay-Analysis); it is not official Ubisoft EPS or SiegeGG Rating. Trades require killing the original killer within the configured eight-second window. KOST counts a round once if any of Kill, Objective, Survival or Traded death applies.
+`data/*.sqlite`, raw replays, ZIPs, parsed data, and private settings are ignored by Git. The committed website JSON omits Ubisoft profile IDs and all opponent player identities. Rating uses the versioned `collegiate_v1` formula from [kevprakash's collegiate replay analysis](https://github.com/kevprakash/R6-Match-Replay-Analysis); it is not official Ubisoft EPS or SiegeGG Rating. Trades require killing the original killer within the configured eight-second window. KOST counts a round once if any of Kill, Objective, Survival or Traded death applies. A 1vX clutch counts once when a player first becomes their team's only living player against one to five living opponents and their team wins the round; X is fixed at that first moment. Plants and disables remain in the detailed statistics and Rating inputs even though the leaderboard emphasizes clutches instead of disables.
 
 For current Y11 replays, attacker operator usage uses the replay header's post-repick selection after the prep timer resets to the action timer. The parser records the initial selection and its action-start source in its local JSON diagnostics. If that header selection is missing or unknown, the player still receives the round and other statistics, but the operator is marked `Unknown` and excluded from operator usage counts. Defense selection retains the original parser behavior. A corrected parser does not rewrite an already imported map by itself: use **Matches → Open map → Reparse this map** with the original replay folder, then review the local statistics before choosing to publish.

@@ -7,7 +7,8 @@ RATING_VERSION = "collegiate_v1"
 COUNTS = ("rounds", "kills", "deaths", "headshots", "opening_kills", "opening_deaths",
           "refrag_kills", "deaths_traded", "kills_traded", "untraded_kills",
           "untraded_deaths", "pivot_kills", "pivot_deaths", "plants", "disables",
-          "teamkills", "survived", "kost_rounds", "rounds_won")
+          "teamkills", "survived", "kost_rounds", "rounds_won", "clutches",
+          "clutch_1v1", "clutch_1v2", "clutch_1v3", "clutch_1v4", "clutch_1v5")
 
 
 class RatingEngine:
@@ -51,6 +52,7 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
         refrags = set()
         processed = set()
         opening_recorded = False
+        clutch_candidates = {}
         for i, kill in enumerate(valid):
             if kill.victim not in players or (kill.killer and kill.killer not in players):
                 continue
@@ -88,6 +90,14 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
                     refrags.add(kill.sequence)
             round_stats[kill.victim]["deaths"] += 1
             alive.remove(kill.victim)
+            # Only the victim's team can have just become a one-player team.
+            # Record its first 1vX state, before later opponent deaths reduce X.
+            victim_team = players[kill.victim].team
+            teammates = [key for key in alive if players[key].team == victim_team]
+            if len(teammates) == 1 and victim_team not in clutch_candidates:
+                opponents = sum(players[key].team != victim_team for key in alive)
+                if 1 <= opponents <= 5:
+                    clutch_candidates[victim_team] = (teammates[0], opponents)
         for kill in valid:
             if kill.sequence not in processed or not kill.killer or kill.teamkill or kill.killer == kill.victim:
                 continue
@@ -98,6 +108,11 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
         for objective in round_.objectives:
             if objective.player in players and objective.kind in {"plant", "disable"}:
                 round_stats[objective.player]["plants" if objective.kind == "plant" else "disables"] += 1
+        clutch = clutch_candidates.get(round_.winner)
+        if clutch:
+            key, opponents = clutch
+            round_stats[key]["clutches"] += 1
+            round_stats[key][f"clutch_1v{opponents}"] += 1
         for player in round_.players:
             key = player.key
             s = round_stats[key]
