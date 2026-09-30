@@ -1,8 +1,8 @@
 # Status and next steps — 2026-09-30
 
-## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 14:26 UTC
+## CURRENT RATING RESEARCH CHECKPOINT — 2026-09-30 14:28 UTC
 
-- HEAD before this checkpoint: `24851c5`. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
+- HEAD before this checkpoint: `dcd3172`. Keep this section current after each research milestone and commit code/documentation locally. Do not push or publish.
 - Fitted data: 26 complete maps, 260 player-map rows, 182 clean rows, nine parsed events. All current operator rounds resolve. September Stage 2's 16 rows were evaluated once and are now a historical benchmark.
 - Fully parsed and target-matched events: Six Invitational 2026, Asia Pacific Kickoff 2026, Salt Lake City Major 2026, Asia Pacific League Stage 1 2026, Europe MENA League Stage 1 2026, Esports World Cup 2026, Europe MENA League Stage 2 2026, North America League Stage 1 2026, and South America League Stage 1 2026. Thirteen distinct ZIPs back their 26 included maps.
 - North America Stage 1 addition: official M80–DarkZero July 2 ZIP `BR62026_NAL_S1D8_DZvM80.zip`, replay folder `Match-2026-07-02_15-28-09-4828`, SiegeGG match `4133` / game `7860`, Kafe 7–0. Both targets cached; 8 of 10 rows pass exact K/D; 2 excluded for kill attribution differences. Previous HTTP 500 was transient. No event is currently awaiting target matching.
@@ -11,7 +11,8 @@
 - South America Stage 1: official [LOUD–Black Dragons July 4 match](https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8551) archive `BR62026_SAL_S1D7_LOUDvBD.zip`, replay `Match-2026-07-04_12-56-31-39776`, SiegeGG match `4112` / game `8360` was fully matched: Lair 12 rounds, 7–5, ten players, zero unresolved Attack operators; eight player rows passed exact public K/D, two remain excluded. `ROMEO.BD` ↔ `MRZLL` and `Gabu7z.LOUD` ↔ `GABU` alias evidence is recorded in `sources.json`.
 - Source discovery helper `research/preflight_ubisoft.py` scanned official match IDs 8545–8560 and cached all pages. Four July 4–5 South America candidates have exact SiegeGG match pages and HTTP 200 player-stats targets: FURIA–FaZe (Ubisoft 8554 / SiegeGG 4115), LOUD–FaZe (8557 / 4118), Imperial–Black Dragons (8558 / 4119), FURIA–Fluxo W7M (8559 / 4120).
 - The new `research/collect_candidates.py` cached/ZIP-verified/extracted the FURIA–FaZe archive and both targets. Its Clubhouse replay is fragmented across two folders: 8 rounds with 4–4 score and 5 rounds with 2–3 score, totaling 13 versus the public 7–5/12 rounds. Exclude this candidate until the rehost/duplicate round can be independently identified; do not guess or merge it into observations. Cache is retained under ignored `data/research/`.
-- **NEXT ACTION:** Run `.\.venv\Scripts\python.exe research\collect_candidates.py 8557:4118 8558:4119 8559:4120`, then inspect each replay folder for a complete map before adding any to `sources.json`. Keep September out of model selection.
+- Three further South America ZIPs and their SiegeGG target pairs are cached and ZIP-verified via `collect_candidates.py`. Each contains one complete parsed map with zero unresolved Attack operators: LOUD–FaZe official 8557 / SiegeGG 4118 game 8666, Nighthaven Labs 10 rounds 7–3, folder `Match-2026-07-05_11-17-25-19616`; Imperial–Black Dragons 8558 / 4119 game 8672, Lair 10 rounds 3–7, folder `Match-2026-07-05_12-16-14-19616`; FURIA–Fluxo W7M 8559 / 4120 game 8673, Kafe 10 rounds 3–7, folder `Match-2026-07-05_13-23-50-19616`. None is in fitted data yet. Replay `LOBEX.FX` has profile UUID `8d24a413-c6d6-4aa6-a0df-5781887b7ea2`; public stats.cc history identifies the same account as Lobin, supporting target `L0BINN`.
+- **NEXT ACTION:** Add exact replay-to-SiegeGG player-ID maps for the three complete South America matches to `research/sources.json`, record verified aliases, run `pipeline.py all` and `quality_report.py`, then checkpoint clean-row counts. Keep September out of model selection.
 
 ## Part 1: private replay archive
 
