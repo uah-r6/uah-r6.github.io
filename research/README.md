@@ -36,10 +36,13 @@ The current nine families are KPR, teamkills, extra multikill kills, opening dif
 | --- | ---: | ---: | ---: | ---: | ---: |
 | August EWC validation, separate event | 32 | 0.0353 | 0.0478 | 72% | 0.2615 |
 | September Stage 2 final, evaluated once | 16 | 0.0632 | 0.0749 | 38% | 0.2124 |
+| Expanded 266-row raw fit, August development validation | 32 | 0.0346 | 0.0466 | 72% | 0.2615 |
 
 The raw model trained on 118 clean rows from five earlier events. Operator-relative versions used training-only operator means and variances shrunk toward side baselines with 20 prior rounds; all three operator methods performed worse on August validation (MAE 0.0503, 0.0522, and 0.1094). Sixty-eight operators appear in training and 41 have fewer than 20 rounds. A controlled search over 12 metric-definition variants selected a weighted-clutch variant on grouped early-event cross-validation, but its August MAE of 0.0366 was worse than the raw baseline's 0.0353. No variant was selected based on the September result. The earlier nine-map experiment remains in the log as a historical benchmark, not an untouched test.
 
 The raw model beats `collegiate_v1` on these public targets, but its September max error is 0.1553. The small final sample, weak teamkill support, and slightly negative objective coefficient make the fitted weights unsuitable for deployment. In particular, the model does not establish official operator normalization or exact trade, clutch, opening, multikill, or objective definitions. Keep `collegiate_v1` unchanged.
+
+The preregistered expanded raw fit [recorded in the experiment log](experiment-log.jsonl) uses 266 clean rows from seven pre-August events and the previously viewed August EWC event for development validation. Its August MAE is 0.03464 versus 0.03528 for the earlier 118-row fit; both have 72% of ratings within 0.05. The new training set contains eight teamkill events, moving that raw-unit slope from +0.052 to -0.211. The objective raw-unit slope moved from -0.107 to -0.008. These unstable or near-zero terms still need investigation. No North America Stage 2 Rating residual was calculated, and that event remains untouched.
 
 The [UAH comparison](uah_comparison.md) applies the frozen raw professional model to the three private maps and all 38 rounds without training on UAH data. It lists every player-map and season rating plus nine component contributions. It is a review artifact, not a proposed website update.
 
