@@ -2,6 +2,132 @@
   "schema": 1,
   "matches": [
     {
+      "label": "m80-five-fears-nal-stage1-2026-06-26",
+      "extraction_label": "candidate-8010",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8010",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D7_5FvM80.zip",
+      "siegegg_match_id": 4127,
+      "maps": [
+        {
+          "folder": "Match-2026-06-26_19-00-25-23928",
+          "siegegg_game_id": 7422
+        }
+      ],
+      "players": {
+        "JJBlaztful.5F": 2140,
+        "Forrest.5F": 1318,
+        "Rival.5F": 3471,
+        "Fenz.5F": 3455,
+        "Snake.5F": 2984,
+        "Ashn.M80": 3258,
+        "dfuzr.M80": 3457,
+        "Savage.M80": 3090,
+        "Gaveni.M80": 3108,
+        "Gunnar.M80": 2393
+      },
+      "verified_player_aliases": {
+        "JJBlaztful.5F": {
+          "siegegg_player_id": 2140,
+          "replay_profile_id": "26dbbcac-2c96-4534-b35d-dc28b775e721",
+          "evidence": "https://www.opleague.pro/user/10156-JJ",
+          "note": "OPL lists Ubisoft account JJBlaztful.5F and real name James Letkovsky; SiegeGG player 2140 has the same name."
+        }
+      }
+    },
+    {
+      "label": "sr-dz-nal-stage1-2026-06-26",
+      "extraction_label": "candidate-8012",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8012",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D7_DZvSR.zip",
+      "siegegg_match_id": 4129,
+      "maps": [
+        {
+          "folder": "Match-2026-06-26_20-56-42-23928",
+          "siegegg_game_id": 7433
+        }
+      ],
+      "players": {
+        "Nuers.DZ": 2935,
+        "Kyno.DZ": 1871,
+        "J9O.DZ": 1810,
+        "njr.DZ": 1809,
+        "Fultz.DZ": 1077,
+        "Ambi.SR": 3498,
+        "Canadian.SR": 49,
+        "Rexen.SR": 1040,
+        "Spoit.SR": 380,
+        "Surf.SR": 2397
+      }
+    },
+    {
+      "label": "m80-wc-nal-stage1-2026-07-03",
+      "extraction_label": "candidate-8020",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8020",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D9_M80vWC.zip",
+      "siegegg_match_id": 4137,
+      "maps": [
+        {
+          "folder": "Match-2026-07-03_14-01-31-12240",
+          "siegegg_game_id": 8073
+        }
+      ],
+      "players": {
+        "Spiker.WC": 3223,
+        "kanzen.WC": 1805,
+        "Adrian.WC": 3501,
+        "Bae94.WC": 3411,
+        "bbySharKK.WC": 3667,
+        "dfuzr.M80": 3457,
+        "Ashn.M80": 3258,
+        "Savage.M80": 3090,
+        "Gunnar.M80": 2393,
+        "Gaveni.M80": 3108
+      },
+      "verified_player_aliases": {
+        "kanzen.WC": {
+          "siegegg_player_id": 1805,
+          "replay_profile_id": "81bde55f-a30f-450a-94cb-4151b1a32130",
+          "evidence": "https://stats.cc/siege/kanzen.WC/81bde55f-a30f-450a-94cb-4151b1a32130",
+          "note": "Matching Ubisoft profile history includes kanzenkyari; SiegeGG player 1805 is Evan Bushore."
+        },
+        "Bae94.WC": {
+          "siegegg_player_id": 3411,
+          "replay_profile_id": "874eaaf4-c6da-43d3-8f70-36b342306bbb",
+          "evidence": "https://www.opleague.pro/user/8897-Bae",
+          "note": "OPL links Ubisoft account Bae94.WC to Jacob Dowling; SiegeGG player 3411 has the same name."
+        }
+      }
+    },
+    {
+      "label": "dz-c9-nal-stage1-2026-07-03",
+      "extraction_label": "candidate-8021",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8021",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D9_C9vDZ.zip",
+      "siegegg_match_id": 4138,
+      "maps": [
+        {
+          "folder": "Match-2026-07-03_15-25-09-12240",
+          "siegegg_game_id": 8130
+        }
+      ],
+      "players": {
+        "Fultz.DZ": 1077,
+        "Nuers.DZ": 2935,
+        "njr.DZ": 1809,
+        "J9O.DZ": 1810,
+        "Kyno.DZ": 1871,
+        "Eddy.C9": 2830,
+        "Panbazou.C9": 1860,
+        "Centir.C9": 3480,
+        "Monk.c9": 341,
+        "Ewzy.C9": 3972
+      }
+    },
+    {
       "label": "loud-faze-sal-stage1-2026-07-05",
       "extraction_label": "candidate-8557",
       "event": "South America League Stage 1 2026",

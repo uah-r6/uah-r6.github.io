@@ -23,10 +23,14 @@ def main() -> None:
         kill_errors += row["derived"]["kills"] != target_k
         death_errors += row["derived"]["deaths"] != target_d
         maps[row["replay_folder"]].append((row, target_k, target_d))
-    agreeing_maps = sum(
-        sum(row["derived"]["kills"] for row, _, _ in group) == sum(k for _, k, _ in group) and
-        sum(row["derived"]["deaths"] for row, _, _ in group) == sum(d for _, _, d in group)
-        for group in maps.values())
+    map_totals = [
+        (group[0][0]["event"], group[0][0]["map"],
+         sum(row["derived"]["kills"] for row, _, _ in group),
+         sum(row["derived"]["deaths"] for row, _, _ in group),
+         sum(k for _, k, _ in group), sum(d for _, _, d in group))
+        for group in maps.values()]
+    mismatched_maps = [item for item in map_totals if item[2:4] != item[4:6]]
+    agreeing_maps = len(map_totals) - len(mismatched_maps)
     round_log = analyze_round_logs()
     lines = ["# Professional replay quality audit", "",
              f"{len(rows)} player-map rows from {len(maps)} maps; "
@@ -39,10 +43,10 @@ def main() -> None:
              "| Map/team/score/round mismatch | 0 | Would reject entire map |", "",
              f"{kill_errors} rows have a kill discrepancy; {death_errors} have a death discrepancy. "
              f"{agreeing_maps} of {len(maps)} map-wide kill and death totals agree with public targets. "
-             "The exception is Europe MENA Stage 1 Chalet: the replay has 100 non-teamkill kills "
-             "and 101 deaths; the public target has 101 kills and 101 deaths. The replay has one "
+             "The map-wide exceptions are listed below. The Europe MENA Chalet replay has one "
              "teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. "
-             "Most discrepancies are per-player attribution, not lost rounds. A pilot probe found cumulative "
+             "Most discrepancies are per-player attribution; map-wide differences remain excluded. "
+             "A pilot probe found cumulative "
              "scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; "
              "it is not yet safe to use those counters to rewrite replay kill events. "
              f"A separate read-only public round-log probe aligned "
@@ -55,9 +59,14 @@ def main() -> None:
              "The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities "
              "lack independent profile confirmation. Other investigated aliases are backed by replay "
              "profile UUIDs and public username histories in `sources.json`.", "",
+             "## Map-wide total differences", "",
+             "| Event | Map | Replay K-D | Public K-D |", "| --- | --- | ---: | ---: |"]
+    for event, map_name, replay_k, replay_d, public_k, public_d in mismatched_maps:
+        lines.append(f"| {event} | {map_name} | {replay_k}-{replay_d} | {public_k}-{public_d} |")
+    lines.extend(["",
              "## Excluded rows", "",
              "| Event | Map | Replay player | Replay K-D | Public K-D | Cause |",
-             "| --- | --- | --- | ---: | ---: | --- |"]
+             "| --- | --- | --- | ---: | ---: | --- |"])
     for row in rows:
         if row["fit_eligible"]:
             continue
