@@ -57,6 +57,22 @@ class ImportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unresolved participant"):
             normalize(raw)
 
+    def test_objective_actor_must_match_side_and_y11_source(self):
+        raw = fixture()
+        row = raw["rounds"][0]
+        row["gameVersion"] = "Y11S2_Alpha04"
+        row["matchFeedback"] = [
+            {"type": "DefuserPlantComplete", "username": "Enemy0"},
+            {"type": "DefuserPlantComplete", "username": "Player1"},
+            {"type": "DefuserDisableComplete", "username": "Enemy1"},
+        ]
+        self.assertEqual(normalize(raw).rounds[0].objectives, [])
+        row["matchFeedback"][1]["objectiveActorSource"] = "score_bonus_unique"
+        row["matchFeedback"][2]["objectiveActorSource"] = "player_packet"
+        self.assertEqual([(item.kind, item.player) for item in
+                          normalize(raw).rounds[0].objectives],
+                         [("plant", "our-1"), ("disable", "enemy-1")])
+
     def test_ranked_rejected_before_write(self):
         with patch("r6stats.cli.parse_match", return_value=normalize(fixture("Ranked"))):
             with self.assertRaisesRegex(ValueError, "Ranked"):

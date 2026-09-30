@@ -134,11 +134,24 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
                     kills.append(Kill(seq, remaining, "", victim.key, -1, victim.team))
             elif kind in {"defuserplantcomplete", "defuserdisablecomplete", "plant", "disable"}:
                 actor = names.get(str(event.get("username") or "").strip().casefold())
-                if actor:
-                    objectives.append(Objective("plant" if "plant" in kind else "disable",
-                                                actor.key, actor.team, remaining))
-                else:
+                objective_kind = "plant" if "plant" in kind else "disable"
+                expected_side = "Attack" if objective_kind == "plant" else "Defense"
+                if not actor:
                     LOG.warning("Skipping objective without known actor in round %s", ordinal)
+                elif actor.side != expected_side:
+                    LOG.warning("Skipping %s credited to a %s player in round %s",
+                                objective_kind, actor.side, ordinal)
+                elif (str(row.get("gameVersion") or "").startswith("Y11") and
+                      event.get("objectiveActorSource") not in
+                      {"player_packet", "score_bonus_unique"}):
+                    # Current Y11 defuser timer packets do not contain the actor
+                    # at the old fixed offset. The low-level reader can emit a
+                    # completion with its stale/default player index. Require
+                    # explicit evidence of a verified actor before counting it.
+                    LOG.warning("Skipping Y11 %s without verified actor in round %s",
+                                objective_kind, ordinal)
+                else:
+                    objectives.append(Objective(objective_kind, actor.key, actor.team, remaining))
             elif kind not in {"other", "downbutnotout", "objective", "defuserplantstart", "defuserdisablestart", "locateobjective", "operatorswap", "battleye", "playerleave"}:
                 LOG.debug("Unrecognized feedback type: %s", kind)
         teams = row["teams"]

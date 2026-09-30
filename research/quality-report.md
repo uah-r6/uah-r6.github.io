@@ -1,6 +1,6 @@
 # Professional replay quality audit
 
-550 player-map rows from 55 maps; 400 pass all gates. Reserved rows by event: North America League Stage 2 2026: 60 clean rows; Europe MENA League Stage 2 2026: 16 clean rows. Europe MENA Stage 2 was evaluated once and is historical; North America Stage 2 remains untouched for a new final test.
+550 player-map rows from 55 maps; 400 pass all gates. Reserved rows by event: North America League Stage 2 2026: 60 clean rows; Europe MENA League Stage 2 2026: 16 clean rows. Europe MENA Stage 2 was evaluated once and is historical; North America Stage 2 remains untouched for a new final test. Objective counts are not an admission gate; the current Y11 actor signal is unresolved as documented in [objective-coverage.md](objective-coverage.md).
 
 | Cause | Rows | Treatment |
 | --- | ---: | --- |

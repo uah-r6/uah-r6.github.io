@@ -40,7 +40,9 @@ def main() -> None:
              f"{sum(row['fit_eligible'] for row in rows)} pass all gates. "
              f"Reserved rows by event: {reserved_summary}. "
              "Europe MENA Stage 2 was evaluated once and is historical; "
-             "North America Stage 2 remains untouched for a new final test.", "",
+             "North America Stage 2 remains untouched for a new final test. "
+             "Objective counts are not an admission gate; the current Y11 actor signal is "
+             "unresolved as documented in [objective-coverage.md](objective-coverage.md).", "",
              "| Cause | Rows | Treatment |", "| --- | ---: | --- |",
              f"| Replay/public per-player K/D mismatch | {issues['kills/deaths mismatch']} | Exclude |",
              f"| Unverified replay ↔ SiegeGG alias | {issues['player alias lacks independent identity confirmation']} | Exclude |",

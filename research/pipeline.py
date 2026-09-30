@@ -66,6 +66,11 @@ def parser_hash() -> str:
     return digest.hexdigest()
 
 
+def adapter_hash() -> str:
+    """Invalidate normalized research maps when Python replay semantics change."""
+    return hashlib.sha256((ROOT / "r6stats/parser/siege_dissect.py").read_bytes()).hexdigest()
+
+
 def collect(source: dict, *, force: bool = False) -> None:
     archive = replay_zip(source)
     cache_url(source["archive_url"], archive)
@@ -106,6 +111,7 @@ def collect(source: dict, *, force: bool = False) -> None:
             source_files = sorted(folders[0].glob("*.rec"))
         if mapping.get("segments"):
             signature = {"schema": 2, "parser_sha256": parser_hash(),
+                         "adapter_sha256": adapter_hash(),
                          "logical_mapping": mapping,
                          "replay_files": [{"folder": path.parent.name, "name": path.name,
                                            "size": path.stat().st_size,
@@ -113,6 +119,7 @@ def collect(source: dict, *, force: bool = False) -> None:
                                           for path in source_files]}
         else:
             signature = {"schema": 1, "parser_sha256": parser_hash(),
+                         "adapter_sha256": adapter_hash(),
                          "replay_files": [{"name": path.name, "size": path.stat().st_size,
                                            "mtime_ns": path.stat().st_mtime_ns}
                                           for path in source_files]}
