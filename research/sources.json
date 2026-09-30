@@ -2,6 +2,114 @@
   "schema": 1,
   "matches": [
     {
+      "label": "furia-faze-sal-stage1-rehost-2026-07-04",
+      "extraction_label": "candidate-8554",
+      "event": "South America League Stage 1 2026",
+      "rehost_official_match_id": 8554,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8554",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S1D7_FURIAvFaZe.zip",
+      "siegegg_match_id": 4115,
+      "maps": [{
+        "folder": "logical-rehost-8554", "siegegg_game_id": 8555,
+        "segments": ["Match-2026-07-04_16-53-39-39776", "Match-2026-07-04_17-30-20-39776"],
+        "excluded_physical_rounds": [{"folder": "Match-2026-07-04_16-53-39-39776", "filename": "Match-2026-07-04_16-53-39-39776-R08.rec"}]
+      }],
+      "players": {
+        "vitaking.FaZe": 2323, "kds.FaZe": 1109, "Handyy.FaZe": 2822,
+        "soulz1.FaZe": 1386, "cyber.FaZe": 104,
+        "Loira.FURIA": 3169, "Bokzera.FURIA": 3200,
+        "volpz7.FURIA": 2667, "Dias.FURIA": 2191, "HerdsZ.FURIA": 1114
+      },
+      "verified_player_aliases": {
+        "volpz7.FURIA": {
+          "siegegg_player_id": 2667,
+          "replay_profile_id": "940b5470-b8cc-4c2d-bf76-e90dddb63233",
+          "evidence": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/9/roster",
+          "note": "Official Ubisoft FURIA roster lists volpz; the same volpz7.FURIA profile UUID appears in another official FURIA replay with SiegeGG player 2667."
+        },
+        "Dias.FURIA": {
+          "siegegg_player_id": 2191,
+          "replay_profile_id": "262d4e4a-5b12-4030-a202-5ad1427f2fcb",
+          "evidence": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/9/roster",
+          "note": "Official Ubisoft FURIA roster lists Dias; the same Dias.FURIA profile UUID appears in another official FURIA replay with SiegeGG player 2191."
+        }
+      }
+    },
+    {
+      "label": "m80-shopify-nal-stage1-rehost-2026-06-25",
+      "extraction_label": "candidate-8007",
+      "event": "North America League Stage 1 2026",
+      "rehost_official_match_id": 8007,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8007",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D6_M80vSR.zip",
+      "siegegg_match_id": 4147,
+      "maps": [{
+        "folder": "logical-rehost-8007", "siegegg_game_id": 7411,
+        "segments": ["Match-2026-06-25_20-11-14-17636", "Match-2026-06-25_20-44-26-17636"],
+        "excluded_physical_rounds": [{"folder": "Match-2026-06-25_20-11-14-17636", "filename": "Match-2026-06-25_20-11-14-17636-R08.rec"}]
+      }],
+      "players": {
+        "Ashn.M80": 3258, "dfuzr.M80": 3457, "Savage.M80": 3090,
+        "Gaveni.M80": 3108, "Gunnar.M80": 2393,
+        "Surf.SR": 2397, "Rexen.SR": 1040, "Ambi.SR": 3498,
+        "Spoit.SR": 380, "Canadian.SR": 49
+      }
+    },
+    {
+      "label": "dz-ssg-nal-stage1-rehost-2026-06-25",
+      "extraction_label": "candidate-8009",
+      "event": "North America League Stage 1 2026",
+      "rehost_official_match_id": 8009,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8009",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D6_DZvSSG.zip",
+      "siegegg_match_id": 4149,
+      "maps": [{
+        "folder": "logical-rehost-8009", "siegegg_game_id": 7418,
+        "segments": ["Match-2026-06-25_22-20-49-17636", "Match-2026-06-25_22-29-01-17636"],
+        "excluded_physical_rounds": [{"folder": "Match-2026-06-25_22-20-49-17636", "filename": "Match-2026-06-25_22-20-49-17636-R02.rec"}]
+      }],
+      "players": {
+        "Aiden.SSG": 3749, "Dream.SSG": 1349, "Gity.SSG": 2325,
+        "Raid.SSG": 3862, "Rival.SSG": 3747,
+        "Fultz.DZ": 1077, "Nuers.DZ": 2935, "J9O.DZ": 1810,
+        "Kyno.DZ": 1871, "njr.DZ": 1809
+      },
+      "verified_player_aliases": {
+        "Raid.SSG": {
+          "siegegg_player_id": 3862,
+          "replay_profile_id": "c7010f18-59f7-40fd-8e85-0c80362a8a80",
+          "evidence": "https://liquipedia.net/rainbowsix/Raidbullys",
+          "note": "Player profile lists Raid as an alternate ID of SSG Raidbullys, SiegeGG player 3862."
+        },
+        "Rival.SSG": {
+          "siegegg_player_id": 3747,
+          "replay_profile_id": "84108126-312e-47ad-9cc8-9c21b31188ef",
+          "evidence": "https://stats.cc/siege/Rival.QoR/84108126-312e-47ad-9cc8-9c21b31188ef",
+          "note": "Matching Ubisoft profile history contains Rival.SSG and RivalGN, corresponding to SiegeGG GNRIVAL."
+        }
+      }
+    },
+    {
+      "label": "forfun-cloud9-nal-stage1-rehost-2026-07-02",
+      "extraction_label": "candidate-8019",
+      "event": "North America League Stage 1 2026",
+      "rehost_official_match_id": 8019,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8019",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D8_C9vFF.zip",
+      "siegegg_match_id": 4136,
+      "maps": [{
+        "folder": "logical-rehost-8019", "siegegg_game_id": 8056,
+        "segments": ["Match-2026-07-02_18-25-41-4828", "Match-2026-07-02_18-41-47-4828"],
+        "excluded_physical_rounds": [{"folder": "Match-2026-07-02_18-25-41-4828", "filename": "Match-2026-07-02_18-25-41-4828-R02.rec"}]
+      }],
+      "players": {
+        "Packer.4FUN": 3001, "MikeW.4FUN": 3465, "Vulspur.4FUN": 3763,
+        "Beeno.4FUN": 2112, "Sylo.4FUN": 3904,
+        "Eddy.C9": 2830, "Panbazou.C9": 1860, "Centir.C9": 3480,
+        "Monk.c9": 341, "Ewzy.C9": 3972
+      }
+    },
+    {
       "label": "ssg-forfun-nal-stage2-2026-09-09",
       "extraction_label": "candidate-8284",
       "event": "North America League Stage 2 2026",

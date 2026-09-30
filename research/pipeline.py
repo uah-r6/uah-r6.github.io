@@ -93,21 +93,43 @@ def collect(source: dict, *, force: bool = False) -> None:
     for mapping in source["maps"]:
         derived = DATA / "derived" / (mapping["folder"] + ".json")
         cache_record = DATA / "derived" / (mapping["folder"] + ".meta.json")
-        folders = [path for path in extraction.rglob(mapping["folder"]) if path.is_dir()]
-        if len(folders) != 1:
-            raise ValueError(f"Expected one replay folder {mapping['folder']}, found {len(folders)}")
-        source_files = sorted(folders[0].glob("*.rec"))
-        signature = {"schema": 1, "parser_sha256": parser_hash(),
-                     "replay_files": [{"name": path.name, "size": path.stat().st_size,
-                                       "mtime_ns": path.stat().st_mtime_ns}
-                                      for path in source_files]}
+        if mapping.get("segments"):
+            folders = [path for name in mapping["segments"]
+                       for path in extraction.rglob(name) if path.is_dir()]
+            if len(folders) != len(mapping["segments"]):
+                raise ValueError(f"Expected all rehost segments for {mapping['folder']}")
+            source_files = [path for folder in folders for path in sorted(folder.glob("*.rec"))]
+        else:
+            folders = [path for path in extraction.rglob(mapping["folder"]) if path.is_dir()]
+            if len(folders) != 1:
+                raise ValueError(f"Expected one replay folder {mapping['folder']}, found {len(folders)}")
+            source_files = sorted(folders[0].glob("*.rec"))
+        if mapping.get("segments"):
+            signature = {"schema": 2, "parser_sha256": parser_hash(),
+                         "logical_mapping": mapping,
+                         "replay_files": [{"folder": path.parent.name, "name": path.name,
+                                           "size": path.stat().st_size,
+                                           "mtime_ns": path.stat().st_mtime_ns}
+                                          for path in source_files]}
+        else:
+            signature = {"schema": 1, "parser_sha256": parser_hash(),
+                         "replay_files": [{"name": path.name, "size": path.stat().st_size,
+                                           "mtime_ns": path.stat().st_mtime_ns}
+                                          for path in source_files]}
         if derived.exists() and cache_record.exists() and not force:
             try:
                 if json.loads(cache_record.read_text(encoding="utf-8")) == signature:
                     continue
             except (OSError, json.JSONDecodeError):
                 pass
-        match = parse_match(folders[0])
+        if mapping.get("segments"):
+            from rehost_pipeline import build
+            meta = json.loads((DATA / "targets" /
+                               f"siegegg-match-{match_id}-api.json").read_text())
+            match = build(source, mapping, extraction, meta,
+                          DATA / "diagnostics/rehost" / str(source["rehost_official_match_id"]))
+        else:
+            match = parse_match(folders[0])
         derived.parent.mkdir(parents=True, exist_ok=True)
         temporary = derived.with_name(derived.name + ".partial")
         temporary.write_text(json.dumps(match.to_dict(), indent=2), encoding="utf-8")
