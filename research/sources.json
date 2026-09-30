@@ -2,6 +2,26 @@
   "schema": 1,
   "matches": [
     {
+      "label": "m80-cloud9-nal-stage1-rehost-2026-06-18",
+      "extraction_label": "candidate-7998",
+      "event": "North America League Stage 1 2026",
+      "rehost_official_match_id": 7998,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/7998",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D4_C9vM80.zip",
+      "siegegg_match_id": 3905,
+      "maps": [{
+        "folder": "logical-rehost-7998", "siegegg_game_id": 7016,
+        "segments": ["Match-2026-06-18_16-24-16-18868", "Match-2026-06-18_17-17-09-18868"],
+        "excluded_physical_rounds": [{"folder": "Match-2026-06-18_16-24-16-18868", "filename": "Match-2026-06-18_16-24-16-18868-R10.rec"}]
+      }],
+      "players": {
+        "Eddy.C9": 2830, "Panbazou.C9": 1860, "Centir.C9": 3480,
+        "Monk.c9": 341, "Ewzy.C9": 3972,
+        "dfuzr.M80": 3457, "Ashn.M80": 3258, "Savage.M80": 3090,
+        "Gaveni.M80": 3108, "Gunnar.M80": 2393
+      }
+    },
+    {
       "label": "furia-faze-sal-stage1-rehost-2026-07-04",
       "extraction_label": "candidate-8554",
       "event": "South America League Stage 1 2026",

@@ -9,8 +9,12 @@ import (
 
 func readPlayer(r *Reader) error {
 	idIndicator := []byte{0x33, 0xD8, 0x3D, 0x4F, 0x23}
+	uiIDIndicator := []byte{0x38, 0xDF, 0xEE, 0x88}
 	if r.Header.CodeVersion <= Y7S2 {
 		idIndicator = []byte{0xE6, 0xF9, 0x7D, 0x86}
+	} else if r.Header.CodeVersion == Y11S2_Alpha03NAL {
+		idIndicator = []byte{0x8C, 0x61, 0x1A, 0x75, 0x23}
+		uiIDIndicator = []byte{0x70, 0xFA, 0xAF, 0x28}
 	}
 	spawnIndicator := []byte{0xAF, 0x98, 0x99, 0xCA}
 	profileIDIndicator := []byte{0x8A, 0x50, 0x9B, 0xD0}
@@ -96,7 +100,7 @@ func readPlayer(r *Reader) error {
 	// there seems to be more to this, but its a quick fix for atk op swaps for now
 	var uiID uint64
 	if r.Header.CodeVersion >= Y9S3 {
-		if err = r.Seek([]byte{0x38, 0xDF, 0xEE, 0x88}); err != nil {
+		if err = r.Seek(uiIDIndicator); err != nil {
 			return err
 		}
 		if err = r.Skip(13); err != nil {

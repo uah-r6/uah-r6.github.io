@@ -38,6 +38,11 @@ const (
 	// All 43 rounds in four official Europe MENA Stage 1 June 8–9 maps
 	// have the structural action marker and pre-action operator packets.
 	Y11S2_Alpha03EML int = 9718747
+	// June 18 North America Stage 1 replays use alternate player identity
+	// property hashes. All 24 physical rounds in two official match archives
+	// have the structural 0->179 action marker and all 120 final attacker IDs
+	// in pre-action operator packets.
+	Y11S2_Alpha03NAL int = 9734089
 	Y11S2_Alpha04Pro int = 9751808
 	Y11S2_Alpha04EML int = 9769907
 	Y11S2_Alpha04EWC int = 9820472
@@ -51,7 +56,7 @@ const (
 // Restrict action-start operator selection to verified replay layouts.
 func supportsActionStartOperators(codeVersion int) bool {
 	return codeVersion == Y11S1_Alpha03Pro || codeVersion == Y11S1_Alpha03SLC ||
-		codeVersion == Y11S2_Alpha03EML ||
+		codeVersion == Y11S2_Alpha03EML || codeVersion == Y11S2_Alpha03NAL ||
 		codeVersion == Y11S2_Alpha04Pro || codeVersion == Y11S2_Alpha04EML ||
 		codeVersion == Y11S2_Alpha04EWC || codeVersion == Y11S3_Alpha04EML ||
 		codeVersion == Y11S3_Alpha04NAL ||

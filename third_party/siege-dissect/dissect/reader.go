@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
+	"fmt"
 	"io"
 	"math"
 	"runtime"
@@ -231,9 +232,16 @@ func (r *Reader) Read() (err error) {
 		for _, listener := range r.listeners[entry.listenerIndex] {
 			r.offset = entry.offset + 1
 			if err = listener(r); err != nil {
+				if !r.readPartial && errors.Is(err, io.EOF) &&
+					len(r.Header.Players) > 0 && len(r.Scoreboard.Players) == 0 {
+					return fmt.Errorf("unsupported replay layout for build %d: no in-round player records were decoded (%v)", r.Header.CodeVersion, err)
+				}
 				return
 			}
 		}
+	}
+	if !r.readPartial && len(r.Header.Players) > 0 && len(r.Scoreboard.Players) == 0 {
+		return fmt.Errorf("unsupported replay layout for build %d: no in-round player records were decoded", r.Header.CodeVersion)
 	}
 	if !r.readPartial {
 		r.roundEnd()

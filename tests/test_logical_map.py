@@ -1,4 +1,4 @@
-"""Logical-round fixtures use score sequences from four real 2026 rehosts."""
+"""Logical-round fixtures use score sequences from real 2026 rehosts."""
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -100,6 +100,19 @@ def test_rehost_join_rejects_unrelated_maps_and_unreachable_score():
     bad_second = replace(second, rounds=shifted)
     with pytest.raises(ValueError, match="score-continuous"):
         stitch_segments([first, bad_second])
+
+
+def test_real_missing_round_rehost_is_not_fabricated():
+    # Official 7999 has two physical rounds ending 2-0; the next segment
+    # starts 2-1. The Wildcard win between them is absent from both replays.
+    case = {"id": 7999, "map": "Kafe", "excluded": None,
+            "segments": [
+                [[[0, 1], [0, 0]], [[1, 2], [0, 0]]],
+                [[[2, 3], [1, 1]], [[3, 3], [1, 2]], [[3, 3], [2, 3]],
+                 [[3, 4], [3, 3]], [[4, 5], [3, 3]], [[5, 5], [3, 4]],
+                 [[5, 5], [4, 5]], [[5, 5], [5, 6]], [[5, 5], [6, 7]]]]}
+    with pytest.raises(ValueError, match="score-continuous"):
+        stitch_segments(segments_for(case), expected_final_scores=(5, 7))
 
 
 def test_rehost_join_rejects_duplicate_segment_or_wrong_confirmed_final_score():

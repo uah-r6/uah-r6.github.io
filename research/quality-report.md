@@ -1,19 +1,20 @@
 # Professional replay quality audit
 
-550 player-map rows from 55 maps; 400 pass all gates. Reserved rows by event: North America League Stage 2 2026: 60 clean rows; Europe MENA League Stage 2 2026: 16 clean rows. Europe MENA Stage 2 was evaluated once and is historical; North America Stage 2 remains untouched for a new final test. Objective counts are not an admission gate; the current Y11 actor signal is unresolved as documented in [objective-coverage.md](objective-coverage.md).
+560 player-map rows from 56 maps; 407 pass all gates. Reserved rows by event: North America League Stage 2 2026: 60 clean rows; Europe MENA League Stage 2 2026: 16 clean rows. Europe MENA Stage 2 was evaluated once and is historical; North America Stage 2 remains untouched for a new final test. Objective counts are not an admission gate; the current Y11 actor signal is unresolved as documented in [objective-coverage.md](objective-coverage.md).
 
 | Cause | Rows | Treatment |
 | --- | ---: | --- |
-| Replay/public per-player K/D mismatch | 149 | Exclude |
+| Replay/public per-player K/D mismatch | 152 | Exclude |
 | Unverified replay ↔ SiegeGG alias | 2 | Exclude |
 | Map/team/score/round mismatch | 0 | Would reject entire map |
 
-148 rows have a kill discrepancy; 4 have a death discrepancy. 53 of 55 map-wide kill and death totals agree with public targets. The map-wide exceptions are listed below. The Europe MENA Chalet replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution; map-wide differences remain excluded. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 593 round winners (0 unaligned) and compared 1006 multikill notes by unique operator; 74 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
+151 rows have a kill discrepancy; 4 have a death discrepancy. 53 of 56 map-wide kill and death totals agree with public targets. The map-wide exceptions are listed below. The Europe MENA Chalet replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution; map-wide differences remain excluded. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 605 round winners (0 unaligned) and compared 1023 multikill notes by unique operator; 74 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
 
 ## Map-wide total differences
 
 | Event | Map | Replay K-D | Public K-D |
 | --- | --- | ---: | ---: |
+| North America League Stage 1 2026 | Clubhouse | 85-86 | 86-86 |
 | North America League Stage 1 2026 | Lair | 62-63 | 63-63 |
 | Europe MENA League Stage 1 2026 | Chalet | 100-101 | 101-101 |
 
@@ -21,6 +22,9 @@
 
 | Event | Map | Replay player | Replay K-D | Public K-D | Cause |
 | --- | --- | --- | ---: | ---: | --- |
+| North America League Stage 1 2026 | Clubhouse | Ewzy.C9 | 9-8 | 10-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Clubhouse | dfuzr.M80 | 9-8 | 10-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Clubhouse | Ashn.M80 | 10-7 | 9-7 | kills/deaths mismatch |
 | South America League Stage 1 2026 | Clubhouse | soulz1.FaZe | 8-8 | 9-8 | kills/deaths mismatch |
 | South America League Stage 1 2026 | Clubhouse | cyber.FaZe | 4-10 | 3-10 | kills/deaths mismatch |
 | South America League Stage 1 2026 | Clubhouse | Loira.FURIA | 6-10 | 7-10 | kills/deaths mismatch |
