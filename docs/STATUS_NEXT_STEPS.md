@@ -34,6 +34,8 @@ The [UAH comparison report](../research/uah_comparison.md) gives per-player map 
 
 Next: independently resolve replay/public kill attribution where possible; add distinct events with verified aliases; reserve a new later untouched final event before further fitting; build more stable operator baselines and teamkill support. Do not implement a runtime candidate or change the default until new held-out evidence supports it.
 
+An additional official North America Stage 1 M80–DarkZero ZIP was downloaded and integrity-checked in ignored research storage. Its seven-round Kafe replay parses with both rosters and zero unresolved Attack operators. SiegeGG's corresponding target API returned HTTP 500, and an existing target endpoint also timed out, so this candidate was not added to `sources.json`, derived observations, or any fit. Retry target collection when the service responds; then apply the full quality gates.
+
 ### Exact continuation commands
 
 Run from the repository root in PowerShell:
