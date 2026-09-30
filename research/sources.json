@@ -2,6 +2,166 @@
   "schema": 1,
   "matches": [
     {
+      "label": "outlast-c9-nal-stage1-2026-06-25",
+      "extraction_label": "candidate-8005",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8005",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D6_C9vOUT.zip",
+      "siegegg_match_id": 3745,
+      "maps": [
+        {
+          "folder": "Match-2026-06-25_19-02-13-17636",
+          "siegegg_game_id": 7405
+        }
+      ],
+      "players": {
+        "Eddy.C9": 2830,
+        "Panbazou.C9": 1860,
+        "Centir.C9": 3480,
+        "Monk.c9": 341,
+        "Ewzy.C9": 3972,
+        "Trevmak.oL": 2109,
+        "Mili.oL": 3899,
+        "Logan.oL": 3897,
+        "Vrionx.oL": 3896,
+        "Nesta.oL": 3898
+      },
+      "verified_player_aliases": {
+        "Logan.oL": {
+          "siegegg_player_id": 3897,
+          "replay_profile_id": "4be22eb3-13ce-4e25-991d-8bcd682b7bec",
+          "evidence": "https://www.stats.cc/siege/Logan.HKM/4be22eb3-13ce-4e25-991d-8bcd682b7bec",
+          "note": "Matching Ubisoft UUID history contains Logan.oL; Logger is the Outlast player Logan."
+        }
+      }
+    },
+    {
+      "label": "100t-five-fears-nal-stage1-2026-06-25",
+      "extraction_label": "candidate-8006",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8006",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D6_100Tv5F.zip",
+      "siegegg_match_id": 4150,
+      "maps": [
+        {
+          "folder": "Match-2026-06-25_23-36-55-17636",
+          "siegegg_game_id": 7419
+        }
+      ],
+      "players": {
+        "Kason.100T": 4034,
+        "Atom.100T": 2981,
+        "Hotancold.100T": 79,
+        "GMZ.100T": 1870,
+        "SpiriTz.100T": 1995,
+        "JJBlaztful.5F": 2140,
+        "Forrest.5F": 1318,
+        "Rival.5F": 3471,
+        "Fenz.5F": 3455,
+        "Snake.5F": 2984
+      },
+      "verified_player_aliases": {
+        "Atom.100T": {
+          "siegegg_player_id": 2981,
+          "replay_profile_id": "5e1c6757-9c92-406f-a380-bf66754f6a41",
+          "evidence": "https://www.opleague.pro/user/9516-Tra_",
+          "note": "OPL links Ubisoft Atom.100T to Adam Gutierrez; SiegeGG player 2981 retains older IGN TRA."
+        },
+        "JJBlaztful.5F": {
+          "siegegg_player_id": 2140,
+          "replay_profile_id": "26dbbcac-2c96-4534-b35d-dc28b775e721",
+          "evidence": "https://www.opleague.pro/user/10156-JJ",
+          "note": "OPL links Ubisoft JJBlaztful.5F to James Letkovsky, SiegeGG player 2140."
+        }
+      }
+    },
+    {
+      "label": "forfun-wc-nal-stage1-2026-06-25",
+      "extraction_label": "candidate-8008",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8008",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D6_FFvWC.zip",
+      "siegegg_match_id": 4148,
+      "maps": [
+        {
+          "folder": "Match-2026-06-25_21-24-22-17636",
+          "siegegg_game_id": 7413
+        }
+      ],
+      "players": {
+        "Spiker.WC": 3223,
+        "kanzen.WC": 1805,
+        "Adrian.WC": 3501,
+        "Bae94.WC": 3411,
+        "bbySharKK.WC": 3667,
+        "Packer.4FUN": 3001,
+        "MikeW.4FUN": 3465,
+        "Vulspur.4FUN": 3763,
+        "Beeno.4FUN": 2112,
+        "Sylo.4FUN": 3904
+      },
+      "verified_player_aliases": {
+        "kanzen.WC": {
+          "siegegg_player_id": 1805,
+          "replay_profile_id": "81bde55f-a30f-450a-94cb-4151b1a32130",
+          "evidence": "https://stats.cc/siege/kanzen.WC/81bde55f-a30f-450a-94cb-4151b1a32130",
+          "note": "Matching Ubisoft UUID history includes kanzenkyari, SiegeGG player 1805."
+        },
+        "Bae94.WC": {
+          "siegegg_player_id": 3411,
+          "replay_profile_id": "874eaaf4-c6da-43d3-8f70-36b342306bbb",
+          "evidence": "https://www.opleague.pro/user/8897-Bae",
+          "note": "OPL links Ubisoft Bae94.WC to Jacob Dowling, SiegeGG player 3411."
+        }
+      }
+    },
+    {
+      "label": "100t-ssg-nal-stage1-2026-07-03",
+      "extraction_label": "candidate-8022",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8022",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D9_100TvSSG.zip",
+      "siegegg_match_id": 4139,
+      "maps": [
+        {
+          "folder": "Match-2026-07-03_16-20-53-12240",
+          "siegegg_game_id": 8307
+        }
+      ],
+      "players": {
+        "Aiden.SSG": 3749,
+        "Dream.SSG": 1349,
+        "Gity.SSG": 2325,
+        "Raid.SSG": 3862,
+        "Rival.SSG": 3747,
+        "Kason.100T": 4034,
+        "Atom.100T": 2981,
+        "Hotancold.100T": 79,
+        "GMZ.100T": 1870,
+        "SpiriTz.100T": 1995
+      },
+      "verified_player_aliases": {
+        "Raid.SSG": {
+          "siegegg_player_id": 3862,
+          "replay_profile_id": "c7010f18-59f7-40fd-8e85-0c80362a8a80",
+          "evidence": "https://liquipedia.net/rainbowsix/Raidbullys",
+          "note": "Player profile lists Raid as alternate ID of SSG Raidbullys, SiegeGG player 3862."
+        },
+        "Rival.SSG": {
+          "siegegg_player_id": 3747,
+          "replay_profile_id": "84108126-312e-47ad-9cc8-9c21b31188ef",
+          "evidence": "https://stats.cc/siege/Rival.QoR/84108126-312e-47ad-9cc8-9c21b31188ef",
+          "note": "Matching Ubisoft UUID history contains Rival.SSG and RivalGN; SiegeGG player 3747 is GNRIVAL."
+        },
+        "Atom.100T": {
+          "siegegg_player_id": 2981,
+          "replay_profile_id": "5e1c6757-9c92-406f-a380-bf66754f6a41",
+          "evidence": "https://www.opleague.pro/user/9516-Tra_",
+          "note": "OPL links Ubisoft Atom.100T to Adam Gutierrez; SiegeGG player 2981 retains older IGN TRA."
+        }
+      }
+    },
+    {
       "label": "g2-geekay-eml-stage1-2026-06-08",
       "extraction_label": "candidate-8027",
       "event": "Europe MENA League Stage 1 2026",

@@ -1,14 +1,14 @@
 # Professional replay quality audit
 
-350 player-map rows from 35 maps; 254 pass all gates. 16 clean September rows were reserved and evaluated once as the final event.
+390 player-map rows from 39 maps; 277 pass all gates. 16 clean September rows were reserved and evaluated once as the final event.
 
 | Cause | Rows | Treatment |
 | --- | ---: | --- |
-| Replay/public per-player K/D mismatch | 95 | Exclude |
+| Replay/public per-player K/D mismatch | 112 | Exclude |
 | Unverified replay ↔ SiegeGG alias | 2 | Exclude |
 | Map/team/score/round mismatch | 0 | Would reject entire map |
 
-94 rows have a kill discrepancy; 4 have a death discrepancy. 33 of 35 map-wide kill and death totals agree with public targets. The map-wide exceptions are listed below. The Europe MENA Chalet replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution; map-wide differences remain excluded. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 375 round winners (0 unaligned) and compared 627 multikill notes by unique operator; 45 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
+111 rows have a kill discrepancy; 4 have a death discrepancy. 37 of 39 map-wide kill and death totals agree with public targets. The map-wide exceptions are listed below. The Europe MENA Chalet replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution; map-wide differences remain excluded. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 418 round winners (0 unaligned) and compared 700 multikill notes by unique operator; 52 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
 
 ## Map-wide total differences
 
@@ -21,6 +21,23 @@
 
 | Event | Map | Replay player | Replay K-D | Public K-D | Cause |
 | --- | --- | --- | ---: | ---: | --- |
+| North America League Stage 1 2026 | Fortress | Eddy.C9 | 10-8 | 8-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Panbazou.C9 | 8-5 | 9-5 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Monk.c9 | 10-7 | 12-7 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Ewzy.C9 | 7-6 | 6-6 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Trevmak.oL | 4-9 | 5-9 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Vrionx.oL | 14-8 | 13-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Lair | Kason.100T | 6-6 | 8-6 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Lair | SpiriTz.100T | 13-7 | 11-7 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | kanzen.WC | 7-4 | 8-4 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Adrian.WC | 12-3 | 11-3 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | MikeW.4FUN | 3-8 | 4-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Sylo.4FUN | 4-8 | 3-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Dream.SSG | 6-8 | 7-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Gity.SSG | 9-10 | 8-10 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | Hotancold.100T | 12-8 | 14-8 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | GMZ.100T | 15-5 | 14-5 | kills/deaths mismatch |
+| North America League Stage 1 2026 | Fortress | SpiriTz.100T | 9-9 | 8-9 | kills/deaths mismatch |
 | Europe MENA League Stage 1 2026 | Lair | Dora.HERETICS | 4-5 | 5-5 | kills/deaths mismatch |
 | Europe MENA League Stage 1 2026 | Lair | Lollo.HERETICS | 10-5 | 9-5 | kills/deaths mismatch |
 | North America League Stage 1 2026 | Lair | JJBlaztful.5F | 3-7 | 4-7 | kills/deaths mismatch |
