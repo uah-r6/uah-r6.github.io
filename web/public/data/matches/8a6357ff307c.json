@@ -1,0 +1,411 @@
+{
+  "id": "8a6357ff307c",
+  "series_id": "170b708e12f1",
+  "season": "fall-2026",
+  "opponent": "Scrim Test",
+  "date": "2026-09-23",
+  "week": "",
+  "notes": "",
+  "map": "Border",
+  "mode": "Bomb",
+  "our_score": 6,
+  "their_score": 8,
+  "result": "LOSS",
+  "demo": false,
+  "players": [
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "rounds": 14,
+      "kills": 5,
+      "deaths": 13,
+      "headshots": 2,
+      "opening_kills": 0,
+      "opening_deaths": 2,
+      "refrag_kills": 3,
+      "deaths_traded": 4,
+      "kills_traded": 0,
+      "untraded_kills": 5,
+      "untraded_deaths": 9,
+      "pivot_kills": 5,
+      "pivot_deaths": 7,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 1,
+      "kost_rounds": 7,
+      "rounds_won": 6,
+      "operators": {
+        "Attack": {
+          "Ace": 2,
+          "Twitch": 1,
+          "Grim": 1,
+          "Thermite": 2,
+          "Ash": 1
+        },
+        "Defense": {
+          "Ela": 2,
+          "Mozzie": 3,
+          "Solis": 2
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 7,
+          "kills": 2,
+          "deaths": 7,
+          "kd": 0.2857142857142857,
+          "kpr": 0.2857142857142857
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 3,
+          "deaths": 6,
+          "kd": 0.5,
+          "kpr": 0.42857142857142855
+        }
+      },
+      "rating": 0.5262637576923077,
+      "kd": 0.38461538461538464,
+      "kpr": 0.35714285714285715,
+      "kost": 0.5,
+      "srv": 0.07142857142857142,
+      "hs": 0.4,
+      "entry_diff": -2,
+      "kd_diff": -8,
+      "objectives": 0
+    },
+    {
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
+      "rounds": 14,
+      "kills": 7,
+      "deaths": 10,
+      "headshots": 3,
+      "opening_kills": 1,
+      "opening_deaths": 2,
+      "refrag_kills": 1,
+      "deaths_traded": 4,
+      "kills_traded": 0,
+      "untraded_kills": 7,
+      "untraded_deaths": 6,
+      "pivot_kills": 4,
+      "pivot_deaths": 4,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 4,
+      "kost_rounds": 8,
+      "rounds_won": 6,
+      "operators": {
+        "Attack": {
+          "Blackbeard": 1,
+          "Striker": 1,
+          "Ram": 2,
+          "Thatcher": 1,
+          "Zero": 1,
+          "Hibana": 1
+        },
+        "Defense": {
+          "Castle": 1,
+          "Kaid": 2,
+          "Warden": 1,
+          "Goyo": 2,
+          "Bandit": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 7,
+          "kills": 3,
+          "deaths": 5,
+          "kd": 0.6,
+          "kpr": 0.42857142857142855
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 4,
+          "deaths": 5,
+          "kd": 0.8,
+          "kpr": 0.5714285714285714
+        }
+      },
+      "rating": 1.0512923251428572,
+      "kd": 0.7,
+      "kpr": 0.5,
+      "kost": 0.5714285714285714,
+      "srv": 0.2857142857142857,
+      "hs": 0.42857142857142855,
+      "entry_diff": -1,
+      "kd_diff": -3,
+      "objectives": 0
+    },
+    {
+      "slug": "lgon",
+      "name": "Lgon",
+      "rounds": 14,
+      "kills": 15,
+      "deaths": 11,
+      "headshots": 9,
+      "opening_kills": 1,
+      "opening_deaths": 0,
+      "refrag_kills": 4,
+      "deaths_traded": 0,
+      "kills_traded": 3,
+      "untraded_kills": 12,
+      "untraded_deaths": 11,
+      "pivot_kills": 13,
+      "pivot_deaths": 5,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 3,
+      "kost_rounds": 9,
+      "rounds_won": 6,
+      "operators": {
+        "Attack": {
+          "Grim": 1,
+          "Deimos": 5,
+          "Twitch": 1
+        },
+        "Defense": {
+          "Fenrir": 1,
+          "Ela": 2,
+          "Mozzie": 2,
+          "Mute": 1,
+          "Azami": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 7,
+          "kills": 5,
+          "deaths": 5,
+          "kd": 1.0,
+          "kpr": 0.7142857142857143
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 10,
+          "deaths": 6,
+          "kd": 1.6666666666666667,
+          "kpr": 1.4285714285714286
+        }
+      },
+      "rating": 1.4339399174285714,
+      "kd": 1.3636363636363635,
+      "kpr": 1.0714285714285714,
+      "kost": 0.6428571428571429,
+      "srv": 0.21428571428571427,
+      "hs": 0.6,
+      "entry_diff": 1,
+      "kd_diff": 4,
+      "objectives": 0
+    },
+    {
+      "slug": "ohwowjay",
+      "name": "OhWowJay",
+      "rounds": 14,
+      "kills": 15,
+      "deaths": 10,
+      "headshots": 5,
+      "opening_kills": 1,
+      "opening_deaths": 3,
+      "refrag_kills": 2,
+      "deaths_traded": 1,
+      "kills_traded": 0,
+      "untraded_kills": 15,
+      "untraded_deaths": 9,
+      "pivot_kills": 11,
+      "pivot_deaths": 6,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 4,
+      "kost_rounds": 8,
+      "rounds_won": 6,
+      "operators": {
+        "Attack": {
+          "Gridlock": 3,
+          "Ram": 1,
+          "Twitch": 3
+        },
+        "Defense": {
+          "Goyo": 3,
+          "Warden": 3,
+          "Ela": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 7,
+          "kills": 9,
+          "deaths": 5,
+          "kd": 1.8,
+          "kpr": 1.2857142857142858
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 6,
+          "deaths": 5,
+          "kd": 1.2,
+          "kpr": 0.8571428571428571
+        }
+      },
+      "rating": 1.6023478334285715,
+      "kd": 1.5,
+      "kpr": 1.0714285714285714,
+      "kost": 0.5714285714285714,
+      "srv": 0.2857142857142857,
+      "hs": 0.3333333333333333,
+      "entry_diff": -2,
+      "kd_diff": 5,
+      "objectives": 0
+    },
+    {
+      "slug": "tallman3-14",
+      "name": "Tallman3.14",
+      "rounds": 14,
+      "kills": 2,
+      "deaths": 13,
+      "headshots": 1,
+      "opening_kills": 1,
+      "opening_deaths": 3,
+      "refrag_kills": 0,
+      "deaths_traded": 2,
+      "kills_traded": 0,
+      "untraded_kills": 2,
+      "untraded_deaths": 11,
+      "pivot_kills": 1,
+      "pivot_deaths": 8,
+      "plants": 3,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 1,
+      "kost_rounds": 8,
+      "rounds_won": 6,
+      "operators": {
+        "Attack": {
+          "Capitao": 2,
+          "Blitz": 4,
+          "Blackbeard": 1
+        },
+        "Defense": {
+          "Mute": 1,
+          "Smoke": 6
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 7,
+          "kills": 1,
+          "deaths": 7,
+          "kd": 0.14285714285714285,
+          "kpr": 0.14285714285714285
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 1,
+          "deaths": 6,
+          "kd": 0.16666666666666666,
+          "kpr": 0.14285714285714285
+        }
+      },
+      "rating": 0.04392444241758231,
+      "kd": 0.15384615384615385,
+      "kpr": 0.14285714285714285,
+      "kost": 0.5714285714285714,
+      "srv": 0.07142857142857142,
+      "hs": 0.5,
+      "entry_diff": -2,
+      "kd_diff": -11,
+      "objectives": 3
+    }
+  ],
+  "rounds": [
+    {
+      "number": 1,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "2F Armory Lockers, 2F Archives"
+    },
+    {
+      "number": 2,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "1F Bathroom, 1F Tellers"
+    },
+    {
+      "number": 3,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "1F Ventilation Room, 1F Workshop"
+    },
+    {
+      "number": 4,
+      "side": "Attack",
+      "result": "Win",
+      "site": "2F Armory Lockers, 2F Archives"
+    },
+    {
+      "number": 5,
+      "side": "Attack",
+      "result": "Win",
+      "site": "2F Armory Lockers, 2F Archives"
+    },
+    {
+      "number": 6,
+      "side": "Attack",
+      "result": "Win",
+      "site": "1F Bathroom, 1F Tellers"
+    },
+    {
+      "number": 7,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "2F Armory Lockers, 2F Archives"
+    },
+    {
+      "number": 8,
+      "side": "Defense",
+      "result": "Win",
+      "site": "1F Bathroom, 1F Tellers"
+    },
+    {
+      "number": 9,
+      "side": "Defense",
+      "result": "Win",
+      "site": "1F Ventilation Room, 1F Workshop"
+    },
+    {
+      "number": 10,
+      "side": "Defense",
+      "result": "Win",
+      "site": "2F Armory Lockers, 2F Archives"
+    },
+    {
+      "number": 11,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "1F Bathroom, 1F Tellers"
+    },
+    {
+      "number": 12,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "1F Ventilation Room, 1F Workshop"
+    },
+    {
+      "number": 13,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "1F Bathroom, 1F Tellers"
+    },
+    {
+      "number": 14,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "1F Ventilation Room, 1F Workshop"
+    }
+  ]
+}
