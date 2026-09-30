@@ -2,6 +2,24 @@
   "schema": 1,
   "matches": [
     {
+      "label": "dz-m80-nal-stage1-2026-07-02",
+      "extraction_label": "na-stage1-probe",
+      "event": "North America League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8016",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_NAL_S1D8_DZvM80.zip",
+      "siegegg_match_id": 4133,
+      "maps": [
+        {"folder": "Match-2026-07-02_15-28-09-4828", "siegegg_game_id": 7860}
+      ],
+      "players": {
+        "Ashn.M80": 3258, "dfuzr.M80": 3457,
+        "Gaveni.M80": 3108, "Savage.M80": 3090,
+        "Gunnar.M80": 2393, "Fultz.DZ": 1077,
+        "Nuers.DZ": 2935, "J9O.DZ": 1810,
+        "Kyno.DZ": 1871, "njr.DZ": 1809
+      }
+    },
+    {
       "label": "heretics-vp-eml-stage2-2026-09-07",
       "event": "Europe MENA League Stage 2 2026",
       "reserved_for_final_test": true,
