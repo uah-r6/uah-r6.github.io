@@ -35,6 +35,9 @@ const (
 	// Official professional replay builds verified against real rounds.
 	Y11S1_Alpha03Pro int = 9636829
 	Y11S1_Alpha03SLC int = 9658832
+	// All 43 rounds in four official Europe MENA Stage 1 June 8–9 maps
+	// have the structural action marker and pre-action operator packets.
+	Y11S2_Alpha03EML int = 9718747
 	Y11S2_Alpha04Pro int = 9751808
 	Y11S2_Alpha04EML int = 9769907
 	Y11S2_Alpha04EWC int = 9820472
@@ -45,6 +48,7 @@ const (
 // Restrict action-start operator selection to verified replay layouts.
 func supportsActionStartOperators(codeVersion int) bool {
 	return codeVersion == Y11S1_Alpha03Pro || codeVersion == Y11S1_Alpha03SLC ||
+		codeVersion == Y11S2_Alpha03EML ||
 		codeVersion == Y11S2_Alpha04Pro || codeVersion == Y11S2_Alpha04EML ||
 		codeVersion == Y11S2_Alpha04EWC || codeVersion == Y11S3_Alpha04EML ||
 		codeVersion >= Y11S3_Alpha04

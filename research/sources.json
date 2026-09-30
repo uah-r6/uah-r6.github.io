@@ -2,6 +2,84 @@
   "schema": 1,
   "matches": [
     {
+      "label": "g2-geekay-eml-stage1-2026-06-08",
+      "extraction_label": "candidate-8027",
+      "event": "Europe MENA League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8027",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_EML_S1D1_G2vGKY.zip",
+      "siegegg_match_id": 3637,
+      "maps": [
+        {
+          "folder": "Match-2026-06-08_20-21-34-35484",
+          "siegegg_game_id": 6842
+        }
+      ],
+      "players": {
+        "Doki.G2": 391,
+        "Alem4o.G2": 1738,
+        "Shaiiko.G2": 308,
+        "Benjamaster.G2": 1607,
+        "Stompn.G2": 3752,
+        "GRUBY.Geekay": 2688,
+        "Eupor.Geekay": 3181,
+        "Yoggah.Geekay": 348,
+        "Sarks.Geekay": 3708,
+        "AsK.Geekay": 2258
+      }
+    },
+    {
+      "label": "secret-heretics-eml-stage1-2026-06-08",
+      "extraction_label": "candidate-8029",
+      "event": "Europe MENA League Stage 1 2026",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8029",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_EML_S1D1_THvTS.zip",
+      "siegegg_match_id": 3639,
+      "maps": [
+        {
+          "folder": "Match-2026-06-08_23-04-07-35484",
+          "siegegg_game_id": 6844
+        }
+      ],
+      "players": {
+        "Dora.HERETICS": 3177,
+        "Zaara.HERETICS": 3936,
+        "Reaz.HERETICS": 3935,
+        "Lollo.HERETICS": 2497,
+        "AquiX.HERETICS": 1517,
+        "oscr.SECRET": 2307,
+        "noa.SECRET": 2895,
+        "Mowwwgli.SECRET": 2432,
+        "Flexy.SECRET": 3857,
+        "vDrillz.SECRET": 3813
+      },
+      "verified_player_aliases": {
+        "Zaara.HERETICS": {
+          "siegegg_player_id": 3936,
+          "replay_profile_id": "bf82523d-7a35-4e2f-812d-4e1a882f2d74",
+          "evidence": "https://stats.cc/siege/Zaara.TH/bf82523d-7a35-4e2f-812d-4e1a882f2d74",
+          "note": "Same Ubisoft UUID as verified September Zaara.TH; profile history includes Zaaramy."
+        },
+        "AquiX.HERETICS": {
+          "siegegg_player_id": 1517,
+          "replay_profile_id": "504d3692-9a73-4f49-9aea-ab349219994f",
+          "evidence": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8238",
+          "note": "Same Ubisoft UUID as September aqui-_-.TH, mapped to SiegeGG player 1517 on the same Heretics roster."
+        },
+        "noa.SECRET": {
+          "siegegg_player_id": 2895,
+          "replay_profile_id": "c36f625e-18f7-4e3f-8f4b-ebfd83556663",
+          "evidence": "https://stats.cc/siege/noaDOOM.SECRET/c36f625e-18f7-4e3f-8f4b-ebfd83556663",
+          "note": "Same Ubisoft UUID as verified September noaDOOM.SECRET; profile history includes NoaUrz."
+        },
+        "vDrillz.SECRET": {
+          "siegegg_player_id": 3813,
+          "replay_profile_id": "eca44994-c50c-4b16-ae42-a4a63577a366",
+          "evidence": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8246",
+          "note": "Same Ubisoft UUID as September vDrillz.SECRET, mapped to SiegeGG player 3813 on the same Secret roster."
+        }
+      }
+    },
+    {
       "label": "m80-five-fears-nal-stage1-2026-06-26",
       "extraction_label": "candidate-8010",
       "event": "North America League Stage 1 2026",

@@ -49,7 +49,7 @@ func TestY11OperatorFreezesAtActionStart(t *testing.T) {
 }
 
 func TestProfessionalY11BuildsUseVerifiedActionStartSelection(t *testing.T) {
-	for _, code := range []int{Y11S1_Alpha03Pro, Y11S1_Alpha03SLC, Y11S2_Alpha04Pro, Y11S2_Alpha04EML, Y11S2_Alpha04EWC, Y11S3_Alpha04EML} {
+	for _, code := range []int{Y11S1_Alpha03Pro, Y11S1_Alpha03SLC, Y11S2_Alpha03EML, Y11S2_Alpha04Pro, Y11S2_Alpha04EML, Y11S2_Alpha04EWC, Y11S3_Alpha04EML} {
 		r := &Reader{prepOperatorIDs: map[Operator]bool{Deimos: true, Zofia: true, SolidSnake: true}, Header: Header{
 			CodeVersion: code,
 			Teams:       [2]Team{{Role: Attack}, {Role: Defense}},
@@ -71,7 +71,8 @@ func TestProfessionalY11BuildsUseVerifiedActionStartSelection(t *testing.T) {
 			t.Fatalf("professional build %d did not select verified final operators: %+v", code, r.Header.Players)
 		}
 	}
-	if supportsActionStartOperators(Y11S1_Alpha03) || supportsActionStartOperators(Y11S2_Alpha04Pro-1) {
+	if supportsActionStartOperators(Y11S1_Alpha03) || supportsActionStartOperators(Y11S2_Alpha03EML-1) ||
+		supportsActionStartOperators(Y11S2_Alpha03EML+1) || supportsActionStartOperators(Y11S2_Alpha04Pro-1) {
 		t.Fatal("unverified build was enabled")
 	}
 	if SolidSnake.String() != "Solid Snake" || SolidSnake.Role() != Attack {

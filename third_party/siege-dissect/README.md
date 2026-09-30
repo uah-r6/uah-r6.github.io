@@ -22,6 +22,14 @@ The original UAH Y11S3 boundary logic is unchanged. The local operator table
 maps replay ID `444310693746` to Solid Snake, as confirmed by its final header
 role and [Ubisoft's operator listing](https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators/solid-snake).
 
+Build `9718747` (`Y11S2_Alpha03`) was verified on 43 rounds from four official
+Europe MENA Stage 1 June 8–9 replays. All 43 have the structural action-start
+marker; all 215 attacker header operator IDs appeared in pre-action packets.
+The existing action-start resolver resolves all 215 final attacker operators
+after enabling this exact build. Two of those four maps remain excluded from
+research observations because their SiegeGG targets have an incomplete roster
+or an incorrect round/score total.
+
 `scripts/install-parser.ps1` builds this local source into the ignored
 `.local-tools/bin/siege-dissect.exe` and checks source hashes on every launch,
 so edits to this source cannot leave a stale binary in normal use.

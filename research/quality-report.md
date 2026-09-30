@@ -1,14 +1,14 @@
 # Professional replay quality audit
 
-330 player-map rows from 33 maps; 236 pass all gates. 16 clean September rows were reserved and evaluated once as the final event.
+350 player-map rows from 35 maps; 254 pass all gates. 16 clean September rows were reserved and evaluated once as the final event.
 
 | Cause | Rows | Treatment |
 | --- | ---: | --- |
-| Replay/public per-player K/D mismatch | 93 | Exclude |
+| Replay/public per-player K/D mismatch | 95 | Exclude |
 | Unverified replay ↔ SiegeGG alias | 2 | Exclude |
 | Map/team/score/round mismatch | 0 | Would reject entire map |
 
-92 rows have a kill discrepancy; 4 have a death discrepancy. 31 of 33 map-wide kill and death totals agree with public targets. The map-wide exceptions are listed below. The Europe MENA Chalet replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution; map-wide differences remain excluded. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 352 round winners (0 unaligned) and compared 586 multikill notes by unique operator; 44 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
+94 rows have a kill discrepancy; 4 have a death discrepancy. 33 of 35 map-wide kill and death totals agree with public targets. The map-wide exceptions are listed below. The Europe MENA Chalet replay has one teamkill, but the evidence does not establish whether SiegeGG counted it as a kill. Most discrepancies are per-player attribution; map-wide differences remain excluded. A pilot probe found cumulative scoreboard kill packets, but the entity-to-player offset changes across builds and even maps; it is not yet safe to use those counters to rewrite replay kill events. A separate read-only public round-log probe aligned 375 round winners (0 unaligned) and compared 627 multikill notes by unique operator; 45 disagree with replay-derived round kills. The notes provide independent evidence of attribution differences, but are incomplete and cannot by themselves safely correct every kill. The two remaining aliases are `MARKELELE.SH` and `fenglixiaqiu`; their target identities lack independent profile confirmation. Other investigated aliases are backed by replay profile UUIDs and public username histories in `sources.json`.
 
 ## Map-wide total differences
 
@@ -21,6 +21,8 @@
 
 | Event | Map | Replay player | Replay K-D | Public K-D | Cause |
 | --- | --- | --- | ---: | ---: | --- |
+| Europe MENA League Stage 1 2026 | Lair | Dora.HERETICS | 4-5 | 5-5 | kills/deaths mismatch |
+| Europe MENA League Stage 1 2026 | Lair | Lollo.HERETICS | 10-5 | 9-5 | kills/deaths mismatch |
 | North America League Stage 1 2026 | Lair | JJBlaztful.5F | 3-7 | 4-7 | kills/deaths mismatch |
 | North America League Stage 1 2026 | Clubhouse | J9O.DZ | 14-4 | 13-4 | kills/deaths mismatch |
 | North America League Stage 1 2026 | Clubhouse | Fultz.DZ | 4-5 | 5-5 | kills/deaths mismatch |
