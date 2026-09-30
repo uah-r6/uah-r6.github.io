@@ -8,7 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "research"))
 
 from fit_baseline import features  # noqa: E402
 from fit_models import design, operator_baselines  # noqa: E402
-from pipeline import canonical_map  # noqa: E402
+from pipeline import canonical_map, validate_source_reservation  # noqa: E402
+from expanded_fit import select_groups  # noqa: E402
 
 
 def make_round(operator, kills=0, side="Attack"):
@@ -46,3 +47,23 @@ def test_sparse_operator_mean_shrinks_to_side_prior():
 def test_public_and_replay_kafe_names_match():
     assert canonical_map("Kafe Dostoyevsky") == canonical_map("Kafe")
     assert canonical_map("Bank") != canonical_map("Border")
+
+
+def test_new_final_event_cannot_enter_sources_without_reservation():
+    event = "North America League Stage 2 2026"
+    with pytest.raises(ValueError, match="must be reserved"):
+        validate_source_reservation([{"label": "unreserved", "event": event}], {"event": event})
+    validate_source_reservation([{"label": "reserved", "event": event,
+                                  "reserved_for_final_test": True}], {"event": event})
+
+
+def test_expanded_fit_omits_both_final_events():
+    plan = {"train_events": ["Train"], "development_validation_event": "Validation",
+            "historical_final_event": "Old final", "untouched_final_event": "New final"}
+    rows = [{"event": event, "fit_eligible": True,
+             "reserved_for_final_test": event.endswith("final")}
+            for event in ("Train", "Validation", "Old final", "New final")]
+    train, validation, held_out = select_groups(rows, plan)
+    assert [row["event"] for row in train] == ["Train"]
+    assert [row["event"] for row in validation] == ["Validation"]
+    assert held_out == {"Old final": 1, "New final": 1}

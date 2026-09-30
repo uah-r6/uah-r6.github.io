@@ -32,11 +32,15 @@ def main() -> None:
     mismatched_maps = [item for item in map_totals if item[2:4] != item[4:6]]
     agreeing_maps = len(map_totals) - len(mismatched_maps)
     round_log = analyze_round_logs()
+    reserved = Counter(row["event"] for row in rows
+                       if row["reserved_for_final_test"] and row["fit_eligible"])
+    reserved_summary = "; ".join(f"{event}: {count} clean rows" for event, count in reserved.items())
     lines = ["# Professional replay quality audit", "",
              f"{len(rows)} player-map rows from {len(maps)} maps; "
              f"{sum(row['fit_eligible'] for row in rows)} pass all gates. "
-             f"{sum(row['reserved_for_final_test'] and row['fit_eligible'] for row in rows)} "
-             "clean September rows were reserved and evaluated once as the final event.", "",
+             f"Reserved rows by event: {reserved_summary}. "
+             "Europe MENA Stage 2 was evaluated once and is historical; "
+             "North America Stage 2 remains untouched for a new final test.", "",
              "| Cause | Rows | Treatment |", "| --- | ---: | --- |",
              f"| Replay/public per-player K/D mismatch | {issues['kills/deaths mismatch']} | Exclude |",
              f"| Unverified replay ↔ SiegeGG alias | {issues['player alias lacks independent identity confirmation']} | Exclude |",

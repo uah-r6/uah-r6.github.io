@@ -42,6 +42,9 @@ const (
 	Y11S2_Alpha04EML int = 9769907
 	Y11S2_Alpha04EWC int = 9820472
 	Y11S3_Alpha04EML int = 9879602
+	// All 25 rounds in three September North America Stage 2 maps have the
+	// structural action marker and all 125 final attacker IDs before it.
+	Y11S3_Alpha04NAL int = 9883691
 	Y11S3_Alpha04    int = 9901603
 )
 
@@ -51,5 +54,6 @@ func supportsActionStartOperators(codeVersion int) bool {
 		codeVersion == Y11S2_Alpha03EML ||
 		codeVersion == Y11S2_Alpha04Pro || codeVersion == Y11S2_Alpha04EML ||
 		codeVersion == Y11S2_Alpha04EWC || codeVersion == Y11S3_Alpha04EML ||
+		codeVersion == Y11S3_Alpha04NAL ||
 		codeVersion >= Y11S3_Alpha04
 }

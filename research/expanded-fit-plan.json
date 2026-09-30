@@ -1,0 +1,18 @@
+{
+  "name": "expanded-raw-nine-family-ridge",
+  "model": "The existing nine raw metric families, standardized ridge with alpha 1; no feature or parameter search in this run.",
+  "train_events": [
+    "Six Invitational 2026",
+    "Asia Pacific Kickoff 2026",
+    "Salt Lake City Major 2026",
+    "Asia Pacific League Stage 1 2026",
+    "Europe MENA League Stage 1 2026",
+    "North America League Stage 1 2026",
+    "South America League Stage 1 2026"
+  ],
+  "development_validation_event": "Esports World Cup 2026",
+  "historical_final_event": "Europe MENA League Stage 2 2026",
+  "untouched_final_event": "North America League Stage 2 2026",
+  "prior_experiment_id": "grouped-operator-20260930T103355Z",
+  "rule": "Fit only quality-gated training rows. Validation is for development and was previously viewed. Compare raw-unit coefficient slopes with the prior fit. Do not read historical or untouched final ratings for this experiment."
+}

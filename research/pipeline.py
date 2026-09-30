@@ -25,6 +25,19 @@ from r6stats.stats.calculate import calculate_match  # noqa: E402
 
 DATA = ROOT / "data/research"
 SOURCES = json.loads((ROOT / "research/sources.json").read_text(encoding="utf-8"))["matches"]
+FINAL_TEST_RESERVATION = json.loads(
+    (ROOT / "research/final-test-reservation.json").read_text(encoding="utf-8"))
+
+
+def validate_source_reservation(sources: list[dict], reservation: dict) -> None:
+    event = reservation["event"]
+    missing = [source["label"] for source in sources if source["event"] == event
+               and source.get("reserved_for_final_test") is not True]
+    if missing:
+        raise ValueError(f"Final-test event sources must be reserved: {', '.join(missing)}")
+
+
+validate_source_reservation(SOURCES, FINAL_TEST_RESERVATION)
 
 
 def cache_url(url: str, destination: Path) -> None:
