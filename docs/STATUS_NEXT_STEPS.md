@@ -1,5 +1,11 @@
 # Status and next steps — 2026-09-30
 
+## CURRENT OBJECTIVE RESEARCH CHECKPOINT — 2026-10-01 05:13 UTC
+
+- The seven cached development maps still yield 88 rounds, 27 public objective rounds, and 32 public events (27 plants, five disables). The held 0.10-second timer-run criterion has zero round/count mismatches. Newly generated actor diagnostics for the three independent validation maps are cached under ignored `data/research/diagnostics/`.
+- A new read-only audit of +100 score candidates found 16 uniquely named candidates among 32 events: 12 exact public-actor matches, one plausible alias, and three definitely wrong players. Five events have no +100 candidate. All five disables are ambiguous or absent. A local terminal timer-packet scan across all 32 events found no exact player `DissectID` or scoreboard-style nearby entity reference in a -32/+159-byte window. See `research/objective-coverage.md` and `research/objective_actor_audit.py` / `research/objective_identity_offsets.py`.
+- **NEXT ACTION:** Reverse engineer a separate actor-bearing interaction packet or entity ownership link using development replays, and test it against the 32 audited events, including wrong-score and disable cases. Do not credit an objective actor from a timer threshold, unique score bonus, or a public target. Do not run UAH objective repair or refit the model until actor attribution is trustworthy. Resume with `.\.venv\Scripts\python.exe research\objective_actor_audit.py 4150 4132 3585 6156 3073 3554 4112` and inspect `research/objective-coverage.md`. The 60 NA Stage 2 Rating rows remain sealed; no publish or push.
+
 ## CURRENT PRODUCT CHECKPOINT — 2026-10-01 manual K/D milestone
 
 - Admin map detail now has an auditable final-map K/D editor for roster players. SQLite stores raw replay K/D, final K/D, reason, note, and update timestamp separately from normalized replay/events. Create/edit/remove immediately regenerate local public JSON; removal restores replay K/D and retains the map's partial-data flag.
