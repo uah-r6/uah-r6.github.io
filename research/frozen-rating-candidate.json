@@ -1,0 +1,255 @@
+{
+  "name": "siege-style-raw-v2-research-frozen",
+  "status": "frozen_before_reserved_final_evaluation",
+  "created_at": "2026-10-01T22:38:14.903876+00:00",
+  "source_commit": "717ab587ad3bce68e3c80e8c847b38aebfd1dce8",
+  "baseline_experiment_id": "expanded-raw-20260930T202146Z",
+  "cv_experiment_id": "group-cv-20260930T202147Z",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "source_manifest_sha256": "4725e9bccbb126636b3496f33e87f9b8de7e3b1e15f1859b4b8d790c8a56dce0",
+  "parser_binary_sha256": "e7c2a2db6d0a7bb68013ab285ff859cb1ae27595a74e58901b3a95e82748f4d5",
+  "python_adapter_sha256": "d2ac01f03c4e1b29ce334d5373b135ac170dae4ad02c64f9490bf529daf46b27",
+  "normalized_observation_code_sha256": "38852dadae244112a964836ec2892f1c75ecbbf14b77f843ac159e0ba791ea9e",
+  "train_events": [
+    "Six Invitational 2026",
+    "Asia Pacific Kickoff 2026",
+    "Salt Lake City Major 2026",
+    "Asia Pacific League Stage 1 2026",
+    "Europe MENA League Stage 1 2026",
+    "North America League Stage 1 2026",
+    "South America League Stage 1 2026"
+  ],
+  "train_rows": 299,
+  "development_event": "Esports World Cup 2026",
+  "development_rows": 32,
+  "excluded_historical_event": "Europe MENA League Stage 2 2026",
+  "excluded_reserved_final_event": "North America League Stage 2 2026",
+  "excluded_event_clean_counts": {
+    "Europe MENA League Stage 2 2026": 16,
+    "North America League Stage 2 2026": 60
+  },
+  "quality_gates": [
+    "complete replay map/score/roster",
+    "exact public per-player K/D",
+    "matching public round count",
+    "verified alias where necessary",
+    "no reserved final row in fit or development"
+  ],
+  "model": {
+    "method": "raw",
+    "alpha": 1.0,
+    "intercept": 0.9663210702341137,
+    "weights_standardized": {
+      "kpr": 0.1783383988926295,
+      "teamkills": -0.003740958044867889,
+      "multikill": 0.043059455454397495,
+      "opening": 0.020353508609250837,
+      "clutch": 0.019191796943239425,
+      "kost": 0.08461564886568967,
+      "survival": 0.08714550755803416,
+      "trade": 0.0193703683457493,
+      "objectives": 0.0
+    },
+    "means": {
+      "kpr": 0.6872132698219655,
+      "teamkills": 0.00290168768429638,
+      "multikill": 0.21832020636368463,
+      "opening": -0.002118412987978205,
+      "clutch": 0.008892315414054544,
+      "kost": 0.6169358419358419,
+      "survival": 0.2892744936223197,
+      "trade": 0.003632116675594936,
+      "objectives": 0.0
+    },
+    "scales": {
+      "kpr": 0.31747215388749184,
+      "teamkills": 0.018398414065023003,
+      "multikill": 0.18957445336423615,
+      "opening": 0.13912824673002738,
+      "clutch": 0.02869232693914123,
+      "kost": 0.16816935710093414,
+      "survival": 0.1778316242495531,
+      "trade": 0.1365990260330402,
+      "objectives": 1e-09
+    }
+  },
+  "effective_features": {
+    "kpr": "opponent kills / rounds",
+    "teamkills": "teamkills / rounds",
+    "multikill": "sum(max(opponent kills in round - 1, 0)) / rounds",
+    "opening": "(opening opponent kills - opening deaths) / rounds",
+    "clutch": "successful first-sole-survivor 1vX rounds / rounds, X=1..5",
+    "kost": "rounds with kill OR verified player objective OR survival OR traded death / rounds",
+    "survival": "rounds survived / rounds",
+    "trade": "(deaths traded - kills traded) / rounds, 8-second inclusive window"
+  },
+  "objectives": "Unavailable: zero player credits in clean training cohort. Saved ninth model coefficient is exactly zero; no public actor labels are inputs.",
+  "operator_normalization": "none; earlier event folds favored raw features",
+  "regularization": "standardize on training rows; ridge alpha=1, unpenalized intercept",
+  "development": {
+    "pooled_event_cv": {
+      "n": 299,
+      "mae": 0.03646729236041208,
+      "rmse": 0.048975638819566736,
+      "display_exact": 0.10033444816053512,
+      "max_abs_error": 0.18380449583838732,
+      "within_0.01": 0.2140468227424749,
+      "within_0.02": 0.3712374581939799,
+      "within_0.03": 0.5451505016722408,
+      "within_0.05": 0.745819397993311,
+      "within_0.10": 0.9431438127090301,
+      "worst": [
+        {
+          "event": "North America League Stage 1 2026",
+          "map": "Lair",
+          "player": "Gunnar.M80",
+          "actual": 1.4,
+          "predicted": 1.2162,
+          "error": -0.1838
+        },
+        {
+          "event": "Asia Pacific Kickoff 2026",
+          "map": "Lair",
+          "player": "Lycolis.ORC",
+          "actual": 1.23,
+          "predicted": 1.0537,
+          "error": -0.1763
+        },
+        {
+          "event": "Salt Lake City Major 2026",
+          "map": "Chalet",
+          "player": "kyno",
+          "actual": 0.84,
+          "predicted": 0.6748,
+          "error": -0.1652
+        },
+        {
+          "event": "Salt Lake City Major 2026",
+          "map": "Nighthaven Labs",
+          "player": "Canadian",
+          "actual": 0.94,
+          "predicted": 0.7845,
+          "error": -0.1555
+        },
+        {
+          "event": "North America League Stage 1 2026",
+          "map": "Kafe Dostoyevsky",
+          "player": "Savage.M80",
+          "actual": 1.31,
+          "predicted": 1.1595,
+          "error": -0.1505
+        },
+        {
+          "event": "South America League Stage 1 2026",
+          "map": "Lair",
+          "player": "live.LOUD",
+          "actual": 1.23,
+          "predicted": 1.0986,
+          "error": -0.1314
+        },
+        {
+          "event": "North America League Stage 1 2026",
+          "map": "Bank",
+          "player": "Centir.C9",
+          "actual": 0.74,
+          "predicted": 0.8666,
+          "error": 0.1266
+        },
+        {
+          "event": "North America League Stage 1 2026",
+          "map": "Fortress",
+          "player": "Canadian.SR",
+          "actual": 0.76,
+          "predicted": 0.8795,
+          "error": 0.1195
+        }
+      ]
+    },
+    "august": {
+      "n": 32,
+      "mae": 0.03453027686326667,
+      "rmse": 0.046258083360290685,
+      "display_exact": 0.125,
+      "max_abs_error": 0.13378226538889715,
+      "within_0.01": 0.21875,
+      "within_0.02": 0.46875,
+      "within_0.03": 0.59375,
+      "within_0.05": 0.71875,
+      "within_0.10": 0.96875,
+      "worst": [
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Chalet",
+          "player": "Nuers",
+          "actual": 1.61,
+          "predicted": 1.4762,
+          "error": -0.1338
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Chalet",
+          "player": "Yoggah",
+          "actual": -0.06,
+          "predicted": 0.0312,
+          "error": 0.0912
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Kafe Dostoyevsky",
+          "player": "AsK",
+          "actual": 1.19,
+          "predicted": 1.1108,
+          "error": -0.0792
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Chalet",
+          "player": "kyno",
+          "actual": 1.14,
+          "predicted": 1.0684,
+          "error": -0.0716
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Kafe Dostoyevsky",
+          "player": "kyno",
+          "actual": 0.81,
+          "predicted": 0.7398,
+          "error": -0.0702
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Kafe Dostoyevsky",
+          "player": "Fultz",
+          "actual": 0.68,
+          "predicted": 0.6113,
+          "error": -0.0687
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Border",
+          "player": "VolpsZ",
+          "actual": 0.48,
+          "predicted": 0.4158,
+          "error": -0.0642
+        },
+        {
+          "event": "Esports World Cup 2026",
+          "map": "Chalet",
+          "player": "Fultz",
+          "actual": 1.56,
+          "predicted": 1.5018,
+          "error": -0.0582
+        }
+      ]
+    }
+  },
+  "known_limits": [
+    "objective-positive public rows underpredicted in development",
+    "sparse teamkills and 1v3+ clutches",
+    "only four August development maps",
+    "153 of 560 observed rows fail quality gates"
+  ],
+  "final_test_evaluated": false,
+  "selection_report": "research/output/pre-freeze-review.md"
+}
