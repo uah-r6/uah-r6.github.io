@@ -46,3 +46,20 @@ def test_opening_terms_keep_kills_and_deaths_separate():
     assert values['opening_kills'] == values['opening_deaths'] == 1/6
     assert 'opening' not in values and 'objectives' not in values
     assert values['multikill'] == 10/6
+
+
+def test_kost_without_survival_preserves_kill_and_trade_paths():
+    from kost_experiment import features as kost_features
+    row = sample()
+    for r in row['rounds']:
+        r['plants'] = r['disables'] = 0
+    row['rounds'][0]['survived'] = row['rounds'][0]['kost_rounds'] = 1
+    row['rounds'][1]['kills'] = row['rounds'][1]['kost_rounds'] = 1
+    row['rounds'][2]['deaths_traded'] = row['rounds'][2]['kost_rounds'] = 1
+    for r in row['rounds']:
+        r['kost_rounds'] = int(bool(r['kills'] or r['deaths_traded'] or r['survived']))
+    values = kost_features(row, 'kost_without_survival')
+    assert values['kost'] == 5/6  # kills in rounds 1-5; survival only in round 0
+    assert values['survival'] == 1/6
+    only = kost_features(row, 'kost_only')
+    assert only['kost'] == 1 and 'survival' not in only
