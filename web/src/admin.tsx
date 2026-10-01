@@ -10,9 +10,11 @@ type Player = { id: number; slug: string; display_name: string; username: string
 type Series = { id: string; opponent: string; date: string; week: string; notes: string; season_slug: string; maps: number }
 type Replay = { id: string; name: string; map?: string; timestamp?: string; match_type?: string; status: string; eligible: boolean; tracked_count?: number; rounds?: number; score?: number[]; our_team?: number | null; duplicate?: boolean }
 type Preview = { preview_token: string; map: string; timestamp: string; match_type: string; game_mode: string; rounds: number; score: number[]; our_team: number | null; tracked_players: string[]; teams: { index: number; players: string[] }[]; ambiguous: string | null; duplicate: boolean; active_season: string | null; competition_if_confirmed: string }
+type RehostRound = { segment: number; physical_number: number; filename: string; site: string; winner: number; physical_score: number[]; logical_score: number[]; logical_number: number | null; exclusion_reason: string | null }
+type RehostPreview = Preview & { segments: { segment: number; source_name: string }[]; physical_rounds: RehostRound[] }
 type MapRow = { id: string; map_name: string; match_type: string; our_score: number; their_score: number; opponent: string; date: string; series_date: string; week: string; notes: string; season_name: string; season_slug: string; series_id: string; competition: string; demo: number }
 type ArchiveStatus = { status: string; message: string; rounds: number; path: string }
-type MatchDetail = MapRow & { game_mode: string; tracked_players: string[]; rounds: { number: number; site: string; result: string }[]; archive: ArchiveStatus }
+type MatchDetail = MapRow & { game_mode: string; tracked_players: string[]; rounds: { number: number; site: string; result: string }[]; archive: ArchiveStatus; source_kind: 'normal' | 'rehost'; rehost: { segments: { segment: number; source_name: string }[]; mapping: { segment: number; filename: string; physical_number: number; logical_number: number | null; exclusion_reason: string | null }[]; final_scores: number[] } | null }
 type Dashboard = { active_season: { slug: string; name: string } | null; roster_count: number; maps_imported: number; demo_maps: number; last_imported: { id: string; map_name: string; opponent: string; date: string; season: string } | null; last_publish: { at: string; commit: string } | null; database: { status: string; path: string; size_bytes: number } }
 type SettingsData = { team_name: string; short_name: string; accent: string; replay_path: string; trade_window_seconds: number; rating_version: string; publishing_enabled: boolean; branch: string; remote_url: string; site_url: string }
 
@@ -102,6 +104,7 @@ function DashboardPage({ go }: { go: (page: Page) => void }) {
 }
 
 function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => void }) {
+  const [importType, setImportType] = useState<'normal' | 'rehost'>('normal')
   const [items, setItems] = useState<Replay[]>([])
   const [seasons, setSeasons] = useState<Season[]>([])
   const [series, setSeries] = useState<Series[]>([])
@@ -123,7 +126,13 @@ function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => vo
   async function review(replayId?: string, path?: string, chosenTeam?: number) { setBusy(true); setError(''); try { const result = await api<Preview>('/replays/preview', 'POST', { replay_id: replayId || null, path: path || null, team: chosenTeam ?? null }); setPreview(result); setSelectedId(replayId || ''); setTeam(result.our_team); setConfirmed(false); if (result.active_season) setSeason(result.active_season); if (result.duplicate) notify('This replay has already been imported.', true) } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   async function importMap() { if (!preview) return; setBusy(true); setError(''); try { const result = await api<{ map_id: string; rounds: number }>('/replays/import', 'POST', { preview_token: preview.preview_token, season_slug: season, opponent, week, notes, series_id: seriesId || null, team, confirm_necc: confirmed }); notify(`Imported ${result.rounds} rounds as NECC map ${result.map_id}. Website data refreshed.`); setPreview(null); setConfirmed(false); setOpponent(''); setSeriesId(''); void scan() } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   const selectedSeries = series.find(row => row.id === seriesId)
+  if (importType === 'rehost') return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC rehost" description="Choose ordered Custom Game folders, mark abandoned rounds, and confirm the competitive score." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> Scan replay folder</Button>} />
+    <div className="import-type"><Button secondary onClick={() => setImportType('normal')}>Normal map</Button><Button onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
+    <ErrorBox message={error} />
+    <RehostImportPanel items={items} seasons={seasons} series={series} season={season} setSeason={setSeason} setSeriesId={setSeriesId} notify={notify} afterImport={scan} />
+  </>
   return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC map" description="Scan replays, select one Custom Game, then explicitly confirm it was your NECC match." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> {busy ? 'Working…' : 'Scan replay folder'}</Button>} />
+    <div className="import-type"><Button onClick={() => setImportType('normal')}>Normal map</Button><Button secondary onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
     <ErrorBox message={error} />
     <div className="admin-panel admin-tip"><ShieldCheck size={22} /><div><b>Custom Game is eligibility, not proof of NECC.</b><p>Ranked, Standard and Quick Match cannot be selected. Scrims and other Custom Games stay out of your stats unless you choose and confirm them.</p></div></div>
     <section className="admin-panel"><div className="admin-panel-head"><div><span className="eyebrow">RECENT REPLAYS</span><h2>MatchReplay folder</h2></div><small>{items.length ? `${items.length} replay folders` : 'Click Scan replay folder to begin'}</small></div>
@@ -137,6 +146,88 @@ function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => vo
       <div className="form-grid"><label>Season<select value={season} onChange={event => { setSeason(event.target.value); setSeriesId('') }}><option value="">Select season</option>{seasons.map(row => <option value={row.slug} key={row.slug}>{row.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; setSeriesId(id); const found = series.find(row => row.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(row => <option value={row.id} key={row.id}>vs {row.opponent} · {row.date} ({row.maps} maps)</option>)}</select></label><label>Opponent name<input value={opponent} onChange={event => setOpponent(event.target.value)} placeholder="e.g. UAB" readOnly={!!selectedSeries} /></label><label>NECC week (optional)<input value={week} onChange={event => setWeek(event.target.value)} placeholder="Week 4" /></label><label className="wide">Notes (optional)<textarea value={notes} onChange={event => setNotes(event.target.value)} placeholder="Series context or match notes" rows={3} /></label></div>
       <label className="confirm-line"><input type="checkbox" checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /><span>I manually selected this Custom Game and confirm it was an <b>NECC match</b>. Store it as competition = NECC.</span></label>
       <Button disabled={busy || !confirmed || !opponent.trim() || !season || team === null || preview.duplicate} onClick={() => void importMap()}><Check size={16} /> {busy ? 'Importing…' : 'Import NECC map'}</Button>
+    </section>}
+  </>
+}
+
+type SegmentChoice = { replay_id: string; path: string }
+
+function RehostImportPanel({ items, seasons, series, season, setSeason, setSeriesId, notify, afterImport }: {
+  items: Replay[]; seasons: Season[]; series: Series[]; season: string;
+  setSeason: (value: string) => void; setSeriesId: (value: string) => void;
+  notify: (text: string, error?: boolean) => void; afterImport: () => Promise<void>
+}) {
+  const [segments, setSegments] = useState<SegmentChoice[]>([{ replay_id: '', path: '' }, { replay_id: '', path: '' }])
+  const [exclusions, setExclusions] = useState<Record<string, string>>({})
+  const [preview, setPreview] = useState<RehostPreview | null>(null)
+  const [dirty, setDirty] = useState(false)
+  const [team, setTeam] = useState<number | null>(null)
+  const [finalOur, setFinalOur] = useState('')
+  const [finalTheir, setFinalTheir] = useState('')
+  const [opponent, setOpponent] = useState('')
+  const [week, setWeek] = useState('')
+  const [notes, setNotes] = useState('')
+  const [seriesId, chooseSeries] = useState('')
+  const [confirmMap, setConfirmMap] = useState(false)
+  const [confirmNecc, setConfirmNecc] = useState(false)
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
+  const key = (round: RehostRound) => `${round.segment}:${round.physical_number}`
+  function updateSegment(index: number, value: SegmentChoice) {
+    setSegments(current => current.map((item, at) => at === index ? value : item))
+    setPreview(null); setExclusions({}); setDirty(false); setConfirmMap(false); setConfirmNecc(false)
+  }
+  async function review(chosenTeam?: number) {
+    setBusy(true); setError('')
+    try {
+      const selected = segments.map(item => ({ replay_id: item.replay_id || null, path: item.replay_id ? null : item.path.trim() || null }))
+      const omitted = Object.entries(exclusions).map(([id, reason]) => {
+        const [segment, physical_number] = id.split(':').map(Number)
+        return { segment, physical_number, reason: reason.trim() }
+      })
+      const result = await api<RehostPreview>('/replays/rehost/preview', 'POST', { segments: selected, exclusions: omitted, team: chosenTeam ?? team })
+      setPreview(result); setTeam(result.our_team); setDirty(false); setConfirmMap(false); setConfirmNecc(false)
+      if (result.active_season) setSeason(result.active_season)
+      if (result.our_team !== null) { setFinalOur(String(result.score[result.our_team])); setFinalTheir(String(result.score[1 - result.our_team])) }
+      if (result.duplicate) notify('One of these replay folders was already imported.', true)
+    } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) }
+  }
+  async function importMap() {
+    if (!preview || dirty || team === null) return
+    setBusy(true); setError('')
+    try {
+      const result = await api<{ map_id: string; rounds: number }>('/replays/rehost/import', 'POST', {
+        preview_token: preview.preview_token, season_slug: season, opponent, week, notes,
+        series_id: seriesId || null, team, confirm_necc: confirmNecc,
+        confirm_folders_one_map: confirmMap, final_our_score: Number(finalOur), final_their_score: Number(finalTheir),
+      })
+      notify(`Imported ${result.rounds} logical rounds as NECC map ${result.map_id}.`)
+      setPreview(null); setExclusions({}); setConfirmMap(false); setConfirmNecc(false)
+      await afterImport()
+    } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) }
+  }
+  return <>
+    <div className="admin-panel admin-tip"><ShieldCheck size={22} /><div><b>Rehost import is manual.</b><p>Select only folders from the same competitive map, put them in order, and exclude each abandoned physical round. A later Siege lobby may restart its score at 0–0.</p></div></div>
+    <section className="admin-panel"><span className="eyebrow">PHYSICAL REPLAY SEGMENTS</span><h2>Choose folders in competitive order</h2>
+      {segments.map((choice, index) => <div className="rehost-segment" key={index}><b>Segment {index + 1}</b>
+        <select value={choice.replay_id} onChange={event => updateSegment(index, { replay_id: event.target.value, path: '' })}><option value="">Enter folder path below</option>{items.filter(item => item.eligible && !item.duplicate).map(item => <option key={item.id} value={item.id}>{item.name} · {item.map} · {item.rounds} rounds</option>)}</select>
+        <input value={choice.path} disabled={!!choice.replay_id} onChange={event => updateSegment(index, { replay_id: '', path: event.target.value })} placeholder="C:\...\Match-... folder" />
+        <div className="detail-actions"><Button secondary disabled={index === 0} onClick={() => { const next = [...segments]; [next[index - 1], next[index]] = [next[index], next[index - 1]]; setSegments(next); setPreview(null); setExclusions({}) }}>Move up</Button><Button secondary disabled={index === segments.length - 1} onClick={() => { const next = [...segments]; [next[index + 1], next[index]] = [next[index], next[index + 1]]; setSegments(next); setPreview(null); setExclusions({}) }}>Move down</Button><Button secondary disabled={segments.length <= 2} onClick={() => { setSegments(segments.filter((_, at) => at !== index)); setPreview(null); setExclusions({}) }}>Remove</Button></div>
+      </div>)}
+      <div className="detail-actions"><Button secondary onClick={() => { setSegments([...segments, { replay_id: '', path: '' }]); setPreview(null); setExclusions({}) }}><Plus size={15} /> Add segment</Button><Button disabled={busy || segments.some(item => !item.replay_id && !item.path.trim())} onClick={() => void review()}>{busy ? 'Inspecting…' : 'Preview physical rounds'}</Button></div>
+    </section>
+    <ErrorBox message={error} />
+    {preview && <section className="admin-panel preview-panel"><span className="eyebrow">LOGICAL MAP PREVIEW</span><h2>{preview.map} · {preview.match_type}</h2><p className="admin-muted">{preview.segments.length} physical folders · {preview.physical_rounds.length} physical rounds · {preview.rounds} counting rounds. Physical scores restart within each folder; the logical score counts only selected rounds.</p>
+      <div className="team-choices"><b>Tracked team</b><p>{preview.tracked_players.join(', ') || 'Choose your team below.'}</p>{preview.teams.map(choice => <div key={choice.index}><span>Team {choice.index}: {choice.players.join(', ')}</span>{preview.ambiguous && <Button secondary onClick={() => void review(choice.index)}>Use team {choice.index}</Button>}</div>)}</div>
+      {preview.ambiguous && <div className="admin-inline-error">{preview.ambiguous}</div>}
+      {preview.duplicate && <div className="admin-inline-error">A physical replay folder was already imported.</div>}
+      {preview.segments.map(segment => <div key={segment.segment} className="rehost-round-group"><h3>Segment {segment.segment}: {segment.source_name}</h3>{preview.physical_rounds.filter(round => round.segment === segment.segment).map(round => <div className="rehost-round" key={key(round)}><label><input type="checkbox" checked={!(key(round) in exclusions)} onChange={event => { setExclusions(current => { const next = { ...current }; if (event.target.checked) delete next[key(round)]; else next[key(round)] = 'abandoned rehost round'; return next }); setDirty(true) }} /> R{String(round.physical_number).padStart(2, '0')}</label><span>{round.site} · physical {round.physical_score.join('–')}</span><strong>{key(round) in exclusions ? 'DOES NOT COUNT' : `Logical R${round.logical_number ?? '—'}`}</strong>{key(round) in exclusions && <input aria-label={`Reason segment ${round.segment} round ${round.physical_number}`} value={exclusions[key(round)]} onChange={event => { setExclusions(current => ({ ...current, [key(round)]: event.target.value })); setDirty(true) }} />}</div>)}</div>)}
+      {dirty && <div className="admin-inline-error">Round choices changed. Update the preview before importing.</div>}
+      <div className="detail-actions"><Button secondary disabled={busy} onClick={() => void review(team ?? undefined)}>Update preview and logical score</Button></div>
+      <div className="form-grid"><label>Final UAH score<input type="number" min="0" max="30" value={finalOur} onChange={event => setFinalOur(event.target.value)} /></label><label>Final opponent score<input type="number" min="0" max="30" value={finalTheir} onChange={event => setFinalTheir(event.target.value)} /></label><label>Season<select value={season} onChange={event => { setSeason(event.target.value); chooseSeries(''); setSeriesId('') }}><option value="">Select season</option>{seasons.map(item => <option value={item.slug} key={item.slug}>{item.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; chooseSeries(id); setSeriesId(id); const found = series.find(item => item.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(item => <option value={item.id} key={item.id}>vs {item.opponent} · {item.date}</option>)}</select></label><label>Opponent<input value={opponent} readOnly={!!seriesId} onChange={event => setOpponent(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div>
+      <label className="confirm-line"><input type="checkbox" checked={confirmMap} onChange={event => setConfirmMap(event.target.checked)} /><span>These ordered replay folders belong to one competitive map, and I reviewed every counted or abandoned round.</span></label>
+      <label className="confirm-line"><input type="checkbox" checked={confirmNecc} onChange={event => setConfirmNecc(event.target.checked)} /><span>I confirm this Custom Game map was an NECC match.</span></label>
+      <Button disabled={busy || dirty || preview.duplicate || team === null || !season || !opponent.trim() || !confirmMap || !confirmNecc || finalOur === '' || finalTheir === ''} onClick={() => void importMap()}><Check size={16} /> Import one logical NECC map</Button>
     </section>}
   </>
 }
@@ -221,6 +312,7 @@ function SeriesCard({ group, maps, seasonSeries, notify, after }: { group: Serie
 function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { mapId: string; seasonSeries: Series[]; after: () => Promise<void>; onDeleted: () => void; notify: (text: string, error?: boolean) => void }) {
   const [detail, setDetail] = useState<MatchDetail | null>(null)
   const [replayPath, setReplayPath] = useState('')
+  const [segmentPaths, setSegmentPaths] = useState<string[]>([])
   const [playedOn, setPlayedOn] = useState('')
   const [groupChoice, setGroupChoice] = useState('__same__')
   const [opponent, setOpponent] = useState('')
@@ -229,7 +321,7 @@ function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { m
   const [notes, setNotes] = useState('')
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
-  const load = () => api<MatchDetail>(`/matches/${mapId}`).then(row => { setDetail(row); setPlayedOn(row.date); setOpponent(row.opponent); setSeriesDate(row.series_date); setWeek(row.week || ''); setNotes(row.notes || ''); setGroupChoice('__same__') }).catch(error => setError(error.message))
+  const load = () => api<MatchDetail>(`/matches/${mapId}`).then(row => { setDetail(row); setPlayedOn(row.date); setOpponent(row.opponent); setSeriesDate(row.series_date); setWeek(row.week || ''); setNotes(row.notes || ''); setGroupChoice('__same__'); setSegmentPaths(current => current.length === (row.rehost?.segments.length || 0) ? current : (row.rehost?.segments.map(() => '') || [])) }).catch(error => setError(error.message))
   useEffect(() => { void load() }, [mapId])
   async function save() {
     if (!detail) return
@@ -249,10 +341,10 @@ function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { m
     try { await api(`/matches/${mapId}`, 'DELETE', { confirm_map_id: mapId }); notify('Map and private replay archive deleted. Statistics recalculated; player identities preserved.'); onDeleted(); await after() } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
   async function reparse() {
-    if (!detail || !replayPath.trim() || !window.confirm(`Reparse ${detail.map_name} from this original replay folder? Season and matchup details will be kept.`)) return
+    if (!detail || (detail.source_kind === 'normal' && !replayPath.trim()) || (detail.source_kind === 'rehost' && segmentPaths.some(path => !path.trim())) || !window.confirm(`Reparse ${detail.map_name} from the selected original replay ${detail.source_kind === 'rehost' ? 'folders' : 'folder'}? Season and matchup details will be kept.`)) return
     setBusy(true); setError('')
     try {
-      const result = await api<{ message: string }>(`/matches/${mapId}/reparse`, 'POST', { path: replayPath.trim(), confirm_map_id: mapId })
+      const result = await api<{ message: string }>(`/matches/${mapId}/reparse`, 'POST', { path: replayPath.trim(), segment_paths: segmentPaths.map(path => path.trim()), confirm_map_id: mapId })
       notify(result.message); await load(); await after()
     } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
@@ -265,10 +357,10 @@ function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { m
     } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
   async function backfillArchive() {
-    if (!replayPath.trim()) return
+    if (!detail || (detail.source_kind === 'normal' && !replayPath.trim()) || (detail.source_kind === 'rehost' && segmentPaths.some(path => !path.trim()))) return
     setBusy(true); setError('')
     try {
-      const status = await api<ArchiveStatus>(`/matches/${mapId}/archive`, 'POST', { path: replayPath.trim(), confirm_map_id: mapId })
+      const status = await api<ArchiveStatus>(`/matches/${mapId}/archive`, 'POST', { path: replayPath.trim(), segment_paths: segmentPaths.map(path => path.trim()), confirm_map_id: mapId })
       notify(`Replay archived: ${status.rounds} rounds verified.`)
       await load()
     } catch (error) { setError((error as Error).message) } finally { setBusy(false) }
@@ -287,7 +379,7 @@ function MatchDetailPanel({ mapId, seasonSeries, after, onDeleted, notify }: { m
     catch (error) { setError((error as Error).message) } finally { setBusy(false) }
   }
   if (!detail) return <div className="map-detail"><ErrorBox message={error} /><p className="admin-muted">Loading map…</p></div>
-  return <div className="map-detail"><span className="eyebrow">MAP DETAIL / {detail.id}</span><h3>{detail.map_name} <span>vs {detail.opponent}</span></h3><div className="preview-facts"><div><small>RESULT</small><b>{detail.our_score} – {detail.their_score}</b></div><div><small>ROUNDS</small><b>{detail.rounds.length}</b></div><div><small>MODE</small><b>{detail.game_mode}</b></div><div><small>SEASON</small><b>{detail.season_name}</b></div></div><p className="admin-muted">Tracked players: {detail.tracked_players.join(', ') || 'None identified'}</p><div className="map-rounds">{detail.rounds.map(round => <div key={round.number}><b>R{round.number}</b><span>{round.site}</span><strong className={round.result === 'Win' ? 'positive' : 'negative'}>{round.result}</strong></div>)}</div><div className="archive-card"><span className="eyebrow">PRIVATE REPLAY ARCHIVE</span><h4>{detail.archive.status === 'Healthy' ? 'Archived and verified' : detail.archive.status}</h4><p className="admin-muted">{detail.archive.status === 'Healthy' ? `${detail.archive.rounds} rounds ? ${detail.archive.message}` : detail.archive.message}</p><div className="detail-actions"><Button secondary disabled={busy} onClick={() => void verifyArchive()}>Verify archive</Button><Button secondary disabled={busy || detail.archive.status === 'Missing'} onClick={() => void openArchive()}>Open archive folder</Button><Button secondary disabled={busy || detail.archive.status !== 'Healthy'} onClick={() => void reparseArchived()}><RefreshCw size={16} /> Reparse from archive</Button></div></div><div className="form-grid"><label>Map played on<input type="date" value={playedOn} onChange={event => setPlayedOn(event.target.value)} /></label><label>Series grouping<select value={groupChoice} onChange={event => setGroupChoice(event.target.value)}><option value="__same__">Keep current series</option><option value="__new__">Separate into a new series</option>{seasonSeries.filter(group => group.id !== detail.series_id).map(group => <option key={group.id} value={`series:${group.id}`}>Move to vs {group.opponent} · {group.date}</option>)}</select></label></div>{!groupChoice.startsWith('series:') && <><p className="admin-muted">Opponent, week, notes, and matchup date belong to the series. Editing them updates every map in that series.</p><div className="form-grid"><label>Opponent<input value={opponent} onChange={event => setOpponent(event.target.value)} /></label><label>Matchup date<input type="date" value={seriesDate} onChange={event => setSeriesDate(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div></>}<div className="detail-actions"><Button disabled={busy || !playedOn || (!groupChoice.startsWith('series:') && (!opponent.trim() || !seriesDate))} onClick={() => void save()}>Save map</Button><button className="danger-button" disabled={busy} onClick={() => void remove()}>Delete this map</button></div><div className="form-grid"><label className="wide">Original replay folder for reparse or archive backfill<input value={replayPath} onChange={event => setReplayPath(event.target.value)} placeholder="Full path to this map's Match-... folder" /></label><Button secondary disabled={busy || !replayPath.trim()} onClick={() => void reparse()}><RefreshCw size={16} /> Reparse this map</Button>{detail.archive.status === 'Missing' && <Button secondary disabled={busy || !replayPath.trim()} onClick={() => void backfillArchive()}>Archive this map</Button>}</div><ErrorBox message={error} /></div>
+  return <div className="map-detail"><span className="eyebrow">MAP DETAIL / {detail.id}</span><h3>{detail.map_name} <span>vs {detail.opponent}</span></h3><div className="preview-facts"><div><small>RESULT</small><b>{detail.our_score} – {detail.their_score}</b></div><div><small>ROUNDS</small><b>{detail.rounds.length}</b></div><div><small>MODE</small><b>{detail.game_mode}</b></div><div><small>SEASON</small><b>{detail.season_name}</b></div></div><p className="admin-muted">Tracked players: {detail.tracked_players.join(', ') || 'None identified'}</p><div className="map-rounds">{detail.rounds.map(round => <div key={round.number}><b>R{round.number}</b><span>{round.site}</span><strong className={round.result === 'Win' ? 'positive' : 'negative'}>{round.result}</strong></div>)}</div>{detail.rehost && <div className="rehost-round-group"><h3>Physical to logical round mapping</h3>{detail.rehost.segments.map(segment => <div key={segment.segment}><b>Segment {segment.segment}: {segment.source_name}</b>{detail.rehost!.mapping.filter(item => item.segment === segment.segment).map(item => <div className="rehost-round" key={`${item.segment}:${item.physical_number}`}><span>R{String(item.physical_number).padStart(2, '0')}</span><span>{item.filename}</span><strong>{item.logical_number === null ? 'DOES NOT COUNT' : `Logical R${item.logical_number}`}</strong><span>{item.exclusion_reason || ''}</span></div>)}</div>)}</div>}<div className="archive-card"><span className="eyebrow">PRIVATE REPLAY ARCHIVE</span><h4>{detail.archive.status === 'Healthy' ? 'Archived and verified' : detail.archive.status}</h4><p className="admin-muted">{detail.archive.status === 'Healthy' ? `${detail.archive.rounds} rounds ? ${detail.archive.message}` : detail.archive.message}</p><div className="detail-actions"><Button secondary disabled={busy} onClick={() => void verifyArchive()}>Verify archive</Button><Button secondary disabled={busy || detail.archive.status === 'Missing'} onClick={() => void openArchive()}>Open archive folder</Button><Button secondary disabled={busy || detail.archive.status !== 'Healthy'} onClick={() => void reparseArchived()}><RefreshCw size={16} /> Reparse from archive</Button></div></div><div className="form-grid"><label>Map played on<input type="date" value={playedOn} onChange={event => setPlayedOn(event.target.value)} /></label><label>Series grouping<select value={groupChoice} onChange={event => setGroupChoice(event.target.value)}><option value="__same__">Keep current series</option><option value="__new__">Separate into a new series</option>{seasonSeries.filter(group => group.id !== detail.series_id).map(group => <option key={group.id} value={`series:${group.id}`}>Move to vs {group.opponent} · {group.date}</option>)}</select></label></div>{!groupChoice.startsWith('series:') && <><p className="admin-muted">Opponent, week, notes, and matchup date belong to the series. Editing them updates every map in that series.</p><div className="form-grid"><label>Opponent<input value={opponent} onChange={event => setOpponent(event.target.value)} /></label><label>Matchup date<input type="date" value={seriesDate} onChange={event => setSeriesDate(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div></>}<div className="detail-actions"><Button disabled={busy || !playedOn || (!groupChoice.startsWith('series:') && (!opponent.trim() || !seriesDate))} onClick={() => void save()}>Save map</Button><button className="danger-button" disabled={busy} onClick={() => void remove()}>Delete this map</button></div>{detail.rehost ? <div className="form-grid"><p className="admin-muted wide">Enter every original replay folder in the same order for manual reparse or archive backfill. Archived reparse uses the verified private copies above.</p>{detail.rehost.segments.map((segment, index) => <label className="wide" key={segment.segment}>Segment {segment.segment}: {segment.source_name}<input value={segmentPaths[index] || ''} onChange={event => setSegmentPaths(current => current.map((value, at) => at === index ? event.target.value : value))} placeholder="Full MatchReplay folder path" /></label>)}<Button secondary disabled={busy || segmentPaths.length !== detail.rehost.segments.length || segmentPaths.some(path => !path.trim())} onClick={() => void reparse()}><RefreshCw size={16} /> Reparse all segments</Button>{detail.archive.status === 'Missing' && <Button secondary disabled={busy || segmentPaths.length !== detail.rehost.segments.length || segmentPaths.some(path => !path.trim())} onClick={() => void backfillArchive()}>Archive all segments</Button>}</div> : <div className="form-grid"><label className="wide">Original replay folder for reparse or archive backfill<input value={replayPath} onChange={event => setReplayPath(event.target.value)} placeholder="Full path to this map's Match-... folder" /></label><Button secondary disabled={busy || !replayPath.trim()} onClick={() => void reparse()}><RefreshCw size={16} /> Reparse this map</Button>{detail.archive.status === 'Missing' && <Button secondary disabled={busy || !replayPath.trim()} onClick={() => void backfillArchive()}>Archive this map</Button>}</div>}<ErrorBox message={error} /></div>
 }
 
 function StatisticsPage({ notify }: { notify: (text: string, error?: boolean) => void }) {

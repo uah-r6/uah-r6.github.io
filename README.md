@@ -46,6 +46,10 @@ Import refreshes the local public JSON. Open **Publish** and click **Publish web
 
 ## Private replay archive
 
+For a competitive map that continued in a new Custom Game lobby, open **Import Match → Rehosted map**. Select the physical MatchReplay folders in their competitive order, mark each abandoned physical round as excluded with a reason, and check the proposed logical round order and score. Enter the final competitive score and explicitly confirm that the folders belong to one NECC map. The server verifies map, mode, roster identities, round mapping, and score before import. Long downtime and a 0–0 score reset in a new lobby are allowed. The normal one-folder import remains the default and requires no rehost settings.
+
+An imported rehost has one map ID and a private archive with separate `segment-01`, `segment-02`, and later folders. Its map detail shows the physical-to-logical round mapping. **Reparse from archive** verifies all segment hashes and reapplies the stored exclusions. Manual reparse or backfill requires every original segment folder in the confirmed order.
+
 Every confirmed, successful NECC map import copies its complete `.rec` rounds to `data/replay-archive/<season-id>/<map-id>/`. The original MatchReplay files stay in place. The archive is local and Git-ignored; its manifest records the replay fingerprint, parser hash, source path, original filenames, physical round numbers, file sizes, and SHA-256 hashes. Previewing a replay or rejecting an import does not create a completed archive.
 
 Open a map in **Matches** to see its archive status. **Verify archive** checks every round before **Reparse from archive** can use it. Reparse keeps the map ID, season, opponent, date, week, notes, series, and player identities; a failed reparse leaves stored statistics intact. Older maps show **Not archived** until you backfill from their original complete replay folder or ZIP. Backfill checks the exact stored replay fingerprint and round count and does not change statistics. **Open archive folder** opens the private copy in Explorer.

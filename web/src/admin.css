@@ -5,3 +5,13 @@
 .archive-card{border:1px solid #36524d;background:#172924;padding:18px;margin:18px 0}
 .archive-card h4{font:700 24px 'Barlow Condensed',Arial,sans-serif;margin:8px 0}
 .archive-card .detail-actions{flex-wrap:wrap;justify-content:flex-start}
+.import-type { display: flex; gap: 10px; margin: 0 0 18px; }
+.rehost-segment { display: grid; grid-template-columns: 90px minmax(190px, 1fr) minmax(240px, 1.4fr); gap: 12px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line, #29434a); }
+.rehost-segment .detail-actions { grid-column: 2 / -1; }
+.rehost-segment select, .rehost-segment input, .rehost-round input { width: 100%; }
+.rehost-round-group { margin: 18px 0; }
+.rehost-round-group h3 { font-size: 1rem; margin: 0 0 8px; }
+.rehost-round { display: grid; grid-template-columns: 110px minmax(200px, 1fr) 150px minmax(160px, 1fr); gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line, #29434a); }
+.rehost-round label { display: flex; align-items: center; gap: 8px; }
+.rehost-round label input { width: auto; }
+@media (max-width: 900px) { .rehost-segment, .rehost-round { grid-template-columns: 1fr; } .rehost-segment .detail-actions { grid-column: auto; } }

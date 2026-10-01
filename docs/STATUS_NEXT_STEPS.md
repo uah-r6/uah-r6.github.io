@@ -1,5 +1,12 @@
 # Status and next steps — 2026-09-30
 
+## CURRENT PRODUCT CHECKPOINT — 2026-10-01 rehost admin milestone
+
+- The opt-in browser rehost flow is implemented: select two or more ordered Custom Game replay folders, mark excluded physical R## rounds with a reason, inspect the physical-to-logical mapping, and confirm the final competitive score before import. The normal one-folder import path stays separate and unchanged.
+- A rehost creates one logical map and one private format-2 archive with independently hashed physical segments. Archive verification, source backfill, reparse from verified archive, and delete work with the existing map ID and transactional behavior. Public JSON excludes source paths and rehost metadata.
+- Full Python suite: 70 passed, 1 optional real-replay smoke test skipped, 6 subtests passed. Admin Vite build passed. Only temporary test databases were written; the real four-map SQLite and archives were not modified. No publish or push.
+- **NEXT ACTION:** Implement the narrow auditable final-map K/D correction on tracked players. Keep replay-derived statistics intact, overlay only displayed K/D totals, mark corrected/partial maps Rating-ineligible, and cover create/edit/remove, recalculation/export, deletion, and privacy with tests. Then revisit objective actor attribution on development replays only. Resume with `.\.venv\Scripts\python.exe -m pytest -q` and `cd web; npm.cmd run build:admin`.
+
 ## CURRENT PRODUCT CHECKPOINT — 2026-10-01 04:11 UTC
 
 - HEAD before this checkpoint: `3dac52a`. The first opt-in local rehost layer is implemented in `r6stats/parser/confirmed_rehost.py`: ordered two-or-more physical replay folders, explicit counted/excluded R## mapping, team-index remapping by stable roster identities, logical round renumbering, independent final competitive score validation, and source hashes. It allows a later physical lobby to restart at 0–0. It never changes the existing research score-continuity stitcher or the normal one-folder parser.

@@ -2,13 +2,16 @@
 from dataclasses import replace
 from pathlib import Path
 from contextlib import closing
+from unittest.mock import patch
 
 import pytest
 
 from r6stats.db import repository as repo
-from r6stats.parser.confirmed_rehost import physical_segment, source_fingerprint, stitch_confirmed
+from r6stats.parser.confirmed_rehost import (assemble_rehost, physical_segment,
+                                             source_fingerprint, stitch_confirmed)
 from r6stats.parser.logical_map import PhysicalSegment
 from r6stats.parser.models import Kill, Match, Player, Round
+from r6stats import replay_archive
 from r6stats.stats.calculate import calculate_match
 
 
@@ -90,3 +93,35 @@ def test_source_registry_prevents_importing_a_segment_again(tmp_path):
         assert db.execute("SELECT count(*) FROM map_segments WHERE map_id=?", (map_id,)).fetchone()[0] == 2
         with pytest.raises(ValueError, match="already been imported"):
             repo.insert_map(db, first.match, source_rows[0]["fingerprint"], 0, "Opponent")
+
+
+def test_rehost_archive_keeps_excluded_physical_round_and_verifies_all_segments(tmp_path):
+    first = segment(tmp_path, "segment1", [0, 1, 0])
+    second = segment(tmp_path, "segment2", [0, 1])
+    paths = [tmp_path / "segment1", tmp_path / "segment2"]
+    with patch("r6stats.parser.confirmed_rehost.parse_match",
+               side_effect=[first.match, second.match]):
+        logical, manifest, fingerprint = assemble_rehost(
+            paths, [{"segment": 1, "physical_number": 3, "reason": "abandoned"}], (2, 2))
+    archive_root = tmp_path / "archive"
+    with closing(repo.connect(tmp_path / "tracker.sqlite")) as db:
+        repo.season_create(db, "Fall 2026")
+        for index in range(5):
+            repo.roster_add(db, f"Our{index}")
+        map_id = repo.insert_map(db, logical.match, fingerprint, 0, "Opponent",
+                                 rehost_manifest=manifest, source_segments=manifest["segments"])
+        prepared = replay_archive.prepare_rehost(paths, archive_root, fingerprint, manifest)
+        try:
+            target = replay_archive.commit_rehost(prepared, archive_root, db, map_id)
+        finally:
+            prepared.cleanup()
+        assert (target / "segment-01/segment1-R03.rec").exists()
+        assert (target / "segment-02/segment2-R01.rec").exists()
+        assert replay_archive.verify(db, archive_root, map_id)["status"] == "Healthy"
+        stored = (target / "segment-01/segment1-R03.rec").read_bytes()
+        (target / "segment-01/segment1-R03.rec").write_bytes(b"tampered")
+        assert replay_archive.verify(db, archive_root, map_id)["status"] == "Hash mismatch"
+        (target / "segment-01/segment1-R03.rec").write_bytes(stored)
+        replay_archive.delete_map_and_archive(db, archive_root, map_id)
+        assert not target.exists()
+        assert db.execute("SELECT count(*) FROM players").fetchone()[0] == 5

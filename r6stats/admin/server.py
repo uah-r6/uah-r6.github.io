@@ -23,6 +23,7 @@ from r6stats.db import repository as repo
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats.parser.models import Match
+from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
 from r6stats import replay_archive
@@ -37,6 +38,8 @@ class Preview:
     fingerprint: str
     match: Match
     created: float
+    paths: list[Path] | None = None
+    rehost_manifest: dict | None = None
 
 
 class SeasonCreate(BaseModel):
@@ -100,6 +103,29 @@ class ImportRequest(BaseModel):
         return value.strip()
 
 
+class RehostSource(BaseModel):
+    replay_id: str | None = None
+    path: str | None = None
+
+
+class RehostExclusion(BaseModel):
+    segment: int = Field(ge=1)
+    physical_number: int = Field(ge=1)
+    reason: str = Field(min_length=1, max_length=240)
+
+
+class RehostPreviewRequest(BaseModel):
+    segments: list[RehostSource] = Field(min_length=2)
+    exclusions: list[RehostExclusion] = Field(default_factory=list)
+    team: int | None = Field(default=None, ge=0, le=1)
+
+
+class RehostImportRequest(ImportRequest):
+    confirm_folders_one_map: bool
+    final_our_score: int = Field(ge=0, le=30)
+    final_their_score: int = Field(ge=0, le=30)
+
+
 class SeriesUpdate(BaseModel):
     opponent: str = Field(min_length=1, max_length=120)
     week: str = Field(default="", max_length=80)
@@ -136,12 +162,14 @@ class MatchDelete(BaseModel):
 
 class MatchReparse(BaseModel):
     path: str = ""
+    segment_paths: list[str] = Field(default_factory=list)
     from_archive: bool = False
     confirm_map_id: str
 
 
 class ArchiveBackfill(BaseModel):
-    path: str = Field(min_length=1)
+    path: str = ""
+    segment_paths: list[str] = Field(default_factory=list)
     confirm_map_id: str
 
 
@@ -412,7 +440,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 except ValueError:
                     our_team = None
                 score = [sum(round_.winner == team for round_ in match.rounds) for team in (0, 1)]
-                duplicate = bool(db.execute("SELECT 1 FROM maps WHERE replay_id=?", (match.replay_id,)).fetchone()) if match.replay_id else False
+                duplicate = bool(db.execute("SELECT 1 FROM map_segments WHERE replay_id=?",
+                                            (match.replay_id,)).fetchone()) if match.replay_id else False
                 items.append({"id": key, "name": path.name, "map": match.map_name,
                               "timestamp": match.timestamp, "match_type": match.match_type,
                               "status": scan_label(match.match_type) if complete else "INCOMPLETE - only 1 replay round",
@@ -439,7 +468,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         if not is_custom_game(match.match_type):
             raise ValueError(rejection_message(match.match_type))
         digest = fingerprint(path)
-        duplicate = bool(db.execute("SELECT 1 FROM maps WHERE fingerprint=? OR (replay_id IS NOT NULL AND replay_id=?)",
+        duplicate = bool(db.execute("SELECT 1 FROM map_segments WHERE fingerprint=? OR (replay_id IS NOT NULL AND replay_id=?)",
                                     (digest, match.replay_id or None)).fetchone())
         team = None
         tracked = []
@@ -497,6 +526,109 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         export(db, config, root / "web/public/data")
         return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC"}
 
+    @app.post("/api/admin/replays/rehost/preview")
+    def preview_rehost(payload: RehostPreviewRequest, db: DB):
+        paths = []
+        for source in payload.segments:
+            if bool(source.replay_id) == bool(source.path):
+                raise ValueError("Select a scanned replay or enter one folder path per segment.")
+            path = (app.state.scanned.get(source.replay_id) if source.replay_id else
+                    Path(source.path).expanduser())
+            if path is None:
+                raise ValueError("Replay selection expired. Scan the folder again.")
+            paths.append(path)
+        exclusions = [item.model_dump() for item in payload.exclusions]
+        logical, manifest, digest = assemble_rehost(paths, exclusions)
+        match = logical.match
+        team = None
+        tracked = []
+        ambiguity = None
+        try:
+            team, tracked = repo.choose_team(db, match, payload.team)
+        except ValueError as error:
+            if "ambiguous" not in str(error).lower():
+                raise
+            ambiguity = str(error)
+        duplicate = any(db.execute("""SELECT 1 FROM map_segments WHERE fingerprint=? OR
+                                (replay_id IS NOT NULL AND replay_id=?)""",
+                                   (source["fingerprint"], source["replay_id"])).fetchone()
+                        for source in manifest["segments"])
+        token = secrets.token_urlsafe(24)
+        app.state.previews = {key: value for key, value in app.state.previews.items()
+                              if time.time() - value.created < 1800}
+        app.state.previews[token] = Preview(paths[0], digest, match, time.time(), paths,
+                                            manifest)
+        active = db.execute("SELECT slug FROM seasons WHERE active=1").fetchone()
+        rounds = []
+        logical_score = [0, 0]
+        for item in logical.mapping:
+            segment = logical.segments[int(item.folder.split("-")[1]) - 1]
+            source_round = next(round_ for round_ in segment.rounds
+                                if round_.physical_number == item.physical_number)
+            source_rosters = segment.rounds[0].rosters
+            base_rosters = logical.segments[0].rounds[0].rosters
+            winner = base_rosters.index(source_rosters[source_round.round.winner])
+            if item.logical_number is not None:
+                logical_score[winner] += 1
+            rounds.append({"segment": int(item.folder.split("-")[1]),
+                           "physical_number": item.physical_number,
+                           "filename": item.filename, "site": source_round.round.site,
+                           "winner": winner, "physical_score": list(source_round.ending_scores),
+                           "logical_score": list(logical_score),
+                           "logical_number": item.logical_number,
+                           "exclusion_reason": item.exclusion_reason})
+        return {"preview_token": token, "map": match.map_name, "timestamp": match.timestamp,
+                "match_type": match.match_type, "game_mode": match.game_mode,
+                "rounds": len(match.rounds), "score": list(logical.final_scores),
+                "our_team": team, "tracked_players": tracked, "ambiguous": ambiguity,
+                "teams": [{"index": index, "players": [p.username for p in match.rounds[0].players
+                                                   if p.team == index]} for index in (0, 1)],
+                "duplicate": bool(duplicate), "active_season": active["slug"] if active else None,
+                "competition_if_confirmed": "NECC", "segments": manifest["segments"],
+                "physical_rounds": rounds}
+
+    @app.post("/api/admin/replays/rehost/import")
+    def import_rehost(payload: RehostImportRequest, db: DB):
+        if not payload.confirm_necc or not payload.confirm_folders_one_map:
+            raise ValueError("Confirm these Custom Game folders are one NECC competitive map.")
+        preview = app.state.previews.get(payload.preview_token)
+        if not preview or not preview.paths or not preview.rehost_manifest or time.time() - preview.created >= 1800:
+            raise ValueError("Rehost preview expired. Preview the segments again.")
+        for path, source in zip(preview.paths, preview.rehost_manifest["segments"]):
+            if source_fingerprint(path) != source["fingerprint"]:
+                raise ValueError("A replay segment changed since preview. Preview it again.")
+        team, _ = repo.choose_team(db, preview.match, payload.team)
+        expected = ((payload.final_our_score, payload.final_their_score) if team == 0 else
+                    (payload.final_their_score, payload.final_our_score))
+        actual = tuple(sum(round_.winner == index for round_ in preview.match.rounds)
+                       for index in (0, 1))
+        if actual != expected or len(preview.match.rounds) != sum(expected):
+            raise ValueError(f"Counted rounds give score {actual}; confirm final competitive "
+                             "score and physical round exclusions before import.")
+        config = read_settings(root)
+        calculate_match(preview.match, config["stats"]["trade_window_seconds"])
+        archive_root = root / "data/replay-archive"
+        prepared = replay_archive.prepare_rehost(preview.paths, archive_root,
+                                                 preview.fingerprint, preview.rehost_manifest)
+        try:
+            map_id = repo.insert_map(db, preview.match, preview.fingerprint, team,
+                                     payload.opponent.strip(), payload.week.strip(),
+                                     payload.notes.strip(), payload.series_id or None,
+                                     season_slug=payload.season_slug,
+                                     rehost_manifest=preview.rehost_manifest,
+                                     source_segments=preview.rehost_manifest["segments"])
+            try:
+                replay_archive.commit_rehost(prepared, archive_root, db, map_id)
+            except Exception:
+                repo.match_delete(db, map_id)
+                raise
+        finally:
+            prepared.cleanup()
+        app.state.previews.pop(payload.preview_token, None)
+        export(db, config, root / "web/public/data")
+        return {"ok": True, "map_id": map_id, "rounds": len(preview.match.rounds),
+                "segments": len(preview.paths), "competition": "NECC"}
+
     @app.get("/api/admin/series")
     def series(db: DB, season: str | None = None):
         query = """SELECT s.id,s.opponent,s.date,s.week,s.notes,se.slug AS season_slug,
@@ -537,7 +669,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     @app.get("/api/admin/matches/{map_id}")
     def match_detail(map_id: str, db: DB):
         row = db.execute("""SELECT m.id,m.map_name,m.match_type,m.game_mode,m.our_team,
-                          m.our_score,m.their_score,m.normalized_json,m.series_id,
+                          m.our_score,m.their_score,m.normalized_json,m.rehost_json,
+                          m.replay_data_complete,m.series_id,
                           COALESCE(m.played_on,s.date) AS date,s.date AS series_date,
                           s.opponent,s.week,s.notes,s.competition,s.demo,
                           se.slug AS season_slug,se.name AS season_name
@@ -549,6 +682,13 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         match = Match.from_dict(json.loads(row["normalized_json"]))
         details = dict(row)
         details.pop("normalized_json")
+        source = json.loads(details.pop("rehost_json")) if row["rehost_json"] else None
+        details["source_kind"] = "rehost" if source else "normal"
+        details["rehost"] = ({"segments": [{"segment": item["segment"],
+                                            "source_name": item["source_name"]}
+                                           for item in source["segments"]],
+                              "mapping": source["mapping"],
+                              "final_scores": source["final_scores"]} if source else None)
         details["rounds"] = [{"number": round_.number, "site": round_.site,
                                "result": "Win" if round_.winner == row["our_team"] else "Loss"}
                               for round_ in match.rounds]
@@ -572,10 +712,23 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
             raise ValueError("NECC map not found.")
         if replay_archive.archive_path(archive_root, row).exists():
             raise ValueError("This map already has a replay archive.")
-        prepared = replay_archive.prepare(payload.path, archive_root, row["fingerprint"],
-                                          len(json.loads(row["normalized_json"])["rounds"]))
+        if row["rehost_json"]:
+            source = json.loads(row["rehost_json"])
+            if len(payload.segment_paths) != len(source["segments"]):
+                raise ValueError("Supply each original rehost segment in confirmed order.")
+            prepared = replay_archive.prepare_rehost(
+                [Path(path) for path in payload.segment_paths], archive_root,
+                row["fingerprint"], source)
+        else:
+            if not payload.path.strip():
+                raise ValueError("Enter the original replay folder path.")
+            prepared = replay_archive.prepare(payload.path, archive_root, row["fingerprint"],
+                                              len(json.loads(row["normalized_json"])["rounds"]))
         try:
-            replay_archive.commit(prepared, archive_root, db, map_id)
+            if row["rehost_json"]:
+                replay_archive.commit_rehost(prepared, archive_root, db, map_id)
+            else:
+                replay_archive.commit(prepared, archive_root, db, map_id)
         finally:
             prepared.cleanup()
         return replay_archive.verify(db, archive_root, map_id)
@@ -609,19 +762,42 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     def reparse_match(map_id: str, payload: MatchReparse, db: DB):
         if payload.confirm_map_id != map_id:
             raise ValueError("Confirm this exact map ID before reparsing it.")
+        row = replay_archive.map_record(db, map_id)
+        if not row:
+            raise ValueError("NECC map not found.")
         if payload.from_archive:
             status = replay_archive.verify(db, root / "data/replay-archive", map_id)
             if status["status"] != "Healthy":
                 raise ValueError(f"Archive is {status['status']}: {status['message']}")
             path = Path(status["path"])
+        elif row["rehost_json"] and payload.segment_paths:
+            path = None
         elif payload.path.strip():
             path = Path(payload.path).expanduser()
         else:
             raise ValueError("Choose the archive or enter the original replay folder path.")
-        match = parse_match(path)
+        if row["rehost_json"]:
+            source = json.loads(row["rehost_json"])
+            paths = ([path / f"segment-{index:02d}" for index in
+                      range(1, len(source["segments"]) + 1)] if payload.from_archive else
+                     [Path(item).expanduser() for item in payload.segment_paths])
+            if len(paths) != len(source["segments"]):
+                raise ValueError("Supply every rehost segment in the original order.")
+            exclusions = [{"segment": item["segment"],
+                           "physical_number": item["physical_number"],
+                           "reason": item["exclusion_reason"]}
+                          for item in source["mapping"] if item["logical_number"] is None]
+            logical, _, digest = assemble_rehost(paths, exclusions,
+                                                 tuple(source["final_scores"]))
+            match = logical.match
+            if digest != row["fingerprint"]:
+                raise ValueError("Rehost source identity differs from this imported map.")
+        else:
+            match = parse_match(path)
+            digest = fingerprint(path)
         config = read_settings(root)
         calculate_match(match, config["stats"]["trade_window_seconds"])
-        repo.reparse_map(db, map_id, match, fingerprint(path))
+        repo.reparse_map(db, map_id, match, digest)
         export(db, config, root / "web/public/data")
         return {"ok": True, "map_id": map_id, "rounds": len(match.rounds),
                 "message": "Map reparsed from its verified archive." if payload.from_archive else

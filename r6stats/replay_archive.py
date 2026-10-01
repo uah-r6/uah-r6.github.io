@@ -14,6 +14,7 @@ from r6stats.parser.siege_dissect import (parser_executable, physical_round_numb
                                           reject_duplicate_round_contents)
 
 FORMAT_VERSION = 1
+REHOST_FORMAT_VERSION = 2
 
 
 def sha256(path: Path) -> str:
@@ -42,6 +43,18 @@ class PreparedArchive:
     original_folder_name: str
     fingerprint: str
     files: list[dict]
+
+    def cleanup(self) -> None:
+        if self.staging.exists():
+            shutil.rmtree(self.staging)
+
+
+@dataclass
+class PreparedRehostArchive:
+    staging: Path
+    fingerprint: str
+    source_manifest: dict
+    segments: list[dict]
 
     def cleanup(self) -> None:
         if self.staging.exists():
@@ -91,8 +104,54 @@ def prepare(source: str | Path, archive_root: Path, expected_fingerprint: str,
         raise
 
 
+def prepare_rehost(paths: list[Path], archive_root: Path, expected_fingerprint: str,
+                   source_manifest: dict) -> PreparedRehostArchive:
+    """Stage every physical segment, including excluded rounds, unchanged."""
+    from r6stats.parser.confirmed_rehost import manifest_fingerprint
+
+    if manifest_fingerprint(source_manifest) != expected_fingerprint:
+        raise ValueError("Rehost identity changed since preview.")
+    if len(paths) != len(source_manifest["segments"]):
+        raise ValueError("Rehost segment count changed since preview.")
+    archive_root.mkdir(parents=True, exist_ok=True)
+    staging = Path(tempfile.mkdtemp(prefix=".pending-", dir=archive_root))
+    try:
+        all_entries = []
+        segments = []
+        for index, (original, segment) in enumerate(zip(paths, source_manifest["segments"]), start=1):
+            source = original.expanduser().resolve()
+            if not source.is_dir():
+                raise ValueError("Rehost source folder is missing.")
+            folder = staging / f"segment-{index:02d}"
+            folder.mkdir()
+            for path in source.glob("*.rec"):
+                shutil.copy2(path, folder / path.name)
+            files = sorted(folder.glob("*.rec"))
+            numbers = physical_round_numbers(files)
+            reject_duplicate_round_contents(files)
+            if replay_fingerprint(files) != segment["fingerprint"]:
+                raise ValueError("A rehost segment changed while copying.")
+            entries = [{"filename": file.name, "physical_round_number": number,
+                        "size": file.stat().st_size, "sha256": sha256(file)}
+                       for file, number in zip(files, numbers)]
+            all_entries.extend((index, entry) for entry in entries)
+            segments.append({**segment, "files": entries, "physical_round_count": len(entries)})
+        actual = {(index, entry["physical_round_number"]):
+                  (entry["filename"], entry["sha256"])
+                  for index, entry in all_entries}
+        expected = {(item["segment"], item["physical_number"]):
+                    (item["filename"], item["sha256"])
+                    for item in source_manifest["mapping"]}
+        if actual != expected or len(all_entries) != len(source_manifest["mapping"]):
+            raise ValueError("Archived physical rounds differ from confirmed rehost mapping.")
+        return PreparedRehostArchive(staging, expected_fingerprint, source_manifest, segments)
+    except Exception:
+        shutil.rmtree(staging)
+        raise
+
+
 def map_record(db, map_id: str):
-    return db.execute("""SELECT m.id,m.replay_id,m.fingerprint,m.map_name,m.normalized_json,
+    return db.execute("""SELECT m.id,m.replay_id,m.fingerprint,m.map_name,m.normalized_json,m.rehost_json,
                         se.slug AS season_slug FROM maps m JOIN series s ON s.id=m.series_id
                         JOIN seasons se ON se.id=s.season_id WHERE m.id=? AND s.demo=0""",
                       (map_id,)).fetchone()
@@ -131,6 +190,35 @@ def commit(prepared: PreparedArchive, archive_root: Path, db, map_id: str) -> Pa
     return target
 
 
+def commit_rehost(prepared: PreparedRehostArchive, archive_root: Path, db, map_id: str) -> Path:
+    row = map_record(db, map_id)
+    if not row or not row["rehost_json"]:
+        raise ValueError("Imported rehost map not found for archive.")
+    source_manifest = json.loads(row["rehost_json"])
+    if (row["fingerprint"] != prepared.fingerprint or
+            source_manifest != prepared.source_manifest or
+            len(json.loads(row["normalized_json"])["rounds"]) !=
+            sum(item["logical_number"] is not None for item in source_manifest["mapping"])):
+        raise ValueError("Archive copy does not match the imported logical map.")
+    target = archive_path(archive_root, row)
+    if target.exists():
+        raise ValueError("This map already has a replay archive.")
+    parser = parser_executable()
+    manifest = {"archive_format_version": REHOST_FORMAT_VERSION, "map_id": map_id,
+                "replay_id": row["replay_id"], "replay_fingerprint": row["fingerprint"],
+                "map_name": row["map_name"],
+                "round_count": len(json.loads(row["normalized_json"])["rounds"]),
+                "physical_round_count": sum(len(item["files"]) for item in prepared.segments),
+                "source_manifest": source_manifest, "segments": prepared.segments,
+                "archived_at": datetime.now(timezone.utc).isoformat(),
+                "parser_sha256": sha256(Path(parser)) if parser else None}
+    (prepared.staging / "manifest.json").write_text(
+        json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    prepared.staging.rename(target)
+    return target
+
+
 def verify(db, archive_root: Path, map_id: str) -> dict:
     row = map_record(db, map_id)
     if not row:
@@ -143,6 +231,8 @@ def verify(db, archive_root: Path, map_id: str) -> dict:
     manifest_path = target / "manifest.json"
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("archive_format_version") == REHOST_FORMAT_VERSION:
+            return _verify_rehost(row, target, manifest, result)
         expected_count = len(json.loads(row["normalized_json"])["rounds"])
         files = manifest["files"]
         if (manifest["archive_format_version"] != FORMAT_VERSION or
@@ -172,6 +262,70 @@ def verify(db, archive_root: Path, map_id: str) -> dict:
     if replay_fingerprint(paths) != row["fingerprint"]:
         return {**result, "status": "Hash mismatch", "message": "Archive fingerprint differs from imported map."}
     return {**result, "status": "Healthy", "message": "All archived rounds verified.", "rounds": len(paths)}
+
+
+def _verify_rehost(row, target: Path, manifest: dict, result: dict) -> dict:
+    from r6stats.parser.confirmed_rehost import manifest_fingerprint
+
+    try:
+        source = json.loads(row["rehost_json"])
+        segments = manifest["segments"]
+        mapping = source["mapping"]
+        expected_count = len(json.loads(row["normalized_json"])["rounds"])
+        if (manifest["map_id"] != row["id"] or manifest["replay_id"] != row["replay_id"] or
+            manifest["replay_fingerprint"] != row["fingerprint"] or
+            manifest["map_name"] != row["map_name"] or
+            manifest["source_manifest"] != source or
+            manifest_fingerprint(source) != row["fingerprint"] or
+            manifest["round_count"] != expected_count or
+            expected_count != sum(item["logical_number"] is not None for item in mapping) or
+            len(segments) != len(source["segments"]) or len(segments) < 2 or
+            manifest["physical_round_count"] != len(mapping)):
+            raise ValueError("Manifest does not match this imported logical map.")
+        actual = {}
+        for index, (segment, original) in enumerate(zip(segments, source["segments"]), start=1):
+            if any(segment.get(key) != original[key] for key in
+                   ("segment", "source_path", "source_name", "replay_id", "fingerprint")):
+                raise ValueError("Archived segment identity differs from imported map.")
+            folder = target / f"segment-{index:02d}"
+            if not folder.is_dir():
+                return {**result, "status": "Incomplete", "message": f"Segment {index} is missing."}
+            entries = segment["files"]
+            if segment["physical_round_count"] != len(entries) or len({
+                    entry["filename"].casefold() for entry in entries}) != len(entries):
+                raise ValueError("Archived segment file list is invalid.")
+            files = []
+            for entry in entries:
+                if Path(entry["filename"]).name != entry["filename"]:
+                    raise ValueError("Archived filename is unsafe.")
+                file = folder / entry["filename"]
+                if not file.is_file() or not file.resolve().is_relative_to(target.resolve()):
+                    return {**result, "status": "Incomplete", "message": f"Segment {index} round is missing."}
+                files.append(file)
+                actual[(index, entry["physical_round_number"])] = (
+                    entry["filename"], entry["sha256"])
+                if file.stat().st_size != entry["size"] or sha256(file) != entry["sha256"]:
+                    return {**result, "status": "Hash mismatch", "message":
+                            f"Archived segment {index} round failed integrity check: {file.name}"}
+            if {file.name for file in folder.glob("*.rec")} != {file.name for file in files}:
+                return {**result, "status": "Incomplete", "message":
+                        f"Segment {index} .rec file list differs from manifest."}
+            if physical_round_numbers(files) != [entry["physical_round_number"] for entry in entries]:
+                raise ValueError("Archived physical round numbers differ from manifest.")
+            if replay_fingerprint(files) != segment["fingerprint"]:
+                return {**result, "status": "Hash mismatch", "message":
+                        f"Archived segment {index} fingerprint differs from imported map."}
+        expected = {(item["segment"], item["physical_number"]):
+                    (item["filename"], item["sha256"]) for item in mapping}
+        if actual != expected or len(actual) != len(mapping):
+            raise ValueError("Physical-to-logical mapping differs from archived files.")
+        if {item.name for item in target.iterdir() if item.is_dir()} != {
+                f"segment-{index:02d}" for index in range(1, len(segments) + 1)}:
+            return {**result, "status": "Incomplete", "message": "Archive has unexpected segment folders."}
+    except (OSError, UnicodeError, json.JSONDecodeError, KeyError, TypeError, ValueError) as error:
+        return {**result, "status": "Manifest invalid", "message": str(error)}
+    return {**result, "status": "Healthy", "message":
+            "All physical segments and logical mapping verified.", "rounds": expected_count}
 
 
 def delete_map_and_archive(db, archive_root: Path, map_id: str) -> None:
