@@ -13,7 +13,7 @@ BASELINE = ROOT / "data/research/diagnostics/uah-operator-baseline.json"
 
 
 def usage():
-    db = sqlite3.connect(ROOT / "data/r6stats.sqlite")
+    db = sqlite3.connect((ROOT / "data/r6stats.sqlite").resolve().as_uri() + "?mode=ro", uri=True)
     db.row_factory = sqlite3.Row
     try:
         return [dict(row) for row in db.execute("""SELECT p.display_name,rp.side,rp.operator,
@@ -28,7 +28,7 @@ def usage():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=("snapshot", "compare", "reparse-check"))
+    parser.add_argument("mode", choices=("snapshot", "compare", "reparse-check", "reparse-current"))
     args = parser.parse_args()
     rows = usage()
     if args.mode == "snapshot":
@@ -41,7 +41,7 @@ if __name__ == "__main__":
             raise SystemExit("Stored UAH operator usage changed")
         print(f"Stored UAH operator usage unchanged: {len(rows)} rows")
     else:
-        db = sqlite3.connect(ROOT / "data/r6stats.sqlite")
+        db = sqlite3.connect((ROOT / "data/r6stats.sqlite").resolve().as_uri() + "?mode=ro", uri=True)
         db.row_factory = sqlite3.Row
         counts = Counter()
         try:
@@ -61,7 +61,7 @@ if __name__ == "__main__":
             db.close()
         reparsed = [{"display_name": name, "side": side, "operator": operator, "n": n}
                     for (name, side, operator), n in sorted(counts.items())]
-        expected = json.loads(BASELINE.read_text(encoding="utf-8"))
+        expected = rows if args.mode == "reparse-current" else json.loads(BASELINE.read_text(encoding="utf-8"))
         if reparsed != expected:
             missing = [x for x in expected if x not in reparsed]
             extra = [x for x in reparsed if x not in expected]

@@ -142,12 +142,13 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
                     LOG.warning("Skipping %s credited to a %s player in round %s",
                                 objective_kind, actor.side, ordinal)
                 elif (str(row.get("gameVersion") or "").startswith("Y11") and
-                      event.get("objectiveActorSource") not in
-                      {"player_packet", "score_bonus_unique"}):
+                      event.get("objectiveActorSource") != "player_packet"):
                     # Current Y11 defuser timer packets do not contain the actor
                     # at the old fixed offset. The low-level reader can emit a
                     # completion with its stale/default player index. Require
-                    # explicit evidence of a verified actor before counting it.
+                    # explicit packet evidence of a verified actor before
+                    # counting it. Unique +100 score bonuses were shown wrong
+                    # on multiple development plants and are not actor proof.
                     LOG.warning("Skipping Y11 %s without verified actor in round %s",
                                 objective_kind, ordinal)
                 else:

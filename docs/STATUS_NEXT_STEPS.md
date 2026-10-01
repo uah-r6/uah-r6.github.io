@@ -1,5 +1,13 @@
 # Status and next steps — 2026-09-30
 
+## CURRENT UAH OBJECTIVE SAFEGUARD CHECKPOINT — 2026-10-01
+
+- A read-only audit of the four-map local SQLite found 13 stored objective event rows: 12 plants credited to defenders and one defender disable without verified actor provenance. Read-only reparsing of the four private archives with the current adapter yields zero verified objective actors. All **89** current tracked-player operator usage rows match stored counts exactly; the earlier 85-row statement referred to the first three maps.
+- `calculate_match` now drops role-impossible/team-inconsistent objective rows even when already stored in old normalized JSON. The Y11 adapter no longer treats a unique +100 score bonus as verified actor evidence, because the seven-map audit found three unique but wrong plant candidates. The Rating formula is unchanged, and raw stored replay/event rows are preserved.
+- A temporary website export from a migrated **backup copy** of live SQLite shows the only tracked-player aggregate impact: Tallman3.14 Fall 2026 plants 5→0, KOST rounds 27→24, KOST 0.54→0.48, and `collegiate_v1` Rating 0.416700→0.374753. Real SQLite, archives, and current `web/public/data` were not changed. There was no publish, push, or live Rating version change.
+- Regression tests cover both normalized and historical invalid objective credits; full Python suite passed 78 tests, one optional smoke skipped, six subtests passed. Go tests and `go vet` passed. The newly added rehost edge tests cover stat-family exclusion, long downtime, incompatible segments, and tampered archive reparse.
+- **NEXT ACTION:** Find a replay-derived actor-bearing interaction source on development replays and validate it against all 32 audited objective completions, especially the three wrong unique-score plants and five ambiguous/absent disables. Only then reparse/audit UAH objectives and rebuild/refit professional data. Current public JSON remains stale for the role guard until an intentional local regeneration; do not publish or push. Reproduce the safe audit with `.\.venv\Scripts\python.exe -m research.uah_objective_readonly --reparse` and `.\.venv\Scripts\python.exe -m research.uah_objective_export_diff`. The 60 NA Stage 2 Rating rows remain sealed.
+
 ## CURRENT OBJECTIVE RESEARCH CHECKPOINT — 2026-10-01 05:13 UTC
 
 - The seven cached development maps still yield 88 rounds, 27 public objective rounds, and 32 public events (27 plants, five disables). The held 0.10-second timer-run criterion has zero round/count mismatches. Newly generated actor diagnostics for the three independent validation maps are cached under ignored `data/research/diagnostics/`.

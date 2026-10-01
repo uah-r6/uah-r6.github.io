@@ -76,6 +76,15 @@ def test_admin_rehost_preview_import_archive_reparse_delete(tmp_path):
             normal_preview = client.post("/api/admin/replays/preview",
                                          json={"path": str(tmp_path / "segment1")}, headers=headers)
         assert normal_preview.status_code == 200 and normal_preview.json()["duplicate"] is True
+        archived_file = Path(client.get(archive_url).json()["path"]) / "segment-01/segment1-R03.rec"
+        original = archived_file.read_bytes()
+        archived_file.write_bytes(b"tampered excluded round")
+        refused = client.post(f"/api/admin/matches/{map_id}/reparse",
+                              json={"from_archive": True, "confirm_map_id": map_id}, headers=headers)
+        assert refused.status_code == 400 and "Hash mismatch" in refused.text
+        with closing(repo.connect(tmp_path / "data/r6stats.sqlite")) as db:
+            assert db.execute("SELECT count(*) FROM rounds WHERE map_id=?", (map_id,)).fetchone()[0] == 4
+        archived_file.write_bytes(original)
         reparsed = client.post(f"/api/admin/matches/{map_id}/reparse",
                                json={"from_archive": True, "confirm_map_id": map_id}, headers=headers)
         assert reparsed.status_code == 200, reparsed.text

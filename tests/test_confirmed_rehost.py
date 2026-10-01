@@ -10,7 +10,7 @@ from r6stats.db import repository as repo
 from r6stats.parser.confirmed_rehost import (assemble_rehost, physical_segment,
                                              source_fingerprint, stitch_confirmed)
 from r6stats.parser.logical_map import PhysicalSegment
-from r6stats.parser.models import Kill, Match, Player, Round
+from r6stats.parser.models import Kill, Match, Objective, Player, Round
 from r6stats import replay_archive
 from r6stats.stats.calculate import calculate_match
 
@@ -62,6 +62,38 @@ def test_three_segments_and_swapped_team_indices(tmp_path):
     assert calculate_match(logical.match)["ours-0"]["kills"] == 3
 
 
+def test_excluded_physical_round_never_contributes_to_any_stat_family(tmp_path):
+    first = segment(tmp_path, "segment1", [0, 1])
+    second = segment(tmp_path, "segment2", [0])
+    counted = first.match.rounds[0]
+    counted.kills = [Kill(0, 99, "foe-0", "ours-1", 1, 0),
+                     Kill(1, 95, "ours-0", "foe-0", 0, 1),
+                     Kill(2, 90, "foe-1", "ours-2", 1, 0),
+                     Kill(3, 85, "foe-2", "ours-3", 1, 0),
+                     Kill(4, 80, "foe-3", "ours-4", 1, 0)]
+    counted.objectives = [Objective("plant", "ours-0", 0, 30)]
+    excluded_round = first.match.rounds[1]
+    excluded_round.players[0].operator = "Deimos"
+    excluded_round.kills = [Kill(0, 100, "ours-0", "foe-0", 0, 1),
+                            Kill(1, 90, "foe-1", "ours-0", 1, 0)]
+    excluded_round.objectives = [Objective("plant", "ours-0", 0, 35),
+                                 Objective("disable", "foe-0", 1, 15)]
+    logical = stitch_confirmed([first, second],
+                               excluded={("segment-01", 2): "abandoned round"},
+                               expected_final_scores=(2, 0))
+    observed = calculate_match(logical.match)
+    direct_counted = Match("expected", first.match.timestamp, "Border", "Custom Game",
+                           "Bomb", [counted, second.match.rounds[0]])
+    assert observed == calculate_match(direct_counted)
+    ours = observed["ours-0"]
+    assert ours["rounds"] == 2 and ours["kills"] == 2 and ours["deaths"] == 0
+    assert ours["opening_kills"] == 1 and ours["refrag_kills"] == 1
+    assert ours["clutch_1v4"] == 1 and ours["kost_rounds"] == 2
+    assert ours["plants"] == 1 and ours["operators"]["Attack"] == {"Buck": 2}
+    assert observed["ours-1"]["deaths_traded"] == 1
+    assert observed["foe-0"]["disables"] == 0
+
+
 def test_rehost_rejects_unrelated_or_duplicate_sources(tmp_path):
     first = segment(tmp_path, "segment1", [0])
     second = segment(tmp_path, "segment2", [1])
@@ -73,6 +105,27 @@ def test_rehost_rejects_unrelated_or_duplicate_sources(tmp_path):
     unrelated = replace(second.rounds[0], rosters=(('unrelated', *rosters[0][1:]), rosters[1]))
     second = PhysicalSegment(second.match, (unrelated,))
     with pytest.raises(ValueError, match="different player identities"):
+        stitch_confirmed([first, second], excluded={})
+
+
+def test_explicit_rehost_allows_long_downtime(tmp_path):
+    first = segment(tmp_path, "segment1", [0])
+    second = segment(tmp_path, "segment2", [1])
+    next_day = "2026-10-01T21:00:00Z"
+    second = replace(second, match=replace(second.match, timestamp=next_day),
+                     rounds=tuple(replace(round_, timestamp=next_day) for round_ in second.rounds))
+    logical = stitch_confirmed([first, second], excluded={}, expected_final_scores=(1, 1))
+    assert len(logical.match.rounds) == 2
+
+
+@pytest.mark.parametrize("field,value", [("map_name", "Villa"),
+                                         ("game_mode", "Secure Area"),
+                                         ("match_type", "Ranked")])
+def test_explicit_rehost_rejects_incompatible_segments(tmp_path, field, value):
+    first = segment(tmp_path, "segment1", [0])
+    second = segment(tmp_path, "segment2", [1])
+    second = replace(second, match=replace(second.match, **{field: value}))
+    with pytest.raises(ValueError, match="disagree on map or game type"):
         stitch_confirmed([first, second], excluded={})
 
 

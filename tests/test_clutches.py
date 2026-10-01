@@ -5,7 +5,8 @@ from r6stats.stats.calculate import aggregate, calculate_match
 
 
 def fixture(teammates, opponents, deaths, winner=0, objectives=()):
-    players = [Player(name, name, team) for team, names in ((0, teammates), (1, opponents))
+    players = [Player(name, name, team, side="Attack" if team == 0 else "Defense")
+               for team, names in ((0, teammates), (1, opponents))
                for name in names]
     kills = [Kill(index, 100 - index, killer, victim,
                   next((p.team for p in players if p.key == killer), -1),

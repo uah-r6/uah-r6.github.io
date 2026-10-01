@@ -71,6 +71,10 @@ class ImportTests(unittest.TestCase):
         row["matchFeedback"][2]["objectiveActorSource"] = "player_packet"
         self.assertEqual([(item.kind, item.player) for item in
                           normalize(raw).rounds[0].objectives],
+                         [("disable", "enemy-1")])
+        row["matchFeedback"][1]["objectiveActorSource"] = "player_packet"
+        self.assertEqual([(item.kind, item.player) for item in
+                          normalize(raw).rounds[0].objectives],
                          [("plant", "our-1"), ("disable", "enemy-1")])
 
     def test_ranked_rejected_before_write(self):

@@ -106,7 +106,10 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
             else:
                 round_stats[kill.killer]["untraded_kills"] += 1
         for objective in round_.objectives:
-            if objective.player in players and objective.kind in {"plant", "disable"}:
+            actor = players.get(objective.player)
+            expected_side = {"plant": "Attack", "disable": "Defense"}.get(objective.kind)
+            if (actor and expected_side and actor.side == expected_side and
+                    actor.team == objective.team):
                 round_stats[objective.player]["plants" if objective.kind == "plant" else "disables"] += 1
         clutch = clutch_candidates.get(round_.winner)
         if clutch:

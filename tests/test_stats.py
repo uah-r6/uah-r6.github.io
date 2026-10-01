@@ -44,6 +44,22 @@ class StatsTests(unittest.TestCase):
         self.assertEqual(s["a"]["kost_rounds"], 1)
         self.assertEqual(s["a"]["plants"], 1)
 
+    def test_historical_role_impossible_objectives_do_not_affect_statistics(self):
+        death = [Kill(0, 100, "b", "c", 0, 1), Kill(1, 90, "d", "a", 1, 0)]
+        baseline = calculate_match(match(death))
+        invalid = calculate_match(match(death, [Objective("plant", "c", 1, 110),
+                                               Objective("disable", "a", 0, 95),
+                                               Objective("plant", "b", 1, 85)]))
+        self.assertEqual(invalid, baseline)
+        self.assertEqual(invalid["c"]["plants"], 0)
+        self.assertEqual(invalid["a"]["disables"], 0)
+
+    def test_valid_side_and_team_objectives_still_count(self):
+        values = calculate_match(match([], [Objective("plant", "a", 0, 90),
+                                           Objective("disable", "c", 1, 40)]))
+        self.assertEqual(values["a"]["plants"], 1)
+        self.assertEqual(values["c"]["disables"], 1)
+
     def test_pivot_examples(self):
         own = [Player(str(i), str(i), 0) for i in range(5)]
         foe = [Player(str(i+5), str(i+5), 1) for i in range(5)]
