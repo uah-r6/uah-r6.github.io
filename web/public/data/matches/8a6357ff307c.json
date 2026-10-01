@@ -12,6 +12,7 @@
   "their_score": 8,
   "result": "LOSS",
   "demo": false,
+  "rating_eligible": true,
   "players": [
     {
       "slug": "azooznewzz",
@@ -307,11 +308,11 @@
       "untraded_deaths": 11,
       "pivot_kills": 1,
       "pivot_deaths": 8,
-      "plants": 3,
+      "plants": 0,
       "disables": 0,
       "teamkills": 0,
       "survived": 1,
-      "kost_rounds": 8,
+      "kost_rounds": 5,
       "rounds_won": 6,
       "clutches": 0,
       "clutch_1v1": 0,
@@ -347,15 +348,15 @@
           "kpr": 0.14285714285714285
         }
       },
-      "rating": 0.04392444241758231,
+      "rating": -0.07640513329670351,
       "kd": 0.15384615384615385,
       "kpr": 0.14285714285714285,
-      "kost": 0.5714285714285714,
+      "kost": 0.35714285714285715,
       "srv": 0.07142857142857142,
       "hs": 0.5,
       "entry_diff": -2,
       "kd_diff": -11,
-      "objectives": 3
+      "objectives": 0
     }
   ],
   "rounds": [

@@ -1,25 +1,25 @@
 {
   "slug": "azooznewzz",
   "name": "AzoozNewzz",
-  "rounds": 50,
-  "kills": 36,
-  "deaths": 37,
-  "headshots": 19,
-  "opening_kills": 4,
+  "rounds": 62,
+  "kills": 45,
+  "deaths": 48,
+  "headshots": 24,
+  "opening_kills": 7,
   "opening_deaths": 4,
   "refrag_kills": 7,
-  "deaths_traded": 7,
-  "kills_traded": 5,
-  "untraded_kills": 31,
-  "untraded_deaths": 30,
-  "pivot_kills": 20,
-  "pivot_deaths": 22,
+  "deaths_traded": 8,
+  "kills_traded": 7,
+  "untraded_kills": 38,
+  "untraded_deaths": 40,
+  "pivot_kills": 26,
+  "pivot_deaths": 31,
   "plants": 0,
   "disables": 0,
   "teamkills": 1,
-  "survived": 13,
-  "kost_rounds": 30,
-  "rounds_won": 28,
+  "survived": 14,
+  "kost_rounds": 38,
+  "rounds_won": 35,
   "clutches": 2,
   "clutch_1v1": 0,
   "clutch_1v2": 2,
@@ -28,8 +28,10 @@
   "clutch_1v5": 0,
   "operators": {
     "Attack": {
+      "Twitch": 10,
+      "Rauora": 1,
+      "Zofia": 2,
       "Grim": 3,
-      "Twitch": 7,
       "Nomad": 1,
       "Lion": 3,
       "Striker": 2,
@@ -39,11 +41,11 @@
       "Thermite": 3
     },
     "Defense": {
-      "Ela": 6,
+      "Goyo": 6,
+      "Ela": 7,
+      "Wamai": 3,
       "Mozzie": 5,
       "Solis": 4,
-      "Goyo": 2,
-      "Wamai": 2,
       "Jager": 1,
       "Thorn": 2,
       "Fenrir": 1,
@@ -53,32 +55,49 @@
   },
   "sides": {
     "Attack": {
-      "rounds": 24,
-      "kills": 20,
-      "deaths": 18,
-      "kd": 1.1111111111111112,
+      "rounds": 30,
+      "kills": 25,
+      "deaths": 23,
+      "kd": 1.0869565217391304,
       "kpr": 0.8333333333333334
     },
     "Defense": {
-      "rounds": 26,
-      "kills": 16,
-      "deaths": 19,
-      "kd": 0.8421052631578947,
-      "kpr": 0.6153846153846154
+      "rounds": 32,
+      "kills": 20,
+      "deaths": 25,
+      "kd": 0.8,
+      "kpr": 0.625
     }
   },
-  "maps": 4,
-  "rating": 0.9730870060612614,
-  "kd": 0.972972972972973,
-  "kpr": 0.72,
-  "kost": 0.6,
-  "srv": 0.26,
-  "hs": 0.5277777777777778,
-  "entry_diff": 0,
-  "kd_diff": -1,
+  "maps": 5,
+  "rating": 0.891769752731183,
+  "kd": 0.9375,
+  "kpr": 0.7258064516129032,
+  "kost": 0.6129032258064516,
+  "srv": 0.22580645161290322,
+  "hs": 0.5333333333333333,
+  "entry_diff": 3,
+  "kd_diff": -3,
   "objectives": 0,
   "season": "fall-2026",
   "matches": [
+    {
+      "id": "b595ffaaec57",
+      "series_id": "1a106d1b2f89",
+      "season": "fall-2026",
+      "opponent": "University of Michigan",
+      "date": "2026-09-30",
+      "week": "1",
+      "notes": "",
+      "map": "Chalet",
+      "mode": "Bomb",
+      "our_score": 7,
+      "their_score": 5,
+      "result": "WIN",
+      "demo": false,
+      "rating_eligible": true,
+      "rating": 0.5567062175757576
+    },
     {
       "id": "076d2b6b02bc",
       "series_id": "1a106d1b2f89",
@@ -93,6 +112,7 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 1.5784230300000002
     },
     {
@@ -109,6 +129,7 @@
       "their_score": 6,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 0.8682557509090908
     },
     {
@@ -125,6 +146,7 @@
       "their_score": 8,
       "result": "LOSS",
       "demo": false,
+      "rating_eligible": true,
       "rating": 0.5262637576923077
     },
     {
@@ -141,6 +163,7 @@
       "their_score": 3,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 1.0451450505714286
     }
   ]

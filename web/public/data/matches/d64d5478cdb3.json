@@ -12,6 +12,7 @@
   "their_score": 3,
   "result": "WIN",
   "demo": false,
+  "rating_eligible": true,
   "players": [
     {
       "slug": "azooznewzz",

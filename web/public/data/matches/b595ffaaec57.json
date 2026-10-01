@@ -1,12 +1,12 @@
 {
-  "id": "076d2b6b02bc",
+  "id": "b595ffaaec57",
   "series_id": "1a106d1b2f89",
   "season": "fall-2026",
   "opponent": "University of Michigan",
   "date": "2026-09-30",
   "week": "1",
   "notes": "",
-  "map": "Border",
+  "map": "Chalet",
   "mode": "Bomb",
   "our_score": 7,
   "their_score": 5,
@@ -18,22 +18,22 @@
       "slug": "azooznewzz",
       "name": "AzoozNewzz",
       "rounds": 12,
-      "kills": 10,
-      "deaths": 6,
-      "headshots": 3,
-      "opening_kills": 1,
-      "opening_deaths": 1,
-      "refrag_kills": 1,
+      "kills": 9,
+      "deaths": 11,
+      "headshots": 5,
+      "opening_kills": 3,
+      "opening_deaths": 0,
+      "refrag_kills": 0,
       "deaths_traded": 1,
-      "kills_traded": 0,
-      "untraded_kills": 10,
-      "untraded_deaths": 5,
+      "kills_traded": 2,
+      "untraded_kills": 7,
+      "untraded_deaths": 10,
       "pivot_kills": 6,
-      "pivot_deaths": 4,
+      "pivot_deaths": 9,
       "plants": 0,
       "disables": 0,
-      "teamkills": 1,
-      "survived": 6,
+      "teamkills": 0,
+      "survived": 1,
       "kost_rounds": 8,
       "rounds_won": 7,
       "clutches": 0,
@@ -44,15 +44,14 @@
       "clutch_1v5": 0,
       "operators": {
         "Attack": {
-          "Grim": 1,
           "Twitch": 3,
-          "Nomad": 1,
-          "Lion": 1
+          "Rauora": 1,
+          "Zofia": 2
         },
         "Defense": {
-          "Ela": 2,
-          "Mozzie": 2,
-          "Solis": 2
+          "Goyo": 4,
+          "Ela": 1,
+          "Wamai": 1
         }
       },
       "sides": {
@@ -65,42 +64,42 @@
         },
         "Defense": {
           "rounds": 6,
-          "kills": 5,
-          "deaths": 1,
-          "kd": 5.0,
-          "kpr": 0.8333333333333334
+          "kills": 4,
+          "deaths": 6,
+          "kd": 0.6666666666666666,
+          "kpr": 0.6666666666666666
         }
       },
-      "rating": 1.5784230300000002,
-      "kd": 1.6666666666666667,
-      "kpr": 0.8333333333333334,
+      "rating": 0.5567062175757576,
+      "kd": 0.8181818181818182,
+      "kpr": 0.75,
       "kost": 0.6666666666666666,
-      "srv": 0.5,
-      "hs": 0.3,
-      "entry_diff": 0,
-      "kd_diff": 4,
+      "srv": 0.08333333333333333,
+      "hs": 0.5555555555555556,
+      "entry_diff": 3,
+      "kd_diff": -2,
       "objectives": 0
     },
     {
       "slug": "dinofireking",
       "name": "DinoFireKing",
       "rounds": 12,
-      "kills": 5,
-      "deaths": 7,
+      "kills": 8,
+      "deaths": 6,
       "headshots": 1,
       "opening_kills": 0,
-      "opening_deaths": 1,
-      "refrag_kills": 2,
-      "deaths_traded": 2,
+      "opening_deaths": 0,
+      "refrag_kills": 1,
+      "deaths_traded": 0,
       "kills_traded": 1,
-      "untraded_kills": 4,
-      "untraded_deaths": 5,
+      "untraded_kills": 7,
+      "untraded_deaths": 6,
       "pivot_kills": 3,
-      "pivot_deaths": 4,
+      "pivot_deaths": 2,
       "plants": 0,
       "disables": 0,
       "teamkills": 0,
-      "survived": 5,
+      "survived": 6,
       "kost_rounds": 8,
       "rounds_won": 7,
       "clutches": 0,
@@ -111,16 +110,82 @@
       "clutch_1v5": 0,
       "operators": {
         "Attack": {
-          "Gridlock": 1,
-          "Ram": 3,
           "Sens": 1,
-          "Sledge": 1
+          "Flores": 1,
+          "Ram": 3,
+          "Lion": 1
         },
         "Defense": {
-          "Mira": 1,
-          "Mute": 1,
-          "Fenrir": 3,
-          "Castle": 1
+          "Castle": 3,
+          "Melusi": 2,
+          "Wamai": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 6,
+          "kills": 3,
+          "deaths": 5,
+          "kd": 0.6,
+          "kpr": 0.5
+        },
+        "Defense": {
+          "rounds": 6,
+          "kills": 5,
+          "deaths": 1,
+          "kd": 5.0,
+          "kpr": 0.8333333333333334
+        }
+      },
+      "rating": 1.203609685,
+      "kd": 1.3333333333333333,
+      "kpr": 0.6666666666666666,
+      "kost": 0.6666666666666666,
+      "srv": 0.5,
+      "hs": 0.125,
+      "entry_diff": 0,
+      "kd_diff": 2,
+      "objectives": 0
+    },
+    {
+      "slug": "lgon",
+      "name": "Lgon",
+      "rounds": 12,
+      "kills": 5,
+      "deaths": 8,
+      "headshots": 1,
+      "opening_kills": 1,
+      "opening_deaths": 3,
+      "refrag_kills": 1,
+      "deaths_traded": 0,
+      "kills_traded": 0,
+      "untraded_kills": 5,
+      "untraded_deaths": 8,
+      "pivot_kills": 3,
+      "pivot_deaths": 6,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 4,
+      "kost_rounds": 5,
+      "rounds_won": 7,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "operators": {
+        "Attack": {
+          "Striker": 1,
+          "Deimos": 1,
+          "Capitao": 1,
+          "Grim": 1,
+          "Gridlock": 1,
+          "Thatcher": 1
+        },
+        "Defense": {
+          "Azami": 6
         }
       },
       "sides": {
@@ -134,175 +199,110 @@
         "Defense": {
           "rounds": 6,
           "kills": 3,
-          "deaths": 2,
-          "kd": 1.5,
+          "deaths": 3,
+          "kd": 1.0,
           "kpr": 0.5
         }
       },
-      "rating": 0.9126301981428571,
-      "kd": 0.7142857142857143,
+      "rating": 0.550550275,
+      "kd": 0.625,
       "kpr": 0.4166666666666667,
-      "kost": 0.6666666666666666,
-      "srv": 0.4166666666666667,
+      "kost": 0.4166666666666667,
+      "srv": 0.3333333333333333,
       "hs": 0.2,
-      "entry_diff": -1,
-      "kd_diff": -2,
-      "objectives": 0
-    },
-    {
-      "slug": "lgon",
-      "name": "Lgon",
-      "rounds": 12,
-      "kills": 13,
-      "deaths": 7,
-      "headshots": 10,
-      "opening_kills": 1,
-      "opening_deaths": 1,
-      "refrag_kills": 1,
-      "deaths_traded": 0,
-      "kills_traded": 3,
-      "untraded_kills": 10,
-      "untraded_deaths": 7,
-      "pivot_kills": 7,
-      "pivot_deaths": 5,
-      "plants": 0,
-      "disables": 0,
-      "teamkills": 0,
-      "survived": 5,
-      "kost_rounds": 10,
-      "rounds_won": 7,
-      "clutches": 0,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "operators": {
-        "Attack": {
-          "Ace": 2,
-          "Grim": 1,
-          "Zofia": 2,
-          "Deimos": 1
-        },
-        "Defense": {
-          "Castle": 1,
-          "Ela": 2,
-          "Mozzie": 2,
-          "Thorn": 1
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 6,
-          "kills": 6,
-          "deaths": 5,
-          "kd": 1.2,
-          "kpr": 1.0
-        },
-        "Defense": {
-          "rounds": 6,
-          "kills": 7,
-          "deaths": 2,
-          "kd": 3.5,
-          "kpr": 1.1666666666666667
-        }
-      },
-      "rating": 1.4714752611538462,
-      "kd": 1.8571428571428572,
-      "kpr": 1.0833333333333333,
-      "kost": 0.8333333333333334,
-      "srv": 0.4166666666666667,
-      "hs": 0.7692307692307693,
-      "entry_diff": 0,
-      "kd_diff": 6,
+      "entry_diff": -2,
+      "kd_diff": -3,
       "objectives": 0
     },
     {
       "slug": "ohwowjay",
       "name": "OhWowJay",
       "rounds": 12,
-      "kills": 12,
+      "kills": 10,
       "deaths": 7,
-      "headshots": 8,
-      "opening_kills": 3,
-      "opening_deaths": 1,
-      "refrag_kills": 2,
+      "headshots": 4,
+      "opening_kills": 1,
+      "opening_deaths": 0,
+      "refrag_kills": 1,
       "deaths_traded": 2,
-      "kills_traded": 2,
+      "kills_traded": 0,
       "untraded_kills": 10,
       "untraded_deaths": 5,
-      "pivot_kills": 9,
-      "pivot_deaths": 4,
+      "pivot_kills": 6,
+      "pivot_deaths": 5,
       "plants": 0,
       "disables": 0,
       "teamkills": 0,
       "survived": 5,
-      "kost_rounds": 9,
+      "kost_rounds": 8,
       "rounds_won": 7,
-      "clutches": 0,
-      "clutch_1v1": 0,
+      "clutches": 1,
+      "clutch_1v1": 1,
       "clutch_1v2": 0,
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
       "operators": {
         "Attack": {
-          "Zofia": 2,
           "Gridlock": 3,
-          "Capitao": 1
+          "Thatcher": 1,
+          "Twitch": 2
         },
         "Defense": {
-          "Goyo": 2,
-          "Warden": 4
+          "Wamai": 2,
+          "Warden": 1,
+          "Bandit": 1,
+          "Jager": 1,
+          "Mute": 1
         }
       },
       "sides": {
         "Attack": {
           "rounds": 6,
-          "kills": 4,
-          "deaths": 5,
-          "kd": 0.8,
-          "kpr": 0.6666666666666666
+          "kills": 6,
+          "deaths": 3,
+          "kd": 2.0,
+          "kpr": 1.0
         },
         "Defense": {
           "rounds": 6,
-          "kills": 8,
-          "deaths": 2,
-          "kd": 4.0,
-          "kpr": 1.3333333333333333
+          "kills": 4,
+          "deaths": 4,
+          "kd": 1.0,
+          "kpr": 0.6666666666666666
         }
       },
-      "rating": 1.7572872221428573,
-      "kd": 1.7142857142857142,
-      "kpr": 1.0,
-      "kost": 0.75,
+      "rating": 1.5015247871428574,
+      "kd": 1.4285714285714286,
+      "kpr": 0.8333333333333334,
+      "kost": 0.6666666666666666,
       "srv": 0.4166666666666667,
-      "hs": 0.6666666666666666,
-      "entry_diff": 2,
-      "kd_diff": 5,
+      "hs": 0.4,
+      "entry_diff": 1,
+      "kd_diff": 3,
       "objectives": 0
     },
     {
       "slug": "tallman3-14",
       "name": "Tallman3.14",
       "rounds": 12,
-      "kills": 6,
-      "deaths": 7,
+      "kills": 8,
+      "deaths": 9,
       "headshots": 3,
-      "opening_kills": 2,
+      "opening_kills": 3,
       "opening_deaths": 1,
       "refrag_kills": 0,
       "deaths_traded": 1,
-      "kills_traded": 0,
+      "kills_traded": 2,
       "untraded_kills": 6,
-      "untraded_deaths": 6,
-      "pivot_kills": 3,
-      "pivot_deaths": 3,
+      "untraded_deaths": 8,
+      "pivot_kills": 4,
+      "pivot_deaths": 7,
       "plants": 0,
       "disables": 0,
       "teamkills": 0,
-      "survived": 5,
-      "kost_rounds": 7,
+      "survived": 3,
+      "kost_rounds": 6,
       "rounds_won": 7,
       "clutches": 0,
       "clutch_1v1": 0,
@@ -312,40 +312,39 @@
       "clutch_1v5": 0,
       "operators": {
         "Attack": {
-          "Montagne": 2,
-          "Capitao": 2,
-          "Blitz": 2
+          "Montagne": 3,
+          "Thermite": 1,
+          "Rauora": 1,
+          "Hibana": 1
         },
         "Defense": {
-          "Mute": 2,
-          "Smoke": 2,
-          "Sentry": 1,
-          "Goyo": 1
+          "Smoke": 4,
+          "Solis": 2
         }
       },
       "sides": {
         "Attack": {
           "rounds": 6,
-          "kills": 0,
+          "kills": 2,
           "deaths": 5,
-          "kd": 0.0,
-          "kpr": 0.0
+          "kd": 0.4,
+          "kpr": 0.3333333333333333
         },
         "Defense": {
           "rounds": 6,
           "kills": 6,
-          "deaths": 2,
-          "kd": 3.0,
+          "deaths": 4,
+          "kd": 1.5,
           "kpr": 1.0
         }
       },
-      "rating": 1.0303835935714285,
-      "kd": 0.8571428571428571,
-      "kpr": 0.5,
-      "kost": 0.5833333333333334,
-      "srv": 0.4166666666666667,
-      "hs": 0.5,
-      "entry_diff": 1,
+      "rating": 0.6212313666666666,
+      "kd": 0.8888888888888888,
+      "kpr": 0.6666666666666666,
+      "kost": 0.5,
+      "srv": 0.25,
+      "hs": 0.375,
+      "entry_diff": 2,
       "kd_diff": -1,
       "objectives": 0
     }
@@ -354,74 +353,74 @@
     {
       "number": 1,
       "side": "Attack",
-      "result": "Loss",
-      "site": "2F Armory Lockers, 2F Archives"
+      "result": "Win",
+      "site": "2F Master Bedroom, 2F Office"
     },
     {
       "number": 2,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "2F Master Bedroom, 2F Office"
     },
     {
       "number": 3,
       "side": "Attack",
-      "result": "Win",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "result": "Loss",
+      "site": "B Wine Cellar, B Snowmobile Garage"
     },
     {
       "number": 4,
       "side": "Attack",
       "result": "Loss",
-      "site": "2F Armory Lockers, 2F Archives"
+      "site": "1F Bar, 1F Gaming Room"
     },
     {
       "number": 5,
       "side": "Attack",
-      "result": "Loss",
-      "site": "1F Bathroom, 1F Tellers"
+      "result": "Win",
+      "site": "2F Master Bedroom, 2F Office"
     },
     {
       "number": 6,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "B Wine Cellar, B Snowmobile Garage"
     },
     {
       "number": 7,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Armory Lockers, 2F Archives"
+      "site": "2F Master Bedroom, 2F Office"
     },
     {
       "number": 8,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "1F Kitchen, 1F Dining Room"
     },
     {
       "number": 9,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "1F Bar, 1F Gaming Room"
     },
     {
       "number": 10,
       "side": "Defense",
-      "result": "Win",
-      "site": "2F Armory Lockers, 2F Archives"
+      "result": "Loss",
+      "site": "2F Master Bedroom, 2F Office"
     },
     {
       "number": 11,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "1F Kitchen, 1F Dining Room"
     },
     {
       "number": 12,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "2F Master Bedroom, 2F Office"
     }
   ]
 }

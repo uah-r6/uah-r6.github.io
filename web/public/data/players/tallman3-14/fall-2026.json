@@ -1,25 +1,25 @@
 {
   "slug": "tallman3-14",
   "name": "Tallman3.14",
-  "rounds": 50,
-  "kills": 20,
-  "deaths": 40,
-  "headshots": 9,
-  "opening_kills": 7,
-  "opening_deaths": 6,
+  "rounds": 62,
+  "kills": 28,
+  "deaths": 49,
+  "headshots": 12,
+  "opening_kills": 10,
+  "opening_deaths": 7,
   "refrag_kills": 1,
-  "deaths_traded": 4,
-  "kills_traded": 4,
-  "untraded_kills": 16,
-  "untraded_deaths": 36,
-  "pivot_kills": 14,
-  "pivot_deaths": 26,
-  "plants": 5,
+  "deaths_traded": 5,
+  "kills_traded": 6,
+  "untraded_kills": 22,
+  "untraded_deaths": 44,
+  "pivot_kills": 18,
+  "pivot_deaths": 33,
+  "plants": 0,
   "disables": 0,
   "teamkills": 0,
-  "survived": 10,
-  "kost_rounds": 27,
-  "rounds_won": 28,
+  "survived": 13,
+  "kost_rounds": 30,
+  "rounds_won": 35,
   "clutches": 1,
   "clutch_1v1": 0,
   "clutch_1v2": 0,
@@ -28,7 +28,10 @@
   "clutch_1v5": 0,
   "operators": {
     "Attack": {
-      "Montagne": 3,
+      "Montagne": 6,
+      "Thermite": 1,
+      "Rauora": 1,
+      "Hibana": 1,
       "Capitao": 4,
       "Blitz": 8,
       "Lion": 3,
@@ -38,8 +41,9 @@
       "Flores": 1
     },
     "Defense": {
+      "Smoke": 16,
+      "Solis": 2,
       "Mute": 3,
-      "Smoke": 12,
       "Sentry": 2,
       "Goyo": 4,
       "Kaid": 2,
@@ -49,32 +53,49 @@
   },
   "sides": {
     "Attack": {
-      "rounds": 24,
-      "kills": 6,
-      "deaths": 20,
-      "kd": 0.3,
-      "kpr": 0.25
+      "rounds": 30,
+      "kills": 8,
+      "deaths": 25,
+      "kd": 0.32,
+      "kpr": 0.26666666666666666
     },
     "Defense": {
-      "rounds": 26,
-      "kills": 14,
-      "deaths": 20,
-      "kd": 0.7,
-      "kpr": 0.5384615384615384
+      "rounds": 32,
+      "kills": 20,
+      "deaths": 24,
+      "kd": 0.8333333333333334,
+      "kpr": 0.625
     }
   },
-  "maps": 4,
-  "rating": 0.41670010839999994,
-  "kd": 0.5,
-  "kpr": 0.4,
-  "kost": 0.54,
-  "srv": 0.2,
-  "hs": 0.45,
-  "entry_diff": 1,
-  "kd_diff": -20,
-  "objectives": 5,
+  "maps": 5,
+  "rating": 0.4212255934035549,
+  "kd": 0.5714285714285714,
+  "kpr": 0.45161290322580644,
+  "kost": 0.4838709677419355,
+  "srv": 0.20967741935483872,
+  "hs": 0.42857142857142855,
+  "entry_diff": 3,
+  "kd_diff": -21,
+  "objectives": 0,
   "season": "fall-2026",
   "matches": [
+    {
+      "id": "b595ffaaec57",
+      "series_id": "1a106d1b2f89",
+      "season": "fall-2026",
+      "opponent": "University of Michigan",
+      "date": "2026-09-30",
+      "week": "1",
+      "notes": "",
+      "map": "Chalet",
+      "mode": "Bomb",
+      "our_score": 7,
+      "their_score": 5,
+      "result": "WIN",
+      "demo": false,
+      "rating_eligible": true,
+      "rating": 0.6212313666666666
+    },
     {
       "id": "076d2b6b02bc",
       "series_id": "1a106d1b2f89",
@@ -89,6 +110,7 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 1.0303835935714285
     },
     {
@@ -105,7 +127,8 @@
       "their_score": 6,
       "result": "WIN",
       "demo": false,
-      "rating": 0.36066459571428566
+      "rating_eligible": true,
+      "rating": 0.3311839642857143
     },
     {
       "id": "8a6357ff307c",
@@ -121,7 +144,8 @@
       "their_score": 8,
       "result": "LOSS",
       "demo": false,
-      "rating": 0.04392444241758231
+      "rating_eligible": true,
+      "rating": -0.07640513329670351
     },
     {
       "id": "d64d5478cdb3",
@@ -137,6 +161,7 @@
       "their_score": 3,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 0.3616717359999999
     }
   ]

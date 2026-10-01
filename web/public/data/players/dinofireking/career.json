@@ -2,25 +2,25 @@
   "slug": "dinofireking",
   "name": "DinoFireKing",
   "season": "career",
-  "rounds": 50,
-  "kills": 22,
-  "deaths": 32,
-  "headshots": 12,
+  "rounds": 62,
+  "kills": 30,
+  "deaths": 38,
+  "headshots": 13,
   "opening_kills": 3,
   "opening_deaths": 3,
-  "refrag_kills": 3,
+  "refrag_kills": 4,
   "deaths_traded": 9,
-  "kills_traded": 2,
-  "untraded_kills": 20,
-  "untraded_deaths": 23,
-  "pivot_kills": 13,
-  "pivot_deaths": 16,
+  "kills_traded": 3,
+  "untraded_kills": 27,
+  "untraded_deaths": 29,
+  "pivot_kills": 16,
+  "pivot_deaths": 18,
   "plants": 0,
   "disables": 0,
   "teamkills": 0,
-  "survived": 18,
-  "kost_rounds": 32,
-  "rounds_won": 28,
+  "survived": 24,
+  "kost_rounds": 40,
+  "rounds_won": 35,
   "clutches": 0,
   "clutch_1v1": 0,
   "clutch_1v2": 0,
@@ -29,12 +29,13 @@
   "clutch_1v5": 0,
   "operators": {
     "Attack": {
+      "Sens": 3,
+      "Flores": 3,
+      "Ram": 7,
+      "Lion": 1,
       "Gridlock": 2,
-      "Ram": 4,
-      "Sens": 2,
       "Sledge": 1,
       "Rauora": 1,
-      "Flores": 2,
       "Blackbeard": 3,
       "Striker": 2,
       "Thatcher": 4,
@@ -42,10 +43,12 @@
       "Glaz": 1
     },
     "Defense": {
+      "Castle": 10,
+      "Melusi": 2,
+      "Wamai": 1,
       "Mira": 2,
       "Mute": 1,
       "Fenrir": 6,
-      "Castle": 7,
       "Ela": 2,
       "Kaid": 2,
       "Warden": 1,
@@ -56,31 +59,48 @@
   },
   "sides": {
     "Attack": {
-      "rounds": 24,
-      "kills": 10,
-      "deaths": 15,
-      "kd": 0.6666666666666666,
-      "kpr": 0.4166666666666667
+      "rounds": 30,
+      "kills": 13,
+      "deaths": 20,
+      "kd": 0.65,
+      "kpr": 0.43333333333333335
     },
     "Defense": {
-      "rounds": 26,
-      "kills": 12,
-      "deaths": 17,
-      "kd": 0.7058823529411765,
-      "kpr": 0.46153846153846156
+      "rounds": 32,
+      "kills": 17,
+      "deaths": 18,
+      "kd": 0.9444444444444444,
+      "kpr": 0.53125
     }
   },
-  "maps": 4,
-  "rating": 0.9322233558999999,
-  "kd": 0.6875,
-  "kpr": 0.44,
-  "kost": 0.64,
-  "srv": 0.36,
-  "hs": 0.5454545454545454,
+  "maps": 5,
+  "rating": 0.9857704612427844,
+  "kd": 0.7894736842105263,
+  "kpr": 0.4838709677419355,
+  "kost": 0.6451612903225806,
+  "srv": 0.3870967741935484,
+  "hs": 0.43333333333333335,
   "entry_diff": 0,
-  "kd_diff": -10,
+  "kd_diff": -8,
   "objectives": 0,
   "matches": [
+    {
+      "id": "b595ffaaec57",
+      "series_id": "1a106d1b2f89",
+      "season": "fall-2026",
+      "opponent": "University of Michigan",
+      "date": "2026-09-30",
+      "week": "1",
+      "notes": "",
+      "map": "Chalet",
+      "mode": "Bomb",
+      "our_score": 7,
+      "their_score": 5,
+      "result": "WIN",
+      "demo": false,
+      "rating_eligible": true,
+      "rating": 1.203609685
+    },
     {
       "id": "076d2b6b02bc",
       "series_id": "1a106d1b2f89",
@@ -95,6 +115,7 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 0.9126301981428571
     },
     {
@@ -111,6 +132,7 @@
       "their_score": 6,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 0.8177553247619047
     },
     {
@@ -127,6 +149,7 @@
       "their_score": 8,
       "result": "LOSS",
       "demo": false,
+      "rating_eligible": true,
       "rating": 1.0512923251428572
     },
     {
@@ -143,6 +166,7 @@
       "their_score": 3,
       "result": "WIN",
       "demo": false,
+      "rating_eligible": true,
       "rating": 0.94005554
     }
   ]
