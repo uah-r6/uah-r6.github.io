@@ -1,0 +1,12 @@
+{
+  "name": "clutch-linear-size-weight-v1",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "baseline_id": "expanded-raw-20260930T202146Z",
+  "baseline_cv_id": "group-cv-20260930T202147Z",
+  "hypothesis": "Winning from a larger first sole-survivor disadvantage may carry more Rating weight than a 1v1 win.",
+  "definition": "sum(X * clutch_1vX for X=1..5)/rounds, exactly the previously tested linear size rule; no per-size coefficients.",
+  "control": "Original equal-credit clutches/rounds; reuse saved baseline model and CV metrics.",
+  "fixed": "All other available raw families unchanged: 8-second trade differential, original KOST and separate survival, kills beyond first, opening differential, objectives excluded; ridge alpha 1.",
+  "split": "299 clean pre-August training rows, seven held-out-event folds, then August EWC 32 development rows. Both September events excluded; final NA60 sealed.",
+  "decision": "One variant only. Require consistent event and August gain before considering replacement; no size-coefficient grid search. Preregistered before fitting."
+}
