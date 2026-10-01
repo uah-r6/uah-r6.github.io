@@ -24,3 +24,11 @@ Selected from cached complete physical maps and three distinct events **before o
 | South America Stage 1, LOUD–FaZe | 4118 / 8666 | `Match-2026-07-05_11-17-25-19616` |
 
 Check objective occurrence, event order, every named candidate, missed event, and wrong actor separately by map and event. Any wrong named actor falsifies the current candidate. A good result remains preliminary and must be checked on further events before affecting parser output, KOST, Rating inputs, UAH statistics, or public JSON. The reserved North America Stage 2 Rating event is excluded from this work.
+
+## Extension locked after the first three validation maps
+
+The three maps above had 35 rounds and five public plant events: four exact candidate names and one unresolved, with no disables. Before opening any more actor diagnostics, extend the **same unchanged rule** to all remaining cached, physical, single-folder development maps from `research/sources.json` that are not in discovery, the first validation set, a logical rehost, or the reserved North America Stage 2 final Rating event. The fixed SiegeGG match IDs are:
+
+`4141, 4134, 4135, 3745, 4148, 4139, 3639, 4127, 4129, 4137, 4138, 4119, 4120, 4133, 3880, 3879`.
+
+Evaluate all objective events, including disables, and leave uncertain actors unresolved. Do not adjust the 0.10-second timer criterion, the +100 score delta, the 0–2,000-byte window, or the exact entity offset of four after seeing these results.
