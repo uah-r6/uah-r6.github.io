@@ -1,0 +1,352 @@
+{
+  "evaluation_id": "frozen-na-20261001T223911Z",
+  "frozen_candidate_sha256": "1d8386767247e0d78ed36a23ff09128ff94f7d65fc86599619573a7cbad0a295",
+  "freeze_commit": "eb747f8fa4358b6206bb8d64e45db7d38807d880",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "event": "North America League Stage 2 2026",
+  "rows": 60,
+  "maps": 7,
+  "candidate": {
+    "n": 60,
+    "mae": 0.036227637267759134,
+    "rmse": 0.04944566449886835,
+    "display_exact": 0.13333333333333333,
+    "max_abs_error": 0.1493694590368212,
+    "within_0.01": 0.2,
+    "within_0.02": 0.35,
+    "within_0.03": 0.45,
+    "within_0.05": 0.8166666666666667,
+    "within_0.10": 0.9333333333333333,
+    "worst": [
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Villa",
+        "player": "Spiker.WC",
+        "actual": 1.08,
+        "predicted": 0.9306,
+        "error": -0.1494
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Border",
+        "player": "Beeno.4FUN",
+        "actual": 1.15,
+        "predicted": 1.0066,
+        "error": -0.1434
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Nighthaven Labs",
+        "player": "Ewzy.C9",
+        "actual": 1.94,
+        "predicted": 1.8019,
+        "error": -0.1381
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Border",
+        "player": "Spoit.SR",
+        "actual": 1.06,
+        "predicted": 1.1707,
+        "error": 0.1107
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Border",
+        "player": "MikeW.4FUN",
+        "actual": 0.59,
+        "predicted": 0.6771,
+        "error": 0.0871
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Chalet",
+        "player": "SpiriTz.100T",
+        "actual": 1.15,
+        "predicted": 1.0684,
+        "error": -0.0816
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Villa",
+        "player": "Canadian.SR",
+        "actual": 0.59,
+        "predicted": 0.5118,
+        "error": -0.0782
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Kafe Dostoyevsky",
+        "player": "MikeW.4FUN",
+        "actual": 0.54,
+        "predicted": 0.6114,
+        "error": 0.0714
+      }
+    ],
+    "median_abs_error": 0.030800298281980554,
+    "mean_error": -0.004665580999743666
+  },
+  "collegiate_v1": {
+    "n": 60,
+    "mae": 0.23874795883033081,
+    "rmse": 0.29399802187611007,
+    "display_exact": 0.0,
+    "max_abs_error": 0.7321827590476193,
+    "within_0.01": 0.016666666666666666,
+    "within_0.02": 0.016666666666666666,
+    "within_0.03": 0.06666666666666667,
+    "within_0.05": 0.1,
+    "within_0.10": 0.18333333333333332,
+    "worst": [
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Kafe Dostoyevsky",
+        "player": "Packer.4FUN",
+        "actual": 1.38,
+        "predicted": 2.1122,
+        "error": 0.7322
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Nighthaven Labs",
+        "player": "Ewzy.C9",
+        "actual": 1.94,
+        "predicted": 2.6609,
+        "error": 0.7209
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Villa",
+        "player": "Fultz.DZ",
+        "actual": 0.52,
+        "predicted": -0.165,
+        "error": -0.685
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Nighthaven Labs",
+        "player": "Kason.100T",
+        "actual": 0.31,
+        "predicted": -0.3517,
+        "error": -0.6617
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Nighthaven Labs",
+        "player": "SpiriTz.100T",
+        "actual": 0.47,
+        "predicted": -0.0209,
+        "error": -0.4909
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Chalet",
+        "player": "Spiker.WC",
+        "actual": 1.25,
+        "predicted": 1.7146,
+        "error": 0.4646
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Nighthaven Labs",
+        "player": "Monk.C9",
+        "actual": 1.34,
+        "predicted": 1.7649,
+        "error": 0.4249
+      },
+      {
+        "event": "North America League Stage 2 2026",
+        "map": "Nighthaven Labs",
+        "player": "Atom.100T",
+        "actual": 0.62,
+        "predicted": 0.2073,
+        "error": -0.4127
+      }
+    ],
+    "median_abs_error": 0.19634530796428568,
+    "mean_error": -0.0013083755737818023
+  },
+  "candidate_grouped_residuals": [
+    {
+      "dimension": "kpr",
+      "group": "<0.8",
+      "rows": 38,
+      "maps": 7,
+      "mae": 0.03887928014815384,
+      "bias": -0.002198908666954044
+    },
+    {
+      "dimension": "kpr",
+      "group": ">=0.8",
+      "rows": 22,
+      "maps": 7,
+      "mae": 0.03164752683798646,
+      "bias": -0.008926196847289377
+    },
+    {
+      "dimension": "map",
+      "group": "Border",
+      "rows": 8,
+      "maps": 1,
+      "mae": 0.06296424751047823,
+      "bias": 0.0026689540158832264
+    },
+    {
+      "dimension": "map",
+      "group": "Chalet",
+      "rows": 6,
+      "maps": 1,
+      "mae": 0.042544455969261395,
+      "bias": -0.011426484615602603
+    },
+    {
+      "dimension": "map",
+      "group": "Kafe Dostoyevsky",
+      "rows": 10,
+      "maps": 1,
+      "mae": 0.02367498859976408,
+      "bias": 0.011267434853715452
+    },
+    {
+      "dimension": "map",
+      "group": "Nighthaven Labs",
+      "rows": 18,
+      "maps": 2,
+      "mae": 0.03139093138042699,
+      "bias": -0.006907404333823974
+    },
+    {
+      "dimension": "map",
+      "group": "Villa",
+      "rows": 18,
+      "maps": 2,
+      "mae": 0.03404949274004595,
+      "bias": -0.012281591941466287
+    },
+    {
+      "dimension": "public_objective_credit",
+      "group": "no",
+      "rows": 43,
+      "maps": 7,
+      "mae": 0.035039556509311474,
+      "bias": 0.008437603790280109
+    },
+    {
+      "dimension": "public_objective_credit",
+      "group": "yes",
+      "rows": 17,
+      "maps": 6,
+      "mae": 0.039232782715597325,
+      "bias": -0.03780893076274498
+    },
+    {
+      "dimension": "survival",
+      "group": "<0.3",
+      "rows": 28,
+      "maps": 7,
+      "mae": 0.03477939931075129,
+      "bias": -0.0005450433212416077
+    },
+    {
+      "dimension": "survival",
+      "group": ">=0.3",
+      "rows": 32,
+      "maps": 7,
+      "mae": 0.037494845480140995,
+      "bias": -0.008271051468432968
+    },
+    {
+      "dimension": "trade_activity",
+      "group": "<2",
+      "rows": 25,
+      "maps": 7,
+      "mae": 0.03218301188161172,
+      "bias": -0.0024078197920341425
+    },
+    {
+      "dimension": "trade_activity",
+      "group": ">=2",
+      "rows": 35,
+      "maps": 7,
+      "mae": 0.03911665540072157,
+      "bias": -0.00627826757667904
+    }
+  ],
+  "candidate_worst_with_public_objective_label": [
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Villa",
+      "player": "Spiker.WC",
+      "actual": 1.08,
+      "predicted": 0.9306,
+      "error": -0.1494,
+      "public_objective_credit": 0
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Border",
+      "player": "Beeno.4FUN",
+      "actual": 1.15,
+      "predicted": 1.0066,
+      "error": -0.1434,
+      "public_objective_credit": 1
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Nighthaven Labs",
+      "player": "Ewzy.C9",
+      "actual": 1.94,
+      "predicted": 1.8019,
+      "error": -0.1381,
+      "public_objective_credit": 0
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Border",
+      "player": "Spoit.SR",
+      "actual": 1.06,
+      "predicted": 1.1707,
+      "error": 0.1107,
+      "public_objective_credit": 0
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Border",
+      "player": "MikeW.4FUN",
+      "actual": 0.59,
+      "predicted": 0.6771,
+      "error": 0.0871,
+      "public_objective_credit": 0
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Chalet",
+      "player": "SpiriTz.100T",
+      "actual": 1.15,
+      "predicted": 1.0684,
+      "error": -0.0816,
+      "public_objective_credit": 2
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Villa",
+      "player": "Canadian.SR",
+      "actual": 0.59,
+      "predicted": 0.5118,
+      "error": -0.0782,
+      "public_objective_credit": 1
+    },
+    {
+      "event": "North America League Stage 2 2026",
+      "map": "Kafe Dostoyevsky",
+      "player": "MikeW.4FUN",
+      "actual": 0.54,
+      "predicted": 0.6114,
+      "error": 0.0714,
+      "public_objective_credit": 0
+    }
+  ],
+  "final_test_evaluated_once": true,
+  "decision_policy": "Frozen model will not be retuned on this event.",
+  "evaluation_code_commit": "53a1d8df1346e42dacdde04ea22d0956bf50b088"
+}

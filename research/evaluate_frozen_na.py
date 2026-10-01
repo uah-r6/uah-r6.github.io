@@ -76,7 +76,11 @@ def main():
     result = {
         'evaluation_id': datetime.now(timezone.utc).strftime('frozen-na-%Y%m%dT%H%M%SZ'),
         'frozen_candidate_sha256': hashlib.sha256(FROZEN.read_bytes()).hexdigest(),
-        'freeze_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+        'freeze_commit': subprocess.check_output(
+            ['git', 'log', '-1', '--format=%H', '--', str(FROZEN.relative_to(ROOT))],
+            cwd=ROOT, text=True).strip(),
+        'evaluation_code_commit': subprocess.check_output(
+            ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
         'dataset_sha256': frozen['dataset_sha256'],
         'event': SPLIT['untouched_final_event'], 'rows': len(rows),
         'maps': len({(r['match_id'], r['game_id']) for r in rows}),
