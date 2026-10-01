@@ -1,0 +1,14 @@
+{
+  "name": "trade-window-isolated-v1",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "hypothesis": "Trade credit may be sensitive to the allowed response time; compare plausible whole-second thresholds while retaining exact killer-based refrag semantics.",
+  "windows_seconds": [5, 6, 7, 8, 10],
+  "baseline_id": "expanded-raw-20260930T202146Z",
+  "baseline_cv_id": "group-cv-20260930T202147Z",
+  "source": "Ignored cached normalized Match JSON at data/research/derived; no raw replay parsing or public actor input. Per-round calculate_match is the source of death/kill trade credit.",
+  "control": "At 8 seconds, every retained round trade value must reproduce player_maps.jsonl. Reuse stored baseline model and CV record; no identical refit.",
+  "isolation": "Only replace (deaths_traded - kills_traded)/rounds. KOST and every other player feature stay at the cached 8-second baseline values, even though KOST would mechanically change with a production window setting. Report this as a limitation; evaluate consistency separately before any runtime change.",
+  "model": "Original raw eight available families, objectives omitted; standardized ridge alpha=1, intercept unpenalized. Opening differential and kills beyond first retained.",
+  "split": "Seven pre-August events, 299 clean rows, leave-one-event-out; full fit against 32 August EWC development rows. Both September events excluded; NA final 60 sealed.",
+  "decision": "Inspect per-fold and August accuracy, trade counts, coefficient drift and threshold sensitivity. A tiny pooled MAE difference alone does not select a new window."
+}
