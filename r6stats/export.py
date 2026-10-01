@@ -4,6 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from r6stats.parser.models import Match
+from r6stats.manual_kd import apply_display_kd
 from r6stats.stats.calculate import RATING_VERSION, aggregate, calculate_match
 
 
@@ -27,6 +28,8 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     aliases = {p["id"]: {a[0].strip().casefold() for a in db.execute("SELECT username FROM aliases WHERE player_id=?", (p["id"],))} for p in players}
     window = config["stats"]["trade_window_seconds"]
     season_stats = defaultdict(lambda: defaultdict(list))
+    season_rating_stats = defaultdict(lambda: defaultdict(list))
+    season_adjustments = defaultdict(lambda: defaultdict(lambda: [0, 0]))
     season_matches = defaultdict(list)
     player_matches = defaultdict(lambda: defaultdict(list))
     demo_seasons = set()
@@ -37,12 +40,15 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     for row in rows:
         match = Match.from_dict(json.loads(row["normalized_json"]))
         stats = calculate_match(match, window)
+        corrections = {c["player_id"]: c for c in db.execute(
+            "SELECT * FROM map_kd_corrections WHERE map_id=?", (row["id"],))}
+        rating_eligible = bool(row["replay_data_complete"]) and not corrections
         public = {"id": row["id"], "series_id": row["series_public"], "season": row["season_slug"],
                   "opponent": row["opponent"], "date": row["played_on"] or row["date"], "week": row["week"],
                   "notes": row["notes"], "map": row["map_name"], "mode": row["game_mode"],
                   "our_score": row["our_score"], "their_score": row["their_score"],
                   "result": "WIN" if row["our_score"] > row["their_score"] else "LOSS",
-                  "demo": bool(row["demo"])}
+                  "demo": bool(row["demo"]), "rating_eligible": rating_eligible}
         if row["demo"]:
             demo_seasons.add(row["season_slug"])
         public_players = []
@@ -54,10 +60,22 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     key = candidate.key
                     break
             if key and key in stats:
-                entry = {"slug": p["slug"], "name": p["display_name"], **stats[key]}
+                raw = stats[key]
+                correction = corrections.get(p["id"])
+                shown = (apply_display_kd(raw, correction["final_kills"], correction["final_deaths"])
+                         if correction else raw)
+                entry = {"slug": p["slug"], "name": p["display_name"], **shown,
+                         "rating": raw["rating"] if rating_eligible else None}
                 public_players.append(entry)
-                season_stats[row["season_slug"]][p["slug"]].append(stats[key])
-                player_matches[p["slug"]][row["season_slug"]].append({**public, "rating": stats[key]["rating"]})
+                season_stats[row["season_slug"]][p["slug"]].append(raw)
+                if rating_eligible:
+                    season_rating_stats[row["season_slug"]][p["slug"]].append(raw)
+                if correction:
+                    adjustment = season_adjustments[row["season_slug"]][p["slug"]]
+                    adjustment[0] += correction["final_kills"] - raw["kills"]
+                    adjustment[1] += correction["final_deaths"] - raw["deaths"]
+                player_matches[p["slug"]][row["season_slug"]].append(
+                    {**public, "rating": raw["rating"] if rating_eligible else None})
         rounds = [{"number": r.number, "side": next((p.side for p in r.players if p.team == row["our_team"]), "Unknown"),
                    "result": "Win" if r.winner == row["our_team"] else "Loss", "site": r.site}
                   for r in match.rounds]
@@ -67,13 +85,19 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         slug = season["slug"]
         leaderboard = []
         for p in players:
+            raw_total = aggregate(season_stats[slug][p["slug"]])
+            delta = season_adjustments[slug][p["slug"]]
+            effective = apply_display_kd(raw_total, raw_total["kills"] + delta[0],
+                                         raw_total["deaths"] + delta[1])
+            effective["rating"] = (aggregate(season_rating_stats[slug][p["slug"]])["rating"]
+                                   if season_rating_stats[slug][p["slug"]] else None)
             item = {"slug": p["slug"], "name": p["display_name"],
-                    **aggregate(season_stats[slug][p["slug"]])}
+                    **effective}
             if p["tracked"] or season_stats[slug][p["slug"]]:
                 leaderboard.append(item)
             write(root / "players" / p["slug"] / f"{slug}.json",
                   {**item, "season": slug, "matches": player_matches[p["slug"]][slug]})
-        leaderboard.sort(key=lambda p: p["rating"], reverse=True)
+        leaderboard.sort(key=lambda p: p["rating"] if p["rating"] is not None else float("-inf"), reverse=True)
         matches = season_matches[slug]
         write(root / "seasons" / f"{slug}.json",
               {"slug": slug, "name": season["name"], "start_date": season["start_date"],
@@ -84,10 +108,17 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                "players": leaderboard, "matches": matches, "rating_version": RATING_VERSION})
     for p in players:
         all_stats = [s for season in season_stats.values() for s in season[p["slug"]]]
+        all_rating_stats = [s for season in season_rating_stats.values() for s in season[p["slug"]]]
+        delta_k = sum(season[p["slug"]][0] for season in season_adjustments.values())
+        delta_d = sum(season[p["slug"]][1] for season in season_adjustments.values())
+        career_raw = aggregate(all_stats)
+        career = apply_display_kd(career_raw, career_raw["kills"] + delta_k,
+                                  career_raw["deaths"] + delta_d)
+        career["rating"] = aggregate(all_rating_stats)["rating"] if all_rating_stats else None
         all_matches = [m for seasons_ in player_matches[p["slug"]].values() for m in seasons_]
         write(root / "players" / p["slug"] / "career.json",
               {"slug": p["slug"], "name": p["display_name"], "season": "career",
-               **aggregate(all_stats), "matches": all_matches})
+               **career, "matches": all_matches})
     write(root / "index.json", {"team": config["team"], "active_season": active,
                                 "seasons": [{"slug": s["slug"], "name": s["name"],
                                              "start_date": s["start_date"], "end_date": s["end_date"]} for s in seasons],

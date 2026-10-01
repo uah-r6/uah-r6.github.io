@@ -15,3 +15,8 @@
 .rehost-round label { display: flex; align-items: center; gap: 8px; }
 .rehost-round label input { width: auto; }
 @media (max-width: 900px) { .rehost-segment, .rehost-round { grid-template-columns: 1fr; } .rehost-segment .detail-actions { grid-column: auto; } }
+.kd-correction-row { display:grid; grid-template-columns: 1fr 1.2fr 90px 90px 1.4fr 1.4fr auto auto; align-items:end; gap:.5rem; margin-top:.8rem; padding:.8rem; border:1px solid var(--line); border-radius:.7rem; }
+.kd-correction-row label { display:grid; gap:.2rem; font-size:.78rem; }
+.kd-correction-row input { min-width:0; width:100%; }
+.kd-correction-row small { grid-column:1 / -1; }
+@media (max-width: 1150px) { .kd-correction-row { grid-template-columns:repeat(2,minmax(0,1fr)); } }

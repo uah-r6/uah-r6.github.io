@@ -366,6 +366,15 @@ def reparse_map(db, map_id: str, match: Match, fingerprint: str) -> None:
     score = [sum(r.winner == team for r in match.rounds) for team in (0, 1)]
     old_bindings = {r["player_key"]: r["player_id"] for r in db.execute("""SELECT rp.player_key,rp.player_id
         FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id WHERE rd.map_id=?""", (map_id,))}
+    corrections = list(db.execute("SELECT player_id FROM map_kd_corrections WHERE map_id=?", (map_id,)))
+    if corrections:
+        from r6stats.stats.calculate import calculate_match
+        reparsed_stats = calculate_match(match)
+        corrected_ids = {item["player_id"] for item in corrections}
+        new_keys = {key for key, player_id in old_bindings.items()
+                    if player_id in corrected_ids and key in reparsed_stats}
+        if {old_bindings[key] for key in new_keys} != corrected_ids:
+            raise ValueError("Reparse lost a manually corrected player; no changes were made.")
     with db:
         db.execute("DELETE FROM rounds WHERE map_id=?", (map_id,))
         db.execute("""UPDATE maps SET map_name=?,match_type=?,game_mode=?,our_score=?,their_score=?,
@@ -396,3 +405,9 @@ def reparse_map(db, map_id: str, match: Match, fingerprint: str) -> None:
                            (round_id,sequence,kind,player_key,team,remaining) VALUES(?,?,?,?,?,?)""",
                            (round_id, sequence, objective.kind, objective.player,
                             objective.team, objective.remaining))
+        if corrections:
+            for key in new_keys:
+                raw = reparsed_stats[key]
+                db.execute("""UPDATE map_kd_corrections SET replay_kills=?,replay_deaths=?
+                              WHERE map_id=? AND player_id=?""",
+                           (raw["kills"], raw["deaths"], map_id, old_bindings[key]))

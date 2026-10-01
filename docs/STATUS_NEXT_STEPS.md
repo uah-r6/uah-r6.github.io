@@ -1,5 +1,12 @@
 # Status and next steps — 2026-09-30
 
+## CURRENT PRODUCT CHECKPOINT — 2026-10-01 manual K/D milestone
+
+- Admin map detail now has an auditable final-map K/D editor for roster players. SQLite stores raw replay K/D, final K/D, reason, note, and update timestamp separately from normalized replay/events. Create/edit/remove immediately regenerate local public JSON; removal restores replay K/D and retains the map's partial-data flag.
+- Public map, season, and career kills/deaths/KD use final totals when corrected. KPR, KOST, survival, openings, trades, operators, objectives, headshots, side splits, and the rating formula remain replay-derived. Partial maps have null map Rating; season/career Rating uses complete eligible maps only, or null if there are none. Admin explicitly displays partial, correction, and eligibility status. No private correction reason or note appears in public JSON.
+- TestClient covers create/edit/remove, replay raw preservation, recalculation, reparse preservation, deletion, aggregation, Rating exclusion, and public privacy. Full Python suite: 71 passed, 1 optional smoke skipped, 6 subtests passed. Both public and admin Vite builds passed. Real SQLite was not modified; no publish or push.
+- **NEXT ACTION:** Continue objective actor research on development replays, starting with existing timer occurrence evidence and prior art. Require event-level actor validation before changing objective credit. Then audit UAH read-only and only later rebuild professional data and rerun the frozen raw model. Resume with `.\.venv\Scripts\python.exe research\objective_timer_validation.py --help` or inspect `research/objective-coverage.md` and `research/defuser_probe.py`. Keep the 60 NA Stage 2 Rating rows sealed.
+
 ## CURRENT PRODUCT CHECKPOINT — 2026-10-01 rehost admin milestone
 
 - The opt-in browser rehost flow is implemented: select two or more ordered Custom Game replay folders, mark excluded physical R## rounds with a reason, inspect the physical-to-logical mapping, and confirm the final competitive score before import. The normal one-folder import path stays separate and unchanged.

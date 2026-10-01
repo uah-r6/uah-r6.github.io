@@ -22,6 +22,7 @@ from r6stats.cli import fingerprint
 from r6stats.db import repository as repo
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
+from r6stats import manual_kd
 from r6stats.parser.models import Match
 from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
@@ -158,6 +159,13 @@ class MatchUpdate(BaseModel):
 
 class MatchDelete(BaseModel):
     confirm_map_id: str
+
+
+class KDCorrection(BaseModel):
+    final_kills: int = Field(ge=0, le=100)
+    final_deaths: int = Field(ge=0, le=100)
+    reason: str = Field(min_length=1, max_length=240)
+    note: str = Field(default="", max_length=2000)
 
 
 class MatchReparse(BaseModel):
@@ -695,8 +703,26 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         details["tracked_players"] = [r[0] for r in db.execute("""SELECT DISTINCT p.display_name
                     FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
                     JOIN players p ON p.id=rp.player_id WHERE rd.map_id=? ORDER BY p.display_name""", (map_id,))]
+        details["kd_players"] = manual_kd.map_players(
+            db, map_id, read_settings(root)["stats"]["trade_window_seconds"])
+        details["manual_kd_correction"] = any(p["corrected"] for p in details["kd_players"])
+        details["rating_eligible"] = bool(row["replay_data_complete"]) and not details["manual_kd_correction"]
         details["archive"] = replay_archive.verify(db, root / "data/replay-archive", map_id)
         return details
+
+    @app.put("/api/admin/matches/{map_id}/kd-corrections/{player_id}")
+    def save_kd_correction(map_id: str, player_id: int, payload: KDCorrection, db: DB):
+        row = manual_kd.save(db, map_id, player_id, payload.final_kills, payload.final_deaths,
+                             payload.reason, payload.note,
+                             read_settings(root)["stats"]["trade_window_seconds"])
+        export(db, read_settings(root), root / "web/public/data")
+        return row
+
+    @app.delete("/api/admin/matches/{map_id}/kd-corrections/{player_id}")
+    def remove_kd_correction(map_id: str, player_id: int, db: DB):
+        manual_kd.remove(db, map_id, player_id)
+        export(db, read_settings(root), root / "web/public/data")
+        return {"ok": True}
 
     @app.get("/api/admin/matches/{map_id}/archive")
     def verify_archive(map_id: str, db: DB):
