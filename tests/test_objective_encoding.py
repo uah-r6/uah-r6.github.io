@@ -5,6 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'research'))
 from objective_encoding_probe import inherited_state_events
 from objective_score_ledger import ledger
+from objective_occurrence_validation import occurrences
 
 
 REF = b'\x23' + (123).to_bytes(8, 'little')
@@ -62,3 +63,26 @@ def test_score_ledger_does_not_join_nearby_entities():
     data = REF + name + other + score + (200).to_bytes(4, 'little')
     data += other + score + (300).to_bytes(4, 'little')
     assert ledger(data)['events'][0]['names'] == []
+
+
+def test_candidate_disable_needs_plant_and_defender_win_not_zero_flag():
+    plant = {'offset': 100, 'entity': 123, 'value': 1}
+    result = occurrences([plant], 'Defense', 'Bomb')
+    assert result['plant'] and result['disable'] and result['actor'] is None
+    assert not occurrences([], 'Defense', 'Bomb')['disable']
+
+
+def test_attack_win_with_later_cleanup_does_not_imply_disable():
+    events = [{'offset': 100, 'entity': 123, 'value': 1},
+              {'offset': 200, 'entity': 123, 'value': 0}]
+    result = occurrences(events, 'Attack', 'Bomb')
+    assert result['plant'] and not result['disable']
+
+
+def test_ambiguous_or_unsupported_occurrences_remain_unresolved():
+    plant = {'offset': 100, 'entity': 123, 'value': 1}
+    assert occurrences([plant,plant], 'Defense', 'Bomb')['status'] == 'ambiguous_state_sequence'
+    assert occurrences([plant], None, 'Bomb')['status'] == 'unsupported_round'
+    assert occurrences([plant], 'Defense', 'Hostage')['status'] == 'unsupported_round'
+    other = {'offset': 200, 'entity': 456, 'value': 0}
+    assert occurrences([plant,other], 'Defense', 'Bomb')['status'] == 'ambiguous_state_sequence'

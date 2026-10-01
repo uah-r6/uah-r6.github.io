@@ -1,5 +1,13 @@
 # Objective coverage diagnostic — development events only
 
+## CURRENT FROZEN OCCURRENCE VALIDATION - 2026-10-01
+
+HEAD at validation: `4f17c21` (rule frozen at `8b18365`, grammar milestone `5dc314d`). The interrupted tests were preserved. The unchanged rule matched 32/32 plants and 12/12 disables in the locked twelve-map / 124-round validation, with zero misses or false positives. All 92 negative rounds remained negative; 6158/10563 R07 cleanup was not classified as a disable. The five events span five header code versions. Full per-map results: [occurrence report](output/objective-occurrence-validation.md).
+
+The original 291 development rounds separately matched 61/61 plants and 8/8 disables; all 230 negative rounds stayed negative. The rule requires Bomb, one unambiguous plant-state transition/entity, and an unambiguous winner side; Defense winning after a plant implies a disable. It does not use timer thresholds, score bonuses, or public actor data. Actors remain unresolved. No live database, archives, public JSON, production parser, operators or Rating changed. Research reference remains 56 maps / 560 rows / 407 clean, zero unresolved operators and frozen August MAE 0.03453; the 60 NA Stage2 Rating rows remain sealed.
+
+NEXT ACTION: assess minimum occurrence-only production metadata with no player credit, then investigate independent player/entity ownership and score-ledger collisions. Keep the frozen rule and independent result recorded. Exact replay-only validation resume: `.\.venv\Scripts\python.exe research/objective_occurrence_holdout.py`; focused tests: `.\.venv\Scripts\python.exe -m pytest tests/test_objective_encoding.py -q -p no:cacheprovider`.
+
 ## CURRENT OBJECTIVE ENCODING CHECKPOINT - 2026-10-01
 
 Starting HEAD `1be11d4` includes the user's five-map public-data update; it was preserved. Rehost remains accepted. New research-only contiguous-property decoding explains the missed plants: `0x22` continues an explicit `0x23` entity record. The old strict probe required a fresh reference for every property. Discovery was 4132 R13; the frozen grammar was subsequently scanned across all 26 development maps / 291 rounds.
