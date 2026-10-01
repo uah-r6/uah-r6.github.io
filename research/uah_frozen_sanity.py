@@ -44,7 +44,7 @@ def main():
         for record in saved:
             match = Match.from_dict(json.loads(record['normalized_json']))
             all_matches.append(match)
-            aggregate = calculate_match(match)
+            aggregate = calculate_match(match, rating_version="collegiate_v1")
             for participant in match.rounds[0].players:
                 if participant.team != record['our_team'] or participant.profile_id not in players:
                     continue
@@ -55,7 +55,7 @@ def main():
                                 predict(frozen['model'], {'rounds': rounds}, {})))
         combined = Match('uah-combined', '', 'Season', 'Custom Game', 'Bomb',
                          [r for m in all_matches for r in m.rounds])
-        season = calculate_match(combined)
+        season = calculate_match(combined, rating_version="collegiate_v1")
         for profile_id, rounds in all_rounds.items():
             entries.append((players[profile_id], 'All stored NECC maps', len(rounds),
                             season[profile_id]['rating'],

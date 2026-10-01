@@ -5,7 +5,7 @@ from pathlib import Path
 
 from r6stats.parser.models import Match
 from r6stats.manual_kd import apply_display_kd
-from r6stats.stats.calculate import RATING_VERSION, aggregate, calculate_match
+from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, aggregate, calculate_match
 
 
 def write(path: Path, value) -> None:
@@ -14,8 +14,11 @@ def write(path: Path, value) -> None:
 
 
 def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
-    if config.get("stats", {}).get("rating_version", RATING_VERSION) != RATING_VERSION:
-        raise ValueError(f"Configured Rating version is unavailable: {config['stats']['rating_version']}")
+    version = config.get("stats", {}).get("rating_version", RATING_VERSION)
+    if version not in RATING_VERSIONS:
+        raise ValueError(f"Configured Rating version is unavailable: {version}")
+    if version == "siege_style_v2" and config["stats"]["trade_window_seconds"] != 8:
+        raise ValueError("siege_style_v2 requires its frozen 8-second trade window.")
     # Remove obsolete generated files (for example after clearing demo maps).
     if root.exists():
         for old in root.rglob("*.json"):
@@ -38,7 +41,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                           ORDER BY COALESCE(m.played_on,s.date) DESC,m.rowid DESC""").fetchall()
     for row in rows:
         match = Match.from_dict(json.loads(row["normalized_json"]))
-        stats = calculate_match(match, window)
+        stats = calculate_match(match, window, version)
         bound_keys = defaultdict(set)
         for binding in db.execute("""SELECT DISTINCT rp.player_id,rp.player_key
             FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
@@ -59,7 +62,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         for p in players:
             keys = [key for key in bound_keys[p["id"]] if key in stats]
             if keys:
-                raw = stats[keys[0]] if len(keys) == 1 else aggregate([stats[key] for key in keys])
+                raw = stats[keys[0]] if len(keys) == 1 else aggregate([stats[key] for key in keys], version)
                 if len(keys) > 1:
                     raw.pop("maps", None)
                 correction = corrections.get(p["id"])
@@ -86,11 +89,11 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         slug = season["slug"]
         leaderboard = []
         for p in players:
-            raw_total = aggregate(season_stats[slug][p["slug"]])
+            raw_total = aggregate(season_stats[slug][p["slug"]], version)
             delta = season_adjustments[slug][p["slug"]]
             effective = apply_display_kd(raw_total, raw_total["kills"] + delta[0],
                                          raw_total["deaths"] + delta[1])
-            effective["rating"] = (aggregate(season_rating_stats[slug][p["slug"]])["rating"]
+            effective["rating"] = (aggregate(season_rating_stats[slug][p["slug"]], version)["rating"]
                                    if season_rating_stats[slug][p["slug"]] else None)
             item = {"slug": p["slug"], "name": p["display_name"],
                     **effective}
@@ -106,16 +109,16 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                "maps": len(matches), "wins": sum(m["result"] == "WIN" for m in matches),
                "rounds_won": sum(m["our_score"] for m in matches),
                "rounds": sum(m["our_score"] + m["their_score"] for m in matches),
-               "players": leaderboard, "matches": matches, "rating_version": RATING_VERSION})
+               "players": leaderboard, "matches": matches, "rating_version": version})
     for p in players:
         all_stats = [s for season in season_stats.values() for s in season[p["slug"]]]
         all_rating_stats = [s for season in season_rating_stats.values() for s in season[p["slug"]]]
         delta_k = sum(season[p["slug"]][0] for season in season_adjustments.values())
         delta_d = sum(season[p["slug"]][1] for season in season_adjustments.values())
-        career_raw = aggregate(all_stats)
+        career_raw = aggregate(all_stats, version)
         career = apply_display_kd(career_raw, career_raw["kills"] + delta_k,
                                   career_raw["deaths"] + delta_d)
-        career["rating"] = aggregate(all_rating_stats)["rating"] if all_rating_stats else None
+        career["rating"] = aggregate(all_rating_stats, version)["rating"] if all_rating_stats else None
         all_matches = [m for seasons_ in player_matches[p["slug"]].values() for m in seasons_]
         write(root / "players" / p["slug"] / "career.json",
               {"slug": p["slug"], "name": p["display_name"], "season": "career",
@@ -125,8 +128,11 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                              "start_date": s["start_date"], "end_date": s["end_date"]} for s in seasons],
                                 "players": [{"slug": p["slug"], "name": p["display_name"],
                                              "active": bool(p["tracked"])} for p in players],
-                                "rating_version": RATING_VERSION})
-    write(root / "methodology.json", {"rating_version": RATING_VERSION,
-                                      "trade_window_seconds": window})
+                                "rating_version": version})
+    write(root / "methodology.json", {"rating_version": version,
+                                      "trade_window_seconds": window,
+                                      "rating_description": (
+                                          "Independent raw eight-feature Siege-style Rating; player objective actor credit is unavailable."
+                                          if version == "siege_style_v2" else "Collegiate V1 composite Rating.")})
     for path in root.rglob("*.json"):
         json.loads(path.read_text(encoding="utf-8"))

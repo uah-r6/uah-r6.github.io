@@ -100,6 +100,10 @@ def test_5v5_to_4v5_counts_only_actual_player_participation(tmp_path):
     assert absent["kpr"] == 0 and absent["kost"] == 1
     assert stats["ours-0"]["rounds"] == 4
     assert stats["ours-0"]["sides"]["Defense"]["rounds"] == 2
+    siege = calculate_match(logical.match, rating_version="siege_style_v2")
+    assert siege["ours-4"]["rounds"] == 2
+    assert siege["ours-4"]["rating"] != siege["ours-0"]["rating"]
+    assert siege["ours-0"]["rounds"] == 4
     assert sum(r.winner == 0 for r in logical.match.rounds) == 2
 
 

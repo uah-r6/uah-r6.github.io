@@ -180,10 +180,11 @@ def map_rows(source: dict, mapping: dict) -> list[dict]:
     if (any(scores[roster] != score for roster, score in official_scores.items()) or
             len(match.rounds) != sum(official_scores.values())):
         raise ValueError(f"Score/round mismatch: replay {scores}; SiegeGG {official_scores}")
-    aggregate = calculate_match(match)
+    aggregate = calculate_match(match, rating_version="collegiate_v1")
     # Keep round-level rows to permit alternate definitions without rerunning siege-dissect.
     per_round = [calculate_match(Match(match.replay_id, match.timestamp, match.map_name,
-                                       match.match_type, match.game_mode, [round_]))
+                                       match.match_type, match.game_mode, [round_]),
+                                 rating_version="collegiate_v1")
                  for round_ in match.rounds]
     rows = []
     for player in match.rounds[0].players:

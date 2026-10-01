@@ -42,6 +42,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 3,
       "operators": {
         "Attack": {
           "Ace": 2,
@@ -70,7 +71,7 @@
           "kpr": 0.5
         }
       },
-      "rating": 1.0451450505714286,
+      "rating": 1.1990494148632052,
       "kd": 1.2857142857142858,
       "kpr": 0.9,
       "kost": 0.7,
@@ -108,6 +109,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 0,
       "operators": {
         "Attack": {
           "Blackbeard": 1,
@@ -138,7 +140,7 @@
           "kpr": 0.3333333333333333
         }
       },
-      "rating": 0.94005554,
+      "rating": 0.8097482534747535,
       "kd": 0.6666666666666666,
       "kpr": 0.4,
       "kost": 0.6,
@@ -176,6 +178,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 6,
       "operators": {
         "Attack": {
           "Striker": 2,
@@ -206,7 +209,7 @@
           "kpr": 1.8333333333333333
         }
       },
-      "rating": 1.6923781260000004,
+      "rating": 1.490079259653096,
       "kd": 2.0,
       "kpr": 1.2,
       "kost": 0.7,
@@ -244,6 +247,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 5,
       "operators": {
         "Attack": {
           "Zofia": 1,
@@ -271,7 +275,7 @@
           "kpr": 0.6666666666666666
         }
       },
-      "rating": 1.9296241060000001,
+      "rating": 1.4859521073328668,
       "kd": 1.6666666666666667,
       "kpr": 1.0,
       "kost": 0.8,
@@ -309,6 +313,7 @@
       "clutch_1v3": 1,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 1,
       "operators": {
         "Attack": {
           "Blitz": 2,
@@ -337,7 +342,7 @@
           "kpr": 0.5
         }
       },
-      "rating": 0.3616717359999999,
+      "rating": 0.7007097712903336,
       "kd": 0.5,
       "kpr": 0.4,
       "kost": 0.4,

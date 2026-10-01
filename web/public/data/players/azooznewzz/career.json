@@ -27,6 +27,7 @@
   "clutch_1v3": 0,
   "clutch_1v4": 0,
   "clutch_1v5": 0,
+  "multikill_extra": 17,
   "operators": {
     "Attack": {
       "Twitch": 10,
@@ -71,7 +72,7 @@
     }
   },
   "maps": 5,
-  "rating": 0.891769752731183,
+  "rating": 0.9896604344962066,
   "kd": 0.9375,
   "kpr": 0.7258064516129032,
   "kost": 0.6129032258064516,
@@ -96,7 +97,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.5567062175757576
+      "rating": 0.9331539161830859
     },
     {
       "id": "076d2b6b02bc",
@@ -113,7 +114,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 1.5784230300000002
+      "rating": 1.2110524046054223
     },
     {
       "id": "5adc26f7a402",
@@ -130,7 +131,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.8682557509090908
+      "rating": 1.0284223478831476
     },
     {
       "id": "8a6357ff307c",
@@ -147,7 +148,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.5262637576923077
+      "rating": 0.6600045764504705
     },
     {
       "id": "d64d5478cdb3",
@@ -164,7 +165,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 1.0451450505714286
+      "rating": 1.1990494148632052
     }
   ]
 }

@@ -1,4 +1,5 @@
 {
-  "rating_version": "collegiate_v1",
-  "trade_window_seconds": 8
+  "rating_version": "siege_style_v2",
+  "trade_window_seconds": 8,
+  "rating_description": "Independent raw eight-feature Siege-style Rating; player objective actor credit is unavailable."
 }

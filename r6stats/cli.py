@@ -14,7 +14,7 @@ from r6stats.export import export
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
 from r6stats import replay_archive
-from r6stats.stats.calculate import calculate_match
+from r6stats.stats.calculate import RATING_VERSIONS, calculate_match
 
 
 def config_load() -> dict:
@@ -22,8 +22,10 @@ def config_load() -> dict:
     if not path.exists():
         raise ValueError("Run `python -m r6stats init` first to create config/settings.json.")
     value = json.loads(path.read_text(encoding="utf-8"))
-    if value["stats"]["rating_version"] != "collegiate_v1":
-        raise ValueError("Only collegiate_v1 Rating is supported.")
+    if value["stats"]["rating_version"] not in RATING_VERSIONS:
+        raise ValueError(f"Unsupported Rating version: {value['stats']['rating_version']}.")
+    if value["stats"]["rating_version"] == "siege_style_v2" and value["stats"]["trade_window_seconds"] != 8:
+        raise ValueError("siege_style_v2 requires its frozen 8-second trade window.")
     return value
 
 

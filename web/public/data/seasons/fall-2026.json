@@ -37,6 +37,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 25,
       "operators": {
         "Attack": {
           "Gridlock": 9,
@@ -77,7 +78,7 @@
         }
       },
       "maps": 5,
-      "rating": 1.5405415999572174,
+      "rating": 1.248132541207007,
       "kd": 1.4871794871794872,
       "kpr": 0.9354838709677419,
       "kost": 0.6774193548387096,
@@ -115,6 +116,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 26,
       "operators": {
         "Attack": {
           "Striker": 5,
@@ -159,7 +161,7 @@
         }
       },
       "maps": 5,
-      "rating": 1.441311541362131,
+      "rating": 1.2417093264919878,
       "kd": 1.605263157894737,
       "kpr": 0.9838709677419355,
       "kost": 0.6451612903225806,
@@ -167,6 +169,89 @@
       "hs": 0.5573770491803278,
       "entry_diff": 4,
       "kd_diff": 23,
+      "objectives": 0
+    },
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "rounds": 62,
+      "kills": 45,
+      "deaths": 48,
+      "headshots": 24,
+      "opening_kills": 7,
+      "opening_deaths": 4,
+      "refrag_kills": 7,
+      "deaths_traded": 8,
+      "kills_traded": 7,
+      "untraded_kills": 38,
+      "untraded_deaths": 40,
+      "pivot_kills": 26,
+      "pivot_deaths": 31,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 1,
+      "survived": 14,
+      "kost_rounds": 38,
+      "rounds_won": 35,
+      "clutches": 2,
+      "clutch_1v1": 0,
+      "clutch_1v2": 2,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 17,
+      "operators": {
+        "Attack": {
+          "Twitch": 10,
+          "Rauora": 1,
+          "Zofia": 2,
+          "Grim": 3,
+          "Nomad": 1,
+          "Lion": 3,
+          "Striker": 2,
+          "Ash": 1,
+          "Buck": 1,
+          "Ace": 3,
+          "Thermite": 3
+        },
+        "Defense": {
+          "Goyo": 6,
+          "Ela": 7,
+          "Wamai": 3,
+          "Mozzie": 5,
+          "Solis": 4,
+          "Jager": 1,
+          "Thorn": 2,
+          "Fenrir": 1,
+          "Azami": 2,
+          "Mute": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 30,
+          "kills": 25,
+          "deaths": 23,
+          "kd": 1.0869565217391304,
+          "kpr": 0.8333333333333334
+        },
+        "Defense": {
+          "rounds": 32,
+          "kills": 20,
+          "deaths": 25,
+          "kd": 0.8,
+          "kpr": 0.625
+        }
+      },
+      "maps": 5,
+      "rating": 0.9896604344962066,
+      "kd": 0.9375,
+      "kpr": 0.7258064516129032,
+      "kost": 0.6129032258064516,
+      "srv": 0.22580645161290322,
+      "hs": 0.5333333333333333,
+      "entry_diff": 3,
+      "kd_diff": -3,
       "objectives": 0
     },
     {
@@ -197,6 +282,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 6,
       "operators": {
         "Attack": {
           "Sens": 3,
@@ -244,7 +330,7 @@
         }
       },
       "maps": 5,
-      "rating": 0.9857704612427844,
+      "rating": 0.8947860328078991,
       "kd": 0.7894736842105263,
       "kpr": 0.4838709677419355,
       "kost": 0.6451612903225806,
@@ -252,88 +338,6 @@
       "hs": 0.43333333333333335,
       "entry_diff": 0,
       "kd_diff": -8,
-      "objectives": 0
-    },
-    {
-      "slug": "azooznewzz",
-      "name": "AzoozNewzz",
-      "rounds": 62,
-      "kills": 45,
-      "deaths": 48,
-      "headshots": 24,
-      "opening_kills": 7,
-      "opening_deaths": 4,
-      "refrag_kills": 7,
-      "deaths_traded": 8,
-      "kills_traded": 7,
-      "untraded_kills": 38,
-      "untraded_deaths": 40,
-      "pivot_kills": 26,
-      "pivot_deaths": 31,
-      "plants": 0,
-      "disables": 0,
-      "teamkills": 1,
-      "survived": 14,
-      "kost_rounds": 38,
-      "rounds_won": 35,
-      "clutches": 2,
-      "clutch_1v1": 0,
-      "clutch_1v2": 2,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "operators": {
-        "Attack": {
-          "Twitch": 10,
-          "Rauora": 1,
-          "Zofia": 2,
-          "Grim": 3,
-          "Nomad": 1,
-          "Lion": 3,
-          "Striker": 2,
-          "Ash": 1,
-          "Buck": 1,
-          "Ace": 3,
-          "Thermite": 3
-        },
-        "Defense": {
-          "Goyo": 6,
-          "Ela": 7,
-          "Wamai": 3,
-          "Mozzie": 5,
-          "Solis": 4,
-          "Jager": 1,
-          "Thorn": 2,
-          "Fenrir": 1,
-          "Azami": 2,
-          "Mute": 1
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 30,
-          "kills": 25,
-          "deaths": 23,
-          "kd": 1.0869565217391304,
-          "kpr": 0.8333333333333334
-        },
-        "Defense": {
-          "rounds": 32,
-          "kills": 20,
-          "deaths": 25,
-          "kd": 0.8,
-          "kpr": 0.625
-        }
-      },
-      "maps": 5,
-      "rating": 0.891769752731183,
-      "kd": 0.9375,
-      "kpr": 0.7258064516129032,
-      "kost": 0.6129032258064516,
-      "srv": 0.22580645161290322,
-      "hs": 0.5333333333333333,
-      "entry_diff": 3,
-      "kd_diff": -3,
       "objectives": 0
     },
     {
@@ -364,6 +368,7 @@
       "clutch_1v3": 1,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
+      "multikill_extra": 8,
       "operators": {
         "Attack": {
           "Montagne": 6,
@@ -406,7 +411,7 @@
         }
       },
       "maps": 5,
-      "rating": 0.4212255934035549,
+      "rating": 0.7177512846456924,
       "kd": 0.5714285714285714,
       "kpr": 0.45161290322580644,
       "kost": 0.4838709677419355,
@@ -499,5 +504,5 @@
       "rating_eligible": true
     }
   ],
-  "rating_version": "collegiate_v1"
+  "rating_version": "siege_style_v2"
 }

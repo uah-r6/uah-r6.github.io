@@ -28,7 +28,7 @@ from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
 from r6stats import replay_archive
-from r6stats.stats.calculate import RATING_VERSION, calculate_match
+from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -213,8 +213,8 @@ class SettingsUpdate(BaseModel):
     @field_validator("rating_version")
     @classmethod
     def valid_rating_version(cls, value: str) -> str:
-        if value != RATING_VERSION:
-            raise ValueError(f"Only {RATING_VERSION} is available in this version.")
+        if value not in RATING_VERSIONS:
+            raise ValueError(f"Rating version must be one of: {', '.join(RATING_VERSIONS)}.")
         return value
 
     @field_validator("remote_url")
@@ -887,6 +887,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     def save_settings(payload: SettingsUpdate, db: DB):
         if payload.replay_path.strip() and not Path(payload.replay_path.strip()).expanduser().is_dir():
             raise ValueError("Replay folder does not exist. Select the folder containing match directories.")
+        if payload.rating_version == "siege_style_v2" and payload.trade_window_seconds != 8:
+            raise ValueError("siege_style_v2 requires its frozen 8-second trade window.")
         config = read_settings(root)
         config["team"] = {"name": payload.team_name.strip(), "short_name": payload.short_name.strip(),
                           "accent": payload.accent}

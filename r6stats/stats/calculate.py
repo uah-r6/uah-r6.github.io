@@ -3,16 +3,18 @@ from collections import Counter, defaultdict
 
 from r6stats.parser.models import Match
 
-RATING_VERSION = "collegiate_v1"
+RATING_VERSION = "siege_style_v2"
+RATING_VERSIONS = ("collegiate_v1", "siege_style_v2")
 COUNTS = ("rounds", "kills", "deaths", "headshots", "opening_kills", "opening_deaths",
           "refrag_kills", "deaths_traded", "kills_traded", "untraded_kills",
           "untraded_deaths", "pivot_kills", "pivot_deaths", "plants", "disables",
           "teamkills", "survived", "kost_rounds", "rounds_won", "clutches",
-          "clutch_1v1", "clutch_1v2", "clutch_1v3", "clutch_1v4", "clutch_1v5")
+          "clutch_1v1", "clutch_1v2", "clutch_1v3", "clutch_1v4", "clutch_1v5",
+          "multikill_extra")
 
 
 class RatingEngine:
-    version = RATING_VERSION
+    version = "collegiate_v1"
 
     @staticmethod
     def calculate(s: dict) -> float:
@@ -30,6 +32,48 @@ class RatingEngine:
         return value * 1.0698 + 1
 
 
+class SiegeStyleRating:
+    """Exact frozen raw model from research/frozen-rating-candidate.json.
+
+    Research experiment expanded-raw-20260930T202146Z. Objectives have a
+    frozen zero coefficient and are deliberately absent from this calculation.
+    """
+    version = "siege_style_v2"
+    intercept = 0.9663210702341137
+    terms = (
+        # feature, standardized weight, training mean, training scale
+        ("kpr", 0.1783383988926295, 0.6872132698219655, 0.31747215388749184),
+        ("teamkills", -0.003740958044867889, 0.00290168768429638, 0.018398414065023003),
+        ("multikill", 0.043059455454397495, 0.21832020636368463, 0.18957445336423615),
+        ("opening", 0.020353508609250837, -0.002118412987978205, 0.13912824673002738),
+        ("clutch", 0.019191796943239425, 0.008892315414054544, 0.02869232693914123),
+        ("kost", 0.08461564886568967, 0.6169358419358419, 0.16816935710093414),
+        ("survival", 0.08714550755803416, 0.2892744936223197, 0.1778316242495531),
+        ("trade", 0.0193703683457493, 0.003632116675594936, 0.1365990260330402),
+    )
+
+    @classmethod
+    def calculate(cls, s: dict) -> float:
+        rounds = s["rounds"]
+        if not rounds:
+            return 0.0
+        values = (s["kills"], s["teamkills"], s["multikill_extra"],
+                  s["opening_kills"] - s["opening_deaths"], s["clutches"],
+                  s["kost_rounds"], s["survived"],
+                  s["deaths_traded"] - s["kills_traded"])
+        return cls.intercept + sum(
+            weight * (value / rounds - mean) / scale
+            for value, (_, weight, mean, scale) in zip(values, cls.terms))
+
+
+def calculate_rating(s: dict, version: str) -> float:
+    if version == RatingEngine.version:
+        return RatingEngine.calculate(s)
+    if version == SiegeStyleRating.version:
+        return SiegeStyleRating.calculate(s)
+    raise ValueError(f"Configured Rating version is unavailable: {version}")
+
+
 def empty() -> dict:
     return {**dict.fromkeys(COUNTS, 0), "operators": {"Attack": {}, "Defense": {}},
             "sides": {"Attack": {"rounds": 0, "kills": 0, "deaths": 0},
@@ -40,7 +84,12 @@ def chronological(kills):
     return sorted(kills, key=lambda k: (-k.remaining, k.sequence))
 
 
-def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, dict]:
+def calculate_match(match: Match, trade_window_seconds: float = 8,
+                    rating_version: str = RATING_VERSION) -> dict[str, dict]:
+    if rating_version not in RATING_VERSIONS:
+        raise ValueError(f"Configured Rating version is unavailable: {rating_version}")
+    if rating_version == SiegeStyleRating.version and trade_window_seconds != 8:
+        raise ValueError("siege_style_v2 requires its frozen 8-second trade window.")
     totals = defaultdict(empty)
     for round_ in match.rounds:
         players = {p.key: p for p in round_.players}
@@ -105,6 +154,8 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
                 round_stats[kill.killer]["kills_traded"] += 1
             else:
                 round_stats[kill.killer]["untraded_kills"] += 1
+        for s in round_stats.values():
+            s["multikill_extra"] = max(s["kills"] - 1, 0)
         for objective in round_.objectives:
             actor = players.get(objective.player)
             expected_side = {"plant": "Attack", "disable": "Defense"}.get(objective.kind)
@@ -136,7 +187,7 @@ def calculate_match(match: Match, trade_window_seconds: float = 8) -> dict[str, 
                     ops = s["operators"][player.side]
                     ops[player.operator] = ops.get(player.operator, 0) + 1
             merge(totals[key], s)
-    return {key: finalize(value) for key, value in totals.items()}
+    return {key: finalize(value, rating_version) for key, value in totals.items()}
 
 
 def merge(target: dict, source: dict) -> None:
@@ -149,9 +200,9 @@ def merge(target: dict, source: dict) -> None:
             target["operators"][side][op] = target["operators"][side].get(op, 0) + count
 
 
-def finalize(s: dict) -> dict:
+def finalize(s: dict, rating_version: str = RATING_VERSION) -> dict:
     r = s["rounds"]
-    s["rating"] = RatingEngine.calculate(s)
+    s["rating"] = calculate_rating(s, rating_version)
     s["kd"] = s["kills"] / s["deaths"] if s["deaths"] else None
     s["kpr"] = s["kills"] / r if r else 0
     s["kost"] = s["kost_rounds"] / r if r else 0
@@ -166,9 +217,9 @@ def finalize(s: dict) -> dict:
     return s
 
 
-def aggregate(stat_rows: list[dict]) -> dict:
+def aggregate(stat_rows: list[dict], rating_version: str = RATING_VERSION) -> dict:
     total = empty()
     for row in stat_rows:
         merge(total, row)
     total["maps"] = len(stat_rows)
-    return finalize(total)
+    return finalize(total, rating_version)

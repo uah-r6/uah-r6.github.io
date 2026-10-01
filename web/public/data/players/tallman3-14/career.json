@@ -27,6 +27,7 @@
   "clutch_1v3": 1,
   "clutch_1v4": 0,
   "clutch_1v5": 0,
+  "multikill_extra": 8,
   "operators": {
     "Attack": {
       "Montagne": 6,
@@ -69,7 +70,7 @@
     }
   },
   "maps": 5,
-  "rating": 0.4212255934035549,
+  "rating": 0.7177512846456924,
   "kd": 0.5714285714285714,
   "kpr": 0.45161290322580644,
   "kost": 0.4838709677419355,
@@ -94,7 +95,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.6212313666666666
+      "rating": 0.8908934724966213
     },
     {
       "id": "076d2b6b02bc",
@@ -111,7 +112,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 1.0303835935714285
+      "rating": 0.9133881413434675
     },
     {
       "id": "5adc26f7a402",
@@ -128,7 +129,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.3311839642857143
+      "rating": 0.7643110603573284
     },
     {
       "id": "8a6357ff307c",
@@ -145,7 +146,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
-      "rating": -0.07640513329670351
+      "rating": 0.36726769457470887
     },
     {
       "id": "d64d5478cdb3",
@@ -162,7 +163,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.3616717359999999
+      "rating": 0.7007097712903336
     }
   ]
 }

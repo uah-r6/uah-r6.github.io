@@ -69,7 +69,8 @@ def test_admin_manual_final_kd_is_auditable_and_rating_ineligible(tmp_path):
         career = read(tmp_path, "players/player0/career.json")
         assert (season["kills"], season["deaths"], season["kd"]) == (6, 3, 2)
         assert (career["kills"], career["deaths"], career["kd"]) == (6, 3, 2)
-        assert season["kpr"] == 1 and season["rating"] == calculate_match(second)["ours-0"]["rating"]
+        assert season["kpr"] == 1 and season["rating"] == calculate_match(
+            second, rating_version="collegiate_v1")["ours-0"]["rating"]
         assert baseline is None or baseline["kpr"] == season["kpr"]
         public_text = (tmp_path / "web/public/data/matches" / f"{partial_id}.json").read_text()
         assert "Missing final replay segment" not in public_text and "Scoreboard confirmed" not in public_text

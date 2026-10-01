@@ -68,7 +68,7 @@ def main() -> None:
     details = []
     for saved in maps:
         match = Match.from_dict(json.loads(saved["normalized_json"]))
-        aggregate = calculate_match(match)
+        aggregate = calculate_match(match, rating_version="collegiate_v1")
         for participant in match.rounds[0].players:
             if participant.team != saved["our_team"] or participant.profile_id not in players:
                 continue
@@ -86,7 +86,7 @@ def main() -> None:
     combined = Match("uah-combined", "", "Season", "CustomGameLocal", "Bomb",
                      [round_ for saved in maps for round_ in
                       Match.from_dict(json.loads(saved["normalized_json"])).rounds])
-    season_stats = calculate_match(combined)
+    season_stats = calculate_match(combined, rating_version="collegiate_v1")
     for profile_id, name in players.items():
         if name not in all_rounds:
             continue

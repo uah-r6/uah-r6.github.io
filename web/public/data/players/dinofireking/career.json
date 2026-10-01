@@ -27,6 +27,7 @@
   "clutch_1v3": 0,
   "clutch_1v4": 0,
   "clutch_1v5": 0,
+  "multikill_extra": 6,
   "operators": {
     "Attack": {
       "Sens": 3,
@@ -74,7 +75,7 @@
     }
   },
   "maps": 5,
-  "rating": 0.9857704612427844,
+  "rating": 0.8947860328078991,
   "kd": 0.7894736842105263,
   "kpr": 0.4838709677419355,
   "kost": 0.6451612903225806,
@@ -99,7 +100,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 1.203609685
+      "rating": 1.035025864491253
     },
     {
       "id": "076d2b6b02bc",
@@ -116,7 +117,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.9126301981428571
+      "rating": 0.8651955261854126
     },
     {
       "id": "5adc26f7a402",
@@ -133,7 +134,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.8177553247619047
+      "rating": 0.911595544069945
     },
     {
       "id": "8a6357ff307c",
@@ -150,7 +151,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
-      "rating": 1.0512923251428572
+      "rating": 0.8438755138744997
     },
     {
       "id": "d64d5478cdb3",
@@ -167,7 +168,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.94005554
+      "rating": 0.8097482534747535
     }
   ]
 }
