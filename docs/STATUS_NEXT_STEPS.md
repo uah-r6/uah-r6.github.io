@@ -1,3 +1,17 @@
+## CURRENT CHECKPOINT - CONTROLLED RATING EXPERIMENTS COMPLETE - 2026-10-01
+
+Starting production HEAD 75d17a4 preserved. Local milestones: 709c41c actor decision/preregistered multikill plan; a0608ab multikill implementation; 430cd1f results/opening plan; c1a967e opening implementation. Current changes are research reports/logs only. No push/publish, SQLite/archive/public JSON or live/default Rating modifications.
+
+Occurrence remains validated (93 plants / 20 disables across 415 professional rounds); actors unresolved. Actor score/controller diagnostic: plants 42 correct / 1 incorrect / 18 unresolved; disables 4 correct / 4 unresolved. Aiden false-credit case rejects deployment. UAH audit unchanged: 17 plants / three disables / 62 rounds, all actors unresolved, personal disable not assigned from recollection. See research/output/objective-actor-decision.md.
+
+Player dataset unchanged: 56 maps, 560 rows, 407 clean; SHA2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de. No identical baseline rerun or rederive. Train299, August32, historical September16 excluded, final NA60 sealed. Baseline pooled/August MAE 0.036467/0.034530 remains preferred. Multikill 2+ round rate: 0.039443/0.036818; separate sizes: 0.036508/0.034119. Separate openings: 0.036620/0.034418. Neither experiment establishes robust improvement; retain simpler original definitions. Full coefficients, event folds, drift and metric thresholds recorded in experiment-log.jsonl. Objectives explicitly excluded.
+
+Residual report: public objective-positive rows underpredicted ~0.038 August baseline / ~0.039 separate-opening event folds; public labels are diagnostic groups only, never features. No causal correction or actor inference. Teamkills sparse (nine); clutches29 = 20/5/3/1/0 by size; no training5K multikill. Do not fit unsupported independent size coefficients blindly. Reports: research/output/multikill-experiment.md, opening-experiment.md, development-residuals.md.
+
+Tests: full Python suite 99 passed / one skipped / six subtests after multikill; subsequent opening feature/isolation suite three passed. Go tests/vet previously passed at production checkpoint; no Go/runtime changes since. No frontend changes requiring rebuild.
+
+NEXT ACTION: audit the existing trade event semantics, then preregister 5/6/7/8/10-second research-only comparison using cached normalized rounds and fixed event splits. Do not reparse replays or score final targets. Candidate freeze remains premature. Exact residual reproduction (no fitting): .\.venv\Scripts\python.exe research/development_residuals.py. Existing fit scripts reject duplicate experiment records; inspect cached JSON under data/research/experiments instead. Earlier NEXT ACTION sections below are historical.
+
 ## MULTIKILL RESULTS / NEXT OPENING EXPERIMENT - 2026-10-01
 
 Actor decision documented; production credit remains unresolved. Deliberate multikill experiment multikill-20261001T195254Z completed: baseline pooled/August MAE 0.036467/0.034530; 2+ round rate 0.039443/0.036818; size buckets 0.036508/0.034119. Retain simpler kills-beyond-first: bucket benefit is tiny/inconsistent and 5K has no training support. Full results research/output/multikill-experiment.md; record contains coefficients/folds. Python 99 passed, one skipped, six subtests. No live data/default Rating changes; final NA60 sealed.
