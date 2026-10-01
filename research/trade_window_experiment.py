@@ -6,10 +6,12 @@ import json
 from pathlib import Path
 import statistics
 import subprocess
+import sys
 
 from expanded_fit import select_groups, PLAN as SPLIT, OBSERVATIONS, LOG, ROOT
 from fit_models import design as baseline_design, predict as baseline_predict
 from multikill_experiment import fit, predict, metrics
+sys.path.insert(0, str(ROOT))
 from r6stats.parser.models import Match
 from r6stats.stats.calculate import calculate_match
 

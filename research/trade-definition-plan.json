@@ -1,0 +1,12 @@
+{
+  "name": "trade-representation-v1",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "hypothesis": "Credited teammate recovery and susceptibility to being refragged may have different associations with public Rating.",
+  "window_seconds": 8,
+  "variants": ["deaths_traded_rate", "kills_traded_rate"],
+  "control": "Current (deaths_traded-kills_traded)/rounds raw baseline; reuse saved model/CV record rather than refit.",
+  "definitions": {"deaths_traded_rate": "victim deaths whose killer was refragged by teammate within 8 seconds, divided by rounds", "kills_traded_rate": "player opponent kills later refragged by victim teammate within 8 seconds, divided by rounds"},
+  "fixed": "Other seven available raw families and eight-second KOST exactly as cached, objectives excluded, standardized ridge alpha 1.",
+  "split": "299 clean pre-August training rows over seven event-held-out folds; full fit on 299 then August EWC 32 development rows. Both September events excluded and final NA60 sealed.",
+  "decision": "Compare folds and August, interpret coefficient signs and stability, do not select solely from tiny MAE differences. Preregistered before fitting."
+}
