@@ -1,6 +1,6 @@
 # Trade window experiment - 2026-10-01
 
-Plan frozen at `1d12882`, implementation at `428bc29`. Full experiment `trade-window-20261001...` is saved in `research/experiment-log.jsonl` and ignored `data/research/experiments/trade-window-isolated-v1.json`; the record's exact generated ID, code hash and 47 normalized-map SHA-256s are authoritative. All 8-second `deaths_traded`, `kills_traded` and KOST player-round values matched the unchanged observations (zero parity mismatches). No replay parser, live database or archived replay was modified.
+Plan frozen at `1d12882`, implementation at `428bc29`. Full experiment `trade-window-20261001T215040Z` is saved in `research/experiment-log.jsonl` and ignored `data/research/experiments/trade-window-isolated-v1.json`; the record's code hash and 47 normalized-map SHA-256s are authoritative. All 8-second `deaths_traded`, `kills_traded` and KOST player-round values matched the unchanged observations (zero parity mismatches). No replay parser, live database or archived replay was modified.
 
 The seven pre-August events supply 299 clean player-map rows / 3,215 player-rounds; August EWC supplies 32 separate development rows. The 16 historical September and 60 sealed NA September rows were excluded. Values below use the same killer-based refrag semantics and change only the timer threshold. KOST remains the cached eight-second value in every fit to isolate the trade family; a production window change would also alter KOST and needs separate consistency evaluation.
 
