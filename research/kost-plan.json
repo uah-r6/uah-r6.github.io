@@ -1,0 +1,16 @@
+{
+  "name": "kost-survival-overlap-v1",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "baseline_id": "expanded-raw-20260930T202146Z",
+  "baseline_cv_id": "group-cv-20260930T202147Z",
+  "hypothesis": "The separate survival term may overlap with KOST's survival path; compare removing one path and removing the separate survival family.",
+  "variants": ["kost_without_survival", "kost_only"],
+  "definitions": {
+    "kost_without_survival": "For each player-round, 1 if opponent kill OR verified player objective OR death traded; no survival path. Keep separate survival/rounds.",
+    "kost_only": "Original KOST/rounds, omit the separate survival rate."
+  },
+  "control": "Original KOST/rounds plus survival/rounds. Reuse saved model and CV results without refit.",
+  "fixed": "All other available raw families unchanged, eight-second trade differential, kills beyond first, opening differential, objectives excluded; ridge alpha 1.",
+  "split": "299 clean pre-August rows across seven event-held-out folds; fit all 299 and evaluate 32 August EWC development rows. Both September events excluded; NA final 60 sealed.",
+  "decision": "Compare fold and August errors, coefficient signs/stability, and objective-positive residual labels after fitting. Do not treat public objective credits as model inputs. Preregistered before fitting."
+}
