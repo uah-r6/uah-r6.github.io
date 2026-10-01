@@ -1,3 +1,9 @@
+## MULTIKILL RESULTS / NEXT OPENING EXPERIMENT - 2026-10-01
+
+Actor decision documented; production credit remains unresolved. Deliberate multikill experiment multikill-20261001T195254Z completed: baseline pooled/August MAE 0.036467/0.034530; 2+ round rate 0.039443/0.036818; size buckets 0.036508/0.034119. Retain simpler kills-beyond-first: bucket benefit is tiny/inconsistent and 5K has no training support. Full results research/output/multikill-experiment.md; record contains coefficients/folds. Python 99 passed, one skipped, six subtests. No live data/default Rating changes; final NA60 sealed.
+
+NEXT ACTION: implement research/opening-plan.json, one controlled separate opening-kill/death variant against reused baseline. Preserve other families and fixed event splits. No repeated fit of already-recorded multikill experiment.
+
 ## ACTOR DECISION / MULTIKILL EXPERIMENT PLAN - 2026-10-01
 
 Actor discovery complete: plants 42 correct / 1 incorrect / 18 unresolved; disables 4 correct / 4 unresolved. The explicit component/controller UID join plus team score residual still wrongly credits Aiden in 4139 R07. Rejected for production; see research/output/objective-actor-decision.md. This does not establish that attribution is impossible. Occurrence and UAH audit remain unchanged; no player feature rederive is justified.

@@ -1,0 +1,11 @@
+{
+  "name": "separate-opening-terms-v1",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "hypothesis": "Opening kills and opening deaths may have asymmetric marginal effects; test freeing the equal-and-opposite coefficient constraint.",
+  "definition": "Separate opening_kills/rounds and opening_deaths/rounds. All other available families use the original baseline, including kills beyond first. Objectives unavailable and excluded.",
+  "alpha": 1.0,
+  "split": "Same seven pre-August events (299 rows), leave-one-event-out, full-train evaluation on August EWC (32 rows). Both September events excluded; 60 final NA rows sealed.",
+  "baseline_id": "expanded-raw-20260930T202146Z",
+  "baseline_cv_id": "group-cv-20260930T202147Z",
+  "decision": "One variant only. Record fold errors, raw slopes and drift; no parameter search or final-test access. Preregistered before fitting."
+}
