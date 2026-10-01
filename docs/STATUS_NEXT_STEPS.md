@@ -1,4 +1,18 @@
+## ACTOR DECISION / MULTIKILL EXPERIMENT PLAN - 2026-10-01
+
+Actor discovery complete: plants 42 correct / 1 incorrect / 18 unresolved; disables 4 correct / 4 unresolved. The explicit component/controller UID join plus team score residual still wrongly credits Aiden in 4139 R07. Rejected for production; see research/output/objective-actor-decision.md. This does not establish that attribution is impossible. Occurrence and UAH audit remain unchanged; no player feature rederive is justified.
+
+NEXT ACTION: implement and run the preregistered research/multikill-plan.json experiment (2+ round rate and separate size buckets), using the unchanged 299/32 event split, reusing stored baseline rather than refitting. Objectives explicitly excluded. Both September events remain excluded; NA final 60 sealed. Production tests last passed 97 Python plus Go/vet. No database/archive/public JSON/default Rating/publish changes. Earlier IN PROGRESS sections below are historical.
+
 # Status and next steps — 2026-10-01
+
+## ACTOR DIAGNOSTICS IN PROGRESS - 2026-10-01
+
+HEAD `75d17a4`; production occurrence remains unchanged. Preserved uncommitted player/entity and reference-graph diagnostics. Five contrasting rounds show no typed reference edge from the objective-state entity to a player. A numeric-ID table in 4139 R07 maps five SSG players to spawn-counter-154 drones, not player bodies; do not use it for actor credit. The older adjacency pattern covers only nine of 50 player slots across these cases, with spawn counters 478/494. No new actor is credited.
+
+The original 61-plant/eight-disable cohort now has a cached raw score-batch ledger. Without player/team binding, common delta plus 100 singles out one raw entity in five plants and five disables; seven residual candidates have concurrent kill/assist counter increases. These are not resolved actors. A new explicit scoreboard-component declaration -> controller numeric UID -> header identity join binds all ten identities in four inspected Y11 rounds (zero in the February layout). This is a structurally distinct diagnostic from rejected username adjacency/fixed offsets. Its team-relative residual hypothesis is being graded on the full original cohort, with the twelve-map extension reserved from actor tuning.
+
+NEXT ACTION: record full actor-batch validation, reject any false-credit rule including Aiden in 4139 R07, checkpoint the limitation, then follow the user's new instruction to continue controlled Rating experiments with player objectives omitted. Do not repeat an identical baseline fit. Resume: `.\.venv\Scripts\python.exe research/objective_actor_batch_validation.py` (cached identity/ledger data); inspect `data/research/diagnostics/objective-score-identity/validation.json`.
 
 ## CURRENT OCCURRENCE IMPLEMENTATION CHECKPOINT - 2026-10-01
 

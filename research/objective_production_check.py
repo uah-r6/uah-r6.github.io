@@ -15,7 +15,7 @@ from objective_transition_probe import ROOT, replay_file
 CANDIDATE = ROOT/'.local-tools/bin/siege-dissect-objectives.exe'
 
 
-def candidate(folder, executable=CANDIDATE):
+def candidate_raw(folder, executable=CANDIDATE):
     cache = ROOT/'data/research/diagnostics/objective-production-check'
     cache.mkdir(parents=True,exist_ok=True)
     files = sorted(folder.glob('*.rec'))
@@ -24,7 +24,12 @@ def candidate(folder, executable=CANDIDATE):
     raw_file = cache/(key+'.json')
     if not raw_file.exists():
         subprocess.run([str(executable),'-f','json','-o',str(raw_file),str(folder)],check=True,capture_output=True)
-    return normalize(json.loads(raw_file.read_text()),round_numbers=physical_round_numbers(files))
+    return json.loads(raw_file.read_text())
+
+
+def candidate(folder, executable=CANDIDATE):
+    files = sorted(folder.glob('*.rec'))
+    return normalize(candidate_raw(folder, executable),round_numbers=physical_round_numbers(files))
 
 
 def main():

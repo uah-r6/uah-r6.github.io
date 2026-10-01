@@ -1,0 +1,16 @@
+{
+  "name": "multikill-definition-ablation-v1",
+  "dataset_sha256": "2454eb35ebe06df8d91f950b17cab8cea0a26384d9c40cbdd786f7e4f11b04de",
+  "baseline_id": "expanded-raw-20260930T202146Z",
+  "baseline_cv_id": "group-cv-20260930T202147Z",
+  "hypothesis": "Multi-kill round frequency or separate size buckets may describe impact better than kills beyond the first.",
+  "variants": ["multi_round_rate", "size_buckets"],
+  "definitions": {
+    "multi_round_rate": "fraction of rounds with kills >= 2",
+    "size_buckets": "four separate fractions with exactly 2, exactly 3, exactly 4, or at least 5 kills"
+  },
+  "fixed": "Other seven available families unchanged; objectives excluded because actor attribution is unavailable. Raw standardized ridge alpha=1, intercept unpenalized; eight-second existing trade definition. No operator normalization.",
+  "split": "Use expanded-fit-plan.json seven pre-August events: 299 clean rows, leave-one-event-out, then full fit evaluated on 32 August EWC development rows. Both September events excluded, 60 NA final rows sealed.",
+  "comparison": "Reuse recorded baseline models/metrics without refitting. Report pooled/event errors and raw-unit coefficient drift. No automatic winner or final-test evaluation.",
+  "status": "Preregistered before running either variant. No tuning alpha or adding variants based on results."
+}
