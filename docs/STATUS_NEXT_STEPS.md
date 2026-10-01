@@ -1,5 +1,15 @@
 # Status and next steps — 2026-10-01
 
+## CURRENT OBJECTIVE ENCODING CHECKPOINT - 2026-10-01
+
+Starting HEAD `1be11d4` includes the user's five-map public-data update; it was preserved. Rehost remains accepted. New research-only contiguous-property decoding explains the missed plants: `0x22` continues an explicit `0x23` entity record. The old strict probe required a fresh reference for every property. Discovery was 4132 R13; the frozen grammar was subsequently scanned across all 26 development maps / 291 rounds.
+
+- Near the unchanged +0..1000-byte terminal window: plants **60/61**, disables **7/8**, compared with 46/61 and 7/8 before. The remaining plant (3585 R04) has a valid inherited state1 at +1235 bytes; no window was widened to claim a pass. All 61 plant rounds contain a decoded state1 somewhere in the round.
+- All 230 objective-free rounds still have zero decoded state transitions. The three false near-zero timer controls still have none. 4112 R11 retains a later state0 cleanup candidate without a completed disable timer; state0 alone must not be credited.
+- 3073 R08 still has no terminal state0 even in raw property hits; it is a February/build11944 replay. The other 15 originally missed events were encoding/window failures, not absent raw plant state. Actor attribution remains unresolved; no score-based fallback was accepted.
+- New scripts: `research/objective_encoding_probe.py`, `research/objective_encoding_validation.py`; explicit event/negative sets: `research/output/objective-encoding-validation.md`. Seven focused synthetic grammar/ledger tests pass. Full verification: 91 Python tests passed, one optional smoke skipped, six subtests passed; Go tests and go vet passed; public and admin web builds passed. Existing Starlette deprecation and Vite module-directive warnings remain non-fatal. No production extraction, SQLite, public JSON, operators, Rating data or coefficients changed. Research remains 56 maps / 560 rows / 407 clean, zero unresolved operators, frozen August MAE 0.03453. NA Stage2 60-row Rating test stays sealed.
+- NEXT ACTION: inspect the missing 3073 R08 disable's state-entity lifecycle and round end, compare the seven detected disables and 4112 R11 cleanup, then seek independent actor ownership. Do not infer actor from score proximity. Resume: `.\.venv\Scripts\python.exe research/objective_encoding_probe.py 3073:8 4112:11`; `.\.venv\Scripts\python.exe research/objective_encoding_validation.py` (cached).
+
 ## CURRENT OBJECTIVE RESEARCH CHECKPOINT — 2026-10-01, state-property contrast
 
 - Product rehost milestone was committed locally as `e0c824a`; no push or publish. Normal import, proper carried-score rehost, explicit 0-0 override, 5v5-to-4v5 participation, archive/reparse, manual K/D, and public-data privacy passed their focused tests. Full Python suite: 84 passed, one optional smoke skipped, six subtests; both web builds, local Go tests, and `go vet` passed. The real three-folder Chalet admin preview was read-only. Real SQLite and generated public JSON were not changed.
