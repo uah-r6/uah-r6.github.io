@@ -35,3 +35,14 @@ def test_final_targets_cannot_enter_fit_or_prediction():
     historical = {'event': 'Europe MENA League Stage 2 2026', 'reserved_for_final_test': False}
     with pytest.raises(ValueError):
         predict({}, historical)
+
+
+def test_opening_terms_keep_kills_and_deaths_separate():
+    from opening_experiment import features as opening_features
+    row = sample()
+    row['rounds'][0]['opening_kills'] = 1
+    row['rounds'][1]['opening_deaths'] = 1
+    values = opening_features(row, 'separate_openings')
+    assert values['opening_kills'] == values['opening_deaths'] == 1/6
+    assert 'opening' not in values and 'objectives' not in values
+    assert values['multikill'] == 10/6

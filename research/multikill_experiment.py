@@ -30,10 +30,10 @@ def features(row, variant):
     return values
 
 
-def fit(rows, variant):
+def fit(rows, variant, feature_builder=features):
     if any(r['reserved_for_final_test'] or r['event'] not in SPLIT['train_events'] for r in rows):
         raise ValueError('Only pre-August training events may enter fit')
-    xs = [features(r, variant) for r in rows]
+    xs = [feature_builder(r, variant) for r in rows]
     names = list(xs[0])
     centers = {k: statistics.mean(x[k] for x in xs) for k in names}
     scales = {k: max(math.sqrt(statistics.mean((x[k]-centers[k])**2 for x in xs)), 1e-9) for k in names}
@@ -48,10 +48,10 @@ def fit(rows, variant):
             'raw_slopes': slopes, 'raw_intercept': weights[0]-sum(slopes[k]*centers[k] for k in names)}
 
 
-def predict(model, row):
+def predict(model, row, feature_builder=features):
     if row['reserved_for_final_test'] or row['event'] not in SPLIT['train_events'] + [SPLIT['development_validation_event']]:
         raise ValueError('Final/historical event prediction is forbidden')
-    return model['raw_intercept'] + sum(model['raw_slopes'][k]*v for k, v in features(row, model['variant']).items())
+    return model['raw_intercept'] + sum(model['raw_slopes'][k]*v for k, v in feature_builder(row, model['variant']).items())
 
 
 def metrics(rows, guesses):
