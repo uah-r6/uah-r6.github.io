@@ -9,24 +9,31 @@ import pytest
 from r6stats.db import repository as repo
 from r6stats.parser.confirmed_rehost import (assemble_rehost, physical_segment,
                                              source_fingerprint, stitch_confirmed)
-from r6stats.parser.logical_map import PhysicalSegment
 from r6stats.parser.models import Kill, Match, Objective, Player, Round
 from r6stats import replay_archive
 from r6stats.stats.calculate import calculate_match
 
 
-def segment(root: Path, name: str, winners: list[int], *, swapped: bool = False):
+def segment(root: Path, name: str, winners: list[int], *, swapped: bool = False,
+            ours_count: int = 5, start_score: tuple[int, int] | None = None,
+            ours_side: str = "Attack"):
     folder = root / name
     folder.mkdir()
     rounds = []
+    score = list(start_score or (0, 0))
     for number, winner in enumerate(winners, start=1):
         (folder / f"{name}-R{number:02d}.rec").write_bytes(f"{name}:{number}".encode())
-        players = [Player(f"ours-{i}", f"Our{i}", int(swapped), "Buck", "Attack")
-                   for i in range(5)] + [
-            Player(f"foe-{i}", f"Foe{i}", int(not swapped), "Wamai", "Defense")
+        players = [Player(f"ours-{i}", f"Our{i}", int(swapped), "Buck", ours_side)
+                   for i in range(ours_count)] + [
+            Player(f"foe-{i}", f"Foe{i}", int(not swapped), "Wamai",
+                   "Defense" if ours_side == "Attack" else "Attack")
             for i in range(5)]
         kill = Kill(0, 100, "ours-0", "foe-0", int(swapped), int(not swapped))
-        rounds.append(Round(number, "Site", winner, "KilledOpponents", players, [kill]))
+        before = tuple(score)
+        score[winner] += 1
+        rounds.append(Round(number, "Site", winner, "KilledOpponents", players, [kill],
+                            starting_scores=before if start_score is not None else None,
+                            ending_scores=tuple(score) if start_score is not None else None))
     match = Match(name, "2026-09-30T20:00:00Z", "Border", "Custom Game", "Bomb", rounds)
     return physical_segment(match, folder, int(name[-1]))
 
@@ -60,6 +67,70 @@ def test_three_segments_and_swapped_team_indices(tmp_path):
     assert next(p for p in logical.match.rounds[-1].players if p.key == "ours-0").team == 0
     assert logical.match.rounds[-1].kills[0].killer_team == 0
     assert calculate_match(logical.match)["ours-0"]["kills"] == 3
+
+
+def test_score_preserving_rehost_needs_no_override_and_keeps_physical_sides(tmp_path):
+    first = segment(tmp_path, "segment1", [0, 1], start_score=(0, 0))
+    second = segment(tmp_path, "segment2", [0, 1], start_score=(1, 1),
+                     ours_side="Defense")
+    logical = stitch_confirmed([first, second], excluded={}, expected_final_scores=(2, 2))
+    assert logical.segment_details[1]["physical_start"] == [1, 1]
+    assert logical.segment_details[1]["score_mode"] == "continued"
+    ours = calculate_match(logical.match)["ours-0"]
+    assert ours["rounds"] == 4
+    assert ours["sides"]["Attack"]["rounds"] == 2
+    assert ours["sides"]["Defense"]["rounds"] == 2
+    assert ours["operators"]["Attack"] == {"Buck": 2}
+    assert ours["operators"]["Defense"] == {"Buck": 2}
+
+
+def test_5v5_to_4v5_counts_only_actual_player_participation(tmp_path):
+    first = segment(tmp_path, "segment1", [0, 1], start_score=(0, 0))
+    second = segment(tmp_path, "segment2", [0, 1], ours_count=4,
+                     start_score=(1, 1), ours_side="Defense")
+    logical = stitch_confirmed([first, second], excluded={}, expected_final_scores=(2, 2))
+    assert [len(r.players) for r in logical.match.rounds] == [10, 10, 9, 9]
+    assert logical.segment_details[1]["score_mode"] == "continued"
+    stats = calculate_match(logical.match)
+    absent = stats["ours-4"]
+    assert absent["rounds"] == 2 and absent["deaths"] == 0
+    assert absent["kost_rounds"] == 2 and absent["survived"] == 2
+    assert absent["operators"]["Defense"] == {}
+    assert absent["sides"]["Defense"]["rounds"] == 0
+    assert absent["kpr"] == 0 and absent["kost"] == 1
+    assert stats["ours-0"]["rounds"] == 4
+    assert stats["ours-0"]["sides"]["Defense"]["rounds"] == 2
+    assert sum(r.winner == 0 for r in logical.match.rounds) == 2
+
+
+def test_malformed_rehost_score_is_explicitly_marked_as_override(tmp_path):
+    first = segment(tmp_path, "segment1", [0, 1], start_score=(0, 0))
+    second = segment(tmp_path, "segment2", [0, 1], start_score=(0, 0))
+    logical = stitch_confirmed([first, second], excluded={}, expected_final_scores=(2, 2))
+    assert logical.segment_details[1]["physical_start"] == [0, 0]
+    assert logical.segment_details[1]["logical_start"] == [1, 1]
+    assert logical.segment_details[1]["score_mode"] == "override_0_0"
+    second_bad = segment(tmp_path, "segment3", [0], start_score=(2, 0))
+    with pytest.raises(ValueError, match="starting scores disagree"):
+        stitch_confirmed([first, second_bad], excluded={})
+
+
+def test_one_round_abandoned_segment_is_preserved_but_not_counted(tmp_path):
+    first = segment(tmp_path, "segment1", [0, 1], start_score=(0, 0))
+    abandoned = segment(tmp_path, "segment2", [0], start_score=(1, 1))
+    abandoned.match.rounds[0].ending_scores = (1, 1)
+    third = segment(tmp_path, "segment3", [0, 1], start_score=(1, 1))
+    paths = [tmp_path / f"segment{i}" for i in (1, 2, 3)]
+    with patch("r6stats.parser.confirmed_rehost.parse_match",
+               side_effect=[first.match, abandoned.match, third.match]):
+        logical, manifest, _ = assemble_rehost(
+            paths, [{"segment": 2, "physical_number": 1, "reason": "abandoned lobby"}],
+            (2, 2))
+    assert [item.logical_number for item in logical.mapping] == [1, 2, None, 3, 4]
+    assert logical.final_scores == (2, 2)
+    assert logical.segment_details[1]["score_mode"] == "continued"
+    assert manifest["mapping"][2]["exclusion_reason"] == "abandoned lobby"
+    assert len(logical.match.rounds) == 4
 
 
 def test_excluded_physical_round_never_contributes_to_any_stat_family(tmp_path):
@@ -101,10 +172,12 @@ def test_rehost_rejects_unrelated_or_duplicate_sources(tmp_path):
         stitch_confirmed([first, first], excluded={})
     with pytest.raises(ValueError, match="not found"):
         stitch_confirmed([first, second], excluded={("segment-02", 9): "abandoned"})
-    rosters = second.rounds[0].rosters
-    unrelated = replace(second.rounds[0], rosters=(('unrelated', *rosters[0][1:]), rosters[1]))
-    second = PhysicalSegment(second.match, (unrelated,))
-    with pytest.raises(ValueError, match="different player identities"):
+    unrelated_round = replace(second.match.rounds[0], players=[
+        replace(player, profile_id=f"unrelated-{index}")
+        for index, player in enumerate(second.match.rounds[0].players)])
+    unrelated_match = replace(second.match, rounds=[unrelated_round])
+    second = physical_segment(unrelated_match, tmp_path / "segment2", 2)
+    with pytest.raises(ValueError, match="lack a clear shared player identity"):
         stitch_confirmed([first, second], excluded={})
 
 

@@ -52,6 +52,7 @@ class LogicalMap:
     segments: tuple[PhysicalSegment, ...]
     mapping: tuple[LogicalRoundMapping, ...]
     final_scores: tuple[int, int]
+    segment_details: tuple[dict, ...] = ()
 
 
 def score_map(physical: PhysicalRound, ending: bool,

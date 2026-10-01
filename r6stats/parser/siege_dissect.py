@@ -162,9 +162,13 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
         # The parser field is zero-based in current replays; physical filenames
         # identify rounds during real imports. Fixtures without files use order.
         number = round_numbers[ordinal - 1] if round_numbers is not None else ordinal
+        starting_scores = (tuple(int(team["startingScore"]) for team in teams)
+                           if all(team.get("startingScore") is not None for team in teams) else None)
+        ending_scores = (tuple(int(team["score"]) for team in teams)
+                         if all(team.get("score") is not None for team in teams) else None)
         result.append(Round(number, str(row.get("site") or "Unknown"), wins[0],
                             str(teams[wins[0]].get("winCondition") or "Unknown"),
-                            players, kills, objectives))
+                            players, kills, objectives, starting_scores, ending_scores))
     if len(types) != 1 or len(maps) != 1 or len(match_ids) > 1:
         raise ValueError("Replay rounds disagree on match type, map, or match ID.")
     numbers = [r.number for r in result]

@@ -50,6 +50,8 @@ class Round:
     players: list[Player] = field(default_factory=list)
     kills: list[Kill] = field(default_factory=list)
     objectives: list[Objective] = field(default_factory=list)
+    starting_scores: tuple[int, int] | None = None
+    ending_scores: tuple[int, int] | None = None
 
 
 @dataclass
@@ -71,6 +73,8 @@ class Match:
             rounds.append(Round(row["number"], row["site"], row["winner"], row["win_condition"],
                                 [Player(**p) for p in row["players"]],
                                 [Kill(**k) for k in row["kills"]],
-                                [Objective(**o) for o in row["objectives"]]))
+                                [Objective(**o) for o in row["objectives"]],
+                                tuple(row["starting_scores"]) if row.get("starting_scores") is not None else None,
+                                tuple(row["ending_scores"]) if row.get("ending_scores") is not None else None))
         return cls(value["replay_id"], value["timestamp"], value["map_name"],
                    value["match_type"], value["game_mode"], rounds)

@@ -8,14 +8,14 @@ type Page = 'dashboard' | 'replays' | 'roster' | 'seasons' | 'matches' | 'statis
 type Season = { slug: string; name: string; active: number; start_date: string | null; end_date: string | null }
 type Player = { id: number; slug: string; display_name: string; username: string; tracked: number; profile_bound: boolean; aliases: string[] }
 type Series = { id: string; opponent: string; date: string; week: string; notes: string; season_slug: string; maps: number }
-type Replay = { id: string; name: string; map?: string; timestamp?: string; match_type?: string; status: string; eligible: boolean; tracked_count?: number; rounds?: number; score?: number[]; our_team?: number | null; duplicate?: boolean }
+type Replay = { id: string; name: string; map?: string; timestamp?: string; match_type?: string; status: string; eligible: boolean; rehost_eligible?: boolean; tracked_count?: number; rounds?: number; score?: number[]; our_team?: number | null; duplicate?: boolean }
 type Preview = { preview_token: string; map: string; timestamp: string; match_type: string; game_mode: string; rounds: number; score: number[]; our_team: number | null; tracked_players: string[]; teams: { index: number; players: string[] }[]; ambiguous: string | null; duplicate: boolean; active_season: string | null; competition_if_confirmed: string }
-type RehostRound = { segment: number; physical_number: number; filename: string; site: string; winner: number; physical_score: number[]; logical_score: number[]; logical_number: number | null; exclusion_reason: string | null }
-type RehostPreview = Preview & { segments: { segment: number; source_name: string }[]; physical_rounds: RehostRound[] }
+type RehostRound = { segment: number; physical_number: number; filename: string; site: string; winner: number; physical_score: number[]; logical_score: number[]; players: string[][]; logical_number: number | null; exclusion_reason: string | null }
+type RehostPreview = Preview & { segments: { segment: number; source_name: string; players: string[][]; absent: string[][]; added: string[][]; physical_start: number[]; logical_start: number[]; score_mode: string }[]; physical_rounds: RehostRound[]; roster_change_required: boolean; score_override_required: boolean }
 type MapRow = { id: string; map_name: string; match_type: string; our_score: number; their_score: number; opponent: string; date: string; series_date: string; week: string; notes: string; season_name: string; season_slug: string; series_id: string; competition: string; demo: number }
 type ArchiveStatus = { status: string; message: string; rounds: number; path: string }
 type KDPlayer = { player_id: number; name: string; tracked: boolean; replay_kills: number; replay_deaths: number; final_kills: number; final_deaths: number; kill_adjustment: number; death_adjustment: number; reason: string; note: string; updated_at: string | null; corrected: boolean }
-type MatchDetail = MapRow & { replay_data_complete: number; manual_kd_correction: boolean; rating_eligible: boolean; kd_players: KDPlayer[]; game_mode: string; tracked_players: string[]; rounds: { number: number; site: string; result: string }[]; archive: ArchiveStatus; source_kind: 'normal' | 'rehost'; rehost: { segments: { segment: number; source_name: string }[]; mapping: { segment: number; filename: string; physical_number: number; logical_number: number | null; exclusion_reason: string | null }[]; final_scores: number[] } | null }
+type MatchDetail = MapRow & { replay_data_complete: number; manual_kd_correction: boolean; rating_eligible: boolean; kd_players: KDPlayer[]; game_mode: string; tracked_players: string[]; rounds: { number: number; site: string; result: string }[]; archive: ArchiveStatus; source_kind: 'normal' | 'rehost'; rehost: { segments: { segment: number; source_name: string }[]; mapping: { segment: number; filename: string; physical_number: number; logical_number: number | null; exclusion_reason: string | null }[]; final_scores: number[]; segment_details: { segment: number; physical_start: number[]; logical_start: number[]; score_mode: string }[]; roster_change_confirmed: boolean; score_override_confirmed: boolean } | null }
 type Dashboard = { active_season: { slug: string; name: string } | null; roster_count: number; maps_imported: number; demo_maps: number; last_imported: { id: string; map_name: string; opponent: string; date: string; season: string } | null; last_publish: { at: string; commit: string } | null; database: { status: string; path: string; size_bytes: number } }
 type SettingsData = { team_name: string; short_name: string; accent: string; replay_path: string; trade_window_seconds: number; rating_version: string; publishing_enabled: boolean; branch: string; remote_url: string; site_url: string }
 
@@ -171,12 +171,14 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
   const [seriesId, chooseSeries] = useState('')
   const [confirmMap, setConfirmMap] = useState(false)
   const [confirmNecc, setConfirmNecc] = useState(false)
+  const [confirmRoster, setConfirmRoster] = useState(false)
+  const [confirmScoreOverride, setConfirmScoreOverride] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const key = (round: RehostRound) => `${round.segment}:${round.physical_number}`
   function updateSegment(index: number, value: SegmentChoice) {
     setSegments(current => current.map((item, at) => at === index ? value : item))
-    setPreview(null); setExclusions({}); setDirty(false); setConfirmMap(false); setConfirmNecc(false)
+    setPreview(null); setExclusions({}); setDirty(false); setConfirmMap(false); setConfirmNecc(false); setConfirmRoster(false); setConfirmScoreOverride(false)
   }
   async function review(chosenTeam?: number) {
     setBusy(true); setError('')
@@ -187,7 +189,7 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
         return { segment, physical_number, reason: reason.trim() }
       })
       const result = await api<RehostPreview>('/replays/rehost/preview', 'POST', { segments: selected, exclusions: omitted, team: chosenTeam ?? team })
-      setPreview(result); setTeam(result.our_team); setDirty(false); setConfirmMap(false); setConfirmNecc(false)
+      setPreview(result); setTeam(result.our_team); setDirty(false); setConfirmMap(false); setConfirmNecc(false); setConfirmRoster(false); setConfirmScoreOverride(false)
       if (result.active_season) setSeason(result.active_season)
       if (result.our_team !== null) { setFinalOur(String(result.score[result.our_team])); setFinalTheir(String(result.score[1 - result.our_team])) }
       if (result.duplicate) notify('One of these replay folders was already imported.', true)
@@ -200,10 +202,12 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
       const result = await api<{ map_id: string; rounds: number }>('/replays/rehost/import', 'POST', {
         preview_token: preview.preview_token, season_slug: season, opponent, week, notes,
         series_id: seriesId || null, team, confirm_necc: confirmNecc,
-        confirm_folders_one_map: confirmMap, final_our_score: Number(finalOur), final_their_score: Number(finalTheir),
+        confirm_folders_one_map: confirmMap, confirm_roster_change: confirmRoster,
+        confirm_score_override: confirmScoreOverride,
+        final_our_score: Number(finalOur), final_their_score: Number(finalTheir),
       })
       notify(`Imported ${result.rounds} logical rounds as NECC map ${result.map_id}.`)
-      setPreview(null); setExclusions({}); setConfirmMap(false); setConfirmNecc(false)
+      setPreview(null); setExclusions({}); setConfirmMap(false); setConfirmNecc(false); setConfirmRoster(false); setConfirmScoreOverride(false)
       await afterImport()
     } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) }
   }
@@ -211,7 +215,7 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
     <div className="admin-panel admin-tip"><ShieldCheck size={22} /><div><b>Rehost import is manual.</b><p>Select only folders from the same competitive map, put them in order, and exclude each abandoned physical round. A later Siege lobby may restart its score at 0–0.</p></div></div>
     <section className="admin-panel"><span className="eyebrow">PHYSICAL REPLAY SEGMENTS</span><h2>Choose folders in competitive order</h2>
       {segments.map((choice, index) => <div className="rehost-segment" key={index}><b>Segment {index + 1}</b>
-        <select value={choice.replay_id} onChange={event => updateSegment(index, { replay_id: event.target.value, path: '' })}><option value="">Enter folder path below</option>{items.filter(item => item.eligible && !item.duplicate).map(item => <option key={item.id} value={item.id}>{item.name} · {item.map} · {item.rounds} rounds</option>)}</select>
+        <select value={choice.replay_id} onChange={event => updateSegment(index, { replay_id: event.target.value, path: '' })}><option value="">Enter folder path below</option>{items.filter(item => item.rehost_eligible && !item.duplicate).map(item => <option key={item.id} value={item.id}>{item.name} · {item.map} · {item.rounds} {item.rounds === 1 ? 'round' : 'rounds'}</option>)}</select>
         <input value={choice.path} disabled={!!choice.replay_id} onChange={event => updateSegment(index, { replay_id: '', path: event.target.value })} placeholder="C:\...\Match-... folder" />
         <div className="detail-actions"><Button secondary disabled={index === 0} onClick={() => { const next = [...segments]; [next[index - 1], next[index]] = [next[index], next[index - 1]]; setSegments(next); setPreview(null); setExclusions({}) }}>Move up</Button><Button secondary disabled={index === segments.length - 1} onClick={() => { const next = [...segments]; [next[index + 1], next[index]] = [next[index], next[index + 1]]; setSegments(next); setPreview(null); setExclusions({}) }}>Move down</Button><Button secondary disabled={segments.length <= 2} onClick={() => { setSegments(segments.filter((_, at) => at !== index)); setPreview(null); setExclusions({}) }}>Remove</Button></div>
       </div>)}
@@ -222,13 +226,20 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
       <div className="team-choices"><b>Tracked team</b><p>{preview.tracked_players.join(', ') || 'Choose your team below.'}</p>{preview.teams.map(choice => <div key={choice.index}><span>Team {choice.index}: {choice.players.join(', ')}</span>{preview.ambiguous && <Button secondary onClick={() => void review(choice.index)}>Use team {choice.index}</Button>}</div>)}</div>
       {preview.ambiguous && <div className="admin-inline-error">{preview.ambiguous}</div>}
       {preview.duplicate && <div className="admin-inline-error">A physical replay folder was already imported.</div>}
+      {preview.segments.map(segment => <div className="admin-panel" key={`roster-${segment.segment}`}>
+        <b>Segment {segment.segment} roster and score</b>
+        <p className="admin-muted">Physical start {segment.physical_start.join('–')} · logical competitive start {segment.logical_start.join('–')}{segment.score_mode === 'override_0_0' ? ' · 0-0 restart needs confirmation' : ' · score continues'}</p>
+        {[0, 1].map(side => <p key={side}><b>{side === preview.our_team ? 'UAH' : `Team ${side}`}: </b>{segment.players[side].join(', ') || 'No participants'}{segment.absent[side].length > 0 && <span className="admin-inline-error"> Absent from this segment: {segment.absent[side].join(', ')}</span>}{segment.added[side].length > 0 && <span className="admin-inline-error"> Added in this segment: {segment.added[side].join(', ')}</span>}</p>)}
+      </div>)}
       {preview.segments.map(segment => <div key={segment.segment} className="rehost-round-group"><h3>Segment {segment.segment}: {segment.source_name}</h3>{preview.physical_rounds.filter(round => round.segment === segment.segment).map(round => <div className="rehost-round" key={key(round)}><label><input type="checkbox" checked={!(key(round) in exclusions)} onChange={event => { setExclusions(current => { const next = { ...current }; if (event.target.checked) delete next[key(round)]; else next[key(round)] = 'abandoned rehost round'; return next }); setDirty(true) }} /> R{String(round.physical_number).padStart(2, '0')}</label><span>{round.site} · physical {round.physical_score.join('–')}</span><strong>{key(round) in exclusions ? 'DOES NOT COUNT' : `Logical R${round.logical_number ?? '—'}`}</strong>{key(round) in exclusions && <input aria-label={`Reason segment ${round.segment} round ${round.physical_number}`} value={exclusions[key(round)]} onChange={event => { setExclusions(current => ({ ...current, [key(round)]: event.target.value })); setDirty(true) }} />}</div>)}</div>)}
       {dirty && <div className="admin-inline-error">Round choices changed. Update the preview before importing.</div>}
       <div className="detail-actions"><Button secondary disabled={busy} onClick={() => void review(team ?? undefined)}>Update preview and logical score</Button></div>
       <div className="form-grid"><label>Final UAH score<input type="number" min="0" max="30" value={finalOur} onChange={event => setFinalOur(event.target.value)} /></label><label>Final opponent score<input type="number" min="0" max="30" value={finalTheir} onChange={event => setFinalTheir(event.target.value)} /></label><label>Season<select value={season} onChange={event => { setSeason(event.target.value); chooseSeries(''); setSeriesId('') }}><option value="">Select season</option>{seasons.map(item => <option value={item.slug} key={item.slug}>{item.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; chooseSeries(id); setSeriesId(id); const found = series.find(item => item.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(item => <option value={item.id} key={item.id}>vs {item.opponent} · {item.date}</option>)}</select></label><label>Opponent<input value={opponent} readOnly={!!seriesId} onChange={event => setOpponent(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div>
       <label className="confirm-line"><input type="checkbox" checked={confirmMap} onChange={event => setConfirmMap(event.target.checked)} /><span>These ordered replay folders belong to one competitive map, and I reviewed every counted or abandoned round.</span></label>
+      {preview.roster_change_required && <label className="confirm-line"><input type="checkbox" checked={confirmRoster} onChange={event => setConfirmRoster(event.target.checked)} /><span>I reviewed and confirm the expected roster change. Absent players did not play the later rounds.</span></label>}
+      {preview.score_override_required && <label className="confirm-line"><input type="checkbox" checked={confirmScoreOverride} onChange={event => setConfirmScoreOverride(event.target.checked)} /><span>I confirm the physical lobby restarted at 0-0 while the logical competitive score continued as shown above.</span></label>}
       <label className="confirm-line"><input type="checkbox" checked={confirmNecc} onChange={event => setConfirmNecc(event.target.checked)} /><span>I confirm this Custom Game map was an NECC match.</span></label>
-      <Button disabled={busy || dirty || preview.duplicate || team === null || !season || !opponent.trim() || !confirmMap || !confirmNecc || finalOur === '' || finalTheir === ''} onClick={() => void importMap()}><Check size={16} /> Import one logical NECC map</Button>
+      <Button disabled={busy || dirty || preview.duplicate || team === null || !season || !opponent.trim() || !confirmMap || !confirmNecc || (preview.roster_change_required && !confirmRoster) || (preview.score_override_required && !confirmScoreOverride) || finalOur === '' || finalTheir === ''} onClick={() => void importMap()}><Check size={16} /> Import one logical NECC map</Button>
     </section>}
   </>
 }

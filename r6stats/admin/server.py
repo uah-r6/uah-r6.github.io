@@ -123,6 +123,8 @@ class RehostPreviewRequest(BaseModel):
 
 class RehostImportRequest(ImportRequest):
     confirm_folders_one_map: bool
+    confirm_roster_change: bool = False
+    confirm_score_override: bool = False
     final_our_score: int = Field(ge=0, le=30)
     final_their_score: int = Field(ge=0, le=30)
 
@@ -442,7 +444,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 match = parse_match(path, allow_incomplete=True)
                 complete = len(match.rounds) >= 2
                 eligible = complete and is_custom_game(match.match_type)
-                tracked = sum(repo.roster_match(db, player) is not None for player in match.rounds[0].players)
+                rehost_eligible = is_custom_game(match.match_type)
+                tracked = len({roster["id"] for round_ in match.rounds for player in round_.players
+                               if (roster := repo.roster_match(db, player)) is not None})
                 try:
                     our_team, _ = repo.choose_team(db, match)
                 except ValueError:
@@ -452,8 +456,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                                             (match.replay_id,)).fetchone()) if match.replay_id else False
                 items.append({"id": key, "name": path.name, "map": match.map_name,
                               "timestamp": match.timestamp, "match_type": match.match_type,
-                              "status": scan_label(match.match_type) if complete else "INCOMPLETE - only 1 replay round",
-                              "eligible": eligible,
+                              "status": (scan_label(match.match_type) if complete or not rehost_eligible
+                                         else "REHOST SEGMENT - only 1 replay round"),
+                              "eligible": eligible, "rehost_eligible": rehost_eligible,
                               "tracked_count": tracked, "rounds": len(match.rounds), "score": score,
                               "our_team": our_team, "duplicate": duplicate})
             except (ValueError, OSError) as error:
@@ -570,12 +575,12 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         rounds = []
         logical_score = [0, 0]
         for item in logical.mapping:
-            segment = logical.segments[int(item.folder.split("-")[1]) - 1]
+            segment_index = int(item.folder.split("-")[1]) - 1
+            segment = logical.segments[segment_index]
+            team_mapping = logical.segment_details[segment_index]["team_mapping"]
             source_round = next(round_ for round_ in segment.rounds
                                 if round_.physical_number == item.physical_number)
-            source_rosters = segment.rounds[0].rosters
-            base_rosters = logical.segments[0].rounds[0].rosters
-            winner = base_rosters.index(source_rosters[source_round.round.winner])
+            winner = team_mapping[source_round.round.winner]
             if item.logical_number is not None:
                 logical_score[winner] += 1
             rounds.append({"segment": int(item.folder.split("-")[1]),
@@ -583,8 +588,32 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                            "filename": item.filename, "site": source_round.round.site,
                            "winner": winner, "physical_score": list(source_round.ending_scores),
                            "logical_score": list(logical_score),
+                           "players": [[p.username for p in source_round.round.players
+                                        if team_mapping[p.team] == team] for team in (0, 1)],
                            "logical_number": item.logical_number,
                            "exclusion_reason": item.exclusion_reason})
+        first_names = {p.key: p.username for round_ in logical.segments[0].match.rounds
+                       for p in round_.players}
+        segment_summaries = []
+        for detail, segment in zip(logical.segment_details, logical.segments):
+            names = {p.key: p.username for round_ in segment.match.rounds for p in round_.players}
+            present = [sorted(names[key] for physical_team, keys in enumerate(detail["rosters"])
+                              if detail["team_mapping"][physical_team] == team for key in keys)
+                       for team in (0, 1)]
+            canonical = [set(logical.segment_details[0]["rosters"][team]) for team in (0, 1)]
+            current = [set(key for physical_team, keys in enumerate(detail["rosters"])
+                           if detail["team_mapping"][physical_team] == team for key in keys)
+                       for team in (0, 1)]
+            segment_summaries.append({"segment": detail["segment"],
+                                      "source_name": manifest["segments"][detail["segment"] - 1]["source_name"],
+                                      "players": present,
+                                      "absent": [sorted(first_names.get(key, key) for key in canonical[team] - current[team])
+                                                 for team in (0, 1)],
+                                      "added": [sorted(names.get(key, key) for key in current[team] - canonical[team])
+                                                for team in (0, 1)],
+                                      "physical_start": detail["physical_start"],
+                                      "logical_start": detail["logical_start"],
+                                      "score_mode": detail["score_mode"]})
         return {"preview_token": token, "map": match.map_name, "timestamp": match.timestamp,
                 "match_type": match.match_type, "game_mode": match.game_mode,
                 "rounds": len(match.rounds), "score": list(logical.final_scores),
@@ -592,7 +621,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 "teams": [{"index": index, "players": [p.username for p in match.rounds[0].players
                                                    if p.team == index]} for index in (0, 1)],
                 "duplicate": bool(duplicate), "active_season": active["slug"] if active else None,
-                "competition_if_confirmed": "NECC", "segments": manifest["segments"],
+                "competition_if_confirmed": "NECC", "segments": segment_summaries,
+                "roster_change_required": manifest["roster_change_confirmed"],
+                "score_override_required": manifest["score_override_confirmed"],
                 "physical_rounds": rounds}
 
     @app.post("/api/admin/replays/rehost/import")
@@ -602,6 +633,12 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         preview = app.state.previews.get(payload.preview_token)
         if not preview or not preview.paths or not preview.rehost_manifest or time.time() - preview.created >= 1800:
             raise ValueError("Rehost preview expired. Preview the segments again.")
+        if (preview.rehost_manifest.get("roster_change_confirmed") and
+                not payload.confirm_roster_change):
+            raise ValueError("Confirm the expected roster change before importing this rehost.")
+        if (preview.rehost_manifest.get("score_override_confirmed") and
+                not payload.confirm_score_override):
+            raise ValueError("Confirm the physical 0-0 score restart before importing this rehost.")
         for path, source in zip(preview.paths, preview.rehost_manifest["segments"]):
             if source_fingerprint(path) != source["fingerprint"]:
                 raise ValueError("A replay segment changed since preview. Preview it again.")
@@ -696,7 +733,11 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                                             "source_name": item["source_name"]}
                                            for item in source["segments"]],
                               "mapping": source["mapping"],
-                              "final_scores": source["final_scores"]} if source else None)
+                              "final_scores": source["final_scores"],
+                              "segment_details": source.get("segment_details", []),
+                              "roster_change_confirmed": source.get("roster_change_confirmed", False),
+                              "score_override_confirmed": source.get("score_override_confirmed", False)}
+                             if source else None)
         details["rounds"] = [{"number": round_.number, "site": round_.site,
                                "result": "Win" if round_.winner == row["our_team"] else "Loss"}
                               for round_ in match.rounds]
@@ -814,7 +855,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                            "reason": item["exclusion_reason"]}
                           for item in source["mapping"] if item["logical_number"] is None]
             logical, _, digest = assemble_rehost(paths, exclusions,
-                                                 tuple(source["final_scores"]))
+                                                 tuple(source["final_scores"]),
+                                                 manifest_version=source.get("version", 1))
             match = logical.match
             if digest != row["fingerprint"]:
                 raise ValueError("Rehost source identity differs from this imported map.")

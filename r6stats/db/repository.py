@@ -204,7 +204,7 @@ def roster_match(db, player) -> sqlite3.Row | None:
 
 
 def bind_profiles(db, match: Match) -> None:
-    for p in match.rounds[0].players:
+    for p in (player for round_ in match.rounds for player in round_.players):
         row = roster_match(db, p)
         if row and p.profile_id and not row["profile_id"]:
             db.execute("UPDATE players SET profile_id=? WHERE id=?", (p.profile_id, row["id"]))
@@ -215,13 +215,16 @@ def bind_profiles(db, match: Match) -> None:
 
 
 def choose_team(db, match: Match, explicit: int | None = None) -> tuple[int, list]:
-    counts = [0, 0]
-    tracked = []
-    for p in match.rounds[0].players:
-        row = roster_match(db, p)
-        if row:
-            counts[p.team] += 1
-            tracked.append(row["display_name"])
+    members = [set(), set()]
+    names = {}
+    for round_ in match.rounds:
+        for p in round_.players:
+            row = roster_match(db, p)
+            if row:
+                members[p.team].add(row["id"])
+                names[row["id"]] = row["display_name"]
+    counts = [len(members[0]), len(members[1])]
+    tracked = sorted(names.values())
     if not tracked:
         raise ValueError("No configured roster member was found in this replay.")
     team = explicit if explicit in (0, 1) else (counts.index(max(counts)) if max(counts) >= 3 and counts[0] != counts[1] else None)
@@ -229,6 +232,8 @@ def choose_team(db, match: Match, explicit: int | None = None) -> tuple[int, lis
         raise ValueError(f"Team is ambiguous ({counts[0]} vs {counts[1]} tracked). Choose team 0 or team 1 after reviewing participants.")
     if counts[team] == 0:
         raise ValueError("Selected team has no tracked roster members.")
+    if members[0] & members[1]:
+        raise ValueError("A tracked player changed teams across replay rounds.")
     for round_ in match.rounds:
         for p in round_.players:
             row = roster_match(db, p)

@@ -25,7 +25,6 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     players = [dict(r) for r in db.execute("""SELECT * FROM players p WHERE tracked=1
                  OR EXISTS (SELECT 1 FROM round_players rp WHERE rp.player_id=p.id)
                  ORDER BY display_name""")]
-    aliases = {p["id"]: {a[0].strip().casefold() for a in db.execute("SELECT username FROM aliases WHERE player_id=?", (p["id"],))} for p in players}
     window = config["stats"]["trade_window_seconds"]
     season_stats = defaultdict(lambda: defaultdict(list))
     season_rating_stats = defaultdict(lambda: defaultdict(list))
@@ -40,6 +39,11 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     for row in rows:
         match = Match.from_dict(json.loads(row["normalized_json"]))
         stats = calculate_match(match, window)
+        bound_keys = defaultdict(set)
+        for binding in db.execute("""SELECT DISTINCT rp.player_id,rp.player_key
+            FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
+            WHERE rd.map_id=? AND rp.player_id IS NOT NULL""", (row["id"],)):
+            bound_keys[binding["player_id"]].add(binding["player_key"])
         corrections = {c["player_id"]: c for c in db.execute(
             "SELECT * FROM map_kd_corrections WHERE map_id=?", (row["id"],))}
         rating_eligible = bool(row["replay_data_complete"]) and not corrections
@@ -53,14 +57,11 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
             demo_seasons.add(row["season_slug"])
         public_players = []
         for p in players:
-            key = None
-            for candidate in match.rounds[0].players:
-                if ((p["profile_id"] and candidate.profile_id == p["profile_id"]) or
-                    candidate.username.strip().casefold() in aliases[p["id"]]):
-                    key = candidate.key
-                    break
-            if key and key in stats:
-                raw = stats[key]
+            keys = [key for key in bound_keys[p["id"]] if key in stats]
+            if keys:
+                raw = stats[keys[0]] if len(keys) == 1 else aggregate([stats[key] for key in keys])
+                if len(keys) > 1:
+                    raw.pop("maps", None)
                 correction = corrections.get(p["id"])
                 shown = (apply_display_kd(raw, correction["final_kills"], correction["final_deaths"])
                          if correction else raw)
