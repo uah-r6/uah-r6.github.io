@@ -19,7 +19,9 @@ def main(match_ids: tuple[int, ...] = MATCHES) -> None:
     rows = []
     for match_id in match_ids:
         path = DIAGNOSTICS / f"objective-timer-{match_id}.jsonl"
-        for line in path.read_text(encoding="utf-8-sig").splitlines():
+        content = path.read_bytes()
+        encoding = "utf-16" if content.startswith((b"\xff\xfe", b"\xfe\xff")) else "utf-8-sig"
+        for line in content.decode(encoding).splitlines():
             row = json.loads(line)
             minimum = min((run["min"] for run in row["timer_runs"]), default=None)
             rows.append({"match": match_id, "round": row["round"],
@@ -27,7 +29,11 @@ def main(match_ids: tuple[int, ...] = MATCHES) -> None:
                          "min_timer": minimum,
                          "near_zero_runs": sum(run["min"] <= 0.1 for run in row["timer_runs"])})
     print(f"Audited {len(rows)} development rounds; "
-          f"{sum(bool(row['public']) for row in rows)} with public objectives")
+          f"{sum(bool(row['public']) for row in rows)} with public objectives; "
+          f"{sum(len(row['public']) for row in rows)} public completion events")
+    count_mismatches = [f"{row['match']}:R{row['round']:02d}" for row in rows
+                        if row["near_zero_runs"] != len(row["public"])]
+    print(f"0.10-second run count mismatches: {count_mismatches}")
     for threshold in THRESHOLDS:
         false_positive = [f"{row['match']}:R{row['round']:02d}" for row in rows
                           if row["min_timer"] is not None and
