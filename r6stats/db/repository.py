@@ -25,7 +25,18 @@ CREATE TABLE IF NOT EXISTS maps (
  replay_id TEXT UNIQUE, fingerprint TEXT UNIQUE NOT NULL, map_name TEXT NOT NULL,
  match_type TEXT NOT NULL, game_mode TEXT NOT NULL, our_team INTEGER NOT NULL,
  our_score INTEGER NOT NULL, their_score INTEGER NOT NULL, normalized_json TEXT NOT NULL,
- played_on TEXT);
+ played_on TEXT, rehost_json TEXT, replay_data_complete INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE IF NOT EXISTS map_segments (
+ map_id TEXT NOT NULL REFERENCES maps(id) ON DELETE CASCADE,
+ segment_order INTEGER NOT NULL, replay_id TEXT UNIQUE, fingerprint TEXT UNIQUE NOT NULL,
+ source_name TEXT NOT NULL, PRIMARY KEY(map_id,segment_order));
+CREATE TABLE IF NOT EXISTS map_kd_corrections (
+ map_id TEXT NOT NULL REFERENCES maps(id) ON DELETE CASCADE,
+ player_id INTEGER NOT NULL REFERENCES players(id),
+ replay_kills INTEGER NOT NULL, replay_deaths INTEGER NOT NULL,
+ final_kills INTEGER NOT NULL, final_deaths INTEGER NOT NULL,
+ reason TEXT NOT NULL, note TEXT NOT NULL DEFAULT '', updated_at TEXT NOT NULL,
+ PRIMARY KEY(map_id,player_id));
 CREATE TABLE IF NOT EXISTS rounds (
  id INTEGER PRIMARY KEY, map_id TEXT NOT NULL REFERENCES maps(id) ON DELETE CASCADE,
  number INTEGER NOT NULL, site TEXT NOT NULL, winning_team INTEGER NOT NULL,
@@ -57,10 +68,17 @@ def connect(path: str | Path = "data/r6stats.sqlite") -> sqlite3.Connection:
     db.row_factory = sqlite3.Row
     db.executescript(SCHEMA)
     # Existing local databases predate the optional season and map dates.
-    for table, column in (("seasons", "start_date"), ("seasons", "end_date"), ("maps", "played_on")):
+    for table, column in (("seasons", "start_date"), ("seasons", "end_date"),
+                          ("maps", "played_on"), ("maps", "rehost_json"),
+                          ("maps", "replay_data_complete")):
         existing = {row["name"] for row in db.execute(f"PRAGMA table_info({table})")}
         if column not in existing:
-            db.execute(f"ALTER TABLE {table} ADD COLUMN {column} TEXT")
+            definition = "INTEGER NOT NULL DEFAULT 1" if column == "replay_data_complete" else "TEXT"
+            db.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
+    # Existing one-folder imports become explicit single-segment sources.
+    db.execute("""INSERT INTO map_segments(map_id,segment_order,replay_id,fingerprint,source_name)
+                  SELECT m.id,1,m.replay_id,m.fingerprint,'' FROM maps m
+                  WHERE NOT EXISTS (SELECT 1 FROM map_segments ms WHERE ms.map_id=m.id)""")
     db.commit()
     return db
 
@@ -221,7 +239,9 @@ def choose_team(db, match: Match, explicit: int | None = None) -> tuple[int, lis
 
 def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
                week: str = "", notes: str = "", series_id: str | None = None,
-               demo: bool = False, season_slug: str | None = None) -> str:
+               demo: bool = False, season_slug: str | None = None,
+               rehost_manifest: dict | None = None,
+               source_segments: list[dict] | None = None) -> str:
     if not is_custom_game(match.match_type):
         raise ValueError("Only Custom Game replay types can be stored as NECC maps.")
     if db.execute("SELECT 1 FROM series WHERE demo!=? LIMIT 1", (int(demo),)).fetchone():
@@ -233,6 +253,14 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
     if db.execute("SELECT 1 FROM maps WHERE fingerprint=? OR (replay_id IS NOT NULL AND replay_id=?)",
                   (fingerprint, match.replay_id or None)).fetchone():
         raise ValueError("This replay has already been imported. No changes were made.")
+    sources = source_segments or [{"replay_id": match.replay_id, "fingerprint": fingerprint,
+                                   "source_name": ""}]
+    if len({source["fingerprint"] for source in sources}) != len(sources) or any(
+            db.execute("""SELECT 1 FROM map_segments WHERE fingerprint=? OR
+                          (replay_id IS NOT NULL AND replay_id=?)""",
+                       (source["fingerprint"], source.get("replay_id") or None)).fetchone()
+            for source in sources):
+        raise ValueError("One of these replay folders has already been imported.")
     score = [sum(r.winner == i for r in match.rounds) for i in (0, 1)]
     map_id = uuid4().hex[:12]
     with db:
@@ -248,11 +276,16 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
             db.execute("INSERT INTO series VALUES(?,?,?,?,?,?,?,?)",
                        (series_id, season["id"], opponent, match.timestamp[:10], week, notes, "NECC", int(demo)))
         db.execute("""INSERT INTO maps(id,series_id,replay_id,fingerprint,map_name,match_type,
-                   game_mode,our_team,our_score,their_score,normalized_json,played_on)
-                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
+                   game_mode,our_team,our_score,their_score,normalized_json,played_on,rehost_json)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                    (map_id, series_id, match.replay_id or None, fingerprint, match.map_name,
                     match.match_type, match.game_mode, team, score[team], score[1-team],
-                    json.dumps(match.to_dict(), separators=(",", ":")), match.timestamp[:10]))
+                    json.dumps(match.to_dict(), separators=(",", ":")), match.timestamp[:10],
+                    json.dumps(rehost_manifest, separators=(",", ":")) if rehost_manifest else None))
+        for order, source in enumerate(sources, start=1):
+            db.execute("""INSERT INTO map_segments(map_id,segment_order,replay_id,fingerprint,source_name)
+                          VALUES(?,?,?,?,?)""", (map_id, order, source.get("replay_id") or None,
+                                                 source["fingerprint"], source.get("source_name", "")))
         for round_ in match.rounds:
             cursor = db.execute("INSERT INTO rounds(map_id,number,site,winning_team,win_condition) VALUES(?,?,?,?,?)",
                                 (map_id, round_.number, round_.site, round_.winner, round_.win_condition))

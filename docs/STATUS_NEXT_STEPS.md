@@ -1,5 +1,12 @@
 # Status and next steps — 2026-09-30
 
+## CURRENT PRODUCT CHECKPOINT — 2026-10-01 04:11 UTC
+
+- HEAD before this checkpoint: `3dac52a`. The first opt-in local rehost layer is implemented in `r6stats/parser/confirmed_rehost.py`: ordered two-or-more physical replay folders, explicit counted/excluded R## mapping, team-index remapping by stable roster identities, logical round renumbering, independent final competitive score validation, and source hashes. It allows a later physical lobby to restart at 0–0. It never changes the existing research score-continuity stitcher or the normal one-folder parser.
+- The SQLite schema now has private `map_segments` source identities (including a safe backfill for existing one-folder maps), `maps.rehost_json`, `maps.replay_data_complete`, and `map_kd_corrections` storage for later use. Import records each segment's replay ID and fingerprint so an already imported physical folder cannot be counted in another map. The four-map real SQLite was inspected read-only and was **not** migrated or written during development; tests use temporary databases.
+- Tests: 19 focused Python tests pass, including existing normal admin/CLI import tests and new two-/three-segment, reset-score, exclusion, swapped-team, wrong-score, unrelated-roster, and duplicate-source cases. The archive, admin rehost UI/API, and K/D correction behavior are **not yet implemented**; do not use these new schema fields for real imports until those flows are complete.
+- **NEXT ACTION:** Extend `r6stats/replay_archive.py` with a verified multi-segment manifest while keeping format 1 unchanged. Add rehost preview/import/reparse endpoints and explicit browser controls, then test archive/reparse/delete and normal-import regressions. After that implement auditable final-K/D corrections with Rating ineligibility for incomplete maps. Run full pytest, admin build, publishing/privacy checks, and local commits. No real replay import, publish, push, or live Rating change during implementation.
+
 ## CURRENT RESEARCH AND PRODUCT CHECKPOINT — 2026-10-01 03:58 UTC
 
 - HEAD on arrival at this checkpoint: `8fac089`, an external generated-data commit adding a fourth Fall 2026 NECC map. The working tree contained only the objective validation script edit from the ongoing research. Read-only SQLite inspection found four imported maps (Fortress 7–3, Border 6–8, Kafe 8–6, Border 7–5), each with a private single-folder archive. No production database or archive was modified in this research step.
