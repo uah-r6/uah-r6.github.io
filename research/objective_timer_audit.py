@@ -83,6 +83,34 @@ def scoreboard_events(data: bytes, players: dict[str, str]) -> list[dict]:
     return events
 
 
+def killcount_events(data: bytes, players: dict[str, str]) -> list[dict]:
+    """Read Y11 cumulative kill-count changes for score-collision diagnostics."""
+    identities = {name: int.from_bytes(bytes.fromhex(value), "little")
+                  for name, value in players.items() if value}
+    tag = bytes.fromhex("1cd2b19d")
+    offset = 0
+    previous = {}
+    events = []
+    while (at := data.find(tag, offset)) >= 0:
+        offset = at + len(tag)
+        if (at < 9 or at + 9 > len(data) or data[at - 9] != 0x23 or
+                data[at - 4:at] != bytes(4) or data[at + 4] != 4):
+            continue
+        entity = int.from_bytes(data[at - 8:at - 4], "little")
+        matches = sorted((identity - entity, name) for name, identity in identities.items()
+                         if 0 <= identity - entity <= 64)
+        if not matches:
+            continue
+        _, name = matches[0]
+        value = int.from_bytes(data[at + 5:at + 9], "little")
+        old = previous.get(name)
+        previous[name] = value
+        if old is not None and value > old:
+            events.append({"offset": at, "player": name, "delta": value - old,
+                           "kill_count": value})
+    return events
+
+
 def audit(folder: Path, siegegg_match_id: int | None = None, game_id: int | None = None):
     public_rounds = []
     round_identities = {}
@@ -103,6 +131,7 @@ def audit(folder: Path, siegegg_match_id: int | None = None, game_id: int | None
             entries = packets(data)
             timer_runs = runs(entries)
             scores = scoreboard_events(data, round_identities.get(rec.name, {}))
+            kills = killcount_events(data, round_identities.get(rec.name, {}))
             for run in timer_runs:
                 if run["min"] >= .2:
                     continue
@@ -110,6 +139,8 @@ def audit(folder: Path, siegegg_match_id: int | None = None, game_id: int | None
                           run["last_offset"] - 2000 <= event["offset"] <=
                           run["last_offset"] + 20000]
                 run["near_completion_score_increases"] = nearby
+                run["near_completion_killcount_increases"] = [event for event in kills if
+                    run["last_offset"] - 2000 <= event["offset"] <= run["last_offset"] + 20000]
             public = public_rounds[number - 1] if public_rounds else None
             objectives = ([{"type": event["type"], "time": event.get("time"),
                            "description": event.get("html", "").split("</a>")[-1].strip()}

@@ -1,5 +1,10 @@
 # Status and next steps — 2026-09-30
 
+## PREDECLARED OBJECTIVE ACTOR VALIDATION — 2026-10-01
+
+- A packet-level refinement on the seven already inspected maps uses exact scoreboard entity-to-player offset 4, a +100 score change 0–2,000 bytes after a `<=0.10` timer completion, and unique player identity. It names 17/32 discovery events with 15 exact actor matches, two clear aliases, and no definite mismatch; the remaining 15 are unresolved or ambiguous. This is an in-sample hypothesis and has **not** changed production actor credit.
+- `research/objective_actor_validation_plan.md` freezes the candidate and three independent cached development maps (3637/6842, 4140/8330, 4118/8666) before their actor logs are inspected. **NEXT ACTION:** Generate diagnostic identity and timer/score packets for those three maps, then evaluate the frozen rule without adjusting its offset or window. Reject it on any wrong named actor. Do not touch the reserved 60 NA Stage 2 Rating rows or modify live stats based on this hypothesis.
+
 ## CURRENT UAH OBJECTIVE SAFEGUARD CHECKPOINT — 2026-10-01
 
 - A read-only audit of the four-map local SQLite found 13 stored objective event rows: 12 plants credited to defenders and one defender disable without verified actor provenance. Read-only reparsing of the four private archives with the current adapter yields zero verified objective actors. All **89** current tracked-player operator usage rows match stored counts exactly; the earlier 85-row statement referred to the first three maps.

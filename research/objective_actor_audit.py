@@ -34,6 +34,11 @@ def audit(match_ids: tuple[int, ...] = DEVELOPMENT) -> list[dict]:
                 expected = actor(objective["description"])
                 candidates = [{"name": event["player"], "delta": event["delta"],
                                "distance": event["offset"] - run["last_offset"],
+                               "entity_delta": event["entity_delta"],
+                               "near_kill_count_offsets": [kill["offset"] - event["offset"]
+                                   for kill in run.get("near_completion_killcount_increases", [])
+                                   if kill["player"] == event["player"] and
+                                   abs(kill["offset"] - event["offset"]) <= 3000],
                                "match": event["player"].casefold().split(".")[0] == expected.split(".")[0]}
                               for event in run.get("near_completion_score_increases", [])
                               if event["delta"] == 100]
@@ -53,6 +58,11 @@ def main() -> None:
     absent = [r for r in rows if not r["candidates"]]
     print(f"objective_events={len(rows)} unique_plus100={len(unique)} "
           f"unique_matches_public={len(correct)} no_plus100={len(absent)}")
+    print("unique_with_near_kill_counter", sum(bool(r["candidates"][0]["near_kill_count_offsets"])
+                                               for r in unique))
+    delta4 = [r for r in rows if len([c for c in r["candidates"] if c["entity_delta"] == 4]) == 1]
+    print("unique_delta4", len(delta4), "exact_public_matches",
+          sum(next(c for c in r["candidates"] if c["entity_delta"] == 4)["match"] for r in delta4))
     for row in rows:
         print(json.dumps(row, ensure_ascii=False))
 
