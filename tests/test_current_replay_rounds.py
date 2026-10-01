@@ -18,6 +18,48 @@ from r6stats.stats.calculate import calculate_match
 NAME = "Match-2026-09-28_20-43-56-29164"
 
 
+def test_occurrence_metadata_survives_normalization_without_player_credit():
+    from r6stats.parser.models import Match
+
+    raw = round_json(0, 1)
+    baseline = normalize([raw])
+    raw['objectiveOccurrences'] = [
+        {'kind': 'plant', 'source': 'defuser_state_v1', 'actor': None, 'plantStateOffset': 123},
+        {'kind': 'disable', 'source': 'defuser_state_and_defense_win_v1', 'actor': None, 'plantStateOffset': 123}]
+    parsed = normalize([raw])
+    assert [o.kind for o in parsed.rounds[0].objective_occurrences] == ['plant', 'disable']
+    assert parsed.rounds[0].objectives == []
+    assert calculate_match(parsed) == calculate_match(baseline)
+    restored = Match.from_dict(parsed.to_dict())
+    assert restored == parsed
+    old = baseline.to_dict()
+    old['rounds'][0].pop('objective_occurrences')
+    assert Match.from_dict(old).rounds[0].objective_occurrences == []
+
+
+def test_occurrence_metadata_cannot_smuggle_unverified_actor_credit():
+    raw = round_json(0, 0)
+    raw['objectiveOccurrences'] = [
+        {'kind': 'plant', 'source': 'defuser_state_v1', 'actor': 'ExampleTeammate', 'plantStateOffset': 123}]
+    parsed = normalize([raw])
+    assert parsed.rounds[0].objectives == []
+    assert parsed.rounds[0].objective_occurrences == []
+
+
+def test_4139_r7_occurrence_leaves_rejected_aiden_actor_unresolved():
+    raw = round_json(6, 0)
+    raw['players'][0]['username'] = 'Aiden.SSG'
+    raw['players'].append({'profileID': 'raid', 'username': 'Raid.SSG', 'teamIndex': 0,
+                           'operator': {'name': 'Ace'}})
+    raw['matchFeedback'] = [{'type': 'DefuserPlantComplete', 'username': 'Aiden.SSG',
+                              'timeInSeconds': 25}]
+    raw['objectiveOccurrences'] = [{'kind': 'plant', 'source': 'defuser_state_v1',
+                                    'actor': None, 'plantStateOffset': 61871641}]
+    parsed = normalize([raw], round_numbers=[7])
+    assert parsed.rounds[0].objectives == []
+    assert parsed.rounds[0].objective_occurrences[0].actor is None
+
+
 def round_json(parser_number: int, winner: int) -> dict:
     return {"gameVersion": "Y11S3_Alpha04", "timestamp": "2026-09-28T20:45:14Z",
             "matchID": "example-match", "roundNumber": parser_number,

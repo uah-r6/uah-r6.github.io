@@ -10,7 +10,7 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .models import Kill, Match, Objective, Player, Round
+from .models import Kill, Match, Objective, ObjectiveOccurrence, Player, Round
 
 LOG = logging.getLogger(__name__)
 
@@ -166,9 +166,20 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
                            if all(team.get("startingScore") is not None for team in teams) else None)
         ending_scores = (tuple(int(team["score"]) for team in teams)
                          if all(team.get("score") is not None for team in teams) else None)
+        occurrences = []
+        for event in row.get("objectiveOccurrences", []):
+            expected_sources = {"plant": "defuser_state_v1",
+                                "disable": "defuser_state_and_defense_win_v1"}
+            if (event.get("kind") in expected_sources and
+                    event.get("source") == expected_sources[event["kind"]] and
+                    event.get("actor") is None and
+                    isinstance(event.get("plantStateOffset"), int) and
+                    event["plantStateOffset"] >= 0):
+                occurrences.append(ObjectiveOccurrence(event["kind"], event["source"],
+                                                        event["plantStateOffset"]))
         result.append(Round(number, str(row.get("site") or "Unknown"), wins[0],
                             str(teams[wins[0]].get("winCondition") or "Unknown"),
-                            players, kills, objectives, starting_scores, ending_scores))
+                            players, kills, objectives, starting_scores, ending_scores, occurrences))
     if len(types) != 1 or len(maps) != 1 or len(match_ids) > 1:
         raise ValueError("Replay rounds disagree on match type, map, or match ID.")
     numbers = [r.number for r in result]

@@ -245,6 +245,7 @@ func (r *Reader) Read() (err error) {
 	}
 	if !r.readPartial {
 		r.roundEnd()
+		r.resolveObjectiveOccurrences()
 	}
 	r.b = nil
 	return err

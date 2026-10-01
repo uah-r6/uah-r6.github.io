@@ -42,6 +42,15 @@ class Objective:
 
 
 @dataclass
+class ObjectiveOccurrence:
+    """Round-level evidence; separate from player-credited Objective rows."""
+    kind: str
+    source: str
+    plant_state_offset: int
+    actor: str | None = None
+
+
+@dataclass
 class Round:
     number: int
     site: str
@@ -52,6 +61,7 @@ class Round:
     objectives: list[Objective] = field(default_factory=list)
     starting_scores: tuple[int, int] | None = None
     ending_scores: tuple[int, int] | None = None
+    objective_occurrences: list[ObjectiveOccurrence] = field(default_factory=list)
 
 
 @dataclass
@@ -75,6 +85,7 @@ class Match:
                                 [Kill(**k) for k in row["kills"]],
                                 [Objective(**o) for o in row["objectives"]],
                                 tuple(row["starting_scores"]) if row.get("starting_scores") is not None else None,
-                                tuple(row["ending_scores"]) if row.get("ending_scores") is not None else None))
+                                tuple(row["ending_scores"]) if row.get("ending_scores") is not None else None,
+                                [ObjectiveOccurrence(**o) for o in row.get("objective_occurrences", [])]))
         return cls(value["replay_id"], value["timestamp"], value["map_name"],
                    value["match_type"], value["game_mode"], rounds)

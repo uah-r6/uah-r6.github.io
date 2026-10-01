@@ -11,27 +11,28 @@ import (
 )
 
 type Header struct {
-	GameVersion            string    `json:"gameVersion"`
-	CodeVersion            int       `json:"codeVersion"`
-	Timestamp              time.Time `json:"timestamp"`
-	MatchType              MatchType `json:"matchType"`
-	Map                    Map       `json:"map"`
-	Site                   string    `json:"site,omitempty"`
-	RecordingPlayerID      uint64    `json:"recordingPlayerID"`
-	RecordingProfileID     string    `json:"recordingProfileID,omitempty"`
-	AdditionalTags         string    `json:"additionalTags"`
-	GameMode               GameMode  `json:"gamemode"`
-	RoundsPerMatch         int       `json:"roundsPerMatch"`
-	RoundsPerMatchOvertime int       `json:"roundsPerMatchOvertime"`
-	RoundNumber            int       `json:"roundNumber"`
-	OvertimeRoundNumber    int       `json:"overtimeRoundNumber"`
-	Teams                  [2]Team   `json:"teams"`
-	Players                []Player  `json:"players"`
-	ActionPhaseDetected    bool      `json:"actionPhaseDetected,omitempty"`
-	ActionPhaseStartOffset int64     `json:"actionPhaseStartOffset,omitempty"`
-	GMSettings             []int     `json:"gmSettings"`
-	PlaylistCategory       int       `json:"playlistCategory,omitempty"`
-	MatchID                string    `json:"matchID"`
+	GameVersion            string                `json:"gameVersion"`
+	CodeVersion            int                   `json:"codeVersion"`
+	Timestamp              time.Time             `json:"timestamp"`
+	MatchType              MatchType             `json:"matchType"`
+	Map                    Map                   `json:"map"`
+	Site                   string                `json:"site,omitempty"`
+	RecordingPlayerID      uint64                `json:"recordingPlayerID"`
+	RecordingProfileID     string                `json:"recordingProfileID,omitempty"`
+	AdditionalTags         string                `json:"additionalTags"`
+	GameMode               GameMode              `json:"gamemode"`
+	RoundsPerMatch         int                   `json:"roundsPerMatch"`
+	RoundsPerMatchOvertime int                   `json:"roundsPerMatchOvertime"`
+	RoundNumber            int                   `json:"roundNumber"`
+	OvertimeRoundNumber    int                   `json:"overtimeRoundNumber"`
+	Teams                  [2]Team               `json:"teams"`
+	Players                []Player              `json:"players"`
+	ActionPhaseDetected    bool                  `json:"actionPhaseDetected,omitempty"`
+	ActionPhaseStartOffset int64                 `json:"actionPhaseStartOffset,omitempty"`
+	ObjectiveOccurrences   []ObjectiveOccurrence `json:"objectiveOccurrences,omitempty"`
+	GMSettings             []int                 `json:"gmSettings"`
+	PlaylistCategory       int                   `json:"playlistCategory,omitempty"`
+	MatchID                string                `json:"matchID"`
 }
 
 type Team struct {

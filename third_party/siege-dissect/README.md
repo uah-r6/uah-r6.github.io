@@ -33,3 +33,20 @@ or an incorrect round/score total.
 `scripts/install-parser.ps1` builds this local source into the ignored
 `.local-tools/bin/siege-dissect.exe` and checks source hashes on every launch,
 so edits to this source cannot leave a stale binary in normal use.
+
+### Objective occurrence metadata
+
+`header.objectiveOccurrences` records round-level plants and disables separately
+from player-credited feedback. A contiguous typed-property decoder supports both
+fresh `0x23` entity references and inherited `0x22` properties. An unambiguous
+plant-state transition identifies a plant; a physical defender score win after
+that plant establishes a disable. A later zero state on an attacker win is not
+a disable. Conflicting entities/states or ambiguous score outcomes remain
+unresolved. No timer threshold or score bonus assigns a player.
+
+Each occurrence has `kind`, `source`, `actor: null`, and `plantStateOffset`.
+The offset identifies plant-state evidence, not the disable time. No player
+objective count, KOST, or Rating is awarded from this metadata. Validation:
+291 development rounds plus 124 locked independent rounds, matching 93 plants
+and 20 disables with all 322 objective-free rounds negative. See the root
+repository's `research/output/objective-occurrence-validation.md` for limits.
