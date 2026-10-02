@@ -1,0 +1,704 @@
+{
+  "case": "3554-6679-R04-plant",
+  "expected": "kyno",
+  "mode": "standalone_clock_with_body_guard",
+  "original_public_label": "Fultz plants defuser",
+  "original_primary_verdict": "incorrect",
+  "independent_source": "https://www.youtube.com/watch?v=ISlfYfpK4Tw",
+  "independent_frame_seconds": [
+    8817,
+    8822,
+    8824
+  ],
+  "row": {
+    "kind": "plant",
+    "center": 57527888,
+    "clock_ticks": [
+      {
+        "offset": 57527419,
+        "value": 75
+      },
+      {
+        "offset": 57527566,
+        "value": 44
+      },
+      {
+        "offset": 57532813,
+        "value": 43
+      },
+      {
+        "offset": 57537803,
+        "value": 42
+      },
+      {
+        "offset": 57543004,
+        "value": 41
+      }
+    ],
+    "all_changes": [
+      {
+        "counter": "score",
+        "delta": 100,
+        "offset": 57528646,
+        "entity": 4031150738
+      }
+    ],
+    "identity": {
+      "entity_names": {
+        "4031150768": [
+          "J9O"
+        ],
+        "4031150755": [
+          "Fultz"
+        ],
+        "4031150738": [
+          "kyno"
+        ],
+        "4031150725": [
+          "njr"
+        ],
+        "4031150708": [
+          "Nuers"
+        ],
+        "4031150689": [
+          "kds"
+        ],
+        "4031150672": [
+          "cyberzera"
+        ],
+        "4031150659": [
+          "vitaking"
+        ],
+        "4031150642": [
+          "handyy"
+        ],
+        "4031150629": [
+          "soulz1"
+        ]
+      }
+    },
+    "header": {
+      "players": [
+        {
+          "id": 12294732773147597930,
+          "username": "kds",
+          "teamIndex": 1
+        },
+        {
+          "id": 4934140363055842527,
+          "username": "cyberzera",
+          "teamIndex": 1
+        },
+        {
+          "id": 16968040172852798991,
+          "username": "vitaking",
+          "teamIndex": 1
+        },
+        {
+          "id": 8907860408135091,
+          "username": "handyy",
+          "teamIndex": 1
+        },
+        {
+          "id": 8960303664617104632,
+          "username": "soulz1",
+          "teamIndex": 1
+        },
+        {
+          "id": 1238546340575860744,
+          "username": "J9O",
+          "teamIndex": 0
+        },
+        {
+          "id": 1083243732214826307,
+          "username": "Fultz",
+          "teamIndex": 0
+        },
+        {
+          "id": 7669797711579368117,
+          "username": "kyno",
+          "teamIndex": 0
+        },
+        {
+          "id": 14279351615817906253,
+          "username": "njr",
+          "teamIndex": 0
+        },
+        {
+          "id": 16740918476599112016,
+          "username": "Nuers",
+          "teamIndex": 0
+        }
+      ],
+      "teams": [
+        {
+          "role": "Attack"
+        },
+        {
+          "role": "Defense"
+        }
+      ]
+    }
+  },
+  "deaths": [
+    {
+      "offset": 57252808,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "njr",
+        "target": "vitaking"
+      }
+    },
+    {
+      "offset": 57440240,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Nuers",
+        "target": "handyy"
+      }
+    },
+    {
+      "offset": 57471375,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Nuers",
+        "target": "cyberzera"
+      }
+    },
+    {
+      "offset": 57487997,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Nuers",
+        "target": "kds"
+      }
+    },
+    {
+      "offset": 57562573,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "soulz1",
+        "target": "Nuers"
+      }
+    },
+    {
+      "offset": 57618041,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "soulz1",
+        "target": "kyno"
+      }
+    },
+    {
+      "offset": 57620852,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "njr",
+        "target": "soulz1"
+      }
+    }
+  ],
+  "timers": [
+    {
+      "offset": 57494174,
+      "value": "6.967"
+    },
+    {
+      "offset": 57494422,
+      "value": "6.933"
+    },
+    {
+      "offset": 57494769,
+      "value": "6.865"
+    },
+    {
+      "offset": 57495125,
+      "value": "6.798"
+    },
+    {
+      "offset": 57495409,
+      "value": "6.730"
+    },
+    {
+      "offset": 57495711,
+      "value": "6.630"
+    },
+    {
+      "offset": 57495901,
+      "value": "6.595"
+    },
+    {
+      "offset": 57496185,
+      "value": "6.528"
+    },
+    {
+      "offset": 57496638,
+      "value": "6.459"
+    },
+    {
+      "offset": 57496940,
+      "value": "6.390"
+    },
+    {
+      "offset": 57497297,
+      "value": "6.322"
+    },
+    {
+      "offset": 57497545,
+      "value": "6.221"
+    },
+    {
+      "offset": 57497746,
+      "value": "6.154"
+    },
+    {
+      "offset": 57497893,
+      "value": "6.121"
+    },
+    {
+      "offset": 57498388,
+      "value": "6.053"
+    },
+    {
+      "offset": 57498668,
+      "value": "5.985"
+    },
+    {
+      "offset": 57498815,
+      "value": "5.917"
+    },
+    {
+      "offset": 57499027,
+      "value": "5.848"
+    },
+    {
+      "offset": 57499315,
+      "value": "5.782"
+    },
+    {
+      "offset": 57499484,
+      "value": "5.715"
+    },
+    {
+      "offset": 57499970,
+      "value": "5.648"
+    },
+    {
+      "offset": 57500308,
+      "value": "5.579"
+    },
+    {
+      "offset": 57500592,
+      "value": "5.513"
+    },
+    {
+      "offset": 57500894,
+      "value": "5.445"
+    },
+    {
+      "offset": 57501059,
+      "value": "5.378"
+    },
+    {
+      "offset": 57501343,
+      "value": "5.309"
+    },
+    {
+      "offset": 57501573,
+      "value": "5.242"
+    },
+    {
+      "offset": 57501839,
+      "value": "5.174"
+    },
+    {
+      "offset": 57502142,
+      "value": "5.106"
+    },
+    {
+      "offset": 57502372,
+      "value": "5.039"
+    },
+    {
+      "offset": 57502612,
+      "value": "4.971"
+    },
+    {
+      "offset": 57502910,
+      "value": "4.904"
+    },
+    {
+      "offset": 57503460,
+      "value": "4.836"
+    },
+    {
+      "offset": 57503925,
+      "value": "4.767"
+    },
+    {
+      "offset": 57504964,
+      "value": "4.700"
+    },
+    {
+      "offset": 57505387,
+      "value": "4.633"
+    },
+    {
+      "offset": 57505686,
+      "value": "4.564"
+    },
+    {
+      "offset": 57506114,
+      "value": "4.496"
+    },
+    {
+      "offset": 57506544,
+      "value": "4.428"
+    },
+    {
+      "offset": 57506828,
+      "value": "4.359"
+    },
+    {
+      "offset": 57507073,
+      "value": "4.292"
+    },
+    {
+      "offset": 57507285,
+      "value": "4.191"
+    },
+    {
+      "offset": 57507414,
+      "value": "4.157"
+    },
+    {
+      "offset": 57507608,
+      "value": "4.089"
+    },
+    {
+      "offset": 57507834,
+      "value": "4.020"
+    },
+    {
+      "offset": 57508082,
+      "value": "3.919"
+    },
+    {
+      "offset": 57508211,
+      "value": "3.885"
+    },
+    {
+      "offset": 57508340,
+      "value": "3.818"
+    },
+    {
+      "offset": 57508588,
+      "value": "3.751"
+    },
+    {
+      "offset": 57508818,
+      "value": "3.683"
+    },
+    {
+      "offset": 57509108,
+      "value": "3.615"
+    },
+    {
+      "offset": 57509356,
+      "value": "3.514"
+    },
+    {
+      "offset": 57509542,
+      "value": "3.481"
+    },
+    {
+      "offset": 57509863,
+      "value": "3.414"
+    },
+    {
+      "offset": 57510111,
+      "value": "3.346"
+    },
+    {
+      "offset": 57510341,
+      "value": "3.277"
+    },
+    {
+      "offset": 57510571,
+      "value": "3.208"
+    },
+    {
+      "offset": 57510837,
+      "value": "3.141"
+    },
+    {
+      "offset": 57511368,
+      "value": "3.073"
+    },
+    {
+      "offset": 57511608,
+      "value": "3.004"
+    },
+    {
+      "offset": 57511906,
+      "value": "2.936"
+    },
+    {
+      "offset": 57512154,
+      "value": "2.869"
+    },
+    {
+      "offset": 57512437,
+      "value": "2.800"
+    },
+    {
+      "offset": 57512867,
+      "value": "2.733"
+    },
+    {
+      "offset": 57513694,
+      "value": "2.631"
+    },
+    {
+      "offset": 57513967,
+      "value": "2.597"
+    },
+    {
+      "offset": 57514223,
+      "value": "2.529"
+    },
+    {
+      "offset": 57514650,
+      "value": "2.460"
+    },
+    {
+      "offset": 57514916,
+      "value": "2.392"
+    },
+    {
+      "offset": 57515164,
+      "value": "2.324"
+    },
+    {
+      "offset": 57515394,
+      "value": "2.256"
+    },
+    {
+      "offset": 57515715,
+      "value": "2.188"
+    },
+    {
+      "offset": 57515826,
+      "value": "2.153"
+    },
+    {
+      "offset": 57516096,
+      "value": "2.083"
+    },
+    {
+      "offset": 57516393,
+      "value": "2.015"
+    },
+    {
+      "offset": 57516722,
+      "value": "1.946"
+    },
+    {
+      "offset": 57517033,
+      "value": "1.878"
+    },
+    {
+      "offset": 57517483,
+      "value": "1.810"
+    },
+    {
+      "offset": 57517778,
+      "value": "1.742"
+    },
+    {
+      "offset": 57518216,
+      "value": "1.674"
+    },
+    {
+      "offset": 57518514,
+      "value": "1.606"
+    },
+    {
+      "offset": 57518938,
+      "value": "1.538"
+    },
+    {
+      "offset": 57519240,
+      "value": "1.471"
+    },
+    {
+      "offset": 57519652,
+      "value": "1.403"
+    },
+    {
+      "offset": 57520211,
+      "value": "1.336"
+    },
+    {
+      "offset": 57520903,
+      "value": "1.268"
+    },
+    {
+      "offset": 57521133,
+      "value": "1.200"
+    },
+    {
+      "offset": 57521381,
+      "value": "1.132"
+    },
+    {
+      "offset": 57521528,
+      "value": "1.064"
+    },
+    {
+      "offset": 57522147,
+      "value": "0.995"
+    },
+    {
+      "offset": 57522650,
+      "value": "0.926"
+    },
+    {
+      "offset": 57523108,
+      "value": "0.859"
+    },
+    {
+      "offset": 57523435,
+      "value": "0.790"
+    },
+    {
+      "offset": 57523683,
+      "value": "0.723"
+    },
+    {
+      "offset": 57523979,
+      "value": "0.655"
+    },
+    {
+      "offset": 57524454,
+      "value": "0.587"
+    },
+    {
+      "offset": 57524724,
+      "value": "0.518"
+    },
+    {
+      "offset": 57525036,
+      "value": "0.450"
+    },
+    {
+      "offset": 57525364,
+      "value": "0.382"
+    },
+    {
+      "offset": 57525652,
+      "value": "0.315"
+    },
+    {
+      "offset": 57526063,
+      "value": "0.248"
+    },
+    {
+      "offset": 57526504,
+      "value": "0.180"
+    },
+    {
+      "offset": 57526824,
+      "value": "0.113"
+    },
+    {
+      "offset": 57527307,
+      "value": "0.045"
+    }
+  ],
+  "body": {
+    "J9O": [
+      {
+        "offset": 57022936,
+        "value": 0
+      }
+    ],
+    "Fultz": [
+      {
+        "offset": 34934,
+        "value": 0
+      }
+    ],
+    "kyno": [
+      {
+        "offset": 57023542,
+        "value": 0
+      }
+    ],
+    "njr": [
+      {
+        "offset": 42664,
+        "value": 0
+      }
+    ],
+    "Nuers": [
+      {
+        "offset": 46514,
+        "value": 0
+      }
+    ],
+    "kds": [
+      {
+        "offset": 57487409,
+        "value": 4
+      }
+    ],
+    "cyberzera": [
+      {
+        "offset": 57470895,
+        "value": 4
+      }
+    ],
+    "vitaking": [
+      {
+        "offset": 57252552,
+        "value": 4
+      }
+    ],
+    "handyy": [
+      {
+        "offset": 57439846,
+        "value": 4
+      }
+    ],
+    "soulz1": [
+      {
+        "offset": 57446874,
+        "value": 2
+      }
+    ]
+  },
+  "full_feedback": [],
+  "previous_state": 0
+}

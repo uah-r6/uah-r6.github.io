@@ -1,3 +1,9 @@
+## Latest actor evidence and next action - 2026-10-02
+
+Frozen six cached maps10cfecf:plants10correct/1primarywrong/4unresolved,disables0/0/3; immutable result committed91594f3 before analysis. Independent official VOD ISlfYfpK4Tw shows kyno explicitly planting ChaletR04 at8817 and8822, completion8824. This supports frozen kyno prediction and contradicts public Fultz label. Preserve primary failure and raw target unchanged; separate reviewed conclusion only. Known J9O/njr disable remains unresolved.
+
+Read-only UAH A:5maps62rounds,17plants13named/4unresolved,3disables1named/2unresolved. Tracked named candidates plantsAzooz2,Dino2,Lgon1,Tallman4,Jay0; disableormeek.UMich untracked. Not independent UAH ground truth and never applied. All86protected SQLite/archive/public files unchanged. Reports objective-cached-false-credit.md, objective-cached-vod-review.md, uah-guarded-actor-readonly.md.27targeted tests pass. NEXT investigate explicitly declared UID/player component property transitions during full interaction intervals in consumed controls. No score-window tuning, magic scoring subtraction or nearby-entity join. Preserve original A, B hypothesis and three immutable results; no production/v3/SQLite/public/archive/v2 changes or push.
+
 ## SIX CACHED MAP ACTOR EXTENSION - SEALED - 2026-10-02
 
 objective-cached-map-reserve.json:6maps61completed rounds,12physical segments,5incomplete rounds excluded. Exact roster-ID score chronology and final scores verified; all61replaydigests recorded. Targets3554games6678/6679,3563game6674,6156game10424,6157games10427/10429. Actor labels ungraded; prior other-statistics metadata use declared. No download or Rating/event independence claim.
