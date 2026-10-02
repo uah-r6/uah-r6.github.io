@@ -1,3 +1,9 @@
+## SEPTEMBER DISAGREEMENT ADJUDICATED SEPARATELY - 2026-10-02
+
+Starting HEAD87893de. September Villa6170/10592/R07: classification B external-label error. Direct UID/timer/active-body evidence Gunnar.M80; official Ubisoft8285 Villa sole M80 Defuser R07 with Gunnar1/Savage0/all teammates0 constrains Gunnar. Official Day1 VOD1TqU0qsLfDU inset12245-12249 shows counter-defuse device/highlighted first M80 card, completion obscured by player cameras. Detailed source hashes and limits in output/objective-disable-stage2-adjudication.md. Final opposing killer Gaveni, not original label Savage, so prior last-killer coincidence is not universal.
+
+Original frozen September5/1/0 and failed gate are immutable. Separate reviewed mixed-source6/0/0 changes one label only, other five not independently reverified. Latest user releases historical mandatory Aiden abstention for future structural candidates, preserving Raid targets/results. No actor rule changed during review.86 protected live files unchanged. NEXT: broad consumed structural plant/disable completion-owner audit including Kason/Hotancold and230 objective-free controls. Production not yet promoted; v3 not begun; live v2 MAE0.03623 frozen. No SQLite/public/archive changes or push.
+
 ## SEPTEMBER DISABLE-ONLY IMMUTABLE RESULT - 2026-10-02
 
 Frozen cleanHEAD9165678; ALL67replay predictions saved before publicdisable actor text.7maps/build9883691 have6public disables:5correct,1primaryincorrect,0unresolved;0occurrence mismatches. Predeclared research gate FAILS due primarywrong actor. This set is nowCONSUMED for this evaluation; never retune and call itfresh. Permanent resultSHA2565296849e55ca07308db296d97e3e8c63796bac7b419e738b52f5f1bfe2c43275; ignoredobjective-disable-stage2-validation/result.json and trackedobjective-disable-stage2-validation.md.86protectedSQLite/archive/public SHA and3priorimmutable resultSHAunchanged. NoRating/live-data/import/archive/push changes.
