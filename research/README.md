@@ -1,4 +1,23 @@
-## Current actor evidence: explicit timer components (2026-10-02)
+## Current structural actor checkpoint (2026-10-02)
+
+The separate September adjudication supports Gunnar over the original Savage label:
+[evidence and limits](output/objective-disable-stage2-adjudication.md).
+Original frozen September5/1 and failed gate remain immutable; separate reviewed6/0
+changes one independently constrained label. Latest user instructions release the
+historical mandatory Aiden abstention for future structural resolvers, preserving
+every original Raid target/result. Earlier sections below describe historical constraints.
+
+[Consumed completing-owner audit](output/objective-completer-consumed-audit.md):
+569rounds,146plants142resolved/4unresolved,33disables33resolved;423objective-free
+rounds0false actor proposals. Original plant alignment140/2/4 and disable29/4;
+separate mixed-source reviewed142/0/4 and33/0. Six disputed labels have official
+review evidence; the remaining original agreements are not independently reviewed.
+No known independently verified wrong credit. Kason starters/Hotancold completer
+remain separate. Unknown body/death evidence abstains. FullPython223passed/1skipped,
+6subtests. No live data changed. Next: conservative Go port and parity/UAH read-only
+verification; production binary and v3 not yet changed.
+
+## Historical actor evidence: explicit timer components (2026-10-02)
 
 Research-only temporal typed UID -> declared slot27c08dca/classb2216bf3 ->
 timer property ownership binds112/113 consumed interaction spans. The mixed

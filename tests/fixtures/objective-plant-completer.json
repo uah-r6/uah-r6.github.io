@@ -1,0 +1,5236 @@
+{
+  "status": "consumed_research_not_production_credit",
+  "reduction": "No raw bytes/UUID/private path. Header numeric UIDs ordinalized. Episode endpoints retained after full monotonic validation, terminal fields retained, all relevant prior/during temporal routes and body state retained. Kason starters and Hotancold completer are separate.",
+  "cases": [
+    {
+      "match_id": 4139,
+      "game_id": null,
+      "round": 7,
+      "physical_round": 7,
+      "expected_proposal": "Aiden.SSG",
+      "expected_reason": "direct_plant_completer_with_occurrence_and_body",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9769907,
+          "teams": [
+            {
+              "name": "100T",
+              "startingScore": 3,
+              "score": 3,
+              "won": false,
+              "role": "Defense"
+            },
+            {
+              "name": "SPACESTATION",
+              "startingScore": 3,
+              "score": 4,
+              "won": true,
+              "winCondition": "KilledOpponents",
+              "role": "Attack"
+            }
+          ],
+          "objectiveOccurrences": [
+            {
+              "kind": "plant",
+              "source": "defuser_state_v1",
+              "actor": null,
+              "plantStateOffset": 61871641
+            }
+          ],
+          "players": [
+            {
+              "username": "Kason.100T",
+              "teamIndex": 0,
+              "id": 1
+            },
+            {
+              "username": "Atom.100T",
+              "teamIndex": 0,
+              "id": 2
+            },
+            {
+              "username": "Hotancold.100T",
+              "teamIndex": 0,
+              "id": 3
+            },
+            {
+              "username": "GMZ.100T",
+              "teamIndex": 0,
+              "id": 4
+            },
+            {
+              "username": "SpiriTz.100T",
+              "teamIndex": 0,
+              "id": 5
+            },
+            {
+              "username": "Aiden.SSG",
+              "teamIndex": 1,
+              "id": 6
+            },
+            {
+              "username": "Dream.SSG",
+              "teamIndex": 1,
+              "id": 7
+            },
+            {
+              "username": "Gity.SSG",
+              "teamIndex": 1,
+              "id": 8
+            },
+            {
+              "username": "Raid.SSG",
+              "teamIndex": 1,
+              "id": 9
+            },
+            {
+              "username": "Rival.SSG",
+              "teamIndex": 1,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4028641894,
+              "route": [
+                4028234576,
+                "Aiden.SSG",
+                "27c08dca",
+                "b2216bf3",
+                61265908
+              ],
+              "binding": {
+                "player": "Aiden.SSG",
+                "owner": 4028234576,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 61265908
+              },
+              "start_record": 61849844,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 61871221,
+                  "fields": [
+                    {
+                      "offset": 61871230,
+                      "entity": 4028641894,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 61871221,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 61849873,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 61871075,
+                  "text": "0.012",
+                  "seconds": 0.012
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 61871221,
+              "end_offset": 61871221,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 0.012,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4028220641": "Kason.100T",
+          "4028220640": "Atom.100T",
+          "4028220575": "Hotancold.100T",
+          "4028220574": "GMZ.100T",
+          "4028220573": "SpiriTz.100T",
+          "4028234576": "Aiden.SSG",
+          "4028234575": "Dream.SSG",
+          "4028234574": "Gity.SSG",
+          "4028234573": "Raid.SSG",
+          "4028234572": "Rival.SSG"
+        },
+        "slots": [
+          {
+            "owner": 4028220641,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028220569,
+                "offset": 317,
+                "owner": 4028220641,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028220640,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028220554,
+                "offset": 3987,
+                "owner": 4028220640,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028220575,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028220603,
+                "offset": 7645,
+                "owner": 4028220575,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028220574,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028220588,
+                "offset": 11316,
+                "owner": 4028220574,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028220573,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028234589,
+                "offset": 14978,
+                "owner": 4028220573,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028234576,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028234568,
+                "offset": 20029,
+                "owner": 4028234576,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028234576,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 22279,
+                "owner": 4028234576,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028752687,
+                "offset": 61092464,
+                "owner": 4028234576,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028641894,
+                "offset": 61264416,
+                "owner": 4028234576,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028641894,
+                "offset": 61265908,
+                "owner": 4028234576,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4028234575,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028234617,
+                "offset": 24194,
+                "owner": 4028234575,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028234574,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028234602,
+                "offset": 28632,
+                "owner": 4028234574,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028234573,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028234523,
+                "offset": 32792,
+                "owner": 4028234573,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4028234572,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4028234508,
+                "offset": 36953,
+                "owner": 4028234572,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4028220569,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61661702,
+            "value": 4
+          },
+          {
+            "entity": 4028220554,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61645053,
+            "value": 4
+          },
+          {
+            "entity": 4028220603,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61792992,
+            "value": 4
+          },
+          {
+            "entity": 4028220588,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61714286,
+            "value": 4
+          },
+          {
+            "entity": 4028234589,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61815977,
+            "value": 2
+          },
+          {
+            "entity": 4028234568,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61240966,
+            "value": 0
+          },
+          {
+            "entity": 4028234617,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61707150,
+            "value": 4
+          },
+          {
+            "entity": 4028234602,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61645285,
+            "value": 4
+          },
+          {
+            "entity": 4028234523,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 32876,
+            "value": 0
+          },
+          {
+            "entity": 4028234508,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 61782301,
+            "value": 4
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Atom.100T",
+              "target": "Gity.SSG",
+              "headshot": false,
+              "time": "1:35",
+              "timeInSeconds": 95,
+              "weaponID": 1366019616
+            },
+            "offset": 61645683
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Gity.SSG",
+              "target": "Atom.100T",
+              "headshot": true,
+              "time": "1:35",
+              "timeInSeconds": 95,
+              "weaponID": 1366019220
+            },
+            "offset": 61648309
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Aiden.SSG",
+              "target": "Kason.100T",
+              "headshot": false,
+              "time": "1:32",
+              "timeInSeconds": 92,
+              "weaponID": 9817293379
+            },
+            "offset": 61662402
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Hotancold.100T",
+              "target": "Dream.SSG",
+              "headshot": true,
+              "time": "1:20",
+              "timeInSeconds": 80,
+              "weaponID": 68967567508
+            },
+            "offset": 61707536
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Raid.SSG",
+              "target": "GMZ.100T",
+              "headshot": true,
+              "time": "1:18",
+              "timeInSeconds": 78,
+              "weaponID": 78526932130
+            },
+            "offset": 61715002
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "SpiriTz.100T",
+              "target": "Rival.SSG",
+              "headshot": false,
+              "time": "1:00",
+              "timeInSeconds": 60,
+              "weaponID": 78526932130
+            },
+            "offset": 61782823
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Aiden.SSG",
+              "target": "Hotancold.100T",
+              "headshot": false,
+              "time": "0:58",
+              "timeInSeconds": 58,
+              "weaponID": 9817293379
+            },
+            "offset": 61793401
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "SpiriTz.100T",
+              "target": "Aiden.SSG",
+              "headshot": false,
+              "time": "0:44",
+              "timeInSeconds": 44,
+              "weaponID": 133651070294
+            },
+            "offset": 61874628
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Raid.SSG",
+              "target": "SpiriTz.100T",
+              "headshot": false,
+              "time": "0:40",
+              "timeInSeconds": 40,
+              "weaponID": 437464101745
+            },
+            "offset": 61885778
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 4150,
+      "game_id": null,
+      "round": 11,
+      "physical_round": 11,
+      "expected_proposal": "Hotancold.100T",
+      "expected_reason": "direct_plant_completer_with_occurrence_and_body",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9751808,
+          "teams": [
+            {
+              "name": "100T",
+              "startingScore": 6,
+              "score": 7,
+              "won": true,
+              "winCondition": "KilledOpponents",
+              "role": "Attack"
+            },
+            {
+              "name": "FIVE FEARS",
+              "startingScore": 4,
+              "score": 4,
+              "won": false,
+              "role": "Defense"
+            }
+          ],
+          "objectiveOccurrences": [
+            {
+              "kind": "plant",
+              "source": "defuser_state_v1",
+              "actor": null,
+              "plantStateOffset": 74409088
+            }
+          ],
+          "players": [
+            {
+              "username": "JJBlaztful.5F",
+              "teamIndex": 1,
+              "id": 1
+            },
+            {
+              "username": "Forrest.5F",
+              "teamIndex": 1,
+              "id": 2
+            },
+            {
+              "username": "Rival.5F",
+              "teamIndex": 1,
+              "id": 3
+            },
+            {
+              "username": "Fenz.5F",
+              "teamIndex": 1,
+              "id": 4
+            },
+            {
+              "username": "Snake.5F",
+              "teamIndex": 1,
+              "id": 5
+            },
+            {
+              "username": "Kason.100T",
+              "teamIndex": 0,
+              "id": 6
+            },
+            {
+              "username": "Atom.100T",
+              "teamIndex": 0,
+              "id": 7
+            },
+            {
+              "username": "Hotancold.100T",
+              "teamIndex": 0,
+              "id": 8
+            },
+            {
+              "username": "GMZ.100T",
+              "teamIndex": 0,
+              "id": 9
+            },
+            {
+              "username": "SpiriTz.100T",
+              "teamIndex": 0,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4030927949,
+              "route": [
+                4029685115,
+                "Kason.100T",
+                "27c08dca",
+                "b2216bf3",
+                73752220
+              ],
+              "binding": {
+                "player": "Kason.100T",
+                "owner": 4029685115,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 73752220
+              },
+              "start_record": 74285802,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 74308001,
+                  "fields": [
+                    {
+                      "offset": 74308010,
+                      "entity": 4030927949,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 74308001,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 74308020,
+                      "entity": 4030927949,
+                      "hash": "e9a37feb",
+                      "size": 4,
+                      "value": 1053995602,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "52b2d23e",
+                      "record_start": 74308001,
+                      "inherited": true
+                    },
+                    {
+                      "offset": 74308030,
+                      "entity": 4030927949,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "2.881",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "322e383831",
+                      "record_start": 74308001,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 74285831,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 74308030,
+                  "text": "2.881",
+                  "seconds": 2.881
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 74308001,
+              "end_offset": 74308001,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 2.881,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4030927949,
+              "route": [
+                4029685115,
+                "Kason.100T",
+                "27c08dca",
+                "b2216bf3",
+                73752220
+              ],
+              "binding": {
+                "player": "Kason.100T",
+                "owner": 4029685115,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 73752220
+              },
+              "start_record": 74325959,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 74326958,
+                  "fields": [
+                    {
+                      "offset": 74326967,
+                      "entity": 4030927949,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 74326958,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 74325988,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 74326884,
+                  "text": "6.694",
+                  "seconds": 6.694
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 74326958,
+              "end_offset": 74326958,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 6.694,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4030927947,
+              "route": [
+                4029685113,
+                "Hotancold.100T",
+                "27c08dca",
+                "b2216bf3",
+                73752422
+              ],
+              "binding": {
+                "player": "Hotancold.100T",
+                "owner": 4029685113,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 73752422
+              },
+              "start_record": 74383318,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 74408853,
+                  "fields": [
+                    {
+                      "offset": 74408862,
+                      "entity": 4030927947,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 74408853,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 74383347,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 74408726,
+                  "text": "0.015",
+                  "seconds": 0.015
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 74408853,
+              "end_offset": 74408853,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 0.015,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4029685115": "Kason.100T",
+          "4029685114": "Atom.100T",
+          "4029685113": "Hotancold.100T",
+          "4029685112": "GMZ.100T",
+          "4029685111": "SpiriTz.100T",
+          "4029685034": "JJBlaztful.5F",
+          "4029685032": "Forrest.5F",
+          "4029685031": "Rival.5F",
+          "4029685033": "Fenz.5F",
+          "4029685030": "Snake.5F"
+        },
+        "slots": [
+          {
+            "owner": 4029685115,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4029685107,
+                "offset": 6647,
+                "owner": 4029685115,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685115,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 8897,
+                "owner": 4029685115,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4030935622,
+                "offset": 73574303,
+                "owner": 4029685115,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 73735106,
+                "owner": 4029685115,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4030927949,
+                "offset": 73752220,
+                "owner": 4029685115,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4029685114,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4029685092,
+                "offset": 10744,
+                "owner": 4029685114,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685113,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4029685013,
+                "offset": 14905,
+                "owner": 4029685113,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685113,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 17001,
+                "owner": 4029685113,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4030935620,
+                "offset": 73574505,
+                "owner": 4029685113,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 73735156,
+                "owner": 4029685113,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4030927947,
+                "offset": 73752422,
+                "owner": 4029685113,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4029685112,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4029684998,
+                "offset": 18991,
+                "owner": 4029685112,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685111,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4029685047,
+                "offset": 23149,
+                "owner": 4029685111,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685034,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030519486,
+                "offset": 28671,
+                "owner": 4029685034,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685032,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030521179,
+                "offset": 32340,
+                "owner": 4029685032,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685031,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030520368,
+                "offset": 36063,
+                "owner": 4029685031,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685033,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030520709,
+                "offset": 39725,
+                "owner": 4029685033,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4029685030,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030513941,
+                "offset": 43374,
+                "owner": 4029685030,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4029685107,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 73722960,
+            "value": 0
+          },
+          {
+            "entity": 4029685092,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 73723217,
+            "value": 0
+          },
+          {
+            "entity": 4029685013,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 73725008,
+            "value": 0
+          },
+          {
+            "entity": 4029684998,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 74207677,
+            "value": 4
+          },
+          {
+            "entity": 4029685047,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 73725838,
+            "value": 0
+          },
+          {
+            "entity": 4030519486,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 74265769,
+            "value": 4
+          },
+          {
+            "entity": 4030521179,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 32424,
+            "value": 0
+          },
+          {
+            "entity": 4030520368,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 36147,
+            "value": 0
+          },
+          {
+            "entity": 4030520709,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 39809,
+            "value": 0
+          },
+          {
+            "entity": 4030513941,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 43458,
+            "value": 0
+          },
+          {
+            "entity": 4030513941,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 74315714,
+            "value": 4
+          },
+          {
+            "entity": 4029685107,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 74328298,
+            "value": 4
+          },
+          {
+            "entity": 4030521179,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 74361287,
+            "value": 4
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Rival.5F",
+              "target": "GMZ.100T",
+              "headshot": true,
+              "time": "1:16",
+              "timeInSeconds": 76,
+              "weaponID": 78526932130
+            },
+            "offset": 74208194
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "SpiriTz.100T",
+              "target": "JJBlaztful.5F",
+              "headshot": false,
+              "time": "1:04",
+              "timeInSeconds": 64,
+              "weaponID": 9817293379
+            },
+            "offset": 74266260
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Hotancold.100T",
+              "target": "Snake.5F",
+              "headshot": true,
+              "time": "0:55",
+              "timeInSeconds": 55,
+              "weaponID": 1366019328
+            },
+            "offset": 74316228
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Fenz.5F",
+              "target": "Kason.100T",
+              "headshot": true,
+              "time": "0:51",
+              "timeInSeconds": 51,
+              "weaponID": 44316587819
+            },
+            "offset": 74328900
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Atom.100T",
+              "target": "Forrest.5F",
+              "headshot": false,
+              "time": "0:43",
+              "timeInSeconds": 43,
+              "weaponID": 139558931671
+            },
+            "offset": 74361743
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Atom.100T",
+              "target": "Rival.5F",
+              "headshot": true,
+              "time": "0:16",
+              "timeInSeconds": 16,
+              "weaponID": 139558931671
+            },
+            "offset": 74512016
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "SpiriTz.100T",
+              "target": "Fenz.5F",
+              "headshot": false,
+              "time": "0:00",
+              "timeInSeconds": 0,
+              "weaponID": 9817293379
+            },
+            "offset": 74523348
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 3554,
+      "game_id": 6679,
+      "round": 4,
+      "physical_round": 4,
+      "expected_proposal": "kyno",
+      "expected_reason": "direct_plant_completer_with_occurrence_and_body",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9658832,
+          "teams": [
+            {
+              "name": "DARKZERO",
+              "startingScore": 3,
+              "score": 4,
+              "won": true,
+              "winCondition": "KilledOpponents",
+              "role": "Attack"
+            },
+            {
+              "name": "FAZE",
+              "startingScore": 0,
+              "score": 0,
+              "won": false,
+              "role": "Defense"
+            }
+          ],
+          "objectiveOccurrences": [
+            {
+              "kind": "plant",
+              "source": "defuser_state_v1",
+              "actor": null,
+              "plantStateOffset": 57527888
+            }
+          ],
+          "players": [
+            {
+              "username": "kds",
+              "teamIndex": 1,
+              "id": 1
+            },
+            {
+              "username": "cyberzera",
+              "teamIndex": 1,
+              "id": 2
+            },
+            {
+              "username": "vitaking",
+              "teamIndex": 1,
+              "id": 3
+            },
+            {
+              "username": "handyy",
+              "teamIndex": 1,
+              "id": 4
+            },
+            {
+              "username": "soulz1",
+              "teamIndex": 1,
+              "id": 5
+            },
+            {
+              "username": "J9O",
+              "teamIndex": 0,
+              "id": 6
+            },
+            {
+              "username": "Fultz",
+              "teamIndex": 0,
+              "id": 7
+            },
+            {
+              "username": "kyno",
+              "teamIndex": 0,
+              "id": 8
+            },
+            {
+              "username": "njr",
+              "teamIndex": 0,
+              "id": 9
+            },
+            {
+              "username": "Nuers",
+              "teamIndex": 0,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4031410980,
+              "route": [
+                4031150777,
+                "kyno",
+                "27c08dca",
+                "b2216bf3",
+                57050283
+              ],
+              "binding": {
+                "player": "kyno",
+                "owner": 4031150777,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 57050283
+              },
+              "start_record": 57494146,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 57527656,
+                  "fields": [
+                    {
+                      "offset": 57527665,
+                      "entity": 4031410980,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 57527656,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 57494175,
+                  "text": "6.967",
+                  "seconds": 6.967
+                },
+                {
+                  "offset": 57527483,
+                  "text": "0.010",
+                  "seconds": 0.01
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 57527656,
+              "end_offset": 57527656,
+              "end_source": "property_record",
+              "first_timer": 6.967,
+              "last_timer": 0.01,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4031150779": "J9O",
+          "4031150776": "Fultz",
+          "4031150777": "kyno",
+          "4031150774": "njr",
+          "4031150775": "Nuers",
+          "4031150696": "kds",
+          "4031150697": "cyberzera",
+          "4031150694": "vitaking",
+          "4031150695": "handyy",
+          "4031150692": "soulz1"
+        },
+        "slots": [
+          {
+            "owner": 4031150779,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150771,
+                "offset": 30768,
+                "owner": 4031150779,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150776,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150754,
+                "offset": 34850,
+                "owner": 4031150776,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150777,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150741,
+                "offset": 38638,
+                "owner": 4031150777,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150777,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 41042,
+                "owner": 4031150777,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031429671,
+                "offset": 56874691,
+                "owner": 4031150777,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031410980,
+                "offset": 57048836,
+                "owner": 4031150777,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031410980,
+                "offset": 57050283,
+                "owner": 4031150777,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4031150774,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150724,
+                "offset": 42580,
+                "owner": 4031150774,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150775,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150711,
+                "offset": 46430,
+                "owner": 4031150775,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150696,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150688,
+                "offset": 51422,
+                "owner": 4031150696,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150697,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150675,
+                "offset": 54690,
+                "owner": 4031150697,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150694,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150658,
+                "offset": 57972,
+                "owner": 4031150694,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150695,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150645,
+                "offset": 61245,
+                "owner": 4031150695,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4031150692,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4031150628,
+                "offset": 64524,
+                "owner": 4031150692,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4031150771,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57022936,
+            "value": 0
+          },
+          {
+            "entity": 4031150754,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 34934,
+            "value": 0
+          },
+          {
+            "entity": 4031150741,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57023542,
+            "value": 0
+          },
+          {
+            "entity": 4031150724,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 42664,
+            "value": 0
+          },
+          {
+            "entity": 4031150711,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 46514,
+            "value": 0
+          },
+          {
+            "entity": 4031150688,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57487409,
+            "value": 4
+          },
+          {
+            "entity": 4031150675,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57470895,
+            "value": 4
+          },
+          {
+            "entity": 4031150658,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57252552,
+            "value": 4
+          },
+          {
+            "entity": 4031150645,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57439846,
+            "value": 4
+          },
+          {
+            "entity": 4031150628,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57446874,
+            "value": 2
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "njr",
+              "target": "vitaking",
+              "headshot": true,
+              "time": "2:19",
+              "timeInSeconds": 139,
+              "weaponID": 431308949290
+            },
+            "offset": 57252808
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Nuers",
+              "target": "handyy",
+              "headshot": false,
+              "time": "1:33",
+              "timeInSeconds": 93,
+              "weaponID": 1366019328
+            },
+            "offset": 57440240
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Nuers",
+              "target": "cyberzera",
+              "headshot": false,
+              "time": "1:27",
+              "timeInSeconds": 87,
+              "weaponID": 1366019328
+            },
+            "offset": 57471375
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Nuers",
+              "target": "kds",
+              "headshot": true,
+              "time": "1:24",
+              "timeInSeconds": 84,
+              "weaponID": 1366019328
+            },
+            "offset": 57487997
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "soulz1",
+              "target": "Nuers",
+              "headshot": true,
+              "time": "0:35",
+              "timeInSeconds": 35,
+              "weaponID": 168013421995
+            },
+            "offset": 57562573
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "soulz1",
+              "target": "kyno",
+              "headshot": true,
+              "time": "0:21",
+              "timeInSeconds": 21,
+              "weaponID": 139558931725
+            },
+            "offset": 57618041
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "njr",
+              "target": "soulz1",
+              "headshot": false,
+              "time": "0:00",
+              "timeInSeconds": 0,
+              "weaponID": 431308949290
+            },
+            "offset": 57620852
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 3173,
+      "game_id": 5931,
+      "round": 6,
+      "physical_round": 6,
+      "expected_proposal": "Adrian",
+      "expected_reason": "direct_plant_completer_with_occurrence_and_body",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9486312,
+          "teams": [
+            {
+              "name": "FAZE",
+              "startingScore": 4,
+              "score": 4,
+              "won": false,
+              "role": "Defense"
+            },
+            {
+              "name": "SECRET",
+              "startingScore": 1,
+              "score": 2,
+              "won": true,
+              "winCondition": "DefusedBomb",
+              "role": "Attack"
+            }
+          ],
+          "objectiveOccurrences": [
+            {
+              "kind": "plant",
+              "source": "defuser_state_v1",
+              "actor": null,
+              "plantStateOffset": 79563336
+            }
+          ],
+          "players": [
+            {
+              "username": "soulz1",
+              "teamIndex": 0,
+              "id": 1
+            },
+            {
+              "username": "handyy",
+              "teamIndex": 0,
+              "id": 2
+            },
+            {
+              "username": "vitaking",
+              "teamIndex": 0,
+              "id": 3
+            },
+            {
+              "username": "cyberzera",
+              "teamIndex": 0,
+              "id": 4
+            },
+            {
+              "username": "kds",
+              "teamIndex": 0,
+              "id": 5
+            },
+            {
+              "username": "Adrian",
+              "teamIndex": 1,
+              "id": 6
+            },
+            {
+              "username": "Mowwwgli",
+              "teamIndex": 1,
+              "id": 7
+            },
+            {
+              "username": "Savage",
+              "teamIndex": 1,
+              "id": 8
+            },
+            {
+              "username": "Jume",
+              "teamIndex": 1,
+              "id": 9
+            },
+            {
+              "username": "noa",
+              "teamIndex": 1,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4028022684,
+              "route": [
+                4027368382,
+                "Adrian",
+                "27c08dca",
+                "b2216bf3",
+                78804947
+              ],
+              "binding": {
+                "player": "Adrian",
+                "owner": 4027368382,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 78804947
+              },
+              "start_record": 79535588,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 79563281,
+                  "fields": [
+                    {
+                      "offset": 79563290,
+                      "entity": 4028022684,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 79563281,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 79563307,
+                      "entity": 4028022684,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "0.000",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "302e303030",
+                      "record_start": 79563281,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 79535617,
+                  "text": "6.980",
+                  "seconds": 6.98
+                },
+                {
+                  "offset": 79563307,
+                  "text": "0.000",
+                  "seconds": 0.0
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 79563281,
+              "end_offset": 79563281,
+              "end_source": "property_record",
+              "first_timer": 6.98,
+              "last_timer": 0.0,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4027368297": "soulz1",
+          "4027368302": "handyy",
+          "4027368303": "vitaking",
+          "4027368300": "cyberzera",
+          "4027368301": "kds",
+          "4027368382": "Adrian",
+          "4027368383": "Mowwwgli",
+          "4027368380": "Savage",
+          "4027368381": "Jume",
+          "4027368370": "noa"
+        },
+        "slots": [
+          {
+            "owner": 4027368297,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368289,
+                "offset": 381322,
+                "owner": 4027368297,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368302,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368304,
+                "offset": 384875,
+                "owner": 4027368302,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368303,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368259,
+                "offset": 388145,
+                "owner": 4027368303,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368300,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368274,
+                "offset": 391416,
+                "owner": 4027368300,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368301,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368365,
+                "offset": 394688,
+                "owner": 4027368301,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368382,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368374,
+                "offset": 399309,
+                "owner": 4027368382,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368382,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 401576,
+                "owner": 4027368382,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028027210,
+                "offset": 78619036,
+                "owner": 4027368382,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028022684,
+                "offset": 78804947,
+                "owner": 4027368382,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4027368383,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368321,
+                "offset": 403117,
+                "owner": 4027368383,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368380,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368336,
+                "offset": 406926,
+                "owner": 4027368380,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368381,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368419,
+                "offset": 410730,
+                "owner": 4027368381,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027368370,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027368434,
+                "offset": 414534,
+                "owner": 4027368370,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4027368289,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79524605,
+            "value": 4
+          },
+          {
+            "entity": 4027368304,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79319708,
+            "value": 4
+          },
+          {
+            "entity": 4027368259,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 388229,
+            "value": 0
+          },
+          {
+            "entity": 4027368274,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79279495,
+            "value": 4
+          },
+          {
+            "entity": 4027368365,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79340665,
+            "value": 4
+          },
+          {
+            "entity": 4027368374,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 78783977,
+            "value": 0
+          },
+          {
+            "entity": 4027368321,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79309747,
+            "value": 4
+          },
+          {
+            "entity": 4027368336,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79494018,
+            "value": 4
+          },
+          {
+            "entity": 4027368419,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79486804,
+            "value": 4
+          },
+          {
+            "entity": 4027368434,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 79385932,
+            "value": 4
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Adrian",
+              "target": "cyberzera",
+              "headshot": false,
+              "time": "1:32",
+              "timeInSeconds": 92,
+              "weaponID": 431308949290
+            },
+            "offset": 79280605
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "vitaking",
+              "target": "Mowwwgli",
+              "headshot": false,
+              "time": "1:26",
+              "timeInSeconds": 86,
+              "weaponID": 1366019592
+            },
+            "offset": 79310165
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Jume",
+              "target": "handyy",
+              "headshot": false,
+              "time": "1:24",
+              "timeInSeconds": 84,
+              "weaponID": 78526932130
+            },
+            "offset": 79320095
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Adrian",
+              "target": "kds",
+              "headshot": false,
+              "time": "1:19",
+              "timeInSeconds": 79,
+              "weaponID": 431308949290
+            },
+            "offset": 79341212
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "vitaking",
+              "target": "noa",
+              "headshot": true,
+              "time": "1:10",
+              "timeInSeconds": 70,
+              "weaponID": 1366019592
+            },
+            "offset": 79386314
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "soulz1",
+              "target": "Jume",
+              "headshot": false,
+              "time": "0:45",
+              "timeInSeconds": 45,
+              "weaponID": 1366019400
+            },
+            "offset": 79487165
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "soulz1",
+              "target": "Savage",
+              "headshot": false,
+              "time": "0:43",
+              "timeInSeconds": 43,
+              "weaponID": 1366019400
+            },
+            "offset": 79494435
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Adrian",
+              "target": "soulz1",
+              "headshot": false,
+              "time": "0:34",
+              "timeInSeconds": 34,
+              "weaponID": 431308949290
+            },
+            "offset": 79525055
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Adrian",
+              "target": "vitaking",
+              "headshot": false,
+              "time": "0:00",
+              "timeInSeconds": 0,
+              "weaponID": 431308949290
+            },
+            "offset": 79593295
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "DefuserPlantComplete",
+              "id": 3
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 3905,
+      "game_id": 7016,
+      "round": 3,
+      "physical_round": 3,
+      "expected_proposal": null,
+      "expected_reason": "timer_owner_body_unresolved",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9734089,
+          "teams": [
+            {
+              "name": "CLOUD9",
+              "startingScore": 2,
+              "score": 2,
+              "won": false,
+              "role": "Defense"
+            },
+            {
+              "name": "M80",
+              "startingScore": 0,
+              "score": 1,
+              "won": true,
+              "winCondition": "KilledOpponents",
+              "role": "Attack"
+            }
+          ],
+          "objectiveOccurrences": [
+            {
+              "kind": "plant",
+              "source": "defuser_state_v1",
+              "actor": null,
+              "plantStateOffset": 45698363
+            }
+          ],
+          "players": [
+            {
+              "username": "Eddy.C9",
+              "teamIndex": 0,
+              "id": 1
+            },
+            {
+              "username": "Panbazou.C9",
+              "teamIndex": 0,
+              "id": 2
+            },
+            {
+              "username": "Centir.C9",
+              "teamIndex": 0,
+              "id": 3
+            },
+            {
+              "username": "Monk.c9",
+              "teamIndex": 0,
+              "id": 4
+            },
+            {
+              "username": "Ewzy.C9",
+              "teamIndex": 0,
+              "id": 5
+            },
+            {
+              "username": "dfuzr.M80",
+              "teamIndex": 1,
+              "id": 6
+            },
+            {
+              "username": "Ashn.M80",
+              "teamIndex": 1,
+              "id": 7
+            },
+            {
+              "username": "Savage.M80",
+              "teamIndex": 1,
+              "id": 8
+            },
+            {
+              "username": "Gaveni.M80",
+              "teamIndex": 1,
+              "id": 9
+            },
+            {
+              "username": "Gunnar.M80",
+              "teamIndex": 1,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4026941319,
+              "route": [
+                4026886522,
+                "dfuzr.M80",
+                "27c08dca",
+                "a859ffff",
+                45290672
+              ],
+              "binding": {
+                "player": "dfuzr.M80",
+                "owner": 4026886522,
+                "slot": "27c08dca",
+                "class_hash": "a859ffff",
+                "declaration_offset": 45290672
+              },
+              "start_record": 45666090,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 45698329,
+                  "fields": [
+                    {
+                      "offset": 45698338,
+                      "entity": 4026941319,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 45698329,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 45666119,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 45698055,
+                  "text": "0.019",
+                  "seconds": 0.019
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 45698329,
+              "end_offset": 45698329,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 0.019,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4026886860": "Eddy.C9",
+          "4026886859": "Panbazou.C9",
+          "4026886858": "Centir.C9",
+          "4026886857": "Monk.c9",
+          "4026886856": "Ewzy.C9",
+          "4026886523": "Ashn.M80",
+          "4026886522": "dfuzr.M80",
+          "4026886521": "Savage.M80",
+          "4026886520": "Gaveni.M80",
+          "4026886519": "Gunnar.M80"
+        },
+        "slots": [
+          {
+            "owner": 4026886860,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886852,
+                "offset": 37622,
+                "owner": 4026886860,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886859,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886837,
+                "offset": 41452,
+                "owner": 4026886859,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886858,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886822,
+                "offset": 45104,
+                "owner": 4026886858,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886857,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886807,
+                "offset": 48750,
+                "owner": 4026886857,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886856,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886792,
+                "offset": 52391,
+                "owner": 4026886856,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886523,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886515,
+                "offset": 57447,
+                "owner": 4026886523,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886522,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886500,
+                "offset": 61520,
+                "owner": 4026886522,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886522,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "a859ffff",
+                "component": 4026941319,
+                "offset": 45290672,
+                "owner": 4026886522,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4026886521,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886485,
+                "offset": 65749,
+                "owner": 4026886521,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886520,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886470,
+                "offset": 70136,
+                "owner": 4026886520,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4026886519,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "b529300b",
+                "component": 4026886455,
+                "offset": 74306,
+                "owner": 4026886519,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Gunnar.M80",
+              "target": "Centir.C9",
+              "headshot": true,
+              "time": "1:44",
+              "timeInSeconds": 104,
+              "weaponID": 1366019316
+            },
+            "offset": 45598390
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Ewzy.C9",
+              "target": "Savage.M80",
+              "headshot": false,
+              "time": "1:35",
+              "timeInSeconds": 95,
+              "weaponID": 1366019652
+            },
+            "offset": 45637074
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Ashn.M80",
+              "target": "Eddy.C9",
+              "headshot": false,
+              "time": "1:35",
+              "timeInSeconds": 95,
+              "weaponID": 431308949290
+            },
+            "offset": 45639088
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Gunnar.M80",
+              "target": "Panbazou.C9",
+              "headshot": true,
+              "time": "1:31",
+              "timeInSeconds": 91,
+              "weaponID": 1366019316
+            },
+            "offset": 45652484
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Gaveni.M80",
+              "target": "Monk.c9",
+              "headshot": false,
+              "time": "1:28",
+              "timeInSeconds": 88,
+              "weaponID": 1366019244
+            },
+            "offset": 45667396
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Ewzy.C9",
+              "target": "Gaveni.M80",
+              "headshot": true,
+              "time": "1:22",
+              "timeInSeconds": 82,
+              "weaponID": 1366019652
+            },
+            "offset": 45691601
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "dfuzr.M80",
+              "target": "Ewzy.C9",
+              "headshot": false,
+              "time": "0:41",
+              "timeInSeconds": 41,
+              "weaponID": 431308949290
+            },
+            "offset": 45707956
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 4138,
+      "game_id": null,
+      "round": 9,
+      "physical_round": 9,
+      "expected_proposal": null,
+      "expected_reason": "no_unique_verified_plant_occurrence",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9769907,
+          "teams": [
+            {
+              "name": "CLOUD9",
+              "startingScore": 2,
+              "score": 2,
+              "won": false,
+              "role": "Defense"
+            },
+            {
+              "name": "DARKZERO",
+              "startingScore": 6,
+              "score": 7,
+              "won": true,
+              "winCondition": "DefusedBomb",
+              "role": "Attack"
+            }
+          ],
+          "objectiveOccurrences": [],
+          "players": [
+            {
+              "username": "Eddy.C9",
+              "teamIndex": 0,
+              "id": 1
+            },
+            {
+              "username": "Panbazou.C9",
+              "teamIndex": 0,
+              "id": 2
+            },
+            {
+              "username": "Centir.C9",
+              "teamIndex": 0,
+              "id": 3
+            },
+            {
+              "username": "Monk.c9",
+              "teamIndex": 0,
+              "id": 4
+            },
+            {
+              "username": "Ewzy.C9",
+              "teamIndex": 0,
+              "id": 5
+            },
+            {
+              "username": "Fultz.DZ",
+              "teamIndex": 1,
+              "id": 6
+            },
+            {
+              "username": "Nuers.DZ",
+              "teamIndex": 1,
+              "id": 7
+            },
+            {
+              "username": "njr.DZ",
+              "teamIndex": 1,
+              "id": 8
+            },
+            {
+              "username": "J9O.DZ",
+              "teamIndex": 1,
+              "id": 9
+            },
+            {
+              "username": "Kyno.DZ",
+              "teamIndex": 1,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4028178950,
+              "route": [
+                4027897313,
+                "Fultz.DZ",
+                "27c08dca",
+                "b2216bf3",
+                86006418
+              ],
+              "binding": {
+                "player": "Fultz.DZ",
+                "owner": 4027897313,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 86006418
+              },
+              "start_record": 86637701,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 86649844,
+                  "fields": [
+                    {
+                      "offset": 86649853,
+                      "entity": 4028178950,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 86649844,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 86649863,
+                      "entity": 4028178950,
+                      "hash": "e9a37feb",
+                      "size": 4,
+                      "value": 1054452086,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "76a9d93e",
+                      "record_start": 86649844,
+                      "inherited": true
+                    },
+                    {
+                      "offset": 86649873,
+                      "entity": 4028178950,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "2.965",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "322e393635",
+                      "record_start": 86649844,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 86637730,
+                  "text": "6.970",
+                  "seconds": 6.97
+                },
+                {
+                  "offset": 86649873,
+                  "text": "2.965",
+                  "seconds": 2.965
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 86649844,
+              "end_offset": 86649844,
+              "end_source": "property_record",
+              "first_timer": 6.97,
+              "last_timer": 2.965,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4028178949,
+              "route": [
+                4027897312,
+                "Nuers.DZ",
+                "27c08dca",
+                "b2216bf3",
+                86006519
+              ],
+              "binding": {
+                "player": "Nuers.DZ",
+                "owner": 4027897312,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 86006519
+              },
+              "start_record": 86689325,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 86709640,
+                  "fields": [
+                    {
+                      "offset": 86709649,
+                      "entity": 4028178949,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 86709640,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 86689354,
+                  "text": "6.976",
+                  "seconds": 6.976
+                },
+                {
+                  "offset": 86709414,
+                  "text": "0.005",
+                  "seconds": 0.005
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 86709640,
+              "end_offset": 86709640,
+              "end_source": "property_record",
+              "first_timer": 6.976,
+              "last_timer": 0.005,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4027897138": "Eddy.C9",
+          "4027897137": "Panbazou.C9",
+          "4027897136": "Centir.C9",
+          "4027897135": "Monk.c9",
+          "4027897134": "Ewzy.C9",
+          "4027897313": "Fultz.DZ",
+          "4027897312": "Nuers.DZ",
+          "4027897247": "J9O.DZ",
+          "4027897246": "Kyno.DZ",
+          "4027897245": "njr.DZ"
+        },
+        "slots": [
+          {
+            "owner": 4027897138,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897130,
+                "offset": 159325,
+                "owner": 4027897138,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897137,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897307,
+                "offset": 163163,
+                "owner": 4027897137,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897136,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897292,
+                "offset": 166826,
+                "owner": 4027897136,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897135,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897341,
+                "offset": 170570,
+                "owner": 4027897135,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897134,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897326,
+                "offset": 174222,
+                "owner": 4027897134,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897313,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897241,
+                "offset": 179286,
+                "owner": 4027897313,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897313,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 181536,
+                "owner": 4027897313,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028174413,
+                "offset": 85829416,
+                "owner": 4027897313,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028178950,
+                "offset": 86006418,
+                "owner": 4027897313,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4027897312,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897226,
+                "offset": 183478,
+                "owner": 4027897312,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897312,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 185574,
+                "owner": 4027897312,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028174412,
+                "offset": 85829517,
+                "owner": 4027897312,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4028178949,
+                "offset": 86006519,
+                "owner": 4027897312,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4027897247,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897275,
+                "offset": 187518,
+                "owner": 4027897247,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897246,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027897260,
+                "offset": 191705,
+                "owner": 4027897246,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4027897245,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4027896925,
+                "offset": 195978,
+                "owner": 4027897245,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4027897130,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86580822,
+            "value": 4
+          },
+          {
+            "entity": 4027897307,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 163247,
+            "value": 0
+          },
+          {
+            "entity": 4027897292,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 166910,
+            "value": 0
+          },
+          {
+            "entity": 4027897341,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86574641,
+            "value": 4
+          },
+          {
+            "entity": 4027897326,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 174306,
+            "value": 0
+          },
+          {
+            "entity": 4027897241,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86133778,
+            "value": 2
+          },
+          {
+            "entity": 4027897226,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 85983214,
+            "value": 0
+          },
+          {
+            "entity": 4027897275,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86515852,
+            "value": 4
+          },
+          {
+            "entity": 4027897260,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86567558,
+            "value": 4
+          },
+          {
+            "entity": 4027896925,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 85983336,
+            "value": 0
+          },
+          {
+            "entity": 4027897241,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86649780,
+            "value": 4
+          },
+          {
+            "entity": 4027897307,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86650683,
+            "value": 3
+          },
+          {
+            "entity": 4027897307,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86651732,
+            "value": 4
+          },
+          {
+            "entity": 4027897326,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86664506,
+            "value": 4
+          },
+          {
+            "entity": 4027897292,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86705197,
+            "value": 2
+          },
+          {
+            "entity": 4027897292,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 86705483,
+            "value": 4
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Panbazou.C9",
+              "target": "J9O.DZ",
+              "headshot": true,
+              "time": "0:47",
+              "timeInSeconds": 47,
+              "weaponID": 78526932130
+            },
+            "offset": 86516135
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Monk.c9",
+              "target": "Kyno.DZ",
+              "headshot": false,
+              "time": "0:35",
+              "timeInSeconds": 35,
+              "weaponID": 161289761794
+            },
+            "offset": 86567972
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "njr.DZ",
+              "target": "Monk.c9",
+              "headshot": false,
+              "time": "0:34",
+              "timeInSeconds": 34,
+              "weaponID": 161289761740
+            },
+            "offset": 86574007
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "njr.DZ",
+              "target": "Eddy.C9",
+              "headshot": false,
+              "time": "0:32",
+              "timeInSeconds": 32,
+              "weaponID": 161289761740
+            },
+            "offset": 86581399
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Panbazou.C9",
+              "target": "Fultz.DZ",
+              "headshot": false,
+              "time": "0:12",
+              "timeInSeconds": 12,
+              "weaponID": 78526932130
+            },
+            "offset": 86650131
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "njr.DZ",
+              "target": "Panbazou.C9",
+              "headshot": false,
+              "time": "0:11",
+              "timeInSeconds": 11,
+              "weaponID": 161289761740
+            },
+            "offset": 86652610
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Nuers.DZ",
+              "target": "Ewzy.C9",
+              "headshot": false,
+              "time": "0:07",
+              "timeInSeconds": 7,
+              "weaponID": 1366019508
+            },
+            "offset": 86665128
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "njr.DZ",
+              "target": "Centir.C9",
+              "headshot": false,
+              "time": "0:00",
+              "timeInSeconds": 0,
+              "weaponID": 161289761740
+            },
+            "offset": 86705805
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "DefuserPlantComplete",
+              "id": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 4141,
+      "game_id": null,
+      "round": 14,
+      "physical_round": 14,
+      "expected_proposal": null,
+      "expected_reason": "no_unique_verified_plant_occurrence",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9769907,
+          "teams": [
+            {
+              "name": "FIVE FEARS",
+              "startingScore": 6,
+              "score": 6,
+              "won": false,
+              "role": "Defense"
+            },
+            {
+              "name": "FORFUN",
+              "startingScore": 7,
+              "score": 8,
+              "won": true,
+              "winCondition": "DefusedBomb",
+              "role": "Attack"
+            }
+          ],
+          "objectiveOccurrences": [],
+          "players": [
+            {
+              "username": "JJBlaztful.5F",
+              "teamIndex": 0,
+              "id": 1
+            },
+            {
+              "username": "Forrest.5F",
+              "teamIndex": 0,
+              "id": 2
+            },
+            {
+              "username": "Rival.5F",
+              "teamIndex": 0,
+              "id": 3
+            },
+            {
+              "username": "Fenz.5F",
+              "teamIndex": 0,
+              "id": 4
+            },
+            {
+              "username": "Snake.5F",
+              "teamIndex": 0,
+              "id": 5
+            },
+            {
+              "username": "Packer.4FUN",
+              "teamIndex": 1,
+              "id": 6
+            },
+            {
+              "username": "MikeW.4FUN",
+              "teamIndex": 1,
+              "id": 7
+            },
+            {
+              "username": "Vulspur.4FUN",
+              "teamIndex": 1,
+              "id": 8
+            },
+            {
+              "username": "Beeno.4FUN",
+              "teamIndex": 1,
+              "id": 9
+            },
+            {
+              "username": "Sylo.4FUN",
+              "teamIndex": 1,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4031495115,
+              "route": [
+                4030481505,
+                "Beeno.4FUN",
+                "27c08dca",
+                "b2216bf3",
+                76170482
+              ],
+              "binding": {
+                "player": "Beeno.4FUN",
+                "owner": 4030481505,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 76170482
+              },
+              "start_record": 76828572,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 76847912,
+                  "fields": [
+                    {
+                      "offset": 76847921,
+                      "entity": 4031495115,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 76847912,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 76847931,
+                      "entity": 4031495115,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "3.384",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "332e333834",
+                      "record_start": 76847912,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 76828601,
+                  "text": "6.980",
+                  "seconds": 6.98
+                },
+                {
+                  "offset": 76847931,
+                  "text": "3.384",
+                  "seconds": 3.384
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 76847912,
+              "end_offset": 76847912,
+              "end_source": "property_record",
+              "first_timer": 6.98,
+              "last_timer": 3.384,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4031495115,
+              "route": [
+                4030481505,
+                "Beeno.4FUN",
+                "27c08dca",
+                "b2216bf3",
+                76170482
+              ],
+              "binding": {
+                "player": "Beeno.4FUN",
+                "owner": 4030481505,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 76170482
+              },
+              "start_record": 76916023,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 76918498,
+                  "fields": [
+                    {
+                      "offset": 76918507,
+                      "entity": 4031495115,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 76918498,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 76918517,
+                      "entity": 4031495115,
+                      "hash": "e9a37feb",
+                      "size": 4,
+                      "value": 1064025028,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "c4bb6b3f",
+                      "record_start": 76918498,
+                      "inherited": true
+                    },
+                    {
+                      "offset": 76918527,
+                      "entity": 4031495115,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "6.427",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "362e343237",
+                      "record_start": 76918498,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 76916052,
+                  "text": "6.973",
+                  "seconds": 6.973
+                },
+                {
+                  "offset": 76918527,
+                  "text": "6.427",
+                  "seconds": 6.427
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 76918498,
+              "end_offset": 76918498,
+              "end_source": "property_record",
+              "first_timer": 6.973,
+              "last_timer": 6.427,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4031495115,
+              "route": [
+                4030481505,
+                "Beeno.4FUN",
+                "27c08dca",
+                "b2216bf3",
+                76170482
+              ],
+              "binding": {
+                "player": "Beeno.4FUN",
+                "owner": 4030481505,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 76170482
+              },
+              "start_record": 76954449,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 76960222,
+                  "fields": [
+                    {
+                      "offset": 76960231,
+                      "entity": 4031495115,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 76960222,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 76960241,
+                      "entity": 4031495115,
+                      "hash": "e9a37feb",
+                      "size": 4,
+                      "value": 1063410323,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "935a623f",
+                      "record_start": 76960222,
+                      "inherited": true
+                    },
+                    {
+                      "offset": 76960251,
+                      "entity": 4031495115,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "6.189",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "362e313839",
+                      "record_start": 76960222,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 76954478,
+                  "text": "6.987",
+                  "seconds": 6.987
+                },
+                {
+                  "offset": 76960251,
+                  "text": "6.189",
+                  "seconds": 6.189
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 76960222,
+              "end_offset": 76960222,
+              "end_source": "property_record",
+              "first_timer": 6.987,
+              "last_timer": 6.189,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4031495115,
+              "route": [
+                4030481505,
+                "Beeno.4FUN",
+                "27c08dca",
+                "b2216bf3",
+                76170482
+              ],
+              "binding": {
+                "player": "Beeno.4FUN",
+                "owner": 4030481505,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 76170482
+              },
+              "start_record": 77034121,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 77062982,
+                  "fields": [
+                    {
+                      "offset": 77062991,
+                      "entity": 4031495115,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 77062982,
+                      "inherited": false
+                    },
+                    {
+                      "offset": 77063001,
+                      "entity": 4031495115,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "0.007",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "302e303037",
+                      "record_start": 77062982,
+                      "inherited": true
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 77034150,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 77063001,
+                  "text": "0.007",
+                  "seconds": 0.007
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 77062982,
+              "end_offset": 77062982,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 0.007,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4030481845": "JJBlaztful.5F",
+          "4030481844": "Forrest.5F",
+          "4030481843": "Rival.5F",
+          "4030481842": "Fenz.5F",
+          "4030481841": "Snake.5F",
+          "4030481508": "Packer.4FUN",
+          "4030481507": "MikeW.4FUN",
+          "4030481506": "Vulspur.4FUN",
+          "4030481505": "Beeno.4FUN",
+          "4030481504": "Sylo.4FUN"
+        },
+        "slots": [
+          {
+            "owner": 4030481845,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481837,
+                "offset": 38095,
+                "owner": 4030481845,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481844,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481502,
+                "offset": 41766,
+                "owner": 4030481844,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481843,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481487,
+                "offset": 45492,
+                "owner": 4030481843,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481842,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481472,
+                "offset": 49155,
+                "owner": 4030481842,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481841,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481521,
+                "offset": 52657,
+                "owner": 4030481841,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481508,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481436,
+                "offset": 57666,
+                "owner": 4030481508,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481507,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481421,
+                "offset": 61856,
+                "owner": 4030481507,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481506,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481470,
+                "offset": 66029,
+                "owner": 4030481506,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481505,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481455,
+                "offset": 70208,
+                "owner": 4030481505,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481505,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 72304,
+                "owner": 4030481505,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031478094,
+                "offset": 75990084,
+                "owner": 4030481505,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031495115,
+                "offset": 76168864,
+                "owner": 4030481505,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031495115,
+                "offset": 76170482,
+                "owner": 4030481505,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4030481504,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481440,
+                "offset": 74227,
+                "owner": 4030481504,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4030481837,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 38179,
+            "value": 0
+          },
+          {
+            "entity": 4030481502,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 41850,
+            "value": 0
+          },
+          {
+            "entity": 4030481487,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 45576,
+            "value": 0
+          },
+          {
+            "entity": 4030481472,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76822237,
+            "value": 3
+          },
+          {
+            "entity": 4030481521,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 52741,
+            "value": 0
+          },
+          {
+            "entity": 4030481436,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 57750,
+            "value": 0
+          },
+          {
+            "entity": 4030481421,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76141338,
+            "value": 0
+          },
+          {
+            "entity": 4030481470,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76141548,
+            "value": 0
+          },
+          {
+            "entity": 4030481455,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76141666,
+            "value": 0
+          },
+          {
+            "entity": 4030481440,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 74311,
+            "value": 0
+          },
+          {
+            "entity": 4030481472,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76902794,
+            "value": 2
+          },
+          {
+            "entity": 4030481502,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76971563,
+            "value": 4
+          },
+          {
+            "entity": 4030481472,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76983983,
+            "value": 4
+          },
+          {
+            "entity": 4030481472,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 76984298,
+            "value": 4
+          },
+          {
+            "entity": 4030481837,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77010188,
+            "value": 3
+          },
+          {
+            "entity": 4030481436,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77023009,
+            "value": 4
+          },
+          {
+            "entity": 4030481436,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77023188,
+            "value": 4
+          },
+          {
+            "entity": 4030481837,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77031549,
+            "value": 4
+          },
+          {
+            "entity": 4030481470,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77040684,
+            "value": 4
+          },
+          {
+            "entity": 4030481487,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77054476,
+            "value": 4
+          },
+          {
+            "entity": 4030481521,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 77058312,
+            "value": 4
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Packer.4FUN",
+              "target": "Forrest.5F",
+              "headshot": true,
+              "time": "0:21",
+              "timeInSeconds": 21,
+              "weaponID": 161289761740
+            },
+            "offset": 76972308
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "MikeW.4FUN",
+              "target": "Fenz.5F",
+              "headshot": false,
+              "time": "0:19",
+              "timeInSeconds": 19,
+              "weaponID": 1366019328
+            },
+            "offset": 76985038
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Rival.5F",
+              "target": "Packer.4FUN",
+              "headshot": true,
+              "time": "0:12",
+              "timeInSeconds": 12,
+              "weaponID": 1366019628
+            },
+            "offset": 77023531
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "MikeW.4FUN",
+              "target": "JJBlaztful.5F",
+              "headshot": true,
+              "time": "0:10",
+              "timeInSeconds": 10,
+              "weaponID": 1366019496
+            },
+            "offset": 77032360
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Snake.5F",
+              "target": "Vulspur.4FUN",
+              "headshot": true,
+              "time": "0:08",
+              "timeInSeconds": 8,
+              "weaponID": 139558931653
+            },
+            "offset": 77041089
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Sylo.4FUN",
+              "target": "Rival.5F",
+              "headshot": true,
+              "time": "0:04",
+              "timeInSeconds": 4,
+              "weaponID": 78526932130
+            },
+            "offset": 77055380
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "MikeW.4FUN",
+              "target": "Snake.5F",
+              "headshot": true,
+              "time": "0:03",
+              "timeInSeconds": 3,
+              "weaponID": 1366019496
+            },
+            "offset": 77058909
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "DefuserPlantComplete",
+              "id": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "match_id": 4141,
+      "game_id": null,
+      "round": 6,
+      "physical_round": 6,
+      "expected_proposal": null,
+      "expected_reason": "no_unique_verified_plant_occurrence",
+      "input": {
+        "header": {
+          "gamemode": {
+            "name": "Bomb",
+            "id": 327933806
+          },
+          "codeVersion": 9769907,
+          "teams": [
+            {
+              "name": "FIVE FEARS",
+              "startingScore": 2,
+              "score": 3,
+              "won": true,
+              "winCondition": "KilledOpponents",
+              "role": "Attack"
+            },
+            {
+              "name": "FORFUN",
+              "startingScore": 3,
+              "score": 3,
+              "won": false,
+              "role": "Defense"
+            }
+          ],
+          "objectiveOccurrences": [],
+          "players": [
+            {
+              "username": "Packer.4FUN",
+              "teamIndex": 1,
+              "id": 1
+            },
+            {
+              "username": "MikeW.4FUN",
+              "teamIndex": 1,
+              "id": 2
+            },
+            {
+              "username": "Vulspur.4FUN",
+              "teamIndex": 1,
+              "id": 3
+            },
+            {
+              "username": "Beeno.4FUN",
+              "teamIndex": 1,
+              "id": 4
+            },
+            {
+              "username": "Sylo.4FUN",
+              "teamIndex": 1,
+              "id": 5
+            },
+            {
+              "username": "JJBlaztful.5F",
+              "teamIndex": 0,
+              "id": 6
+            },
+            {
+              "username": "Forrest.5F",
+              "teamIndex": 0,
+              "id": 7
+            },
+            {
+              "username": "Rival.5F",
+              "teamIndex": 0,
+              "id": 8
+            },
+            {
+              "username": "Fenz.5F",
+              "teamIndex": 0,
+              "id": 9
+            },
+            {
+              "username": "Snake.5F",
+              "teamIndex": 0,
+              "id": 10
+            }
+          ]
+        },
+        "observed": {
+          "episodes": [
+            {
+              "entity": 4031098948,
+              "route": [
+                4030481845,
+                "JJBlaztful.5F",
+                "27c08dca",
+                "b2216bf3",
+                72256083
+              ],
+              "binding": {
+                "player": "JJBlaztful.5F",
+                "owner": 4030481845,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 72256083
+              },
+              "start_record": 72962467,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 72970858,
+                  "fields": [
+                    {
+                      "offset": 72970867,
+                      "entity": 4031098948,
+                      "hash": "e58c06e9",
+                      "size": 4,
+                      "value": 2,
+                      "interpretation": "unsigned_bits_only",
+                      "raw_hex": "02000000",
+                      "record_start": 72970858,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 72962496,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 72970730,
+                  "text": "5.191",
+                  "seconds": 5.191
+                }
+              ],
+              "end_reason": "explicit_state_2",
+              "end_record": 72970858,
+              "end_offset": 72970858,
+              "end_source": "property_record",
+              "first_timer": 7.0,
+              "last_timer": 5.191,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            },
+            {
+              "entity": 4031098948,
+              "route": [
+                4030481845,
+                "JJBlaztful.5F",
+                "27c08dca",
+                "b2216bf3",
+                72256083
+              ],
+              "binding": {
+                "player": "JJBlaztful.5F",
+                "owner": 4030481845,
+                "slot": "27c08dca",
+                "class_hash": "b2216bf3",
+                "declaration_offset": 72256083
+              },
+              "start_record": 72990366,
+              "state": 0,
+              "records": [
+                {
+                  "record_start": 73020406,
+                  "fields": [
+                    {
+                      "offset": 73020415,
+                      "entity": 4031098948,
+                      "hash": "a9c858d9",
+                      "size": 5,
+                      "value": "0.018",
+                      "interpretation": "ascii_timer",
+                      "raw_hex": "302e303138",
+                      "record_start": 73020406,
+                      "inherited": false
+                    }
+                  ]
+                }
+              ],
+              "samples": [
+                {
+                  "offset": 72990395,
+                  "text": "7.000",
+                  "seconds": 7.0
+                },
+                {
+                  "offset": 73020415,
+                  "text": "0.018",
+                  "seconds": 0.018
+                }
+              ],
+              "end_reason": "ownership_declaration_boundary",
+              "end_record": null,
+              "end_offset": 73020758,
+              "end_source": "slot_declaration",
+              "first_timer": 7.0,
+              "last_timer": 0.018,
+              "monotonic_timer": true,
+              "actor": null,
+              "actor_reason": "unvalidated_component_state_semantics"
+            }
+          ],
+          "orphan_records": []
+        },
+        "owners": {
+          "4030481845": "JJBlaztful.5F",
+          "4030481844": "Forrest.5F",
+          "4030481843": "Rival.5F",
+          "4030481842": "Fenz.5F",
+          "4030481841": "Snake.5F",
+          "4030481508": "Packer.4FUN",
+          "4030481507": "MikeW.4FUN",
+          "4030481506": "Vulspur.4FUN",
+          "4030481505": "Beeno.4FUN",
+          "4030481504": "Sylo.4FUN"
+        },
+        "slots": [
+          {
+            "owner": 4030481845,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481837,
+                "offset": 2069,
+                "owner": 4030481845,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481845,
+            "slot": "27c08dca",
+            "declarations": [
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 4165,
+                "owner": 4030481845,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031083054,
+                "offset": 72078538,
+                "owner": 4030481845,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031098948,
+                "offset": 72254519,
+                "owner": 4030481845,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "b2216bf3",
+                "component": 4031098948,
+                "offset": 72256083,
+                "owner": 4030481845,
+                "slot_hash": "27c08dca"
+              },
+              {
+                "class_hash": "00000000",
+                "component": 0,
+                "offset": 73020758,
+                "owner": 4030481845,
+                "slot_hash": "27c08dca"
+              }
+            ]
+          },
+          {
+            "owner": 4030481844,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481502,
+                "offset": 6123,
+                "owner": 4030481844,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481843,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481487,
+                "offset": 10382,
+                "owner": 4030481843,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481842,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481472,
+                "offset": 14570,
+                "owner": 4030481842,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481841,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481521,
+                "offset": 18754,
+                "owner": 4030481841,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481508,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481436,
+                "offset": 24280,
+                "owner": 4030481508,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481507,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481421,
+                "offset": 27937,
+                "owner": 4030481507,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481506,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481470,
+                "offset": 31591,
+                "owner": 4030481506,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481505,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481455,
+                "offset": 35250,
+                "owner": 4030481505,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          },
+          {
+            "owner": 4030481504,
+            "slot": "4154dcc4",
+            "declarations": [
+              {
+                "class_hash": "0c98c63f",
+                "component": 4030481440,
+                "offset": 38904,
+                "owner": 4030481504,
+                "slot_hash": "4154dcc4"
+              }
+            ]
+          }
+        ],
+        "properties": [
+          {
+            "entity": 4030481837,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72228444,
+            "value": 0
+          },
+          {
+            "entity": 4030481502,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72228571,
+            "value": 0
+          },
+          {
+            "entity": 4030481487,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72959785,
+            "value": 4
+          },
+          {
+            "entity": 4030481472,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72618094,
+            "value": 4
+          },
+          {
+            "entity": 4030481521,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 18838,
+            "value": 0
+          },
+          {
+            "entity": 4030481436,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72723893,
+            "value": 4
+          },
+          {
+            "entity": 4030481421,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 28021,
+            "value": 0
+          },
+          {
+            "entity": 4030481470,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72906534,
+            "value": 4
+          },
+          {
+            "entity": 4030481455,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72864712,
+            "value": 4
+          },
+          {
+            "entity": 4030481440,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72948665,
+            "value": 4
+          },
+          {
+            "entity": 4030481502,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 72991530,
+            "value": 4
+          },
+          {
+            "entity": 4030481421,
+            "hash": "e788f6a5",
+            "size": 4,
+            "offset": 73020518,
+            "value": 4
+          }
+        ],
+        "deaths": [
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Vulspur.4FUN",
+              "target": "Fenz.5F",
+              "headshot": true,
+              "time": "1:40",
+              "timeInSeconds": 100,
+              "weaponID": 1366019652
+            },
+            "offset": 72617776
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Snake.5F",
+              "target": "Packer.4FUN",
+              "headshot": false,
+              "time": "1:18",
+              "timeInSeconds": 78,
+              "weaponID": 445433447876
+            },
+            "offset": 72724177
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Rival.5F",
+              "target": "Beeno.4FUN",
+              "headshot": true,
+              "time": "0:43",
+              "timeInSeconds": 43,
+              "weaponID": 1366019220
+            },
+            "offset": 72865018
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Forrest.5F",
+              "target": "Vulspur.4FUN",
+              "headshot": false,
+              "time": "0:35",
+              "timeInSeconds": 35,
+              "weaponID": 387336878940
+            },
+            "offset": 72907119
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "JJBlaztful.5F",
+              "target": "Sylo.4FUN",
+              "headshot": false,
+              "time": "0:25",
+              "timeInSeconds": 25,
+              "weaponID": 39149214668
+            },
+            "offset": 72949103
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "MikeW.4FUN",
+              "target": "Rival.5F",
+              "headshot": true,
+              "time": "0:24",
+              "timeInSeconds": 24,
+              "weaponID": 1366019988
+            },
+            "offset": 72960432
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "MikeW.4FUN",
+              "target": "Forrest.5F",
+              "headshot": true,
+              "time": "0:18",
+              "timeInSeconds": 18,
+              "weaponID": 1366019988
+            },
+            "offset": 72992009
+          },
+          {
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Snake.5F",
+              "target": "MikeW.4FUN",
+              "headshot": true,
+              "time": "0:00",
+              "timeInSeconds": 0,
+              "weaponID": 78526932130
+            },
+            "offset": 73022029
+          }
+        ],
+        "full_feedback": [
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          },
+          {
+            "type": {
+              "name": "Kill",
+              "id": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
