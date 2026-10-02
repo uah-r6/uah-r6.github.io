@@ -1,0 +1,135 @@
+{
+  "scope": "Independent exact-UUID player identity review only; no K/D, Rating, or objective outcomes used to choose aliases",
+  "reviewed_at": "2026-10-02T22:33:53.649326+00:00",
+  "aliases": {
+    "xSexyCake.IMP": {
+      "replay_profile_id": "0a135e95-5cf4-41c5-b7c5-53c03eacd7eb",
+      "siegegg_player_id": 101,
+      "independently_verified": true,
+      "name": "SexyCake",
+      "profile_history": "https://stats.cc/siege/xSexyCake.IMP/0a135e95-5cf4-41c5-b7c5-53c03eacd7eb",
+      "observed_names": [
+        "xSexyCake.IMP",
+        "xSexyCake",
+        "S3xyCake.Liquid"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/393/roster",
+      "primary_roster_cache_sha256": "43d5bafbb07d237ccd753edb6b83d35744e006fbda1ec9b35a9310c83d5205aa",
+      "evidence": "Exact UUID history links the xSexyCake handle to long-standing S3xyCake.Liquid. Official Imperial lineup contains the unique SexyCake member1698. Explicit independently reviewed mapping; no fuzzy name rule.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "LOBEX.FX": {
+      "replay_profile_id": "8d24a413-c6d6-4aa6-a0df-5781887b7ea2",
+      "siegegg_player_id": 2655,
+      "independently_verified": true,
+      "name": "Lobin",
+      "profile_history": "https://stats.cc/siege/LOBEX.FX/8d24a413-c6d6-4aa6-a0df-5781887b7ea2",
+      "observed_names": [
+        "LOBEX.FX",
+        "Lobin.Fluxo",
+        "lobin.FX",
+        "L0bin."
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/7/roster",
+      "primary_roster_cache_sha256": "bc24bbbc2ccf5caa8513f9541f666b832f8c28f8aed14ea6b05d8af0e6f3c892",
+      "evidence": "Exact UUID history explicitly contains Lobin.Fluxo and L0bin.; official Fluxo W7M lists Lobin member277, matching public L0BINN. Earlier consumed alias evidence independently corroborates same UUID.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "Gabu7z.LOUD": {
+      "replay_profile_id": "05f3008b-e2c7-433d-878c-e40c13e267ba",
+      "siegegg_player_id": 3521,
+      "independently_verified": true,
+      "name": "Gabu",
+      "profile_history": "https://www.stats.cc/siege/Gabu7z.LOUD/05f3008b-e2c7-433d-878c-e40c13e267ba",
+      "observed_names": [
+        "Gabu7z.LOUD",
+        "Gabu7z.Elevate",
+        "Gabu.eX"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/379/roster",
+      "primary_roster_cache_sha256": "b97a08c50783fce65419ccc0cdeb8eccb4ad1d5fe632d7c4eb3f827df097e187",
+      "evidence": "Exact UUID history explicitly contains Gabu.eX and Gabu7z.LOUD; official LOUD lineup has Gabu7z member1975, unique public GABU. Earlier consumed alias evidence independently corroborates same UUID.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "Flastryy.LOUD": {
+      "replay_profile_id": "a7d2c0f7-9ee2-4e67-bd55-427d14fe73a5",
+      "siegegg_player_id": 2650,
+      "independently_verified": true,
+      "name": "Flastry",
+      "profile_history": "https://stats.cc/siege/Flastryy.LOUD/a7d2c0f7-9ee2-4e67-bd55-427d14fe73a5",
+      "observed_names": [
+        "Flastryy.LOUD",
+        "FLASTRY.LOUD",
+        "flastry.E1"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/379/roster",
+      "primary_roster_cache_sha256": "b97a08c50783fce65419ccc0cdeb8eccb4ad1d5fe632d7c4eb3f827df097e187",
+      "evidence": "Exact UUID history explicitly links Flastryy.LOUD to FLASTRY.LOUD/flastry.E1; official LOUD lists Flastry member269.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "VolpsZ.FURIA": {
+      "replay_profile_id": "940b5470-b8cc-4c2d-bf76-e90dddb63233",
+      "siegegg_player_id": 2667,
+      "independently_verified": true,
+      "name": "volpz",
+      "profile_history": "https://stats.cc/siege/VolpsZ.FURIA/940b5470-b8cc-4c2d-bf76-e90dddb63233",
+      "observed_names": [
+        "VolpsZ.FURIA",
+        "volpz7.FURIA",
+        "volpz.FX"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/9/roster",
+      "primary_roster_cache_sha256": "a103d3a4a2780614bc71e4efbb2e1cf7bf2fabae3b265a05497e7b9c868ca3da",
+      "evidence": "Exact UUID history explicitly links VolpsZ.FURIA to volpz7.FURIA/volpz.FX; official FURIA lists volpz member254. Earlier independently verified alias uses identical UUID.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "Dias.FURIA": {
+      "replay_profile_id": "262d4e4a-5b12-4030-a202-5ad1427f2fcb",
+      "siegegg_player_id": 2191,
+      "independently_verified": true,
+      "name": "DiasLucas",
+      "profile_history": "https://stats.cc/siege/Dias.FURIA/262d4e4a-5b12-4030-a202-5ad1427f2fcb/seasons",
+      "observed_names": [
+        "Dias.FURIA",
+        "diaslucasbr",
+        "DiasLucasBr"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/9/roster",
+      "primary_roster_cache_sha256": "a103d3a4a2780614bc71e4efbb2e1cf7bf2fabae3b265a05497e7b9c868ca3da",
+      "evidence": "Exact UUID seasons page username history explicitly links Dias.FURIA to DiasLucasBr; official FURIA lists Dias member836, consistent with unique public DIASLUCAS. Earlier independently verified alias uses identical UUID.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "Daffo.LOS": {
+      "replay_profile_id": "967eb0c1-601a-4f4f-a531-683dbd5cbd6f",
+      "siegegg_player_id": 2956,
+      "independently_verified": true,
+      "name": "Daffodil",
+      "profile_history": "https://stats.cc/siege/Daffo.LOS/967eb0c1-601a-4f4f-a531-683dbd5cbd6f",
+      "observed_names": [
+        "Daffo.LOS",
+        "Daffodil.VKS",
+        "Daffodil.FURIA"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/228/roster",
+      "primary_roster_cache_sha256": "e02713f57054c7427421752279faef2fe4a88aaa193259ce0bfc723b6b607768",
+      "evidence": "Exact UUID history explicitly links Daffo.LOS to Daffodil.VKS/FURIA; official LOS lists Daffo member1197, matching unique public DAFFODIL.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    },
+    "perezeco.LOS": {
+      "replay_profile_id": "9fa1934b-a320-414a-9f88-a9f3e0d638de",
+      "siegegg_player_id": 2654,
+      "independently_verified": true,
+      "name": "Peres",
+      "profile_history": "https://stats.cc/siege/perezeco.LOS/9fa1934b-a320-414a-9f88-a9f3e0d638de",
+      "observed_names": [
+        "perezeco.LOS",
+        "peres.LOS",
+        "peres.ML"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/228/roster",
+      "primary_roster_cache_sha256": "e02713f57054c7427421752279faef2fe4a88aaa193259ce0bfc723b6b607768",
+      "evidence": "Exact UUID history explicitly links perezeco.LOS to peres.LOS/ML; official LOS lists Peres member280.",
+      "limitation": "Official roster Ubisoft GUID fields are blank; linkage uses exact UUID profile history plus unique official roster identity, not official GUID binding."
+    }
+  }
+}

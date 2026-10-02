@@ -1,0 +1,7 @@
+{
+  "original_freeze_sha256": "cc3fefa210353fff02231a3cd24c21c9496e92044380af4b405b2c4f08018503",
+  "rating_targets_opened": false,
+  "source_overrides": {},
+  "verified_aliases_sha256": "d46a77a4c32754a7cb930a91dba5c72daf988a686ec79d783148500340d87015",
+  "reason": "Prospectively seal eight independently reviewed UUID-specific aliases before any SAL Rating or residual read. No source/model/input/gate/parser modifications. Original unaliased quality caches preserved automatically; final quality cache key includes this sealed alias hash."
+}
