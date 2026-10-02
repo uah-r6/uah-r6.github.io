@@ -1,0 +1,845 @@
+{
+  "event": "South America League Stage 2 2026",
+  "official_competition_id": 515,
+  "siegegg_competition_id": 187,
+  "created_at": "2026-10-02T22:23:51.065457+00:00",
+  "status": "reserved_rating_targets_unopened",
+  "scope": "Entire separate South America Stage2 event, including later matches; no training/tuning on any match.",
+  "evaluation_snapshot": "All20 currently linked official group-stage archives. Later25 unavailable matches and playoffs remain reserved, outside this fixed one-shot snapshot.",
+  "selection": "All currently linked archives selected using metadata only; first chronological archive for initial pipeline proof, then incremental batches.",
+  "event_exposures": "Official dates/opponents/scores/archive links and public schedule URLs only. No SAL Rating/actor labels inspected. A separate CN discovery search exposed Rating snippets; CN is not this reserve and must not be called labels-unseen.",
+  "metadata_page_sha256": "6166bc465c3add082d0237d6b102854b78238dca8279053ff342949491aa1840",
+  "matches": [
+    {
+      "official_match_id": 8580,
+      "date": "2026-09-05T16:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D1_TLAvINTZ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8580",
+      "team_ids": [
+        3,
+        53
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6178,
+      "siegegg_page": "https://siege.gg/matches/6178-br6-latam-team-liquid-vs-intz"
+    },
+    {
+      "official_match_id": 8581,
+      "date": "2026-09-05T17:15:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D1_FAZEvIMP.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8581",
+      "team_ids": [
+        5,
+        393
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6179,
+      "siegegg_page": "https://siege.gg/matches/6179-br6-latam-faze-clan-vs-imperial-esports"
+    },
+    {
+      "official_match_id": 8582,
+      "date": "2026-09-05T18:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D1_W7MvBD.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8582",
+      "team_ids": [
+        1,
+        7
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6180,
+      "siegegg_page": "https://siege.gg/matches/6180-br6-latam-fluxo-w7m-vs-black-dragons"
+    },
+    {
+      "official_match_id": 8583,
+      "date": "2026-09-05T19:45:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D1_LFvLOUD.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8583",
+      "team_ids": [
+        379,
+        422
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6253,
+      "siegegg_page": "https://siege.gg/matches/6253-br6-latam-lucky-five-vs-loud"
+    },
+    {
+      "official_match_id": 8584,
+      "date": "2026-09-05T21:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D1_FURIAvLOS.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8584",
+      "team_ids": [
+        9,
+        228
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6262,
+      "siegegg_page": "https://siege.gg/matches/6262-br6-latam-furia-esports-vs-los"
+    },
+    {
+      "official_match_id": 8585,
+      "date": "2026-09-06T16:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D2_TLAvIMP.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8585",
+      "team_ids": [
+        3,
+        393
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6182,
+      "siegegg_page": "https://siege.gg/matches/6182-br6-latam-team-liquid-vs-imperial-esports"
+    },
+    {
+      "official_match_id": 8586,
+      "date": "2026-09-06T17:15:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D2_FURIAvINTZ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8586",
+      "team_ids": [
+        9,
+        53
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6183,
+      "siegegg_page": "https://siege.gg/matches/6183-br6-latam-furia-esports-vs-intz"
+    },
+    {
+      "official_match_id": 8587,
+      "date": "2026-09-06T18:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D2_LFvBD.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8587",
+      "team_ids": [
+        1,
+        422
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6263,
+      "siegegg_page": "https://siege.gg/matches/6263-br6-latam-lucky-five-vs-black-dragons"
+    },
+    {
+      "official_match_id": 8588,
+      "date": "2026-09-06T19:45:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D2_LOUDvLOS.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8588",
+      "team_ids": [
+        228,
+        379
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6264,
+      "siegegg_page": "https://siege.gg/matches/6264-br6-latam-loud-vs-los"
+    },
+    {
+      "official_match_id": 8589,
+      "date": "2026-09-06T21:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D2_W7MvFAZE.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8589",
+      "team_ids": [
+        5,
+        7
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6185,
+      "siegegg_page": "https://siege.gg/matches/6185-br6-latam-fluxo-w7m-vs-faze-clan"
+    },
+    {
+      "official_match_id": 8590,
+      "date": "2026-09-12T16:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D3_W7MvIMP.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8590",
+      "team_ids": [
+        7,
+        393
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6318,
+      "siegegg_page": "https://siege.gg/matches/6318-br6-latam-fluxo-w7m-vs-imperial-esports"
+    },
+    {
+      "official_match_id": 8591,
+      "date": "2026-09-12T17:15:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D3_FURIAvTLA.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8591",
+      "team_ids": [
+        3,
+        9
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6319,
+      "siegegg_page": "https://siege.gg/matches/6319-br6-latam-furia-esports-vs-team-liquid"
+    },
+    {
+      "official_match_id": 8592,
+      "date": "2026-09-12T18:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D3_LOUDvINTZ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8592",
+      "team_ids": [
+        53,
+        379
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6320,
+      "siegegg_page": "https://siege.gg/matches/6320-br6-latam-loud-vs-intz"
+    },
+    {
+      "official_match_id": 8593,
+      "date": "2026-09-12T19:45:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D3_LOSvBD.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8593",
+      "team_ids": [
+        1,
+        228
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6321,
+      "siegegg_page": "https://siege.gg/matches/6321-br6-latam-los-vs-black-dragons"
+    },
+    {
+      "official_match_id": 8594,
+      "date": "2026-09-12T21:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D3_LFvFAZE.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8594",
+      "team_ids": [
+        5,
+        422
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6322,
+      "siegegg_page": "https://siege.gg/matches/6322-br6-latam-lucky-five-vs-faze-clan"
+    },
+    {
+      "official_match_id": 8595,
+      "date": "2026-09-13T16:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D4_LOUDvTLA.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8595",
+      "team_ids": [
+        3,
+        379
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6323,
+      "siegegg_page": "https://siege.gg/matches/6323-br6-latam-loud-vs-team-liquid"
+    },
+    {
+      "official_match_id": 8596,
+      "date": "2026-09-13T17:15:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D4_FURIAvIMP.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8596",
+      "team_ids": [
+        9,
+        393
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6324,
+      "siegegg_page": "https://siege.gg/matches/6324-br6-latam-furia-esports-vs-imperial-esports"
+    },
+    {
+      "official_match_id": 8597,
+      "date": "2026-09-13T18:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D4_LFvW7M.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8597",
+      "team_ids": [
+        7,
+        422
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6325,
+      "siegegg_page": "https://siege.gg/matches/6325-br6-latam-lucky-five-vs-fluxo-w7m"
+    },
+    {
+      "official_match_id": 8598,
+      "date": "2026-09-13T19:45:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D4_LOSvFAZE.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8598",
+      "team_ids": [
+        5,
+        228
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6326,
+      "siegegg_page": "https://siege.gg/matches/6326-br6-latam-los-vs-faze-clan"
+    },
+    {
+      "official_match_id": 8599,
+      "date": "2026-09-13T21:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_SAL_S2D4_INTZvBD.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8599",
+      "team_ids": [
+        1,
+        53
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6327,
+      "siegegg_page": "https://siege.gg/matches/6327-br6-latam-black-dragons-vs-intz"
+    },
+    {
+      "official_match_id": 8600,
+      "date": "2026-09-19T16:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8600",
+      "team_ids": [
+        9,
+        379
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8601,
+      "date": "2026-09-19T17:15:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8601",
+      "team_ids": [
+        7,
+        228
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8602,
+      "date": "2026-09-19T18:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8602",
+      "team_ids": [
+        393,
+        422
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8603,
+      "date": "2026-09-19T19:45:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8603",
+      "team_ids": [
+        1,
+        3
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8604,
+      "date": "2026-09-19T21:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8604",
+      "team_ids": [
+        5,
+        53
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8605,
+      "date": "2026-09-20T16:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8605",
+      "team_ids": [
+        379,
+        393
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8606,
+      "date": "2026-09-20T17:15:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8606",
+      "team_ids": [
+        228,
+        422
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8607,
+      "date": "2026-09-20T18:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8607",
+      "team_ids": [
+        1,
+        9
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8608,
+      "date": "2026-09-20T19:45:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8608",
+      "team_ids": [
+        7,
+        53
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8609,
+      "date": "2026-09-20T21:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8609",
+      "team_ids": [
+        3,
+        5
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8610,
+      "date": "2026-09-26T16:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8610",
+      "team_ids": [
+        1,
+        379
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8611,
+      "date": "2026-09-26T17:15:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8611",
+      "team_ids": [
+        228,
+        393
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8612,
+      "date": "2026-09-26T18:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8612",
+      "team_ids": [
+        53,
+        422
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8613,
+      "date": "2026-09-26T19:45:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8613",
+      "team_ids": [
+        5,
+        9
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8614,
+      "date": "2026-09-26T21:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8614",
+      "team_ids": [
+        3,
+        7
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8615,
+      "date": "2026-09-27T16:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8615",
+      "team_ids": [
+        53,
+        228
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8616,
+      "date": "2026-09-27T17:15:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8616",
+      "team_ids": [
+        5,
+        379
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8617,
+      "date": "2026-09-27T18:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8617",
+      "team_ids": [
+        1,
+        393
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8618,
+      "date": "2026-09-27T19:45:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8618",
+      "team_ids": [
+        7,
+        9
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8619,
+      "date": "2026-09-27T21:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8619",
+      "team_ids": [
+        3,
+        422
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8620,
+      "date": "2026-10-04T16:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8620",
+      "team_ids": [
+        53,
+        393
+      ],
+      "official_scores": [],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8621,
+      "date": "2026-10-04T17:15:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8621",
+      "team_ids": [
+        1,
+        5
+      ],
+      "official_scores": [],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8622,
+      "date": "2026-10-04T18:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8622",
+      "team_ids": [
+        3,
+        228
+      ],
+      "official_scores": [],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8623,
+      "date": "2026-10-04T19:45:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8623",
+      "team_ids": [
+        7,
+        379
+      ],
+      "official_scores": [],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8624,
+      "date": "2026-10-04T21:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8624",
+      "team_ids": [
+        9,
+        422
+      ],
+      "official_scores": [],
+      "selected": false,
+      "reserved_for_final_test": true
+    }
+  ],
+  "ratings_inspected": false,
+  "actors_inspected": false,
+  "evidence": [
+    "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/competition/515/15020",
+    "https://siege.gg/matches?competitions=187&tab=results&page=2"
+  ]
+}
