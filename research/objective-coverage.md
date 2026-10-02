@@ -1,3 +1,9 @@
+## COMBINED DIAGNOSTIC FREEZE GATE - 2026-10-02
+
+Exact plan: objective-combined-plan.md; executable: objective_combined_candidate.py; dependency manifest: objective-combined-freeze.json. Consumed original plants39/0/22,disables1/0/7; extension25/0/7,3/0/9. Both disputed controls remain unresolved. State/identity/interaction/unknown/death/disconnect/conflict safeguards tested;34targeted regressions and full144Python tests passed(1skipped,6subtests). Go dissect tests/vet and component tests passed. This is a research freeze, not production actor credit.
+
+NEXT: locally commit freeze, verify clean tree, run objective_combined_reserve.py. Five maps60rounds with8plants2disables; all predictions saved before public actor labels, durable opening ledger and immutable final result. Fresh reserve remains sealed until adapter reaches label-opening phase. No retuning until complete result permanently recorded. Zero errors on this small set still needs further distinct actor validation before broad production claims. Runtime/SQLite/public/archives/v2 unchanged.
+
 ## DECLARED STATE / DISABLE CLOCK WAVE - 2026-10-02
 
 All93 consumed rounds /930 player paths cached with full feedback parity. Independent HUD33states:10active/state0,20dead/state4,3active/state2. State2 is not a DBNO/dead exclusion; state3 has qualitative downed-icon support but exact timing/revive/disconnect semantics remain uncertain. HP alone fails seven of43 control deaths. See objective-state-hud-audit.md, objective-body-transitions.md and objective-health-validation.md.

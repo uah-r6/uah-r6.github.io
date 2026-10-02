@@ -1,0 +1,4619 @@
+[
+  {
+    "case": "4139-None-R07-plant",
+    "expected": null,
+    "mode": "no_unambiguous_guarded_mode",
+    "row": {
+      "kind": "plant",
+      "center": 61871641,
+      "clock_ticks": [
+        {
+          "offset": 61870914,
+          "value": 34
+        },
+        {
+          "offset": 61871294,
+          "value": 44
+        },
+        {
+          "offset": 61875729,
+          "value": 43
+        },
+        {
+          "offset": 61878628,
+          "value": 42
+        },
+        {
+          "offset": 61880908,
+          "value": 41
+        }
+      ],
+      "all_changes": [
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 61872493,
+          "entity": 4028234567
+        },
+        {
+          "counter": "score",
+          "delta": 10,
+          "offset": 61874066,
+          "entity": 4028234522
+        },
+        {
+          "counter": "kills",
+          "delta": 1,
+          "offset": 61874166,
+          "entity": 4028234588
+        },
+        {
+          "counter": "assists",
+          "delta": 1,
+          "offset": 61874418,
+          "entity": 4028220587
+        },
+        {
+          "counter": "score",
+          "delta": 110,
+          "offset": 61875433,
+          "entity": 4028234588
+        },
+        {
+          "counter": "score",
+          "delta": 75,
+          "offset": 61875547,
+          "entity": 4028220587
+        }
+      ],
+      "identity": {
+        "entity_names": {
+          "4028220568": [
+            "Kason.100T"
+          ],
+          "4028220553": [
+            "Atom.100T"
+          ],
+          "4028220602": [
+            "Hotancold.100T"
+          ],
+          "4028220587": [
+            "GMZ.100T"
+          ],
+          "4028234588": [
+            "SpiriTz.100T"
+          ],
+          "4028234567": [
+            "Aiden.SSG"
+          ],
+          "4028234616": [
+            "Dream.SSG"
+          ],
+          "4028234601": [
+            "Gity.SSG"
+          ],
+          "4028234522": [
+            "Raid.SSG"
+          ],
+          "4028234507": [
+            "Rival.SSG"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "id": 14288225915216780939,
+            "username": "Kason.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 12864520359706119164,
+            "username": "Atom.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 16269133295960348686,
+            "username": "Hotancold.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 17367392971535581527,
+            "username": "GMZ.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 15386545086487290361,
+            "username": "SpiriTz.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 6680097842242303694,
+            "username": "Aiden.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 3428439247052383273,
+            "username": "Dream.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 5015576564456091063,
+            "username": "Gity.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 18445587253410160608,
+            "username": "Raid.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 532313449850781657,
+            "username": "Rival.SSG",
+            "teamIndex": 1
+          }
+        ],
+        "teams": [
+          {
+            "role": "Defense"
+          },
+          {
+            "role": "Attack"
+          }
+        ]
+      }
+    },
+    "deaths": [
+      {
+        "offset": 61645683,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Atom.100T",
+          "target": "Gity.SSG"
+        }
+      },
+      {
+        "offset": 61648309,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Gity.SSG",
+          "target": "Atom.100T"
+        }
+      },
+      {
+        "offset": 61662402,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Aiden.SSG",
+          "target": "Kason.100T"
+        }
+      },
+      {
+        "offset": 61707536,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Hotancold.100T",
+          "target": "Dream.SSG"
+        }
+      },
+      {
+        "offset": 61715002,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Raid.SSG",
+          "target": "GMZ.100T"
+        }
+      },
+      {
+        "offset": 61782823,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "SpiriTz.100T",
+          "target": "Rival.SSG"
+        }
+      },
+      {
+        "offset": 61793401,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Aiden.SSG",
+          "target": "Hotancold.100T"
+        }
+      },
+      {
+        "offset": 61874628,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "SpiriTz.100T",
+          "target": "Aiden.SSG"
+        }
+      },
+      {
+        "offset": 61885778,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Raid.SSG",
+          "target": "SpiriTz.100T"
+        }
+      }
+    ],
+    "timers": [
+      {
+        "offset": 61849872,
+        "value": "7.000"
+      },
+      {
+        "offset": 61850098,
+        "value": "6.962"
+      },
+      {
+        "offset": 61850264,
+        "value": "6.919"
+      },
+      {
+        "offset": 61850393,
+        "value": "6.877"
+      },
+      {
+        "offset": 61850522,
+        "value": "6.835"
+      },
+      {
+        "offset": 61850651,
+        "value": "6.792"
+      },
+      {
+        "offset": 61850762,
+        "value": "6.752"
+      },
+      {
+        "offset": 61850891,
+        "value": "6.715"
+      },
+      {
+        "offset": 61851002,
+        "value": "6.679"
+      },
+      {
+        "offset": 61851113,
+        "value": "6.637"
+      },
+      {
+        "offset": 61851224,
+        "value": "6.601"
+      },
+      {
+        "offset": 61851335,
+        "value": "6.564"
+      },
+      {
+        "offset": 61851446,
+        "value": "6.527"
+      },
+      {
+        "offset": 61851557,
+        "value": "6.491"
+      },
+      {
+        "offset": 61851668,
+        "value": "6.452"
+      },
+      {
+        "offset": 61851793,
+        "value": "6.415"
+      },
+      {
+        "offset": 61851904,
+        "value": "6.376"
+      },
+      {
+        "offset": 61852015,
+        "value": "6.340"
+      },
+      {
+        "offset": 61852126,
+        "value": "6.304"
+      },
+      {
+        "offset": 61852237,
+        "value": "6.268"
+      },
+      {
+        "offset": 61852348,
+        "value": "6.230"
+      },
+      {
+        "offset": 61852459,
+        "value": "6.193"
+      },
+      {
+        "offset": 61852671,
+        "value": "6.121"
+      },
+      {
+        "offset": 61852782,
+        "value": "6.086"
+      },
+      {
+        "offset": 61852903,
+        "value": "6.049"
+      },
+      {
+        "offset": 61852996,
+        "value": "6.012"
+      },
+      {
+        "offset": 61853089,
+        "value": "5.975"
+      },
+      {
+        "offset": 61853182,
+        "value": "5.938"
+      },
+      {
+        "offset": 61853275,
+        "value": "5.898"
+      },
+      {
+        "offset": 61853368,
+        "value": "5.862"
+      },
+      {
+        "offset": 61853461,
+        "value": "5.826"
+      },
+      {
+        "offset": 61853554,
+        "value": "5.789"
+      },
+      {
+        "offset": 61853647,
+        "value": "5.752"
+      },
+      {
+        "offset": 61853740,
+        "value": "5.719"
+      },
+      {
+        "offset": 61853833,
+        "value": "5.680"
+      },
+      {
+        "offset": 61853926,
+        "value": "5.645"
+      },
+      {
+        "offset": 61854019,
+        "value": "5.608"
+      },
+      {
+        "offset": 61854112,
+        "value": "5.569"
+      },
+      {
+        "offset": 61854205,
+        "value": "5.530"
+      },
+      {
+        "offset": 61854298,
+        "value": "5.495"
+      },
+      {
+        "offset": 61854391,
+        "value": "5.458"
+      },
+      {
+        "offset": 61854484,
+        "value": "5.418"
+      },
+      {
+        "offset": 61854577,
+        "value": "5.380"
+      },
+      {
+        "offset": 61854670,
+        "value": "5.342"
+      },
+      {
+        "offset": 61854763,
+        "value": "5.306"
+      },
+      {
+        "offset": 61854856,
+        "value": "5.267"
+      },
+      {
+        "offset": 61854949,
+        "value": "5.228"
+      },
+      {
+        "offset": 61855042,
+        "value": "5.190"
+      },
+      {
+        "offset": 61855135,
+        "value": "5.149"
+      },
+      {
+        "offset": 61855228,
+        "value": "5.112"
+      },
+      {
+        "offset": 61855321,
+        "value": "5.076"
+      },
+      {
+        "offset": 61855424,
+        "value": "5.037"
+      },
+      {
+        "offset": 61855517,
+        "value": "5.000"
+      },
+      {
+        "offset": 61855610,
+        "value": "4.961"
+      },
+      {
+        "offset": 61855703,
+        "value": "4.923"
+      },
+      {
+        "offset": 61855796,
+        "value": "4.882"
+      },
+      {
+        "offset": 61855889,
+        "value": "4.846"
+      },
+      {
+        "offset": 61855982,
+        "value": "4.809"
+      },
+      {
+        "offset": 61856128,
+        "value": "4.774"
+      },
+      {
+        "offset": 61856221,
+        "value": "4.738"
+      },
+      {
+        "offset": 61856314,
+        "value": "4.701"
+      },
+      {
+        "offset": 61856407,
+        "value": "4.663"
+      },
+      {
+        "offset": 61856500,
+        "value": "4.625"
+      },
+      {
+        "offset": 61856593,
+        "value": "4.588"
+      },
+      {
+        "offset": 61856701,
+        "value": "4.552"
+      },
+      {
+        "offset": 61856794,
+        "value": "4.517"
+      },
+      {
+        "offset": 61857004,
+        "value": "4.480"
+      },
+      {
+        "offset": 61857097,
+        "value": "4.440"
+      },
+      {
+        "offset": 61857190,
+        "value": "4.403"
+      },
+      {
+        "offset": 61857283,
+        "value": "4.367"
+      },
+      {
+        "offset": 61857376,
+        "value": "4.332"
+      },
+      {
+        "offset": 61857469,
+        "value": "4.289"
+      },
+      {
+        "offset": 61857562,
+        "value": "4.245"
+      },
+      {
+        "offset": 61857655,
+        "value": "4.204"
+      },
+      {
+        "offset": 61857748,
+        "value": "4.162"
+      },
+      {
+        "offset": 61857980,
+        "value": "4.085"
+      },
+      {
+        "offset": 61858083,
+        "value": "4.043"
+      },
+      {
+        "offset": 61858176,
+        "value": "4.001"
+      },
+      {
+        "offset": 61858269,
+        "value": "3.956"
+      },
+      {
+        "offset": 61858362,
+        "value": "3.915"
+      },
+      {
+        "offset": 61858455,
+        "value": "3.874"
+      },
+      {
+        "offset": 61858548,
+        "value": "3.836"
+      },
+      {
+        "offset": 61858673,
+        "value": "3.794"
+      },
+      {
+        "offset": 61858784,
+        "value": "3.754"
+      },
+      {
+        "offset": 61858895,
+        "value": "3.720"
+      },
+      {
+        "offset": 61859006,
+        "value": "3.683"
+      },
+      {
+        "offset": 61859117,
+        "value": "3.655"
+      },
+      {
+        "offset": 61859228,
+        "value": "3.619"
+      },
+      {
+        "offset": 61859339,
+        "value": "3.572"
+      },
+      {
+        "offset": 61859450,
+        "value": "3.495"
+      },
+      {
+        "offset": 61859561,
+        "value": "3.428"
+      },
+      {
+        "offset": 61859672,
+        "value": "3.394"
+      },
+      {
+        "offset": 61860038,
+        "value": "3.326"
+      },
+      {
+        "offset": 61860337,
+        "value": "3.258"
+      },
+      {
+        "offset": 61860549,
+        "value": "3.191"
+      },
+      {
+        "offset": 61860761,
+        "value": "3.121"
+      },
+      {
+        "offset": 61860983,
+        "value": "3.053"
+      },
+      {
+        "offset": 61861177,
+        "value": "2.986"
+      },
+      {
+        "offset": 61861389,
+        "value": "2.918"
+      },
+      {
+        "offset": 61861583,
+        "value": "2.849"
+      },
+      {
+        "offset": 61861777,
+        "value": "2.781"
+      },
+      {
+        "offset": 61861971,
+        "value": "2.713"
+      },
+      {
+        "offset": 61862147,
+        "value": "2.644"
+      },
+      {
+        "offset": 61862341,
+        "value": "2.576"
+      },
+      {
+        "offset": 61862517,
+        "value": "2.508"
+      },
+      {
+        "offset": 61862693,
+        "value": "2.439"
+      },
+      {
+        "offset": 61862887,
+        "value": "2.370"
+      },
+      {
+        "offset": 61863063,
+        "value": "2.302"
+      },
+      {
+        "offset": 61863239,
+        "value": "2.233"
+      },
+      {
+        "offset": 61863415,
+        "value": "2.165"
+      },
+      {
+        "offset": 61863591,
+        "value": "2.097"
+      },
+      {
+        "offset": 61863694,
+        "value": "2.029"
+      },
+      {
+        "offset": 61863787,
+        "value": "1.995"
+      },
+      {
+        "offset": 61863981,
+        "value": "1.926"
+      },
+      {
+        "offset": 61864434,
+        "value": "1.858"
+      },
+      {
+        "offset": 61864628,
+        "value": "1.789"
+      },
+      {
+        "offset": 61865081,
+        "value": "1.720"
+      },
+      {
+        "offset": 61865257,
+        "value": "1.653"
+      },
+      {
+        "offset": 61865433,
+        "value": "1.584"
+      },
+      {
+        "offset": 61865642,
+        "value": "1.515"
+      },
+      {
+        "offset": 61866149,
+        "value": "1.447"
+      },
+      {
+        "offset": 61866613,
+        "value": "1.378"
+      },
+      {
+        "offset": 61866706,
+        "value": "1.343"
+      },
+      {
+        "offset": 61867002,
+        "value": "1.274"
+      },
+      {
+        "offset": 61867261,
+        "value": "1.207"
+      },
+      {
+        "offset": 61867372,
+        "value": "1.172"
+      },
+      {
+        "offset": 61867602,
+        "value": "1.102"
+      },
+      {
+        "offset": 61867874,
+        "value": "1.033"
+      },
+      {
+        "offset": 61868086,
+        "value": "0.965"
+      },
+      {
+        "offset": 61868280,
+        "value": "0.896"
+      },
+      {
+        "offset": 61868456,
+        "value": "0.827"
+      },
+      {
+        "offset": 61868704,
+        "value": "0.759"
+      },
+      {
+        "offset": 61868916,
+        "value": "0.691"
+      },
+      {
+        "offset": 61869128,
+        "value": "0.623"
+      },
+      {
+        "offset": 61869340,
+        "value": "0.556"
+      },
+      {
+        "offset": 61869552,
+        "value": "0.488"
+      },
+      {
+        "offset": 61869764,
+        "value": "0.420"
+      },
+      {
+        "offset": 61869976,
+        "value": "0.319"
+      },
+      {
+        "offset": 61870115,
+        "value": "0.285"
+      },
+      {
+        "offset": 61870327,
+        "value": "0.217"
+      },
+      {
+        "offset": 61870539,
+        "value": "0.149"
+      },
+      {
+        "offset": 61870848,
+        "value": "0.080"
+      },
+      {
+        "offset": 61871074,
+        "value": "0.012"
+      }
+    ],
+    "body": {
+      "Kason.100T": [
+        {
+          "offset": 61661702,
+          "value": 4
+        }
+      ],
+      "Atom.100T": [
+        {
+          "offset": 61645053,
+          "value": 4
+        }
+      ],
+      "Hotancold.100T": [
+        {
+          "offset": 61792992,
+          "value": 4
+        }
+      ],
+      "GMZ.100T": [
+        {
+          "offset": 61714286,
+          "value": 4
+        }
+      ],
+      "SpiriTz.100T": [
+        {
+          "offset": 61815977,
+          "value": 2
+        }
+      ],
+      "Aiden.SSG": [
+        {
+          "offset": 61240966,
+          "value": 0
+        }
+      ],
+      "Dream.SSG": [
+        {
+          "offset": 61707150,
+          "value": 4
+        }
+      ],
+      "Gity.SSG": [
+        {
+          "offset": 61645285,
+          "value": 4
+        }
+      ],
+      "Raid.SSG": [
+        {
+          "offset": 32876,
+          "value": 0
+        }
+      ],
+      "Rival.SSG": [
+        {
+          "offset": 61782301,
+          "value": 4
+        }
+      ]
+    },
+    "full_feedback": [],
+    "previous_state": 0
+  },
+  {
+    "case": "4139-None-R04-plant",
+    "expected": "Hotancold.100T",
+    "mode": "standalone_clock_with_body_guard",
+    "row": {
+      "kind": "plant",
+      "center": 79657310,
+      "clock_ticks": [
+        {
+          "offset": 79644959,
+          "value": 0
+        },
+        {
+          "offset": 79657061,
+          "value": 44
+        },
+        {
+          "offset": 79659818,
+          "value": 43
+        },
+        {
+          "offset": 79663402,
+          "value": 42
+        },
+        {
+          "offset": 79664266,
+          "value": 0
+        }
+      ],
+      "all_changes": [
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 79657614,
+          "entity": 4028220602
+        },
+        {
+          "counter": "kills",
+          "delta": 1,
+          "offset": 79663142,
+          "entity": 4028220602
+        },
+        {
+          "counter": "assists",
+          "delta": 1,
+          "offset": 79663160,
+          "entity": 4028234588
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 79663430,
+          "entity": 4028220568
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 79663448,
+          "entity": 4028220553
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 79663494,
+          "entity": 4028220587
+        }
+      ],
+      "identity": {
+        "entity_names": {
+          "4028220568": [
+            "Kason.100T"
+          ],
+          "4028220553": [
+            "Atom.100T"
+          ],
+          "4028220602": [
+            "Hotancold.100T"
+          ],
+          "4028220587": [
+            "GMZ.100T"
+          ],
+          "4028234588": [
+            "SpiriTz.100T"
+          ],
+          "4028234567": [
+            "Aiden.SSG"
+          ],
+          "4028234616": [
+            "Dream.SSG"
+          ],
+          "4028234601": [
+            "Gity.SSG"
+          ],
+          "4028234522": [
+            "Raid.SSG"
+          ],
+          "4028234507": [
+            "Rival.SSG"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "id": 6680097842242303694,
+            "username": "Aiden.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 3428439247052383273,
+            "username": "Dream.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 5015576564456091063,
+            "username": "Gity.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 18445587253410160608,
+            "username": "Raid.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 532313449850781657,
+            "username": "Rival.SSG",
+            "teamIndex": 1
+          },
+          {
+            "id": 14288225915216780939,
+            "username": "Kason.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 12864520359706119164,
+            "username": "Atom.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 16269133295960348686,
+            "username": "Hotancold.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 17367392971535581527,
+            "username": "GMZ.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 15386545086487290361,
+            "username": "SpiriTz.100T",
+            "teamIndex": 0
+          }
+        ],
+        "teams": [
+          {
+            "role": "Attack"
+          },
+          {
+            "role": "Defense"
+          }
+        ]
+      }
+    },
+    "deaths": [
+      {
+        "offset": 79186034,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Rival.SSG",
+          "target": "Kason.100T"
+        }
+      },
+      {
+        "offset": 79541518,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Atom.100T",
+          "target": "Aiden.SSG"
+        }
+      },
+      {
+        "offset": 79603904,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "GMZ.100T",
+          "target": "Raid.SSG"
+        }
+      },
+      {
+        "offset": 79606659,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Rival.SSG",
+          "target": "Atom.100T"
+        }
+      },
+      {
+        "offset": 79612195,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "SpiriTz.100T",
+          "target": "Gity.SSG"
+        }
+      },
+      {
+        "offset": 79620071,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Rival.SSG",
+          "target": "SpiriTz.100T"
+        }
+      },
+      {
+        "offset": 79625369,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Hotancold.100T",
+          "target": "Rival.SSG"
+        }
+      },
+      {
+        "offset": 79663950,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Hotancold.100T",
+          "target": "Dream.SSG"
+        }
+      }
+    ],
+    "timers": [
+      {
+        "offset": 79635538,
+        "value": "7.000"
+      },
+      {
+        "offset": 79635674,
+        "value": "6.965"
+      },
+      {
+        "offset": 79636212,
+        "value": "6.896"
+      },
+      {
+        "offset": 79636512,
+        "value": "6.830"
+      },
+      {
+        "offset": 79636706,
+        "value": "6.762"
+      },
+      {
+        "offset": 79636882,
+        "value": "6.694"
+      },
+      {
+        "offset": 79637073,
+        "value": "6.626"
+      },
+      {
+        "offset": 79637438,
+        "value": "6.558"
+      },
+      {
+        "offset": 79637745,
+        "value": "6.489"
+      },
+      {
+        "offset": 79637856,
+        "value": "6.422"
+      },
+      {
+        "offset": 79637967,
+        "value": "6.354"
+      },
+      {
+        "offset": 79638161,
+        "value": "6.252"
+      },
+      {
+        "offset": 79638414,
+        "value": "6.218"
+      },
+      {
+        "offset": 79638590,
+        "value": "6.150"
+      },
+      {
+        "offset": 79638766,
+        "value": "6.083"
+      },
+      {
+        "offset": 79638959,
+        "value": "6.013"
+      },
+      {
+        "offset": 79639135,
+        "value": "5.913"
+      },
+      {
+        "offset": 79639228,
+        "value": "5.879"
+      },
+      {
+        "offset": 79639545,
+        "value": "5.813"
+      },
+      {
+        "offset": 79639721,
+        "value": "5.744"
+      },
+      {
+        "offset": 79639971,
+        "value": "5.675"
+      },
+      {
+        "offset": 79640162,
+        "value": "5.608"
+      },
+      {
+        "offset": 79640353,
+        "value": "5.539"
+      },
+      {
+        "offset": 79640559,
+        "value": "5.470"
+      },
+      {
+        "offset": 79640684,
+        "value": "5.403"
+      },
+      {
+        "offset": 79641187,
+        "value": "5.335"
+      },
+      {
+        "offset": 79641417,
+        "value": "5.233"
+      },
+      {
+        "offset": 79641528,
+        "value": "5.199"
+      },
+      {
+        "offset": 79641639,
+        "value": "5.132"
+      },
+      {
+        "offset": 79641868,
+        "value": "5.063"
+      },
+      {
+        "offset": 79642150,
+        "value": "4.996"
+      },
+      {
+        "offset": 79642379,
+        "value": "4.928"
+      },
+      {
+        "offset": 79642555,
+        "value": "4.859"
+      },
+      {
+        "offset": 79642731,
+        "value": "4.791"
+      },
+      {
+        "offset": 79642939,
+        "value": "4.691"
+      },
+      {
+        "offset": 79643032,
+        "value": "4.657"
+      },
+      {
+        "offset": 79643208,
+        "value": "4.588"
+      },
+      {
+        "offset": 79643384,
+        "value": "4.521"
+      },
+      {
+        "offset": 79643663,
+        "value": "4.452"
+      },
+      {
+        "offset": 79643839,
+        "value": "4.383"
+      },
+      {
+        "offset": 79644015,
+        "value": "4.313"
+      },
+      {
+        "offset": 79644191,
+        "value": "4.246"
+      },
+      {
+        "offset": 79644367,
+        "value": "4.178"
+      },
+      {
+        "offset": 79644810,
+        "value": "4.109"
+      },
+      {
+        "offset": 79645003,
+        "value": "4.041"
+      },
+      {
+        "offset": 79645232,
+        "value": "3.971"
+      },
+      {
+        "offset": 79645762,
+        "value": "3.903"
+      },
+      {
+        "offset": 79645974,
+        "value": "3.834"
+      },
+      {
+        "offset": 79646186,
+        "value": "3.767"
+      },
+      {
+        "offset": 79647152,
+        "value": "3.697"
+      },
+      {
+        "offset": 79648193,
+        "value": "3.596"
+      },
+      {
+        "offset": 79648333,
+        "value": "3.561"
+      },
+      {
+        "offset": 79648545,
+        "value": "3.493"
+      },
+      {
+        "offset": 79648739,
+        "value": "3.425"
+      },
+      {
+        "offset": 79649195,
+        "value": "3.358"
+      },
+      {
+        "offset": 79649436,
+        "value": "3.288"
+      },
+      {
+        "offset": 79649630,
+        "value": "3.220"
+      },
+      {
+        "offset": 79649896,
+        "value": "3.152"
+      },
+      {
+        "offset": 79650072,
+        "value": "3.084"
+      },
+      {
+        "offset": 79650248,
+        "value": "3.016"
+      },
+      {
+        "offset": 79650388,
+        "value": "2.946"
+      },
+      {
+        "offset": 79650528,
+        "value": "2.879"
+      },
+      {
+        "offset": 79650686,
+        "value": "2.811"
+      },
+      {
+        "offset": 79650826,
+        "value": "2.743"
+      },
+      {
+        "offset": 79650966,
+        "value": "2.674"
+      },
+      {
+        "offset": 79651106,
+        "value": "2.606"
+      },
+      {
+        "offset": 79651246,
+        "value": "2.539"
+      },
+      {
+        "offset": 79651465,
+        "value": "2.470"
+      },
+      {
+        "offset": 79651623,
+        "value": "2.403"
+      },
+      {
+        "offset": 79651731,
+        "value": "2.367"
+      },
+      {
+        "offset": 79651901,
+        "value": "2.299"
+      },
+      {
+        "offset": 79651976,
+        "value": "2.231"
+      },
+      {
+        "offset": 79652051,
+        "value": "2.196"
+      },
+      {
+        "offset": 79652191,
+        "value": "2.127"
+      },
+      {
+        "offset": 79652284,
+        "value": "2.060"
+      },
+      {
+        "offset": 79652377,
+        "value": "1.992"
+      },
+      {
+        "offset": 79652563,
+        "value": "1.924"
+      },
+      {
+        "offset": 79652749,
+        "value": "1.854"
+      },
+      {
+        "offset": 79652935,
+        "value": "1.785"
+      },
+      {
+        "offset": 79653121,
+        "value": "1.683"
+      },
+      {
+        "offset": 79653242,
+        "value": "1.649"
+      },
+      {
+        "offset": 79653428,
+        "value": "1.581"
+      },
+      {
+        "offset": 79653632,
+        "value": "1.514"
+      },
+      {
+        "offset": 79653818,
+        "value": "1.445"
+      },
+      {
+        "offset": 79653976,
+        "value": "1.376"
+      },
+      {
+        "offset": 79654134,
+        "value": "1.309"
+      },
+      {
+        "offset": 79654314,
+        "value": "1.240"
+      },
+      {
+        "offset": 79654490,
+        "value": "1.172"
+      },
+      {
+        "offset": 79654701,
+        "value": "1.070"
+      },
+      {
+        "offset": 79654851,
+        "value": "1.035"
+      },
+      {
+        "offset": 79655123,
+        "value": "0.968"
+      },
+      {
+        "offset": 79655327,
+        "value": "0.865"
+      },
+      {
+        "offset": 79655420,
+        "value": "0.830"
+      },
+      {
+        "offset": 79655624,
+        "value": "0.761"
+      },
+      {
+        "offset": 79655699,
+        "value": "0.693"
+      },
+      {
+        "offset": 79655857,
+        "value": "0.626"
+      },
+      {
+        "offset": 79655997,
+        "value": "0.557"
+      },
+      {
+        "offset": 79656137,
+        "value": "0.488"
+      },
+      {
+        "offset": 79656295,
+        "value": "0.419"
+      },
+      {
+        "offset": 79656370,
+        "value": "0.352"
+      },
+      {
+        "offset": 79656510,
+        "value": "0.250"
+      },
+      {
+        "offset": 79656585,
+        "value": "0.217"
+      },
+      {
+        "offset": 79656660,
+        "value": "0.150"
+      },
+      {
+        "offset": 79656855,
+        "value": "0.082"
+      },
+      {
+        "offset": 79656995,
+        "value": "0.013"
+      }
+    ],
+    "body": {
+      "Kason.100T": [
+        {
+          "offset": 79185345,
+          "value": 4
+        }
+      ],
+      "Atom.100T": [
+        {
+          "offset": 79605638,
+          "value": 4
+        }
+      ],
+      "Hotancold.100T": [
+        {
+          "offset": 78908056,
+          "value": 0
+        }
+      ],
+      "GMZ.100T": [
+        {
+          "offset": 79604391,
+          "value": 2
+        }
+      ],
+      "SpiriTz.100T": [
+        {
+          "offset": 79619660,
+          "value": 4
+        }
+      ],
+      "Aiden.SSG": [
+        {
+          "offset": 79541140,
+          "value": 4
+        }
+      ],
+      "Dream.SSG": [
+        {
+          "offset": 45605,
+          "value": 0
+        }
+      ],
+      "Gity.SSG": [
+        {
+          "offset": 79611602,
+          "value": 4
+        }
+      ],
+      "Raid.SSG": [
+        {
+          "offset": 79603585,
+          "value": 4
+        }
+      ],
+      "Rival.SSG": [
+        {
+          "offset": 79625013,
+          "value": 4
+        }
+      ]
+    },
+    "full_feedback": [],
+    "previous_state": 0
+  },
+  {
+    "case": "4150-None-R07-plant",
+    "expected": "Hotancold.100T",
+    "mode": "standalone_clock_with_body_guard",
+    "row": {
+      "kind": "plant",
+      "center": 81742897,
+      "clock_ticks": [
+        {
+          "offset": 81740802,
+          "value": 21
+        },
+        {
+          "offset": 81742579,
+          "value": 44
+        },
+        {
+          "offset": 81747762,
+          "value": 43
+        },
+        {
+          "offset": 81752391,
+          "value": 42
+        },
+        {
+          "offset": 81760348,
+          "value": 41
+        }
+      ],
+      "all_changes": [
+        {
+          "counter": "score",
+          "delta": 120,
+          "offset": 81742184,
+          "entity": 4029685106
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 81743613,
+          "entity": 4029685012
+        },
+        {
+          "counter": "kills",
+          "delta": 1,
+          "offset": 81753690,
+          "entity": 4030520708
+        },
+        {
+          "counter": "assists",
+          "delta": 1,
+          "offset": 81753848,
+          "entity": 4030521178
+        },
+        {
+          "counter": "assists",
+          "delta": 1,
+          "offset": 81753866,
+          "entity": 4030520367
+        },
+        {
+          "counter": "score",
+          "delta": 75,
+          "offset": 81755406,
+          "entity": 4030521178
+        },
+        {
+          "counter": "score",
+          "delta": 75,
+          "offset": 81755424,
+          "entity": 4030520367
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 81755460,
+          "entity": 4030520708
+        },
+        {
+          "counter": "kills",
+          "delta": 1,
+          "offset": 81757750,
+          "entity": 4029684997
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 81760284,
+          "entity": 4029684997
+        }
+      ],
+      "identity": {
+        "entity_names": {
+          "4029685106": [
+            "Kason.100T"
+          ],
+          "4029685091": [
+            "Atom.100T"
+          ],
+          "4029685012": [
+            "Hotancold.100T"
+          ],
+          "4029684997": [
+            "GMZ.100T"
+          ],
+          "4029685046": [
+            "SpiriTz.100T"
+          ],
+          "4030519485": [
+            "JJBlaztful.5F"
+          ],
+          "4030521178": [
+            "Forrest.5F"
+          ],
+          "4030520367": [
+            "Rival.5F"
+          ],
+          "4030520708": [
+            "Fenz.5F"
+          ],
+          "4030513940": [
+            "Snake.5F"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "id": 9018445774136622066,
+            "username": "Rival.5F",
+            "teamIndex": 1
+          },
+          {
+            "id": 10441629480300712557,
+            "username": "Fenz.5F",
+            "teamIndex": 1
+          },
+          {
+            "id": 1030662341105623509,
+            "username": "Snake.5F",
+            "teamIndex": 1
+          },
+          {
+            "id": 7959641276607780909,
+            "username": "JJBlaztful.5F",
+            "teamIndex": 1
+          },
+          {
+            "id": 12659685438423616707,
+            "username": "Forrest.5F",
+            "teamIndex": 1
+          },
+          {
+            "id": 9306303927028781086,
+            "username": "Kason.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 17831898925484709847,
+            "username": "Atom.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 9819136520530108718,
+            "username": "Hotancold.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 11386351029748084276,
+            "username": "GMZ.100T",
+            "teamIndex": 0
+          },
+          {
+            "id": 1822635709396299975,
+            "username": "SpiriTz.100T",
+            "teamIndex": 0
+          }
+        ],
+        "teams": [
+          {
+            "role": "Attack"
+          },
+          {
+            "role": "Defense"
+          }
+        ]
+      }
+    },
+    "deaths": [
+      {
+        "offset": 81728726,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Kason.100T",
+          "target": "Rival.5F"
+        }
+      },
+      {
+        "offset": 81741195,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Kason.100T",
+          "target": "JJBlaztful.5F"
+        }
+      },
+      {
+        "offset": 81754136,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Fenz.5F",
+          "target": "SpiriTz.100T"
+        }
+      },
+      {
+        "offset": 81758635,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "GMZ.100T",
+          "target": "Snake.5F"
+        }
+      },
+      {
+        "offset": 81769279,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "GMZ.100T",
+          "target": "Fenz.5F"
+        }
+      },
+      {
+        "offset": 81783968,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Forrest.5F",
+          "target": "GMZ.100T"
+        }
+      },
+      {
+        "offset": 81835594,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Atom.100T",
+          "target": "Forrest.5F"
+        }
+      }
+    ],
+    "timers": [
+      {
+        "offset": 81701028,
+        "value": "7.000"
+      },
+      {
+        "offset": 81701563,
+        "value": "6.932"
+      },
+      {
+        "offset": 81701919,
+        "value": "6.864"
+      },
+      {
+        "offset": 81702218,
+        "value": "6.796"
+      },
+      {
+        "offset": 81702481,
+        "value": "6.728"
+      },
+      {
+        "offset": 81702916,
+        "value": "6.660"
+      },
+      {
+        "offset": 81703404,
+        "value": "6.591"
+      },
+      {
+        "offset": 81703825,
+        "value": "6.523"
+      },
+      {
+        "offset": 81704163,
+        "value": "6.455"
+      },
+      {
+        "offset": 81704498,
+        "value": "6.386"
+      },
+      {
+        "offset": 81704691,
+        "value": "6.319"
+      },
+      {
+        "offset": 81705372,
+        "value": "6.250"
+      },
+      {
+        "offset": 81705876,
+        "value": "6.182"
+      },
+      {
+        "offset": 81706325,
+        "value": "6.113"
+      },
+      {
+        "offset": 81706788,
+        "value": "6.044"
+      },
+      {
+        "offset": 81707234,
+        "value": "5.976"
+      },
+      {
+        "offset": 81707745,
+        "value": "5.908"
+      },
+      {
+        "offset": 81708208,
+        "value": "5.841"
+      },
+      {
+        "offset": 81708636,
+        "value": "5.773"
+      },
+      {
+        "offset": 81709079,
+        "value": "5.671"
+      },
+      {
+        "offset": 81709334,
+        "value": "5.637"
+      },
+      {
+        "offset": 81709744,
+        "value": "5.570"
+      },
+      {
+        "offset": 81710209,
+        "value": "5.502"
+      },
+      {
+        "offset": 81711649,
+        "value": "5.434"
+      },
+      {
+        "offset": 81712234,
+        "value": "5.366"
+      },
+      {
+        "offset": 81712738,
+        "value": "5.265"
+      },
+      {
+        "offset": 81713097,
+        "value": "5.230"
+      },
+      {
+        "offset": 81713572,
+        "value": "5.162"
+      },
+      {
+        "offset": 81714117,
+        "value": "5.095"
+      },
+      {
+        "offset": 81714586,
+        "value": "5.026"
+      },
+      {
+        "offset": 81714975,
+        "value": "4.958"
+      },
+      {
+        "offset": 81715341,
+        "value": "4.889"
+      },
+      {
+        "offset": 81715560,
+        "value": "4.822"
+      },
+      {
+        "offset": 81715970,
+        "value": "4.754"
+      },
+      {
+        "offset": 81716380,
+        "value": "4.685"
+      },
+      {
+        "offset": 81716826,
+        "value": "4.616"
+      },
+      {
+        "offset": 81717182,
+        "value": "4.515"
+      },
+      {
+        "offset": 81717365,
+        "value": "4.481"
+      },
+      {
+        "offset": 81717685,
+        "value": "4.413"
+      },
+      {
+        "offset": 81717969,
+        "value": "4.345"
+      },
+      {
+        "offset": 81718116,
+        "value": "4.310"
+      },
+      {
+        "offset": 81719372,
+        "value": "4.242"
+      },
+      {
+        "offset": 81719750,
+        "value": "4.173"
+      },
+      {
+        "offset": 81720238,
+        "value": "4.105"
+      },
+      {
+        "offset": 81720612,
+        "value": "4.035"
+      },
+      {
+        "offset": 81721060,
+        "value": "3.968"
+      },
+      {
+        "offset": 81721444,
+        "value": "3.900"
+      },
+      {
+        "offset": 81721866,
+        "value": "3.799"
+      },
+      {
+        "offset": 81722169,
+        "value": "3.764"
+      },
+      {
+        "offset": 81722525,
+        "value": "3.696"
+      },
+      {
+        "offset": 81722881,
+        "value": "3.627"
+      },
+      {
+        "offset": 81723219,
+        "value": "3.558"
+      },
+      {
+        "offset": 81723594,
+        "value": "3.490"
+      },
+      {
+        "offset": 81723932,
+        "value": "3.422"
+      },
+      {
+        "offset": 81724274,
+        "value": "3.354"
+      },
+      {
+        "offset": 81724626,
+        "value": "3.286"
+      },
+      {
+        "offset": 81724982,
+        "value": "3.218"
+      },
+      {
+        "offset": 81725378,
+        "value": "3.149"
+      },
+      {
+        "offset": 81725772,
+        "value": "3.081"
+      },
+      {
+        "offset": 81726146,
+        "value": "3.012"
+      },
+      {
+        "offset": 81726830,
+        "value": "2.944"
+      },
+      {
+        "offset": 81727214,
+        "value": "2.876"
+      },
+      {
+        "offset": 81727584,
+        "value": "2.809"
+      },
+      {
+        "offset": 81727998,
+        "value": "2.741"
+      },
+      {
+        "offset": 81729035,
+        "value": "2.672"
+      },
+      {
+        "offset": 81729387,
+        "value": "2.604"
+      },
+      {
+        "offset": 81729720,
+        "value": "2.536"
+      },
+      {
+        "offset": 81730133,
+        "value": "2.469"
+      },
+      {
+        "offset": 81730409,
+        "value": "2.400"
+      },
+      {
+        "offset": 81730685,
+        "value": "2.332"
+      },
+      {
+        "offset": 81730961,
+        "value": "2.263"
+      },
+      {
+        "offset": 81731191,
+        "value": "2.162"
+      },
+      {
+        "offset": 81731352,
+        "value": "2.129"
+      },
+      {
+        "offset": 81731618,
+        "value": "2.060"
+      },
+      {
+        "offset": 81732110,
+        "value": "1.992"
+      },
+      {
+        "offset": 81732257,
+        "value": "1.925"
+      },
+      {
+        "offset": 81732641,
+        "value": "1.857"
+      },
+      {
+        "offset": 81732940,
+        "value": "1.789"
+      },
+      {
+        "offset": 81733224,
+        "value": "1.688"
+      },
+      {
+        "offset": 81733428,
+        "value": "1.654"
+      },
+      {
+        "offset": 81733798,
+        "value": "1.586"
+      },
+      {
+        "offset": 81734136,
+        "value": "1.517"
+      },
+      {
+        "offset": 81734474,
+        "value": "1.449"
+      },
+      {
+        "offset": 81734830,
+        "value": "1.382"
+      },
+      {
+        "offset": 81735186,
+        "value": "1.314"
+      },
+      {
+        "offset": 81735542,
+        "value": "1.246"
+      },
+      {
+        "offset": 81735880,
+        "value": "1.178"
+      },
+      {
+        "offset": 81736274,
+        "value": "1.109"
+      },
+      {
+        "offset": 81736598,
+        "value": "1.042"
+      },
+      {
+        "offset": 81736882,
+        "value": "0.973"
+      },
+      {
+        "offset": 81737029,
+        "value": "0.906"
+      },
+      {
+        "offset": 81737342,
+        "value": "0.804"
+      },
+      {
+        "offset": 81737471,
+        "value": "0.770"
+      },
+      {
+        "offset": 81737842,
+        "value": "0.703"
+      },
+      {
+        "offset": 81737971,
+        "value": "0.635"
+      },
+      {
+        "offset": 81738277,
+        "value": "0.567"
+      },
+      {
+        "offset": 81738561,
+        "value": "0.500"
+      },
+      {
+        "offset": 81738845,
+        "value": "0.433"
+      },
+      {
+        "offset": 81739230,
+        "value": "0.364"
+      },
+      {
+        "offset": 81739600,
+        "value": "0.296"
+      },
+      {
+        "offset": 81740117,
+        "value": "0.227"
+      },
+      {
+        "offset": 81740867,
+        "value": "0.126"
+      },
+      {
+        "offset": 81742029,
+        "value": "0.092"
+      },
+      {
+        "offset": 81742477,
+        "value": "0.024"
+      }
+    ],
+    "body": {
+      "Kason.100T": [
+        {
+          "offset": 37211,
+          "value": 0
+        }
+      ],
+      "Atom.100T": [
+        {
+          "offset": 80963548,
+          "value": 0
+        }
+      ],
+      "Hotancold.100T": [
+        {
+          "offset": 45479,
+          "value": 0
+        }
+      ],
+      "GMZ.100T": [
+        {
+          "offset": 80965010,
+          "value": 0
+        }
+      ],
+      "SpiriTz.100T": [
+        {
+          "offset": 81322001,
+          "value": 2
+        }
+      ],
+      "JJBlaztful.5F": [
+        {
+          "offset": 59350,
+          "value": 0
+        },
+        {
+          "offset": 81740588,
+          "value": 4
+        }
+      ],
+      "Forrest.5F": [
+        {
+          "offset": 63024,
+          "value": 0
+        }
+      ],
+      "Rival.5F": [
+        {
+          "offset": 66752,
+          "value": 0
+        },
+        {
+          "offset": 81728074,
+          "value": 4
+        }
+      ],
+      "Fenz.5F": [
+        {
+          "offset": 70417,
+          "value": 0
+        }
+      ],
+      "Snake.5F": [
+        {
+          "offset": 74069,
+          "value": 0
+        }
+      ]
+    },
+    "full_feedback": [],
+    "previous_state": 0
+  },
+  {
+    "case": "3563-6675-R02-disable",
+    "expected": null,
+    "mode": "no_unambiguous_guarded_mode",
+    "row": {
+      "kind": "disable",
+      "center": 57693663,
+      "clock_ticks": [
+        {
+          "offset": 57688340,
+          "value": 35
+        },
+        {
+          "offset": 57691408,
+          "value": 34
+        },
+        {
+          "offset": 57693784,
+          "value": 0
+        }
+      ],
+      "all_changes": [
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 57693537,
+          "entity": 4027816153
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 57693555,
+          "entity": 4027816168
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 57693573,
+          "entity": 4027816187
+        },
+        {
+          "counter": "score",
+          "delta": 200,
+          "offset": 57693591,
+          "entity": 4027816074
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 57693627,
+          "entity": 4027816093
+        },
+        {
+          "counter": "score",
+          "delta": 1,
+          "offset": 57694275,
+          "entity": 4027266989
+        }
+      ],
+      "identity": {
+        "entity_names": {
+          "4027816153": [
+            "J9O"
+          ],
+          "4027816168": [
+            "Fultz"
+          ],
+          "4027816187": [
+            "kyno"
+          ],
+          "4027816074": [
+            "njr"
+          ],
+          "4027816093": [
+            "Nuers"
+          ],
+          "4027816102": [
+            "Rexen"
+          ],
+          "4027816121": [
+            "Spoit"
+          ],
+          "4027816008": [
+            "Canadian"
+          ],
+          "4027816027": [
+            "Ambi"
+          ],
+          "4027816042": [
+            "Surf"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "id": 7304708878202552243,
+            "username": "Fultz",
+            "teamIndex": 0
+          },
+          {
+            "id": 16919167207935807989,
+            "username": "J9O",
+            "teamIndex": 0
+          },
+          {
+            "id": 17479426958970637868,
+            "username": "kyno",
+            "teamIndex": 0
+          },
+          {
+            "id": 2335197875404342327,
+            "username": "njr",
+            "teamIndex": 0
+          },
+          {
+            "id": 11102321908554983057,
+            "username": "Nuers",
+            "teamIndex": 0
+          },
+          {
+            "id": 6297424212794109764,
+            "username": "Rexen",
+            "teamIndex": 1
+          },
+          {
+            "id": 2971863692330474600,
+            "username": "Spoit",
+            "teamIndex": 1
+          },
+          {
+            "id": 10523356161895982771,
+            "username": "Canadian",
+            "teamIndex": 1
+          },
+          {
+            "id": 5879526785811558612,
+            "username": "Ambi",
+            "teamIndex": 1
+          },
+          {
+            "id": 14829726431164140993,
+            "username": "Surf",
+            "teamIndex": 1
+          }
+        ],
+        "teams": [
+          {
+            "role": "Defense"
+          },
+          {
+            "role": "Attack"
+          }
+        ]
+      }
+    },
+    "deaths": [
+      {
+        "offset": 57289445,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Ambi",
+          "target": "kyno"
+        }
+      },
+      {
+        "offset": 57294272,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Fultz",
+          "target": "Canadian"
+        }
+      },
+      {
+        "offset": 57297643,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Surf",
+          "target": "Nuers"
+        }
+      },
+      {
+        "offset": 57321452,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "njr",
+          "target": "Ambi"
+        }
+      },
+      {
+        "offset": 57329453,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "J9O",
+          "target": "Spoit"
+        }
+      },
+      {
+        "offset": 57394686,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Surf",
+          "target": "Fultz"
+        }
+      },
+      {
+        "offset": 57527021,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "J9O",
+          "target": "Rexen"
+        }
+      },
+      {
+        "offset": 57660397,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "J9O",
+          "target": "Surf"
+        }
+      }
+    ],
+    "timers": [
+      {
+        "offset": 57668539,
+        "value": "6.972"
+      },
+      {
+        "offset": 57668917,
+        "value": "6.905"
+      },
+      {
+        "offset": 57669064,
+        "value": "6.838"
+      },
+      {
+        "offset": 57669348,
+        "value": "6.770"
+      },
+      {
+        "offset": 57669642,
+        "value": "6.668"
+      },
+      {
+        "offset": 57669789,
+        "value": "6.602"
+      },
+      {
+        "offset": 57669900,
+        "value": "6.569"
+      },
+      {
+        "offset": 57670140,
+        "value": "6.501"
+      },
+      {
+        "offset": 57670675,
+        "value": "6.432"
+      },
+      {
+        "offset": 57670923,
+        "value": "6.330"
+      },
+      {
+        "offset": 57671052,
+        "value": "6.296"
+      },
+      {
+        "offset": 57671310,
+        "value": "6.227"
+      },
+      {
+        "offset": 57671558,
+        "value": "6.158"
+      },
+      {
+        "offset": 57671788,
+        "value": "6.090"
+      },
+      {
+        "offset": 57672018,
+        "value": "6.021"
+      },
+      {
+        "offset": 57672240,
+        "value": "5.953"
+      },
+      {
+        "offset": 57672452,
+        "value": "5.885"
+      },
+      {
+        "offset": 57672664,
+        "value": "5.816"
+      },
+      {
+        "offset": 57672886,
+        "value": "5.748"
+      },
+      {
+        "offset": 57673098,
+        "value": "5.680"
+      },
+      {
+        "offset": 57673310,
+        "value": "5.611"
+      },
+      {
+        "offset": 57673532,
+        "value": "5.543"
+      },
+      {
+        "offset": 57673754,
+        "value": "5.475"
+      },
+      {
+        "offset": 57673966,
+        "value": "5.407"
+      },
+      {
+        "offset": 57674178,
+        "value": "5.306"
+      },
+      {
+        "offset": 57674299,
+        "value": "5.273"
+      },
+      {
+        "offset": 57674511,
+        "value": "5.204"
+      },
+      {
+        "offset": 57674723,
+        "value": "5.135"
+      },
+      {
+        "offset": 57674935,
+        "value": "5.067"
+      },
+      {
+        "offset": 57675157,
+        "value": "4.998"
+      },
+      {
+        "offset": 57675369,
+        "value": "4.929"
+      },
+      {
+        "offset": 57675480,
+        "value": "4.863"
+      },
+      {
+        "offset": 57675702,
+        "value": "4.793"
+      },
+      {
+        "offset": 57675914,
+        "value": "4.725"
+      },
+      {
+        "offset": 57676025,
+        "value": "4.690"
+      },
+      {
+        "offset": 57676237,
+        "value": "4.622"
+      },
+      {
+        "offset": 57676491,
+        "value": "4.553"
+      },
+      {
+        "offset": 57676713,
+        "value": "4.485"
+      },
+      {
+        "offset": 57676925,
+        "value": "4.415"
+      },
+      {
+        "offset": 57677137,
+        "value": "4.347"
+      },
+      {
+        "offset": 57677359,
+        "value": "4.245"
+      },
+      {
+        "offset": 57677470,
+        "value": "4.212"
+      },
+      {
+        "offset": 57677682,
+        "value": "4.144"
+      },
+      {
+        "offset": 57677904,
+        "value": "4.075"
+      },
+      {
+        "offset": 57678116,
+        "value": "4.007"
+      },
+      {
+        "offset": 57678328,
+        "value": "3.939"
+      },
+      {
+        "offset": 57678540,
+        "value": "3.872"
+      },
+      {
+        "offset": 57678762,
+        "value": "3.803"
+      },
+      {
+        "offset": 57678974,
+        "value": "3.735"
+      },
+      {
+        "offset": 57679186,
+        "value": "3.666"
+      },
+      {
+        "offset": 57679408,
+        "value": "3.565"
+      },
+      {
+        "offset": 57679529,
+        "value": "3.531"
+      },
+      {
+        "offset": 57679741,
+        "value": "3.463"
+      },
+      {
+        "offset": 57679852,
+        "value": "3.395"
+      },
+      {
+        "offset": 57680359,
+        "value": "3.327"
+      },
+      {
+        "offset": 57680571,
+        "value": "3.258"
+      },
+      {
+        "offset": 57681048,
+        "value": "3.190"
+      },
+      {
+        "offset": 57681465,
+        "value": "3.123"
+      },
+      {
+        "offset": 57681709,
+        "value": "3.054"
+      },
+      {
+        "offset": 57681921,
+        "value": "2.986"
+      },
+      {
+        "offset": 57682133,
+        "value": "2.918"
+      },
+      {
+        "offset": 57682355,
+        "value": "2.849"
+      },
+      {
+        "offset": 57683456,
+        "value": "2.780"
+      },
+      {
+        "offset": 57683963,
+        "value": "2.712"
+      },
+      {
+        "offset": 57684185,
+        "value": "2.644"
+      },
+      {
+        "offset": 57684397,
+        "value": "2.576"
+      },
+      {
+        "offset": 57684619,
+        "value": "2.508"
+      },
+      {
+        "offset": 57684841,
+        "value": "2.406"
+      },
+      {
+        "offset": 57684952,
+        "value": "2.339"
+      },
+      {
+        "offset": 57685359,
+        "value": "2.305"
+      },
+      {
+        "offset": 57685836,
+        "value": "2.237"
+      },
+      {
+        "offset": 57685947,
+        "value": "2.201"
+      },
+      {
+        "offset": 57686169,
+        "value": "2.132"
+      },
+      {
+        "offset": 57686280,
+        "value": "2.064"
+      },
+      {
+        "offset": 57686492,
+        "value": "1.963"
+      },
+      {
+        "offset": 57686613,
+        "value": "1.896"
+      },
+      {
+        "offset": 57687297,
+        "value": "1.862"
+      },
+      {
+        "offset": 57687509,
+        "value": "1.793"
+      },
+      {
+        "offset": 57687721,
+        "value": "1.725"
+      },
+      {
+        "offset": 57687943,
+        "value": "1.657"
+      },
+      {
+        "offset": 57688155,
+        "value": "1.588"
+      },
+      {
+        "offset": 57688377,
+        "value": "1.520"
+      },
+      {
+        "offset": 57688599,
+        "value": "1.451"
+      },
+      {
+        "offset": 57689071,
+        "value": "1.349"
+      },
+      {
+        "offset": 57689164,
+        "value": "1.315"
+      },
+      {
+        "offset": 57689340,
+        "value": "1.248"
+      },
+      {
+        "offset": 57689526,
+        "value": "1.179"
+      },
+      {
+        "offset": 57689702,
+        "value": "1.110"
+      },
+      {
+        "offset": 57689878,
+        "value": "1.009"
+      },
+      {
+        "offset": 57689981,
+        "value": "0.975"
+      },
+      {
+        "offset": 57690157,
+        "value": "0.906"
+      },
+      {
+        "offset": 57690333,
+        "value": "0.838"
+      },
+      {
+        "offset": 57690509,
+        "value": "0.769"
+      },
+      {
+        "offset": 57690990,
+        "value": "0.700"
+      },
+      {
+        "offset": 57691166,
+        "value": "0.632"
+      },
+      {
+        "offset": 57691342,
+        "value": "0.564"
+      },
+      {
+        "offset": 57691538,
+        "value": "0.496"
+      },
+      {
+        "offset": 57691992,
+        "value": "0.428"
+      },
+      {
+        "offset": 57692168,
+        "value": "0.359"
+      },
+      {
+        "offset": 57692261,
+        "value": "0.324"
+      },
+      {
+        "offset": 57692447,
+        "value": "0.255"
+      },
+      {
+        "offset": 57692623,
+        "value": "0.189"
+      },
+      {
+        "offset": 57692799,
+        "value": "0.120"
+      },
+      {
+        "offset": 57692975,
+        "value": "0.052"
+      },
+      {
+        "offset": 57693453,
+        "value": "0.000"
+      }
+    ],
+    "body": {
+      "J9O": [
+        {
+          "offset": 3928,
+          "value": 0
+        }
+      ],
+      "Fultz": [
+        {
+          "offset": 57394246,
+          "value": 4
+        }
+      ],
+      "kyno": [
+        {
+          "offset": 57288657,
+          "value": 4
+        }
+      ],
+      "njr": [
+        {
+          "offset": 14042,
+          "value": 0
+        }
+      ],
+      "Nuers": [
+        {
+          "offset": 57297030,
+          "value": 4
+        }
+      ],
+      "Rexen": [
+        {
+          "offset": 57526628,
+          "value": 4
+        }
+      ],
+      "Spoit": [
+        {
+          "offset": 57328976,
+          "value": 4
+        }
+      ],
+      "Canadian": [
+        {
+          "offset": 57293656,
+          "value": 4
+        }
+      ],
+      "Ambi": [
+        {
+          "offset": 57320921,
+          "value": 4
+        }
+      ],
+      "Surf": [
+        {
+          "offset": 57660003,
+          "value": 4
+        }
+      ]
+    },
+    "full_feedback": [],
+    "previous_state": 57656742
+  },
+  {
+    "case": "3563-6675-R02-plant",
+    "expected": "Surf",
+    "mode": "sole_proven_survivor_throughout_interaction",
+    "row": {
+      "kind": "plant",
+      "center": 57656742,
+      "clock_ticks": [
+        {
+          "offset": 57654613,
+          "value": 11
+        },
+        {
+          "offset": 57656460,
+          "value": 44
+        },
+        {
+          "offset": 57660835,
+          "value": 43
+        },
+        {
+          "offset": 57663418,
+          "value": 42
+        },
+        {
+          "offset": 57666662,
+          "value": 41
+        }
+      ],
+      "all_changes": [
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 57657070,
+          "entity": 4027816042
+        },
+        {
+          "counter": "kills",
+          "delta": 1,
+          "offset": 57659449,
+          "entity": 4027816153
+        },
+        {
+          "counter": "assists",
+          "delta": 1,
+          "offset": 57659485,
+          "entity": 4027816074
+        },
+        {
+          "counter": "score",
+          "delta": 75,
+          "offset": 57659495,
+          "entity": 4027816074
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 57660891,
+          "entity": 4027816153
+        }
+      ],
+      "identity": {
+        "entity_names": {
+          "4027816153": [
+            "J9O"
+          ],
+          "4027816168": [
+            "Fultz"
+          ],
+          "4027816187": [
+            "kyno"
+          ],
+          "4027816074": [
+            "njr"
+          ],
+          "4027816093": [
+            "Nuers"
+          ],
+          "4027816102": [
+            "Rexen"
+          ],
+          "4027816121": [
+            "Spoit"
+          ],
+          "4027816008": [
+            "Canadian"
+          ],
+          "4027816027": [
+            "Ambi"
+          ],
+          "4027816042": [
+            "Surf"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "id": 7304708878202552243,
+            "username": "Fultz",
+            "teamIndex": 0
+          },
+          {
+            "id": 16919167207935807989,
+            "username": "J9O",
+            "teamIndex": 0
+          },
+          {
+            "id": 17479426958970637868,
+            "username": "kyno",
+            "teamIndex": 0
+          },
+          {
+            "id": 2335197875404342327,
+            "username": "njr",
+            "teamIndex": 0
+          },
+          {
+            "id": 11102321908554983057,
+            "username": "Nuers",
+            "teamIndex": 0
+          },
+          {
+            "id": 6297424212794109764,
+            "username": "Rexen",
+            "teamIndex": 1
+          },
+          {
+            "id": 2971863692330474600,
+            "username": "Spoit",
+            "teamIndex": 1
+          },
+          {
+            "id": 10523356161895982771,
+            "username": "Canadian",
+            "teamIndex": 1
+          },
+          {
+            "id": 5879526785811558612,
+            "username": "Ambi",
+            "teamIndex": 1
+          },
+          {
+            "id": 14829726431164140993,
+            "username": "Surf",
+            "teamIndex": 1
+          }
+        ],
+        "teams": [
+          {
+            "role": "Defense"
+          },
+          {
+            "role": "Attack"
+          }
+        ]
+      }
+    },
+    "deaths": [
+      {
+        "offset": 57289445,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Ambi",
+          "target": "kyno"
+        }
+      },
+      {
+        "offset": 57294272,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Fultz",
+          "target": "Canadian"
+        }
+      },
+      {
+        "offset": 57297643,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Surf",
+          "target": "Nuers"
+        }
+      },
+      {
+        "offset": 57321452,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "njr",
+          "target": "Ambi"
+        }
+      },
+      {
+        "offset": 57329453,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "J9O",
+          "target": "Spoit"
+        }
+      },
+      {
+        "offset": 57394686,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Surf",
+          "target": "Fultz"
+        }
+      },
+      {
+        "offset": 57527021,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "J9O",
+          "target": "Rexen"
+        }
+      },
+      {
+        "offset": 57660397,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "J9O",
+          "target": "Surf"
+        }
+      }
+    ],
+    "timers": [
+      {
+        "offset": 57634409,
+        "value": "7.000"
+      },
+      {
+        "offset": 57634730,
+        "value": "6.931"
+      },
+      {
+        "offset": 57635014,
+        "value": "6.863"
+      },
+      {
+        "offset": 57635326,
+        "value": "6.795"
+      },
+      {
+        "offset": 57635606,
+        "value": "6.727"
+      },
+      {
+        "offset": 57635936,
+        "value": "6.658"
+      },
+      {
+        "offset": 57636359,
+        "value": "6.590"
+      },
+      {
+        "offset": 57636643,
+        "value": "6.523"
+      },
+      {
+        "offset": 57636855,
+        "value": "6.455"
+      },
+      {
+        "offset": 57637085,
+        "value": "6.388"
+      },
+      {
+        "offset": 57637496,
+        "value": "6.286"
+      },
+      {
+        "offset": 57637625,
+        "value": "6.252"
+      },
+      {
+        "offset": 57638236,
+        "value": "6.151"
+      },
+      {
+        "offset": 57638347,
+        "value": "6.083"
+      },
+      {
+        "offset": 57638458,
+        "value": "6.016"
+      },
+      {
+        "offset": 57638652,
+        "value": "5.982"
+      },
+      {
+        "offset": 57638864,
+        "value": "5.914"
+      },
+      {
+        "offset": 57639094,
+        "value": "5.845"
+      },
+      {
+        "offset": 57639321,
+        "value": "5.777"
+      },
+      {
+        "offset": 57639821,
+        "value": "5.708"
+      },
+      {
+        "offset": 57640033,
+        "value": "5.640"
+      },
+      {
+        "offset": 57640273,
+        "value": "5.571"
+      },
+      {
+        "offset": 57640521,
+        "value": "5.503"
+      },
+      {
+        "offset": 57640769,
+        "value": "5.435"
+      },
+      {
+        "offset": 57641017,
+        "value": "5.333"
+      },
+      {
+        "offset": 57641146,
+        "value": "5.265"
+      },
+      {
+        "offset": 57641275,
+        "value": "5.198"
+      },
+      {
+        "offset": 57641404,
+        "value": "5.130"
+      },
+      {
+        "offset": 57641579,
+        "value": "5.063"
+      },
+      {
+        "offset": 57641708,
+        "value": "5.029"
+      },
+      {
+        "offset": 57641956,
+        "value": "4.961"
+      },
+      {
+        "offset": 57642290,
+        "value": "4.893"
+      },
+      {
+        "offset": 57642556,
+        "value": "4.824"
+      },
+      {
+        "offset": 57642840,
+        "value": "4.756"
+      },
+      {
+        "offset": 57643124,
+        "value": "4.689"
+      },
+      {
+        "offset": 57643271,
+        "value": "4.622"
+      },
+      {
+        "offset": 57643565,
+        "value": "4.521"
+      },
+      {
+        "offset": 57643712,
+        "value": "4.487"
+      },
+      {
+        "offset": 57643996,
+        "value": "4.419"
+      },
+      {
+        "offset": 57644143,
+        "value": "4.384"
+      },
+      {
+        "offset": 57644409,
+        "value": "4.315"
+      },
+      {
+        "offset": 57644693,
+        "value": "4.245"
+      },
+      {
+        "offset": 57644959,
+        "value": "4.177"
+      },
+      {
+        "offset": 57645225,
+        "value": "4.109"
+      },
+      {
+        "offset": 57645473,
+        "value": "4.041"
+      },
+      {
+        "offset": 57645721,
+        "value": "3.972"
+      },
+      {
+        "offset": 57645951,
+        "value": "3.903"
+      },
+      {
+        "offset": 57646181,
+        "value": "3.835"
+      },
+      {
+        "offset": 57646429,
+        "value": "3.767"
+      },
+      {
+        "offset": 57646641,
+        "value": "3.698"
+      },
+      {
+        "offset": 57646863,
+        "value": "3.597"
+      },
+      {
+        "offset": 57646992,
+        "value": "3.562"
+      },
+      {
+        "offset": 57647204,
+        "value": "3.494"
+      },
+      {
+        "offset": 57647416,
+        "value": "3.426"
+      },
+      {
+        "offset": 57647628,
+        "value": "3.325"
+      },
+      {
+        "offset": 57647757,
+        "value": "3.290"
+      },
+      {
+        "offset": 57647987,
+        "value": "3.223"
+      },
+      {
+        "offset": 57648098,
+        "value": "3.155"
+      },
+      {
+        "offset": 57648310,
+        "value": "3.085"
+      },
+      {
+        "offset": 57648540,
+        "value": "3.016"
+      },
+      {
+        "offset": 57648752,
+        "value": "2.948"
+      },
+      {
+        "offset": 57648964,
+        "value": "2.879"
+      },
+      {
+        "offset": 57649075,
+        "value": "2.812"
+      },
+      {
+        "offset": 57649305,
+        "value": "2.744"
+      },
+      {
+        "offset": 57649517,
+        "value": "2.675"
+      },
+      {
+        "offset": 57649739,
+        "value": "2.607"
+      },
+      {
+        "offset": 57649951,
+        "value": "2.538"
+      },
+      {
+        "offset": 57650163,
+        "value": "2.437"
+      },
+      {
+        "offset": 57650274,
+        "value": "2.404"
+      },
+      {
+        "offset": 57650486,
+        "value": "2.337"
+      },
+      {
+        "offset": 57650597,
+        "value": "2.269"
+      },
+      {
+        "offset": 57650809,
+        "value": "2.201"
+      },
+      {
+        "offset": 57650985,
+        "value": "2.133"
+      },
+      {
+        "offset": 57651078,
+        "value": "2.066"
+      },
+      {
+        "offset": 57651272,
+        "value": "1.965"
+      },
+      {
+        "offset": 57651365,
+        "value": "1.930"
+      },
+      {
+        "offset": 57651541,
+        "value": "1.862"
+      },
+      {
+        "offset": 57651798,
+        "value": "1.794"
+      },
+      {
+        "offset": 57651974,
+        "value": "1.725"
+      },
+      {
+        "offset": 57652168,
+        "value": "1.657"
+      },
+      {
+        "offset": 57652354,
+        "value": "1.588"
+      },
+      {
+        "offset": 57652530,
+        "value": "1.520"
+      },
+      {
+        "offset": 57652706,
+        "value": "1.451"
+      },
+      {
+        "offset": 57652882,
+        "value": "1.383"
+      },
+      {
+        "offset": 57652975,
+        "value": "1.315"
+      },
+      {
+        "offset": 57653151,
+        "value": "1.247"
+      },
+      {
+        "offset": 57653262,
+        "value": "1.180"
+      },
+      {
+        "offset": 57653438,
+        "value": "1.112"
+      },
+      {
+        "offset": 57653632,
+        "value": "1.043"
+      },
+      {
+        "offset": 57653844,
+        "value": "0.974"
+      },
+      {
+        "offset": 57653955,
+        "value": "0.907"
+      },
+      {
+        "offset": 57654149,
+        "value": "0.805"
+      },
+      {
+        "offset": 57654260,
+        "value": "0.771"
+      },
+      {
+        "offset": 57654371,
+        "value": "0.704"
+      },
+      {
+        "offset": 57654547,
+        "value": "0.635"
+      },
+      {
+        "offset": 57654751,
+        "value": "0.567"
+      },
+      {
+        "offset": 57654927,
+        "value": "0.500"
+      },
+      {
+        "offset": 57655171,
+        "value": "0.432"
+      },
+      {
+        "offset": 57655435,
+        "value": "0.363"
+      },
+      {
+        "offset": 57655647,
+        "value": "0.295"
+      },
+      {
+        "offset": 57655859,
+        "value": "0.227"
+      },
+      {
+        "offset": 57656071,
+        "value": "0.160"
+      },
+      {
+        "offset": 57656182,
+        "value": "0.093"
+      },
+      {
+        "offset": 57656394,
+        "value": "0.025"
+      }
+    ],
+    "body": {
+      "J9O": [
+        {
+          "offset": 3928,
+          "value": 0
+        }
+      ],
+      "Fultz": [
+        {
+          "offset": 57394246,
+          "value": 4
+        }
+      ],
+      "kyno": [
+        {
+          "offset": 57288657,
+          "value": 4
+        }
+      ],
+      "njr": [
+        {
+          "offset": 14042,
+          "value": 0
+        }
+      ],
+      "Nuers": [
+        {
+          "offset": 57297030,
+          "value": 4
+        }
+      ],
+      "Rexen": [
+        {
+          "offset": 57526628,
+          "value": 4
+        }
+      ],
+      "Spoit": [
+        {
+          "offset": 57328976,
+          "value": 4
+        }
+      ],
+      "Canadian": [
+        {
+          "offset": 57293656,
+          "value": 4
+        }
+      ],
+      "Ambi": [
+        {
+          "offset": 57320921,
+          "value": 4
+        }
+      ],
+      "Surf": [
+        {
+          "offset": 56960569,
+          "value": 0
+        }
+      ]
+    },
+    "full_feedback": [],
+    "previous_state": 0
+  },
+  {
+    "case": "3639-None-R03-disable",
+    "expected": "Lollo.HERETICS",
+    "mode": "sole_proven_survivor_throughout_interaction",
+    "row": {
+      "kind": "disable",
+      "center": 64258987,
+      "clock_ticks": [
+        {
+          "offset": 64254049,
+          "value": 35
+        },
+        {
+          "offset": 64256733,
+          "value": 34
+        },
+        {
+          "offset": 64259262,
+          "value": 0
+        }
+      ],
+      "all_changes": [
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 64259080,
+          "entity": 4030648723
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 64259098,
+          "entity": 4030648708
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 64259116,
+          "entity": 4030648821
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 64259134,
+          "entity": 4030648806
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 64259152,
+          "entity": 4030648791
+        },
+        {
+          "counter": "score",
+          "delta": 1,
+          "offset": 64259826,
+          "entity": 4030659903
+        },
+        {
+          "counter": "score",
+          "delta": 100,
+          "offset": 64260461,
+          "entity": 4030648806
+        }
+      ],
+      "identity": {
+        "entity_names": {
+          "4030648723": [
+            "Dora.HERETICS"
+          ],
+          "4030648708": [
+            "Zaara.HERETICS"
+          ],
+          "4030648821": [
+            "Reaz.HERETICS"
+          ],
+          "4030648806": [
+            "Lollo.HERETICS"
+          ],
+          "4030648791": [
+            "AquiX.HERETICS"
+          ],
+          "4030648770": [
+            "oscr.SECRET"
+          ],
+          "4030648627": [
+            "noa.SECRET"
+          ],
+          "4030648612": [
+            "Mowwwgli.SECRET"
+          ],
+          "4030648597": [
+            "Flexy.SECRET"
+          ],
+          "4030648582": [
+            "vDrillz.SECRET"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "id": 17103071982433608074,
+            "username": "Dora.HERETICS",
+            "teamIndex": 0
+          },
+          {
+            "id": 10214072051410550929,
+            "username": "Zaara.HERETICS",
+            "teamIndex": 0
+          },
+          {
+            "id": 221935583290373892,
+            "username": "Reaz.HERETICS",
+            "teamIndex": 0
+          },
+          {
+            "id": 4960973264845277992,
+            "username": "Lollo.HERETICS",
+            "teamIndex": 0
+          },
+          {
+            "id": 1382311696976413859,
+            "username": "AquiX.HERETICS",
+            "teamIndex": 0
+          },
+          {
+            "id": 8959425331382533632,
+            "username": "oscr.SECRET",
+            "teamIndex": 1
+          },
+          {
+            "id": 6605709455197643273,
+            "username": "noa.SECRET",
+            "teamIndex": 1
+          },
+          {
+            "id": 3098360944723285038,
+            "username": "Mowwwgli.SECRET",
+            "teamIndex": 1
+          },
+          {
+            "id": 13686957945471556180,
+            "username": "Flexy.SECRET",
+            "teamIndex": 1
+          },
+          {
+            "id": 2106620686320412755,
+            "username": "vDrillz.SECRET",
+            "teamIndex": 1
+          }
+        ],
+        "teams": [
+          {
+            "role": "Defense"
+          },
+          {
+            "role": "Attack"
+          }
+        ]
+      }
+    },
+    "deaths": [
+      {
+        "offset": 63971990,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Mowwwgli.SECRET",
+          "target": "AquiX.HERETICS"
+        }
+      },
+      {
+        "offset": 64046645,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Reaz.HERETICS",
+          "target": "noa.SECRET"
+        }
+      },
+      {
+        "offset": 64053540,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Zaara.HERETICS",
+          "target": "oscr.SECRET"
+        }
+      },
+      {
+        "offset": 64064335,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "vDrillz.SECRET",
+          "target": "Reaz.HERETICS"
+        }
+      },
+      {
+        "offset": 64068387,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Dora.HERETICS",
+          "target": "vDrillz.SECRET"
+        }
+      },
+      {
+        "offset": 64071527,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Flexy.SECRET",
+          "target": "Zaara.HERETICS"
+        }
+      },
+      {
+        "offset": 64093032,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Lollo.HERETICS",
+          "target": "Mowwwgli.SECRET"
+        }
+      },
+      {
+        "offset": 64096290,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Flexy.SECRET",
+          "target": "Dora.HERETICS"
+        }
+      },
+      {
+        "offset": 64230688,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Lollo.HERETICS",
+          "target": "Flexy.SECRET"
+        }
+      }
+    ],
+    "timers": [
+      {
+        "offset": 64240575,
+        "value": "6.900"
+      },
+      {
+        "offset": 64240748,
+        "value": "6.867"
+      },
+      {
+        "offset": 64240970,
+        "value": "6.800"
+      },
+      {
+        "offset": 64241081,
+        "value": "6.732"
+      },
+      {
+        "offset": 64241303,
+        "value": "6.664"
+      },
+      {
+        "offset": 64241497,
+        "value": "6.563"
+      },
+      {
+        "offset": 64241590,
+        "value": "6.529"
+      },
+      {
+        "offset": 64241683,
+        "value": "6.462"
+      },
+      {
+        "offset": 64241869,
+        "value": "6.394"
+      },
+      {
+        "offset": 64242045,
+        "value": "6.326"
+      },
+      {
+        "offset": 64242221,
+        "value": "6.258"
+      },
+      {
+        "offset": 64242407,
+        "value": "6.158"
+      },
+      {
+        "offset": 64242500,
+        "value": "6.124"
+      },
+      {
+        "offset": 64242676,
+        "value": "6.055"
+      },
+      {
+        "offset": 64242769,
+        "value": "5.987"
+      },
+      {
+        "offset": 64242955,
+        "value": "5.920"
+      },
+      {
+        "offset": 64243048,
+        "value": "5.853"
+      },
+      {
+        "offset": 64243234,
+        "value": "5.785"
+      },
+      {
+        "offset": 64243420,
+        "value": "5.717"
+      },
+      {
+        "offset": 64243596,
+        "value": "5.649"
+      },
+      {
+        "offset": 64243772,
+        "value": "5.548"
+      },
+      {
+        "offset": 64243865,
+        "value": "5.514"
+      },
+      {
+        "offset": 64244083,
+        "value": "5.413"
+      },
+      {
+        "offset": 64244176,
+        "value": "5.379"
+      },
+      {
+        "offset": 64244352,
+        "value": "5.311"
+      },
+      {
+        "offset": 64244538,
+        "value": "5.254"
+      },
+      {
+        "offset": 64244714,
+        "value": "5.185"
+      },
+      {
+        "offset": 64244807,
+        "value": "5.118"
+      },
+      {
+        "offset": 64244983,
+        "value": "5.051"
+      },
+      {
+        "offset": 64245169,
+        "value": "4.984"
+      },
+      {
+        "offset": 64245345,
+        "value": "4.915"
+      },
+      {
+        "offset": 64245521,
+        "value": "4.848"
+      },
+      {
+        "offset": 64245634,
+        "value": "4.781"
+      },
+      {
+        "offset": 64245810,
+        "value": "4.713"
+      },
+      {
+        "offset": 64245986,
+        "value": "4.612"
+      },
+      {
+        "offset": 64246079,
+        "value": "4.578"
+      },
+      {
+        "offset": 64246265,
+        "value": "4.509"
+      },
+      {
+        "offset": 64246441,
+        "value": "4.442"
+      },
+      {
+        "offset": 64246617,
+        "value": "4.374"
+      },
+      {
+        "offset": 64246710,
+        "value": "4.339"
+      },
+      {
+        "offset": 64247096,
+        "value": "4.272"
+      },
+      {
+        "offset": 64247272,
+        "value": "4.204"
+      },
+      {
+        "offset": 64247448,
+        "value": "4.136"
+      },
+      {
+        "offset": 64247666,
+        "value": "4.069"
+      },
+      {
+        "offset": 64247759,
+        "value": "4.002"
+      },
+      {
+        "offset": 64248235,
+        "value": "3.933"
+      },
+      {
+        "offset": 64248328,
+        "value": "3.866"
+      },
+      {
+        "offset": 64248524,
+        "value": "3.799"
+      },
+      {
+        "offset": 64248700,
+        "value": "3.731"
+      },
+      {
+        "offset": 64248876,
+        "value": "3.662"
+      },
+      {
+        "offset": 64249062,
+        "value": "3.562"
+      },
+      {
+        "offset": 64249408,
+        "value": "3.528"
+      },
+      {
+        "offset": 64249584,
+        "value": "3.459"
+      },
+      {
+        "offset": 64249760,
+        "value": "3.392"
+      },
+      {
+        "offset": 64249946,
+        "value": "3.324"
+      },
+      {
+        "offset": 64250122,
+        "value": "3.256"
+      },
+      {
+        "offset": 64250215,
+        "value": "3.186"
+      },
+      {
+        "offset": 64250308,
+        "value": "3.153"
+      },
+      {
+        "offset": 64250494,
+        "value": "3.051"
+      },
+      {
+        "offset": 64250587,
+        "value": "2.984"
+      },
+      {
+        "offset": 64250680,
+        "value": "2.950"
+      },
+      {
+        "offset": 64250866,
+        "value": "2.882"
+      },
+      {
+        "offset": 64250959,
+        "value": "2.847"
+      },
+      {
+        "offset": 64251145,
+        "value": "2.779"
+      },
+      {
+        "offset": 64251321,
+        "value": "2.711"
+      },
+      {
+        "offset": 64251507,
+        "value": "2.643"
+      },
+      {
+        "offset": 64251683,
+        "value": "2.576"
+      },
+      {
+        "offset": 64251859,
+        "value": "2.508"
+      },
+      {
+        "offset": 64252035,
+        "value": "2.440"
+      },
+      {
+        "offset": 64252221,
+        "value": "2.373"
+      },
+      {
+        "offset": 64252397,
+        "value": "2.305"
+      },
+      {
+        "offset": 64252856,
+        "value": "2.204"
+      },
+      {
+        "offset": 64252959,
+        "value": "2.170"
+      },
+      {
+        "offset": 64253135,
+        "value": "2.069"
+      },
+      {
+        "offset": 64253228,
+        "value": "2.036"
+      },
+      {
+        "offset": 64253704,
+        "value": "1.968"
+      },
+      {
+        "offset": 64253807,
+        "value": "1.901"
+      },
+      {
+        "offset": 64253983,
+        "value": "1.834"
+      },
+      {
+        "offset": 64254169,
+        "value": "1.766"
+      },
+      {
+        "offset": 64254355,
+        "value": "1.699"
+      },
+      {
+        "offset": 64254531,
+        "value": "1.631"
+      },
+      {
+        "offset": 64254707,
+        "value": "1.563"
+      },
+      {
+        "offset": 64254883,
+        "value": "1.494"
+      },
+      {
+        "offset": 64254986,
+        "value": "1.427"
+      },
+      {
+        "offset": 64255162,
+        "value": "1.359"
+      },
+      {
+        "offset": 64255338,
+        "value": "1.291"
+      },
+      {
+        "offset": 64255441,
+        "value": "1.224"
+      },
+      {
+        "offset": 64255617,
+        "value": "1.156"
+      },
+      {
+        "offset": 64255793,
+        "value": "1.087"
+      },
+      {
+        "offset": 64256222,
+        "value": "1.020"
+      },
+      {
+        "offset": 64256408,
+        "value": "0.952"
+      },
+      {
+        "offset": 64256584,
+        "value": "0.884"
+      },
+      {
+        "offset": 64256770,
+        "value": "0.783"
+      },
+      {
+        "offset": 64256873,
+        "value": "0.749"
+      },
+      {
+        "offset": 64257049,
+        "value": "0.648"
+      },
+      {
+        "offset": 64257142,
+        "value": "0.614"
+      },
+      {
+        "offset": 64257318,
+        "value": "0.547"
+      },
+      {
+        "offset": 64257504,
+        "value": "0.480"
+      },
+      {
+        "offset": 64257680,
+        "value": "0.412"
+      },
+      {
+        "offset": 64257856,
+        "value": "0.344"
+      },
+      {
+        "offset": 64258042,
+        "value": "0.276"
+      },
+      {
+        "offset": 64258218,
+        "value": "0.208"
+      },
+      {
+        "offset": 64258394,
+        "value": "0.140"
+      },
+      {
+        "offset": 64258570,
+        "value": "0.073"
+      },
+      {
+        "offset": 64258756,
+        "value": "0.005"
+      }
+    ],
+    "body": {
+      "Dora.HERETICS": [
+        {
+          "offset": 64094210,
+          "value": 4
+        }
+      ],
+      "Zaara.HERETICS": [
+        {
+          "offset": 64069990,
+          "value": 4
+        }
+      ],
+      "Reaz.HERETICS": [
+        {
+          "offset": 64063908,
+          "value": 4
+        }
+      ],
+      "Lollo.HERETICS": [
+        {
+          "offset": 50122,
+          "value": 0
+        }
+      ],
+      "AquiX.HERETICS": [
+        {
+          "offset": 63971603,
+          "value": 4
+        }
+      ],
+      "oscr.SECRET": [
+        {
+          "offset": 64054154,
+          "value": 4
+        }
+      ],
+      "noa.SECRET": [
+        {
+          "offset": 64046965,
+          "value": 4
+        }
+      ],
+      "Mowwwgli.SECRET": [
+        {
+          "offset": 64092595,
+          "value": 4
+        }
+      ],
+      "Flexy.SECRET": [
+        {
+          "offset": 64230298,
+          "value": 4
+        }
+      ],
+      "vDrillz.SECRET": [
+        {
+          "offset": 64067976,
+          "value": 4
+        }
+      ]
+    },
+    "full_feedback": [],
+    "previous_state": 64229409
+  }
+]
