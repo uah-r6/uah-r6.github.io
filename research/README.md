@@ -1,3 +1,19 @@
+## Latest actor-only research continuation (2026-10-01)
+
+Deployed `siege_style_v2` remains frozen. New [liveness extension](output/objective-liveness.md), [development audit](output/objective-liveness-development.md), and [official VOD review](output/objective-vod-review.md) improve the diagnostic evidence without crediting any production actor. All datasets used for these diagnostics were already consumed. The five-map actor reserve remains unopened. Read the newest checkpoint in `docs/STATUS_NEXT_STEPS.md` before continuing.
+
+The research observer reuses siege-dissect's existing kill/death offsets and captures timer strings. It does not modify the parser or decode kills independently. Rebuild only this separate ignored helper, then run the cached diagnostics from the repository root:
+
+```powershell
+Push-Location third_party/siege-dissect
+& '..\..\.local-tools\go\bin\go.exe' build -o '..\..\.local-tools\bin\actor-feedback-probe.exe' '..\..\research\actor_feedback_probe.go'
+Pop-Location
+.\.venv\Scripts\python.exe research/objective_actor_liveness.py
+.\.venv\Scripts\python.exe research/objective_liveness_development.py
+```
+
+These commands write only research reports and ignored diagnostics, including `data/research/diagnostics/objective-player-ledger-v2.json`. The optional VOD frame tool and its dependencies are documented in the VOD report; they are not needed for the application or liveness audits. Do not re-run rating fits, export website data, update SQLite, or publish as part of this work.
+
 # SiegeGG-style rating research
 
 Latest objective work: the frozen occurrence rule passed [twelve independent maps](output/objective-occurrence-validation.md) (32 plants, 12 disables, 92 negative rounds; no errors). Go now emits separate occurrence metadata with unresolved actors. Production parity passed 415 professional rounds without changing existing gameplay fields. The [five-map read-only UAH audit](output/uah-objective-audit.md) found 17 plants / three disables and preserved all tracked operators. Player attribution remains unsolved, so Rating observations and coefficients are unchanged. See [objective coverage](objective-coverage.md).

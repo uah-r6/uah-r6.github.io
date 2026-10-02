@@ -1,3 +1,13 @@
+## LIVENESS RESEARCH CHECKPOINT - 2026-10-01
+
+Research-only player ledger v2 now includes existing parser kill/death offsets, stable identities, ordered scores and kill/assist counter updates. Unknown death offsets abstain; DBNO/gadget causes remain unknown. Research observer feedback matches cached parser feedback across 93 inspected physical rounds (61 discovery, 32 consumed extension). No production parser or actor credit changed.
+
+A provisional sole-survivor-throughout-complete-timer diagnostic yields discovery plants **2/0/59** and disables **1/0/7**; consumed extension plants **4/0/28** and disables **3/0/9**, in correct/wrong/unresolved order. These are development results on consumed data, not independent validation. Exact diagnostic and per-event tables: [extension](output/objective-liveness.md), [discovery](output/objective-liveness-development.md). The frozen narrow score rule remains 8/0/24 plants and 0/0/12 disables on the consumed extension.
+
+Liveness does not distinguish Aiden/Raid in 4139 R07 or J9O/njr in 3563/6675 R02. The official [VOD audit](output/objective-vod-review.md) cannot settle the latter because the broadcast cuts away before the disable is shown. The apparent extra njr +100 is still unexplained; no label was changed. Five-map actor reserve remains unopened; no UAH actor audit/correction, SQLite mutation, public export, rating change or publish. Full Python suite118 passed/one skipped/six subtests; Go probe build/vet passed.
+
+NEXT ACTION: audit liveness completeness against consumed independent death logs and compare score/structural evidence using the new ledgers. Freeze a justified revised rule before evaluating fresh actor labels; do not turn these development-only counts into a production claim. See the newest `docs/STATUS_NEXT_STEPS.md` for exact state and commands below for reproduction.
+
 ## SCORE-DELTA ACTOR CHECKPOINT - 2026-10-01
 
 Production occurrence remains validated and actor credit remains unresolved. Deployed `siege_style_v2` is frozen; local actor work did not alter the parser, database, archive, or public data. The original 61-plant/eight-disable discovery cohort informed a conservative near-state +100 diagnostic that abstains on nearby kill/assist counters. Its exact prevalidation rule is in `objective-score-delta-plan.md`. The separate twelve-map extension was run once and is now **consumed** for actor methodology: plants 8 correct / 0 wrong / 24 unresolved; disables 0 correct / 0 wrong / 12 unresolved. The 24 plant abstentions are 23 counter collisions and one absent/ambiguous score, with complete eligible scoreboard bindings in all 32 rounds.
