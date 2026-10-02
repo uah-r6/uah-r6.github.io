@@ -1,3 +1,9 @@
+## UNFROZEN SCORELESS SOLE MODE - 2026-10-02
+
+SI root causes13missing score identity,2missing disable anchors. No direct UID-to-score component in two inspected rounds. Body proof does not inherently need score identity. Separate wrapper tests only that shared prerequisite while retaining all body/UID/kill/death/timer/disconnect safeguards; original2affected plants remain unresolved, consumedSI13affected plants1correct0wrong12unresolved(AdrianBankR06). This is consumed development, not a new independent result. Frozen A and both recorded validations unchanged.39targeted tests passed.
+
+NEXT metadata-reserve all six unused actor maps from cached SLC/EWC archives(3554games6678/6679,3563game6674,6156game10424,6157games10427/10429). Chronological completed scores and exact rosters required for rehosts. K/D/multikill/occurrence data may already be consumed; objective actor labels ungraded. Test unchanged frozen A, with wrapper B uninvolved; freeze new manifest/adapter locally and clean before opening actor targets. No new download needed. Runtime/public/SQLite/archives/v2 untouched.
+
 ## SI ONE-SHOT RESULT - 2026-10-02
 
 Frozen adapter10531e4/candidatecd28f76 unchanged:58rounds/4maps,13plants0correct0wrong13unresolved;2disables0/0/2. Occurrence mismatches zero. Predictions saved before labels; immutable ignored result and [report](output/objective-si-final-validation.md). SI series now CONSUMED. All abstention gives no new resolved-actor accuracy evidence. Two new sets together27events have only4resolved actors; insufficient for broad runtime promotion or v3 work. NEXT record locally then inspect SI identity/state/score abstention causes against already-consumed controls. Never retrospectively change either result or call reused targets independent. Live v2/public/SQLite/archives untouched.
