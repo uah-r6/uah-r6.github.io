@@ -1,0 +1,765 @@
+[
+  {
+    "case": "4139-R07",
+    "row": {
+      "kind": "plant",
+      "center": 61871641,
+      "identity": {
+        "signature": "1b782c47068dc9b1680759493ab8ed1065097541f1eb0b30f7e8a2632cd746be",
+        "entity_names": {
+          "4028220568": [
+            "Kason.100T"
+          ],
+          "4028220553": [
+            "Atom.100T"
+          ],
+          "4028220602": [
+            "Hotancold.100T"
+          ],
+          "4028220587": [
+            "GMZ.100T"
+          ],
+          "4028234588": [
+            "SpiriTz.100T"
+          ],
+          "4028234567": [
+            "Aiden.SSG"
+          ],
+          "4028234616": [
+            "Dream.SSG"
+          ],
+          "4028234601": [
+            "Gity.SSG"
+          ],
+          "4028234522": [
+            "Raid.SSG"
+          ],
+          "4028234507": [
+            "Rival.SSG"
+          ]
+        },
+        "evidence": [
+          {
+            "offset": 1929,
+            "controller": 4028220641,
+            "score_component": 4028220568,
+            "names": [
+              "Kason.100T"
+            ]
+          },
+          {
+            "offset": 5599,
+            "controller": 4028220640,
+            "score_component": 4028220553,
+            "names": [
+              "Atom.100T"
+            ]
+          },
+          {
+            "offset": 9257,
+            "controller": 4028220575,
+            "score_component": 4028220602,
+            "names": [
+              "Hotancold.100T"
+            ]
+          },
+          {
+            "offset": 12928,
+            "controller": 4028220574,
+            "score_component": 4028220587,
+            "names": [
+              "GMZ.100T"
+            ]
+          },
+          {
+            "offset": 16604,
+            "controller": 4028220573,
+            "score_component": 4028234588,
+            "names": [
+              "SpiriTz.100T"
+            ]
+          },
+          {
+            "offset": 22160,
+            "controller": 4028234576,
+            "score_component": 4028234567,
+            "names": [
+              "Aiden.SSG"
+            ]
+          },
+          {
+            "offset": 26410,
+            "controller": 4028234575,
+            "score_component": 4028234616,
+            "names": [
+              "Dream.SSG"
+            ]
+          },
+          {
+            "offset": 30763,
+            "controller": 4028234574,
+            "score_component": 4028234601,
+            "names": [
+              "Gity.SSG"
+            ]
+          },
+          {
+            "offset": 34923,
+            "controller": 4028234573,
+            "score_component": 4028234522,
+            "names": [
+              "Raid.SSG"
+            ]
+          },
+          {
+            "offset": 39084,
+            "controller": 4028234572,
+            "score_component": 4028234507,
+            "names": [
+              "Rival.SSG"
+            ]
+          }
+        ],
+        "controllers": {
+          "4028220641": [
+            "Kason.100T"
+          ],
+          "4028220640": [
+            "Atom.100T"
+          ],
+          "4028220575": [
+            "Hotancold.100T"
+          ],
+          "4028220574": [
+            "GMZ.100T"
+          ],
+          "4028220573": [
+            "SpiriTz.100T"
+          ],
+          "4028234576": [
+            "Aiden.SSG"
+          ],
+          "4028234575": [
+            "Dream.SSG"
+          ],
+          "4028234574": [
+            "Gity.SSG"
+          ],
+          "4028234573": [
+            "Raid.SSG"
+          ],
+          "4028234572": [
+            "Rival.SSG"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "username": "Kason.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Atom.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Hotancold.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "GMZ.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "SpiriTz.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Aiden.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Dream.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Gity.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Raid.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Rival.SSG",
+            "teamIndex": 1
+          }
+        ],
+        "teams": [
+          {
+            "role": "Defense"
+          },
+          {
+            "role": "Attack"
+          }
+        ]
+      },
+      "clock_ticks": [
+        {
+          "kind": "clock",
+          "offset": 61871294,
+          "value": 44
+        },
+        {
+          "kind": "clock",
+          "offset": 61875729,
+          "value": 43
+        }
+      ],
+      "all_changes": [
+        {
+          "offset": 61872493,
+          "entity": 4028234567,
+          "names": [],
+          "counter": "score",
+          "previous": 2475,
+          "value": 2575,
+          "delta": 100
+        },
+        {
+          "offset": 61874066,
+          "entity": 4028234522,
+          "names": [],
+          "counter": "score",
+          "previous": 2244,
+          "value": 2254,
+          "delta": 10
+        },
+        {
+          "offset": 61874166,
+          "entity": 4028234588,
+          "names": [],
+          "counter": "kills",
+          "previous": 3,
+          "value": 4,
+          "delta": 1
+        },
+        {
+          "offset": 61874418,
+          "entity": 4028220587,
+          "names": [],
+          "counter": "assists",
+          "previous": 1,
+          "value": 2,
+          "delta": 1
+        },
+        {
+          "offset": 61875433,
+          "entity": 4028234588,
+          "names": [],
+          "counter": "score",
+          "previous": 1620,
+          "value": 1730,
+          "delta": 110
+        },
+        {
+          "offset": 61875547,
+          "entity": 4028220587,
+          "names": [],
+          "counter": "score",
+          "previous": 2130,
+          "value": 2205,
+          "delta": 75
+        }
+      ]
+    },
+    "deaths": [
+      {
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "SpiriTz.100T",
+          "target": "Aiden.SSG",
+          "headshot": false,
+          "time": "0:44",
+          "timeInSeconds": 44,
+          "weaponID": 133651070294
+        },
+        "offset": 61874628
+      }
+    ],
+    "expected": null,
+    "reason": "kill_or_death_in_interval"
+  },
+  {
+    "case": "4139-R04",
+    "row": {
+      "kind": "plant",
+      "center": 79657310,
+      "identity": {
+        "signature": "1b782c47068dc9b1680759493ab8ed1065097541f1eb0b30f7e8a2632cd746be",
+        "entity_names": {
+          "4028220568": [
+            "Kason.100T"
+          ],
+          "4028220553": [
+            "Atom.100T"
+          ],
+          "4028220602": [
+            "Hotancold.100T"
+          ],
+          "4028220587": [
+            "GMZ.100T"
+          ],
+          "4028234588": [
+            "SpiriTz.100T"
+          ],
+          "4028234567": [
+            "Aiden.SSG"
+          ],
+          "4028234616": [
+            "Dream.SSG"
+          ],
+          "4028234601": [
+            "Gity.SSG"
+          ],
+          "4028234522": [
+            "Raid.SSG"
+          ],
+          "4028234507": [
+            "Rival.SSG"
+          ]
+        },
+        "evidence": [
+          {
+            "offset": 21768,
+            "controller": 4028220641,
+            "score_component": 4028220568,
+            "names": [
+              "Kason.100T"
+            ]
+          },
+          {
+            "offset": 25867,
+            "controller": 4028220640,
+            "score_component": 4028220553,
+            "names": [
+              "Atom.100T"
+            ]
+          },
+          {
+            "offset": 30030,
+            "controller": 4028220575,
+            "score_component": 4028220602,
+            "names": [
+              "Hotancold.100T"
+            ]
+          },
+          {
+            "offset": 34233,
+            "controller": 4028220574,
+            "score_component": 4028220587,
+            "names": [
+              "GMZ.100T"
+            ]
+          },
+          {
+            "offset": 38478,
+            "controller": 4028220573,
+            "score_component": 4028234588,
+            "names": [
+              "SpiriTz.100T"
+            ]
+          },
+          {
+            "offset": 43473,
+            "controller": 4028234576,
+            "score_component": 4028234567,
+            "names": [
+              "Aiden.SSG"
+            ]
+          },
+          {
+            "offset": 47133,
+            "controller": 4028234575,
+            "score_component": 4028234616,
+            "names": [
+              "Dream.SSG"
+            ]
+          },
+          {
+            "offset": 50972,
+            "controller": 4028234574,
+            "score_component": 4028234601,
+            "names": [
+              "Gity.SSG"
+            ]
+          },
+          {
+            "offset": 54618,
+            "controller": 4028234573,
+            "score_component": 4028234522,
+            "names": [
+              "Raid.SSG"
+            ]
+          },
+          {
+            "offset": 58275,
+            "controller": 4028234572,
+            "score_component": 4028234507,
+            "names": [
+              "Rival.SSG"
+            ]
+          }
+        ],
+        "controllers": {
+          "4028220641": [
+            "Kason.100T"
+          ],
+          "4028220640": [
+            "Atom.100T"
+          ],
+          "4028220575": [
+            "Hotancold.100T"
+          ],
+          "4028220574": [
+            "GMZ.100T"
+          ],
+          "4028220573": [
+            "SpiriTz.100T"
+          ],
+          "4028234576": [
+            "Aiden.SSG"
+          ],
+          "4028234575": [
+            "Dream.SSG"
+          ],
+          "4028234574": [
+            "Gity.SSG"
+          ],
+          "4028234573": [
+            "Raid.SSG"
+          ],
+          "4028234572": [
+            "Rival.SSG"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "username": "Aiden.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Dream.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Gity.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Raid.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Rival.SSG",
+            "teamIndex": 1
+          },
+          {
+            "username": "Kason.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Atom.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Hotancold.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "GMZ.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "SpiriTz.100T",
+            "teamIndex": 0
+          }
+        ],
+        "teams": [
+          {
+            "role": "Attack"
+          },
+          {
+            "role": "Defense"
+          }
+        ]
+      },
+      "clock_ticks": [
+        {
+          "kind": "clock",
+          "offset": 79657061,
+          "value": 44
+        },
+        {
+          "kind": "clock",
+          "offset": 79659818,
+          "value": 43
+        }
+      ],
+      "all_changes": [
+        {
+          "offset": 79657614,
+          "entity": 4028220602,
+          "names": [],
+          "counter": "score",
+          "previous": 890,
+          "value": 990,
+          "delta": 100
+        }
+      ]
+    },
+    "deaths": [],
+    "expected": "Hotancold.100T",
+    "reason": "standalone_clock_interval"
+  },
+  {
+    "case": "4150-R07",
+    "row": {
+      "kind": "plant",
+      "center": 81742897,
+      "identity": {
+        "signature": "1b782c47068dc9b1680759493ab8ed1065097541f1eb0b30f7e8a2632cd746be",
+        "entity_names": {
+          "4029685106": [
+            "Kason.100T"
+          ],
+          "4029685091": [
+            "Atom.100T"
+          ],
+          "4029685012": [
+            "Hotancold.100T"
+          ],
+          "4029684997": [
+            "GMZ.100T"
+          ],
+          "4029685046": [
+            "SpiriTz.100T"
+          ],
+          "4030519485": [
+            "JJBlaztful.5F"
+          ],
+          "4030521178": [
+            "Forrest.5F"
+          ],
+          "4030520367": [
+            "Rival.5F"
+          ],
+          "4030520708": [
+            "Fenz.5F"
+          ],
+          "4030513940": [
+            "Snake.5F"
+          ]
+        },
+        "evidence": [
+          {
+            "offset": 39258,
+            "controller": 4029685115,
+            "score_component": 4029685106,
+            "names": [
+              "Kason.100T"
+            ]
+          },
+          {
+            "offset": 43365,
+            "controller": 4029685114,
+            "score_component": 4029685091,
+            "names": [
+              "Atom.100T"
+            ]
+          },
+          {
+            "offset": 47372,
+            "controller": 4029685113,
+            "score_component": 4029685012,
+            "names": [
+              "Hotancold.100T"
+            ]
+          },
+          {
+            "offset": 51612,
+            "controller": 4029685112,
+            "score_component": 4029684997,
+            "names": [
+              "GMZ.100T"
+            ]
+          },
+          {
+            "offset": 55865,
+            "controller": 4029685111,
+            "score_component": 4029685046,
+            "names": [
+              "SpiriTz.100T"
+            ]
+          },
+          {
+            "offset": 60878,
+            "controller": 4029685034,
+            "score_component": 4030519485,
+            "names": [
+              "JJBlaztful.5F"
+            ]
+          },
+          {
+            "offset": 64552,
+            "controller": 4029685032,
+            "score_component": 4030521178,
+            "names": [
+              "Forrest.5F"
+            ]
+          },
+          {
+            "offset": 68280,
+            "controller": 4029685031,
+            "score_component": 4030520367,
+            "names": [
+              "Rival.5F"
+            ]
+          },
+          {
+            "offset": 71945,
+            "controller": 4029685033,
+            "score_component": 4030520708,
+            "names": [
+              "Fenz.5F"
+            ]
+          },
+          {
+            "offset": 75611,
+            "controller": 4029685030,
+            "score_component": 4030513940,
+            "names": [
+              "Snake.5F"
+            ]
+          }
+        ],
+        "controllers": {
+          "4029685115": [
+            "Kason.100T"
+          ],
+          "4029685114": [
+            "Atom.100T"
+          ],
+          "4029685113": [
+            "Hotancold.100T"
+          ],
+          "4029685112": [
+            "GMZ.100T"
+          ],
+          "4029685111": [
+            "SpiriTz.100T"
+          ],
+          "4029685034": [
+            "JJBlaztful.5F"
+          ],
+          "4029685032": [
+            "Forrest.5F"
+          ],
+          "4029685031": [
+            "Rival.5F"
+          ],
+          "4029685033": [
+            "Fenz.5F"
+          ],
+          "4029685030": [
+            "Snake.5F"
+          ]
+        }
+      },
+      "header": {
+        "players": [
+          {
+            "username": "Rival.5F",
+            "teamIndex": 1
+          },
+          {
+            "username": "Fenz.5F",
+            "teamIndex": 1
+          },
+          {
+            "username": "Snake.5F",
+            "teamIndex": 1
+          },
+          {
+            "username": "JJBlaztful.5F",
+            "teamIndex": 1
+          },
+          {
+            "username": "Forrest.5F",
+            "teamIndex": 1
+          },
+          {
+            "username": "Kason.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Atom.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "Hotancold.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "GMZ.100T",
+            "teamIndex": 0
+          },
+          {
+            "username": "SpiriTz.100T",
+            "teamIndex": 0
+          }
+        ],
+        "teams": [
+          {
+            "role": "Attack"
+          },
+          {
+            "role": "Defense"
+          }
+        ]
+      },
+      "clock_ticks": [
+        {
+          "kind": "clock",
+          "offset": 81742579,
+          "value": 44
+        },
+        {
+          "kind": "clock",
+          "offset": 81747762,
+          "value": 43
+        }
+      ],
+      "all_changes": [
+        {
+          "offset": 81743613,
+          "entity": 4029685012,
+          "names": [],
+          "counter": "score",
+          "previous": 2100,
+          "value": 2200,
+          "delta": 100
+        }
+      ]
+    },
+    "deaths": [],
+    "expected": "Hotancold.100T",
+    "reason": "standalone_clock_interval"
+  }
+]
