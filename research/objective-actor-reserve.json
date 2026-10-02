@@ -1,0 +1,193 @@
+{
+  "status": "reserved_unread_actor_labels",
+  "purpose": "new independent actor validation after revised rule freezes",
+  "excluded_rating_final_event": "North America League Stage 2 2026",
+  "parser_sha256": "e7c2a2db6d0a7bb68013ab285ff859cb1ae27595a74e58901b3a95e82748f4d5",
+  "maps": [
+    {
+      "match_id": 3905,
+      "event": "North America League Stage 1 2026",
+      "game_id": 7016,
+      "logical_folder": "logical-rehost-7998",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-06-18_16-24-16-18868",
+          "included_round_files": [
+            "Match-2026-06-18_16-24-16-18868-R01.rec",
+            "Match-2026-06-18_16-24-16-18868-R02.rec",
+            "Match-2026-06-18_16-24-16-18868-R03.rec",
+            "Match-2026-06-18_16-24-16-18868-R04.rec",
+            "Match-2026-06-18_16-24-16-18868-R05.rec",
+            "Match-2026-06-18_16-24-16-18868-R06.rec",
+            "Match-2026-06-18_16-24-16-18868-R07.rec",
+            "Match-2026-06-18_16-24-16-18868-R08.rec",
+            "Match-2026-06-18_16-24-16-18868-R09.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-06-18_17-17-09-18868",
+          "included_round_files": [
+            "Match-2026-06-18_17-17-09-18868-R01.rec",
+            "Match-2026-06-18_17-17-09-18868-R02.rec",
+            "Match-2026-06-18_17-17-09-18868-R03.rec"
+          ]
+        }
+      ],
+      "rounds": 12,
+      "builds": [
+        9734089
+      ],
+      "plants": 3,
+      "disables": 0,
+      "included_rec_sha256_manifest": "8be097fdf9850e8dcd871e615bcd89d20b87d4a5e4ac903ecc300911e3a72670"
+    },
+    {
+      "match_id": 4115,
+      "event": "South America League Stage 1 2026",
+      "game_id": 8555,
+      "logical_folder": "logical-rehost-8554",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-07-04_16-53-39-39776",
+          "included_round_files": [
+            "Match-2026-07-04_16-53-39-39776-R01.rec",
+            "Match-2026-07-04_16-53-39-39776-R02.rec",
+            "Match-2026-07-04_16-53-39-39776-R03.rec",
+            "Match-2026-07-04_16-53-39-39776-R04.rec",
+            "Match-2026-07-04_16-53-39-39776-R05.rec",
+            "Match-2026-07-04_16-53-39-39776-R06.rec",
+            "Match-2026-07-04_16-53-39-39776-R07.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-07-04_17-30-20-39776",
+          "included_round_files": [
+            "Match-2026-07-04_17-30-20-39776-R01.rec",
+            "Match-2026-07-04_17-30-20-39776-R02.rec",
+            "Match-2026-07-04_17-30-20-39776-R03.rec",
+            "Match-2026-07-04_17-30-20-39776-R04.rec",
+            "Match-2026-07-04_17-30-20-39776-R05.rec"
+          ]
+        }
+      ],
+      "rounds": 12,
+      "builds": [
+        9769907
+      ],
+      "plants": 0,
+      "disables": 0,
+      "included_rec_sha256_manifest": "c1b8750b89b442164574af5569a2b56b8f4588f58463acb1ae5fa30f3b3b88cd"
+    },
+    {
+      "match_id": 4147,
+      "event": "North America League Stage 1 2026",
+      "game_id": 7411,
+      "logical_folder": "logical-rehost-8007",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-06-25_20-11-14-17636",
+          "included_round_files": [
+            "Match-2026-06-25_20-11-14-17636-R01.rec",
+            "Match-2026-06-25_20-11-14-17636-R02.rec",
+            "Match-2026-06-25_20-11-14-17636-R03.rec",
+            "Match-2026-06-25_20-11-14-17636-R04.rec",
+            "Match-2026-06-25_20-11-14-17636-R05.rec",
+            "Match-2026-06-25_20-11-14-17636-R06.rec",
+            "Match-2026-06-25_20-11-14-17636-R07.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-06-25_20-44-26-17636",
+          "included_round_files": [
+            "Match-2026-06-25_20-44-26-17636-R01.rec",
+            "Match-2026-06-25_20-44-26-17636-R02.rec",
+            "Match-2026-06-25_20-44-26-17636-R03.rec",
+            "Match-2026-06-25_20-44-26-17636-R04.rec",
+            "Match-2026-06-25_20-44-26-17636-R05.rec"
+          ]
+        }
+      ],
+      "rounds": 12,
+      "builds": [
+        9751808
+      ],
+      "plants": 3,
+      "disables": 0,
+      "included_rec_sha256_manifest": "266a76bee84afdb52f7f9b549cdff7c824449a2d1a09e66746d36fd27f35aa88"
+    },
+    {
+      "match_id": 4149,
+      "event": "North America League Stage 1 2026",
+      "game_id": 7418,
+      "logical_folder": "logical-rehost-8009",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-06-25_22-20-49-17636",
+          "included_round_files": [
+            "Match-2026-06-25_22-20-49-17636-R01.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-06-25_22-29-01-17636",
+          "included_round_files": [
+            "Match-2026-06-25_22-29-01-17636-R01.rec",
+            "Match-2026-06-25_22-29-01-17636-R02.rec",
+            "Match-2026-06-25_22-29-01-17636-R03.rec",
+            "Match-2026-06-25_22-29-01-17636-R04.rec",
+            "Match-2026-06-25_22-29-01-17636-R05.rec",
+            "Match-2026-06-25_22-29-01-17636-R06.rec",
+            "Match-2026-06-25_22-29-01-17636-R07.rec",
+            "Match-2026-06-25_22-29-01-17636-R08.rec",
+            "Match-2026-06-25_22-29-01-17636-R09.rec",
+            "Match-2026-06-25_22-29-01-17636-R10.rec",
+            "Match-2026-06-25_22-29-01-17636-R11.rec"
+          ]
+        }
+      ],
+      "rounds": 12,
+      "builds": [
+        9751808
+      ],
+      "plants": 1,
+      "disables": 1,
+      "included_rec_sha256_manifest": "f9c69f03011cff380af07459dd5c3ed2c3a7d46d6cd79f33c75bc7c6f814512e"
+    },
+    {
+      "match_id": 4136,
+      "event": "North America League Stage 1 2026",
+      "game_id": 8056,
+      "logical_folder": "logical-rehost-8019",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-07-02_18-25-41-4828",
+          "included_round_files": [
+            "Match-2026-07-02_18-25-41-4828-R01.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-07-02_18-41-47-4828",
+          "included_round_files": [
+            "Match-2026-07-02_18-41-47-4828-R01.rec",
+            "Match-2026-07-02_18-41-47-4828-R02.rec",
+            "Match-2026-07-02_18-41-47-4828-R03.rec",
+            "Match-2026-07-02_18-41-47-4828-R04.rec",
+            "Match-2026-07-02_18-41-47-4828-R05.rec",
+            "Match-2026-07-02_18-41-47-4828-R06.rec",
+            "Match-2026-07-02_18-41-47-4828-R07.rec",
+            "Match-2026-07-02_18-41-47-4828-R08.rec",
+            "Match-2026-07-02_18-41-47-4828-R09.rec",
+            "Match-2026-07-02_18-41-47-4828-R10.rec",
+            "Match-2026-07-02_18-41-47-4828-R11.rec"
+          ]
+        }
+      ],
+      "rounds": 12,
+      "builds": [
+        9769907
+      ],
+      "plants": 1,
+      "disables": 1,
+      "included_rec_sha256_manifest": "0674c3aa93cc490737d90a113ccc0358d8fa26533b52deee65bec932113634dd"
+    }
+  ]
+}
