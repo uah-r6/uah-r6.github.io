@@ -1,0 +1,749 @@
+{
+  "status": "prospective_actor_labels_sealed",
+  "candidate": "disable-only direct owner hypothesis",
+  "event": "North America League Stage 2 2026",
+  "maps": [
+    {
+      "match_id": 6168,
+      "game_id": 10590,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-09_13-12-17-46792",
+      "map": {
+        "id": 17,
+        "name": "Villa",
+        "is_playable": true,
+        "web_url": "/maps/villa",
+        "image_url": "https://cdn.siege.gg/maps/villa.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 10,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "98b5f9a603a17a548b1797853cf9fd2a292097a5ea3442e213d98827c469ea89"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "38e734bf3d029127d07ce7f60c0b65ec85c7a205bdb97c8d13f998eb1940588d"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "957d7b634868c2b1392eaa4296b892bb391509bdd6fef6051ec80c1b5ab5212c"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "b153cc21b1aab9b23c67b21a7558949c88ae91610c94d566ffbdb08affdbb084"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "343b0bd8874b83ebcda10f54e4be8a931b1eecdb73e4474aabcd2b3ef51d5805"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "8f54c7b78ba3107690f777e10fc312391feb20c39c819621cf3b842ceb9d32df"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "1da31a3f383789ac2c5f9b9093212bb88dc971aa602ac8c2112552d80d6111fc"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R08.rec",
+          "physical_round": 8,
+          "logical_round": 8,
+          "sha256": "385358522f2504bbdfd9cc4ce3eaf2340d54bac55a59de3de963b60416dd9d36"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R09.rec",
+          "physical_round": 9,
+          "logical_round": 9,
+          "sha256": "098e7c8d50980892474424abec29dede8de8d5d383358066daae99e8df38a48f"
+        },
+        {
+          "folder": "Match-2026-09-09_13-12-17-46792",
+          "filename": "Match-2026-09-09_13-12-17-46792-R10.rec",
+          "physical_round": 10,
+          "logical_round": 10,
+          "sha256": "63a0fadb79b45c905ae9b2946dfe2d0bff0dae7e976ee40ea7807c8aeb826d97"
+        }
+      ],
+      "expected_score_by_roster": {
+        "725": 7,
+        "465": 3
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8283"
+    },
+    {
+      "match_id": 6169,
+      "game_id": 10591,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-09_14-13-50-46792",
+      "map": {
+        "id": 11,
+        "name": "Kafe",
+        "is_playable": true,
+        "web_url": "/maps/kafe",
+        "image_url": "https://cdn.siege.gg/maps/kafe.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 9,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "55e25c2c35d7d93f18ca6ff37c9d4b4e5b05825e81f3bd2262a57454adcab52c"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "6af0b4c7bfd480eab9c7dc63bcb537791d4f360b98651a10f9996bc183070a9a"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "7453237c6ec758750ff39efe7888298a681ea736e87fd338141e2bea3b66031f"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "087b02aa43e19426a3c19aa7e2bf4f7545a615070a53b3e5f1f7968d4553ab36"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "ad08fec5c3c99c4adf903f2d85a2aff4f84604ec97b20195566041f1868895f0"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "e7055861da75d2901307c83de51963e94949089ec8ec98c4016e333a5477124b"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "d3588326126f391b37f27bd94c16f8b6ba468405d824a720ac75647d25d036f1"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R08.rec",
+          "physical_round": 8,
+          "logical_round": 8,
+          "sha256": "6d365d3ea8e8b0dde3089a32a2bbd83ea9913d2898c75d8d360d98e5a8752bf5"
+        },
+        {
+          "folder": "Match-2026-09-09_14-13-50-46792",
+          "filename": "Match-2026-09-09_14-13-50-46792-R09.rec",
+          "physical_round": 9,
+          "logical_round": 9,
+          "sha256": "353539374b965aa1eebdcb8514bb7fe26d376bdea5271f8f85c092b5f67a060f"
+        }
+      ],
+      "expected_score_by_roster": {
+        "868": 7,
+        "930": 2
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8284"
+    },
+    {
+      "match_id": 6170,
+      "game_id": 10592,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-09_15-14-23-46792",
+      "map": {
+        "id": 17,
+        "name": "Villa",
+        "is_playable": true,
+        "web_url": "/maps/villa",
+        "image_url": "https://cdn.siege.gg/maps/villa.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 10,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "defb1fb1b7366e1184d02dd3dc2df009c9c85b670461298a933ee60b07b14734"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "543664b922a6576735676d58a0d87652e6a2ff1fdb8d87bbe31f270140065281"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "c95a371809470cb58f41359fdbf64ed96561e06abe52ad303b84a63408569dba"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "c36f234b2eea2865b8ec39c1e103897e56677d874dc09fbc8bda0ae0aaa4c01f"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "66f37f695c8a10c11cc9a864bd296cb78edbd0f864861e212837486f74f2de17"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "9c7d223f5498f8dd618329a06e855dc132f81e21e27491961c9e91ae1eb98da5"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "c2fb03e0761a4c47b666532911dd686967f4ea8fd28f7b7cc2cd4cbb477cecd6"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R08.rec",
+          "physical_round": 8,
+          "logical_round": 8,
+          "sha256": "0b53f6366a4412d7ff0119676bc8bece209eee49c56d801b461e736f73aaf0b9"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R09.rec",
+          "physical_round": 9,
+          "logical_round": 9,
+          "sha256": "5f44a2519c48d0afd73f1d24ce02d31e0eab48116abb6861eb95833fb7c293dc"
+        },
+        {
+          "folder": "Match-2026-09-09_15-14-23-46792",
+          "filename": "Match-2026-09-09_15-14-23-46792-R10.rec",
+          "physical_round": 10,
+          "logical_round": 10,
+          "sha256": "da616b02df428d0120b2b7636e3d4c3bd283d41c8c9941bd1973b8ae198cd433"
+        }
+      ],
+      "expected_score_by_roster": {
+        "125": 7,
+        "652": 3
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8285"
+    },
+    {
+      "match_id": 6172,
+      "game_id": 10594,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-09_17-32-49-46792",
+      "map": {
+        "id": 22,
+        "name": "Nighthaven Labs",
+        "is_playable": true,
+        "web_url": "/maps/nighthaven-labs",
+        "image_url": "https://cdn.siege.gg/maps/nighthaven-labs.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 7,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "94d15beefa69d141016a82630408c6ec5f9e8f38e26c183c09d49248f9a86b05"
+        },
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "ef84f549b0a867a917a2d4b0173b48e4045974f7f1cc1d9d7e8b8ed046a40e25"
+        },
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "6496b824cbdf38a35fc792c729a927a2889124997cb5da22450ca30e294cabb5"
+        },
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "480a62a19bfa45273cd541c9a14bd7f6c5430ea9520b9e8efea6c4c2bb55c9f0"
+        },
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "ab1a446413c62372f4048c1dd0ee83aec6299bd8db429c719370b0fee5b5654c"
+        },
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "a50e58efa7385db5a8111806d09e094b058036f8b694c899dc4d3c07721d9704"
+        },
+        {
+          "folder": "Match-2026-09-09_17-32-49-46792",
+          "filename": "Match-2026-09-09_17-32-49-46792-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "4bc15a664358ace74b15c3711ed05248e12e44032e81d6ed6ef2d9214ce070a3"
+        }
+      ],
+      "expected_score_by_roster": {
+        "738": 7,
+        "40": 0
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8287"
+    },
+    {
+      "match_id": 6173,
+      "game_id": 10599,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-10_13-04-52-7864",
+      "map": {
+        "id": 3,
+        "name": "Border",
+        "is_playable": true,
+        "web_url": "/maps/border",
+        "image_url": "https://cdn.siege.gg/maps/border.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 8,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "9e5f5a9e15fa154634b17f151969ea8337306f1ef2f33e4691d0d53474e4c97b"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "43876869f2ec2414faca36e2b06e8db10daaffe4663acd2c4b4296b8bc4d5399"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "2612292dfbd5f86e23deb710922330c3bd9d879af7395f0c14529f969aa82d50"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "b0aae39de4e79bec562b094527ce37e4874db60ef0f56f2f668e8e7280883a24"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "5eb97a4237f3423ed6a9cf4c036f86003d430dd454170531795764b9d730498f"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "0f61526698d627ec992522bdb8c140c78860e99e4523e009ec7ef2c7537a4c0b"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "aaca3688c3e2ba03a6808820d0fb6f8e35460c84dc8be22ab9b54841626dfe04"
+        },
+        {
+          "folder": "Match-2026-09-10_13-04-52-7864",
+          "filename": "Match-2026-09-10_13-04-52-7864-R08.rec",
+          "physical_round": 8,
+          "logical_round": 8,
+          "sha256": "001d01307860cb927480eddaa5810439ef0f80b91a7291c0c2d702851f117799"
+        }
+      ],
+      "expected_score_by_roster": {
+        "125": 7,
+        "930": 1
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8288"
+    },
+    {
+      "match_id": 6174,
+      "game_id": 10604,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-10_13-57-53-7864",
+      "map": {
+        "id": 22,
+        "name": "Nighthaven Labs",
+        "is_playable": true,
+        "web_url": "/maps/nighthaven-labs",
+        "image_url": "https://cdn.siege.gg/maps/nighthaven-labs.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 11,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "f2e5e120b30b9c557b7d68d86004c941d9427a177cea5eaf60d71ca1c0193240"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "4a70d8281570a6b0a43a565b14dabc4968337e74cd915fdd4ed74ef0bb0c69c4"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "6358f9245a2b61a3c931234a04f451fac3df5f297abe1b3f0e6598d5b076d468"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "5d72eaa7efd029cae607a70d92358f859df76ea6e2d74d4e4fe3adc9685498a0"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "5e23f7886a6066e35ad5fa35e51c10448c2050730742534c25c719ea1d3bbab5"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "47a2f00f8fc0835ac65341f1cf0553930851593b1694e3eda9da761c9e8c264c"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "8ce0d575d441163ed6f97506c46523ecc370c24decf0b9644538feb6f639e3df"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R08.rec",
+          "physical_round": 8,
+          "logical_round": 8,
+          "sha256": "4fcae13cfddd4c00fe496c2258c0e5c1777025912b838e83e4021d1a126ead89"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R09.rec",
+          "physical_round": 9,
+          "logical_round": 9,
+          "sha256": "dce3b25abfa5342fd32f3529fb2ad613a362dd51f41538a847078b5de2410b08"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R10.rec",
+          "physical_round": 10,
+          "logical_round": 10,
+          "sha256": "1445f880943bc82b78eb5e8ed98f70445e27bab98638b3198fe961ff76d43487"
+        },
+        {
+          "folder": "Match-2026-09-10_13-57-53-7864",
+          "filename": "Match-2026-09-10_13-57-53-7864-R11.rec",
+          "physical_round": 11,
+          "logical_round": 11,
+          "sha256": "a4cd9461d9a8d1678cf95bcd5ca096cee0f8f6795b4fcad571db780228a5f308"
+        }
+      ],
+      "expected_score_by_roster": {
+        "868": 7,
+        "776": 4
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8289"
+    },
+    {
+      "match_id": 6175,
+      "game_id": 10605,
+      "event": "North America League Stage 2 2026",
+      "folder": "Match-2026-09-10_15-05-24-7864",
+      "map": {
+        "id": 4,
+        "name": "Chalet",
+        "is_playable": true,
+        "web_url": "/maps/chalet",
+        "image_url": "https://cdn.siege.gg/maps/chalet.jpg",
+        "play_count": 0,
+        "is_active_in_pro_league": false
+      },
+      "rounds": 12,
+      "builds": [
+        9883691
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R01.rec",
+          "physical_round": 1,
+          "logical_round": 1,
+          "sha256": "86d868a0fc15df2d20ae8565c82ac802193d555c8d6efe2e7a4c098158e32df4"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R02.rec",
+          "physical_round": 2,
+          "logical_round": 2,
+          "sha256": "eb33ae4e3ef9e9c43a2031e6bfc6fce1c0c471048f17d9366f951eabd31a5277"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R03.rec",
+          "physical_round": 3,
+          "logical_round": 3,
+          "sha256": "5e3983b21fc5437baea86d9c5e66beb7febf7608adc193bdde2bca7c761ad09f"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R04.rec",
+          "physical_round": 4,
+          "logical_round": 4,
+          "sha256": "9be0df12ceb219f34370172e11e4f5e05e7efded2b5e18b778c3d2effe9eb83f"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R05.rec",
+          "physical_round": 5,
+          "logical_round": 5,
+          "sha256": "a71409240fa99e735769a09ec1f97a61d2ca09ccafdff47f29bc332c42092167"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R06.rec",
+          "physical_round": 6,
+          "logical_round": 6,
+          "sha256": "689f804a9336e243b8c1bf59f27c282721747b743f4dbbe6345ddea083e73a43"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R07.rec",
+          "physical_round": 7,
+          "logical_round": 7,
+          "sha256": "94bfc47798bd5e57754f725f78b6424af3bbed79d348e85d62f551326caf23a4"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R08.rec",
+          "physical_round": 8,
+          "logical_round": 8,
+          "sha256": "3316eaa45c05aec0bd59a06bcff148bd9b7b940ef73bb32786a0458cd6b0efd3"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R09.rec",
+          "physical_round": 9,
+          "logical_round": 9,
+          "sha256": "1e72c1f2df978fa773bf4c3640d1dec482c622b15b21f1837a86fb1be700fec1"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R10.rec",
+          "physical_round": 10,
+          "logical_round": 10,
+          "sha256": "2e57a44a0154db3311c0d25a06b92a48e4879ea740ee14e73f20602a33a3c3de"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R11.rec",
+          "physical_round": 11,
+          "logical_round": 11,
+          "sha256": "afe4c9030760d24b0e60832029cb51fa06966db6423748f5709d7a5f4645ee27"
+        },
+        {
+          "folder": "Match-2026-09-10_15-05-24-7864",
+          "filename": "Match-2026-09-10_15-05-24-7864-R12.rec",
+          "physical_round": 12,
+          "logical_round": 12,
+          "sha256": "c7cc817edb1383f495842322f4e65144d2ebec3d380aacd71da376c3007a34c1"
+        }
+      ],
+      "expected_score_by_roster": {
+        "40": 7,
+        "725": 5
+      },
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8290"
+    }
+  ],
+  "player_aliases_by_match": {
+    "6168": {
+      "Spiker.WC": 3223,
+      "kanzen.WC": 1805,
+      "Adrian.WC": 3501,
+      "Bae94.WC": 3411,
+      "bbySharKK.WC": 3667,
+      "Koshi.DZ": 3925,
+      "Fultz.DZ": 1077,
+      "Kyno.DZ": 1871,
+      "Nuers.DZ": 2935,
+      "njr.DZ": 1809
+    },
+    "6169": {
+      "Aiden.SSG": 3749,
+      "Dream.SSG": 1349,
+      "Gity.SSG": 2325,
+      "Raid.SSG": 3862,
+      "Rival.SSG": 3747,
+      "Packer.4FUN": 3001,
+      "MikeW.4FUN": 3465,
+      "Vulspur.4FUN": 3763,
+      "Beeno.4FUN": 2112,
+      "Serx.4FUN": 3894
+    },
+    "6170": {
+      "Ambi.SR": 3498,
+      "Canadian.SR": 49,
+      "Rexen.SR": 1040,
+      "Spoit.SR": 380,
+      "Surf.SR": 2397,
+      "dfuzr.M80": 3457,
+      "Ashn.M80": 3258,
+      "Savage.M80": 3090,
+      "Gaveni.M80": 3108,
+      "Gunnar.M80": 2393
+    },
+    "6172": {
+      "Atom.100T": 2981,
+      "GMZ.100T": 1870,
+      "Hotancold.100T": 79,
+      "Kason.100T": 4034,
+      "SpiriTz.100T": 1995,
+      "Centir.C9": 3480,
+      "Eddy.C9": 2830,
+      "Ewzy.C9": 3972,
+      "Monk.C9": 341,
+      "Panbazou.C9": 1860
+    },
+    "6173": {
+      "Ambi.SR": 3498,
+      "Canadian.SR": 49,
+      "Rexen.SR": 1040,
+      "Spoit.SR": 380,
+      "Surf.SR": 2397,
+      "Packer.4FUN": 3001,
+      "MikeW.4FUN": 3465,
+      "Vulspur.4FUN": 3763,
+      "Beeno.4FUN": 2112,
+      "Serx.4FUN": 3894
+    },
+    "6174": {
+      "Aiden.SSG": 3749,
+      "Dream.SSG": 1349,
+      "Gity.SSG": 2325,
+      "Raid.SSG": 3862,
+      "Rival.SSG": 3747,
+      "JJBlaztful.5F": 2140,
+      "Snake.5F": 2984,
+      "Fenz.5F": 3455,
+      "Rival.5F": 3471,
+      "Forrest.5F": 1318
+    },
+    "6175": {
+      "Atom.100T": 2981,
+      "GMZ.100T": 1870,
+      "Hotancold.100T": 79,
+      "SpiriTz.100T": 1995,
+      "Kason.100T": 4034,
+      "Spiker.WC": 3223,
+      "kanzen.WC": 1805,
+      "Adrian.WC": 3501,
+      "Bae94.WC": 3411,
+      "bbySharKK.WC": 3667
+    }
+  },
+  "actor_labels_opened": false,
+  "round_events_used": false,
+  "independence_scope": "New actor-label validation only. Rating data permanently consumed in earlier research; limited map objective totals were inspected earlier. Cached source replay and public targets are reused; no new actor labels or proposed owners inspected during reservation. Not a fresh Rating event.",
+  "selection_rule": "All seven cached maps from this event; no selection by actor outcome or objective presence",
+  "protected_files_checked": 86
+}
