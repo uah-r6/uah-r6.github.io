@@ -1,3 +1,15 @@
+## DECLARED STATE / DISABLE CLOCK WAVE - 2026-10-02
+
+All93 consumed rounds /930 player paths cached with full feedback parity. Independent HUD33states:10active/state0,20dead/state4,3active/state2. State2 is not a DBNO/dead exclusion; state3 has qualitative downed-icon support but exact timing/revive/disconnect semantics remain uncertain. HP alone fails seven of43 control deaths. See objective-state-hud-audit.md, objective-body-transitions.md and objective-health-validation.md.
+
+Twenty consumed disables categorized:14 multiple not eliminated,5 sole at completion with state0,1 missing state anchor. Completion-plus-next-clock observation finds common wave/+100 excess in18of19 anchored events; the known 3563/6675/R02 contradiction persists. No relative-score resolver promoted. NEXT ACTION: combined diagnostic with declared body/identity guards, unknown-state and PlayerLeave abstention, sole-throughout-complete-interaction logic and conflict veto. Specify/test/grade consumed data before freeze; fresh reserve stays sealed. Runtime/public/SQLite/archives/deployed siege_style_v2 untouched.
+
+## IN PROGRESS - DECLARED HEALTH/LIFE STATE EXPANSION - 2026-10-02
+
+HEAD37ee1f3. New direct declaration path links all ten typed player UID entities to health components in five consumed controls, slot4154dcc4/class0c98c63f. Numeric distance/drone joins unused. Health alone is unsafe: seven of43 confirmed deaths retained positive HP. Component fielde788f6a5 carries0/2/3/4; state4 before40kills and2 before3kills. Independent action HUD audit:30states =10active/state0 and20dead/state4, zero mismatches. State2/3 DBNO/revive semantics still unknown; no actor exclusion implemented. New generic typed-record observer captures continuation state fields and preserves parser feedback parity.
+
+Next long run `.venv/Scripts/python.exe research/objective_state_components.py --all-consumed` caches declared identities and health states across93 already-consumed objective-bearing rounds. Fresh reserve remains sealed. Next assess identity completeness, state-at-objective and transition patterns by build, then disable clock batches. No actor freeze, runtime/stat/public/SQLite/archive/v2 modification. Reproduction of controls: objective_state_components.py, objective_health_validation.py, objective_state_hud_audit.py. Run targeted Go component decoder tests/vet after scan; no need to rerun unchanged frontend tests.
+
 ## CLOCK INTERVAL RESEARCH CHECKPOINT - 2026-10-02
 
 Starting HEAD279d598; preserved and completed the interrupted evidence comparison and independent HUD audit. Eight prior score-resolved extension plants and four sole-survivor plants are disjoint; all eight score actors remain alive in the diagnostic. The 40 manually inspected HUD states matched (20 alive/20 dead), but disconnected/DBNO/revive eligibility remains unknown and Death events have zero offsets. Supporting evidence only. Reports: research/output/objective-evidence-comparison.md and objective-liveness-vod-audit.md.
