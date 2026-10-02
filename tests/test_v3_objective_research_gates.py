@@ -21,8 +21,8 @@ def test_final_events_and_reserved_rows_are_rejected_before_fit(event,reserved):
         development_groups(rows,dict(train_events=['train'],development_event='dev'))
 
 
-@pytest.mark.parametrize('complete,ambiguous,expected',[(True,False,10),(False,False,0),(True,True,0)])
-def test_final_quality_uses_identity_and_completeness_never_rating(tmp_path,monkeypatch,complete,ambiguous,expected):
+@pytest.mark.parametrize('complete,ambiguous,alias_uid,expected',[(True,False,None,10),(False,False,None,0),(True,True,None,0),(True,False,'replay-uuid',10),(True,False,'wrong-uuid',0)])
+def test_final_quality_uses_identity_and_completeness_never_rating(tmp_path,monkeypatch,complete,ambiguous,alias_uid,expected):
     import json
     import v3_final_pipeline as final
     monkeypatch.setattr(final,'DATA',tmp_path)
@@ -32,6 +32,13 @@ def test_final_quality_uses_identity_and_completeness_never_rating(tmp_path,monk
     (out/'replay-predictions.json').write_text(json.dumps(pred))
     public=[dict(id=i,ign=f'p{i}',stylized_name=f'p{i}',roster_id=i//5) for i in range(10)]
     if ambiguous:public[1]['ign']='p0';public[1]['stylized_name']='p0'
+    if alias_uid:
+        monkeypatch.setattr(final,'ROOT',tmp_path)
+        players[0]['profile_id']='replay-uuid'
+        public[0].update(ign='independent-old-name',stylized_name='independent-old-name')
+        (tmp_path/'research').mkdir()
+        (tmp_path/'research/v3-final-verified-aliases.json').write_text(json.dumps(dict(aliases={
+            'p0.TEAM':dict(replay_profile_id=alias_uid,siegegg_player_id=0,independently_verified=True)})))
     meta=dict(competition_id=189,date='2026-09-05T09:00:00Z',players=public,
         games=[dict(id=2,map=dict(name='Villa'),win_score=7,loss_score=3)])
     # Invalid numeric Rating proves quality never attempts to parse it.

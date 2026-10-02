@@ -30,6 +30,7 @@ def verify():
     if source_sha(RESERVE)!=frozen['reservation_sha256']:raise ValueError('Reservation changed after freeze')
     expected=dict(frozen['source_hashes'])
     amendments=list((ROOT/'research').glob('v3-final-prelabel-implementation-addendum*.json'))
+    latest_alias_digest=None
     def amendment_order(path):
         suffix=path.stem.removeprefix('v3-final-prelabel-implementation-addendum')
         return int(suffix.removeprefix('-')) if suffix else 0
@@ -40,8 +41,10 @@ def verify():
         allowed={'research/v3_final_pipeline.py','tests/test_v3_objective_research_gates.py'}
         if not set(amendment['source_overrides']).issubset(allowed):raise ValueError('Model/stat/parser changes prohibited by implementation addendum')
         expected.update(amendment['source_overrides'])
-        if amendment.get('verified_aliases_sha256') and source_sha(ROOT/'research/v3-final-verified-aliases.json')!=amendment['verified_aliases_sha256']:
-            raise ValueError('Prospectively verified alias manifest changed')
+        latest_alias_digest=amendment.get('verified_aliases_sha256',latest_alias_digest)
+    aliases_path=ROOT/'research/v3-final-verified-aliases.json'
+    if aliases_path.exists() and (not latest_alias_digest or source_sha(aliases_path)!=latest_alias_digest):
+        raise ValueError('Prospectively verified alias manifest changed')
     for filename,digest in expected.items():
         if source_sha(ROOT/filename)!=digest:raise ValueError('Frozen dependency changed: '+filename)
     if sha(ROOT/frozen['parser_binary'])!=frozen['parser_sha256']:raise ValueError('Frozen parser changed')

@@ -1,0 +1,9 @@
+{
+  "original_freeze_sha256": "178c1fb1ef456cfcd4d4efab61382f557881ab124c8875f5e8aa69f8d6e6ea11",
+  "rating_targets_opened": false,
+  "reason": "Verify latest prospectively sealed alias-registry revision while preserving all older git evidence seals; reject unsealed or changed current registry. Add endpoint-quality tests proving a UUID mismatch rejects an otherwise matching alias. No parser/gameplay/model/features/gates changed; no Rating target read.",
+  "source_overrides": {
+    "research/v3_final_pipeline.py": "cacd45210bfe804dca5fa61af1e8082b0c12a8003525572a6903e412dc3d4049",
+    "tests/test_v3_objective_research_gates.py": "8aa46ae0d13dc86a4a63d35deec0dfa3ded60beea9f1a093ffa11134bd3cb4a3"
+  }
+}
