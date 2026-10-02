@@ -35,7 +35,7 @@ def test_final_quality_uses_identity_and_completeness_never_rating(tmp_path,monk
     meta=dict(competition_id=189,date='2026-09-05T09:00:00Z',players=public,
         games=[dict(id=2,map=dict(name='Villa'),win_score=7,loss_score=3)])
     # Invalid numeric Rating proves quality never attempts to parse it.
-    targets={'2':{str(i):dict(kd='2-3',rounds=10,rating='SEALED_DO_NOT_PARSE') for i in range(10)}}
+    targets={'2':{str(i):dict(kd='2-3 (-1)',rounds=10,rating='SEALED_DO_NOT_PARSE') for i in range(10)}}
     (out/'siegegg-api-sealed.json').write_text(json.dumps(meta))
     (out/'siegegg-player-stats-sealed.json').write_text(json.dumps(targets))
     result=final.quality(dict(official_match_id=1,siegegg_match_id=2,date='2026-09-05T09:00:00Z'),pred,dict(siegegg_competition_id=189))

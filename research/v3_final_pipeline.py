@@ -28,7 +28,16 @@ RESULT=DATA/'one-shot-result.json'
 def verify():
     frozen=json.loads(FREEZE.read_text(encoding='utf-8'))
     if source_sha(RESERVE)!=frozen['reservation_sha256']:raise ValueError('Reservation changed after freeze')
-    for filename,digest in frozen['source_hashes'].items():
+    expected=dict(frozen['source_hashes'])
+    addendum=ROOT/'research/v3-final-prelabel-implementation-addendum.json'
+    if addendum.exists():
+        amendment=json.loads(addendum.read_text(encoding='utf-8'))
+        if amendment['original_freeze_sha256']!=source_sha(FREEZE) or amendment['rating_targets_opened']:
+            raise ValueError('Invalid prospective implementation addendum')
+        allowed={'research/v3_final_pipeline.py','tests/test_v3_objective_research_gates.py'}
+        if not set(amendment['source_overrides']).issubset(allowed):raise ValueError('Model/stat/parser changes prohibited by implementation addendum')
+        expected.update(amendment['source_overrides'])
+    for filename,digest in expected.items():
         if source_sha(ROOT/filename)!=digest:raise ValueError('Frozen dependency changed: '+filename)
     if sha(ROOT/frozen['parser_binary'])!=frozen['parser_sha256']:raise ValueError('Frozen parser changed')
     return frozen,json.loads(RESERVE.read_text(encoding='utf-8'))
@@ -140,7 +149,7 @@ def canonical_name(value):
 
 
 def quality(source,predictions,reservation):
-    out=DATA/str(source['official_match_id']);file=out/'quality-decisions.json'
+    out=DATA/str(source['official_match_id']);file=quality_path(out)
     if file.exists():return json.loads(file.read_text(encoding='utf-8'))
     api=out/'siegegg-api-sealed.json';stats=out/'siegegg-player-stats-sealed.json'
     cache_url(f"https://siege.gg/api/stats/matches/{source['siegegg_match_id']}",api)
@@ -163,7 +172,7 @@ def quality(source,predictions,reservation):
         if len(matches)!=1:
             decisions.append(dict(player=row['player'],eligible=False,issues=['Unresolved unique public IGN identity; no fuzzy alias inference']));continue
         p=matches[0];public=target_stats[str(p['id'])]
-        kd=re.fullmatch(r'(\d+)-(\d+)',public['kd'])
+        kd=re.fullmatch(r'(\d+)-(\d+)(?:\s+\([+-]?\d+\))?',public['kd'])
         if not kd or tuple(map(int,kd.groups()))!=(row['derived']['kills'],row['derived']['deaths']):issues.append('Exact K/D mismatch')
         if row['derived']['rounds']!=public['rounds']:issues.append('Exact round count mismatch')
         if not predictions['objective_complete']:issues.append('Entire map excluded: unresolved objective actor')
@@ -181,6 +190,12 @@ def quality(source,predictions,reservation):
     return result
 
 
+def quality_path(directory):
+    # Preserve earlier decisions and automatically invalidate only quality
+    # semantics after the explicitly recorded pre-label formatting correction.
+    return directory/f'quality-decisions-{source_sha(Path(__file__))[:12]}.json'
+
+
 def evaluate(frozen,reservation):
     if RESULT.exists():raise ValueError('Final event already evaluated; never reopen or overwrite')
     selected=[s for s in reservation['matches'] if s['selected']]
@@ -190,7 +205,7 @@ def evaluate(frozen,reservation):
     for source in selected:
         out=DATA/str(source['official_match_id'])
         pred=json.loads((out/'replay-predictions.json').read_text(encoding='utf-8'))
-        q=json.loads((out/'quality-decisions.json').read_text(encoding='utf-8'))
+        q=json.loads(quality_path(out).read_text(encoding='utf-8'))
         if q['prediction_sha256']!=sha(out/'replay-predictions.json') or q['target_stats_sha256']!=sha(out/'siegegg-player-stats-sealed.json'):
             raise ValueError('Sealed predictions/targets changed before final evaluation')
         sealed.append((source,pred,q))

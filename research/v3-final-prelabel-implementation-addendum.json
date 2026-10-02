@@ -1,0 +1,11 @@
+{
+  "original_freeze_sha256": "178c1fb1ef456cfcd4d4efab61382f557881ab124c8875f5e8aa69f8d6e6ea11",
+  "rating_targets_opened": false,
+  "reason": "First metadata/quality proof exposed the public KD suffix format (e.g. 3-5 (-2)). Accept exact two-count KD plus optional signed differential suffix. Preserve prior strict-format decision and use source-keyed quality cache; no Rating value/error inspected. Model/features/parser/acceptance/selection unchanged.",
+  "source_overrides": {
+    "research/v3_final_pipeline.py": "f6f758c3b1938a1a49f8b61039c812afd025279e177f6f32d51ffaa67ffc7c17",
+    "tests/test_v3_objective_research_gates.py": "94c47120a642510210ecb10453a28880f1aa89c3326943c327ad8ff6956e4621"
+  },
+  "first_quality_result_preserved": "data/research/v3-final-apac-n-stage2/8154/quality-decisions.json",
+  "aliases": "Unresolved, no fuzzy mappings or K/D-based identity inference added"
+}
