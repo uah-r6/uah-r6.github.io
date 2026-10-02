@@ -1,3 +1,9 @@
+## SIX CACHED ACTOR MAPS PERMANENT RESULT - 2026-10-02
+
+Frozen candidate A from cd28f76 evaluated unchanged at clean commit10cfecf on six cached maps/61 rounds. Plants10correct/1wrong/4unresolved; disables0correct/0wrong/3unresolved; zero occurrence mismatches. All11 named plant predictions used standalone_clock_with_body_guard. All predictions preceded actor labels. The wrong plant is 3554/6679/Chalet/logicalR04: candidate kyno, public Fultz. Permanent result data/research/diagnostics/objective-cached-map-validation/result.json and tracked output/objective-cached-map-validation.md. This actor set is now CONSUMED and cannot be independent validation again.
+
+NEXT ACTION: locally record the complete frozen result before analysis, then reconstruct the wrong round's ordered score/clock/body/death/timer evidence and identity declarations. Determine whether identity, delayed/gadget scoring, interaction association or public label is responsible. Do not retune a score threshold to force the answer. Original A, prior immutable outcomes and sole wrapper B remain unchanged. Do not implement production actor credit or v3 based on these results. SQLite/archive/public/live siege_style_v2 untouched; no push.
+
 ## SIX CACHED ACTOR MAPS FREEZE GATE - 2026-10-02
 
 HEAD4b839ba. Metadata-reserved6maps/61completed rounds in objective-cached-map-reserve.json:3554Bank10/Chalet8;3563Chalet9;6156Nighthaven10;6157Bank10/Fortress14. Twelve physical segments,5incomplete rounds excluded by unique score increment; exact public roster IDs and prior verified aliases confirm continuous global score chronology and final score. All61replaySHA256recorded. No download. Public actor labels ungraded; earlier K/D/multikill/occurrence use explicitly documented. These are new actor targets inside studied SLC/EWC events, not untouched event-disjoint Rating data.
