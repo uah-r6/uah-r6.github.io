@@ -1,4 +1,15 @@
-## Latest actor-only research continuation (2026-10-01)
+## Latest actor-only research continuation (2026-10-02)
+
+Frozen local combined diagnostic `cd28f76` has completed its one-shot five-map reserve:
+plants3correct/0wrong/5unresolved; disables1correct/0wrong/1unresolved; no occurrence
+mismatches. [Exact plan](objective-combined-plan.md), [result](output/objective-combined-reserve.md).
+All sixty replay predictions preceded actor-label access. That reserve is now consumed;
+do not reuse it as fresh validation. Deployed `siege_style_v2`, SQLite, archives and public
+data remain untouched. Four resolved events are too small a sample for broad runtime
+credit. Next audit unused source provenance and validate unchanged logic on another
+distinct set. Read the newest `docs/STATUS_NEXT_STEPS.md` checkpoint.
+
+## Previous actor-only research continuation (2026-10-01)
 
 Deployed `siege_style_v2` remains frozen. New [liveness extension](output/objective-liveness.md), [development audit](output/objective-liveness-development.md), and [official VOD review](output/objective-vod-review.md) improve the diagnostic evidence without crediting any production actor. All datasets used for these diagnostics were already consumed. The five-map actor reserve remains unopened. Read the newest checkpoint in `docs/STATUS_NEXT_STEPS.md` before continuing.
 

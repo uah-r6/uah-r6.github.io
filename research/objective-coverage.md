@@ -1,3 +1,7 @@
+## ONE-SHOT COMBINED ACTOR RESULT - 2026-10-02
+
+Frozen cd28f76 unchanged: five maps60rounds;8plants =3correct/0wrong/5unresolved;2disables =1correct/0wrong/1unresolved. Zero occurrence mismatches. Modes3standalone plants and1sole disable. All predictions saved before labels; result permanently recorded in ignored diagnostics and [report](output/objective-combined-reserve.md). This reserve is now CONSUMED. No candidate change or live data write. NEXT: reserve further distinct unused actor evidence using metadata/provenance, test the same frozen rule without tuning, and retain unresolved actors until broader accuracy is established. Ten events alone do not justify production or v3 work.
+
 ## COMBINED DIAGNOSTIC FREEZE GATE - 2026-10-02
 
 Exact plan: objective-combined-plan.md; executable: objective_combined_candidate.py; dependency manifest: objective-combined-freeze.json. Consumed original plants39/0/22,disables1/0/7; extension25/0/7,3/0/9. Both disputed controls remain unresolved. State/identity/interaction/unknown/death/disconnect/conflict safeguards tested;34targeted regressions and full144Python tests passed(1skipped,6subtests). Go dissect tests/vet and component tests passed. This is a research freeze, not production actor credit.
