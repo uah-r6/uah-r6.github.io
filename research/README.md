@@ -16,7 +16,7 @@ See [ownership alignment](output/objective-timer-owner-alignment.md),
 
 Independent [Fortress video review](output/objective-fortress-vod-review.md)
 contradicts the original Raid target, but the explicit mandatory4139/R07 control
-still remains actor-unresolved. J9O/njr remains independently unverified.
+still remains actor-unresolved. J9O/njr remains unresolved in the unchanged diagnostic; new primary Ubisoft map-total/round-method evidence supports njr. See [separate disable review](output/objective-official-disable-review.md).
 Frozen A and all three immutable validation results are unchanged. No live v2,
 SQLite, archives, public data, production actor implementation, fit or publish.
 Read the newest `docs/STATUS_NEXT_STEPS.md` checkpoint before continuing.
