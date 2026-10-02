@@ -1,3 +1,9 @@
+## SIX CACHED MAP ACTOR EXTENSION - SEALED - 2026-10-02
+
+objective-cached-map-reserve.json:6maps61completed rounds,12physical segments,5incomplete rounds excluded. Exact roster-ID score chronology and final scores verified; all61replaydigests recorded. Targets3554games6678/6679,3563game6674,6156game10424,6157games10427/10429. Actor labels ungraded; prior other-statistics metadata use declared. No download or Rating/event independence claim.
+
+NEXT freeze separate adapter/manifest locally and clean, then run objective_cached_map_validation.py once with original cd28f76 candidate A unchanged. Scoreless-sole wrapper B not involved. All predictions precede labels, result immutable. Further work remains read-only/local; SQLite/public/archive/v2 unchanged.
+
 ## UNFROZEN SCORELESS SOLE MODE - 2026-10-02
 
 SI root causes13missing score identity,2missing disable anchors. No direct UID-to-score component in two inspected rounds. Body proof does not inherently need score identity. Separate wrapper tests only that shared prerequisite while retaining all body/UID/kill/death/timer/disconnect safeguards; original2affected plants remain unresolved, consumedSI13affected plants1correct0wrong12unresolved(AdrianBankR06). This is consumed development, not a new independent result. Frozen A and both recorded validations unchanged.39targeted tests passed.

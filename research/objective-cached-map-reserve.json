@@ -1,0 +1,620 @@
+{
+  "status": "reserved_actor_labels_ungraded",
+  "candidate": "unchanged cd28f76; independent-sole wrapper NOT used",
+  "independence_scope": "Actor labels ungraded. Prior K/D, multikill and occurrence metadata may have been examined. Same studied SLC/EWC events; not new event-disjoint Rating data.",
+  "maps": [
+    {
+      "match_id": 3554,
+      "game_id": 6678,
+      "event": "Salt Lake City Major 2026",
+      "map": "Bank",
+      "rounds": 10,
+      "expected_score_by_roster": {
+        "50": 3,
+        "465": 7
+      },
+      "logical_folder": "actor-cached-map-6678",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "included_round_files": [
+            "Match-2026-05-16_18-16-44-3504-R01.rec",
+            "Match-2026-05-16_18-16-44-3504-R02.rec",
+            "Match-2026-05-16_18-16-44-3504-R03.rec",
+            "Match-2026-05-16_18-16-44-3504-R04.rec",
+            "Match-2026-05-16_18-16-44-3504-R05.rec",
+            "Match-2026-05-16_18-16-44-3504-R06.rec",
+            "Match-2026-05-16_18-16-44-3504-R07.rec",
+            "Match-2026-05-16_18-16-44-3504-R08.rec",
+            "Match-2026-05-16_18-16-44-3504-R09.rec",
+            "Match-2026-05-16_18-16-44-3504-R10.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R01.rec",
+          "sha256": "e1fe31cbf387c78f083f022f8bf9464f17867214aa0f8f8c8c51c1ac235d7f03"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R02.rec",
+          "sha256": "84b3bc28f0c6cfb03896f9b37b50b8859c86e5ca297913c68dc9675606bf9ef9"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R03.rec",
+          "sha256": "d3828be74033c86acd6b8d6ee4bc6f5e4aa643b9ed515dd72abaa465672fc30e"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R04.rec",
+          "sha256": "7263e2c6f9ca3a115612fa6ac4acb4737a058f83734a1db83c07f1c8f27858f4"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R05.rec",
+          "sha256": "cc80ec58ca3a36cf3d60d340fac8e4e3c1e1d5225ff15d3aa74fe8ecea7d5e84"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R06.rec",
+          "sha256": "4f9b202cafe49c420ec59a91627ce2fb85d476c8d0eda1d375ad7842c7550628"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R07.rec",
+          "sha256": "ef607f6ec39022de84abb22ad91b403e5306cb2f89224574045502754145a6bd"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R08.rec",
+          "sha256": "79a05b414f6085937029148383dd0f49495ee1a1344d5674718ee060538fabb5"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R09.rec",
+          "sha256": "c7a61b28b865603d6e0d1ca2100e5057e05c632e61817e89b7a13c29c022c1ef"
+        },
+        {
+          "folder": "Match-2026-05-16_18-16-44-3504",
+          "filename": "Match-2026-05-16_18-16-44-3504-R10.rec",
+          "sha256": "265d7bcfddbefbda11023d249ed1cca89e6a840762fd2e0a18b596951242c4e3"
+        }
+      ],
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9027",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/SLC26/BR62026_SLC_DAY8_DZvFAZE.zip"
+    },
+    {
+      "match_id": 3554,
+      "game_id": 6679,
+      "event": "Salt Lake City Major 2026",
+      "map": "Chalet",
+      "rounds": 8,
+      "expected_score_by_roster": {
+        "50": 1,
+        "465": 7
+      },
+      "logical_folder": "actor-cached-map-6679",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "included_round_files": [
+            "Match-2026-05-16_19-13-17-3504-R01.rec",
+            "Match-2026-05-16_19-13-17-3504-R02.rec",
+            "Match-2026-05-16_19-13-17-3504-R03.rec",
+            "Match-2026-05-16_19-13-17-3504-R04.rec",
+            "Match-2026-05-16_19-13-17-3504-R05.rec",
+            "Match-2026-05-16_19-13-17-3504-R06.rec",
+            "Match-2026-05-16_19-13-17-3504-R07.rec",
+            "Match-2026-05-16_19-13-17-3504-R08.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R01.rec",
+          "sha256": "c0e4ab2baaa0f79a626a78618d783ece363bb721c9eb76e32178120576b1ad66"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R02.rec",
+          "sha256": "df0ec989e1422557c7bfce0290f01a99d134567082a243d5c6456bd093a50b5a"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R03.rec",
+          "sha256": "57726e64f811a67b0afe6570b7ca4d84ca4990034a8104313b36dc7b1d0a60bc"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R04.rec",
+          "sha256": "8ca78195ab5c0d29cd79328e77573dd89bc2d09e59e80ad13c3a1a1024df01d4"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R05.rec",
+          "sha256": "321374094874fd20165f9644041a727bd6457a21d4cffbcdcd41a63712d8a000"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R06.rec",
+          "sha256": "256e32ae2cc1def0202162bc740e933bfe6ecae8081964ea176711035747fa86"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R07.rec",
+          "sha256": "8de9884ed842592942fd410d53b7e66440fb7da9ef8b10a141eb215281e132f3"
+        },
+        {
+          "folder": "Match-2026-05-16_19-13-17-3504",
+          "filename": "Match-2026-05-16_19-13-17-3504-R08.rec",
+          "sha256": "4b6bef65409397e908d68cdf77172d5c49add7cce8d8033143b9d1d4ce4329ec"
+        }
+      ],
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9027",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/SLC26/BR62026_SLC_DAY8_DZvFAZE.zip"
+    },
+    {
+      "match_id": 3563,
+      "game_id": 6674,
+      "event": "Salt Lake City Major 2026",
+      "map": "Chalet",
+      "rounds": 9,
+      "expected_score_by_roster": {
+        "125": 2,
+        "465": 7
+      },
+      "logical_folder": "actor-cached-map-6674",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-05-17_17-18-29-14704",
+          "included_round_files": [
+            "Match-2026-05-17_17-18-29-14704-R01.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "included_round_files": [
+            "Match-2026-05-17_17-24-55-14704-R01.rec",
+            "Match-2026-05-17_17-24-55-14704-R02.rec",
+            "Match-2026-05-17_17-24-55-14704-R03.rec",
+            "Match-2026-05-17_17-24-55-14704-R04.rec",
+            "Match-2026-05-17_17-24-55-14704-R05.rec",
+            "Match-2026-05-17_17-24-55-14704-R06.rec",
+            "Match-2026-05-17_17-24-55-14704-R07.rec",
+            "Match-2026-05-17_17-24-55-14704-R08.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-05-17_17-18-29-14704",
+          "filename": "Match-2026-05-17_17-18-29-14704-R01.rec",
+          "sha256": "f1414ac3a43e45b1347cd4f4693f4817f4dc4b6fbf15d15ccec600cdd469807d"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R01.rec",
+          "sha256": "f137c39f32d494648e1fa2591ba0e4c8435f2c7367791e73460fc7c89f051204"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R02.rec",
+          "sha256": "30ec8705cab2c74b6bc6c12bf1f437d0b0d715b2298411f441988ca90234b146"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R03.rec",
+          "sha256": "6073dbd6ca3b6aace82e3bba70cfd4a776ae4aacc1b2fe0c4e53d2b9f97eda54"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R04.rec",
+          "sha256": "9054110e0ab39545baf0e714f1ace4e85f59cff2b075d2ad2d4c7750b6e85b78"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R05.rec",
+          "sha256": "eb7ea471ad73c00d1a39d8acfd0dc155102d14d9fa48cd2113507636443d94b5"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R06.rec",
+          "sha256": "71138312d9263c30cecafb6c9f72ad0507074b071eb6cae88ed874e5d16ff4c2"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R07.rec",
+          "sha256": "2539a50ebad63191720a741db41d28e3bbeeef4796186acff5773cf903957834"
+        },
+        {
+          "folder": "Match-2026-05-17_17-24-55-14704",
+          "filename": "Match-2026-05-17_17-24-55-14704-R08.rec",
+          "sha256": "817dee3e475daaf96357212e37ea5571d7e94c0ecf4e49b3258809860a27c227"
+        }
+      ],
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9026",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/SLC26/BR62026_SLC_DAY9_DZ%20vSR.zip"
+    },
+    {
+      "match_id": 6156,
+      "game_id": 10424,
+      "event": "Esports World Cup 2026",
+      "map": "Nighthaven Labs",
+      "rounds": 10,
+      "expected_score_by_roster": {
+        "465": 3,
+        "886": 7
+      },
+      "logical_folder": "actor-cached-map-10424",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-08-15_13-38-13-32928",
+          "included_round_files": [
+            "Match-2026-08-15_13-38-13-32928-R01.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-08-15_13-45-38-32928",
+          "included_round_files": [
+            "Match-2026-08-15_13-45-38-32928-R01.rec",
+            "Match-2026-08-15_13-45-38-32928-R02.rec",
+            "Match-2026-08-15_13-45-38-32928-R03.rec",
+            "Match-2026-08-15_13-45-38-32928-R04.rec",
+            "Match-2026-08-15_13-45-38-32928-R05.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-08-15_14-16-57-32928",
+          "included_round_files": [
+            "Match-2026-08-15_14-16-57-32928-R01.rec",
+            "Match-2026-08-15_14-16-57-32928-R02.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-08-15_14-30-16-32928",
+          "included_round_files": [
+            "Match-2026-08-15_14-30-16-32928-R01.rec",
+            "Match-2026-08-15_14-30-16-32928-R02.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-08-15_13-38-13-32928",
+          "filename": "Match-2026-08-15_13-38-13-32928-R01.rec",
+          "sha256": "8b511c6eae7db8e84dd2fa84eb809935a30bf1aecedcfa2bfe2a4840677eb544"
+        },
+        {
+          "folder": "Match-2026-08-15_13-45-38-32928",
+          "filename": "Match-2026-08-15_13-45-38-32928-R01.rec",
+          "sha256": "6a6e2fe4cc6cd304e19c0cec7698fd536a5596989a8e98006983abe914bcbcdf"
+        },
+        {
+          "folder": "Match-2026-08-15_13-45-38-32928",
+          "filename": "Match-2026-08-15_13-45-38-32928-R02.rec",
+          "sha256": "7a73f7ca9d6503e008dfc7aae669a1b112daebe952735f2bbe96e5ef5a8d5047"
+        },
+        {
+          "folder": "Match-2026-08-15_13-45-38-32928",
+          "filename": "Match-2026-08-15_13-45-38-32928-R03.rec",
+          "sha256": "b80a310d45359fd29244ffcb6282cc6e8d1da5ccb1539f4888ac0412816a8c10"
+        },
+        {
+          "folder": "Match-2026-08-15_13-45-38-32928",
+          "filename": "Match-2026-08-15_13-45-38-32928-R04.rec",
+          "sha256": "185cc04a302e80106eae067ca9505d88ba8d8033e0845326e93b7b878f7c75c7"
+        },
+        {
+          "folder": "Match-2026-08-15_13-45-38-32928",
+          "filename": "Match-2026-08-15_13-45-38-32928-R05.rec",
+          "sha256": "8895b90b03cecbe8c126a4e22f438a48a35b4d5f7d3b3d96967ff743935af1bd"
+        },
+        {
+          "folder": "Match-2026-08-15_14-16-57-32928",
+          "filename": "Match-2026-08-15_14-16-57-32928-R01.rec",
+          "sha256": "0440f902dce9593e12708befc6228c313e9823476cb8a766d5e429222fcd821b"
+        },
+        {
+          "folder": "Match-2026-08-15_14-16-57-32928",
+          "filename": "Match-2026-08-15_14-16-57-32928-R02.rec",
+          "sha256": "2049c612714aaa8a97cf14bfc29cf8663d41aff31c20a6a6a8fd3d54d4ef50eb"
+        },
+        {
+          "folder": "Match-2026-08-15_14-30-16-32928",
+          "filename": "Match-2026-08-15_14-30-16-32928-R01.rec",
+          "sha256": "9292954419aba85727e36e6413ca08b89d0fb3f4ec0b949724226bf3abf16de1"
+        },
+        {
+          "folder": "Match-2026-08-15_14-30-16-32928",
+          "filename": "Match-2026-08-15_14-30-16-32928-R02.rec",
+          "sha256": "41d532c42f1d8171a5d91bc738b1068575deaa6190dfe12e9d3264773f9e49f0"
+        }
+      ],
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9070",
+      "archive_url": "https://static-esports.ubisoft.com/esports-platform/r6s/replays/ewc26/StreamA/StreamA/Day%2010-20260817T085159Z-1-001.zip"
+    },
+    {
+      "match_id": 6157,
+      "game_id": 10427,
+      "event": "Esports World Cup 2026",
+      "map": "Bank",
+      "rounds": 10,
+      "expected_score_by_roster": {
+        "50": 7,
+        "946": 3
+      },
+      "logical_folder": "actor-cached-map-10427",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "included_round_files": [
+            "Match-2026-08-15_17-36-32-32928-R01.rec",
+            "Match-2026-08-15_17-36-32-32928-R02.rec",
+            "Match-2026-08-15_17-36-32-32928-R03.rec",
+            "Match-2026-08-15_17-36-32-32928-R04.rec",
+            "Match-2026-08-15_17-36-32-32928-R05.rec",
+            "Match-2026-08-15_17-36-32-32928-R06.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-08-15_18-07-27-32928",
+          "included_round_files": [
+            "Match-2026-08-15_18-07-27-32928-R01.rec",
+            "Match-2026-08-15_18-07-27-32928-R02.rec",
+            "Match-2026-08-15_18-07-27-32928-R03.rec",
+            "Match-2026-08-15_18-07-27-32928-R04.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "filename": "Match-2026-08-15_17-36-32-32928-R01.rec",
+          "sha256": "3d7c063e637e4f68b0d06555e36f5d168cbca4783aded85637e7db18c95e2406"
+        },
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "filename": "Match-2026-08-15_17-36-32-32928-R02.rec",
+          "sha256": "720b2ece29437b9afc456e1f54ce0fdd1fedfc1389ebb447052ca6639aba7567"
+        },
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "filename": "Match-2026-08-15_17-36-32-32928-R03.rec",
+          "sha256": "282d061d313ccafc3f57a8168238ce5c6dc1029dd0719198aa8b1d56f9792b5e"
+        },
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "filename": "Match-2026-08-15_17-36-32-32928-R04.rec",
+          "sha256": "976b0370285ee971ccec8b014bb2b17b35dc71e293517638f15e58d3dbd9a18e"
+        },
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "filename": "Match-2026-08-15_17-36-32-32928-R05.rec",
+          "sha256": "9e96b3cbc15bd91649559bfe77350c4e0fb8c25bcbf3a49b1d252633555fc0c2"
+        },
+        {
+          "folder": "Match-2026-08-15_17-36-32-32928",
+          "filename": "Match-2026-08-15_17-36-32-32928-R06.rec",
+          "sha256": "1330107a7786a6e31177618b7402c799a1da1e21afe385c0405f3599b20246ad"
+        },
+        {
+          "folder": "Match-2026-08-15_18-07-27-32928",
+          "filename": "Match-2026-08-15_18-07-27-32928-R01.rec",
+          "sha256": "e94948cc4765deb5f0d20ce3a0643c3b7f316b27f8a7013e456d8db20d248ac9"
+        },
+        {
+          "folder": "Match-2026-08-15_18-07-27-32928",
+          "filename": "Match-2026-08-15_18-07-27-32928-R02.rec",
+          "sha256": "f9b64f0233a4d3e910ef3bb8daf20536a34a184e76f78825244311f2411127a1"
+        },
+        {
+          "folder": "Match-2026-08-15_18-07-27-32928",
+          "filename": "Match-2026-08-15_18-07-27-32928-R03.rec",
+          "sha256": "18c4e1caede46b76436fd4a193865c1e3dd0b952630cd8d49f728e4966c27e46"
+        },
+        {
+          "folder": "Match-2026-08-15_18-07-27-32928",
+          "filename": "Match-2026-08-15_18-07-27-32928-R04.rec",
+          "sha256": "7a8c68c1ebc914cf7fb28e4b80b43864a8043b31cae0377993b2f79923067a18"
+        }
+      ],
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9070",
+      "archive_url": "https://static-esports.ubisoft.com/esports-platform/r6s/replays/ewc26/StreamA/StreamA/Day%2010-20260817T085159Z-1-001.zip"
+    },
+    {
+      "match_id": 6157,
+      "game_id": 10429,
+      "event": "Esports World Cup 2026",
+      "map": "Fortress",
+      "rounds": 14,
+      "expected_score_by_roster": {
+        "50": 6,
+        "946": 8
+      },
+      "logical_folder": "actor-cached-map-10429",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-08-15_19-37-03-32928",
+          "included_round_files": [
+            "Match-2026-08-15_19-37-03-32928-R01.rec",
+            "Match-2026-08-15_19-37-03-32928-R02.rec",
+            "Match-2026-08-15_19-37-03-32928-R03.rec",
+            "Match-2026-08-15_19-37-03-32928-R04.rec",
+            "Match-2026-08-15_19-37-03-32928-R05.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "included_round_files": [
+            "Match-2026-08-15_20-00-03-32928-R01.rec",
+            "Match-2026-08-15_20-00-03-32928-R02.rec",
+            "Match-2026-08-15_20-00-03-32928-R03.rec",
+            "Match-2026-08-15_20-00-03-32928-R04.rec",
+            "Match-2026-08-15_20-00-03-32928-R05.rec",
+            "Match-2026-08-15_20-00-03-32928-R06.rec",
+            "Match-2026-08-15_20-00-03-32928-R07.rec",
+            "Match-2026-08-15_20-00-03-32928-R08.rec",
+            "Match-2026-08-15_20-00-03-32928-R09.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-08-15_19-37-03-32928",
+          "filename": "Match-2026-08-15_19-37-03-32928-R01.rec",
+          "sha256": "446d55f0fcc08cf3a895456cf4bb566d895ef8ec22d59ab8246752ded27193fe"
+        },
+        {
+          "folder": "Match-2026-08-15_19-37-03-32928",
+          "filename": "Match-2026-08-15_19-37-03-32928-R02.rec",
+          "sha256": "5b10a14eaa8d5cc746e363307bf2e71b404b1c304cf5a82c1fa849b19e931f05"
+        },
+        {
+          "folder": "Match-2026-08-15_19-37-03-32928",
+          "filename": "Match-2026-08-15_19-37-03-32928-R03.rec",
+          "sha256": "3192869af44fef28960c6f6c2b561ff059341ef2264b4bfd69589abee9b26337"
+        },
+        {
+          "folder": "Match-2026-08-15_19-37-03-32928",
+          "filename": "Match-2026-08-15_19-37-03-32928-R04.rec",
+          "sha256": "b8f6974fa8b05db24a181e1b4228b2a530596dc3cc8bba699c953789b3d15619"
+        },
+        {
+          "folder": "Match-2026-08-15_19-37-03-32928",
+          "filename": "Match-2026-08-15_19-37-03-32928-R05.rec",
+          "sha256": "b8b414c176af18a2de59c9696026394731d51731bf4f76f00958b11d9fbcf015"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R01.rec",
+          "sha256": "d5660b7a3ff8ffcb744456bacfad6adaf106c1216b8643138f12abbc21c2165c"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R02.rec",
+          "sha256": "459c062ddd3200bef754b43d69c68b25c27d01641fd47e4c6a391dcf88dd5679"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R03.rec",
+          "sha256": "9b29811f1736c156e31fe44030be099c3f2dff5aacd44f6678b45d8745ed0d06"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R04.rec",
+          "sha256": "be443b692f6e7df2b2e7b905b6114a2c4a97566e3a9b3063a71ddc96ca323e3c"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R05.rec",
+          "sha256": "8bc45ee18359205afee4559a887bba28ee343ed6075c5e322de9d48c012f7860"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R06.rec",
+          "sha256": "9d7b8ca1e1a82f14b914854e40d9630e7704d6f5c74bed71fbad09dc1704741b"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R07.rec",
+          "sha256": "3a428416c4e43b038a7d478b113192cd357203e948691d729c046ecc241ab40a"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R08.rec",
+          "sha256": "47d66ec97f7657e73bc9cf87b986f68fb8927c505317f71d9a3a75cd7d2d776d"
+        },
+        {
+          "folder": "Match-2026-08-15_20-00-03-32928",
+          "filename": "Match-2026-08-15_20-00-03-32928-R09.rec",
+          "sha256": "db6dcc257dccb56d63808f1bf2cc31e28b581be9a0394ee6d8147ae419362de4"
+        }
+      ],
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/9070",
+      "archive_url": "https://static-esports.ubisoft.com/esports-platform/r6s/replays/ewc26/StreamA/StreamA/Day%2010-20260817T085159Z-1-001.zip"
+    }
+  ],
+  "player_aliases_by_match": {
+    "3554": {
+      "J9O": 1810,
+      "Fultz": 1077,
+      "kyno": 1871,
+      "njr": 1809,
+      "Nuers": 2935,
+      "kds": 1109,
+      "cyberzera": 104,
+      "vitaking": 2323,
+      "handyy": 2822,
+      "soulz1": 1386
+    },
+    "3563": {
+      "J9O": 1810,
+      "Fultz": 1077,
+      "kyno": 1871,
+      "njr": 1809,
+      "Nuers": 2935,
+      "Surf": 2397,
+      "Ambi": 3498,
+      "Rexen": 1040,
+      "Spoit": 380,
+      "Canadian": 49
+    },
+    "6156": {
+      "Nuers": 2935,
+      "njr": 1809,
+      "kyno": 1871,
+      "Fultz": 1077,
+      "J9O": 1810,
+      "AsK": 2258,
+      "Sarks": 3708,
+      "Gruby": 2688,
+      "Eupor": 3181,
+      "Yoggah": 348
+    },
+    "6157": {
+      "Dias": 2191,
+      "LoiraDEMON": 3169,
+      "VolpsZ": 2667,
+      "HerdsZ": 1114,
+      "Bokzera": 3200,
+      "kds": 1109,
+      "cyber": 104,
+      "vitaking": 2323,
+      "handyy": 2822,
+      "soulz1": 1386
+    }
+  },
+  "excluded_incomplete_rounds": [
+    {
+      "folder": "Match-2026-05-17_17-18-29-14704",
+      "filename": "Match-2026-05-17_17-18-29-14704-R02.rec",
+      "reason": "no_unique_completed_score_increment"
+    },
+    {
+      "folder": "Match-2026-08-15_13-38-13-32928",
+      "filename": "Match-2026-08-15_13-38-13-32928-R02.rec",
+      "reason": "no_unique_completed_score_increment"
+    },
+    {
+      "folder": "Match-2026-08-15_13-45-38-32928",
+      "filename": "Match-2026-08-15_13-45-38-32928-R06.rec",
+      "reason": "no_unique_completed_score_increment"
+    },
+    {
+      "folder": "Match-2026-08-15_14-16-57-32928",
+      "filename": "Match-2026-08-15_14-16-57-32928-R03.rec",
+      "reason": "no_unique_completed_score_increment"
+    },
+    {
+      "folder": "Match-2026-08-15_19-37-03-32928",
+      "filename": "Match-2026-08-15_19-37-03-32928-R06.rec",
+      "reason": "no_unique_completed_score_increment"
+    }
+  ],
+  "public_round_events_used": false,
+  "actor_labels_opened": false
+}
