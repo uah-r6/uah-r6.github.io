@@ -50,3 +50,12 @@ def test_final_refuses_repeated_target_open_after_interrupted_evaluation(tmp_pat
     (tmp_path/'rating-targets-opened.json').write_text('{}')
     with pytest.raises(ValueError,match='already opened'):
         final.evaluate({},dict(matches=[]))
+
+
+def test_rehost_team_relabeling_preserves_existing_unknown_killer_death():
+    from r6stats.parser.models import Kill,Round
+    from v3_final_pipeline import remap_kills
+    round_=Round(1,'',0,'',kills=[Kill(1,30,'','victim',-1,0),Kill(2,25,'killer','victim',1,0)])
+    remap_kills(round_,{0:1,1:0})
+    assert [(k.killer_team,k.victim_team) for k in round_.kills]==[(-1,1),(0,1)]
+    assert round_.kills[0].killer==''

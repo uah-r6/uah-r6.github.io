@@ -1,0 +1,10 @@
+{
+  "original_freeze_sha256": "178c1fb1ef456cfcd4d4efab61382f557881ab124c8875f5e8aa69f8d6e6ea11",
+  "rating_targets_opened": false,
+  "reason": "Third initial archive has explicit Jin.RRX Death with unknown killer team -1. Preserve existing normalized death during canonical team relabeling; no gameplay parsing changes. Add stable UUID-bound independently verified alias support, with metadata evidence required before use; no fuzzy/KD/Rating name inference.",
+  "source_overrides": {
+    "research/v3_final_pipeline.py": "cec28c7ce5b08ad797de31b57ea95c015386c3ed32b610a4b225f01f60668f7f",
+    "tests/test_v3_objective_research_gates.py": "4735460665bace11d8b2c147c3fd4ae5e75e343916df5d29c26692863bb37b61"
+  },
+  "model_and_acceptance_unchanged": true
+}

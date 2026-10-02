@@ -29,14 +29,15 @@ def verify():
     frozen=json.loads(FREEZE.read_text(encoding='utf-8'))
     if source_sha(RESERVE)!=frozen['reservation_sha256']:raise ValueError('Reservation changed after freeze')
     expected=dict(frozen['source_hashes'])
-    addendum=ROOT/'research/v3-final-prelabel-implementation-addendum.json'
-    if addendum.exists():
+    for addendum in sorted((ROOT/'research').glob('v3-final-prelabel-implementation-addendum*.json')):
         amendment=json.loads(addendum.read_text(encoding='utf-8'))
         if amendment['original_freeze_sha256']!=source_sha(FREEZE) or amendment['rating_targets_opened']:
             raise ValueError('Invalid prospective implementation addendum')
         allowed={'research/v3_final_pipeline.py','tests/test_v3_objective_research_gates.py'}
         if not set(amendment['source_overrides']).issubset(allowed):raise ValueError('Model/stat/parser changes prohibited by implementation addendum')
         expected.update(amendment['source_overrides'])
+        if amendment.get('verified_aliases_sha256') and source_sha(ROOT/'research/v3-final-verified-aliases.json')!=amendment['verified_aliases_sha256']:
+            raise ValueError('Prospectively verified alias manifest changed')
     for filename,digest in expected.items():
         if source_sha(ROOT/filename)!=digest:raise ValueError('Frozen dependency changed: '+filename)
     if sha(ROOT/frozen['parser_binary'])!=frozen['parser_sha256']:raise ValueError('Frozen parser changed')
@@ -105,7 +106,7 @@ def acquire(source,frozen):
         if base is None:base=m
         if base.map_name!=m.map_name:raise ValueError('BO1 map differs across physical segments')
         for p in r.players:p.team=remap[p.team]
-        for k in r.kills:k.killer_team=remap[k.killer_team];k.victim_team=remap[k.victim_team]
+        remap_kills(r,remap)
         for o in r.objectives:o.team=remap[o.team]
         r.winner=remap[r.winner];r.starting_scores=tuple(start);r.ending_scores=tuple(end)
         rounds.append(r);last=tuple(end);mapping.append(info|dict(logical_round=r.number))
@@ -148,6 +149,14 @@ def canonical_name(value):
     return str(value).strip().casefold()
 
 
+def remap_kills(round_,remap):
+    for k in round_.kills:
+        # Existing normalized Death uses an unknown killer team of -1.
+        # Preserve it; this is team-index relabeling, not kill reconstruction.
+        k.killer_team=remap[k.killer_team] if k.killer_team in remap else k.killer_team
+        k.victim_team=remap[k.victim_team]
+
+
 def quality(source,predictions,reservation):
     out=DATA/str(source['official_match_id']);file=quality_path(out)
     if file.exists():return json.loads(file.read_text(encoding='utf-8'))
@@ -164,10 +173,15 @@ def quality(source,predictions,reservation):
     if map_name(game['map']['name'])!=map_name(predictions['map']) or sorted([game['win_score'],game['loss_score']])!=sorted(predictions['score']):
         raise ValueError('Target map/score differs')
     target_stats=json.loads(stats.read_text(encoding='utf-8'))[str(gid)]
+    aliases_path=ROOT/'research/v3-final-verified-aliases.json'
+    aliases=json.loads(aliases_path.read_text(encoding='utf-8'))['aliases'] if aliases_path.exists() else {}
     decisions=[]
     for row in predictions['players']:
         basename=canonical_name(row['player'].split('.')[0])
         matches=[p for p in meta['players'] if basename in {canonical_name(p['ign']),canonical_name(p['stylized_name'])}]
+        alias=aliases.get(row['player'])
+        if alias and alias['replay_profile_id']==row.get('profile_id') and alias.get('independently_verified') is True:
+            matches=[p for p in meta['players'] if p['id']==alias['siegegg_player_id']]
         issues=[]
         if len(matches)!=1:
             decisions.append(dict(player=row['player'],eligible=False,issues=['Unresolved unique public IGN identity; no fuzzy alias inference']));continue
