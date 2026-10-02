@@ -1,0 +1,10 @@
+{
+  "experiment": "separate_v3_verified_objectives_with_definition_correct_kost",
+  "reason": "The first controlled v3 model used original occurrence-free KOST. Live KOST includes verified objectives, so its input contract cannot silently be changed at deployment. Test this directly related input correction prospectively on development data only.",
+  "arms": ["A: exact frozen v2 weights on fully objective-corrected KOST inputs", "B: fixed-alpha raw nine-family ridge on the same corrected inputs plus verified player objectives"],
+  "features": "Same nine-family design; no multikill/opening/trade/operator changes. KOST is recomputed from verified normalized objectives in BOTH arms, not a new formula or a tenth feature.",
+  "split": "Original frozen v2 training events and EWC development, same fully objective-complete/identity/KD-clean subset; APAC North final and both original September final events excluded",
+  "regularization": "Standardize on training rows, unpenalized intercept, ridge alpha1. No search, no refit using final outcomes.",
+  "outputs": "New model/report/log record. Preserve first v3 model/development/final failures and every original dataset; no live v2, SQLite or public data change.",
+  "final_policy": "This is development only. If selected for a future final, reserve a genuinely new event and freeze before its errors. APAC North Stage2 is permanently consumed. No automatic deployment."
+}
