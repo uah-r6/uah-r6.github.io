@@ -1,4 +1,27 @@
-## Latest actor-only research continuation (2026-10-02)
+## Current actor evidence: explicit timer components (2026-10-02)
+
+Research-only temporal typed UID -> declared slot27c08dca/classb2216bf3 ->
+timer property ownership binds112/113 consumed interaction spans. The mixed
+4150/R11 span separates into two canceled Kason attempts and a Hotancold attempt
+using explicit component state records. No actor is credited.
+
+The 230 already-consumed objective-free rounds contain93 attempts across68rounds.
+Two reach near zero and state2 despite no global plant flag: near-zero plus
+state2 is **not** a completion rule. Keep the validated occurrence gate.
+The observed state0/1 start and2 terminal semantics remain research hypotheses.
+See [ownership alignment](output/objective-timer-owner-alignment.md),
+[state runs](output/objective-timer-component-episodes-all-consumed.md),
+[negative controls](output/objective-timer-negative-controls-all-consumed.md), and
+[cancellation audit](output/objective-timer-cancellation-audit.md).
+
+Independent [Fortress video review](output/objective-fortress-vod-review.md)
+contradicts the original Raid target, but the explicit mandatory4139/R07 control
+still remains actor-unresolved. J9O/njr remains independently unverified.
+Frozen A and all three immutable validation results are unchanged. No live v2,
+SQLite, archives, public data, production actor implementation, fit or publish.
+Read the newest `docs/STATUS_NEXT_STEPS.md` checkpoint before continuing.
+
+## Earlier actor-only research continuation (2026-10-02)
 
 Frozen local combined diagnostic `cd28f76` has completed its one-shot five-map reserve:
 plants3correct/0wrong/5unresolved; disables1correct/0wrong/1unresolved; no occurrence

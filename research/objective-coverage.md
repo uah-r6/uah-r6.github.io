@@ -1,3 +1,15 @@
+## Timer component state and canceled-attempt controls - 2026-10-02
+
+All material consumed, no actors credited. Direct owner112/113 spans; state-record segmentation resolves the mixed4150/R11 observation into two canceled Kason runs and finalHotancold, without arbitrary byte-gap boundaries.93physical positive rounds158attempts(122state0,36state1),all monotonic andterminal2;93plant-like+20disable-like nearzero,45partial.230objective-free rounds93attempts across68rounds,65terminal2/28ownership-declaration boundaries. Two false nearzero+state2 endings(4138/R09,4141/R14) have all opposing kills before finaltimer and no global objective flag. This disproves state2/timer completion alone. Global occurrence, phase and identity safeguards remain necessary.13new targeted tests preserve temporal ownership and8reduced real controls. SQLite hash unchanged; frozenA/results/runtime/v2 unchanged.
+
+Next inspect the same direct declared timer path across already consumed reserve/SI/cached maps; never relabel reused outcomes fresh. Public-label alignment discrepancies kept as separate observations, mandatoryRaid/Aiden andJ9O/njr actor controls unchanged/unresolved. Reports:objective-timer-owner-alignment.md,objective-timer-component-episodes-all-consumed.md,objective-timer-negative-controls-all-consumed.md,objective-timer-cancellation-audit.md. No production actor or Rating fit yet.
+
+## Explicit timer-component route under investigation - 2026-10-02
+
+ASCII taga9c858d9 is a continuation field in a framed0x23 component record; temporal UID-owner slot27c08dca/classb2216bf3 gives a direct route. Every sample bound on four consumed controls:4139R07Aiden143,3563BankR02disablenjr105,BankR10disableSpoit105,3554ChaletR04kyno104. These are ownership observations, not promoted actor credit. No proximity/score join; global shared components rejected, replaced/cleared slots temporal, name strings not numeric. Four targeted observer tests pass. Next broaden to consumed interactions and interrupted controls before semantic interpretation.
+
+Official VOD sQNarwuswkg frame1963 shows Aiden.SSG explicitly Planting the Defuser while Raid.SSG is separately active on roof;1967 completed plant and1970 subsequent Aiden death. Separate target contradiction report objective-fortress-vod-review.md. Preserve user's mandatory4139R07UNRESOLVED rule and original target/results; never confidently assign Aiden. J9O/njr remains independently unverified. No runtime/v2/SQLite/public/archive changes or push.
+
 ## Latest actor evidence and next action - 2026-10-02
 
 Frozen six cached maps10cfecf:plants10correct/1primarywrong/4unresolved,disables0/0/3; immutable result committed91594f3 before analysis. Independent official VOD ISlfYfpK4Tw shows kyno explicitly planting ChaletR04 at8817 and8822, completion8824. This supports frozen kyno prediction and contradicts public Fultz label. Preserve primary failure and raw target unchanged; separate reviewed conclusion only. Known J9O/njr disable remains unresolved.

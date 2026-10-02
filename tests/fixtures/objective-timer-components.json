@@ -1,0 +1,2777 @@
+{
+  "status": "consumed_structural_observations_never_actor_credit",
+  "sampling": "state records and first/last timer records only",
+  "cases": [
+    {
+      "match_id": 4139,
+      "game_id": null,
+      "round": 7,
+      "replay_sha256": "0af7a9715eb8e05c9711a681d2eabc2fa56795b35c50eb44361019ea8d91e38f",
+      "owners": {
+        "4028220641": "Kason.100T",
+        "4028220640": "Atom.100T",
+        "4028220575": "Hotancold.100T",
+        "4028220574": "GMZ.100T",
+        "4028220573": "SpiriTz.100T",
+        "4028234576": "Aiden.SSG",
+        "4028234575": "Dream.SSG",
+        "4028234574": "Gity.SSG",
+        "4028234573": "Raid.SSG",
+        "4028234572": "Rival.SSG"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 22279,
+          "owner": 4028234576,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028752687,
+          "offset": 61092464,
+          "owner": 4028234576,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028641894,
+          "offset": 61264416,
+          "owner": 4028234576,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028641894,
+          "offset": 61265908,
+          "owner": 4028234576,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 61887464,
+          "owner": 4028234576,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 61264450,
+          "entity": 4028641894,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 61264441,
+          "inherited": false
+        },
+        {
+          "offset": 61264467,
+          "entity": 4028641894,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 61264441,
+          "inherited": true
+        },
+        {
+          "offset": 61264477,
+          "entity": 4028641894,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 61264441,
+          "inherited": true
+        },
+        {
+          "offset": 61265942,
+          "entity": 4028641894,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 61265933,
+          "inherited": false
+        },
+        {
+          "offset": 61265959,
+          "entity": 4028641894,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 61265933,
+          "inherited": true
+        },
+        {
+          "offset": 61265969,
+          "entity": 4028641894,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 61265933,
+          "inherited": true
+        },
+        {
+          "offset": 61849853,
+          "entity": 4028641894,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 61849844,
+          "inherited": false
+        },
+        {
+          "offset": 61849863,
+          "entity": 4028641894,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 61849844,
+          "inherited": true
+        },
+        {
+          "offset": 61849873,
+          "entity": 4028641894,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 61849844,
+          "inherited": true
+        },
+        {
+          "offset": 61871065,
+          "entity": 4028641894,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 987890176,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0002e23a",
+          "record_start": 61871056,
+          "inherited": false
+        },
+        {
+          "offset": 61871075,
+          "entity": 4028641894,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.012",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303132",
+          "record_start": 61871056,
+          "inherited": true
+        },
+        {
+          "offset": 61871230,
+          "entity": 4028641894,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 61871221,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "Aiden.SSG",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 0.012,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 3563,
+      "game_id": 6675,
+      "round": 2,
+      "replay_sha256": "a2fb69d2799e8332c2c374b668380bf961fa5fd55adc8b04b284ea9ed201f3c0",
+      "owners": {
+        "4027816128": "J9O",
+        "4027816129": "Fultz",
+        "4027816158": "kyno",
+        "4027816159": "njr",
+        "4027816156": "Nuers",
+        "4027816081": "Rexen",
+        "4027816110": "Spoit",
+        "4027816111": "Canadian",
+        "4027816108": "Ambi",
+        "4027816109": "Surf"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 15689,
+          "owner": 4027816159,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4027708798,
+          "offset": 56790210,
+          "owner": 4027816159,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 56982540,
+          "owner": 4027816159,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4027695724,
+          "offset": 56983161,
+          "owner": 4027816159,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 57694109,
+          "owner": 4027816159,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 24179,
+          "owner": 4027816081,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4027708796,
+          "offset": 56790412,
+          "owner": 4027816081,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 56982608,
+          "owner": 4027816081,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4027695722,
+          "offset": 56983399,
+          "owner": 4027816081,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 57694284,
+          "owner": 4027816081,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 39316,
+          "owner": 4027816109,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4027708792,
+          "offset": 56790816,
+          "owner": 4027816109,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 56982708,
+          "owner": 4027816109,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4027695718,
+          "offset": 56983803,
+          "owner": 4027816109,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 57694746,
+          "owner": 4027816109,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 56983195,
+          "entity": 4027695724,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 56983186,
+          "inherited": false
+        },
+        {
+          "offset": 56983212,
+          "entity": 4027695724,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 56983186,
+          "inherited": true
+        },
+        {
+          "offset": 56983222,
+          "entity": 4027695724,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 56983186,
+          "inherited": true
+        },
+        {
+          "offset": 56983433,
+          "entity": 4027695722,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 56983424,
+          "inherited": false
+        },
+        {
+          "offset": 56983450,
+          "entity": 4027695722,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 56983424,
+          "inherited": true
+        },
+        {
+          "offset": 56983460,
+          "entity": 4027695722,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 56983424,
+          "inherited": true
+        },
+        {
+          "offset": 56983837,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 56983828,
+          "inherited": false
+        },
+        {
+          "offset": 56983854,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 56983828,
+          "inherited": true
+        },
+        {
+          "offset": 56983864,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 56983828,
+          "inherited": true
+        },
+        {
+          "offset": 56984578,
+          "entity": 4027695724,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 56984569,
+          "inherited": false
+        },
+        {
+          "offset": 56984595,
+          "entity": 4027695724,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 56984569,
+          "inherited": true
+        },
+        {
+          "offset": 56984605,
+          "entity": 4027695724,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 56984569,
+          "inherited": true
+        },
+        {
+          "offset": 56984748,
+          "entity": 4027695722,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 56984739,
+          "inherited": false
+        },
+        {
+          "offset": 56984765,
+          "entity": 4027695722,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 56984739,
+          "inherited": true
+        },
+        {
+          "offset": 56984775,
+          "entity": 4027695722,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 56984739,
+          "inherited": true
+        },
+        {
+          "offset": 56985207,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 56985198,
+          "inherited": false
+        },
+        {
+          "offset": 56985224,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 56985198,
+          "inherited": true
+        },
+        {
+          "offset": 56985234,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 56985198,
+          "inherited": true
+        },
+        {
+          "offset": 57489246,
+          "entity": 4027695722,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57489237,
+          "inherited": false
+        },
+        {
+          "offset": 57489256,
+          "entity": 4027695722,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 57489237,
+          "inherited": true
+        },
+        {
+          "offset": 57489266,
+          "entity": 4027695722,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 57489237,
+          "inherited": true
+        },
+        {
+          "offset": 57496497,
+          "entity": 4027695722,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1060295956,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "14d5323f",
+          "record_start": 57496488,
+          "inherited": false
+        },
+        {
+          "offset": 57496507,
+          "entity": 4027695722,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "4.890",
+          "interpretation": "ascii_timer",
+          "raw_hex": "342e383930",
+          "record_start": 57496488,
+          "inherited": true
+        },
+        {
+          "offset": 57496590,
+          "entity": 4027695722,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57496581,
+          "inherited": false
+        },
+        {
+          "offset": 57576742,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57576733,
+          "inherited": false
+        },
+        {
+          "offset": 57576752,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 57576733,
+          "inherited": true
+        },
+        {
+          "offset": 57576762,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 57576733,
+          "inherited": true
+        },
+        {
+          "offset": 57587780,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57587771,
+          "inherited": false
+        },
+        {
+          "offset": 57587790,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1059071072,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "6024203f",
+          "record_start": 57587771,
+          "inherited": true
+        },
+        {
+          "offset": 57587800,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "4.379",
+          "interpretation": "ascii_timer",
+          "raw_hex": "342e333739",
+          "record_start": 57587771,
+          "inherited": true
+        },
+        {
+          "offset": 57611038,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57611029,
+          "inherited": false
+        },
+        {
+          "offset": 57611048,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 57611029,
+          "inherited": true
+        },
+        {
+          "offset": 57611058,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 57611029,
+          "inherited": true
+        },
+        {
+          "offset": 57618174,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57618165,
+          "inherited": false
+        },
+        {
+          "offset": 57618184,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "5.744",
+          "interpretation": "ascii_timer",
+          "raw_hex": "352e373434",
+          "record_start": 57618165,
+          "inherited": true
+        },
+        {
+          "offset": 57634390,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57634381,
+          "inherited": false
+        },
+        {
+          "offset": 57634400,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 57634381,
+          "inherited": true
+        },
+        {
+          "offset": 57634410,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 57634381,
+          "inherited": true
+        },
+        {
+          "offset": 57656385,
+          "entity": 4027695718,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 996851712,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00c06a3b",
+          "record_start": 57656376,
+          "inherited": false
+        },
+        {
+          "offset": 57656395,
+          "entity": 4027695718,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.025",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303235",
+          "record_start": 57656376,
+          "inherited": true
+        },
+        {
+          "offset": 57656724,
+          "entity": 4027695718,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57656715,
+          "inherited": false
+        },
+        {
+          "offset": 57668520,
+          "entity": 4027695724,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 1,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "01000000",
+          "record_start": 57668511,
+          "inherited": false
+        },
+        {
+          "offset": 57668530,
+          "entity": 4027695724,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065286107,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "dbf97e3f",
+          "record_start": 57668511,
+          "inherited": true
+        },
+        {
+          "offset": 57668540,
+          "entity": 4027695724,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.972",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393732",
+          "record_start": 57668511,
+          "inherited": true
+        },
+        {
+          "offset": 57693444,
+          "entity": 4027695724,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57693435,
+          "inherited": false
+        },
+        {
+          "offset": 57693454,
+          "entity": 4027695724,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303030",
+          "record_start": 57693435,
+          "inherited": true
+        },
+        {
+          "offset": 57693609,
+          "entity": 4027695724,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57693600,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "Rexen",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 4.89,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Surf",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 4.379,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Surf",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 5.744,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Surf",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 0.025,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "njr",
+          "state": 1,
+          "first_timer": 6.972,
+          "last_timer": 0.0,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 3563,
+      "game_id": 6675,
+      "round": 10,
+      "replay_sha256": "d15f0fe6d14a269c74ced1dd21c6857c13eda957ca1639a369fbe94f37fb2277",
+      "owners": {
+        "4027816128": "J9O",
+        "4027816129": "Fultz",
+        "4027816158": "kyno",
+        "4027816159": "njr",
+        "4027816156": "Nuers",
+        "4027816081": "Rexen",
+        "4027816110": "Spoit",
+        "4027816111": "Canadian",
+        "4027816108": "Ambi",
+        "4027816109": "Surf"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 45478,
+          "owner": 4027816158,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028111962,
+          "offset": 65284563,
+          "owner": 4027816158,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028164570,
+          "offset": 65462967,
+          "owner": 4027816158,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028164570,
+          "offset": 65464447,
+          "owner": 4027816158,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 66118068,
+          "owner": 4027816158,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 61038,
+          "owner": 4027816110,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028111958,
+          "offset": 65284967,
+          "owner": 4027816110,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028164566,
+          "offset": 65463371,
+          "owner": 4027816110,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028164566,
+          "offset": 65464851,
+          "owner": 4027816110,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 66118580,
+          "owner": 4027816110,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 65463001,
+          "entity": 4028164570,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 65462992,
+          "inherited": false
+        },
+        {
+          "offset": 65463018,
+          "entity": 4028164570,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 65462992,
+          "inherited": true
+        },
+        {
+          "offset": 65463028,
+          "entity": 4028164570,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 65462992,
+          "inherited": true
+        },
+        {
+          "offset": 65463405,
+          "entity": 4028164566,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 65463396,
+          "inherited": false
+        },
+        {
+          "offset": 65463422,
+          "entity": 4028164566,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 65463396,
+          "inherited": true
+        },
+        {
+          "offset": 65463432,
+          "entity": 4028164566,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 65463396,
+          "inherited": true
+        },
+        {
+          "offset": 65464481,
+          "entity": 4028164570,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 65464472,
+          "inherited": false
+        },
+        {
+          "offset": 65464498,
+          "entity": 4028164570,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 65464472,
+          "inherited": true
+        },
+        {
+          "offset": 65464508,
+          "entity": 4028164570,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 65464472,
+          "inherited": true
+        },
+        {
+          "offset": 65464885,
+          "entity": 4028164566,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 65464876,
+          "inherited": false
+        },
+        {
+          "offset": 65464902,
+          "entity": 4028164566,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 65464876,
+          "inherited": true
+        },
+        {
+          "offset": 65464912,
+          "entity": 4028164566,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 65464876,
+          "inherited": true
+        },
+        {
+          "offset": 65986318,
+          "entity": 4028164570,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 65986309,
+          "inherited": false
+        },
+        {
+          "offset": 65986328,
+          "entity": 4028164570,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 65986309,
+          "inherited": true
+        },
+        {
+          "offset": 65986338,
+          "entity": 4028164570,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 65986309,
+          "inherited": true
+        },
+        {
+          "offset": 66010988,
+          "entity": 4028164570,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1000421376,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0038a13b",
+          "record_start": 66010979,
+          "inherited": false
+        },
+        {
+          "offset": 66010998,
+          "entity": 4028164570,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.034",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303334",
+          "record_start": 66010979,
+          "inherited": true
+        },
+        {
+          "offset": 66011144,
+          "entity": 4028164570,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 66011135,
+          "inherited": false
+        },
+        {
+          "offset": 66098648,
+          "entity": 4028164566,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 1,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "01000000",
+          "record_start": 66098639,
+          "inherited": false
+        },
+        {
+          "offset": 66098658,
+          "entity": 4028164566,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065293297,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "f1157f3f",
+          "record_start": 66098639,
+          "inherited": true
+        },
+        {
+          "offset": 66098668,
+          "entity": 4028164566,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.975",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393735",
+          "record_start": 66098639,
+          "inherited": true
+        },
+        {
+          "offset": 66117567,
+          "entity": 4028164566,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.004",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303034",
+          "record_start": 66117558,
+          "inherited": false
+        },
+        {
+          "offset": 66117650,
+          "entity": 4028164566,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 66117641,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "kyno",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 0.034,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Spoit",
+          "state": 1,
+          "first_timer": 6.975,
+          "last_timer": 0.004,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 3554,
+      "game_id": 6679,
+      "round": 4,
+      "replay_sha256": "8ca78195ab5c0d29cd79328e77573dd89bc2d09e59e80ad13c3a1a1024df01d4",
+      "owners": {
+        "4031150779": "J9O",
+        "4031150776": "Fultz",
+        "4031150777": "kyno",
+        "4031150774": "njr",
+        "4031150775": "Nuers",
+        "4031150696": "kds",
+        "4031150697": "cyberzera",
+        "4031150694": "vitaking",
+        "4031150695": "handyy",
+        "4031150692": "soulz1"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 41042,
+          "owner": 4031150777,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031429671,
+          "offset": 56874691,
+          "owner": 4031150777,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031410980,
+          "offset": 57048836,
+          "owner": 4031150777,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031410980,
+          "offset": 57050283,
+          "owner": 4031150777,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 57619116,
+          "owner": 4031150777,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 57048870,
+          "entity": 4031410980,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57048861,
+          "inherited": false
+        },
+        {
+          "offset": 57048887,
+          "entity": 4031410980,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57048861,
+          "inherited": true
+        },
+        {
+          "offset": 57048897,
+          "entity": 4031410980,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 57048861,
+          "inherited": true
+        },
+        {
+          "offset": 57050317,
+          "entity": 4031410980,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57050308,
+          "inherited": false
+        },
+        {
+          "offset": 57050334,
+          "entity": 4031410980,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57050308,
+          "inherited": true
+        },
+        {
+          "offset": 57050344,
+          "entity": 4031410980,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 57050308,
+          "inherited": true
+        },
+        {
+          "offset": 57494155,
+          "entity": 4031410980,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 57494146,
+          "inherited": false
+        },
+        {
+          "offset": 57494165,
+          "entity": 4031410980,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 57494146,
+          "inherited": true
+        },
+        {
+          "offset": 57494175,
+          "entity": 4031410980,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.967",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393637",
+          "record_start": 57494146,
+          "inherited": true
+        },
+        {
+          "offset": 57527483,
+          "entity": 4031410980,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.010",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303130",
+          "record_start": 57527474,
+          "inherited": false
+        },
+        {
+          "offset": 57527665,
+          "entity": 4031410980,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 57527656,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "kyno",
+          "state": 0,
+          "first_timer": 6.967,
+          "last_timer": 0.01,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 4150,
+      "game_id": null,
+      "round": 11,
+      "replay_sha256": "b1cbd3c345997d6305581a839d00035c08abfa42a76d6abaf5247f8d6e1d3ef7",
+      "owners": {
+        "4029685115": "Kason.100T",
+        "4029685114": "Atom.100T",
+        "4029685113": "Hotancold.100T",
+        "4029685112": "GMZ.100T",
+        "4029685111": "SpiriTz.100T",
+        "4029685034": "JJBlaztful.5F",
+        "4029685032": "Forrest.5F",
+        "4029685031": "Rival.5F",
+        "4029685033": "Fenz.5F",
+        "4029685030": "Snake.5F"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 8897,
+          "owner": 4029685115,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4030935622,
+          "offset": 73574303,
+          "owner": 4029685115,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 73735106,
+          "owner": 4029685115,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4030927949,
+          "offset": 73752220,
+          "owner": 4029685115,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 17001,
+          "owner": 4029685113,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4030935620,
+          "offset": 73574505,
+          "owner": 4029685113,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 73735156,
+          "owner": 4029685113,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4030927947,
+          "offset": 73752422,
+          "owner": 4029685113,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 73752254,
+          "entity": 4030927949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 73752245,
+          "inherited": false
+        },
+        {
+          "offset": 73752271,
+          "entity": 4030927949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 73752245,
+          "inherited": true
+        },
+        {
+          "offset": 73752281,
+          "entity": 4030927949,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 73752245,
+          "inherited": true
+        },
+        {
+          "offset": 73752456,
+          "entity": 4030927947,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 73752447,
+          "inherited": false
+        },
+        {
+          "offset": 73752473,
+          "entity": 4030927947,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 73752447,
+          "inherited": true
+        },
+        {
+          "offset": 73752483,
+          "entity": 4030927947,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 73752447,
+          "inherited": true
+        },
+        {
+          "offset": 73753775,
+          "entity": 4030927949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 73753766,
+          "inherited": false
+        },
+        {
+          "offset": 73753792,
+          "entity": 4030927949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 73753766,
+          "inherited": true
+        },
+        {
+          "offset": 73753802,
+          "entity": 4030927949,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 73753766,
+          "inherited": true
+        },
+        {
+          "offset": 73753927,
+          "entity": 4030927947,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 73753918,
+          "inherited": false
+        },
+        {
+          "offset": 73753944,
+          "entity": 4030927947,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 73753918,
+          "inherited": true
+        },
+        {
+          "offset": 73753954,
+          "entity": 4030927947,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 73753918,
+          "inherited": true
+        },
+        {
+          "offset": 74285811,
+          "entity": 4030927949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 74285802,
+          "inherited": false
+        },
+        {
+          "offset": 74285821,
+          "entity": 4030927949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 74285802,
+          "inherited": true
+        },
+        {
+          "offset": 74285831,
+          "entity": 4030927949,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 74285802,
+          "inherited": true
+        },
+        {
+          "offset": 74308010,
+          "entity": 4030927949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 74308001,
+          "inherited": false
+        },
+        {
+          "offset": 74308020,
+          "entity": 4030927949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1053995602,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "52b2d23e",
+          "record_start": 74308001,
+          "inherited": true
+        },
+        {
+          "offset": 74308030,
+          "entity": 4030927949,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "2.881",
+          "interpretation": "ascii_timer",
+          "raw_hex": "322e383831",
+          "record_start": 74308001,
+          "inherited": true
+        },
+        {
+          "offset": 74325968,
+          "entity": 4030927949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 74325959,
+          "inherited": false
+        },
+        {
+          "offset": 74325978,
+          "entity": 4030927949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 74325959,
+          "inherited": true
+        },
+        {
+          "offset": 74325988,
+          "entity": 4030927949,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 74325959,
+          "inherited": true
+        },
+        {
+          "offset": 74326884,
+          "entity": 4030927949,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.694",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e363934",
+          "record_start": 74326875,
+          "inherited": false
+        },
+        {
+          "offset": 74326967,
+          "entity": 4030927949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 74326958,
+          "inherited": false
+        },
+        {
+          "offset": 74383327,
+          "entity": 4030927947,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 74383318,
+          "inherited": false
+        },
+        {
+          "offset": 74383337,
+          "entity": 4030927947,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 74383318,
+          "inherited": true
+        },
+        {
+          "offset": 74383347,
+          "entity": 4030927947,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 74383318,
+          "inherited": true
+        },
+        {
+          "offset": 74408726,
+          "entity": 4030927947,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.015",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303135",
+          "record_start": 74408717,
+          "inherited": false
+        },
+        {
+          "offset": 74408862,
+          "entity": 4030927947,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 74408853,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "Kason.100T",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 2.881,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Kason.100T",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 6.694,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Hotancold.100T",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 0.015,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 4141,
+      "game_id": null,
+      "round": 6,
+      "replay_sha256": "4f52d6531473b8956f920ba28c627e0b81465d4d92424dce13a1fbf6aa452086",
+      "owners": {
+        "4030481845": "JJBlaztful.5F",
+        "4030481844": "Forrest.5F",
+        "4030481843": "Rival.5F",
+        "4030481842": "Fenz.5F",
+        "4030481841": "Snake.5F",
+        "4030481508": "Packer.4FUN",
+        "4030481507": "MikeW.4FUN",
+        "4030481506": "Vulspur.4FUN",
+        "4030481505": "Beeno.4FUN",
+        "4030481504": "Sylo.4FUN"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 4165,
+          "owner": 4030481845,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031083054,
+          "offset": 72078538,
+          "owner": 4030481845,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031098948,
+          "offset": 72254519,
+          "owner": 4030481845,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031098948,
+          "offset": 72256083,
+          "owner": 4030481845,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 73020758,
+          "owner": 4030481845,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 72254553,
+          "entity": 4031098948,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 72254544,
+          "inherited": false
+        },
+        {
+          "offset": 72254570,
+          "entity": 4031098948,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 72254544,
+          "inherited": true
+        },
+        {
+          "offset": 72254580,
+          "entity": 4031098948,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 72254544,
+          "inherited": true
+        },
+        {
+          "offset": 72256117,
+          "entity": 4031098948,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 72256108,
+          "inherited": false
+        },
+        {
+          "offset": 72256134,
+          "entity": 4031098948,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 72256108,
+          "inherited": true
+        },
+        {
+          "offset": 72256144,
+          "entity": 4031098948,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 72256108,
+          "inherited": true
+        },
+        {
+          "offset": 72962476,
+          "entity": 4031098948,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 72962467,
+          "inherited": false
+        },
+        {
+          "offset": 72962486,
+          "entity": 4031098948,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 72962467,
+          "inherited": true
+        },
+        {
+          "offset": 72962496,
+          "entity": 4031098948,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 72962467,
+          "inherited": true
+        },
+        {
+          "offset": 72970720,
+          "entity": 4031098948,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1061017278,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "bed63d3f",
+          "record_start": 72970711,
+          "inherited": false
+        },
+        {
+          "offset": 72970730,
+          "entity": 4031098948,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "5.191",
+          "interpretation": "ascii_timer",
+          "raw_hex": "352e313931",
+          "record_start": 72970711,
+          "inherited": true
+        },
+        {
+          "offset": 72970867,
+          "entity": 4031098948,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 72970858,
+          "inherited": false
+        },
+        {
+          "offset": 72990375,
+          "entity": 4031098948,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 72990366,
+          "inherited": false
+        },
+        {
+          "offset": 72990385,
+          "entity": 4031098948,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 72990366,
+          "inherited": true
+        },
+        {
+          "offset": 72990395,
+          "entity": 4031098948,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 72990366,
+          "inherited": true
+        },
+        {
+          "offset": 73020415,
+          "entity": 4031098948,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.018",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303138",
+          "record_start": 73020406,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "JJBlaztful.5F",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 5.191,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "JJBlaztful.5F",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 0.018,
+          "end_reason": "ownership_declaration_boundary",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 4141,
+      "game_id": null,
+      "round": 14,
+      "replay_sha256": "8ff7ad139d1d8f581d3a510620f96abc5e6dc1eb70619e0a4831e395157a0905",
+      "owners": {
+        "4030481845": "JJBlaztful.5F",
+        "4030481844": "Forrest.5F",
+        "4030481843": "Rival.5F",
+        "4030481842": "Fenz.5F",
+        "4030481841": "Snake.5F",
+        "4030481508": "Packer.4FUN",
+        "4030481507": "MikeW.4FUN",
+        "4030481506": "Vulspur.4FUN",
+        "4030481505": "Beeno.4FUN",
+        "4030481504": "Sylo.4FUN"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 72304,
+          "owner": 4030481505,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031478094,
+          "offset": 75990084,
+          "owner": 4030481505,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031495115,
+          "offset": 76168864,
+          "owner": 4030481505,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4031495115,
+          "offset": 76170482,
+          "owner": 4030481505,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 76168898,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 76168889,
+          "inherited": false
+        },
+        {
+          "offset": 76168915,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 76168889,
+          "inherited": true
+        },
+        {
+          "offset": 76168925,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 76168889,
+          "inherited": true
+        },
+        {
+          "offset": 76170516,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 76170507,
+          "inherited": false
+        },
+        {
+          "offset": 76170533,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 76170507,
+          "inherited": true
+        },
+        {
+          "offset": 76170543,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 76170507,
+          "inherited": true
+        },
+        {
+          "offset": 76828581,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 76828572,
+          "inherited": false
+        },
+        {
+          "offset": 76828591,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 76828572,
+          "inherited": true
+        },
+        {
+          "offset": 76828601,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.980",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393830",
+          "record_start": 76828572,
+          "inherited": true
+        },
+        {
+          "offset": 76847921,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 76847912,
+          "inherited": false
+        },
+        {
+          "offset": 76847931,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "3.384",
+          "interpretation": "ascii_timer",
+          "raw_hex": "332e333834",
+          "record_start": 76847912,
+          "inherited": true
+        },
+        {
+          "offset": 76916032,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 76916023,
+          "inherited": false
+        },
+        {
+          "offset": 76916042,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 76916023,
+          "inherited": true
+        },
+        {
+          "offset": 76916052,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.973",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393733",
+          "record_start": 76916023,
+          "inherited": true
+        },
+        {
+          "offset": 76918507,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 76918498,
+          "inherited": false
+        },
+        {
+          "offset": 76918517,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1064025028,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "c4bb6b3f",
+          "record_start": 76918498,
+          "inherited": true
+        },
+        {
+          "offset": 76918527,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.427",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e343237",
+          "record_start": 76918498,
+          "inherited": true
+        },
+        {
+          "offset": 76954458,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 76954449,
+          "inherited": false
+        },
+        {
+          "offset": 76954468,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 76954449,
+          "inherited": true
+        },
+        {
+          "offset": 76954478,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.987",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393837",
+          "record_start": 76954449,
+          "inherited": true
+        },
+        {
+          "offset": 76960231,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 76960222,
+          "inherited": false
+        },
+        {
+          "offset": 76960241,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1063410323,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "935a623f",
+          "record_start": 76960222,
+          "inherited": true
+        },
+        {
+          "offset": 76960251,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.189",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e313839",
+          "record_start": 76960222,
+          "inherited": true
+        },
+        {
+          "offset": 77034130,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 77034121,
+          "inherited": false
+        },
+        {
+          "offset": 77034140,
+          "entity": 4031495115,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 77034121,
+          "inherited": true
+        },
+        {
+          "offset": 77034150,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "7.000",
+          "interpretation": "ascii_timer",
+          "raw_hex": "372e303030",
+          "record_start": 77034121,
+          "inherited": true
+        },
+        {
+          "offset": 77062991,
+          "entity": 4031495115,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 77062982,
+          "inherited": false
+        },
+        {
+          "offset": 77063001,
+          "entity": 4031495115,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.007",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303037",
+          "record_start": 77062982,
+          "inherited": true
+        }
+      ],
+      "expected": [
+        {
+          "player": "Beeno.4FUN",
+          "state": 0,
+          "first_timer": 6.98,
+          "last_timer": 3.384,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Beeno.4FUN",
+          "state": 0,
+          "first_timer": 6.973,
+          "last_timer": 6.427,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Beeno.4FUN",
+          "state": 0,
+          "first_timer": 6.987,
+          "last_timer": 6.189,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Beeno.4FUN",
+          "state": 0,
+          "first_timer": 7.0,
+          "last_timer": 0.007,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    },
+    {
+      "match_id": 4138,
+      "game_id": null,
+      "round": 9,
+      "replay_sha256": "562f584c811111b5cf3395137ab4358ed33639ac4d3d7f3272299bfbaf3ae26a",
+      "owners": {
+        "4027897138": "Eddy.C9",
+        "4027897137": "Panbazou.C9",
+        "4027897136": "Centir.C9",
+        "4027897135": "Monk.c9",
+        "4027897134": "Ewzy.C9",
+        "4027897313": "Fultz.DZ",
+        "4027897312": "Nuers.DZ",
+        "4027897247": "J9O.DZ",
+        "4027897246": "Kyno.DZ",
+        "4027897245": "njr.DZ"
+      },
+      "declarations": [
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 181536,
+          "owner": 4027897313,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028174413,
+          "offset": 85829416,
+          "owner": 4027897313,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028178950,
+          "offset": 86006418,
+          "owner": 4027897313,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "00000000",
+          "component": 0,
+          "offset": 185574,
+          "owner": 4027897312,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028174412,
+          "offset": 85829517,
+          "owner": 4027897312,
+          "slot_hash": "27c08dca"
+        },
+        {
+          "class_hash": "b2216bf3",
+          "component": 4028178949,
+          "offset": 86006519,
+          "owner": 4027897312,
+          "slot_hash": "27c08dca"
+        }
+      ],
+      "fields": [
+        {
+          "offset": 86006452,
+          "entity": 4028178950,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 86006443,
+          "inherited": false
+        },
+        {
+          "offset": 86006469,
+          "entity": 4028178950,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 86006443,
+          "inherited": true
+        },
+        {
+          "offset": 86006479,
+          "entity": 4028178950,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 86006443,
+          "inherited": true
+        },
+        {
+          "offset": 86006553,
+          "entity": 4028178949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 86006544,
+          "inherited": false
+        },
+        {
+          "offset": 86006570,
+          "entity": 4028178949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 86006544,
+          "inherited": true
+        },
+        {
+          "offset": 86006580,
+          "entity": 4028178949,
+          "hash": "a9c858d9",
+          "size": 0,
+          "value": "",
+          "interpretation": "ascii_timer",
+          "raw_hex": "",
+          "record_start": 86006544,
+          "inherited": true
+        },
+        {
+          "offset": 86637710,
+          "entity": 4028178950,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 86637701,
+          "inherited": false
+        },
+        {
+          "offset": 86637720,
+          "entity": 4028178950,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 86637701,
+          "inherited": true
+        },
+        {
+          "offset": 86637730,
+          "entity": 4028178950,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.970",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393730",
+          "record_start": 86637701,
+          "inherited": true
+        },
+        {
+          "offset": 86649853,
+          "entity": 4028178950,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 86649844,
+          "inherited": false
+        },
+        {
+          "offset": 86649863,
+          "entity": 4028178950,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1054452086,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "76a9d93e",
+          "record_start": 86649844,
+          "inherited": true
+        },
+        {
+          "offset": 86649873,
+          "entity": 4028178950,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "2.965",
+          "interpretation": "ascii_timer",
+          "raw_hex": "322e393635",
+          "record_start": 86649844,
+          "inherited": true
+        },
+        {
+          "offset": 86689334,
+          "entity": 4028178949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 0,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "00000000",
+          "record_start": 86689325,
+          "inherited": false
+        },
+        {
+          "offset": 86689344,
+          "entity": 4028178949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1065353216,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "0000803f",
+          "record_start": 86689325,
+          "inherited": true
+        },
+        {
+          "offset": 86689354,
+          "entity": 4028178949,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "6.976",
+          "interpretation": "ascii_timer",
+          "raw_hex": "362e393736",
+          "record_start": 86689325,
+          "inherited": true
+        },
+        {
+          "offset": 86709404,
+          "entity": 4028178949,
+          "hash": "e9a37feb",
+          "size": 4,
+          "value": 1001523072,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "8007b23b",
+          "record_start": 86709395,
+          "inherited": false
+        },
+        {
+          "offset": 86709414,
+          "entity": 4028178949,
+          "hash": "a9c858d9",
+          "size": 5,
+          "value": "0.005",
+          "interpretation": "ascii_timer",
+          "raw_hex": "302e303035",
+          "record_start": 86709395,
+          "inherited": true
+        },
+        {
+          "offset": 86709649,
+          "entity": 4028178949,
+          "hash": "e58c06e9",
+          "size": 4,
+          "value": 2,
+          "interpretation": "unsigned_bits_only",
+          "raw_hex": "02000000",
+          "record_start": 86709640,
+          "inherited": false
+        }
+      ],
+      "expected": [
+        {
+          "player": "Fultz.DZ",
+          "state": 0,
+          "first_timer": 6.97,
+          "last_timer": 2.965,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        },
+        {
+          "player": "Nuers.DZ",
+          "state": 0,
+          "first_timer": 6.976,
+          "last_timer": 0.005,
+          "end_reason": "explicit_state_2",
+          "actor": null
+        }
+      ]
+    }
+  ]
+}

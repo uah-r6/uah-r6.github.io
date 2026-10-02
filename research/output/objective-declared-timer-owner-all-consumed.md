@@ -1,0 +1,123 @@
+# Explicit declared timer component owners — research only
+
+Each ASCII a9c858d9 timer field is framed inside a 0x23 entity record with 0x22 continuation. A temporal direct slot declaration links that entity to a unique typed numeric UID owner. No nearby-ID, score, drone or packet-window join. All timer values exactly match the existing observer. **No actor is credited**: physical interaction semantics require independent validation; both mandatory disputed controls stay unresolved. All cases consumed.
+
+Statuses: `{'complete_unique_declared_timer_owner': 112, 'ambiguous_or_missing_timer_owner': 1}`.
+
+| Match/game/round/kind | Build | Status | Packet owner observation | Bound timer samples | Classes / slots |
+| --- | --- | --- | --- | --- | --- |
+| 4150/None/R03/plant | 9751808 | complete_unique_declared_timer_owner | ['Forrest.5F'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4150/None/R07/plant | 9751808 | complete_unique_declared_timer_owner | ['Hotancold.100T'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4150/None/R09/plant | 9751808 | complete_unique_declared_timer_owner | ['Kason.100T'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4150/None/R11/plant | 9751808 | ambiguous_or_missing_timer_owner | ['Hotancold.100T', 'Kason.100T'] | 108/108 | [('27c08dca', 'b2216bf3')] |
+| 4132/None/R05/plant | 9769907 | complete_unique_declared_timer_owner | ['JJBlaztful.5F'] | 113/113 | [('27c08dca', 'b2216bf3')] |
+| 4132/None/R10/plant | 9769907 | complete_unique_declared_timer_owner | ['kanzen.WC'] | 182/182 | [('27c08dca', 'b2216bf3')] |
+| 4132/None/R10/disable | 9769907 | complete_unique_declared_timer_owner | ['Forrest.5F'] | 120/120 | [('27c08dca', 'b2216bf3')] |
+| 4132/None/R13/plant | 9769907 | complete_unique_declared_timer_owner | ['Fenz.5F'] | 167/167 | [('27c08dca', 'b2216bf3')] |
+| 4132/None/R15/plant | 9769907 | complete_unique_declared_timer_owner | ['Rival.5F'] | 177/177 | [('27c08dca', 'b2216bf3')] |
+| 3585/None/R04/plant | 9636829 | complete_unique_declared_timer_owner | ['Binbin.Daystar'] | 142/142 | [('27c08dca', 'b2216bf3')] |
+| 3585/None/R06/plant | 9636829 | complete_unique_declared_timer_owner | ['SouffIe.Daystar'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3585/None/R07/plant | 9636829 | complete_unique_declared_timer_owner | ['BGMan.ORC'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3585/None/R07/disable | 9636829 | complete_unique_declared_timer_owner | ['Pikanzu.Daystar'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3585/None/R08/plant | 9636829 | complete_unique_declared_timer_owner | ['Lycolis.ORC'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6156/None/R01/plant | 9820472 | complete_unique_declared_timer_owner | ['kyno'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6156/None/R05/plant | 9820472 | complete_unique_declared_timer_owner | ['kyno'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6156/None/R07/plant | 9820472 | complete_unique_declared_timer_owner | ['AsK'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 6156/None/R07/disable | 9820472 | complete_unique_declared_timer_owner | ['kyno'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6156/None/R10/plant | 9820472 | complete_unique_declared_timer_owner | ['Yoggah'] | 111/111 | [('27c08dca', 'b2216bf3')] |
+| 6156/None/R10/disable | 9820472 | complete_unique_declared_timer_owner | ['Fultz'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3073/None/R03/plant | 9486312 | complete_unique_declared_timer_owner | ['SpeakEasy5G'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3073/None/R08/plant | 9486312 | complete_unique_declared_timer_owner | ['pino'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3554/None/R05/plant | 9658832 | complete_unique_declared_timer_owner | ['kyno'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3554/None/R09/plant | 9658832 | complete_unique_declared_timer_owner | ['vitaking'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R01/plant | 9769907 | complete_unique_declared_timer_owner | ['R4re.BD'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R03/plant | 9769907 | complete_unique_declared_timer_owner | ['guto.BD'] | 106/106 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R04/plant | 9769907 | complete_unique_declared_timer_owner | ['R4re.BD'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R07/plant | 9769907 | complete_unique_declared_timer_owner | ['Gabu7z.LOUD'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R09/plant | 9769907 | complete_unique_declared_timer_owner | ['live.LOUD'] | 106/106 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R11/plant | 9769907 | complete_unique_declared_timer_owner | ['live.LOUD'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4112/None/R12/plant | 9769907 | complete_unique_declared_timer_owner | ['live.LOUD'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 3637/None/R02/plant | 9718747 | complete_unique_declared_timer_owner | ['Yoggah.Geekay'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3637/None/R10/plant | 9718747 | complete_unique_declared_timer_owner | ['Alem4o.G2'] | 184/184 | [('27c08dca', 'b2216bf3')] |
+| 4140/None/R11/plant | 9769907 | complete_unique_declared_timer_owner | ['Rexen.SR'] | 167/167 | [('27c08dca', 'b2216bf3')] |
+| 4118/None/R03/plant | 9769907 | complete_unique_declared_timer_owner | ['Handyy.FaZe'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4118/None/R07/plant | 9769907 | complete_unique_declared_timer_owner | ['live.LOUD'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 4141/None/R10/plant | 9769907 | complete_unique_declared_timer_owner | ['Beeno.4FUN'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 4134/None/R04/plant | 9769907 | complete_unique_declared_timer_owner | ['Canadian.SR'] | 183/183 | [('27c08dca', 'b2216bf3')] |
+| 4134/None/R08/plant | 9769907 | complete_unique_declared_timer_owner | ['Dream.SSG'] | 106/106 | [('27c08dca', 'b2216bf3')] |
+| 4148/None/R03/plant | 9751808 | complete_unique_declared_timer_owner | ['Vulspur.4FUN'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 4139/None/R04/plant | 9769907 | complete_unique_declared_timer_owner | ['Hotancold.100T'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 4139/None/R07/plant | 9769907 | complete_unique_declared_timer_owner | ['Aiden.SSG'] | 143/143 | [('27c08dca', 'b2216bf3')] |
+| 3639/None/R03/plant | 9718747 | complete_unique_declared_timer_owner | ['Flexy.SECRET'] | 183/183 | [('27c08dca', 'b2216bf3')] |
+| 3639/None/R03/disable | 9718747 | complete_unique_declared_timer_owner | ['Lollo.HERETICS'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 3639/None/R05/plant | 9718747 | complete_unique_declared_timer_owner | ['noa.SECRET'] | 182/182 | [('27c08dca', 'b2216bf3')] |
+| 3639/None/R06/plant | 9718747 | complete_unique_declared_timer_owner | ['Mowwwgli.SECRET'] | 185/185 | [('27c08dca', 'b2216bf3')] |
+| 3639/None/R07/plant | 9718747 | complete_unique_declared_timer_owner | ['AquiX.HERETICS'] | 184/184 | [('27c08dca', 'b2216bf3')] |
+| 4127/None/R01/plant | 9751808 | complete_unique_declared_timer_owner | ['Gunnar.M80'] | 168/168 | [('27c08dca', 'b2216bf3')] |
+| 4127/None/R04/plant | 9751808 | complete_unique_declared_timer_owner | ['Ashn.M80'] | 119/119 | [('27c08dca', 'b2216bf3')] |
+| 4127/None/R05/plant | 9751808 | complete_unique_declared_timer_owner | ['Savage.M80'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4137/None/R10/plant | 9769907 | complete_unique_declared_timer_owner | ['Spiker.WC'] | 110/110 | [('27c08dca', 'b2216bf3')] |
+| 4137/None/R15/plant | 9769907 | complete_unique_declared_timer_owner | ['Spiker.WC'] | 175/175 | [('27c08dca', 'b2216bf3')] |
+| 4138/None/R04/plant | 9769907 | complete_unique_declared_timer_owner | ['Ewzy.C9'] | 108/108 | [('27c08dca', 'b2216bf3')] |
+| 4119/None/R03/plant | 9769907 | complete_unique_declared_timer_owner | ['R4re.BD'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 4120/None/R08/plant | 9769907 | complete_unique_declared_timer_owner | ['kondzz.FX'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 4120/None/R09/plant | 9769907 | complete_unique_declared_timer_owner | ['dotz.FX'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4133/None/R03/plant | 9769907 | complete_unique_declared_timer_owner | ['J9O.DZ'] | 179/179 | [('27c08dca', 'b2216bf3')] |
+| 4133/None/R03/disable | 9769907 | complete_unique_declared_timer_owner | ['Ashn.M80'] | 142/142 | [('27c08dca', 'b2216bf3')] |
+| 4133/None/R07/plant | 9769907 | complete_unique_declared_timer_owner | ['Savage.M80'] | 138/138 | [('27c08dca', 'b2216bf3')] |
+| 3880/None/R02/plant | 9751808 | complete_unique_declared_timer_owner | ['Terd5G.WBG'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3880/None/R04/plant | 9751808 | complete_unique_declared_timer_owner | ['Gotti5G.WBG'] | 142/142 | [('27c08dca', 'b2216bf3')] |
+| 3880/None/R06/plant | 9751808 | complete_unique_declared_timer_owner | ['SpeakEasy.WBG'] | 143/143 | [('27c08dca', 'b2216bf3')] |
+| 3880/None/R09/plant | 9751808 | complete_unique_declared_timer_owner | ['Pikanzu.Daystar'] | 143/143 | [('27c08dca', 'b2216bf3')] |
+| 3880/None/R10/plant | 9751808 | complete_unique_declared_timer_owner | ['Pikanzu.Daystar'] | 143/143 | [('27c08dca', 'b2216bf3')] |
+| 3880/None/R10/disable | 9751808 | complete_unique_declared_timer_owner | ['SpeakEasy.WBG'] | 140/140 | [('27c08dca', 'b2216bf3')] |
+| 3879/None/R03/plant | 9751808 | complete_unique_declared_timer_owner | ['JoeGoR.KZ'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3879/None/R12/plant | 9751808 | complete_unique_declared_timer_owner | ['MARKELELE.SH'] | 142/142 | [('27c08dca', 'b2216bf3')] |
+| 3879/None/R13/plant | 9751808 | complete_unique_declared_timer_owner | ['MrPuuuuuuncH.SH'] | 143/143 | [('27c08dca', 'b2216bf3')] |
+| 3579/6706/R01/plant | 9636829 | complete_unique_declared_timer_owner | ['SpeakEasy.WBG'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3579/6706/R02/plant | 9636829 | complete_unique_declared_timer_owner | ['Ape5G.WBG'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3579/6706/R04/plant | 9636829 | complete_unique_declared_timer_owner | ['Ape5G.WBG'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3579/6706/R04/disable | 9636829 | complete_unique_declared_timer_owner | ['SouffIe.Daystar'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3579/6707/R02/plant | 9636829 | complete_unique_declared_timer_owner | ['Ape5G.WBG'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3579/6707/R04/plant | 9636829 | complete_unique_declared_timer_owner | ['Ape5G.WBG'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3563/6673/R01/plant | 9658832 | complete_unique_declared_timer_owner | ['Canadian'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 3563/6673/R03/plant | 9658832 | complete_unique_declared_timer_owner | ['Canadian'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3563/6675/R02/plant | 9658832 | complete_unique_declared_timer_owner | ['Surf'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3563/6675/R02/disable | 9658832 | complete_unique_declared_timer_owner | ['njr'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 3563/6675/R10/plant | 9658832 | complete_unique_declared_timer_owner | ['kyno'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 3563/6675/R10/disable | 9658832 | complete_unique_declared_timer_owner | ['Spoit'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 3563/6676/R09/plant | 9658832 | complete_unique_declared_timer_owner | ['kyno'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 4283/8685/R01/plant | 9769907 | complete_unique_declared_timer_owner | ['RORICK.VP'] | 184/184 | [('27c08dca', 'b2216bf3')] |
+| 4283/8685/R04/plant | 9769907 | complete_unique_declared_timer_owner | ['p4sh4.VP'] | 179/179 | [('27c08dca', 'b2216bf3')] |
+| 4283/8686/R01/plant | 9769907 | complete_unique_declared_timer_owner | ['Yoggah.Geekay'] | 183/183 | [('27c08dca', 'b2216bf3')] |
+| 4283/8686/R01/disable | 9769907 | complete_unique_declared_timer_owner | ['dan-_-.VP'] | 178/178 | [('27c08dca', 'b2216bf3')] |
+| 4283/8686/R09/plant | 9769907 | complete_unique_declared_timer_owner | ['Nayqo.VP'] | 180/180 | [('27c08dca', 'b2216bf3')] |
+| 4283/8686/R09/disable | 9769907 | complete_unique_declared_timer_owner | ['Yoggah.Geekay'] | 180/180 | [('27c08dca', 'b2216bf3')] |
+| 4283/8686/R14/plant | 9769907 | complete_unique_declared_timer_owner | ['AsK.Geekay'] | 182/182 | [('27c08dca', 'b2216bf3')] |
+| 4283/8687/R05/plant | 9769907 | complete_unique_declared_timer_owner | ['AsK.Geekay'] | 182/182 | [('27c08dca', 'b2216bf3')] |
+| 4283/8687/R08/plant | 9769907 | complete_unique_declared_timer_owner | ['SkyZs.VP'] | 183/183 | [('27c08dca', 'b2216bf3')] |
+| 4283/8687/R08/disable | 9769907 | complete_unique_declared_timer_owner | ['AsK.Geekay'] | 176/176 | [('27c08dca', 'b2216bf3')] |
+| 6157/10428/R03/plant | 9820472 | complete_unique_declared_timer_owner | ['kds'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6157/10428/R09/plant | 9820472 | complete_unique_declared_timer_owner | ['LoiraDEMON'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 6157/10428/R10/plant | 9820472 | complete_unique_declared_timer_owner | ['VolpsZ'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 6157/10430/R01/plant | 9820472 | complete_unique_declared_timer_owner | ['vitaking'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6157/10430/R07/plant | 9820472 | complete_unique_declared_timer_owner | ['VolpsZ'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 6157/10430/R07/disable | 9820472 | complete_unique_declared_timer_owner | ['vitaking'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 6157/10430/R10/plant | 9820472 | complete_unique_declared_timer_owner | ['Dias'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6157/10430/R12/plant | 9820472 | complete_unique_declared_timer_owner | ['Bokzera'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 6157/10430/R12/disable | 9820472 | complete_unique_declared_timer_owner | ['kds'] | 103/103 | [('27c08dca', 'b2216bf3')] |
+| 6158/10563/R04/plant | 9879602 | complete_unique_declared_timer_owner | ['Skeptic.TH'] | 106/106 | [('27c08dca', 'b2216bf3')] |
+| 6158/10563/R05/plant | 9879602 | complete_unique_declared_timer_owner | ['Skeptic.TH'] | 106/106 | [('27c08dca', 'b2216bf3')] |
+| 6158/10563/R05/disable | 9879602 | complete_unique_declared_timer_owner | ['p4sh4.VP'] | 106/106 | [('27c08dca', 'b2216bf3')] |
+| 6158/10563/R06/plant | 9879602 | complete_unique_declared_timer_owner | ['Zaara.TH'] | 192/192 | [('27c08dca', 'b2216bf3')] |
+| 6158/10563/R06/disable | 9879602 | complete_unique_declared_timer_owner | ['SkyZs.VP'] | 168/168 | [('27c08dca', 'b2216bf3')] |
+| 6158/10563/R07/plant | 9879602 | complete_unique_declared_timer_owner | ['Nayqo.VP'] | 107/107 | [('27c08dca', 'b2216bf3')] |
+| 6277/10576/R01/plant | 9879602 | complete_unique_declared_timer_owner | ['Skeptic.TH'] | 107/107 | [('27c08dca', 'b2216bf3')] |
+| 6277/10576/R01/disable | 9879602 | complete_unique_declared_timer_owner | ['Hungry.SECRET'] | 105/105 | [('27c08dca', 'b2216bf3')] |
+| 6277/10576/R06/plant | 9879602 | complete_unique_declared_timer_owner | ['Skeptic.TH'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6277/10576/R06/disable | 9879602 | complete_unique_declared_timer_owner | ['Hungry.SECRET'] | 102/102 | [('27c08dca', 'b2216bf3')] |
+| 6277/10576/R11/plant | 9879602 | complete_unique_declared_timer_owner | ['Creedz.SECRET'] | 104/104 | [('27c08dca', 'b2216bf3')] |
+| 6277/10576/R12/plant | 9879602 | complete_unique_declared_timer_owner | ['Hungry.SECRET'] | 109/109 | [('27c08dca', 'b2216bf3')] |
+| 4139/None/R07/plant | 9769907 | complete_unique_declared_timer_owner | ['Aiden.SSG'] | 143/143 | [('27c08dca', 'b2216bf3')] |
+
+The field is demonstrably player-linked, but that alone is not sufficient actor proof. The Raid/Aiden and J9O/njr controls must not be silently reclassified. Separate official broadcast review supports kyno in ChaletR04; the new FortressR07 video also presents a target contradiction, recorded separately while its resolver remains unresolved. NEXT compare all consumed interaction records, interrupted timers and non-objective controls, then independently validate component class/state and ownership across builds. No production or Rating changes.
