@@ -55,14 +55,106 @@
       ],
       "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/319/roster",
       "evidence": "Exact replay UUID independently retrieved username history includes GatoRada.CAG. Official KINOTROPE roster confirms gatorada."
+    },
+    "YURI.DK": {
+      "replay_profile_id": "72314a68-c5f6-4ec7-b9bb-03c0f521b1a3",
+      "siegegg_player_id": 3696,
+      "independently_verified": true,
+      "name": "Yurivst",
+      "profile_history": "https://stats.cc/siege/YURI.DK/72314a68-c5f6-4ec7-b9bb-03c0f521b1a3",
+      "observed_names": [
+        "YURI.DK",
+        "yurivst.ENX",
+        "yurivst"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/116/roster",
+      "evidence": "Exact UUID history links YURI to yurivst; official Dplus roster member2124 is Yurivst."
+    },
+    "ionzera.DK": {
+      "replay_profile_id": "91629a23-9512-4e1e-b607-acae34b6ea12",
+      "siegegg_player_id": 130,
+      "independently_verified": true,
+      "name": "ion",
+      "profile_history": "https://stats.cc/siege/ionzera.DK/91629a23-9512-4e1e-b607-acae34b6ea12",
+      "observed_names": [
+        "ionzera.DK",
+        "ion.Elevate",
+        "ion.W7M"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/116/roster",
+      "evidence": "Exact UUID history explicitly links ionzera to ion; official Dplus roster member10 is ion."
+    },
+    "Jin.RRX": {
+      "replay_profile_id": "ab1e79b3-0890-4c7a-9a3c-e2a2750159a3",
+      "siegegg_player_id": 3431,
+      "independently_verified": true,
+      "name": "JiNm",
+      "profile_history": "https://stats.cc/siege/Jin.RRX/ab1e79b3-0890-4c7a-9a3c-e2a2750159a3",
+      "observed_names": [
+        "Jin.RRX",
+        "JiNm.RRX",
+        "JiNm.E36"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/400/roster",
+      "evidence": "Exact UUID history explicitly links Jin to JiNm; official RRX roster member1689 is JiNm."
+    },
+    "KoroMomoZ.RRX": {
+      "replay_profile_id": "fca476ed-fc7a-4c26-a199-0cc52f5df919",
+      "siegegg_player_id": 4045,
+      "independently_verified": true,
+      "name": "Koromomo",
+      "profile_history": "https://stats.cc/siege/KoroMomoZ.RRX/fca476ed-fc7a-4c26-a199-0cc52f5df919",
+      "observed_names": [
+        "KoroMomoZ.RRX",
+        "KoroMomo.BME"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/400/roster",
+      "evidence": "Exact UUID history explicitly includes KoroMomo; official RRX roster member1984 is Koromomo."
+    },
+    "DDMan.CAG": {
+      "replay_profile_id": "4c574433-e995-48b5-a3a8-c276e5228575",
+      "siegegg_player_id": 2990,
+      "independently_verified": true,
+      "name": "DD",
+      "profile_history": "https://stats.cc/siege/DDMan.CAG/4c574433-e995-48b5-a3a8-c276e5228575",
+      "observed_names": [
+        "DDMan.CAG",
+        "DD.DVL",
+        "DD-Man"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/61/roster",
+      "evidence": "Exact UUID history includes DD and DD-Man; official CAG roster member1464 is DD. Public IGN DD-MAN and stylized DD are the same listed target player."
+    },
+    "NL38.TMT": {
+      "replay_profile_id": "8dec9f45-f42d-4aa0-9cca-7c62734fd32b",
+      "siegegg_player_id": 2941,
+      "independently_verified": true,
+      "name": "NL",
+      "profile_history": "https://stats.cc/siege/NL38.TMT/8dec9f45-f42d-4aa0-9cca-7c62734fd32b",
+      "observed_names": [
+        "NL38.TMT",
+        "GrenZ.Viper",
+        "GrenzIinie"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/399/roster",
+      "evidence": "Exact UUID history includes GrenZ, matching unique public IGN GRENZ; official Trippy member1120 is NL, the public stylized name. No numeric-suffix stripping used."
+    },
+    "tokizao.BME": {
+      "replay_profile_id": "9c7d8c63-c74e-46fe-8eb4-57436f10a31f",
+      "siegegg_player_id": 4148,
+      "independently_verified": true,
+      "name": "Toki",
+      "profile_history": "https://stats.cc/siege/tokizao.BME/9c7d8c63-c74e-46fe-8eb4-57436f10a31f",
+      "observed_names": [
+        "tokizao.BME",
+        "toki_k11",
+        "I_am_TOKI.CFG"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/401/roster",
+      "evidence": "Exact UUID history repeatedly identifies Toki nickname (toki_k11, Flexibletoki., I_am_TOKI.CFG) and current BME account. Official BME roster member1850 is Toki. This is independent nickname-history corroboration, not a populated official UbisoftGUID claim."
     }
   },
-  "unresolved": [
-    "tokizao.BME",
-    "YURI.DK",
-    "ionzera.DK",
-    "Jin.RRX",
-    "KoroMomoZ.RRX"
-  ],
-  "source_access": "Direct HTTP profile requests returned 403; public pages were legitimately retrieved through the web tool. Relevant identity names recorded here, not raw pages or unrelated ranked statistics."
+  "unresolved": [],
+  "source_access": "Direct HTTP profile requests returned 403; public pages were legitimately retrieved through the web tool. Relevant identity names recorded here, not raw pages or unrelated ranked statistics.",
+  "limitations": "Public profile histories independently corroborate aliases on the exact replay UUID. Official roster ubisoftGuid fields are blank; these are not official account-ID bindings. No aliases inferred from K/D, objective output, roster elimination or Rating. Original four-alias revision retained in git1b50b0e."
 }

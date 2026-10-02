@@ -1,0 +1,7 @@
+{
+  "original_freeze_sha256": "178c1fb1ef456cfcd4d4efab61382f557881ab124c8875f5e8aa69f8d6e6ea11",
+  "rating_targets_opened": false,
+  "source_overrides": {},
+  "verified_aliases_sha256": "f2e26e1834093fda376b5a1348a1a197a10be08652dc9f9b54385ac0b1128bb2",
+  "reason": "Seal all11 UUID-specific independently reviewed alias mappings before final target errors. Primary roster IDs checked directly. Official GUID fields blank, limitation explicit. No model/input/gate/source-code changes; prior four-alias version and exclusions preserved."
+}
