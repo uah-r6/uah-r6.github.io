@@ -1,0 +1,9 @@
+{
+  "original_freeze_sha256": "178c1fb1ef456cfcd4d4efab61382f557881ab124c8875f5e8aa69f8d6e6ea11",
+  "rating_targets_opened": false,
+  "reason": "Process immutable prospective addenda in numeric order (original before -2), fixing precedence-only verification failure. Quality cache also fingerprints independent alias evidence, preserving earlier decisions automatically. No parser/Rating/model/gate change and no target errors inspected.",
+  "source_overrides": {
+    "research/v3_final_pipeline.py": "74f0efc436f73b4fc22d3f5f0b3861f79a54bc46a9076f4681330c6c6f7b049c",
+    "tests/test_v3_objective_research_gates.py": "4735460665bace11d8b2c147c3fd4ae5e75e343916df5d29c26692863bb37b61"
+  }
+}

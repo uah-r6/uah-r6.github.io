@@ -29,7 +29,11 @@ def verify():
     frozen=json.loads(FREEZE.read_text(encoding='utf-8'))
     if source_sha(RESERVE)!=frozen['reservation_sha256']:raise ValueError('Reservation changed after freeze')
     expected=dict(frozen['source_hashes'])
-    for addendum in sorted((ROOT/'research').glob('v3-final-prelabel-implementation-addendum*.json')):
+    amendments=list((ROOT/'research').glob('v3-final-prelabel-implementation-addendum*.json'))
+    def amendment_order(path):
+        suffix=path.stem.removeprefix('v3-final-prelabel-implementation-addendum')
+        return int(suffix.removeprefix('-')) if suffix else 0
+    for addendum in sorted(amendments,key=amendment_order):
         amendment=json.loads(addendum.read_text(encoding='utf-8'))
         if amendment['original_freeze_sha256']!=source_sha(FREEZE) or amendment['rating_targets_opened']:
             raise ValueError('Invalid prospective implementation addendum')
@@ -207,7 +211,9 @@ def quality(source,predictions,reservation):
 def quality_path(directory):
     # Preserve earlier decisions and automatically invalidate only quality
     # semantics after the explicitly recorded pre-label formatting correction.
-    return directory/f'quality-decisions-{source_sha(Path(__file__))[:12]}.json'
+    alias=ROOT/'research/v3-final-verified-aliases.json'
+    signature=source_sha(Path(__file__))[:12]+('-'+source_sha(alias)[:12] if alias.exists() else '')
+    return directory/f'quality-decisions-{signature}.json'
 
 
 def evaluate(frozen,reservation):

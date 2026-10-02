@@ -1,0 +1,68 @@
+{
+  "scope": "Independent identity metadata only; no K/D, Rating or objective outcome used to choose aliases",
+  "reviewed_at": "2026-10-02",
+  "aliases": {
+    "OSAdinho.SCARZ": {
+      "replay_profile_id": "f6426033-b8e8-4c7a-a0e1-93f507bfc23e",
+      "siegegg_player_id": 2999,
+      "independently_verified": true,
+      "name": "FishLike",
+      "profile_history": "https://stats.cc/siege/OSAdinho.SCARZ/f6426033-b8e8-4c7a-a0e1-93f507bfc23e",
+      "observed_names": [
+        "OSAdinho.SCARZ",
+        "FishLike.SCARZ"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/273/roster",
+      "evidence": "The exact replay UUID's independently retrieved username history includes FishLike.SCARZ; official SCARZ roster member 1443 is FishLike. Matches target FishLike identity, independent of match outcomes."
+    },
+    "yuKitz.SCARZ": {
+      "replay_profile_id": "06cc4076-c24c-4e62-a217-45add9749663",
+      "siegegg_player_id": 3170,
+      "independently_verified": true,
+      "name": "yuKiz",
+      "profile_history": "https://stats.cc/siege/yuKitz.SCARZ/06cc4076-c24c-4e62-a217-45add9749663",
+      "observed_names": [
+        "yuKitz.SCARZ",
+        "yuKiz.KN",
+        "yuKiz.E36"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/273/roster",
+      "evidence": "Exact replay UUID history explicitly links current username to yuKiz. Official SCARZ roster member 1455 is yuKiz. No name-distance or statistical matching."
+    },
+    "Ayagator999.KN": {
+      "replay_profile_id": "d08a71a2-efc4-4cb3-aa2e-78f07496cada",
+      "siegegg_player_id": 1752,
+      "independently_verified": true,
+      "name": "Ayagator",
+      "profile_history": "https://www.stats.cc/siege/Ayagator999.KN/d08a71a2-efc4-4cb3-aa2e-78f07496cada",
+      "observed_names": [
+        "Ayagator999.KN",
+        "Ayagator.CAG",
+        "Ayagator"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/319/roster",
+      "evidence": "Exact replay UUID independently retrieved history links current username to Ayagator.CAG and Ayagator; official KINOTROPE roster confirms Ayagator."
+    },
+    "GatoRada888.KN": {
+      "replay_profile_id": "122b759b-b3ee-4996-b0ce-2cc7608c0876",
+      "siegegg_player_id": 856,
+      "independently_verified": true,
+      "name": "gatorada",
+      "profile_history": "https://stats.cc/siege/GatoRada888.KN/122b759b-b3ee-4996-b0ce-2cc7608c0876",
+      "observed_names": [
+        "GatoRada888.KN",
+        "GatoRada.CAG"
+      ],
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/319/roster",
+      "evidence": "Exact replay UUID independently retrieved username history includes GatoRada.CAG. Official KINOTROPE roster confirms gatorada."
+    }
+  },
+  "unresolved": [
+    "tokizao.BME",
+    "YURI.DK",
+    "ionzera.DK",
+    "Jin.RRX",
+    "KoroMomoZ.RRX"
+  ],
+  "source_access": "Direct HTTP profile requests returned 403; public pages were legitimately retrieved through the web tool. Relevant identity names recorded here, not raw pages or unrelated ranked statistics."
+}

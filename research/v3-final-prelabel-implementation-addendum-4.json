@@ -1,0 +1,9 @@
+{
+  "original_freeze_sha256": "178c1fb1ef456cfcd4d4efab61382f557881ab124c8875f5e8aa69f8d6e6ea11",
+  "rating_targets_opened": false,
+  "reason": "Prospectively seal four replay UUID-bound username-history aliases independently corroborated by official SCARZ/KINOTROPE rosters. Five other aliases remain unresolved. Model/features/parser/acceptance/selection unchanged; all Rating targets remain unopened.",
+  "source_overrides": {},
+  "verified_aliases_sha256": "d935b14e3decc1353d73629b903c047dc91793a358a7e855fcecea6d0ceea98e",
+  "initial_alias_manifest_sha256": "54ee37f5dd92145d1b923a19572e9d47676cddf21cbcd3ac18accd9546158252",
+  "metadata_review": "Before committing this alias freeze, official team list identifies KINOTROPE as319 (134 is FEARX). Corrected two source links; confirmed primary319 roster contains gatorada and Ayagator. Initial table retained ignored. Alias identities and all model rules unchanged; no Rating read."
+}
