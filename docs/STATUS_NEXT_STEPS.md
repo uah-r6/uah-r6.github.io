@@ -1,3 +1,9 @@
+## SEPTEMBER DISABLE-ONLY IMMUTABLE RESULT - 2026-10-02
+
+Frozen cleanHEAD9165678; ALL67replay predictions saved before publicdisable actor text.7maps/build9883691 have6public disables:5correct,1primaryincorrect,0unresolved;0occurrence mismatches. Predeclared research gate FAILS due primarywrong actor. This set is nowCONSUMED for this evaluation; never retune and call itfresh. Permanent resultSHA2565296849e55ca07308db296d97e3e8c63796bac7b419e738b52f5f1bfe2c43275; ignoredobjective-disable-stage2-validation/result.json and trackedobjective-disable-stage2-validation.md.86protectedSQLite/archive/public SHA and3priorimmutable resultSHAunchanged. NoRating/live-data/import/archive/push changes.
+
+NEXT ACTION: record permanent result locally BEFORE inspectingwrong event. Then investigate actualwrong timerowner identity, directbodyroute, orderedkills/phase/terminal, publiclabel versus independentprimaryUbisoft/VOD evidence. Keepfrozen9165678candidateexactlyunchanged, preserveprimary5/1result regardlessreview. If realactorerror, prioritizeabstention/safetythennewuntoucheddatasetfreeze; if labeldisagreement, documentreviewseparatelyandacquireadditionalindependentactorvalidation, notautomaticproduction/v3. Mandatory4139plant remainsunsupported/unresolved andoriginalAcontrolunchanged. Continueusefulworkaftercommit.
+
 ## SEPTEMBER DISABLE-ONLY RESERVE / FREEZE GATE - 2026-10-02
 
 HEADa39c466 preserves502round consumed D hypothesis and primary24agree/3disagree. New metadata-only reservation selectsALL7cached NorthAmericaStage2 maps(6168,6169,6170,6172,6173,6174,6175),67complete rounds,build9883691; exact contiguous physicalR##/scores/rosters/aliases andSHAchecked. No new disable actor labels/owner proposals inspected. PriorRatingdata andlimited objective totals already consumed, so actor-label independence only. All7selected without objective/outcome selection. No download.
