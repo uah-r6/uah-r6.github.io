@@ -1,0 +1,12 @@
+{
+  "scope": "Consumed independent official K/D diagnostics only; never changes sealed final aliases, eligibility or metrics",
+  "aliases": {
+    "Nuxxga.LOS": {
+      "replay_profile_id": "a3b62529-d04b-436b-8b43-6e5415070981",
+      "observed_names": ["Nuxxga.LOS", "Nuxga.Elevate", "Nuxga", "Nuxga.BD"],
+      "profile_history": "https://stats.cc/siege/Nuxxga.LOS/a3b62529-d04b-436b-8b43-6e5415070981",
+      "primary_roster": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/team/228/roster",
+      "evidence": "Exact replay UUID history explicitly links Nuxxga.LOS and Nuxga. Official LOS member793 is Nuxga. No K/D/Rating matching. Official GUID is blank, not claimed directly bound."
+    }
+  }
+}
