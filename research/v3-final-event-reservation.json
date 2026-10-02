@@ -1,0 +1,547 @@
+{
+  "event": "Asia Pacific League Stage 2 - APAC N 2026",
+  "official_competition_id": 510,
+  "siegegg_competition_id": 189,
+  "created_at": "2026-10-02T21:50:39.044532+00:00",
+  "status": "reserved_rating_targets_unopened",
+  "scope": "Entire named regional Stage 2 event, including later matches; no training or tuning on any match.",
+  "evaluation_snapshot": "All 12 official group-stage archives linked at metadata checkpoint; unavailable 16 and future playoffs remain reserved, outside this fixed one-shot sample.",
+  "selection": "All currently linked official archives, chronological first archive for initial pipeline proof. No objective/outcome selection.",
+  "evidence": [
+    "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/competition/510/15001",
+    "https://siege.gg/matches?competitions=189&tab=results&page=2"
+  ],
+  "metadata_page_sha256": "485f85c2a66750b94ab2a35833112783fa9232a6d6325dc195e0cbe63f3102bb",
+  "matches": [
+    {
+      "official_match_id": 8154,
+      "date": "2026-09-05T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D1_CYBMEvSCARZ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8154",
+      "team_ids": [
+        273,
+        401
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6200,
+      "siegegg_page": "https://siege.gg/matches/6200-apacl-apac-scarz-vs-can-you-be-my-enemy"
+    },
+    {
+      "official_match_id": 8155,
+      "date": "2026-09-05T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D1_BNKvKIN.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8155",
+      "team_ids": [
+        134,
+        319
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6201,
+      "siegegg_page": "https://siege.gg/matches/6201-apacl-apac-kinotrope-gaming-vs-fearx"
+    },
+    {
+      "official_match_id": 8156,
+      "date": "2026-09-05T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D1_DKIAvRRX.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8156",
+      "team_ids": [
+        116,
+        400
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6202,
+      "siegegg_page": "https://siege.gg/matches/6202-apacl-apac-rrx-vs-dplus-kia"
+    },
+    {
+      "official_match_id": 8157,
+      "date": "2026-09-05T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D1_CAGvTMT.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8157",
+      "team_ids": [
+        61,
+        399
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6203,
+      "siegegg_page": "https://siege.gg/matches/6203-apacl-apac-trippy-vs-cag-by-varrel"
+    },
+    {
+      "official_match_id": 8158,
+      "date": "2026-09-11T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D2_DKIAvCYBME.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8158",
+      "team_ids": [
+        116,
+        401
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6347,
+      "siegegg_page": "https://siege.gg/matches/6347-apacl-apac-can-you-be-my-enemy-vs-dplus-kia"
+    },
+    {
+      "official_match_id": 8159,
+      "date": "2026-09-11T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D2_BNKvTMT.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8159",
+      "team_ids": [
+        134,
+        399
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6348,
+      "siegegg_page": "https://siege.gg/matches/6348-apacl-apac-fearx-vs-trippy"
+    },
+    {
+      "official_match_id": 8160,
+      "date": "2026-09-11T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D2_CAGvRRX.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8160",
+      "team_ids": [
+        61,
+        400
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6349,
+      "siegegg_page": "https://siege.gg/matches/6349-apacl-apac-cag-by-varrel-vs-rrx"
+    },
+    {
+      "official_match_id": 8161,
+      "date": "2026-09-11T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D2_KINvSCARZ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8161",
+      "team_ids": [
+        273,
+        319
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6350,
+      "siegegg_page": "https://siege.gg/matches/6350-apacl-apac-scarz-vs-kinotrope-gaming"
+    },
+    {
+      "official_match_id": 8162,
+      "date": "2026-09-12T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D3_CYBMEvRRX.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8162",
+      "team_ids": [
+        400,
+        401
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6351,
+      "siegegg_page": "https://siege.gg/matches/6351-apacl-apac-rrx-vs-can-you-be-my-enemy"
+    },
+    {
+      "official_match_id": 8163,
+      "date": "2026-09-12T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D3_SCARZvTMT.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8163",
+      "team_ids": [
+        273,
+        399
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6352,
+      "siegegg_page": "https://siege.gg/matches/6352-apacl-apac-trippy-vs-scarz"
+    },
+    {
+      "official_match_id": 8164,
+      "date": "2026-09-12T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D3_DKIAvKIN.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8164",
+      "team_ids": [
+        116,
+        319
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6353,
+      "siegegg_page": "https://siege.gg/matches/6353-apacl-apac-kinotrope-gaming-vs-dplus-kia"
+    },
+    {
+      "official_match_id": 8165,
+      "date": "2026-09-12T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APACN_S2D3_BNKvCAG.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8165",
+      "team_ids": [
+        61,
+        134
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": true,
+      "reserved_for_final_test": true,
+      "siegegg_match_id": 6354,
+      "siegegg_page": "https://siege.gg/matches/6354-apacl-apac-cag-by-varrel-vs-fearx"
+    },
+    {
+      "official_match_id": 8166,
+      "date": "2026-09-18T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8166",
+      "team_ids": [
+        319,
+        401
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8167,
+      "date": "2026-09-18T10:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8167",
+      "team_ids": [
+        116,
+        399
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8168,
+      "date": "2026-09-18T11:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8168",
+      "team_ids": [
+        61,
+        273
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8169,
+      "date": "2026-09-18T12:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8169",
+      "team_ids": [
+        134,
+        400
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8170,
+      "date": "2026-09-19T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8170",
+      "team_ids": [
+        319,
+        399
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8171,
+      "date": "2026-09-19T10:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8171",
+      "team_ids": [
+        273,
+        400
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8172,
+      "date": "2026-09-19T11:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8172",
+      "team_ids": [
+        61,
+        401
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8173,
+      "date": "2026-09-19T12:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8173",
+      "team_ids": [
+        116,
+        134
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8174,
+      "date": "2026-09-25T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8174",
+      "team_ids": [
+        399,
+        401
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8175,
+      "date": "2026-09-25T10:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8175",
+      "team_ids": [
+        134,
+        273
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8176,
+      "date": "2026-09-25T11:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8176",
+      "team_ids": [
+        319,
+        400
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8177,
+      "date": "2026-09-25T12:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8177",
+      "team_ids": [
+        61,
+        116
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8178,
+      "date": "2026-09-26T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8178",
+      "team_ids": [
+        399,
+        400
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8179,
+      "date": "2026-09-26T10:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8179",
+      "team_ids": [
+        134,
+        401
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8180,
+      "date": "2026-09-26T11:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8180",
+      "team_ids": [
+        116,
+        273
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    },
+    {
+      "official_match_id": 8181,
+      "date": "2026-09-26T12:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8181",
+      "team_ids": [
+        61,
+        319
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false,
+      "reserved_for_final_test": true
+    }
+  ],
+  "ratings_inspected": false,
+  "actors_inspected": false
+}
