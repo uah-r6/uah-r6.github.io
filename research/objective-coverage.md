@@ -1,3 +1,11 @@
+## INSTALLED ACTORS / V3 DEVELOPMENT — 2026-10-02
+
+Base HEAD f534b31. Default parser now uses committed guarded completing-owner code; old binary/source manifest preserved, new SHA e7f375b8ea0e1669bf6e6888d1aa4d93d51ac2ec2af7980c94f3698ff9def58a. Default-path preview verified two Fortress plants; no SQLite correction. UAH read-only 15/17 plants and 3/3 disables unchanged; all 86 live hashes unchanged. Original September 5/1 failed result remains immutable; separate reviewed 6/0 remains distinct.
+
+Separate development rederivation: 47 maps, 470 rows, 306 clean, 105/110 plants resolved, 18/18 disables resolved, zero parser/alignment failures. Five unresolved plant rounds exclude three entire maps, including EWC 6156/10426 R06 body ambiguity. First v3 comparison uses identical original eight v2 inputs plus verified objectives, retaining corrected KOST separately. Train 284 / development 22. Development MAE 0.02949 -> 0.02345; objective raw slope +0.47422249. Every coefficient drift and objective-heavy residual recorded, original data untouched. This small development result is promising, not final evidence or deployment approval. Live v2 remains frozen MAE 0.03623.
+
+NEXT: reserve a genuinely new event from metadata, freeze this candidate and gates before target errors, then small replay pipeline and incremental acquisition. Do not reuse old September Rating holdouts. No DB/public/archive writes/push/publish.
+
 ## GO PORT / UAH READ-ONLY GATES PASS - 2026-10-02
 
 Base3057e34. Go completing_timer_owner_v1 matches142plants+33disables on569rounds/72physicalfolders. No occurrence/full-feedback/operator differences. One rawdamage variation reproducedbyunchangedoldbinary; firstresult retained, nohealthfix. Pythonrequiresverifiedsource/reason+uniqueUID/full5v5/correctside, preservesprovenance andpreventsdoublecredit. FullPython236/1skip/6subtests,Go tests/vet,webbuildsbothpass.
@@ -316,4 +324,3 @@ A wider development-data audit exposed false positives in the previously derived
 ## Six cached actor maps: immutable validation failure (2026-10-02)
 
 Freeze10cfecf uses original cd28f76 candidate A unchanged. Six maps/61 rounds: plants10correct/1wrong/4unresolved, disables0correct/0wrong/3unresolved; zero occurrence mismatches. Wrong named actor:3554/6679/Chalet/R04, candidate kyno versus public Fultz. This reserve is now consumed. All predictions preceded labels; permanent full result is diagnostics/objective-cached-map-validation/result.json and tracked output/objective-cached-map-validation.md. Record locally before analyzing. No production trust or v3 justification: standalone score causality needs further evidence. Prior reserve outcomes remain immutable. Next inspect this round's actual identity, clock, score and interaction ordering without changing candidate thresholds. No SQLite/archive/public/v2 changes or push.
-

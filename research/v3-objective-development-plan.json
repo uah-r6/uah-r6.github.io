@@ -1,0 +1,14 @@
+{
+  "name": "siege_style_v3_verified_objectives_first_development",
+  "status": "development_only_no_final_evaluation_no_deployment",
+  "baseline": "exact research/frozen-rating-candidate.json v2 model",
+  "candidate_family": "Same standardized raw ridge family, alpha=1, plus plants+disables per round from completing_timer_owner_v1",
+  "cohort": "Original v2 train events and EWC development validation only; both September final events excluded",
+  "quality": "Original K/D, round-count and independently checked alias gates; exclude entire maps with any unresolved objective actor or parse/alignment failure",
+  "controlled_inputs": "Keep the original frozen v2 eight round-feature inputs identically in both arms, including original KOST, to isolate addition of the verified objective feature. Fully rederived KOST changes are reported separately rather than silently changing a second feature.",
+  "target_policy": "No third-party objective actor or map objective total enters features or eligibility. Cached public Rating labels only within original development split.",
+  "regularization": {"alpha": 1.0, "parameter_search": false},
+  "baseline_sample_warning": "The v2 baseline retains its original training coefficients; the candidate uses only objective-complete development maps. Report sample differences and all coefficient drift; do not attribute every drift solely to the objective feature.",
+  "outputs": "Separate ignored v3 datasets, normalized research maps and model; append one deduplicated development experiment record",
+  "final_holdout": "A different, untouched professional event must be metadata-reserved and v3 frozen before final target errors are evaluated. Old NA Stage2 is permanently consumed."
+}

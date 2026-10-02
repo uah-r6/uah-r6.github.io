@@ -1,3 +1,9 @@
+## V3 development checkpoint (2026-10-02)
+
+The default local parser now uses the committed guarded actor port, with its old binary preserved. No historical corrections were applied. [Separate v3 derivation](output/v3-objective-derivation.md): 470 rows / 306 clean, 105/110 plants and 18/18 disables resolved. [First development comparison](output/v3-objective-first-development.md): train 284 / EWC development 22; MAE 0.02949 -> 0.02345, objective raw coefficient +0.47422249. The eight original v2 inputs are held identical; corrected KOST is reported separately. Original datasets/frozen experiments, live v2 (final MAE 0.03623), SQLite, archives and public JSON remain unchanged.
+
+Next reserve a new event using metadata and freeze v3 before final target errors. Old NA/EMEA Stage 2 are consumed. Use only the separate `v3_objective_derive.py` / `v3_objective_fit.py` scripts; do not run old `pipeline.py all/derive` against the newly installed parser. The latter fit deduplicates the deliberate experiment. No v3 deployment, push or publishing.
+
 ## Current structural actor checkpoint (2026-10-02)
 
 The conservative Go port matches142plant+33disable proposals on569consumed rounds.
