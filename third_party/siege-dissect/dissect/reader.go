@@ -246,6 +246,7 @@ func (r *Reader) Read() (err error) {
 	if !r.readPartial {
 		r.roundEnd()
 		r.resolveObjectiveOccurrences()
+		r.resolveObjectiveActors()
 	}
 	r.b = nil
 	return err

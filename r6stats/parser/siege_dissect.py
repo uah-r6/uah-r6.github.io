@@ -172,11 +172,43 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
                                 "disable": "defuser_state_and_defense_win_v1"}
             if (event.get("kind") in expected_sources and
                     event.get("source") == expected_sources[event["kind"]] and
-                    event.get("actor") is None and
                     isinstance(event.get("plantStateOffset"), int) and
                     event["plantStateOffset"] >= 0):
+                actor = names.get(str(event.get("actor") or "").strip().casefold())
+                uid = event.get("actorID")
+                trusted_source = "completing_timer_owner_v1"
+                raw_actor = [p for p in raw_players if actor and
+                             str(p.get("username") or "").strip().casefold() == actor.username.casefold()]
+                numeric_ids = [p.get("id") for p in raw_players]
+                expected_side = "Attack" if event["kind"] == "plant" else "Defense"
+                trusted_actor = (
+                    actor is not None and actor.side == expected_side and
+                    event.get("actorSource") == trusted_source and
+                    event.get("actorReason") == trusted_source and
+                    type(uid) is int and uid > 0 and
+                    len(raw_actor) == 1 and raw_actor[0].get("id") == uid and
+                    len(raw_players) == 10 and all(type(i) is int and i > 0 for i in numeric_ids) and
+                    len(set(numeric_ids)) == 10 and
+                    all(sum(p.team == team for p in players) == 5 for team in (0, 1)) and
+                    event["plantStateOffset"] > 0 and
+                    sum(o.get("kind") == event["kind"] for o in row["objectiveOccurrences"]) == 1 and
+                    (event["kind"] == "plant" or label(teams[wins[0]].get("role")) == "Defense"))
+                # Unverified non-null actors retain the old rejection behavior.
+                # Occurrence alone never creates player objective credit.
+                if event.get("actor") is not None and not trusted_actor:
+                    LOG.warning("Skipping objective occurrence with unverified actor in round %s", ordinal)
+                    continue
                 occurrences.append(ObjectiveOccurrence(event["kind"], event["source"],
-                                                        event["plantStateOffset"]))
+                    event["plantStateOffset"], actor.key if trusted_actor else None,
+                    uid if trusted_actor else None, trusted_source if trusted_actor else None,
+                    event.get("actorReason")))
+                if trusted_actor:
+                    # The completing-owner record supersedes a legacy timer
+                    # completion of the same kind, preventing duplicate credit.
+                    objectives = [o for o in objectives if o.kind != event["kind"]]
+                    # Completion time is unknown here; counts/KOST use the
+                    # round and actor. Do not invent a clock from timer offsets.
+                    objectives.append(Objective(event["kind"], actor.key, actor.team, 0.0))
         result.append(Round(number, str(row.get("site") or "Unknown"), wins[0],
                             str(teams[wins[0]].get("winCondition") or "Unknown"),
                             players, kills, objectives, starting_scores, ending_scores, occurrences))

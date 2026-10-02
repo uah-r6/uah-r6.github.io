@@ -1,5 +1,15 @@
 # NECC Rainbow Six statistics
 
+### Verified objective actors
+
+The local parser attributes completed plants/disables through the completing
+interaction's stable player UID, declared timer/body components, side and
+validated objective occurrence. Canceled/restarted attempts stay separate;
+ambiguous identity, unknown body states and incomplete rosters stay unresolved.
+Actor provenance is stored and duplicate legacy timer credit is prevented.
+Existing SQLite matches are not automatically reparsed or corrected. The deployed
+`siege_style_v2` formula remains unchanged. See the [current checkpoint](docs/STATUS_NEXT_STEPS.md).
+
 A local, NECC-only replay tracker. Python parses explicitly selected Siege match folders or ZIPs with [Lumina's siege-dissect](https://github.com/lumina-r6/siege-dissect), stores normalized rounds in private SQLite, and exports teammate-only JSON to a React/Vite site. The public GitHub Pages site is static and read-only. A separate FastAPI admin runs on your Windows PC at `http://127.0.0.1:8000/admin` for day-to-day management. Replay files have no NECC tag: a manually selected and confirmed **Custom Game** is assigned `competition = "NECC"` by this application. Ranked, Standard, Quick Match, and other matchmaking replays are rejected before any database write. Scrims and other Custom Games are never imported automatically.
 
 ## Requirements

@@ -1,5 +1,14 @@
 ## Current structural actor checkpoint (2026-10-02)
 
+The conservative Go port matches142plant+33disable proposals on569consumed rounds.
+[Port parity](output/objective-actor-go-parity.md) retains the first raw damage
+discrepancy and its reproduction with the old binary. [UAH read-only audit](output/uah-completer-readonly.md):
+15/17plants and3/3disables resolved, every prior/proposed actor listed; no corrections
+applied. Unknown body-state and nine-player roster abstentions remain. Lgon's original38
+Attack usage unchanged. Python236/1skip/6subtests,Go tests/vet and both webbuilds pass.
+Livev2,SQLite,archives/public JSON unchanged. Next install the port after preserving
+the old binary, then separate v3 research. Earlier sections below are historical.
+
 The separate September adjudication supports Gunnar over the original Savage label:
 [evidence and limits](output/objective-disable-stage2-adjudication.md).
 Original frozen September5/1 and failed gate remain immutable; separate reviewed6/0

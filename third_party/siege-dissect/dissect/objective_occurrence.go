@@ -6,13 +6,16 @@ import (
 	"sort"
 )
 
-// ObjectiveOccurrence is round-level evidence, never player objective credit.
-// Actor remains nil until an independent player/interaction binding is proven.
+// ObjectiveOccurrence retains round-level completion evidence independently
+// from conservative actor attribution. Unresolved actors remain nil.
 type ObjectiveOccurrence struct {
 	Kind             string  `json:"kind"`
 	Source           string  `json:"source"`
 	Actor            *string `json:"actor"`
 	PlantStateOffset int64   `json:"plantStateOffset"`
+	ActorID          uint64  `json:"actorID,omitempty"`
+	ActorSource      string  `json:"actorSource,omitempty"`
+	ActorReason      string  `json:"actorReason,omitempty"`
 }
 
 type objectiveState struct {

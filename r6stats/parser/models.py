@@ -48,6 +48,9 @@ class ObjectiveOccurrence:
     source: str
     plant_state_offset: int
     actor: str | None = None
+    actor_uid: int | None = None
+    actor_source: str | None = None
+    actor_reason: str | None = None
 
 
 @dataclass
