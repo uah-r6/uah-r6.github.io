@@ -1,3 +1,9 @@
+## SI ACTOR EXTENSION PERMANENT RESULT - 2026-10-02
+
+Freeze10531e4 preserved cd28f76 actor rule unchanged. Four SI-final maps58completed rounds evaluated once;13plants =0correct/0wrong/13unresolved;2disables =0/0/2unresolved. Zero occurrence mismatches. All replay predictions preceded labels. Permanent ignored diagnostics/objective-si-final-validation/result.json and tracked research/output/objective-si-final-validation.md. The SI series is now CONSUMED. No retuning or data correction occurred. All-abstain validation cannot establish resolved-actor accuracy; this is a compatibility/coverage limitation requiring diagnosis.
+
+Across the two newly opened sets:23plants/4disables,only3plant actors+1disable actor resolved,zero wrong. This is insufficient broad actor evidence for production implementation or v3 fitting. NEXT: record result locally, inspect exact SI abstention reasons and declaration/UID/state differences with old consumed NIP SI and the new class-variant control; preserve both immutable frozen results. Investigate replay-structural reasons before any new candidate class rule, and obtain another unused validation set for any revised diagnostic. UAH stays read-only; no SQLite/archive/public/live v2 modification or push.
+
 ## SI ACTOR EXTENSION FREEZE GATE - 2026-10-02
 
 Four unused SI-final maps reserved in research/objective-si-final-reserve.json:5930Consulate11rounds,5931Bank9,5932Fortress20,5933Border18,total58completed. Consulate rehost global score chronology verified by exact five-player team rosters; first segmentR07 has no unique score increment and is excluded. All58physical replay hashes recorded. Build9486312. Actor labels still UNREAD; only official/map/score/roster metadata inspected. Aliases match public ign/stylized names or prior sources.json; cyberzera=104 comes from previously verified match3554, not leftover-player inference.

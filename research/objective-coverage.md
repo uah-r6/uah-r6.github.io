@@ -1,3 +1,7 @@
+## SI ONE-SHOT RESULT - 2026-10-02
+
+Frozen adapter10531e4/candidatecd28f76 unchanged:58rounds/4maps,13plants0correct0wrong13unresolved;2disables0/0/2. Occurrence mismatches zero. Predictions saved before labels; immutable ignored result and [report](output/objective-si-final-validation.md). SI series now CONSUMED. All abstention gives no new resolved-actor accuracy evidence. Two new sets together27events have only4resolved actors; insufficient for broad runtime promotion or v3 work. NEXT record locally then inspect SI identity/state/score abstention causes against already-consumed controls. Never retrospectively change either result or call reused targets independent. Live v2/public/SQLite/archives untouched.
+
 ## UNUSED SI SERIES FROZEN ADAPTER - 2026-10-02
 
 Reserved3173games5930-5933,four maps58completed rounds,build9486312. Consulate has two physical segments; incomplete first-segmentR07excluded by score delta. Team rosters confirm score continuity across reversed physical team indices. All58SHA256recorded; public actor labels unread. Exact aliases/public metadata only; cyberzera104already known from3554.
