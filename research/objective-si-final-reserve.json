@@ -1,0 +1,471 @@
+{
+  "status": "reserved_actor_labels_unread",
+  "purpose": "further unchanged cd28f76 actor diagnostic validation",
+  "candidate_freeze_commit": "cd28f76c7f22b6dc76af0a8afdbebb984e5232a1",
+  "source": {
+    "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/7740",
+    "public_match_page": "https://siege.gg/matches/3173-invitational-intl-faze-clan-vs-team-secret",
+    "provenance_cache": "data/research/diagnostics/si-final-acquisition/provenance.json"
+  },
+  "player_aliases": {
+    "Adrian": 3501,
+    "Jume": 2381,
+    "Mowwwgli": 2432,
+    "Savage": 3090,
+    "cyberzera": 104,
+    "handyy": 2822,
+    "kds": 1109,
+    "noa": 2895,
+    "soulz1": 1386,
+    "vitaking": 2323
+  },
+  "alias_evidence": "Exact public ign/stylized names, plus pre-existing sources.json cyberzera=104 from match3554; no fuzzy or leftover-player inference",
+  "maps": [
+    {
+      "match_id": 3173,
+      "game_id": 5930,
+      "event": "Six Invitational 2026",
+      "map": "Consulate",
+      "rounds": 11,
+      "expected_faze_secret_score": [
+        7,
+        4
+      ],
+      "logical_folder": "actor-si-final-5930",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "included_round_files": [
+            "Match-2026-02-15_18-28-03-10012-R01.rec",
+            "Match-2026-02-15_18-28-03-10012-R02.rec",
+            "Match-2026-02-15_18-28-03-10012-R03.rec",
+            "Match-2026-02-15_18-28-03-10012-R04.rec",
+            "Match-2026-02-15_18-28-03-10012-R05.rec",
+            "Match-2026-02-15_18-28-03-10012-R06.rec"
+          ]
+        },
+        {
+          "folder": "Match-2026-02-15_19-00-58-10012",
+          "included_round_files": [
+            "Match-2026-02-15_19-00-58-10012-R01.rec",
+            "Match-2026-02-15_19-00-58-10012-R02.rec",
+            "Match-2026-02-15_19-00-58-10012-R03.rec",
+            "Match-2026-02-15_19-00-58-10012-R04.rec",
+            "Match-2026-02-15_19-00-58-10012-R05.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "filename": "Match-2026-02-15_18-28-03-10012-R01.rec",
+          "sha256": "2c414d72f30accf15c1540e3f359842b85e76ef1e58e5e3956c99ab4a876a40e"
+        },
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "filename": "Match-2026-02-15_18-28-03-10012-R02.rec",
+          "sha256": "94810dc509f9a0506ba8ddcec2ff61f1f72526aeff13a6d964260f68fda7bfa4"
+        },
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "filename": "Match-2026-02-15_18-28-03-10012-R03.rec",
+          "sha256": "005883eedc2535acd1ddd1938ac8e65f4418914237620cbb5bb480914019f362"
+        },
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "filename": "Match-2026-02-15_18-28-03-10012-R04.rec",
+          "sha256": "3886df6c7ea0374710c665ee056f76b9e1a9b7e54d7c94db493ef1daf9d89178"
+        },
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "filename": "Match-2026-02-15_18-28-03-10012-R05.rec",
+          "sha256": "5d93507c245f73e0510770513b824f0dd8bc96b207077dfb8dc261df48555db7"
+        },
+        {
+          "folder": "Match-2026-02-15_18-28-03-10012",
+          "filename": "Match-2026-02-15_18-28-03-10012-R06.rec",
+          "sha256": "1427f599de19e1e5792b987e70d9412dc4cd257be67f7254053f2bc9172cf2ac"
+        },
+        {
+          "folder": "Match-2026-02-15_19-00-58-10012",
+          "filename": "Match-2026-02-15_19-00-58-10012-R01.rec",
+          "sha256": "9ba6b408e8aecbee68ef006e3d72127ff7eac195be6d8b87cefc2846101e74da"
+        },
+        {
+          "folder": "Match-2026-02-15_19-00-58-10012",
+          "filename": "Match-2026-02-15_19-00-58-10012-R02.rec",
+          "sha256": "da3946f56ab97b0b7383c4fabfb1e2b9441d976ee00e47fdc2f857648e428b6e"
+        },
+        {
+          "folder": "Match-2026-02-15_19-00-58-10012",
+          "filename": "Match-2026-02-15_19-00-58-10012-R03.rec",
+          "sha256": "ee17616e3966a5e3940a7d1b2c293a2e482a00424c7e547e221b592de234a6d1"
+        },
+        {
+          "folder": "Match-2026-02-15_19-00-58-10012",
+          "filename": "Match-2026-02-15_19-00-58-10012-R04.rec",
+          "sha256": "b6ceadcd71f8831f758cc468efddb5d56a4a524684eb61242271dba3f672b1e2"
+        },
+        {
+          "folder": "Match-2026-02-15_19-00-58-10012",
+          "filename": "Match-2026-02-15_19-00-58-10012-R05.rec",
+          "sha256": "6ec4022f3160bf5ec88f2329164bf65d0840da3ab189c1aa2a7f8e53042052eb"
+        }
+      ]
+    },
+    {
+      "match_id": 3173,
+      "game_id": 5931,
+      "event": "Six Invitational 2026",
+      "map": "Bank",
+      "rounds": 9,
+      "expected_faze_secret_score": [
+        7,
+        2
+      ],
+      "logical_folder": "actor-si-final-5931",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "included_round_files": [
+            "Match-2026-02-15_19-41-42-10012-R01.rec",
+            "Match-2026-02-15_19-41-42-10012-R02.rec",
+            "Match-2026-02-15_19-41-42-10012-R03.rec",
+            "Match-2026-02-15_19-41-42-10012-R04.rec",
+            "Match-2026-02-15_19-41-42-10012-R05.rec",
+            "Match-2026-02-15_19-41-42-10012-R06.rec",
+            "Match-2026-02-15_19-41-42-10012-R07.rec",
+            "Match-2026-02-15_19-41-42-10012-R08.rec",
+            "Match-2026-02-15_19-41-42-10012-R09.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R01.rec",
+          "sha256": "583b6d0b4f15c2da9c1abc6aaa22cf5a6364ae0dbd7b150d318221c5f71b8c48"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R02.rec",
+          "sha256": "3554057de02c4709ea45cd6aaa47bf9f46c5f3d6b50f306ca6e522672ee2ae18"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R03.rec",
+          "sha256": "e4201468c73b5292d5ca3477fadcd62c796d8c655010d389b5e6cd1a60e672e8"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R04.rec",
+          "sha256": "091d88c1f62cbd0097ab5370bc1ae4b3a936200bd6feb5482c023aa854e5396c"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R05.rec",
+          "sha256": "e0e71afbbce8b374b869902ca7a245ff079c28b3de06d07ca4fb5a7a58ed0d82"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R06.rec",
+          "sha256": "9a63cecfdcbfe78b29ab15d1e604626d70f26264bee43442bd1c21e5d67da749"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R07.rec",
+          "sha256": "3687f1c532a83a17df12c266b38ca6d802961bf7d9c05cc9efbddf03ca949012"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R08.rec",
+          "sha256": "bf08e92bedaa71eafcdc121f522d25feb8a47c2c5768583d26905a5d37440903"
+        },
+        {
+          "folder": "Match-2026-02-15_19-41-42-10012",
+          "filename": "Match-2026-02-15_19-41-42-10012-R09.rec",
+          "sha256": "ccd782a4a57426d72120708c3de5c0cedc0002b155e91c5d5b04969240dac95b"
+        }
+      ]
+    },
+    {
+      "match_id": 3173,
+      "game_id": 5932,
+      "event": "Six Invitational 2026",
+      "map": "Fortress",
+      "rounds": 20,
+      "expected_faze_secret_score": [
+        9,
+        11
+      ],
+      "logical_folder": "actor-si-final-5932",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "included_round_files": [
+            "Match-2026-02-15_20-36-51-10012-R01.rec",
+            "Match-2026-02-15_20-36-51-10012-R02.rec",
+            "Match-2026-02-15_20-36-51-10012-R03.rec",
+            "Match-2026-02-15_20-36-51-10012-R04.rec",
+            "Match-2026-02-15_20-36-51-10012-R05.rec",
+            "Match-2026-02-15_20-36-51-10012-R06.rec",
+            "Match-2026-02-15_20-36-51-10012-R07.rec",
+            "Match-2026-02-15_20-36-51-10012-R08.rec",
+            "Match-2026-02-15_20-36-51-10012-R09.rec",
+            "Match-2026-02-15_20-36-51-10012-R10.rec",
+            "Match-2026-02-15_20-36-51-10012-R11.rec",
+            "Match-2026-02-15_20-36-51-10012-R12.rec",
+            "Match-2026-02-15_20-36-51-10012-R13.rec",
+            "Match-2026-02-15_20-36-51-10012-R14.rec",
+            "Match-2026-02-15_20-36-51-10012-R15.rec",
+            "Match-2026-02-15_20-36-51-10012-R16.rec",
+            "Match-2026-02-15_20-36-51-10012-R17.rec",
+            "Match-2026-02-15_20-36-51-10012-R18.rec",
+            "Match-2026-02-15_20-36-51-10012-R19.rec",
+            "Match-2026-02-15_20-36-51-10012-R20.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R01.rec",
+          "sha256": "83f5f0f1a6fd0346b278b506e36c4a6122d2d2d987f9ef8eeb767547352dffb8"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R02.rec",
+          "sha256": "dfd93a26f43702e020d9a8808dc9c7e1ce9e2ec0338450a5674915fe2967764b"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R03.rec",
+          "sha256": "ea7e9c1ba9b5b98af1470ea8a627e034ba481f2ed9f447f13f1542cc3b8dc641"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R04.rec",
+          "sha256": "6825ccde39d59d7d671b8053408b4c47311e0f260d24874605a4e4b07882d2bd"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R05.rec",
+          "sha256": "70e620d48f706ef44d76b8c1d3aff967fbd60f23478d838b1b6f7fb06318512e"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R06.rec",
+          "sha256": "5192015883c682650ea82cb49af704424391f0d1d5bb5a46d2f7f911504423ad"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R07.rec",
+          "sha256": "2c5b90a5c56179e13ef5b12e32edd014e4a5faa2da0b84dd7ef948708b36d4da"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R08.rec",
+          "sha256": "7877023eca8dfe76ffc253d764e9c0dccf5fa16b6456a3014990da1b88318153"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R09.rec",
+          "sha256": "c503a3f2ae87ee7ad943bd4695437635a063cd3dc3842ab095bfed2520450fbe"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R10.rec",
+          "sha256": "c26df3cf88ebc964aea847b5e6c79b066d36fba466cf3a8f9e51ebc421e3a5d1"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R11.rec",
+          "sha256": "c943fbd40f61211d5365edb47ac97358ff7a27f1a17aeffbd550cd2892b61c35"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R12.rec",
+          "sha256": "ba16e3fc3898990a5124cb855ab75dea16cabdc06974182f64c3e79045bc0cfe"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R13.rec",
+          "sha256": "a40b765b44c1cf1f5306f8f6e7494e3a5e889377365ad415bceebd64e037ffca"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R14.rec",
+          "sha256": "06cbb2aa2bae18dc67eeea96f637df412c207c00e487548de19d5fa3df49df37"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R15.rec",
+          "sha256": "c6101b5269d342c20b8afabdded75c56203f7c8a107639a28f2bdfa3cd6025c5"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R16.rec",
+          "sha256": "7abab1a4ae31e5aece6248b49d1e6513e27791ffcbaaa30b2a0c773a36daff58"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R17.rec",
+          "sha256": "41d3448c0a9d16b76c3241d1655a698e66035c971f7cef6e93cd6d89fdb153de"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R18.rec",
+          "sha256": "a2ebd2a04680282186430f2831c392f2cc62d313503f049dab94031062de20b7"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R19.rec",
+          "sha256": "4cb2db9f39d1c99ec8d512a014740623b2ab25bb2994cba6b85b1859b5bdbf38"
+        },
+        {
+          "folder": "Match-2026-02-15_20-36-51-10012",
+          "filename": "Match-2026-02-15_20-36-51-10012-R20.rec",
+          "sha256": "ace988cd022ff87cc513d2e3841ec3161c51e6558c7d5e0aac740120c2e34cd8"
+        }
+      ]
+    },
+    {
+      "match_id": 3173,
+      "game_id": 5933,
+      "event": "Six Invitational 2026",
+      "map": "Border",
+      "rounds": 18,
+      "expected_faze_secret_score": [
+        10,
+        8
+      ],
+      "logical_folder": "actor-si-final-5933",
+      "physical_segments": [
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "included_round_files": [
+            "Match-2026-02-15_22-18-03-10012-R01.rec",
+            "Match-2026-02-15_22-18-03-10012-R02.rec",
+            "Match-2026-02-15_22-18-03-10012-R03.rec",
+            "Match-2026-02-15_22-18-03-10012-R04.rec",
+            "Match-2026-02-15_22-18-03-10012-R05.rec",
+            "Match-2026-02-15_22-18-03-10012-R06.rec",
+            "Match-2026-02-15_22-18-03-10012-R07.rec",
+            "Match-2026-02-15_22-18-03-10012-R08.rec",
+            "Match-2026-02-15_22-18-03-10012-R09.rec",
+            "Match-2026-02-15_22-18-03-10012-R10.rec",
+            "Match-2026-02-15_22-18-03-10012-R11.rec",
+            "Match-2026-02-15_22-18-03-10012-R12.rec",
+            "Match-2026-02-15_22-18-03-10012-R13.rec",
+            "Match-2026-02-15_22-18-03-10012-R14.rec",
+            "Match-2026-02-15_22-18-03-10012-R15.rec",
+            "Match-2026-02-15_22-18-03-10012-R16.rec",
+            "Match-2026-02-15_22-18-03-10012-R17.rec",
+            "Match-2026-02-15_22-18-03-10012-R18.rec"
+          ]
+        }
+      ],
+      "exact_replay_sha256": [
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R01.rec",
+          "sha256": "ac4dd0bc0a6c8d48a8ef3af20f44c5acca12c60b90c75617a1962f8636ec204c"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R02.rec",
+          "sha256": "7c8575d4f0fd836d4c9d7ef17b46479766181a1c369f014b6c6f2edc28a55262"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R03.rec",
+          "sha256": "933e6600f4750a6fb1f7eb9eae51548eeeda5846a8f40630af2064f924b5f789"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R04.rec",
+          "sha256": "dcef3e0b8786efa4fc251185679f651c95bb4902799eaacf0817fa40f2c78254"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R05.rec",
+          "sha256": "cd5dce439df49ef9cbf03eb71744ed24271092e84f3cc14a7cbe1f66c2b20f18"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R06.rec",
+          "sha256": "40304dd45c75730703eed5367ecebce95185d2a98d4bee2c618373806f4ea514"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R07.rec",
+          "sha256": "9e07f147372d3b399adc829316e7e2a237a3f5d6584515068c4afda8c1b01d85"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R08.rec",
+          "sha256": "509317ceb724e6b068d2dad3f1174d1587239d946dabe8ea57543bd3bbccb16c"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R09.rec",
+          "sha256": "69a5958e7c27fa16565f40297dcb24186c2af9d588eae6e7be11bc18fc2a296e"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R10.rec",
+          "sha256": "5722cb3e81426fe376eb8ccde09ada9ba8e25c2d224edff756277bbeda0089a5"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R11.rec",
+          "sha256": "273cb5dbed874acb098ee49b5938dad29a7899f0329bc013bb07b5bb00a5583f"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R12.rec",
+          "sha256": "bd5498b4bb79a0fab54b82cdec9ab67b92030ba5ed6b22d451fb8777c3733360"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R13.rec",
+          "sha256": "d85fa13054f43076016d8e7b231df56a07600b41e1f02e09f53e77a3b970cc35"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R14.rec",
+          "sha256": "21aba6dc4560b5abd24d723cb2c0af6a36ff4e58026039309502f41f362502e5"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R15.rec",
+          "sha256": "0ed93438a59f735f1ada5043e193d398f67c4cb40f1d55ebf32845ab2b3ad4ab"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R16.rec",
+          "sha256": "4a9d8bcf75a825c338576871937dd68a4845492d61479d1f4c92211c6f0a7585"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R17.rec",
+          "sha256": "5865f575e3d6f85b2da64c88bcf3c3d7d0674b61f3aa0a0a70c628a14fc48d98"
+        },
+        {
+          "folder": "Match-2026-02-15_22-18-03-10012",
+          "filename": "Match-2026-02-15_22-18-03-10012-R18.rec",
+          "sha256": "e2f148d2c157d24b38f1430b4be9021d8a27e6756407320ddf8df6cf0a76b0bd"
+        }
+      ]
+    }
+  ],
+  "excluded_incomplete_rounds": [
+    {
+      "folder": "Match-2026-02-15_18-28-03-10012",
+      "filename": "Match-2026-02-15_18-28-03-10012-R07.rec",
+      "reason": "no_unique_physical_score_increment"
+    }
+  ],
+  "actor_labels_opened": false,
+  "public_round_events_used": false
+}

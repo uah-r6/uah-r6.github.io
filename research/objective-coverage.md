@@ -1,3 +1,15 @@
+## UNUSED SI SERIES FROZEN ADAPTER - 2026-10-02
+
+Reserved3173games5930-5933,four maps58completed rounds,build9486312. Consulate has two physical segments; incomplete first-segmentR07excluded by score delta. Team rosters confirm score continuity across reversed physical team indices. All58SHA256recorded; public actor labels unread. Exact aliases/public metadata only; cyberzera104already known from3554.
+
+objective_si_final_validation.py preserves cd28f76 actor/evidence code; only cache/reserve/report/source metadata and replay digest checking adapted. New objective-si-final-freeze.json verifies original hashes plus adapter and metadata.34targeted tests pass. NEXT after local freeze commit/clean tree: run adapter once, permanently record predictions before labels and complete graded result before further analysis. This is unused actor series within SI, not a new independent Rating event. Runtime/SQLite/public/archives/v2 unchanged.
+
+## NEXT UNUSED ACTOR SERIES / CONSUMED CLASS DIAGNOSIS - 2026-10-02
+
+First reserve saved/committed at a72fdff. Three 9734089 identity abstentions are an explicit declared class variant b529300b on the same health slot;30paths/23deaths inspected with separate ignored helper(22state4,1state2beforefeedback). Frozen resolver/helper unchanged. Do not retrospectively improve reserve totals.
+
+Acquired official SI2026 final FaZe–Secret match7740/SiegeGG3173 archive(648044851bytes),CRCverified,5physical folders for4maps. Cached under ignored research; actor labels unread. NEXT prepare_actor_si_reserve.py reads IDs/roster/map/score metadata only and caches parser output, then reserve all completed maps with score-confirmed Consulate rehost handling. Freeze the new adapter/manifest before any actor-label evaluation, using unchanged cd28f76 logic. No runtime/public/SQLite/archive/v2 changes.
+
 ## ONE-SHOT COMBINED ACTOR RESULT - 2026-10-02
 
 Frozen cd28f76 unchanged: five maps60rounds;8plants =3correct/0wrong/5unresolved;2disables =1correct/0wrong/1unresolved. Zero occurrence mismatches. Modes3standalone plants and1sole disable. All predictions saved before labels; result permanently recorded in ignored diagnostics and [report](output/objective-combined-reserve.md). This reserve is now CONSUMED. No candidate change or live data write. NEXT: reserve further distinct unused actor evidence using metadata/provenance, test the same frozen rule without tuning, and retain unresolved actors until broader accuracy is established. Ten events alone do not justify production or v3 work.
