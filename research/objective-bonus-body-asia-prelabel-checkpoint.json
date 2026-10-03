@@ -1,0 +1,82 @@
+{
+  "status": "prospective_all12_replay_or_quality_outcomes_sealed_before_actor_targets",
+  "created_at": "2026-10-03T00:37:24.851078+00:00",
+  "freeze_sha256": "1f45bb2ffd44dae23fdecb1aba215c0cef27cd27b20a4c1121493b132aeb07b9",
+  "extension_sha256": "950228be29f326f78c8a710062d903e4b0808fe29406a4b45ad8de02b73ec737",
+  "inventory_seal_sha256": "8b4a40e5c642cced229e3351e2d91126e2110b0909a10e2d5a5f33f0193e4d72",
+  "selected_maps": 12,
+  "complete_maps": 10,
+  "complete_rounds": 96,
+  "verified_plants": 19,
+  "bonus_recoveries": 1,
+  "no_plant_controls": 77,
+  "quality_failed_maps": {
+    "8182": "completed4-3 followed by rehost3-3",
+    "8193": "incomplete distinct stable10-player profile/UID roster"
+  },
+  "actor_targets_opened": false,
+  "ratings_read": false,
+  "files": [
+    {
+      "official_match_id": 8182,
+      "status": "whole_map_quality_failure",
+      "sha256": "9985bed1ef1c71bcbc5b351cdd82308fc3da0c34850571fb24bc47ede4edfc98"
+    },
+    {
+      "official_match_id": 8183,
+      "status": "complete_replay_prediction",
+      "sha256": "9d18981d869822e06f05c7cc124769492099d9a02bd58fc596df9dd338142359"
+    },
+    {
+      "official_match_id": 8184,
+      "status": "complete_replay_prediction",
+      "sha256": "c41f552f3832a66758566a969bd6f3fb1b601006c4b85de1ed1dd1b44da62721"
+    },
+    {
+      "official_match_id": 8185,
+      "status": "complete_replay_prediction",
+      "sha256": "85c098df835e9ec1186fa42b9ff5acc8f9a78f7bf9e06643c83993894ad96f16"
+    },
+    {
+      "official_match_id": 8186,
+      "status": "complete_replay_prediction",
+      "sha256": "9eba9c6c90c432818ee24b9245d65759ae3d037cf9bb337ff559adb3d7d9a286"
+    },
+    {
+      "official_match_id": 8187,
+      "status": "complete_replay_prediction",
+      "sha256": "6d0b8cd28ca300bc13408e962efcf0d185215811b9fd25c476175d3146059362"
+    },
+    {
+      "official_match_id": 8188,
+      "status": "complete_replay_prediction",
+      "sha256": "042b8ce1695a0e10242e9d8e2805d27cf3395700bc765b779e50976b918c4ee8"
+    },
+    {
+      "official_match_id": 8189,
+      "status": "complete_replay_prediction",
+      "sha256": "3aa976cfe715a342fd0c240f8f6d2f9a5fc098c579d1198349ed3c0461055a68"
+    },
+    {
+      "official_match_id": 8190,
+      "status": "complete_replay_prediction",
+      "sha256": "c9f217dbbbb88c705aa07bb52351f5ddfdebab7529e70dd8ceb46dfb6d7b20a9"
+    },
+    {
+      "official_match_id": 8191,
+      "status": "complete_replay_prediction",
+      "sha256": "101dfd378a62f73050f8edb461b794be4db3688bc100d3ebb0b74f469b4bb70d"
+    },
+    {
+      "official_match_id": 8192,
+      "status": "complete_replay_prediction",
+      "sha256": "a54222c8eb119e5331465534b60ad0c4d958d23267081fdb5c4706064e3b5844"
+    },
+    {
+      "official_match_id": 8193,
+      "status": "whole_map_quality_failure",
+      "sha256": "500cadff480732c1448caf46a17d4fe398e99277832780d438724ecd9680f18d"
+    }
+  ],
+  "note": "Prelabel coverage already below frozen20plants/3bonuson2maps; do not waive gates. Perform remaining primary constraints once, preserve insufficient/failure permanently, no auto-promotion."
+}
