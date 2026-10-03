@@ -1,0 +1,16 @@
+{
+  "tier": "consumed_OCE_additive_diagnostics_not_prospective_regrading",
+  "result_hashes": {
+    "data/research/objective-bonus-body-oce-cohort/consumed-additional-primary-review.json": "93fa64e9f08913b8b1e7f4475709cb8ed452fb180abf4e157fd22058bb602705",
+    "data/research/objective-bonus-body-oce-cohort/consumed-body-class-lifecycle.json": "691c580d8ab99c00a91ffa1fa3dfd1d08960b75c751a5bc0f1954b6b826ec8f1",
+    "data/research/objective-bonus-body-oce-cohort/consumed-body-coverage-diagnostic-with-values.json": "7a92be4df001056659ddbb6fb946b25402094b5064c9d45376b1ecdc0a49666f",
+    "data/research/objective-bonus-body-oce-cohort/consumed-quality-diagnostic.json": "382b7b5f9da3d68aa6cbcb160ac9e3cbbea9173c238b68151c738b6d03222c36"
+  },
+  "source_hashes": {
+    "research/objective_oce_body_class_lifecycle.py": "ec47017591347030c6f065c49b0bb8e17f30939286a341a6fcc4de6a8fb96c23",
+    "tests/test_objective_oce_body_class_lifecycle.py": "7c4e9716462f354b4c5ede2732ae312921c69f62a6ed9c87dd6dccd85432eeba"
+  },
+  "prospective_result_sha256": "f7b79ae20ed4f6a7fdc07ba00b18ad5a99708f4b2964dd5e85befe1f0ddd1d73",
+  "semantics_validated": false,
+  "production_deployed": false
+}
