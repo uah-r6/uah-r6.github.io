@@ -1,0 +1,493 @@
+{
+  "event": "Asia Pacific League Stage 2 - ASIA 2026",
+  "official_competition_id": 511,
+  "phase_id": 15002,
+  "created_at": "2026-10-03T00:24:39.051231+00:00",
+  "status": "prospective_actor_reserve_no_replay_or_target_outcomes_opened",
+  "purpose": "Fresh actor validation only, not Rating fit/final evaluation.",
+  "source": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/competition/511/15002",
+  "metadata_sha256": "c34784d7d502d2640c2b65f49af953525caddbeee1cfd94bf7c08fa9da05f013",
+  "selection": "All12 currently linked official group-stage archives; first chronological8182 for small pipeline proof, then incremental batches. No objective-presence/bonus-health/actor selection.",
+  "scope": "Entire named event reserved for actor validation. Later16 unavailable group matches and playoffs outside this fixed snapshot remain reserved; never silently extend the one-shot sample.",
+  "exposures": "Official schedule/opponents/scores/replay URLs only; discovery web search returned no ASIA actor labels. No selected replay, objective total, round actor or Rating target inspected.",
+  "actors_inspected": false,
+  "ratings_inspected": false,
+  "matches": [
+    {
+      "official_match_id": 8182,
+      "date": "2026-09-04T10:00:00Z",
+      "team_ids": [
+        156,
+        402
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D1_FURYvDE.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8182"
+    },
+    {
+      "official_match_id": 8183,
+      "date": "2026-09-04T11:00:00Z",
+      "team_ids": [
+        140,
+        404
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D1_SHPRvELV.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8183"
+    },
+    {
+      "official_match_id": 8184,
+      "date": "2026-09-04T12:00:00Z",
+      "team_ids": [
+        331,
+        423
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D1_DAYvLO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8184"
+    },
+    {
+      "official_match_id": 8185,
+      "date": "2026-09-04T13:00:00Z",
+      "team_ids": [
+        380,
+        424
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D1_WBGv999.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8185"
+    },
+    {
+      "official_match_id": 8186,
+      "date": "2026-09-09T10:00:00Z",
+      "team_ids": [
+        423,
+        424
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D2_LOv999.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8186"
+    },
+    {
+      "official_match_id": 8187,
+      "date": "2026-09-09T11:00:00Z",
+      "team_ids": [
+        140,
+        156
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D2_ELVvFURY.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8187"
+    },
+    {
+      "official_match_id": 8188,
+      "date": "2026-09-09T12:00:00Z",
+      "team_ids": [
+        380,
+        402
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D2_DEvWBG.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8188"
+    },
+    {
+      "official_match_id": 8189,
+      "date": "2026-09-09T13:00:00Z",
+      "team_ids": [
+        331,
+        404
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D2_DAYvSHPR.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8189"
+    },
+    {
+      "official_match_id": 8190,
+      "date": "2026-09-10T10:00:00Z",
+      "team_ids": [
+        402,
+        423
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D3_DEvLO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8190"
+    },
+    {
+      "official_match_id": 8191,
+      "date": "2026-09-10T11:00:00Z",
+      "team_ids": [
+        140,
+        331
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D3_DAYvELV.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8191"
+    },
+    {
+      "official_match_id": 8192,
+      "date": "2026-09-10T12:00:00Z",
+      "team_ids": [
+        404,
+        424
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D3_999vSHPR.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8192"
+    },
+    {
+      "official_match_id": 8193,
+      "date": "2026-09-10T13:00:00Z",
+      "team_ids": [
+        156,
+        380
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_ASIA_S2D3_FURYvWBG.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8193"
+    },
+    {
+      "official_match_id": 8194,
+      "date": "2026-09-16T10:00:00Z",
+      "team_ids": [
+        140,
+        424
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8194"
+    },
+    {
+      "official_match_id": 8195,
+      "date": "2026-09-16T11:00:00Z",
+      "team_ids": [
+        402,
+        404
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8195"
+    },
+    {
+      "official_match_id": 8196,
+      "date": "2026-09-16T12:00:00Z",
+      "team_ids": [
+        380,
+        423
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8196"
+    },
+    {
+      "official_match_id": 8197,
+      "date": "2026-09-16T13:00:00Z",
+      "team_ids": [
+        156,
+        331
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8197"
+    },
+    {
+      "official_match_id": 8198,
+      "date": "2026-09-17T10:00:00Z",
+      "team_ids": [
+        156,
+        423
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8198"
+    },
+    {
+      "official_match_id": 8199,
+      "date": "2026-09-17T11:00:00Z",
+      "team_ids": [
+        140,
+        402
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8199"
+    },
+    {
+      "official_match_id": 8200,
+      "date": "2026-09-17T12:00:00Z",
+      "team_ids": [
+        331,
+        424
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8200"
+    },
+    {
+      "official_match_id": 8201,
+      "date": "2026-09-17T13:00:00Z",
+      "team_ids": [
+        380,
+        404
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8201"
+    },
+    {
+      "official_match_id": 8202,
+      "date": "2026-09-23T10:00:00Z",
+      "team_ids": [
+        404,
+        423
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8202"
+    },
+    {
+      "official_match_id": 8203,
+      "date": "2026-09-23T11:00:00Z",
+      "team_ids": [
+        156,
+        424
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8203"
+    },
+    {
+      "official_match_id": 8204,
+      "date": "2026-09-23T12:00:00Z",
+      "team_ids": [
+        140,
+        380
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8204"
+    },
+    {
+      "official_match_id": 8205,
+      "date": "2026-09-23T13:00:00Z",
+      "team_ids": [
+        331,
+        402
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8205"
+    },
+    {
+      "official_match_id": 8206,
+      "date": "2026-09-24T10:00:00Z",
+      "team_ids": [
+        402,
+        424
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8206"
+    },
+    {
+      "official_match_id": 8207,
+      "date": "2026-09-24T11:00:00Z",
+      "team_ids": [
+        140,
+        423
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8207"
+    },
+    {
+      "official_match_id": 8208,
+      "date": "2026-09-24T12:00:00Z",
+      "team_ids": [
+        156,
+        404
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8208"
+    },
+    {
+      "official_match_id": 8209,
+      "date": "2026-09-24T13:00:00Z",
+      "team_ids": [
+        331,
+        380
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": null,
+      "selected": false,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8209"
+    }
+  ]
+}
