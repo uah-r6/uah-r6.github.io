@@ -165,7 +165,7 @@
       "untraded_deaths": 8,
       "pivot_kills": 3,
       "pivot_deaths": 6,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 4,
@@ -215,7 +215,7 @@
       "hs": 0.2,
       "entry_diff": -2,
       "kd_diff": -3,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "ohwowjay",

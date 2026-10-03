@@ -30,7 +30,7 @@
       "untraded_deaths": 5,
       "pivot_kills": 6,
       "pivot_deaths": 4,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 1,
       "survived": 6,
@@ -80,7 +80,7 @@
       "hs": 0.3,
       "entry_diff": 0,
       "kd_diff": 4,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "dinofireking",
@@ -168,7 +168,7 @@
       "pivot_kills": 7,
       "pivot_deaths": 5,
       "plants": 0,
-      "disables": 0,
+      "disables": 1,
       "teamkills": 0,
       "survived": 5,
       "kost_rounds": 10,
@@ -218,7 +218,7 @@
       "hs": 0.7692307692307693,
       "entry_diff": 0,
       "kd_diff": 6,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "ohwowjay",
@@ -302,7 +302,7 @@
       "untraded_deaths": 6,
       "pivot_kills": 3,
       "pivot_deaths": 3,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 5,
@@ -352,7 +352,7 @@
       "hs": 0.5,
       "entry_diff": 1,
       "kd_diff": -1,
-      "objectives": 0
+      "objectives": 1
     }
   ],
   "rounds": [

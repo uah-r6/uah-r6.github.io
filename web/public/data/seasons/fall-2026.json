@@ -104,11 +104,11 @@
       "untraded_deaths": 37,
       "pivot_kills": 38,
       "pivot_deaths": 24,
-      "plants": 0,
-      "disables": 0,
+      "plants": 2,
+      "disables": 1,
       "teamkills": 0,
       "survived": 24,
-      "kost_rounds": 40,
+      "kost_rounds": 41,
       "rounds_won": 35,
       "clutches": 1,
       "clutch_1v1": 0,
@@ -164,12 +164,12 @@
       "rating": 1.2417093264919878,
       "kd": 1.605263157894737,
       "kpr": 0.9838709677419355,
-      "kost": 0.6451612903225806,
+      "kost": 0.6612903225806451,
       "srv": 0.3870967741935484,
       "hs": 0.5573770491803278,
       "entry_diff": 4,
       "kd_diff": 23,
-      "objectives": 0
+      "objectives": 3
     },
     {
       "slug": "azooznewzz",
@@ -187,7 +187,7 @@
       "untraded_deaths": 40,
       "pivot_kills": 26,
       "pivot_deaths": 31,
-      "plants": 0,
+      "plants": 2,
       "disables": 0,
       "teamkills": 1,
       "survived": 14,
@@ -252,7 +252,7 @@
       "hs": 0.5333333333333333,
       "entry_diff": 3,
       "kd_diff": -3,
-      "objectives": 0
+      "objectives": 2
     },
     {
       "slug": "dinofireking",
@@ -270,7 +270,7 @@
       "untraded_deaths": 29,
       "pivot_kills": 16,
       "pivot_deaths": 18,
-      "plants": 0,
+      "plants": 2,
       "disables": 0,
       "teamkills": 0,
       "survived": 24,
@@ -338,7 +338,7 @@
       "hs": 0.43333333333333335,
       "entry_diff": 0,
       "kd_diff": -8,
-      "objectives": 0
+      "objectives": 2
     },
     {
       "slug": "tallman3-14",
@@ -356,7 +356,7 @@
       "untraded_deaths": 44,
       "pivot_kills": 18,
       "pivot_deaths": 33,
-      "plants": 0,
+      "plants": 4,
       "disables": 0,
       "teamkills": 0,
       "survived": 13,
@@ -419,7 +419,7 @@
       "hs": 0.42857142857142855,
       "entry_diff": 3,
       "kd_diff": -21,
-      "objectives": 0
+      "objectives": 4
     }
   ],
   "matches": [

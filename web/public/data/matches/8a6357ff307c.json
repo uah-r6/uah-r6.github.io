@@ -30,7 +30,7 @@
       "untraded_deaths": 9,
       "pivot_kills": 5,
       "pivot_deaths": 7,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 1,
@@ -80,7 +80,7 @@
       "hs": 0.4,
       "entry_diff": -2,
       "kd_diff": -8,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "dinofireking",
@@ -98,7 +98,7 @@
       "untraded_deaths": 6,
       "pivot_kills": 4,
       "pivot_deaths": 4,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 4,
@@ -153,7 +153,7 @@
       "hs": 0.42857142857142855,
       "entry_diff": -1,
       "kd_diff": -3,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "lgon",

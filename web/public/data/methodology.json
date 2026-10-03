@@ -1,5 +1,5 @@
 {
   "rating_version": "siege_style_v2",
   "trade_window_seconds": 8,
-  "rating_description": "Independent raw eight-feature Siege-style Rating; player objective actor credit is unavailable."
+  "rating_description": "Independent raw eight-feature Siege-style Rating. Historical objective upgrades preserve original v2 Rating inputs; displayed objectives and KOST use corrected data."
 }

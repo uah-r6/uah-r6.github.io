@@ -100,7 +100,7 @@
       "untraded_deaths": 7,
       "pivot_kills": 4,
       "pivot_deaths": 6,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 5,
@@ -151,7 +151,7 @@
       "hs": 0.8333333333333334,
       "entry_diff": 2,
       "kd_diff": -3,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "lgon",
@@ -309,7 +309,7 @@
       "untraded_deaths": 12,
       "pivot_kills": 7,
       "pivot_deaths": 8,
-      "plants": 0,
+      "plants": 2,
       "disables": 0,
       "teamkills": 0,
       "survived": 2,
@@ -358,7 +358,7 @@
       "hs": 0.625,
       "entry_diff": 2,
       "kd_diff": -4,
-      "objectives": 0
+      "objectives": 2
     }
   ],
   "rounds": [

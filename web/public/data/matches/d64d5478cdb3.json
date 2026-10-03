@@ -166,11 +166,11 @@
       "untraded_deaths": 5,
       "pivot_kills": 7,
       "pivot_deaths": 6,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 4,
-      "kost_rounds": 7,
+      "kost_rounds": 8,
       "rounds_won": 7,
       "clutches": 0,
       "clutch_1v1": 0,
@@ -212,12 +212,12 @@
       "rating": 1.490079259653096,
       "kd": 2.0,
       "kpr": 1.2,
-      "kost": 0.7,
+      "kost": 0.8,
       "srv": 0.4,
       "hs": 0.5833333333333334,
       "entry_diff": 4,
       "kd_diff": 6,
-      "objectives": 0
+      "objectives": 1
     },
     {
       "slug": "ohwowjay",
@@ -301,7 +301,7 @@
       "untraded_deaths": 7,
       "pivot_kills": 3,
       "pivot_deaths": 7,
-      "plants": 0,
+      "plants": 1,
       "disables": 0,
       "teamkills": 0,
       "survived": 2,
@@ -350,7 +350,7 @@
       "hs": 0.0,
       "entry_diff": 0,
       "kd_diff": -4,
-      "objectives": 0
+      "objectives": 1
     }
   ],
   "rounds": [

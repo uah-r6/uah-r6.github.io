@@ -14,7 +14,7 @@
   "untraded_deaths": 40,
   "pivot_kills": 26,
   "pivot_deaths": 31,
-  "plants": 0,
+  "plants": 2,
   "disables": 0,
   "teamkills": 1,
   "survived": 14,
@@ -79,7 +79,7 @@
   "hs": 0.5333333333333333,
   "entry_diff": 3,
   "kd_diff": -3,
-  "objectives": 0,
+  "objectives": 2,
   "season": "fall-2026",
   "matches": [
     {
