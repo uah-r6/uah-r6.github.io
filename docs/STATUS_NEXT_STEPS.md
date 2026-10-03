@@ -1,3 +1,15 @@
+## Current continuation: native boundary and exact callback controls - 2026-10-03
+
+Objective migration is complete and live-verified; published commits9755cac/6c99d6c, authorized baselineb71d612. All18 live JSON documents matched corrected output after authenticated Pages retry. New objective guard research/verify_objective_history_checkpoint.py preserves original studies and explicitly records prior legacy differences.
+
+Separate readonly credited-kill continuation: fixed68rounds across32consumed SAL/APAC maps/34segments (each segment first/last plus known unknown-offset cases),465finish/death events. Full actual original/native header/operator/action/raw-feedback parity68/68; originally supported counters67/67 unchanged; native68complete, one previously known Jin/APAC8156R03 envelope recovered. No new unknown-offset case. Source remains rejected by the current Python adapter; no default wiring or historical kill migration.
+
+Exact native callback byte probe: independently reviewed SAL8580LairR06 Maia->Stk versus Kheyze credit, SAL8583ClubhouseR02 pino.L5->resetz.LOUD versus Neskin.L5 credit. All12callbacks in those2rounds have0literal full header UID references; reviewed callbacks contain only finisher/victim usernames, no credited-player name. This negative result is limited to exact callback bounds; separate damage/DBNO packets, indirect entity references and encoded IDs remain unassessed. Existing health-derived DamageDealt is a finisher-based estimate, not an independent attacker/victim stream. No downer or event credited owner inferred.
+
+New cached selection/results/buffers are ignored; new source/result/binary/input seal research/credited-native-boundary-checkpoint.json. [Control report](../research/output/credited-kill-native-boundary-controls.md).399Python tests passed,1optional skipped,6subtests. Go tests/vet and both builds passed for the published objective code; no subsequent Go/web/runtime changes. Authorized DB2136ab3d... and all archives/public JSON/v2 snapshots remain identical throughout follow-up. All old research sources/reviews/results preserved, no regrade or Rating fit.
+
+NEXT ACTION: research/verify_native_boundary_checkpoint.py (includes authorized objective guard); inspect separate explicit damage/DBNO records for typed stable attacker/victim relations. Feedback callback literals are insufficient in the two constrained cases. Preserve finisher/victim/counter observations separately; seek competing-down opening controls and independently constrained elapsed/plant-overtime clocks. No remaining-time subtraction across plant resets, byte-distance timing or nearest-counter ownership. Do not promote native source or migrate credited kills/event ordering without separate review. Keep new research local; verified objective publication is complete.
+
 ## Current task: authorized objective-only historical migration - 2026-10-03
 
 Latest user authorization supersedes the prior no-write/no-publish objective hold below. Migration is applied, reconciled, published and live-verified. See [full objective report](OBJECTIVE_HISTORY_MIGRATION.md).
