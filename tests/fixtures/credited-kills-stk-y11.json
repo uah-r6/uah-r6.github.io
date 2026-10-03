@@ -1,0 +1,458 @@
+{
+  "header": {
+    "codeVersion": 9879602,
+    "actionPhaseStartOffset": 73745626,
+    "players": [
+      {
+        "id": 1,
+        "username": "Maia.TLAW",
+        "teamIndex": 0
+      },
+      {
+        "id": 2,
+        "username": "Jv92.TLAW",
+        "teamIndex": 0
+      },
+      {
+        "id": 3,
+        "username": "FelipoX.TLAW",
+        "teamIndex": 0
+      },
+      {
+        "id": 4,
+        "username": "Nade.TLAW",
+        "teamIndex": 0
+      },
+      {
+        "id": 5,
+        "username": "Kheyze.TLAW",
+        "teamIndex": 0
+      },
+      {
+        "id": 6,
+        "username": "AngelzZ.INTZ",
+        "teamIndex": 1
+      },
+      {
+        "id": 7,
+        "username": "Naka.INTZ",
+        "teamIndex": 1
+      },
+      {
+        "id": 8,
+        "username": "rappz.INTZ",
+        "teamIndex": 1
+      },
+      {
+        "id": 9,
+        "username": "Ar7hr.INTZ",
+        "teamIndex": 1
+      },
+      {
+        "id": 10,
+        "username": "Stk.INTZ",
+        "teamIndex": 1
+      }
+    ],
+    "teams": [
+      {
+        "won": false
+      },
+      {
+        "won": true
+      }
+    ]
+  },
+  "declarations": [
+    {
+      "offset": 37096,
+      "owner": 4026536292,
+      "slot": 949690859,
+      "component": 4026536093,
+      "class": 2710676760
+    },
+    {
+      "offset": 40699,
+      "owner": 4026536293,
+      "slot": 949690859,
+      "component": 4026536076,
+      "class": 2710676760
+    },
+    {
+      "offset": 44302,
+      "owner": 4026536290,
+      "slot": 949690859,
+      "component": 4026536127,
+      "class": 2710676760
+    },
+    {
+      "offset": 48041,
+      "owner": 4026536291,
+      "slot": 949690859,
+      "component": 4026536110,
+      "class": 2710676760
+    },
+    {
+      "offset": 51645,
+      "owner": 4026536288,
+      "slot": 949690859,
+      "component": 4026536097,
+      "class": 2710676760
+    },
+    {
+      "offset": 57122,
+      "owner": 4026536149,
+      "slot": 949690859,
+      "component": 4026536138,
+      "class": 2710676760
+    },
+    {
+      "offset": 61259,
+      "owner": 4026536146,
+      "slot": 949690859,
+      "component": 4026536189,
+      "class": 2710676760
+    },
+    {
+      "offset": 65405,
+      "owner": 4026536147,
+      "slot": 949690859,
+      "component": 4026536172,
+      "class": 2710676760
+    },
+    {
+      "offset": 69877,
+      "owner": 4026536144,
+      "slot": 949690859,
+      "component": 4026535967,
+      "class": 2710676760
+    },
+    {
+      "offset": 74006,
+      "owner": 4026536145,
+      "slot": 949690859,
+      "component": 4026535950,
+      "class": 2710676760
+    }
+  ],
+  "properties": [
+    {
+      "offset": 37130,
+      "entity": 4026536093,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 6
+    },
+    {
+      "offset": 39059,
+      "entity": 4026536292,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 1
+    },
+    {
+      "offset": 40733,
+      "entity": 4026536076,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 6
+    },
+    {
+      "offset": 42662,
+      "entity": 4026536293,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 2
+    },
+    {
+      "offset": 44336,
+      "entity": 4026536127,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 5
+    },
+    {
+      "offset": 46401,
+      "entity": 4026536290,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 3
+    },
+    {
+      "offset": 48075,
+      "entity": 4026536110,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 2
+    },
+    {
+      "offset": 50005,
+      "entity": 4026536291,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 4
+    },
+    {
+      "offset": 51679,
+      "entity": 4026536097,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 5
+    },
+    {
+      "offset": 53614,
+      "entity": 4026536288,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 5
+    },
+    {
+      "offset": 57156,
+      "entity": 4026536138,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 9
+    },
+    {
+      "offset": 59100,
+      "entity": 4026536149,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 7
+    },
+    {
+      "offset": 61293,
+      "entity": 4026536189,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 1
+    },
+    {
+      "offset": 63246,
+      "entity": 4026536146,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 6
+    },
+    {
+      "offset": 65439,
+      "entity": 4026536172,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 0
+    },
+    {
+      "offset": 67564,
+      "entity": 4026536147,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 8
+    },
+    {
+      "offset": 69911,
+      "entity": 4026535967,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 2
+    },
+    {
+      "offset": 71847,
+      "entity": 4026536144,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 9
+    },
+    {
+      "offset": 74040,
+      "entity": 4026535950,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 1
+    },
+    {
+      "offset": 75970,
+      "entity": 4026536145,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 10
+    },
+    {
+      "offset": 74269020,
+      "entity": 4026536189,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 2
+    },
+    {
+      "offset": 74275879,
+      "entity": 4026536097,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 6
+    },
+    {
+      "offset": 74400525,
+      "entity": 4026536189,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 3
+    },
+    {
+      "offset": 74453971,
+      "entity": 4026536076,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 7
+    },
+    {
+      "offset": 74500906,
+      "entity": 4026536138,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 10
+    },
+    {
+      "offset": 74509251,
+      "entity": 4026536138,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 11
+    },
+    {
+      "offset": 74513012,
+      "entity": 4026536076,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 8
+    },
+    {
+      "offset": 74522492,
+      "entity": 4026536138,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 12
+    }
+  ],
+  "finishes": [
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "AngelzZ.INTZ",
+        "target": "Kheyze.TLAW",
+        "headshot": false,
+        "time": "1:01",
+        "timeInSeconds": 61,
+        "weaponID": 9817293379
+      },
+      "offset": 74269360
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Maia.TLAW",
+        "target": "Stk.INTZ",
+        "headshot": false,
+        "time": "1:00",
+        "timeInSeconds": 60,
+        "weaponID": 1366019400
+      },
+      "offset": 74276292
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "AngelzZ.INTZ",
+        "target": "FelipoX.TLAW",
+        "headshot": false,
+        "time": "0:31",
+        "timeInSeconds": 31,
+        "weaponID": 9817293379
+      },
+      "offset": 74400971
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Jv92.TLAW",
+        "target": "Ar7hr.INTZ",
+        "headshot": true,
+        "time": "0:35",
+        "timeInSeconds": 35,
+        "weaponID": 78526932130
+      },
+      "offset": 74454612
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Naka.INTZ",
+        "target": "Nade.TLAW",
+        "headshot": true,
+        "time": "0:23",
+        "timeInSeconds": 23,
+        "weaponID": 168013421923
+      },
+      "offset": 74501267
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Naka.INTZ",
+        "target": "Maia.TLAW",
+        "headshot": false,
+        "time": "0:20",
+        "timeInSeconds": 20,
+        "weaponID": 139558931725
+      },
+      "offset": 74509576
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Jv92.TLAW",
+        "target": "AngelzZ.INTZ",
+        "headshot": true,
+        "time": "0:19",
+        "timeInSeconds": 19,
+        "weaponID": 78526932130
+      },
+      "offset": 74513450
+    },
+    {
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Naka.INTZ",
+        "target": "Jv92.TLAW",
+        "headshot": false,
+        "time": "0:00",
+        "timeInSeconds": 0,
+        "weaponID": 139558931725
+      },
+      "offset": 74524027
+    }
+  ]
+}

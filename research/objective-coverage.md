@@ -1,4 +1,8 @@
-## Current checkpoint: older-class controls preserved; bonus support remains insufficient ? 2026-10-03
+## Current production/review boundary — 2026-10-03
+
+Approved core source/test/research documentation is pushed on main at `7d4bc8a`; historical UAH actor corrections are still proposals. No body1/bonus-health or older-class promotion. The read-only [credited-kill migration review](output/credited-kill-migration-review.md) includes18supported core objective proposals, Kenbot KafeR09 research-only and ChaletR10 incomplete/unresolved. Preserve original v2 input semantics before any future corrected objective/KOST projection; no SQLite/public changes occurred.
+
+## Previous checkpoint: older-class controls preserved; bonus support remains insufficient ? 2026-10-03
 
 Local checkpoints include `591731b` (OCE result/consumed review) and `2a7fffe` (older-class lifecycle). No push or publish. The fixed OCE result remains **INSUFFICIENT**: 38 sources, 32 complete maps, 330 rounds, 84 plants, zero bonus recoveries; six whole-map refusals preserved. Later exact identities support 18 consumed reviewed maps, 11 independently constrained agreements, seven parser abstentions and no conflicts. These later observations never regrade the prospective result.
 

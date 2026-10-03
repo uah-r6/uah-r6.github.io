@@ -1,4 +1,12 @@
-## Current checkpoint: older-class controls preserved; bonus support remains insufficient ? 2026-10-03
+## Current task: credited-kill migration preparation — 2026-10-03
+
+Core actor code/test/documentation push complete: remote main `7d4bc8a` ([review/inventory](output/core-actor-push-review.md)). Bonus/body1 and older body-class extensions remain research-only. Phase2 is additive and local: stable-UID scoreboard round deltas, guarded rehost resets and separate raw finishes; no default stats or historical writes. Start with [migration review](output/credited-kill-migration-review.md), [UAH audit](output/credited-kill-uah-audit.md), [professional evidence](output/credited-kill-professional-audit.md), [feature controls](output/credited-kill-feature-audit.md), [packet chronology](output/credited-kill-timing.md) and [opening-order hypothesis](output/credited-kill-opening-order.md).
+
+The new `third_party/siege-dissect/cmd/kill-credit` builds to an isolated local executable; it never replaces frozen actor/production binaries. `research/credited_kill_professional_audit.py --limit 32` reuses consumed decoded evidence; `research/credited_kill_uah_audit.py` opens SQLite read-only and checks archive hashes. Results cache in ignored `data/research/credited-kills-v1/`. No repeated downloads, collection/old parsing pipelines, fit or final regrading. No generic victim/downer assignment from counters.
+
+Historical/public changes require user review first. Current trusted round coverage is58/62 UAH rounds; ChaletR09–12 stays unresolved. Live v2 must retain original finisher inputs and its original MAE0.03623; both failed v3 studies remain failed. Full status/next action is at the top of `docs/STATUS_NEXT_STEPS.md`; older research continuations below are historical.
+
+## Previous checkpoint: older-class controls preserved; bonus support remains insufficient ? 2026-10-03
 
 Local checkpoints include `591731b` (OCE result/consumed review) and `2a7fffe` (older-class lifecycle). No push or publish. The fixed OCE result remains **INSUFFICIENT**: 38 sources, 32 complete maps, 330 rounds, 84 plants, zero bonus recoveries; six whole-map refusals preserved. Later exact identities support 18 consumed reviewed maps, 11 independently constrained agreements, seven parser abstentions and no conflicts. These later observations never regrade the prospective result.
 
