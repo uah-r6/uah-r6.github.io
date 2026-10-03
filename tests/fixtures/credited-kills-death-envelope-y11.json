@@ -1,0 +1,440 @@
+{
+  "provenance": {
+    "official_match_id": 8156,
+    "round": 3,
+    "replay_sha256": "93470a225294e9e0d195a57d9db79489d9e0effa9117d216ae5bca0adcccc261",
+    "note": "Sanitized structured observations only: UIDs ordinalized, profiles omitted; exact field/callback offsets retained; no replay bytes."
+  },
+  "evidence": {
+    "header": {
+      "teams": [
+        {
+          "name": "DPLUS KIA",
+          "startingScore": 2,
+          "score": 2,
+          "won": false,
+          "role": "Defense"
+        },
+        {
+          "name": "RRX",
+          "startingScore": 0,
+          "score": 1,
+          "won": true,
+          "winCondition": "KilledOpponents",
+          "role": "Attack"
+        }
+      ],
+      "actionPhaseStartOffset": 41398202,
+      "roundNumber": 2,
+      "codeVersion": 9879602,
+      "players": [
+        {
+          "id": 1,
+          "username": "mity.DK",
+          "teamIndex": 0
+        },
+        {
+          "id": 2,
+          "username": "Levy.DK",
+          "teamIndex": 0
+        },
+        {
+          "id": 3,
+          "username": "Faallz.DK",
+          "teamIndex": 0
+        },
+        {
+          "id": 4,
+          "username": "YURI.DK",
+          "teamIndex": 0
+        },
+        {
+          "id": 5,
+          "username": "ionzera.DK",
+          "teamIndex": 0
+        },
+        {
+          "id": 6,
+          "username": "Jin.RRX",
+          "teamIndex": 1
+        },
+        {
+          "id": 7,
+          "username": "Yuyu.RRX",
+          "teamIndex": 1
+        },
+        {
+          "id": 8,
+          "username": "KoroMomoZ.RRX",
+          "teamIndex": 1
+        },
+        {
+          "id": 9,
+          "username": "Maou.RRX",
+          "teamIndex": 1
+        },
+        {
+          "id": 10,
+          "username": "akusu.RRX",
+          "teamIndex": 1
+        }
+      ]
+    },
+    "declarations": [
+      {
+        "offset": 2644,
+        "owner": 4028368390,
+        "slot": 949690859,
+        "component": 4028368409,
+        "class": 2710676760
+      },
+      {
+        "offset": 6305,
+        "owner": 4028368385,
+        "slot": 949690859,
+        "component": 4028368494,
+        "class": 2710676760
+      },
+      {
+        "offset": 9987,
+        "owner": 4028368384,
+        "slot": 949690859,
+        "component": 4028368511,
+        "class": 2710676760
+      },
+      {
+        "offset": 13654,
+        "owner": 4028368387,
+        "slot": 949690859,
+        "component": 4028368460,
+        "class": 2710676760
+      },
+      {
+        "offset": 17252,
+        "owner": 4028368386,
+        "slot": 949690859,
+        "component": 4028368477,
+        "class": 2710676760
+      },
+      {
+        "offset": 22723,
+        "owner": 4028368465,
+        "slot": 949690859,
+        "component": 4028368552,
+        "class": 2710676760
+      },
+      {
+        "offset": 27044,
+        "owner": 4028368464,
+        "slot": 949690859,
+        "component": 4028368569,
+        "class": 2710676760
+      },
+      {
+        "offset": 31200,
+        "owner": 4028368467,
+        "slot": 949690859,
+        "component": 4028368526,
+        "class": 2710676760
+      },
+      {
+        "offset": 35516,
+        "owner": 4028368466,
+        "slot": 949690859,
+        "component": 4028368543,
+        "class": 2710676760
+      },
+      {
+        "offset": 39488,
+        "owner": 4028368557,
+        "slot": 949690859,
+        "component": 4028368620,
+        "class": 2710676760
+      }
+    ],
+    "properties": [
+      {
+        "offset": 2678,
+        "entity": 4028368409,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 4665,
+        "entity": 4028368390,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 1
+      },
+      {
+        "offset": 6339,
+        "entity": 4028368494,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 8262,
+        "entity": 4028368385,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 2
+      },
+      {
+        "offset": 10021,
+        "entity": 4028368511,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 0
+      },
+      {
+        "offset": 12014,
+        "entity": 4028368384,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 3
+      },
+      {
+        "offset": 13688,
+        "entity": 4028368460,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 15612,
+        "entity": 4028368387,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 4
+      },
+      {
+        "offset": 17286,
+        "entity": 4028368477,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 4
+      },
+      {
+        "offset": 19218,
+        "entity": 4028368386,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 5
+      },
+      {
+        "offset": 22757,
+        "entity": 4028368552,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 24885,
+        "entity": 4028368465,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 7
+      },
+      {
+        "offset": 27078,
+        "entity": 4028368569,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 0
+      },
+      {
+        "offset": 29041,
+        "entity": 4028368464,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 8
+      },
+      {
+        "offset": 31234,
+        "entity": 4028368526,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 0
+      },
+      {
+        "offset": 33357,
+        "entity": 4028368467,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 9
+      },
+      {
+        "offset": 35550,
+        "entity": 4028368543,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 0
+      },
+      {
+        "offset": 37483,
+        "entity": 4028368466,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 6
+      },
+      {
+        "offset": 39522,
+        "entity": 4028368620,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 1
+      },
+      {
+        "offset": 41459,
+        "entity": 4028368557,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 10
+      },
+      {
+        "offset": 41703196,
+        "entity": 4028368526,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 1
+      },
+      {
+        "offset": 41740847,
+        "entity": 4028368620,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 41744789,
+        "entity": 4028368543,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 1
+      },
+      {
+        "offset": 41843211,
+        "entity": 4028368543,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 41901633,
+        "entity": 4028368569,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 1
+      }
+    ],
+    "finishes": [
+      {
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Maou.RRX",
+          "target": "mity.DK",
+          "headshot": true,
+          "time": "1:51",
+          "timeInSeconds": 111,
+          "weaponID": 53995319846
+        },
+        "offset": 41703406
+      },
+      {
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "akusu.RRX",
+          "target": "Levy.DK",
+          "headshot": false,
+          "time": "1:45",
+          "timeInSeconds": 105,
+          "weaponID": 139558931671
+        },
+        "offset": 41741025
+      },
+      {
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Jin.RRX",
+          "target": "ionzera.DK",
+          "headshot": true,
+          "time": "1:45",
+          "timeInSeconds": 105,
+          "weaponID": 1366019244
+        },
+        "offset": 41745000
+      },
+      {
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Jin.RRX",
+          "target": "YURI.DK",
+          "headshot": true,
+          "time": "1:19",
+          "timeInSeconds": 79,
+          "weaponID": 1366019244
+        },
+        "offset": 41843660
+      },
+      {
+        "feedback": {
+          "type": {
+            "name": "Death",
+            "id": 1
+          },
+          "username": "Jin.RRX",
+          "time": "1:11",
+          "timeInSeconds": 71
+        },
+        "offset": 0
+      },
+      {
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "KoroMomoZ.RRX",
+          "target": "Faallz.DK",
+          "headshot": false,
+          "time": "0:00",
+          "timeInSeconds": 0,
+          "weaponID": 1366019316
+        },
+        "offset": 41902202
+      }
+    ]
+  },
+  "envelopes": [
+    {
+      "feedbackIndex": 4,
+      "startOffset": 41873708,
+      "endOffset": 41873781,
+      "legacyOffset": 0,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Death",
+          "id": 1
+        },
+        "username": "Jin.RRX",
+        "time": "1:11",
+        "timeInSeconds": 71
+      }
+    }
+  ]
+}

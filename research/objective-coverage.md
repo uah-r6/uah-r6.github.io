@@ -1,3 +1,7 @@
+## Credited-kill follow-up ? 2026-10-03
+
+Core actor production push remains `7d4bc8a`; no historical objective correction has been applied. Separate consumed HUD now corroborates preplant/postplant death-order reversals and one credited opening owner differing from the finisher. An isolated native feedback-envelope reader recovers an empty-killer Death boundary without changing core actor/action/operator parsing or the original source. Current UAH coverage remains58/62 trusted counter rounds; nine-player Chalet and all bonus/older-class actor cases remain unresolved or research-only. Review [migration addendum](output/credited-kill-migration-addendum.md) before any historical/public migration. `.venv/Scripts/python.exe research/verify_credited_kill_continuation.py` checks the new and all earlier seals; original-v2 inputs/finalMAE0.03623 and both failed v3 finals remain intact.
+
 ## Current production/review boundary — 2026-10-03
 
 Approved core source/test/research documentation is pushed on main at `7d4bc8a`; historical UAH actor corrections are still proposals. No body1/bonus-health or older-class promotion. The read-only [credited-kill migration review](output/credited-kill-migration-review.md) includes18supported core objective proposals, Kenbot KafeR09 research-only and ChaletR10 incomplete/unresolved. Preserve original v2 input semantics before any future corrected objective/KOST projection; no SQLite/public changes occurred.
