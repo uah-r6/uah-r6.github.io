@@ -1,4 +1,10 @@
-## Latest checkpoint: credited count semantics and production preview — 2026-10-03
+## Latest checkpoint: late event-history controls — 2026-10-03
+
+See [late-history discovery](output/credited-late-history-discovery.md). Six fixed consumed rounds/four builds preserve all 41 finisher identities/weapons/headshots/order; 18 candidate DBNO-target body intervals and two recovery-target intervals agree. The candidate first identity's causal role, outer unknown items and scalar units remain unresolved. No production reader/event changes; original count-only preview and incomplete Chalet policy stay unchanged.
+
+Verify `.venv/Scripts/python.exe research/verify_late_history_checkpoint.py` to check new source/results/buffers and all previous authorized guards. This performs no parsing, target/model evaluation, SQL/export or publication. Latest full verification: 450 Python passed, 1 optional skipped, 6 subtests; Go tests/vet passed this session, no subsequent Go/web/runtime edits. Next work is bounded unknown-item decoding, independent actor/recovery controls, and explicit professional/local clock semantics. Do not treat copied late records as live timestamps or assume a common tick rate.
+
+## Previous checkpoint: credited count semantics and production preview — 2026-10-03
 
 Objective migration is published and independently live-verified (`9755cac`/`6c99d6c`, authorized baseline `b71d612`). Current credited-kill research remains local/read-only. Start with [production preview, readiness and rollback](output/credited-kill-production-preview.md), [UID framing controls](output/credited-uid-roster-framing.md), and the latest `docs/STATUS_NEXT_STEPS.md` section.
 
