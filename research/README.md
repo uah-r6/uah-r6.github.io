@@ -1,4 +1,12 @@
-## Current task: credited-kill migration preparation — 2026-10-03
+## Latest checkpoint: credited count semantics and production preview — 2026-10-03
+
+Objective migration is published and independently live-verified (`9755cac`/`6c99d6c`, authorized baseline `b71d612`). Current credited-kill research remains local/read-only. Start with [production preview, readiness and rollback](output/credited-kill-production-preview.md), [UID framing controls](output/credited-uid-roster-framing.md), and the latest `docs/STATUS_NEXT_STEPS.md` section.
+
+Canonical cached evidence: 37 maps, 387 rounds, 3866 player-rounds; 382 complete rounds, 35 whole complete maps. Current UAH preview admits only four whole maps/50 rounds; entire Chalet stays legacy. Conditional mixed-source season kills are 59/59/45/28/31 for Lgon/Jay/Azooz/Tallman/Dino, not fully credited totals. Corrected objective KOST and all five immutable v2 input snapshots remain unchanged. Three batched +2 counter packets rule out treating every counter offset as a distinct victim-linked kill time. No generic downer, opening/trade timing or event migration is claimed.
+
+Safe checkpoint verification: `.venv/Scripts/python.exe research/verify_credited_semantics_checkpoint.py`. This verifies new source/results/input/raw replay digests and current authorized production state, without parsing, collection, fitting, evaluation or writes. Old guards below that assume the pre-objective SQLite/public baseline must not be rerun directly. Original studies/reviews remain frozen and historical. New data stays in ignored `data/research/credited-round-dataset/` and `data/research/credited-feedback-identity-probe/`. Full verification: 421 Python passed, 1 optional skipped, 6 subtests; Go tests/vet passed. Shared runtime/web code unchanged; previous production builds apply.
+
+## Previous task: credited-kill migration preparation — 2026-10-03
 
 Core actor code/test/documentation push complete: remote main `7d4bc8a` ([review/inventory](output/core-actor-push-review.md)). Bonus/body1 and older body-class extensions remain research-only. Phase2 is additive and local: stable-UID scoreboard round deltas, guarded rehost resets and separate raw finishes; no default stats or historical writes. Start with [migration review](output/credited-kill-migration-review.md), [UAH audit](output/credited-kill-uah-audit.md), [professional evidence](output/credited-kill-professional-audit.md), [feature controls](output/credited-kill-feature-audit.md), [packet chronology](output/credited-kill-timing.md) and [opening-order hypothesis](output/credited-kill-opening-order.md).
 
