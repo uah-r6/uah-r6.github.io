@@ -65,6 +65,8 @@ Five maps / 62 rounds / 20 objectives: 18 core actor proposals, two unresolved p
 | Tallman3.14 | plant | 5 | 4 |
 | Tallman3.14 | disable | 0 | 0 |
 
+These are counts of resolved core proposals, not exact post-correction season totals. Unresolved historical credits are excluded from the proposed count column. Applying only the resolved replacements while retaining an old unresolved credit would produce different totals; that unresolved-credit policy must be reviewed before any database change. In particular the stored Tallman Kafe R09 credit is unverified, not independently confirmed by leaving that round unchanged.
+
 Kafe R09 Kenbot.USU is a **research-only bonus-health proposal**, excluded from the core correction counts. Chalet logical R10 / physical R02 has only nine identities; no tenth player is invented and no actor correction is proposed. Unresolved objectives need explicit missing-data handling during any later approved correction, not zero-filled certainty.
 
 Core evidence: 569 consumed rounds / 142 of 146 plants / 33 of 33 disables / 423 objective-free controls with zero false proposals; Go matched all 175 named research proposals. SAL and APAC independent sole-player constraints and official/VOD adjudication support core ownership. September original 5 agreements / 1 disagreement remains historically failed; the separate official/VOD-reviewed tier supports Gunnar, without rewriting the original labels/result. ASIA remains insufficient. Bonus development 894 rounds recovers three plants with zero changed old actors and zero false positives across 673 no-plant controls; this is development evidence.

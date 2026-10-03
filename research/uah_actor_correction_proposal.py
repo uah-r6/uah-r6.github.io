@@ -94,7 +94,11 @@ def main():
         lines.append(f'- {r["map_id"]} R{r["round"]:02d} {r["kind"]}: `{r["completion_evidence"]}`; reason `{r["reason"]}`; confidence `{r["confidence"]}`; UID `{r["numeric_uid"]}`.')
     lines+=['','## Tracked player counts, proposed core only','','| Player | Kind | Stored | Core proposed |','| --- | --- | ---: | ---: |']
     for row in totals:lines.append(f'| {row["player"]} | {row["kind"]} | {row["stored"]} | {row["core_proposed"]} |')
-    lines+=['','Kafe R09 Kenbot.USU is a **research-only bonus-health proposal**, excluded from the core correction counts. '
+    lines+=['','These are counts of resolved core proposals, not exact post-correction season totals. Unresolved historical credits '
+            'are excluded from the proposed count column. Applying only the resolved replacements while retaining an old unresolved '
+            'credit would produce different totals; that unresolved-credit policy must be reviewed before any database change. '
+            'In particular the stored Tallman Kafe R09 credit is unverified, not independently confirmed by leaving that round unchanged.','',
+            'Kafe R09 Kenbot.USU is a **research-only bonus-health proposal**, excluded from the core correction counts. '
             'Chalet logical R10 / physical R02 has only nine identities; no tenth player is invented and no actor correction is proposed. '
             'Unresolved objectives need explicit missing-data handling during any later approved correction, not zero-filled certainty.','',
             'Core evidence: 569 consumed rounds / 142 of 146 plants / 33 of 33 disables / 423 objective-free controls with zero false proposals; '
