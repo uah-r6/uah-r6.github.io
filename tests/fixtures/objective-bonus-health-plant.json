@@ -1,0 +1,1015 @@
+{
+  "provenance": {
+    "official_match_id": 8581,
+    "physical_round": 6,
+    "replay_sha256": "5319716b47b1b3bc05682acd0f8c4656464dece720652cc012851aa3f653740b",
+    "source": "Consumed SAL Villa R06; independently reviewed official HUD. Header numeric UIDs ordinalized, no profile UUIDs/raw replay data.",
+    "reduction": "Only body-sharing declaration histories, complete observed episode summaries and terminal records, body numerical properties through completion, and unchanged death/leave observations retained. No target-driven field synthesis."
+  },
+  "expected_actor": "kds.FaZe",
+  "expected_reason": "verified_bonus_health_plant_completer_research_v1",
+  "evidence": {
+    "header": {
+      "codeVersion": 9879602,
+      "gamemode": {
+        "name": "Bomb",
+        "id": 327933806
+      },
+      "teams": [
+        {
+          "role": "Attack"
+        },
+        {
+          "role": "Defense"
+        }
+      ],
+      "players": [
+        {
+          "id": 1,
+          "username": "mitrix.IMP",
+          "teamIndex": 1
+        },
+        {
+          "id": 2,
+          "username": "NearZ.IMP",
+          "teamIndex": 1
+        },
+        {
+          "id": 3,
+          "username": "xSexyCake.IMP",
+          "teamIndex": 1
+        },
+        {
+          "id": 4,
+          "username": "Legacy.IMP",
+          "teamIndex": 1
+        },
+        {
+          "id": 5,
+          "username": "Hasaqui.IMP",
+          "teamIndex": 1
+        },
+        {
+          "id": 6,
+          "username": "soulz1.FaZe",
+          "teamIndex": 0
+        },
+        {
+          "id": 7,
+          "username": "Handyy.FaZe",
+          "teamIndex": 0
+        },
+        {
+          "id": 8,
+          "username": "vitaking.FaZe",
+          "teamIndex": 0
+        },
+        {
+          "id": 9,
+          "username": "kds.FaZe",
+          "teamIndex": 0
+        },
+        {
+          "id": 10,
+          "username": "cyber.FaZe",
+          "teamIndex": 0
+        }
+      ],
+      "objectiveOccurrences": [
+        {
+          "kind": "plant",
+          "source": "defuser_state_v1",
+          "plantStateOffset": 51470330
+        }
+      ]
+    },
+    "observed": {
+      "episodes": [
+        {
+          "entity": 4028058790,
+          "binding": {
+            "player": "kds.FaZe",
+            "owner": 4027704496,
+            "slot": "27c08dca",
+            "class_hash": "b2216bf3",
+            "declaration_offset": 51036211
+          },
+          "start_record": 51432785,
+          "state": 0,
+          "records": [
+            {
+              "fields": [
+                {
+                  "offset": 51469718,
+                  "size": 4
+                }
+              ]
+            }
+          ],
+          "samples": [
+            {
+              "offset": 51432814
+            },
+            {
+              "offset": 51432958
+            },
+            {
+              "offset": 51433152
+            },
+            {
+              "offset": 51433271
+            },
+            {
+              "offset": 51433418
+            },
+            {
+              "offset": 51433565
+            },
+            {
+              "offset": 51433694
+            },
+            {
+              "offset": 51433809
+            },
+            {
+              "offset": 51434042
+            },
+            {
+              "offset": 51434143
+            },
+            {
+              "offset": 51434290
+            },
+            {
+              "offset": 51434391
+            },
+            {
+              "offset": 51434502
+            },
+            {
+              "offset": 51434600
+            },
+            {
+              "offset": 51434729
+            },
+            {
+              "offset": 51434812
+            },
+            {
+              "offset": 51434941
+            },
+            {
+              "offset": 51435042
+            },
+            {
+              "offset": 51435189
+            },
+            {
+              "offset": 51435323
+            },
+            {
+              "offset": 51435470
+            },
+            {
+              "offset": 51435615
+            },
+            {
+              "offset": 51435744
+            },
+            {
+              "offset": 51435863
+            },
+            {
+              "offset": 51436010
+            },
+            {
+              "offset": 51436139
+            },
+            {
+              "offset": 51436258
+            },
+            {
+              "offset": 51436387
+            },
+            {
+              "offset": 51436488
+            },
+            {
+              "offset": 51436663
+            },
+            {
+              "offset": 51436764
+            },
+            {
+              "offset": 51436893
+            },
+            {
+              "offset": 51437022
+            },
+            {
+              "offset": 51437123
+            },
+            {
+              "offset": 51437631
+            },
+            {
+              "offset": 51438165
+            },
+            {
+              "offset": 51438373
+            },
+            {
+              "offset": 51438546
+            },
+            {
+              "offset": 51438675
+            },
+            {
+              "offset": 51438830
+            },
+            {
+              "offset": 51439013
+            },
+            {
+              "offset": 51439183
+            },
+            {
+              "offset": 51439312
+            },
+            {
+              "offset": 51439485
+            },
+            {
+              "offset": 51439632
+            },
+            {
+              "offset": 51439833
+            },
+            {
+              "offset": 51440006
+            },
+            {
+              "offset": 51440153
+            },
+            {
+              "offset": 51440326
+            },
+            {
+              "offset": 51440473
+            },
+            {
+              "offset": 51440628
+            },
+            {
+              "offset": 51440793
+            },
+            {
+              "offset": 51440930
+            },
+            {
+              "offset": 51441077
+            },
+            {
+              "offset": 51441232
+            },
+            {
+              "offset": 51441379
+            },
+            {
+              "offset": 51441572
+            },
+            {
+              "offset": 51441745
+            },
+            {
+              "offset": 51441874
+            },
+            {
+              "offset": 51442029
+            },
+            {
+              "offset": 51442194
+            },
+            {
+              "offset": 51442385
+            },
+            {
+              "offset": 51442606
+            },
+            {
+              "offset": 51442839
+            },
+            {
+              "offset": 51442986
+            },
+            {
+              "offset": 51443177
+            },
+            {
+              "offset": 51443371
+            },
+            {
+              "offset": 51443562
+            },
+            {
+              "offset": 51443745
+            },
+            {
+              "offset": 51443958
+            },
+            {
+              "offset": 51444156
+            },
+            {
+              "offset": 51444365
+            },
+            {
+              "offset": 51444512
+            },
+            {
+              "offset": 51444749
+            },
+            {
+              "offset": 51444958
+            },
+            {
+              "offset": 51445123
+            },
+            {
+              "offset": 51445314
+            },
+            {
+              "offset": 51445461
+            },
+            {
+              "offset": 51445616
+            },
+            {
+              "offset": 51445763
+            },
+            {
+              "offset": 51445900
+            },
+            {
+              "offset": 51446047
+            },
+            {
+              "offset": 51446202
+            },
+            {
+              "offset": 51446331
+            },
+            {
+              "offset": 51446518
+            },
+            {
+              "offset": 51446665
+            },
+            {
+              "offset": 51446820
+            },
+            {
+              "offset": 51446967
+            },
+            {
+              "offset": 51447140
+            },
+            {
+              "offset": 51447287
+            },
+            {
+              "offset": 51447544
+            },
+            {
+              "offset": 51447773
+            },
+            {
+              "offset": 51447920
+            },
+            {
+              "offset": 51448093
+            },
+            {
+              "offset": 51448240
+            },
+            {
+              "offset": 51448413
+            },
+            {
+              "offset": 51448578
+            },
+            {
+              "offset": 51448733
+            },
+            {
+              "offset": 51448880
+            },
+            {
+              "offset": 51449071
+            },
+            {
+              "offset": 51449218
+            },
+            {
+              "offset": 51449355
+            },
+            {
+              "offset": 51449520
+            },
+            {
+              "offset": 51449657
+            },
+            {
+              "offset": 51449804
+            },
+            {
+              "offset": 51449959
+            },
+            {
+              "offset": 51450124
+            },
+            {
+              "offset": 51450297
+            },
+            {
+              "offset": 51450444
+            },
+            {
+              "offset": 51450704
+            },
+            {
+              "offset": 51450877
+            },
+            {
+              "offset": 51451081
+            },
+            {
+              "offset": 51451218
+            },
+            {
+              "offset": 51451383
+            },
+            {
+              "offset": 51451520
+            },
+            {
+              "offset": 51451649
+            },
+            {
+              "offset": 51451822
+            },
+            {
+              "offset": 51451969
+            },
+            {
+              "offset": 51452162
+            },
+            {
+              "offset": 51452411
+            },
+            {
+              "offset": 51452566
+            },
+            {
+              "offset": 51452731
+            },
+            {
+              "offset": 51452904
+            },
+            {
+              "offset": 51453051
+            },
+            {
+              "offset": 51453206
+            },
+            {
+              "offset": 51453407
+            },
+            {
+              "offset": 51453625
+            },
+            {
+              "offset": 51454084
+            },
+            {
+              "offset": 51454821
+            },
+            {
+              "offset": 51455062
+            },
+            {
+              "offset": 51455271
+            },
+            {
+              "offset": 51455490
+            },
+            {
+              "offset": 51455699
+            },
+            {
+              "offset": 51455900
+            },
+            {
+              "offset": 51456127
+            },
+            {
+              "offset": 51456328
+            },
+            {
+              "offset": 51456519
+            },
+            {
+              "offset": 51456720
+            },
+            {
+              "offset": 51456918
+            },
+            {
+              "offset": 51457224
+            },
+            {
+              "offset": 51457444
+            },
+            {
+              "offset": 51457655
+            },
+            {
+              "offset": 51457846
+            },
+            {
+              "offset": 51458029
+            },
+            {
+              "offset": 51458327
+            },
+            {
+              "offset": 51458536
+            },
+            {
+              "offset": 51458775
+            },
+            {
+              "offset": 51459019
+            },
+            {
+              "offset": 51459202
+            },
+            {
+              "offset": 51459375
+            },
+            {
+              "offset": 51459652
+            },
+            {
+              "offset": 51460001
+            },
+            {
+              "offset": 51460217
+            },
+            {
+              "offset": 51460408
+            },
+            {
+              "offset": 51460627
+            },
+            {
+              "offset": 51460818
+            },
+            {
+              "offset": 51460983
+            },
+            {
+              "offset": 51461192
+            },
+            {
+              "offset": 51461357
+            },
+            {
+              "offset": 51461530
+            },
+            {
+              "offset": 51461713
+            },
+            {
+              "offset": 51461886
+            },
+            {
+              "offset": 51462069
+            },
+            {
+              "offset": 51462278
+            },
+            {
+              "offset": 51462479
+            },
+            {
+              "offset": 51462670
+            },
+            {
+              "offset": 51462871
+            },
+            {
+              "offset": 51463044
+            },
+            {
+              "offset": 51463209
+            },
+            {
+              "offset": 51463428
+            },
+            {
+              "offset": 51463615
+            },
+            {
+              "offset": 51463888
+            },
+            {
+              "offset": 51464097
+            },
+            {
+              "offset": 51464298
+            },
+            {
+              "offset": 51464525
+            },
+            {
+              "offset": 51464764
+            },
+            {
+              "offset": 51465011
+            },
+            {
+              "offset": 51465230
+            },
+            {
+              "offset": 51465421
+            },
+            {
+              "offset": 51465604
+            },
+            {
+              "offset": 51465813
+            },
+            {
+              "offset": 51466014
+            },
+            {
+              "offset": 51466205
+            },
+            {
+              "offset": 51466424
+            },
+            {
+              "offset": 51466679
+            },
+            {
+              "offset": 51466924
+            },
+            {
+              "offset": 51467125
+            },
+            {
+              "offset": 51467316
+            },
+            {
+              "offset": 51467632
+            },
+            {
+              "offset": 51468493
+            },
+            {
+              "offset": 51468727
+            },
+            {
+              "offset": 51469017
+            },
+            {
+              "offset": 51469218
+            },
+            {
+              "offset": 51469445
+            }
+          ],
+          "end_reason": "explicit_state_2",
+          "end_record": 51469709,
+          "end_offset": 51469709,
+          "first_timer": 7.0,
+          "last_timer": 0.034,
+          "monotonic_timer": true
+        }
+      ],
+      "orphan_records": []
+    },
+    "owners": {
+      "4027704498": "soulz1.FaZe",
+      "4027704499": "Handyy.FaZe",
+      "4027704496": "kds.FaZe",
+      "4027704497": "vitaking.FaZe",
+      "4027704494": "cyber.FaZe",
+      "4027704547": "mitrix.IMP",
+      "4027704544": "NearZ.IMP",
+      "4027704545": "xSexyCake.IMP",
+      "4027704350": "Legacy.IMP",
+      "4027704351": "Hasaqui.IMP"
+    },
+    "slots": [
+      [
+        [
+          4027704496,
+          "4154dcc4"
+        ],
+        [
+          {
+            "class_hash": "0c98c63f",
+            "component": 4027704524,
+            "offset": 45136
+          }
+        ]
+      ]
+    ],
+    "properties": [
+      {
+        "entity": 4027704524,
+        "hash": "e788f6a5",
+        "offset": 45220,
+        "size": 4,
+        "value": 2
+      },
+      {
+        "entity": 4027704524,
+        "hash": "e788f6a5",
+        "offset": 51006727,
+        "size": 4,
+        "value": 0
+      },
+      {
+        "entity": 4027704524,
+        "hash": "e788f6a5",
+        "offset": 51437603,
+        "size": 4,
+        "value": 1
+      }
+    ],
+    "deaths": [
+      {
+        "offset": 51272673,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "vitaking.FaZe",
+          "target": "mitrix.IMP"
+        }
+      },
+      {
+        "offset": 51335368,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Handyy.FaZe",
+          "target": "Legacy.IMP"
+        }
+      },
+      {
+        "offset": 51410946,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "cyber.FaZe",
+          "target": "Hasaqui.IMP"
+        }
+      },
+      {
+        "offset": 51467964,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "cyber.FaZe",
+          "target": "NearZ.IMP"
+        }
+      },
+      {
+        "offset": 51504794,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "vitaking.FaZe",
+          "target": "xSexyCake.IMP"
+        }
+      }
+    ],
+    "full_feedback": [
+      {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "vitaking.FaZe",
+        "target": "mitrix.IMP"
+      },
+      {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Handyy.FaZe",
+        "target": "Legacy.IMP"
+      },
+      {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "cyber.FaZe",
+        "target": "Hasaqui.IMP"
+      },
+      {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "cyber.FaZe",
+        "target": "NearZ.IMP"
+      },
+      {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "vitaking.FaZe",
+        "target": "xSexyCake.IMP"
+      }
+    ],
+    "body_fields": [
+      {
+        "offset": 45170,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 0,
+        "record_start": 45161
+      },
+      {
+        "offset": 45180,
+        "entity": 4027704524,
+        "hash": "1149a672",
+        "size": 4,
+        "value": 100,
+        "record_start": 45161
+      },
+      {
+        "offset": 45190,
+        "entity": 4027704524,
+        "hash": "013fd2da",
+        "size": 4,
+        "value": 120,
+        "record_start": 45161
+      },
+      {
+        "offset": 45210,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 0,
+        "record_start": 45161
+      },
+      {
+        "offset": 45220,
+        "entity": 4027704524,
+        "hash": "e788f6a5",
+        "size": 4,
+        "value": 2,
+        "record_start": 45161
+      },
+      {
+        "offset": 51006707,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 100,
+        "record_start": 51006698
+      },
+      {
+        "offset": 51006727,
+        "entity": 4027704524,
+        "hash": "e788f6a5",
+        "size": 4,
+        "value": 0,
+        "record_start": 51006698
+      },
+      {
+        "offset": 51437583,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 120,
+        "record_start": 51437574
+      },
+      {
+        "offset": 51437593,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 1045220557,
+        "record_start": 51437574
+      },
+      {
+        "offset": 51437603,
+        "entity": 4027704524,
+        "hash": "e788f6a5",
+        "size": 4,
+        "value": 1,
+        "record_start": 51437574
+      },
+      {
+        "offset": 51442568,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 119,
+        "record_start": 51442559
+      },
+      {
+        "offset": 51442578,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 1044549468,
+        "record_start": 51442559
+      },
+      {
+        "offset": 51447506,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 118,
+        "record_start": 51447497
+      },
+      {
+        "offset": 51447516,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 1043878380,
+        "record_start": 51447497
+      },
+      {
+        "offset": 51452134,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 117,
+        "record_start": 51452125
+      },
+      {
+        "offset": 51452144,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 1043207291,
+        "record_start": 51452125
+      },
+      {
+        "offset": 51458737,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 116,
+        "record_start": 51458728
+      },
+      {
+        "offset": 51458747,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 1042536202,
+        "record_start": 51458728
+      },
+      {
+        "offset": 51464726,
+        "entity": 4027704524,
+        "hash": "252676c9",
+        "size": 4,
+        "value": 115,
+        "record_start": 51464717
+      },
+      {
+        "offset": 51464736,
+        "entity": 4027704524,
+        "hash": "80adcf7b",
+        "size": 4,
+        "value": 1041865114,
+        "record_start": 51464717
+      }
+    ]
+  }
+}
