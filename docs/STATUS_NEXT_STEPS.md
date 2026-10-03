@@ -1,16 +1,16 @@
 ## Current task: authorized objective-only historical migration - 2026-10-03
 
-Latest user authorization supersedes the prior no-write/no-publish objective hold below. Migration is applied and reconciled; publication is next. See [full objective report](OBJECTIVE_HISTORY_MIGRATION.md).
+Latest user authorization supersedes the prior no-write/no-publish objective hold below. Migration is applied, reconciled, published and live-verified. See [full objective report](OBJECTIVE_HISTORY_MIGRATION.md).
 
 Approved 7d4bc8a parser independently resolves Michigan Border R08 disable to Lgon. All five verified archives audited read-only: 15/17 plants and 3/3 disables supported, 18 category-A corrections applied. Kafe R09 bonus/body1 and Chalet R10 nine-player actors remain excluded; unsupported legacy rows retained. Corrected display totals: Lgon2plants/1disable; Azooz2/0; Dino2/0; Tallman4/0; Jay0/0. Lgon Fortress R07 adds one KOST round (40->41/62). Original v2 map/season/career inputs and Ratings are preserved in immutable snapshots; engine, coefficients and final MAE0.03623 unchanged. No credited-kill or event-order correction applied.
 
 DB backup f3dc1021...; migrated DB2136ab3d... . Private backup/public baseline, full raw parser JSON, preview, application/reconciliation evidence and approved isolated executable are in ignored data/research/objective-migration/. Five maps/62rounds/616player-rounds/434kills unchanged;20objective rows and5rating snapshots after migration. All archive files identical. Every generated Rating/eligibility/nonobjective stat unchanged.
 
-389Python tests passed,1optional skipped,6subtests;Go tests/vet and both public/admin builds passed. Actual Start NECC Admin.cmd restarted to current repository source and opened Chrome; live admin recalc/regenerate succeeded; Michigan objective refresh is idempotent. Publish approved verified data through existing admin workflow, then compare all18 live JSON files with local output.
+389Python tests passed,1optional skipped,6subtests;Go tests/vet and both public/admin builds passed. Actual Start NECC Admin.cmd restarted to current repository source and opened Chrome; live admin recalc/regenerate succeeded; Michigan objective refresh is idempotent. Code9755cac/data6c99d6c pushed via live admin Publish. Pages run37156303656 attempt1 failed at configure-pages with transient GitHub service failure; authenticated retry attempt2 succeeded. All18 live JSON files independently fetched and matched local output; live Lgon2plants/1disable,41/62KOST,Rating1.2417093264919878.
 
 Old research guards intentionally refer to the old protected live baseline. Do not alter their seals. Before migration their chained verification also already failed because launcher setup rebuilt the default exe22cfe0f1... (frozen e7f375b8...). Record these differences with the new objective transition checkpoint; keep original failed v3/ASIA/OCE results immutable. The credited migration review/addendum remain unchanged and opt-in.
 
-NEXT ACTION: commit reviewed objective code/docs/tests, publish corrected generated data through live admin API, verify Pages; then checkpoint authorized new live baseline and resume readonly credited-kill research with a separate guard.
+NEXT ACTION: use research/verify_objective_history_checkpoint.py for the authorized new baseline and preserved original study seals. Resume separate read-only/opt-in credited-kill research: explicit identity-linked damage/DBNO/victim records, competing-down opening controls and event-clock requirements; no credited-kill or event-order historical migration. Old reviews and finals remain immutable. Do not rerun old live-state guards expecting the prior DB/public hashes.
 
 ## Current task: core actor pushed; credited kills migration audit — 2026-10-03
 
