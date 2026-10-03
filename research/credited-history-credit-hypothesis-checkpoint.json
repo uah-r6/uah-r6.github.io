@@ -1,0 +1,28 @@
+{
+  "status": "consumed_credit_hypothesis_not_production",
+  "base_head": "80b45c4",
+  "counter_comparisons": 60,
+  "matches": 60,
+  "mismatches": 0,
+  "verification": "457 passed, 1 optional skipped, 6 subtests; Go/vet pass, sources unchanged",
+  "source_hashes": {
+    "research/credited_history_opaque_items.py": "3a041bdabf59f043fc8f3079748c2120b538f12fcd544478efb89333bd564bd6",
+    "research/credited_late_credit_hypothesis.py": "aac19c8b774d1720fb13eed55ce56eb0893aa6fbc0abc924c3825a762f11ea81",
+    "research/verify_credit_hypothesis_checkpoint.py": "56d019b5261fb36f88c4a5d1593e7a1c026a17c46e6add4b71209aa7f6ea788f",
+    "tests/test_history_opaque_items.py": "52e393fbdf9ead794185128bbd253c9172344f8a0dae8a78f924c62d04b38997",
+    "tests/test_late_credit_hypothesis.py": "11d3e388bd314a23e0ecd135d7cea2cecc01ebc256299c569c5d3bb3b0ba5a16",
+    "research/output/credited-history-credit-hypothesis.md": "4c82c9528783b21018c403ccf721a57f6e8de0185cae9fc5c4bb08079da44010"
+  },
+  "artifact_hashes": {
+    "data/research/credited-late-history-controls/opaque-items.json": "3d98f2ebd2d57c3481c2baa4f28a38d7e9f77ed2d4de0d5ce26f9c0c3dca8687",
+    "data/research/credited-late-history-controls/credit-hypothesis.json": "b7720395151bb8e7b5f88e35b1e814fa8b63e1182172c5c25a2fd955fcb670b1",
+    "data/research/credited-feedback-identity-probe/late-event-layout-probe.json": "afbb39b87e2736ea7d0602d0a872d95fadfc73524c4090b4b2e389bcca26c6c5",
+    "data/research/credited-late-history-controls/result.json": "819413b4cf8534dc034d6ec9ba5d054bf8cb1ec8040187eab69b6e2d66458cfd",
+    "data/research/credited-kills-v1/observations/4b4a752592715ca11fcd1d56fe1ecf261c9861b348ce2475ebe33d795ac987be.json": "4a2c6db809895078b6d84902055a8eef7396925e8d26900700b50cf7a68ffd12",
+    "data/research/credited-kills-v1/observations/dee7e6898997886fa5b0e48af7954d4be46bf4f052829d22950d325fb72b8e19.json": "f413401c784eedb86654c575b162e7bb7c78c1157fcfdc567df4d5076f68e92a",
+    "data/research/credited-kills-v1/observations/f84d42cca55a96f2986dea08ce38e3046cfc371b794e506f40ef31ea907e6b1b.json": "944e03cf48433c3a3fbb1ef8e1a90588e94c71a36f04879d4879327311bb81ae",
+    "data/research/credited-kills-v1/observations/afdf2ba5f811322c5f960e197499b751970315d5d01b795a406b7c0a5b74a208.json": "dedc7da5ebf88eea89c6a9d682ee193e22ca31d2a2de889f72706d8db965a815",
+    "data/research/credited-kills-v1/observations/9afc12f52c6f11a5c13eb7c8a3a63926cfd754e552d2a83c404f235cc3510883.json": "67b2a7b588cd442a76e1dd2790a370235d893213ad55908e3717cb2b23df4058",
+    "data/research/credited-kills-v1/observations/20d9c785eb1a8e221457e10e7af1d97a8205c922d170b234720d3286604506ad.json": "0c01cc5a017e2f555142dab9cda2d8641be9324eda42ccad7396e2e9abb010d4"
+  }
+}
