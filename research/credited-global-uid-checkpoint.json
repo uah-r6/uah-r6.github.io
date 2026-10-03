@@ -1,0 +1,20 @@
+{
+  "status": "consumed_literal_uid_discovery_no_semantic_attribution",
+  "source_hashes": {
+    "research/credited_global_uid_inventory.py": "c08bdcc132432824b01c4efb15cc505317d014693bbc8782c0113d46617fa4fc",
+    "research/output/credited-global-uid-inventory.md": "58cb52bfed481431afb8da91117c17120506d1c9192bd61399dd43779130a57c",
+    "research/verify_global_uid_checkpoint.py": "69a4eac855e5a7ecd4cdeaf374087c74a658776e863b4df694650ae1097949d3",
+    "research/credited-native-boundary-checkpoint.json": "a53cfe51042988d4c253116e2b4ca4d5dc00cf0f88f361f96f6fd1a296f9ecba"
+  },
+  "artifact_hashes": {
+    "data/research/credited-feedback-identity-probe/global-uid-inventory.json": "96a072a974756d9a8632fc8c1f9294d8b71487f5bb7867e6f5c04e8fac524410"
+  },
+  "counts": {
+    "rounds": 2,
+    "literal_uid_occurrences": 17350,
+    "known_uid_property_prefixes": 20,
+    "unclassified_occurrences": 17330
+  },
+  "damage_or_dbno_relation_validated": false,
+  "migration_applied": false
+}
