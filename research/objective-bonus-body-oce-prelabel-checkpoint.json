@@ -1,0 +1,21 @@
+{
+  "status": "complete_fixed38_source_predictions_or_quality_refusals_before_primary_labels",
+  "created_at": "2026-10-03T06:10:15.898212+00:00",
+  "reservation_sha256": "2a372a25394a361ce80945c930d3f928e62ea752418e545b23e9dbefe1c967a6",
+  "freeze_sha256": "a629335be600f615eea6dfb3e9ad85d99e918c1b3979244cd9363b53855d4a93",
+  "seal_path": "data/research/objective-bonus-body-oce-cohort/prelabel-inventory-seal.json",
+  "seal_sha256": "c5b5cfaf76978dc26efb4b67a48ad7390f1450e30ab16fbec3d8094279c82160",
+  "counts": {
+    "maps": 32,
+    "rounds": 330,
+    "plants": 84,
+    "bonus_recoveries": 0,
+    "bonus_maps": 0,
+    "no_plant_controls": 246,
+    "quality_failed_maps": 6
+  },
+  "fixed_acceptance_unchanged": true,
+  "actor_targets_opened": false,
+  "ratings_read": false,
+  "interpretation": "Zero bonus recoveries across the full fixed two-event sample cannot support the rare extension. Primary actor review is still pending; no gate regrading or added events."
+}
