@@ -1,3 +1,17 @@
+## Current task: authorized objective-only historical migration - 2026-10-03
+
+Latest user authorization supersedes the prior no-write/no-publish objective hold below. Migration is applied and reconciled; publication is next. See [full objective report](OBJECTIVE_HISTORY_MIGRATION.md).
+
+Approved 7d4bc8a parser independently resolves Michigan Border R08 disable to Lgon. All five verified archives audited read-only: 15/17 plants and 3/3 disables supported, 18 category-A corrections applied. Kafe R09 bonus/body1 and Chalet R10 nine-player actors remain excluded; unsupported legacy rows retained. Corrected display totals: Lgon2plants/1disable; Azooz2/0; Dino2/0; Tallman4/0; Jay0/0. Lgon Fortress R07 adds one KOST round (40->41/62). Original v2 map/season/career inputs and Ratings are preserved in immutable snapshots; engine, coefficients and final MAE0.03623 unchanged. No credited-kill or event-order correction applied.
+
+DB backup f3dc1021...; migrated DB2136ab3d... . Private backup/public baseline, full raw parser JSON, preview, application/reconciliation evidence and approved isolated executable are in ignored data/research/objective-migration/. Five maps/62rounds/616player-rounds/434kills unchanged;20objective rows and5rating snapshots after migration. All archive files identical. Every generated Rating/eligibility/nonobjective stat unchanged.
+
+389Python tests passed,1optional skipped,6subtests;Go tests/vet and both public/admin builds passed. Actual Start NECC Admin.cmd restarted to current repository source and opened Chrome; live admin recalc/regenerate succeeded; Michigan objective refresh is idempotent. Publish approved verified data through existing admin workflow, then compare all18 live JSON files with local output.
+
+Old research guards intentionally refer to the old protected live baseline. Do not alter their seals. Before migration their chained verification also already failed because launcher setup rebuilt the default exe22cfe0f1... (frozen e7f375b8...). Record these differences with the new objective transition checkpoint; keep original failed v3/ASIA/OCE results immutable. The credited migration review/addendum remain unchanged and opt-in.
+
+NEXT ACTION: commit reviewed objective code/docs/tests, publish corrected generated data through live admin API, verify Pages; then checkpoint authorized new live baseline and resume readonly credited-kill research with a separate guard.
+
 ## Current task: core actor pushed; credited kills migration audit — 2026-10-03
 
 The user's latest instruction supersedes the older-class NEXT ACTION below. Phase1 is complete: pre-push clean HEAD `3535fa5`; reviewed/pushed HEAD **`7d4bc8a17fccccda3ef963914e6887d67df79a27`**, `main`, `https://github.com/uah-r6/uah-r6.github.io.git`. `git ls-remote origin refs/heads/main` confirmed that exact remote SHA. Core source commit `f534b31` is included; body1/bonus-health and unknown-class extensions remain research-only. [Push review/inventory](../research/output/core-actor-push-review.md) records included/excluded files. No public JSON change, historical correction or local database write. Existing Pages code-push workflow builds unchanged committed data.

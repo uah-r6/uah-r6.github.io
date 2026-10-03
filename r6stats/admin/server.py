@@ -27,7 +27,7 @@ from r6stats.parser.models import Match
 from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
-from r6stats import replay_archive
+from r6stats import replay_archive, objective_refresh
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -174,6 +174,7 @@ class MatchReparse(BaseModel):
     path: str = ""
     segment_paths: list[str] = Field(default_factory=list)
     from_archive: bool = False
+    objectives_only: bool = False
     confirm_map_id: str
 
 
@@ -832,6 +833,14 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         row = replay_archive.map_record(db, map_id)
         if not row:
             raise ValueError("NECC map not found.")
+        if payload.objectives_only:
+            if not payload.from_archive:
+                raise ValueError("Objective-only refresh requires the verified archive.")
+            parsed = objective_refresh.parse_archive(db, root / "data/replay-archive", map_id)
+            changes = objective_refresh.apply(db, map_id, parsed)
+            export(db, read_settings(root), root / "web/public/data")
+            return {"ok": True, "map_id": map_id, "changes": changes,
+                    "message": f"Refreshed {len(changes)} supported objective actors from the archive. Unsupported actors and original v2 Rating inputs preserved; nothing published."}
         if payload.from_archive:
             status = replay_archive.verify(db, root / "data/replay-archive", map_id)
             if status["status"] != "Healthy":
@@ -913,7 +922,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         count = db.execute("SELECT count(*) FROM maps").fetchone()[0]
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True, "maps": count,
-                "message": f"Statistics recalculated from {count} stored normalized maps; website data regenerated."}
+                "message": f"Statistics recalculated from {count} stored normalized maps; website data regenerated. Archives were not reparsed."}
 
     @app.post("/api/admin/regenerate")
     def regenerate(db: DB):

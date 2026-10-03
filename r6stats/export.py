@@ -5,6 +5,7 @@ from pathlib import Path
 
 from r6stats.parser.models import Match
 from r6stats.manual_kd import apply_display_kd
+from r6stats.objective_refresh import rating_stats
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, aggregate, calculate_match
 
 
@@ -42,6 +43,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     for row in rows:
         match = Match.from_dict(json.loads(row["normalized_json"]))
         stats = calculate_match(match, window, version)
+        rating_inputs = rating_stats(db, row["id"], stats, window, version)
         bound_keys = defaultdict(set)
         for binding in db.execute("""SELECT DISTINCT rp.player_id,rp.player_key
             FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
@@ -63,23 +65,25 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
             keys = [key for key in bound_keys[p["id"]] if key in stats]
             if keys:
                 raw = stats[keys[0]] if len(keys) == 1 else aggregate([stats[key] for key in keys], version)
+                rating_raw = (rating_inputs[keys[0]] if len(keys) == 1 else
+                              aggregate([rating_inputs[key] for key in keys], version))
                 if len(keys) > 1:
                     raw.pop("maps", None)
                 correction = corrections.get(p["id"])
                 shown = (apply_display_kd(raw, correction["final_kills"], correction["final_deaths"])
                          if correction else raw)
                 entry = {"slug": p["slug"], "name": p["display_name"], **shown,
-                         "rating": raw["rating"] if rating_eligible else None}
+                         "rating": rating_raw["rating"] if rating_eligible else None}
                 public_players.append(entry)
                 season_stats[row["season_slug"]][p["slug"]].append(raw)
                 if rating_eligible:
-                    season_rating_stats[row["season_slug"]][p["slug"]].append(raw)
+                    season_rating_stats[row["season_slug"]][p["slug"]].append(rating_raw)
                 if correction:
                     adjustment = season_adjustments[row["season_slug"]][p["slug"]]
                     adjustment[0] += correction["final_kills"] - raw["kills"]
                     adjustment[1] += correction["final_deaths"] - raw["deaths"]
                 player_matches[p["slug"]][row["season_slug"]].append(
-                    {**public, "rating": raw["rating"] if rating_eligible else None})
+                    {**public, "rating": rating_raw["rating"] if rating_eligible else None})
         rounds = [{"number": r.number, "side": next((p.side for p in r.players if p.team == row["our_team"]), "Unknown"),
                    "result": "Win" if r.winner == row["our_team"] else "Loss", "site": r.site}
                   for r in match.rounds]
@@ -132,7 +136,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     write(root / "methodology.json", {"rating_version": version,
                                       "trade_window_seconds": window,
                                       "rating_description": (
-                                          "Independent raw eight-feature Siege-style Rating; player objective actor credit is unavailable."
+                                          "Independent raw eight-feature Siege-style Rating. Historical objective upgrades preserve original v2 Rating inputs; displayed objectives and KOST use corrected data."
                                           if version == "siege_style_v2" else "Collegiate V1 composite Rating.")})
     for path in root.rglob("*.json"):
         json.loads(path.read_text(encoding="utf-8"))

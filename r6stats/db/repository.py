@@ -56,6 +56,10 @@ CREATE TABLE IF NOT EXISTS objective_events (
  round_id INTEGER NOT NULL REFERENCES rounds(id) ON DELETE CASCADE,
  sequence INTEGER NOT NULL, kind TEXT NOT NULL, player_key TEXT NOT NULL,
  team INTEGER NOT NULL, remaining REAL NOT NULL, PRIMARY KEY(round_id,sequence));
+CREATE TABLE IF NOT EXISTS rating_input_snapshots (
+ map_id TEXT NOT NULL REFERENCES maps(id) ON DELETE CASCADE,
+ version TEXT NOT NULL, normalized_json TEXT NOT NULL, source_sha256 TEXT NOT NULL,
+ PRIMARY KEY(map_id,version));
 """
 
 
