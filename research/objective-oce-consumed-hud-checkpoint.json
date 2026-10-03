@@ -1,0 +1,26 @@
+{
+  "tier": "additional_consumed_HUD_numeric_timer_support_not_prospective_regrading_or_promotion",
+  "result_hashes": {
+    "data/research/objective-bonus-body-oce-cohort/consumed-body-class-hud-review.json": "8d6c9f13e3510c33b45003d9f682f4d31460a3865086783cce5ef15a59c09fd3",
+    "data/research/objective-bonus-body-oce-cohort/consumed-body-class-hud-first-epoch-review.json": "30fa0b8a0eaac00f762edf8ee982762d0a5701f1695882f47fb7672fcc3a92e7",
+    "data/research/objective-bonus-body-oce-cohort/consumed-plant-after-recovery-hud.json": "65506d8679b0e1be65cd32ee998e96da4226bcaa290e4e6134069fb6f871fa69",
+    "data/research/objective-bonus-body-oce-cohort/consumed-older-class-timer-controls.json": "2a616602e8a2ad3ddddfb537c5abdcd3bc144ee25c93193455c254760d2fc0af",
+    "data/research/objective-bonus-body-oce-cohort/consumed-unknown-class-bonus-numeric-identity.json": "458ab757033e78917147473f3b51f1dd5868227075995017f00daccbbe666867",
+    "data/research/objective-bonus-body-oce-cohort/consumed-raw1-relative-to-plants.json": "1327d2b1b186514e9d40d4655e544e86161b46bafb15f9862ea5fead49b2a49a"
+  },
+  "source_hashes": {
+    "research/objective_oce_body_class_hud_review.py": "67c0b32867b0d4e533cdcde3bd5d5e169db7d55ce8ddcfb4653833fe7bf74291",
+    "research/objective_oce_body_clock_scope.py": "e74d203e0c5f091dfd848f9c861a6514613e10b5052b9eeda82a21d6ee16fded",
+    "research/objective_oce_recovered_plant_hud.py": "d84fa033f9b50454fe911e457fbe7c7d0df3bcb9b19845d60d277498002e5584",
+    "research/objective_oce_timer_controls.py": "6241cb3720d5e8f58790e174302f93b158ca2407513a753db6b527ff7a2cc235",
+    "research/objective_oce_bonus_numeric_identity.py": "47f5cc83c8ab2afaab08874192d50ef32c50361582707e9c518bf959cf2d12ff",
+    "research/objective_oce_bonus_timing.py": "616b07925ef05d326ed30d3215a5cb24fecea015d15c9f4cca38ee803dc6acb2",
+    "research/objective_oce_consumed_support_verify.py": "f2db5ed0712b822b3031ae7bdb29144f6986c969c42386d5be082bcff8e94856",
+    "research/objective-oce-body-class-hud-labels.json": "cfa214225a0a716a3a0d915d68400e022eaa5521f25f15335a4532795527a604",
+    "tests/test_objective_oce_body_class_hud_review.py": "c2556fdab6ce48a910dc3999ddd31717c3545faf7931cf125299572380493c06",
+    "tests/test_objective_oce_body_clock_scope.py": "a29abd2d86817274b9b566bafee6424604c56f169daf1f0978fde38007e86654"
+  },
+  "frozen_OCE_result_sha256": "f7b79ae20ed4f6a7fdc07ba00b18ad5a99708f4b2964dd5e85befe1f0ddd1d73",
+  "bonus_recoveries_added": 0,
+  "production_deployed": false
+}

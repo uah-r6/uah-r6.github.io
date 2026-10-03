@@ -1,0 +1,125 @@
+{
+  "tier": "consumed_manual_HUD_labels_not_fresh_validation",
+  "official_match_id": 8082,
+  "map": "Nighthaven Labs",
+  "video_url": "https://www.youtube.com/watch?v=ZCQqoIH4O0U",
+  "title": "Stage 01 2026: APL OCE - Day 4",
+  "channel_id": "UCWKHac5bjhsUtSnMDFCT-7A",
+  "upload_date": "20260616",
+  "metadata_sha256": "d0cc124ee977a88b7147895c6c84b31652ffcd93b566621a89487bb4d09a536f",
+  "format": "299",
+  "samples": [
+    {
+      "seconds": 1130,
+      "round": 1,
+      "player": "Proxy.RVL",
+      "phase": "action",
+      "clock_seconds": 80,
+      "hud_label": "active",
+      "observation": "Proxy has an ordinary active weapon card with no downed cross; camera follows Beers.",
+      "frame_path": "data/research/video/oce-20260616/day4-1130-299.jpg",
+      "frame_sha256": "8ad5b0a56b0534b63d19c9aad7caefda1c9c83e40bfee8cc119723573ba13b1a"
+    },
+    {
+      "seconds": 1132,
+      "round": 1,
+      "player": "Proxy.RVL",
+      "phase": "action",
+      "clock_seconds": 78,
+      "hud_label": "downed",
+      "observation": "Proxy card explicitly shows the downed cross; camera follows Beers.",
+      "frame_path": "data/research/video/oce-20260616/day4-1132-299.jpg",
+      "frame_sha256": "fb4cc959cb95208c59d9a8bda4eaf22359774e0ac2711e8b1e867cc3b76534f4"
+    },
+    {
+      "seconds": 1138,
+      "round": 1,
+      "player": "Proxy.RVL",
+      "phase": "action",
+      "clock_seconds": 72,
+      "hud_label": "downed",
+      "observation": "Proxy card and in-world named Proxy marker show downed crosses; camera follows Wettables.",
+      "frame_path": "data/research/video/oce-20260616/day4-1138-299.jpg",
+      "frame_sha256": "1df710daa7632eccf7b89ad97b942016d3b05aa941b9ac2b465253450aa1fd3c"
+    },
+    {
+      "seconds": 1146,
+      "round": 1,
+      "player": "Proxy.RVL",
+      "phase": "action",
+      "clock_seconds": 64,
+      "hud_label": "downed",
+      "observation": "Camera follows Wettables at a prone, named Proxy; Proxy card still has downed cross.",
+      "frame_path": "data/research/video/oce-20260616/day4-1146-299.jpg",
+      "frame_sha256": "2afd47f3daadb197ab27310a0a9dcd3b74f057f3757c7c98354ac049954e4415"
+    },
+    {
+      "seconds": 1148,
+      "round": 1,
+      "player": "Proxy.RVL",
+      "phase": "action",
+      "clock_seconds": 62,
+      "hud_label": "active_after_recovery",
+      "observation": "Proxy downed cross has disappeared and active weapon/ammo card returns; camera follows Wettables reloading.",
+      "frame_path": "data/research/video/oce-20260616/day4-1148-299.jpg",
+      "frame_sha256": "03175d2ffb598726946b1af7e3c8cb24863e5c376db3af2050db53d2edf7e509"
+    },
+    {
+      "seconds": 2735,
+      "round": 7,
+      "player": "Elementz77.",
+      "phase": "action",
+      "clock_seconds": 123,
+      "hud_label": "active",
+      "observation": "Elementz77 has ordinary active weapon/ammo card; camera follows Sharkie.",
+      "frame_path": "data/research/video/oce-20260616/day4-2735-299.jpg",
+      "frame_sha256": "adbaa874fceb794c750aabc04a511c8b89c29d55b08418d3095859384920cd3b"
+    },
+    {
+      "seconds": 2750,
+      "round": 7,
+      "player": "Elementz77.",
+      "phase": "action",
+      "clock_seconds": 108,
+      "hud_label": "downed",
+      "observation": "Elementz77 card explicitly shows downed cross; camera follows Erazer.",
+      "frame_path": "data/research/video/oce-20260616/day4-2750-299.jpg",
+      "frame_sha256": "9ff061c809c02261b34c2d7cee1d6b20dc121ff2ce1d4b034791169532eb5c59"
+    },
+    {
+      "seconds": 2754,
+      "round": 7,
+      "player": "Elementz77.",
+      "phase": "action",
+      "clock_seconds": 104,
+      "hud_label": "downed",
+      "observation": "Elementz77 card retains downed cross; camera follows Erazer.",
+      "frame_path": "data/research/video/oce-20260616/day4-2754-299.jpg",
+      "frame_sha256": "523f8a961b61b3f70b3c4c78de2900934ee382b2c81a871e7951e103da7ee339"
+    },
+    {
+      "seconds": 2759,
+      "round": 7,
+      "player": "Elementz77.",
+      "phase": "action",
+      "clock_seconds": 99,
+      "hud_label": "active_after_recovery",
+      "observation": "Elementz77 downed cross has disappeared and active weapon/ammo card returns; camera follows Beers.",
+      "frame_path": "data/research/video/oce-20260616/day4-2759-299.jpg",
+      "frame_sha256": "534d9e25527d86004d81024e6fa87fe290df14c102d015897c4a650045ef2039"
+    },
+    {
+      "seconds": 2800,
+      "round": 7,
+      "player": "Elementz77.",
+      "phase": "action",
+      "clock_seconds": 58,
+      "hud_label": "eliminated",
+      "observation": "Elementz77 card says WATCHING and shows the eliminated presentation; camera follows Huntr.",
+      "frame_path": "data/research/video/oce-20260616/day4-2800-299.jpg",
+      "frame_sha256": "ea7653a7e52dab9f121f08de96a6afd42f2229bfd48360a9d2b195ff86b1d73e"
+    }
+  ],
+  "selection": "Two raw3-to2 component observations from already-consumed complete OCE build9734089 rounds; diagnostic selection is exposed, not prospective or unbiased sampling. Manual labels use the explicit named HUD card rather than camera subject.",
+  "limitations": "Two rounds from one consumed map; displayed clock intervals do not establish exact byte-to-frame alignment, downing shooter, numeric HUD health, disconnect semantics or universal state enums."
+}
