@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-10-03T06:18:49.018594+00:00",
+  "status": "permanent_INSUFFICIENT",
+  "result_path": "data/research/objective-bonus-body-oce-cohort/one-shot-primary-result.json",
+  "result_sha256": "f7b79ae20ed4f6a7fdc07ba00b18ad5a99708f4b2964dd5e85befe1f0ddd1d73",
+  "counts": {
+    "selected_maps": 38,
+    "maps": 32,
+    "rounds": 330,
+    "plants": 84,
+    "original_resolved": 53,
+    "proposed_resolved": 53,
+    "bonus_recoveries": 0,
+    "bonus_maps": 0,
+    "no_plant_controls": 246,
+    "no_plant_false_positives": 0,
+    "original_actor_changes": 0,
+    "primary_reviewed_maps": 4,
+    "primary_identity_blocked_maps": 28,
+    "independent_bonus_agreements": 0,
+    "independent_wrong_actors": 0,
+    "aggregate_conflicts": 0,
+    "occurrence_conflicts": 0,
+    "quality_failed_maps": 6
+  },
+  "gates": {
+    "status": "INSUFFICIENT",
+    "failures": [],
+    "insufficient": [
+      "min_bonus_recoveries",
+      "min_distinct_bonus_maps",
+      "min_independently_constrained_bonus_actors"
+    ],
+    "production_deployed": false
+  },
+  "original_ASIA_result_unchanged": true,
+  "core_readiness": "Supported conservative resolver remains production-quality; older missing body declarations abstain.",
+  "bonus_readiness": "Not production-approved; zero recovered prospective bonus cases in this fixed pool. No outcome-driven additions or repeated evaluation.",
+  "targets_and_events_consumed": true,
+  "ratings_read": false,
+  "production_deployed": false
+}
