@@ -1,3 +1,9 @@
+## Latest checkpoint: frozen history development controls - 2026-10-03
+
+Base6e18e5c. Fixed 68 consumed sources: 63 agreeing rounds, 1 mismatching round (Nina/OSAdinho), 4 quality refusals (2 ties, friendly-kill layout, unnamed death). 638/640 comparable player counters agree; all failures retained. See research/output/credited-history-development-controls.md. No new target/final evaluation, no tuning or production admission. Independent append bounds show opaque kind10 width26 in three professional/local controls; its role remains unknown. Original failed25-byte result preserved.
+
+463 Python tests passed, 1 optional skipped, 6 subtests. Runtime/Go/web sources unchanged; original verification applies. Safe guard `.venv/Scripts/python.exe research/verify_history_development_checkpoint.py` preserves the new reservation/results/buffers and all authorized baseline/old studies. NEXT ACTION: separate bounded framing trial using declared item counts and exact prefixes; investigate mismatches and missing TK/Death item forms, preserve unknowns and scalar ties. No historical kill migration, export, Rating experiment or publication.
+
 ## Latest checkpoint: late event-history controls — 2026-10-03
 
 See [late-history discovery](output/credited-late-history-discovery.md). Six fixed consumed rounds/four builds preserve all 41 finisher identities/weapons/headshots/order; 18 candidate DBNO-target body intervals and two recovery-target intervals agree. The candidate first identity's causal role, outer unknown items and scalar units remain unresolved. No production reader/event changes; original count-only preview and incomplete Chalet policy stay unchanged.
