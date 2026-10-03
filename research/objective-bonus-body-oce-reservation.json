@@ -1,0 +1,735 @@
+{
+  "status": "prospective_fixed_multi_event_actor_reservation",
+  "created_at": "2026-10-03T05:57:49.294534+00:00",
+  "events": [
+    {
+      "competition_id": 507,
+      "event": "Asia Pacific League Stage 1 - OCE",
+      "phase_id": 14998,
+      "scheduled": 28
+    },
+    {
+      "competition_id": 512,
+      "event": "Asia Pacific League Stage 2 - OCE",
+      "phase_id": 15003,
+      "scheduled": 28
+    }
+  ],
+  "maximum_events": 2,
+  "maximum_maps": 56,
+  "selected_maps": 38,
+  "metadata_hashes": {
+    "data/research/diagnostics/v3-event-metadata/competition-507-14998-sequential-discovery.html": "ff6325424a2c4822814f4237f3b85aed186dfa57bb8501f1c699c8fa512dce69",
+    "data/research/diagnostics/v3-event-metadata/competition-512-15003-sequential-discovery.html": "0d580cf81eaa67312d8934ff3ad1273d428d108dfb8096d17e9ea82e66d43015"
+  },
+  "matches": [
+    {
+      "official_match_id": 8070,
+      "competition_id": 507,
+      "date": "2026-06-08T08:00:00Z",
+      "team_ids": [
+        405,
+        407
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D1_BBvSA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8070"
+    },
+    {
+      "official_match_id": 8071,
+      "competition_id": 507,
+      "date": "2026-06-08T09:00:00Z",
+      "team_ids": [
+        327,
+        408
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D1_ARCvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8071"
+    },
+    {
+      "official_match_id": 8072,
+      "competition_id": 507,
+      "date": "2026-06-08T10:00:00Z",
+      "team_ids": [
+        325,
+        389
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D1_6TvEP.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8072"
+    },
+    {
+      "official_match_id": 8073,
+      "competition_id": 507,
+      "date": "2026-06-08T11:00:00Z",
+      "team_ids": [
+        135,
+        406
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D1_CHIEFSvRIVAL.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8073"
+    },
+    {
+      "official_match_id": 8074,
+      "competition_id": 507,
+      "date": "2026-06-09T08:00:00Z",
+      "team_ids": [
+        327,
+        407
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D2_MLFOvSA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8074"
+    },
+    {
+      "official_match_id": 8075,
+      "competition_id": 507,
+      "date": "2026-06-09T09:00:00Z",
+      "team_ids": [
+        389,
+        406
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D2_EPvRIVAL.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8075"
+    },
+    {
+      "official_match_id": 8076,
+      "competition_id": 507,
+      "date": "2026-06-09T10:00:00Z",
+      "team_ids": [
+        135,
+        405
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D2_BBvCHIEFS.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8076"
+    },
+    {
+      "official_match_id": 8077,
+      "competition_id": 507,
+      "date": "2026-06-09T11:00:00Z",
+      "team_ids": [
+        325,
+        408
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D2_6TvARCADE.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8077"
+    },
+    {
+      "official_match_id": 8078,
+      "competition_id": 507,
+      "date": "2026-06-15T08:00:00Z",
+      "team_ids": [
+        327,
+        405
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D3_BBvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8078"
+    },
+    {
+      "official_match_id": 8079,
+      "competition_id": 507,
+      "date": "2026-06-15T09:00:00Z",
+      "team_ids": [
+        389,
+        407
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D3_EPvSA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8079"
+    },
+    {
+      "official_match_id": 8082,
+      "competition_id": 507,
+      "date": "2026-06-16T08:00:00Z",
+      "team_ids": [
+        327,
+        406
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D4_MLFOvRE.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8082"
+    },
+    {
+      "official_match_id": 8083,
+      "competition_id": 507,
+      "date": "2026-06-16T09:00:00Z",
+      "team_ids": [
+        325,
+        405
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D4_6TvBB.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8083"
+    },
+    {
+      "official_match_id": 8084,
+      "competition_id": 507,
+      "date": "2026-06-16T10:00:00Z",
+      "team_ids": [
+        135,
+        407
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D4_CHIEFSvSHA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8084"
+    },
+    {
+      "official_match_id": 8085,
+      "competition_id": 507,
+      "date": "2026-06-16T11:00:00Z",
+      "team_ids": [
+        389,
+        408
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D4_AEvEP.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8085"
+    },
+    {
+      "official_match_id": 8086,
+      "competition_id": 507,
+      "date": "2026-06-22T08:00:00Z",
+      "team_ids": [
+        325,
+        327
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D5_6TvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8086"
+    },
+    {
+      "official_match_id": 8087,
+      "competition_id": 507,
+      "date": "2026-06-22T09:00:00Z",
+      "team_ids": [
+        406,
+        407
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D5_REvSHA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8087"
+    },
+    {
+      "official_match_id": 8088,
+      "competition_id": 507,
+      "date": "2026-06-22T10:00:00Z",
+      "team_ids": [
+        405,
+        408
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D5_AEvBB.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8088"
+    },
+    {
+      "official_match_id": 8089,
+      "competition_id": 507,
+      "date": "2026-06-22T11:00:00Z",
+      "team_ids": [
+        135,
+        389
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D5_CHIEFSvEP.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8089"
+    },
+    {
+      "official_match_id": 8090,
+      "competition_id": 507,
+      "date": "2026-06-23T08:00:00Z",
+      "team_ids": [
+        325,
+        406
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D6_6TvRE.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8090"
+    },
+    {
+      "official_match_id": 8091,
+      "competition_id": 507,
+      "date": "2026-06-23T09:00:00Z",
+      "team_ids": [
+        135,
+        327
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D6_CESCvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8091"
+    },
+    {
+      "official_match_id": 8092,
+      "competition_id": 507,
+      "date": "2026-06-23T10:00:00Z",
+      "team_ids": [
+        389,
+        405
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D6_BBvEP.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8092"
+    },
+    {
+      "official_match_id": 8093,
+      "competition_id": 507,
+      "date": "2026-06-23T11:00:00Z",
+      "team_ids": [
+        407,
+        408
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D6_AEvSHA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8093"
+    },
+    {
+      "official_match_id": 8094,
+      "competition_id": 507,
+      "date": "2026-06-29T08:00:00Z",
+      "team_ids": [
+        325,
+        407
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D7_6TvSHA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8094"
+    },
+    {
+      "official_match_id": 8095,
+      "competition_id": 507,
+      "date": "2026-06-29T09:00:00Z",
+      "team_ids": [
+        405,
+        406
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D7_7VvRE.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8095"
+    },
+    {
+      "official_match_id": 8096,
+      "competition_id": 507,
+      "date": "2026-06-29T10:00:00Z",
+      "team_ids": [
+        135,
+        408
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D7_AEvCESC.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8096"
+    },
+    {
+      "official_match_id": 8097,
+      "competition_id": 507,
+      "date": "2026-06-29T11:00:00Z",
+      "team_ids": [
+        327,
+        389
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S1D7_EPvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8097"
+    },
+    {
+      "official_match_id": 8210,
+      "competition_id": 512,
+      "date": "2026-09-03T08:00:00Z",
+      "team_ids": [
+        325,
+        408
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D1_ARvCS.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8210"
+    },
+    {
+      "official_match_id": 8211,
+      "competition_id": 512,
+      "date": "2026-09-03T09:00:00Z",
+      "team_ids": [
+        327,
+        405
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D1_MLFOv7V.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8211"
+    },
+    {
+      "official_match_id": 8212,
+      "competition_id": 512,
+      "date": "2026-09-03T10:00:00Z",
+      "team_ids": [
+        135,
+        407
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D1_CECvSA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8212"
+    },
+    {
+      "official_match_id": 8213,
+      "competition_id": 512,
+      "date": "2026-09-03T11:00:00Z",
+      "team_ids": [
+        389,
+        406
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D1_TAvEP.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8213"
+    },
+    {
+      "official_match_id": 8214,
+      "competition_id": 512,
+      "date": "2026-09-07T08:00:00Z",
+      "team_ids": [
+        406,
+        407
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D2_TAvSA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8214"
+    },
+    {
+      "official_match_id": 8215,
+      "competition_id": 512,
+      "date": "2026-09-07T09:00:00Z",
+      "team_ids": [
+        327,
+        408
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D2_ARCvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8215"
+    },
+    {
+      "official_match_id": 8216,
+      "competition_id": 512,
+      "date": "2026-09-07T10:00:00Z",
+      "team_ids": [
+        325,
+        389
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D2_CSvEP.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8216"
+    },
+    {
+      "official_match_id": 8217,
+      "competition_id": 512,
+      "date": "2026-09-07T11:00:00Z",
+      "team_ids": [
+        135,
+        405
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D2_7VvCEC.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8217"
+    },
+    {
+      "official_match_id": 8218,
+      "competition_id": 512,
+      "date": "2026-09-08T08:00:00Z",
+      "team_ids": [
+        405,
+        407
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D3_7VvSA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8218"
+    },
+    {
+      "official_match_id": 8219,
+      "competition_id": 512,
+      "date": "2026-09-08T09:00:00Z",
+      "team_ids": [
+        325,
+        406
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D3_TAvCS.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8219"
+    },
+    {
+      "official_match_id": 8220,
+      "competition_id": 512,
+      "date": "2026-09-08T10:00:00Z",
+      "team_ids": [
+        327,
+        389
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D3_EPvMLFO.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8220"
+    },
+    {
+      "official_match_id": 8221,
+      "competition_id": 512,
+      "date": "2026-09-08T11:00:00Z",
+      "team_ids": [
+        135,
+        408
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_OCE_S2D3_ARCvCEC.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8221"
+    }
+  ],
+  "selection": "All currently linked archives from the fixed OCE Stage1 and Stage2 group-stage snapshots, chronological date/id order; no actor/bonus/Rating selection.",
+  "stopping": "Collect every selected source before actor labels regardless of observed bonus frequency. No early success, optional outcome-driven event additions or retries. One pooled final evaluation.",
+  "unavailable": "Unlinked scheduled matches remain visible through metadata; later links/playoffs outside this snapshot are not silently added.",
+  "acceptance": {
+    "min_complete_rounds": 80,
+    "min_complete_maps": 8,
+    "min_verified_plants": 20,
+    "min_no_plant_controls": 50,
+    "min_bonus_recoveries": 3,
+    "min_distinct_bonus_maps": 2,
+    "min_independently_constrained_bonus_actors": 2,
+    "max_known_independent_wrong_actors": 0,
+    "max_no_plant_false_positives": 0,
+    "max_original_actor_changes": 0,
+    "max_independent_objective_occurrence_conflicts": 0,
+    "max_independent_aggregate_conflicts": 0
+  },
+  "identity_policy": "Unique full10 nonzero stable profiles/round UIDs; explicit physical R## order; complete score-contiguous same-roster BO1/rehosts only. Primary labels need exact case-insensitive replay basename or separately independently verified profile history, never objective/KD/remaining-player matching.",
+  "quality_policy": "Same full10 stable nonzero profile/UID, continuous BO1 score, physical R## and unchanged occurrence/body/ownership guards. Whole-map declared quality refusals preserved; no round/player invention.",
+  "review_policy": "Seal complete predictions OR whole-map quality refusals; then independently bind all ten official identities without stats/actor matching and seal aliases; only then open objective ground truth once. Unbound maps unreviewed; individual evidence cannot satisfy acceptance.",
+  "freshness": "No OCE selected replays/actor targets inspected. Metadata-only schedule/map counts/scores/URLs projected. CNL discovery inspected metadata only here; earlier CNLStage2 Rating snippets remain exposed and are not part of this actor cohort.",
+  "actor_labels_read": false,
+  "ratings_read": false,
+  "production_deployed": false
+}
