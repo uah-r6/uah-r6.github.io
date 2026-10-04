@@ -1,3 +1,15 @@
+## Latest checkpoint: UID-owned prefix controls - 2026-10-03
+
+Base `52a9cfe`. Ten fixed sources (reviewed Stk/resetz plus eight missing kind5 targets) reproduce10/10exact UID/body/raw3 offsets,222context fields/109prefixes. No incoming exact numeric target references in parsed owned components, including reviewed cases; no actor inferred. Six missing targets serialize raw4 within650bytes after raw3, without elapsed-time meaning. Unknown/unowned/array sources remain uninspected. See research/output/credited-owned-property-controls.md.
+
+484Pythonpassed,1optional skip,6subtests; full Go/Y11/vet pass. Safe guard `.venv/Scripts/python.exe research/verify_owned_property_checkpoint.py`. NEXT ACTION: explicit clock/recording metadata controls on fixed consumed sources, then generic cause/recovery boundary controls. Existing counter mismatch, first-reference causal roles and credited-victim joins stay unresolved. No historical kill migration, Rating fit, default parser/stat/SQLite/public change or publication.
+
+## UID-owned property controls before cached job - 2026-10-03
+
+HEAD `52a9cfe`, previous lifecycle and production guard passed. New separate Go `cmd/owned-property-inspect` examines scalar/text prefixes and incremental temporal UID-owner routes, stops unknown widths, and reports exact numeric UID/owner-entity matches as candidates only. Seven focused Go tests passed, including equivalence to existing strict route binding. Default reader/actor/stat/parser paths unchanged.
+
+Commands `.venv/Scripts/python.exe research/credited_owned_property_controls.py --limit 2`, then `--limit 10`. Fixed two independently reviewed split-credit targets (Stk/resetz) plus all eight missing kind5 targets, existing sealed buffers only; reservation before results. Target context [raw3-4096,raw3+8192) is byte context, not time; scan exact numeric reference fields across post-action owned prefixes. No unknown-array skip, nearest-counter join, actor assignment or complete-record claim. NEXT: inspect raw unknowns and any candidate references, preserve failures; then explicit clock/generic cause controls. No historical kill migration, Rating experiment or publication.
+
 ## Latest checkpoint: cached history/body lifecycle controls - 2026-10-03
 
 Base `ccfc1bf`. All74consumed sources pass UID/profile/name/team/action/owner/body-route checks. Candidate intervals144/145 match; SAL8583R01 pino kind5 and final share scalar6154, body view has only raw4, so a universal raw3 requirement is invalid. Eight raw3 observations lack any kind5 target entry; no actor inferred. See research/output/credited-history-lifecycle-controls.md. Existing counter mismatch and all prior refusals unchanged.

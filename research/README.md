@@ -1,3 +1,9 @@
+## Latest checkpoint: UID-owned prefix controls - 2026-10-03
+
+Base `52a9cfe`. Ten fixed sources (reviewed Stk/resetz plus eight missing kind5 targets) reproduce10/10exact UID/body/raw3 offsets,222context fields/109prefixes. No incoming exact numeric target references in parsed owned components, including reviewed cases; no actor inferred. Six missing targets serialize raw4 within650bytes after raw3, without elapsed-time meaning. Unknown/unowned/array sources remain uninspected. See research/output/credited-owned-property-controls.md.
+
+484Pythonpassed,1optional skip,6subtests; full Go/Y11/vet pass. Safe guard `.venv/Scripts/python.exe research/verify_owned_property_checkpoint.py`. NEXT ACTION: explicit clock/recording metadata controls on fixed consumed sources, then generic cause/recovery boundary controls. Existing counter mismatch, first-reference causal roles and credited-victim joins stay unresolved. No historical kill migration, Rating fit, default parser/stat/SQLite/public change or publication.
+
 ## Latest checkpoint: cached history/body lifecycle controls - 2026-10-03
 
 Base `ccfc1bf`. All74consumed sources pass UID/profile/name/team/action/owner/body-route checks. Candidate intervals144/145 match; SAL8583R01 pino kind5 and final share scalar6154, body view has only raw4, so a universal raw3 requirement is invalid. Eight raw3 observations lack any kind5 target entry; no actor inferred. See research/output/credited-history-lifecycle-controls.md. Existing counter mismatch and all prior refusals unchanged.
