@@ -1,0 +1,29 @@
+{
+  "status": "opt_in_buffer_lifetime_interface_verified_not_credited_promotion",
+  "base_head": "849f740",
+  "cached_matches": 6,
+  "actual_replay_matches": 2,
+  "verification": "Go tests including Y11 and 8 new history tests/vet passed; 477 Python passed, 1 optional skip, 6 subtests",
+  "source_hashes": {
+    "research/credited_history_go_interface_v2.py": "00817bd7c82e7e7697c95809bbf96d6e10bdaa17383da93cca5521e4b735be9e",
+    "third_party/siege-dissect/dissect/event_history_evidence.go": "6caa74cee4e578f5f0f6b83b1489645b8c18d92d37f50b5a7558f8701f895e57",
+    "third_party/siege-dissect/dissect/event_history_replay_evidence.go": "46ee219ed90c1ec58c59c653f11bd04d2c2b5649102b5e94dc210d5600f8eda3",
+    "third_party/siege-dissect/dissect/event_history_replay_evidence_test.go": "d50eb9e95dae81f14d25e5789e133c37ed98943d94600a11c232b35648c5857d",
+    "third_party/siege-dissect/cmd/history-inspect/main.go": "22a94b6d31e809680bd133ec2426e7337f25bb9f44e773f368e352ab0bc449a1",
+    "research/verify_history_go_interface_checkpoint.py": "3fc9f2bc09bb4b2379736566e701c3fd9aadeba2357fa3beea7d940dc043f83e",
+    "research/output/credited-history-go-interface-v2.md": "323e542e7f7d40a77badf9424f759b5dbdaff9e35712669071c422f13abd7f8d"
+  },
+  "artifact_hashes": {
+    ".local-tools/bin/siege-history-inspect-v2.exe": "6dd0e1c8df627d3562c692339e19bbb8e78aa72303b9edd3e25d9182cf8a9f4e",
+    "data/research/credited-history-go-interface-v2/records/34dcb89dfb8e7fd61fe24e3677d7ff7df75c9de3078f0e5542e37b1fa144d600-buffer.json": "dcf8cb294b3e1ba05f507fc24381d0ad7194d0e0206b6261772ad61778d765e8",
+    "data/research/credited-history-go-interface-v2/records/82f47f7ef95348fd2619c6f1a26bf0f853dc45cf925c39cf6110f2475cc58125-buffer.json": "4c2a502d2a513f75795a47a9f375681f302edeaab251891d42da44ea38896538",
+    "data/research/credited-history-go-interface-v2/records/924ceeb12d40d790a236ab5cbd31761ef77f1c083cef580252fe8f86847451fc-buffer.json": "d018482730979c2af1de3a1e5f527adc0f081549da634c349e6a057a2b9a2ed3",
+    "data/research/credited-history-go-interface-v2/records/bf74a423d20f3f57103ac7ca6aa1d9f3b9c7eb2fbd27403da05ed1ee500cdbc9-buffer.json": "a5a41c80de9d5fd03638cec6f53adb1113a4211e41d414baf8178f81ab4e531d",
+    "data/research/credited-history-go-interface-v2/records/bf74a423d20f3f57103ac7ca6aa1d9f3b9c7eb2fbd27403da05ed1ee500cdbc9-replay.json": "94ba9f5a0237b75d714803b1fd706d9ad7b34cca409e28b89b49c6163a693b61",
+    "data/research/credited-history-go-interface-v2/records/f6d5d7f7e9c95b70c46609d4669a9f0b6c08d123339abd1858975ebd130e2483-buffer.json": "850ec5e3865939d58a83936ac569ef98e33e740f9856078f63f0ee61d5ad682f",
+    "data/research/credited-history-go-interface-v2/records/fc8fe27a17cddd889413721580ecb773c02d76b8f485e2ce84d0867d21e4daa0-buffer.json": "385e90c57e833cd28db8a344b34ee19c90019dc8757657eaec9451da31fe70e0",
+    "data/research/credited-history-go-interface-v2/records/fc8fe27a17cddd889413721580ecb773c02d76b8f485e2ce84d0867d21e4daa0-replay.json": "ef49359aa31937855177eb5bf92bc6ba88b358e28fe2089527d6f1e1fd8c6fa2",
+    "data/research/credited-history-go-interface-v2/reservation.json": "327422f05ae2aefce3104d94b3a51a91e560f986e5b22297b0fbe250a008c692",
+    "data/research/credited-history-go-interface-v2/result.json": "5a1a296c97b0ee6e75b79562923f061234348125009528070ea138af057b28ac"
+  }
+}

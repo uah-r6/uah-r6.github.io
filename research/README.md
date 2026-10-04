@@ -1,3 +1,9 @@
+## Latest checkpoint: verified opt-in Go replay interface - 2026-10-03
+
+Base `849f740`. New wrapper retains a local buffer reference while normal Read resolves the header; default release/callbacks unchanged. Six cached controls across four builds and both actual inputs (SAL8583R02, UAHFortressR04) now match saved typed evidence exactly. Source/binary/results separately sealed; original two v1 failures and74cached results preserved. See research/output/credited-history-go-interface-v2.md. No default import/stat/SQL/public wiring.
+
+Full Go tests including Y11/eight new history tests and vet pass; 477 Python passed,1 optional skipped,6 subtests, web sources unchanged. Safe guard `.venv/Scripts/python.exe research/verify_history_go_interface_checkpoint.py`. NEXT ACTION: cached74source Go/body lifecycle coverage audit, retain missing raw3 actor records and every quality refusal; then fixed gadget/source/recovery and explicit clock controls. No credited migration, Rating research or publication. Do not rerun v1 reservations against revised current source.
+
 ## Latest checkpoint: opt-in Go trial and integration failure - 2026-10-03
 
 Base `3caf344`. Go typed structural reader matches all 74 cached buffers. Actual `--replay` on SAL8583R02 and UAHFortressR04 fails because `Reader.Read()` releases `r.b` before inspection. Both failures preserved; source snapshots retain historical hashes in research/source-checkpoints/go-history-v1/. See research/output/credited-history-go-reader-controls.md. No default wiring or credited migration.

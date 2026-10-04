@@ -314,8 +314,11 @@ func InspectEventHistoryBuffer(b []byte, h Header) EventHistoryEvidence {
 	return result
 }
 
-// InspectEventHistory is opt-in and leaves Reader/default callbacks unchanged.
-// Call after Read if final action-start header identities are required.
+// InspectEventHistory is opt-in and requires an unreleased reader buffer.
+// Use ReadEventHistoryEvidence for final header identities after normal Read.
 func (r *Reader) InspectEventHistory() EventHistoryEvidence {
+	if r.b == nil {
+		return EventHistoryEvidence{Source: EventHistoryEvidenceSource, Reason: "reader_buffer_released_use_ReadEventHistoryEvidence"}
+	}
 	return InspectEventHistoryBuffer(r.b, r.Header)
 }

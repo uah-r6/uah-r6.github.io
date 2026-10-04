@@ -33,14 +33,7 @@ func main() {
 		var f *os.File
 		f, err = os.Open(os.Args[2])
 		if err == nil {
-			var r *dissect.Reader
-			r, err = dissect.NewReader(f)
-			if err == nil {
-				err = r.Read()
-			}
-			if err == nil {
-				result = r.InspectEventHistory()
-			}
+			_, result, err = dissect.ReadEventHistoryEvidence(f)
 			f.Close()
 		}
 	} else {
