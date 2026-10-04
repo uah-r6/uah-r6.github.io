@@ -1,3 +1,15 @@
+## Latest checkpoint: same-prefix countdown controls - 2026-10-03
+
+Base `4552019`. All74consumed sources pass oneprovider/width4/action-field/unchangedfeed gates.390086finer samples,15273sameentity/samerecord integer/finer pairs,15273floor1000agreements,0scale failures/ambiguous pairs. Serialized regions retain increases/positive->0, no elapsed clock.506eliminations:454positive same-region brackets,33missing side,18zero/terminal,1legacyoffset0. See research/output/credited-clock-prefix-controls.md.
+
+490Pythonpassed,1optional skip,6subtests; full Go/Y11/vet pass. Safe guard `.venv/Scripts/python.exe research/verify_clock_prefix_checkpoint.py`. NEXT ACTION: reviewed split-credit/down/finish/counter timelines annotated with explicit raw clock brackets; same-region finisher-refrag window audit with no credited identity/time promotion, then generic cause/recovery controls. Bankzero overtime and52nonpositive/missing/terminal limits preserved. No Rating fit, SQL/archive/public/default changes or publishing.
+
+## Same-prefix clock controls before cached job - 2026-10-03
+
+HEAD `4552019`, explicit clock study sealed/clean; prior guard passed. New opt-in Go `clock-prefix-inspect` retains integer countdown0xC9EF071F and finer0x6C463718 fields in the exact same entity/property prefix; no cross-record pairing. Three focused Go tests pass, including separate records/duplicates/unknown-width stops. Current hypothesis: explicit joint updates agree with floor(raw/1000); raw increases/positive->0 partition serialized regions, not elapsed time.
+
+Commands `.venv/Scripts/python.exe research/credited_clock_prefix_controls.py --limit 6`, then `--limit 74` if structural controls hold. Fixed original74consumed buffers across4builds; selection/source/binary reserved before collection. Exact action-field end and original feedback parity required; retain mismatches, multiple providers, unknown widths, absent clock sides and zero/terminal/reset brackets. No interpolation, historyscalar rate, credited-victim join or production promotion. NEXT: inspect same-prefix results/phase boundaries; if warranted retain broader cohort without clock-unit tuning, then generic cause/recovery controls. No historical/public/Rating change.
+
 ## Latest checkpoint: explicit countdown field evidence - 2026-10-03
 
 Base `1c4568b`. Fixed6consumed sources across4builds expose37990width4samples of0x6C463718, oneentity perreplay; field decreases/countdown resets, contradicting external elapsed-since-start hypothesis. All1365coarse countdown observations match floor(next raw property/1000), descriptive development evidence only. Metadata has starttime but no named FPS/rate field. Lairlast event missingnext clock and MichiganBorderlast positive->terminal0 bracket retained. Bankplant overtime remains unmeasured. See research/output/credited-clock-field-controls.md.
