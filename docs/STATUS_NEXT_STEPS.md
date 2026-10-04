@@ -1,3 +1,19 @@
+## Latest checkpoint: clock-annotated case timelines - 2026-10-03
+
+Base `016e51e`.10fixed cached cases, exact counter/header UID-profile-name-team identity. Reviewed Stk/resetz raw3->raw4 brackets4330-4397/821-889raw units; Kheyze counter increment after his own elimination, beforeStkraw4; Neskin counter before resetzraw4. No event timestamp/downer/credited-victim inference. Missing targets:Aokayu1522-1589,stemp0-67,xSexyCake298-397; fiveothers zero/terminal/missing. Original failedv1counter-id harness source/reservation preserved separately. See research/output/credited-clock-case-timelines.md.
+
+493Pythonpassed,1optional skip,6subtests; prior Go/Y11/vet pass, Go unchanged after. Safe guard `.venv/Scripts/python.exe research/verify_clock_case_checkpoint.py`. NEXT ACTION: same-region finisher-refrag raw-window audit on fixed74consumed sources, no credited/time policy promotion; then direct missing actor/recovery source evidence. Existing broad counter mismatch and every refusal preserved. No historical/default/SQL/archive/public/Rating changes or publishing.
+
+## Case harness schema correction before v2 cached job - 2026-10-03
+
+HEAD `016e51e`. Original case harness failed before any result: counter players use uid rather than header id. Original reservation, failure and exact source retained privately in data/research/credited-clock-case-timelines/. V2 uses exact counter/header UID-profile-name-team equality, unchanged raw-span hypothesis, separately named data/research/credited-clock-case-timelines-v2/. Command `.venv/Scripts/python.exe research/credited_clock_case_timelines.py`. No old reservation overwrite or statistics modification. NEXT remains known live body/counter/finish timeline, then bounded finisher-refrag comparisons.
+
+## Clock-annotated case timelines before cached job - 2026-10-03
+
+HEAD `016e51e`, broad prefix result/limits sealed/clean. Command `.venv/Scripts/python.exe research/credited_clock_case_timelines.py`: fixed reviewed Stk/resetz plus8missing-body targets, existing cached UID/body/counter/history and new clock-prefix outputs only. Annotate exact physical live samples with raw before/after clocks; separately retain late history items, never time them at copy offsets. Mathematical raw countdown span bounds require both sides positive/sameprovider/sameregion; no seconds/interpolation, generic DBNO/downer, credited victim or nearest-counter assignment.
+
+NEXT: inspect raw3->raw4 brackets and known counter/down/finish order, preserve all unsupported boundaries; then same-region finisher-refrag interval audit without credit/time policy promotion. No default/stat/SQL/public/Rating change or publishing.
+
 ## Latest checkpoint: same-prefix countdown controls - 2026-10-03
 
 Base `4552019`. All74consumed sources pass oneprovider/width4/action-field/unchangedfeed gates.390086finer samples,15273sameentity/samerecord integer/finer pairs,15273floor1000agreements,0scale failures/ambiguous pairs. Serialized regions retain increases/positive->0, no elapsed clock.506eliminations:454positive same-region brackets,33missing side,18zero/terminal,1legacyoffset0. See research/output/credited-clock-prefix-controls.md.
