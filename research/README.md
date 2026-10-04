@@ -1,3 +1,9 @@
+## Latest checkpoint: typed cumulative history - 2026-10-03
+
+Base `9b491ac`. All 74 consumed histories complete, 416 bounded containers, 506 original elimination identity/weapon/headshot/sequence matches. Raw kinds2/3 keep friendly-kill/unnamed-death controls separate; no credited policy or elapsed seconds assigned. Full cached body/identity audit confirms Aokayu raw3 has no kind5 target entry; Nina/OSAdinho credited-victim relation stays unresolved. See research/output/credited-history-typed-layout-controls.md. Earlier hypotheses/refusals unchanged.
+
+474 Python passed,1 optional skipped,6 subtests; default Go/runtime/web unchanged. Safe guard `.venv/Scripts/python.exe research/verify_history_typed_checkpoint.py`. NEXT ACTION: separate opt-in Go structural reader, compare cached typed buffers; retain actor/clock uncertainty, then further fixed source/gadget/lifecycle controls. No historical kill migration, Rating experiment, public export or publication.
+
 ## Latest checkpoint: cumulative history framing - 2026-10-03
 
 Base `33cb8f2`. Strict v2 tail1 variant retains initial six controls:27 complete/12 partial containers,3 complete histories; fixed68 cohort:353 complete/24 partial containers,56 complete histories. All unknowns preserved. Exact prefix/count+1 append inventory across74 consumed sources:173 single items, including kind10 width26 with opaque tails1/2 and kind3 width41. See research/output/credited-history-framing-controls.md. Counter mismatch and frozen broad hypothesis unchanged.

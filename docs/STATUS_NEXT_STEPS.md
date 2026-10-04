@@ -1,3 +1,9 @@
+## Latest checkpoint: typed cumulative history - 2026-10-03
+
+Base `9b491ac`. All 74 consumed histories complete, 416 bounded containers, 506 original elimination identity/weapon/headshot/sequence matches. Raw kinds2/3 keep friendly-kill/unnamed-death controls separate; no credited policy or elapsed seconds assigned. Full cached body/identity audit confirms Aokayu raw3 has no kind5 target entry; Nina/OSAdinho credited-victim relation stays unresolved. See research/output/credited-history-typed-layout-controls.md. Earlier hypotheses/refusals unchanged.
+
+474 Python passed,1 optional skipped,6 subtests; default Go/runtime/web unchanged. Safe guard `.venv/Scripts/python.exe research/verify_history_typed_checkpoint.py`. NEXT ACTION: separate opt-in Go structural reader, compare cached typed buffers; retain actor/clock uncertainty, then further fixed source/gadget/lifecycle controls. No historical kill migration, Rating experiment, public export or publication.
+
 ## Latest checkpoint: cumulative history framing - 2026-10-03
 
 Base `33cb8f2`. Strict v2 tail1 variant retains initial six controls:27 complete/12 partial containers,3 complete histories; fixed68 cohort:353 complete/24 partial containers,56 complete histories. All unknowns preserved. Exact prefix/count+1 append inventory across74 consumed sources:173 single items, including kind10 width26 with opaque tails1/2 and kind3 width41. See research/output/credited-history-framing-controls.md. Counter mismatch and frozen broad hypothesis unchanged.
@@ -25,6 +31,14 @@ Safe recovery: `.venv/Scripts/python.exe research/verify_late_history_checkpoint
 Before next cached job: milestone `80b45c4`, clean tree at commit. Hypothesis: an opaque kind10 has scalar plus one exact20-byte header reference; terminal unknown item can be preserved uninterpreted only when declared item count says exactly1remaining and it contains no later recognized candidate. Command `.venv/Scripts/python.exe research/credited_history_opaque_items.py`. Use bounded containers in the fixed6buffers; preserve the sealed partial result and every unknown byte, do not add objective/kill/life semantics. Refuse unknown middle entries, mismatched metadata and truncation. Structural consumption does not establish causal roles or seconds.
 
 Opaque-item hypothesis did not improve complete-container counts; the single-reference prefix leaves additional trailing bytes and unknown middle items. All21complete/18partial outcomes retained, no unknown bytes skipped. Three focused tests pass. Before next cached job, base80b45c4: command `.venv/Scripts/python.exe research/credited_late_credit_hypothesis.py`. Explicit development hypothesis only: latest opposing kind5 first-UID candidate survives to kind1 final elimination unless kind7 recovery clears it. Compare reconstructed round counts to all60independently validated player-round counters in these6consumed sources; preserve mismatches/refusals. No seconds, trade/opening production definition, Rating, source promotion or historical data write. Competing down evidence in BankR07 (cyber down before Bassetto's first final death) is a separate useful opening control, not a universal policy from aggregate labels.
+
+## Missing-actor audit before cached job - 2026-10-03
+
+HEAD `9b491ac`. Structural-v3 all74complete histories,416complete containers,506feed eliminations matched; no unknown skipped or default source promoted. Before cached job `.venv/Scripts/python.exe research/credited_history_missing_actor_audit.py`: exact APAC8161R14 mismatch, cached state/body UID routes and original counters only. Hypothesis: typed kind5 target inventory may omit an observed raw3 player; no actor from compensating counts. NEXT: retain full numeric identities, chronology without elapsed time and missing relationships; separate opt-in Go structural reader can provide this evidence without duplicating low-level parsing in the Python tracker. No credited event/Rating/historical SQL/public change.
+
+## Structural v3 trial before cached job - 2026-10-03
+
+HEAD `9b491ac`, previous framing variants sealed and committed. Commands `.venv/Scripts/python.exe research/credited_history_framing_v3.py --cohort six`, then `--cohort 68`. Prediction frozen before results: kind10 observed opaque tails1/2 width26; kind3 single reference width41 with unresolved cause/credit; kind2 prospective kill-shaped two-reference width62, requires independent friendly-kill control. Walk exact declared count/bytes, no unknown skipping; compare explicit list order to original filtered feedback sequence, retaining legacy zero-offset limitation. Five focused tests pass after a syntax fix before reservation/collection. NEXT: retain all refusals, verify cumulative copy prefixes/field parity; audit missing Aokayu ownership and typed cause boundaries. No historical normalization/stat/Rating/public change.
 
 ## Additional append inventory before cached job - 2026-10-03
 
