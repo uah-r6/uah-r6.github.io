@@ -1,3 +1,9 @@
+## Latest checkpoint: cached history/body lifecycle controls - 2026-10-03
+
+Base `ccfc1bf`. All74consumed sources pass UID/profile/name/team/action/owner/body-route checks. Candidate intervals144/145 match; SAL8583R01 pino kind5 and final share scalar6154, body view has only raw4, so a universal raw3 requirement is invalid. Eight raw3 observations lack any kind5 target entry; no actor inferred. See research/output/credited-history-lifecycle-controls.md. Existing counter mismatch and all prior refusals unchanged.
+
+480 Python passed,1 optional skipped,6 subtests; prior Go/Y11/vet pass, Go unchanged afterward. Safe guard `.venv/Scripts/python.exe research/verify_history_lifecycle_checkpoint.py`. NEXT ACTION: inspect exact UID-owned property frames/source references for eight missing targets, compare reviewed Kheyze/Neskin split cases; Go evidence preferred, no nearest-counter/actor inference. Then explicit clock/generic cause controls; no Rating fit, historical kill migration or publication.
+
 ## Latest checkpoint: verified opt-in Go replay interface - 2026-10-03
 
 Base `849f740`. New wrapper retains a local buffer reference while normal Read resolves the header; default release/callbacks unchanged. Six cached controls across four builds and both actual inputs (SAL8583R02, UAHFortressR04) now match saved typed evidence exactly. Source/binary/results separately sealed; original two v1 failures and74cached results preserved. See research/output/credited-history-go-interface-v2.md. No default import/stat/SQL/public wiring.

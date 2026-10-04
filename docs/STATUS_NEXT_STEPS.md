@@ -1,3 +1,9 @@
+## Latest checkpoint: cached history/body lifecycle controls - 2026-10-03
+
+Base `ccfc1bf`. All74consumed sources pass UID/profile/name/team/action/owner/body-route checks. Candidate intervals144/145 match; SAL8583R01 pino kind5 and final share scalar6154, body view has only raw4, so a universal raw3 requirement is invalid. Eight raw3 observations lack any kind5 target entry; no actor inferred. See research/output/credited-history-lifecycle-controls.md. Existing counter mismatch and all prior refusals unchanged.
+
+480 Python passed,1 optional skipped,6 subtests; prior Go/Y11/vet pass, Go unchanged afterward. Safe guard `.venv/Scripts/python.exe research/verify_history_lifecycle_checkpoint.py`. NEXT ACTION: inspect exact UID-owned property frames/source references for eight missing targets, compare reviewed Kheyze/Neskin split cases; Go evidence preferred, no nearest-counter/actor inference. Then explicit clock/generic cause controls; no Rating fit, historical kill migration or publication.
+
 ## Latest checkpoint: verified opt-in Go replay interface - 2026-10-03
 
 Base `849f740`. New wrapper retains a local buffer reference while normal Read resolves the header; default release/callbacks unchanged. Six cached controls across four builds and both actual inputs (SAL8583R02, UAHFortressR04) now match saved typed evidence exactly. Source/binary/results separately sealed; original two v1 failures and74cached results preserved. See research/output/credited-history-go-interface-v2.md. No default import/stat/SQL/public wiring.
@@ -43,6 +49,10 @@ Safe recovery: `.venv/Scripts/python.exe research/verify_late_history_checkpoint
 Before next cached job: milestone `80b45c4`, clean tree at commit. Hypothesis: an opaque kind10 has scalar plus one exact20-byte header reference; terminal unknown item can be preserved uninterpreted only when declared item count says exactly1remaining and it contains no later recognized candidate. Command `.venv/Scripts/python.exe research/credited_history_opaque_items.py`. Use bounded containers in the fixed6buffers; preserve the sealed partial result and every unknown byte, do not add objective/kill/life semantics. Refuse unknown middle entries, mismatched metadata and truncation. Structural consumption does not establish causal roles or seconds.
 
 Opaque-item hypothesis did not improve complete-container counts; the single-reference prefix leaves additional trailing bytes and unknown middle items. All21complete/18partial outcomes retained, no unknown bytes skipped. Three focused tests pass. Before next cached job, base80b45c4: command `.venv/Scripts/python.exe research/credited_late_credit_hypothesis.py`. Explicit development hypothesis only: latest opposing kind5 first-UID candidate survives to kind1 final elimination unless kind7 recovery clears it. Compare reconstructed round counts to all60independently validated player-round counters in these6consumed sources; preserve mismatches/refusals. No seconds, trade/opening production definition, Rating, source promotion or historical data write. Competing down evidence in BankR07 (cyber down before Bassetto's first final death) is a separate useful opening control, not a universal policy from aggregate labels.
+
+## Body lifecycle controls before cached job - 2026-10-03
+
+HEAD `ccfc1bf`, successful Go interface and historical failures sealed. Commands `.venv/Scripts/python.exe research/credited_history_lifecycle_controls.py --limit 8`, then `--limit 74`; Go raw history plus existing cached state/body UID routes only, no parsing/target/model job. Hypothesis: kind5 targets corroborate raw3, kind7 targets active raw0/2 within independently matched final-feed bounds. Preserve zero-offset anchors, incomplete state routes/header identities and every unmatched interval as unresolved; inventory raw3 players with no kind5 target without assigning an actor. NEXT: inspect all missing life entries and source/operator context, then further fixed cause/clock controls. No generic DBNO enum/actor/elapsed clock or stat migration.
 
 ## Retained-buffer v2 interface before new job - 2026-10-03
 
