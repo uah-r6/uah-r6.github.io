@@ -1,3 +1,21 @@
+## Latest checkpoint: explicit countdown field evidence - 2026-10-03
+
+Base `1c4568b`. Fixed6consumed sources across4builds expose37990width4samples of0x6C463718, oneentity perreplay; field decreases/countdown resets, contradicting external elapsed-since-start hypothesis. All1365coarse countdown observations match floor(next raw property/1000), descriptive development evidence only. Metadata has starttime but no named FPS/rate field. Lairlast event missingnext clock and MichiganBorderlast positive->terminal0 bracket retained. Bankplant overtime remains unmeasured. See research/output/credited-clock-field-controls.md.
+
+487Pythonpassed,1optional skip,6subtests; full Go/Y11/vet pass. Safe guard `.venv/Scripts/python.exe research/verify_clock_field_checkpoint.py`. NEXT ACTION: same-prefix integer/finer countdown relationship, serialized epoch/zero/terminal controls, then broader fixed consumed controls if warranted. No elapsed-time interpolation/history-scalar rate, credited-victim join, live migration, Rating study or publishing. New commands/binaries remain opt-in; original SQL/archive/public/v2 state unchanged.
+
+## Clock scale inventory before cached job - 2026-10-03
+
+HEAD `1c4568b`. Fixed6raw source outputs complete. Each has one0x6C463718width4provider,37990updates total; near-all decrease. External elapsed-since-start interpretation is contradicted. Raw header has starttime wallclock and no FPS/tick-rate field. Inspection found next raw property floor(value/1000) equals all1365coarse integer countdown observations. This is descriptive consumed evidence, not new untouched validation.
+
+Command `.venv/Scripts/python.exe research/credited_clock_scale_inventory.py` records the observed floor correspondence, raw increases, per-source step distributions and terminal/reset hazards without interpolating. LairR06last event lacks a next clock; MichiganBorderR03last event brackets positive remaining versus terminal0. NEXT: same-prefix countdown/property framing and independent epochs, zero/overtime/plant transitions; preserve external hypothesis failures and all missing sides. No Rating fit, default clock/action logic, historical/public change.
+
+## Explicit clock fields before cached job - 2026-10-03
+
+HEAD `1c4568b`, owned-prefix milestone sealed/clean. New separate Go `cmd/clock-field-inspect` inventories framed raw properties0x6C463718/0xA374F4B6, exact integer countdown listener markers, and all plain modern header key/value fields without default parsing. External field hypotheses cached from wnc-replay/replay-tool commitdd535f6499069c8268841fda76c68a04b19ba104, not adopted. Four focused Go tests pass.
+
+Commands `.venv/Scripts/python.exe research/credited_clock_field_controls.py --limit 2`, then `--limit 6`. Fixed original consumed6controls across4builds, cached buffers and exact original headers only. Check raw widths/ranges/decreases, exact action countdown, metadata, and structural before/after brackets. No elapsed-second conversion, scalar rate, interpolation, byte-distance time or credited-victim join. NEXT: inspect explicit clock field ranges and phase/reset/overtime controls, preserve failed external hypotheses; then recovery/cause boundaries. No Rating or historical/public change.
+
 ## Latest checkpoint: UID-owned prefix controls - 2026-10-03
 
 Base `52a9cfe`. Ten fixed sources (reviewed Stk/resetz plus eight missing kind5 targets) reproduce10/10exact UID/body/raw3 offsets,222context fields/109prefixes. No incoming exact numeric target references in parsed owned components, including reviewed cases; no actor inferred. Six missing targets serialize raw4 within650bytes after raw3, without elapsed-time meaning. Unknown/unowned/array sources remain uninspected. See research/output/credited-owned-property-controls.md.
