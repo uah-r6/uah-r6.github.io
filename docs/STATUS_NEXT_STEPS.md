@@ -1,3 +1,9 @@
+## Latest checkpoint: cumulative history framing - 2026-10-03
+
+Base `33cb8f2`. Strict v2 tail1 variant retains initial six controls:27 complete/12 partial containers,3 complete histories; fixed68 cohort:353 complete/24 partial containers,56 complete histories. All unknowns preserved. Exact prefix/count+1 append inventory across74 consumed sources:173 single items, including kind10 width26 with opaque tails1/2 and kind3 width41. See research/output/credited-history-framing-controls.md. Counter mismatch and frozen broad hypothesis unchanged.
+
+467 Python passed,1 optional skipped,6 subtests. Safe guard `.venv/Scripts/python.exe research/verify_history_framing_checkpoint.py`; protects additive evidence and all original baseline/studies. NEXT ACTION: additive structural variant with observed kind10 tails1/2, single-reference kind3 and separately hypothesized friendly kind2; exact count/bounds/prefix and independent feed parity required. Audit missing Aokayu down ownership, retain scalar/list order without seconds; no historical kill migration, default source, Rating research or publication.
+
 ## Latest checkpoint: frozen history development controls - 2026-10-03
 
 Base6e18e5c. Fixed 68 consumed sources: 63 agreeing rounds, 1 mismatching round (Nina/OSAdinho), 4 quality refusals (2 ties, friendly-kill layout, unnamed death). 638/640 comparable player counters agree; all failures retained. See research/output/credited-history-development-controls.md. No new target/final evaluation, no tuning or production admission. Independent append bounds show opaque kind10 width26 in three professional/local controls; its role remains unknown. Original failed25-byte result preserved.
@@ -19,6 +25,14 @@ Safe recovery: `.venv/Scripts/python.exe research/verify_late_history_checkpoint
 Before next cached job: milestone `80b45c4`, clean tree at commit. Hypothesis: an opaque kind10 has scalar plus one exact20-byte header reference; terminal unknown item can be preserved uninterpreted only when declared item count says exactly1remaining and it contains no later recognized candidate. Command `.venv/Scripts/python.exe research/credited_history_opaque_items.py`. Use bounded containers in the fixed6buffers; preserve the sealed partial result and every unknown byte, do not add objective/kill/life semantics. Refuse unknown middle entries, mismatched metadata and truncation. Structural consumption does not establish causal roles or seconds.
 
 Opaque-item hypothesis did not improve complete-container counts; the single-reference prefix leaves additional trailing bytes and unknown middle items. All21complete/18partial outcomes retained, no unknown bytes skipped. Three focused tests pass. Before next cached job, base80b45c4: command `.venv/Scripts/python.exe research/credited_late_credit_hypothesis.py`. Explicit development hypothesis only: latest opposing kind5 first-UID candidate survives to kind1 final elimination unless kind7 recovery clears it. Compare reconstructed round counts to all60independently validated player-round counters in these6consumed sources; preserve mismatches/refusals. No seconds, trade/opening production definition, Rating, source promotion or historical data write. Competing down evidence in BankR07 (cyber down before Bassetto's first final death) is a separate useful opening control, not a universal policy from aggregate labels.
+
+## Additional append inventory before cached job - 2026-10-03
+
+HEAD `33cb8f2`. Framing-v2 kept its strict observed tail1 prediction: six controls27complete/12partial containers,3complete histories; broad68controls353complete/24partial containers,56complete histories. Unknown kind10 tail2 and kind3 remain refused. Before next job: `.venv/Scripts/python.exe research/credited_history_append_development.py`, all74fixed buffers/results cached only. Hypothesis: exact prefix/count+1 reveals additional single-item layouts/tails without guessed widths. Preserve v2 source/results and all refusals. NEXT: evaluate explicit boundaries, then additive structural variant; no actor/clock/rating/default changes.
+
+## Framing trial before cached collection - 2026-10-03
+
+HEAD `33cb8f2`; broad hypothesis and append observations now sealed separately. Command `.venv/Scripts/python.exe research/credited_history_framing_v2.py --cohort six`, followed by `--cohort 68`. Prediction: independently bounded kind10 has26bytes, exact header UID/icon/alliance plus observed opaque tail1. Four framing tests pass. Preserve original failed25-byte interpretation. Any unknown/truncated/trailing/mismatched identity item refuses complete history. Compare every cumulative copy's exact item-byte prefix; explicit list order can retain scalar ties without inventing a tie breaker. No actor role or clock unit promotion. NEXT: inspect all unknown layouts, cumulative replacements, and event-counter mismatches before any semantic/runtime extension.
 
 ## Frozen 68-source development extension - 2026-10-03
 

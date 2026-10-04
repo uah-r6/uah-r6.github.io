@@ -1,3 +1,9 @@
+## Latest checkpoint: cumulative history framing - 2026-10-03
+
+Base `33cb8f2`. Strict v2 tail1 variant retains initial six controls:27 complete/12 partial containers,3 complete histories; fixed68 cohort:353 complete/24 partial containers,56 complete histories. All unknowns preserved. Exact prefix/count+1 append inventory across74 consumed sources:173 single items, including kind10 width26 with opaque tails1/2 and kind3 width41. See research/output/credited-history-framing-controls.md. Counter mismatch and frozen broad hypothesis unchanged.
+
+467 Python passed,1 optional skipped,6 subtests. Safe guard `.venv/Scripts/python.exe research/verify_history_framing_checkpoint.py`; protects additive evidence and all original baseline/studies. NEXT ACTION: additive structural variant with observed kind10 tails1/2, single-reference kind3 and separately hypothesized friendly kind2; exact count/bounds/prefix and independent feed parity required. Audit missing Aokayu down ownership, retain scalar/list order without seconds; no historical kill migration, default source, Rating research or publication.
+
 ## Latest checkpoint: frozen history development controls - 2026-10-03
 
 Base6e18e5c. Fixed 68 consumed sources: 63 agreeing rounds, 1 mismatching round (Nina/OSAdinho), 4 quality refusals (2 ties, friendly-kill layout, unnamed death). 638/640 comparable player counters agree; all failures retained. See research/output/credited-history-development-controls.md. No new target/final evaluation, no tuning or production admission. Independent append bounds show opaque kind10 width26 in three professional/local controls; its role remains unknown. Original failed25-byte result preserved.
