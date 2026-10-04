@@ -1,3 +1,9 @@
+## Latest checkpoint: opt-in Go trial and integration failure - 2026-10-03
+
+Base `3caf344`. Go typed structural reader matches all 74 cached buffers. Actual `--replay` on SAL8583R02 and UAHFortressR04 fails because `Reader.Read()` releases `r.b` before inspection. Both failures preserved; source snapshots retain historical hashes in research/source-checkpoints/go-history-v1/. See research/output/credited-history-go-reader-controls.md. No default wiring or credited migration.
+
+477 Python passed,1 optional skipped,6 subtests; full Go tests/vet pass. Safe guard `.venv/Scripts/python.exe research/verify_history_go_checkpoint.py` checks historical trial snapshots/binary/evidence plus all prior baseline/studies. NEXT ACTION: opt-in wrapper retains a local buffer reference during normal Read; default release unchanged. Build separate v2 binary, reserve new actual input and buffer controls; keep v1 failures immutable. Then missing source/lifecycle/clock research. No Rating experiment, SQLite/archive/public/default binary modification or publication.
+
 ## Latest checkpoint: typed cumulative history - 2026-10-03
 
 Base `9b491ac`. All 74 consumed histories complete, 416 bounded containers, 506 original elimination identity/weapon/headshot/sequence matches. Raw kinds2/3 keep friendly-kill/unnamed-death controls separate; no credited policy or elapsed seconds assigned. Full cached body/identity audit confirms Aokayu raw3 has no kind5 target entry; Nina/OSAdinho credited-victim relation stays unresolved. See research/output/credited-history-typed-layout-controls.md. Earlier hypotheses/refusals unchanged.
