@@ -1,0 +1,263 @@
+{
+  "verified_at": "2026-10-07T06:22:12.069763+00:00",
+  "deployment_commit": "6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+  "workflow_id": 37580585635,
+  "workflow_url": "https://github.com/uah-r6/uah-r6.github.io/actions/runs/37580585635",
+  "workflow_conclusion": "success",
+  "rating_version": "siege_style_v3",
+  "public_json": {
+    "index.json": {
+      "url": "https://uah-r6.github.io/data/index.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "5305812ec76fe17928896da5b8eeb4d25b729afce8a3639cb87d5a2e49b9b8fb",
+      "bytes": 781,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/076d2b6b02bc.json": {
+      "url": "https://uah-r6.github.io/data/matches/076d2b6b02bc.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "26e18c4aeb38c0df95076c548d4d7a47695ebdd27d91aa02ec03f8737aff5410",
+      "bytes": 11454,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/5adc26f7a402.json": {
+      "url": "https://uah-r6.github.io/data/matches/5adc26f7a402.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "0a9c3cd100a90cff166b2e116cad77a1ed0e509b330355246d2988394d077b60",
+      "bytes": 12032,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/8a6357ff307c.json": {
+      "url": "https://uah-r6.github.io/data/matches/8a6357ff307c.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "466573c9c841fcbde4de81f82a0cbc38416925998cf5829c63071facb463201e",
+      "bytes": 12001,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/8af0a6db6c39.json": {
+      "url": "https://uah-r6.github.io/data/matches/8af0a6db6c39.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "8383a68012ed43b6815fca4c854f9fe4feb2dc288867d076a3e45e7ee0dfccb2",
+      "bytes": 11390,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/9db26f1b6ca7.json": {
+      "url": "https://uah-r6.github.io/data/matches/9db26f1b6ca7.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "cea5600c70c06151b1f5da1acaac79ed457019bb9e143e2ccf0392338cc4ad72",
+      "bytes": 10879,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/b595ffaaec57.json": {
+      "url": "https://uah-r6.github.io/data/matches/b595ffaaec57.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "b6d69754c5269c14715f0907b3d0f3da80957a8a08387fd72ca0394adc3b0614",
+      "bytes": 11268,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "matches/d64d5478cdb3.json": {
+      "url": "https://uah-r6.github.io/data/matches/d64d5478cdb3.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "ec61a902471043f0bf2597ed122bdce4440f29cd93f3734197d4ebed793185e5",
+      "bytes": 10954,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "methodology.json": {
+      "url": "https://uah-r6.github.io/data/methodology.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "698dd42c3b0c3a42d46d4d37fb08f40b3720094229c4bb0bbba7578ab6d42fe0",
+      "bytes": 1124,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/azooznewzz/career.json": {
+      "url": "https://uah-r6.github.io/data/players/azooznewzz/career.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "0bb510b71f57ea537a89449475e0705ab650e1c40fa647ecddae7ca98179b638",
+      "bytes": 5533,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/azooznewzz/fall-2026.json": {
+      "url": "https://uah-r6.github.io/data/players/azooznewzz/fall-2026.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "a519c85e86f295a97ce4312f706aba1c2f616052571062abc16dc5fd5ffd0937",
+      "bytes": 5536,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/dinofireking/career.json": {
+      "url": "https://uah-r6.github.io/data/players/dinofireking/career.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "f965de61bb2fd3b08df6bb07ad850236f768824596d98799691c3db3b4948807",
+      "bytes": 5599,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/dinofireking/fall-2026.json": {
+      "url": "https://uah-r6.github.io/data/players/dinofireking/fall-2026.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "f6b544c81eca7046a4812bf66fae0f09bfea76aa4707f7cd780aa7831ca16919",
+      "bytes": 5602,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/lgon/career.json": {
+      "url": "https://uah-r6.github.io/data/players/lgon/career.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "3317ffaba7e701359ae60c6427752772ca3a04304cd0582af64933d9d306f25a",
+      "bytes": 5492,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/lgon/fall-2026.json": {
+      "url": "https://uah-r6.github.io/data/players/lgon/fall-2026.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "fa40d1370f1cb993d933100362c9c1e6b8345a19decd4729cdf6d4f25d9e7caf",
+      "bytes": 5495,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/ohwowjay/career.json": {
+      "url": "https://uah-r6.github.io/data/players/ohwowjay/career.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "fc7fe1e46b650e5d41c08fc02906dea188a9ad127bfcf1b8c97cbbf53fd9db53",
+      "bytes": 5413,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/ohwowjay/fall-2026.json": {
+      "url": "https://uah-r6.github.io/data/players/ohwowjay/fall-2026.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "975e23dfff7472e8704b4d24f411ca47ce5146b933de0ecbad57b00efe9bf707",
+      "bytes": 5416,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/tallman3-14/career.json": {
+      "url": "https://uah-r6.github.io/data/players/tallman3-14/career.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "9a9c21bf7095d9ae59c38afedff7de19ed60eade29c8ba94c544d448bf906c81",
+      "bytes": 5478,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "players/tallman3-14/fall-2026.json": {
+      "url": "https://uah-r6.github.io/data/players/tallman3-14/fall-2026.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "2e2f479adb63f70e21b50652fe77deac7e63ea95a27002da71a6d879c0dd6754",
+      "bytes": 5481,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    },
+    "seasons/fall-2026.json": {
+      "url": "https://uah-r6.github.io/data/seasons/fall-2026.json?verify=6ae184aad511fd6a42fc08c12ddcab037ef084e7",
+      "sha256": "2c68f3eda74cb3650d6ece6269459d311b80351b5848769ca0bb48f176c8b625",
+      "bytes": 15346,
+      "matches_committed_bytes": true,
+      "normal_url_matches_committed_bytes": true
+    }
+  },
+  "public_documents": 20,
+  "maps": 7,
+  "display_rounds": 82,
+  "rating_maps": 4,
+  "rating_rounds": 42,
+  "players": [
+    {
+      "slug": "ohwowjay",
+      "name": "OhWowJay",
+      "rating": 1.5814211739096358,
+      "kills": 91,
+      "deaths": 50,
+      "plants": 2,
+      "disables": 0,
+      "kost_rounds": 58,
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "lgon",
+      "name": "Lgon",
+      "rating": 1.4413101530150807,
+      "kills": 81,
+      "deaths": 48,
+      "plants": 2,
+      "disables": 2,
+      "kost_rounds": 54,
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "rating": 1.0828852878892616,
+      "kills": 57,
+      "deaths": 61,
+      "plants": 2,
+      "disables": 0,
+      "kost_rounds": 50,
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "tallman3-14",
+      "name": "Tallman3.14",
+      "rating": 0.8529785630583683,
+      "kills": 37,
+      "deaths": 63,
+      "plants": 6,
+      "disables": 0,
+      "kost_rounds": 41,
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
+      "rating": 0.764537723798764,
+      "kills": 36,
+      "deaths": 51,
+      "plants": 3,
+      "disables": 0,
+      "kost_rounds": 50,
+      "rating_rounds": 42,
+      "rating_maps": 4
+    }
+  ],
+  "browser": [
+    {
+      "slug": "ohwowjay",
+      "season_rendered": true,
+      "career_rendered": true,
+      "rating": "1.58",
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "lgon",
+      "season_rendered": true,
+      "career_rendered": true,
+      "rating": "1.44",
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "azooznewzz",
+      "season_rendered": true,
+      "career_rendered": true,
+      "rating": "1.08",
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "tallman3-14",
+      "season_rendered": true,
+      "career_rendered": true,
+      "rating": "0.85",
+      "rating_rounds": 42,
+      "rating_maps": 4
+    },
+    {
+      "slug": "dinofireking",
+      "season_rendered": true,
+      "career_rendered": true,
+      "rating": "0.76",
+      "rating_rounds": 42,
+      "rating_maps": 4
+    }
+  ],
+  "browser_page_errors": [],
+  "methodology_rendered": true,
+  "no_private_fields_or_paths": true,
+  "v2_preservation_verified_separately": true
+}

@@ -1,4 +1,10 @@
-## Current: independently passing v3 implemented; deployment verification in progress - 2026-10-07
+## Current: independently validated siege_style_v3 LIVE - 2026-10-07
+
+Deployment6ae184a /Pagesrun37580585635 succeeded. At06:22:12UTC, all20public JSON matched committed bytes at normal/cache-busted URLs; all5player season/career pages and methodology rendered correct v3/coverage with zero JS page errors. Current Rating uses42eligible of82historical rounds/4of7maps; all old display statistics, objectives, operators and v2 snapshots remain intact. [Live evidence](native-v3-live-checkpoint.json), [deployment review](output/native-v3-deployment-review.md), [full checkpoint](../docs/STATUS_NEXT_STEPS.md). Guard: `research/verify_native_v3_checkpoint.py`. Verified backups stay private.543Pythonpassed/1optional skip/6subtests; Go/Y11/vet and both builds pass. Runtime parity maximum0 in240UAH comparisons; no UAH fitting.
+
+APACNorthStage1 final is now permanently consumed PASS. Never rerun the one-shot evaluator, fit or old historical migration. Original CNL/APAC/SAL FAIL results remain permanent. Final goal achieved; STOP. Future limits are documented, not authorization to begin another study.
+
+## Historical: independently passing v3 implemented; deployment verification in progress - 2026-10-07
 
 The APAC North Stage1 final was frozen at e05dfc4 BEFORE target access and evaluated ONCE: 110 clean rows /11 maps /8 rosters, MAE0.03035933, RMSE0.04020582, 81.8182%within.05, maxAE0.10683. Exact original v2 MAE0.06058645 /RMSE0.08646803. Every unchanged acceptance gate passes. This event is permanently consumed; never rerun evaluation or refit the frozen model. Earlier CNL/APAC/SAL failures stay permanent. See [final](output/v3-native-final-apac1-result.md).
 

@@ -1,4 +1,70 @@
-## Current: passing v3 applied and locally verified; publish/live verification next - 2026-10-07
+## Current: validated siege_style_v3 LIVE; authorized run complete - 2026-10-07
+
+**STOP CONDITION MET.** Runtime/default/public v3 deployment commit `6ae184a` is pushed. GitHub Pages [run37580585635](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37580585635) succeeded. At2026-10-07T06:22:12Z, all20live JSON documents matched committed LF bytes AND decoded local export at both normal and cache-busted URLs. Headless Edge verified all5player season/career pages and methodology, correct Ratings/coverage, zero JavaScript page errors. Public JSON has no private fields, research/archive paths or raw replay data. Live evidence: research/native-v3-live-checkpoint.json; private screenshots/logs: data/research/native-v3-deployment-20261007. Default local publish status now records the verified deployed commit. All7launcher/admin match endpoints independently confirm v3 eligibility and Healthy archives; actual CMD launcher uses repository .venv Python and source files.
+
+### Credited-kill methodology / readiness
+
+Complete whole maps use stable_uid_scoreboard_delta_v1: ten unique nonnil profiles, full five/five team bijection, stable cumulative counters and explicit segment resets. Ubisoft official credited counts remain distinct from preserved kill-feed FINISHER events. Six maps/70rounds use credited kills; the entire12round Chalet map remains legacy due to nine-player rehost participation. No partial-map mixing, invented timestamps, counter-balancing victim joins, or action-start operator redesign.
+
+| Feature | Current policy |
+| --- | --- |
+| Kills/KD/KPR/side kills | Validated credited counts on70rounds; whole Chalet legacy12 |
+| Round multikills / extra kills | Credited round counts on supported whole maps; READY |
+| KOST Kill | Any credited kill on supported maps; READY |
+| KOST Objective / displayed plants and disables | Production core actor corrections preserved; unsupported historical actors stay as historical data, excluded from v3 whole-map eligibility |
+| V3 opening / clutch order | Verified positive serialized offsets and exact native finisher/victim/time/headshot parity; first opposing FINISHER opening, first sole-survivor clutch size and actual winner |
+| Credited opening owner / credited victim mapping | NOT READY; native finisher definition is explicit, no downer inference |
+| Precise credited trades / refrags | NOT READY; frozen legacy8second trade and KOST-trade inputs retained |
+| Pivot / untraded events | Legacy display semantics unchanged; credited upgrade NOT READY |
+| HS | Finisher headshots divided by finisher kills; credited-owner shot statistic NOT READY |
+
+Nina/OSAdinho attribution mismatch, Aokayu/missing kind5 relationships, DBNO/recovery ownership and clock epoch/terminal limits remain unresolved. No opaque history kind was promoted from correlation alone. Cumulative counter offsets are not exact elimination timestamps (+2 updates and after-death increments remain permanent regressions). These unresolved relationships do not alter the independently supported count migration or tested explicit finisher/legacy v3 feature definitions.
+
+### Current UAH totals and eligibility
+
+All7maps/82historical rounds,816round-player rows,575kill rows,28objective rows, raw normalized data, players/aliases, operator usage, metadata, rehost structure, archives and immutable v2 snapshots are unchanged by v3 deployment. Lgon's Michigan Border R08 disable remains intact. Current display totals:
+
+| Player | K | D | Plants | Disables | KOST rounds | V3 Rating |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| OhWowJay | 91 | 50 | 2 | 0 | 58 | 1.581421174 |
+| Lgon | 81 | 48 | 2 | 2 | 54 | 1.441310153 |
+| AzoozNewzz | 57 | 61 | 2 | 0 | 50 | 1.082885288 |
+| Tallman3.14 | 37 | 63 | 6 | 0 | 41 | 0.852978563 |
+| DinoFireKing | 36 | 51 | 3 | 0 | 50 | 0.764537724 |
+
+V3 Rating uses4whole maps/42rounds per player: Fortress10, Michigan Border12, newer Border11, Nighthaven9. Original Border14 lacks complete verified core evidence for an opponent disable; Kafe14 has an unverified historical plant; Chalet12 lacks complete credit/actor evidence. Those maps remain in display statistics with null v3 Rating. Map/season/career JSON carries Rating coverage; UI shows42of82rounds/4of7maps. This restricted coverage is deliberate, not a silent use of incomplete objective inputs. No UAH training/tuning. V2 remains selectable, with exact old map/season/career Rating reproduction independently verified.
+
+### V3 development, formula and final gate
+
+Prospective plan3a8c3e5, fixed alpha1, four declared arms,988clean player-map observations/99maps/10whole-event folds. Verified1062rounds/7447positive event offsets; old clock sort reordered125rounds. Single triangular clutch-size term X(X+1)/2, not five per-size coefficients. Development MAE0.03031724, RMSE0.04098171, medianAE0.02238762, maxAE0.17531172,80.9717%within.05; native count gain7.0068%,9of10event wins. Native linear79.9595% fails80%; sparse1v4/5 and event heterogeneity remain limitations.
+
+Exact full-precision standardized runtime: r6stats/stats/rating_v3.py, identical to research/v3-native-order-candidate.json. Raw formula below is descriptive/rounded; calculations use full precision. Rates divide by eligible rounds:
+
+`Rating = 0.073737145 + 0.589345247 KPR - 0.172399408 TK rate + 0.220247961 extra MK rate + 0.153146792 native finisher opening differential rate + 0.245261453 triangular clutch rate + 0.459180620 KOST + 0.488175540 survival + 0.096126098 legacy trade differential rate + 0.450200607 objective rate`.
+
+Genuine untouched final: APAC NorthStage1 2026, official505/phase15000, SiegeGG110. All28group archives reserved before targets;17whole maps refused,110clean rows/11maps/8rosters/22objective-positive. Independent profile/IGN/public-ID aliases resolved before targets. Freeze e05dfc4 committed clean before ANYtarget access; model/rows/inputs/binaries/hashes sealed. Evaluated ONCE; event now permanently consumed.
+
+Unchanged final gate:>=100rows/10maps/8rosters/10objective-positive; MAE<=.035,>=10%MAE improvement vs exact original v2,>=80%within.05, RMSE no worse, maxAE<=.15, objective-positive and credit-affected subgroup MAE<=.05 when n>=10. **All gates PASS.**
+
+| Final metric | V3 | Exact original v2 |
+| --- | ---: | ---: |
+| MAE | 0.030359332 | 0.060586453 |
+| RMSE | 0.040205825 | 0.086468027 |
+| Median AE | 0.021574044 | See preserved final report |
+| Maximum AE | 0.106829999 | 0.397602318 |
+| Within .05 | 81.8182% | See preserved final report |
+
+Full threshold/subgroup/error data: research/output/v3-native-final-apac1-result.md. Original CNL, APAC NStage2 and South AmericaStage2 FAIL results remain permanent; no regrade or gate weakening. Frozen candidate's historical qualification-status string is retained as an immutable pre-final artifact; the later one-shot PASS and runtime/live checkpoints establish deployment status.
+
+### Verification, backups and final checkpoint
+
+Runtime/research parity:240tracked round/map/season/career comparisons,maxdifference0; all988consumed development predictor rows also checked in the new parity test without target regrading.543Python tests passed,1optional replay smoke skipped,6subtests; allGo/Y11 tests and go vet pass; public/admin builds pass. Exact historical v2 reproduction passes20documents (only methodology clarification differs). Post-apply source/table/archive/public/privacy guard passes. No parser/action-start code or old v2 coefficients/snapshots changed; default remains v3 while pure historical display calculations retain explicit v2 semantics.
+
+Current guard: `.venv/Scripts/python.exe research/verify_native_v3_checkpoint.py`. Older checkpoint source/public hashes intentionally describe older deployments; do NOT overwrite/rebase them or rerun old migration/fit/evaluation jobs. Private verified backup: data/research/native-v3-deployment-20261007/before.sqlite, before-settings.json, before-public. Stop admin, restore these to data/r6stats.sqlite, config/settings.json, web/public/data for local rollback; raw archives stay intact. V3 adds only a private hash-bound core-occurrence sidecar and active default setting; no historical row rewrite. Stored recalculation/export does not reparse replays, and changed normalized hashes invalidate stale objective evidence automatically.
+
+Remaining FUTURE work: larger independent validation events, rare clutch-size evidence, precise credited victim/opening/trade semantics, incomplete Chalet participation, unsupported objective compatibility under separate approval, and optional operator-relative research only after reliable operators. No new research, Rating version, UI redesign, multi-team or bonus-health work begins in this run. The authorized goal is complete; stop here.
+
+## Historical: passing v3 applied and locally verified; publish/live verification next - 2026-10-07
 
 siege_style_v3 is implemented EXACTLY from the frozen standardized native_triangular_size candidate and selected as the local/new-install default. Current seven maps/82 rounds retain every historical display statistic, credited source coverage, raw event/operator/objective/metadata/identity row and immutable v2 snapshot. Four whole maps/42 rounds are eligible for v3; original Border/Kafe lack complete core objective inventory and Chalet lacks complete credited participation. They remain historical display maps with null v3 Rating. No reparse, operator boundary, research refit or v2 coefficient change.
 
