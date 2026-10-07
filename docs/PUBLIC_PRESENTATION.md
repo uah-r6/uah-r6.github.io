@@ -12,7 +12,8 @@ and unlisted. They render only Player Stats, without navigation, period selector
 title or footer. Player and definition links open the full website in another tab.
 
 The default URL always reads `active_season` from exported `index.json`, ignoring
-the normal site's saved period. After activating a new season, regenerate and
+the normal site's saved period. Embeds do not access browser storage, so a frame
+can render even when that access is restricted. After activating a new season, regenerate and
 publish website data; the existing embed then follows that season when loaded.
 For a fixed historical view, append `?season=fall-2026` **after the hash route**.
 Unknown teams or seasons show a friendly error rather than another team's data.

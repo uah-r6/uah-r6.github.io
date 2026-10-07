@@ -35,12 +35,13 @@ function App(){
   useLayoutEffect(()=>{const name=location.pathname==='/submit'?'Submit Replays':location.pathname.startsWith('/methodology')?'Methodology':'UAH Rainbow Six Statistics';document.title=`${name} | UAH R6`},[location.pathname])
   const {data:index,error}=useData<Index>('index.json')
   const [season,setSeason]=useState('')
-  useEffect(()=>{if(index){setSeason(selectedPeriod(index.seasons,index.active_season,localStorage.getItem('necc-season')))}},[index])
+  const embedded=location.pathname.startsWith('/embed/')
+  useEffect(()=>{if(index&&!embedded){let saved:string|null=null;try{saved=localStorage.getItem('necc-season')}catch{/* Storage can be unavailable in restricted browser contexts. */}setSeason(selectedPeriod(index.seasons,index.active_season,saved))}},[index,embedded])
   useEffect(()=>{const embedded=location.pathname.startsWith('/embed/');document.documentElement.classList.toggle('embed-document',embedded);return ()=>document.documentElement.classList.remove('embed-document')},[location.pathname])
   if(!index)return <Loading error={error}/>
   if(location.pathname.startsWith('/embed/'))return <Routes><Route path="/embed/:teamSlug/player-stats" element={<EmbedStats index={index}/>}/><Route path="*" element={<NotFound compact/>}/></Routes>
   if(!season)return <Loading error={error}/>
-  const change=(value:string)=>{setSeason(value);localStorage.setItem('necc-season',value)}
+  const change=(value:string)=>{setSeason(value);try{localStorage.setItem('necc-season',value)}catch{/* The selected period still works without persistence. */}}
   return <div className="app" style={teamTheme(index.program.accent||'#0058A4')}>
     <header className="topbar"><Link className="brand" to="/"><img src={import.meta.env.BASE_URL+'brand/uah-esports-logo.png'} alt="UAH Esports"/><div><b>{index.program.short_name}</b><small>Rainbow Six Siege · NECC</small></div></Link>
       <nav aria-label="Main navigation"><NavLink end to="/">Program</NavLink><NavLink to="/players">Player Stats</NavLink><NavLink to="/matches">Matches</NavLink><NavLink to="/methodology">Methodology</NavLink><NavLink to="/submit">Submit Replays</NavLink></nav>

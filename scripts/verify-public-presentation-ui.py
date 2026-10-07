@@ -99,6 +99,13 @@ def verify(url, output):
         page.goto(url+'#/embed/blue/player-stats?season=missing',wait_until='networkidle')
         expect(page.locator('h1')).to_have_text('Page not found')
         checks.append('unlisted chrome-free compact embeds: 1000/800/600/390px, White, invalid team/season')
+        restricted=browser.new_page()
+        restricted.on('pageerror',lambda e:errors.append(str(e)))
+        restricted.add_init_script("Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Storage unavailable','SecurityError')}})")
+        restricted.goto(url+'#/embed/blue/player-stats',wait_until='networkidle')
+        expect(restricted.locator('tbody tr')).to_have_count(5)
+        restricted.close()
+        checks.append('embed renders when browser storage is inaccessible; no saved-period access')
         # New generic team and active season rollover, historical override, and Alumni.
         fixture=browser.new_page(viewport={'width':1000,'height':700})
         fixture.on('pageerror',lambda e:errors.append(str(e)))
