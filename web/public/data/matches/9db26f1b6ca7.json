@@ -434,55 +434,117 @@
       "number": 1,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Command Center, 2F Servers"
+      "site": "2F Command Center, 2F Servers",
+      "highlights": []
     },
     {
       "number": 2,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Storage, 1F Control Room"
+      "site": "1F Storage, 1F Control Room",
+      "highlights": []
     },
     {
       "number": 3,
       "side": "Defense",
       "result": "Loss",
-      "site": "B Assembly, B Tank"
+      "site": "B Assembly, B Tank",
+      "highlights": []
     },
     {
       "number": 4,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Command Center, 2F Servers"
+      "site": "2F Command Center, 2F Servers",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "3K",
+            "1v1"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 5,
       "side": "Defense",
       "result": "Loss",
-      "site": "1F Storage, 1F Control Room"
+      "site": "1F Storage, 1F Control Room",
+      "highlights": []
     },
     {
       "number": 6,
       "side": "Defense",
       "result": "Win",
-      "site": "B Assembly, B Tank"
+      "site": "B Assembly, B Tank",
+      "highlights": []
     },
     {
       "number": 7,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Command Center, 2F Servers"
+      "site": "2F Command Center, 2F Servers",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "4K"
+          ],
+          "emphasis": "strong"
+        },
+        {
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 8,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Command Center, 2F Servers"
+      "site": "2F Command Center, 2F Servers",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "4K"
+          ],
+          "emphasis": "strong"
+        }
+      ]
     },
     {
       "number": 9,
       "side": "Attack",
       "result": "Win",
-      "site": "1F Storage, 1F Control Room"
+      "site": "1F Storage, 1F Control Room",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        },
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     }
   ]
 }

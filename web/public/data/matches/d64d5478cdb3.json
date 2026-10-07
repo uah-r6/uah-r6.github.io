@@ -442,61 +442,141 @@
       "number": 1,
       "side": "Defense",
       "result": "Loss",
-      "site": "2F Bathroom, 2F Commander's Office"
+      "site": "2F Bathroom, 2F Commander's Office",
+      "highlights": []
     },
     {
       "number": 2,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Dormitory, 2F Games Room"
+      "site": "2F Dormitory, 2F Games Room",
+      "highlights": []
     },
     {
       "number": 3,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Waiting Room, 1F Cafeteria"
+      "site": "1F Waiting Room, 1F Cafeteria",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "1v2"
+          ],
+          "emphasis": "strong"
+        }
+      ]
     },
     {
       "number": 4,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Bathroom, 2F Commander's Office"
+      "site": "2F Bathroom, 2F Commander's Office",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 5,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Dormitory, 2F Games Room"
+      "site": "2F Dormitory, 2F Games Room",
+      "highlights": [
+        {
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "labels": [
+            "1v3"
+          ],
+          "emphasis": "strong"
+        },
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 6,
       "side": "Defense",
       "result": "Loss",
-      "site": "1F Waiting Room, 1F Cafeteria"
+      "site": "1F Waiting Room, 1F Cafeteria",
+      "highlights": []
     },
     {
       "number": 7,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Bathroom, 2F Commander's Office"
+      "site": "2F Bathroom, 2F Commander's Office",
+      "highlights": [
+        {
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "labels": [
+            "1v2",
+            "3K"
+          ],
+          "emphasis": "strong"
+        },
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 8,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Dormitory, 2F Games Room"
+      "site": "2F Dormitory, 2F Games Room",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "4K"
+          ],
+          "emphasis": "strong"
+        },
+        {
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 9,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Waiting Room, 1F Cafeteria"
+      "site": "1F Waiting Room, 1F Cafeteria",
+      "highlights": []
     },
     {
       "number": 10,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Bathroom, 2F Commander's Office"
+      "site": "2F Bathroom, 2F Commander's Office",
+      "highlights": []
     }
   ]
 }

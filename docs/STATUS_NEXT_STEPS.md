@@ -1,4 +1,57 @@
-## Current: public presentation and Google Sites embeds — 2026-10-07
+## Current: Series Rating, trends and sparse round highlights — 2026-10-07
+
+**IMPLEMENTED AND LOCALLY VERIFIED; DEPLOYMENT VERIFICATION NEXT.** Baseline
+clean `b270640`. This pass adds public `/#/series/:seriesId` pages, aggregate
+Series Player Stats with visible player-specific Rating coverage, Matches →
+series → map navigation, and one exported Series Rating per player trend point.
+The exact Rating is prominent on hover/focus/click/tap with date/opponent/team/
+recorded W–L/coverage context. Existing map Ratings and map routes remain.
+
+Series Rating combines trusted eligible counts and evaluates frozen v3 once.
+Tests prove equivalence to round-weighted **full-precision** map Ratings and
+refuse an unweighted or cached-value shortcut. Normal displayed statistics
+include all played maps. Coverage is Placements 1/3 maps, 10/38 rounds; Michigan
+1/2 maps, 12/24 rounds; UCF 2/2 maps, 20/20 rounds for all five current players.
+No eligible rounds means null/— and no trend point, never fake zero.
+
+Breakdown uses existing complete credited counters, validated native clutch
+logic and corrected core objective actor evidence, with historical internal-ID
+bindings and only the imported UAH team. Max two compact player groups/two labels;
+ACE > 4K > 1v2–1v5 > 3K > 1v1 > Disable > Plant. Unsupported types abstain
+independently. **31 of 82 rounds highlighted; 51 unlabelled.** No routine 2Ks,
+openings, trades, event logs or opponent identities. Chalet retains only its
+independently verified plant, without a credited-count/finisher fallback.
+
+See [SERIES_EXPERIENCE.md](SERIES_EXPERIENCE.md) for the mathematical proof,
+export schema, evidence rules, real-map audit, reference and continuation commands.
+
+Local verification: **606 Python tests + six subtests passed**, one optional
+real-replay smoke test skipped; **29 frontend tests passed**; public and admin
+Vite builds passed. New series browser suite and existing presentation suite
+passed at1440/1150/768/390px, including exact five-player Ratings, partial/null
+coverage, navigation, actual logical rounds, hover/focus/click/touch, keyboard
+selection, career team-move/season fixtures, Alumni and single/empty states.
+Existing Methodology suite retains110 frozen scatter points. Chrome/Edge replay
+selection regressions and mocked submission workflow passed. Existing compact
+embeds, restricted-storage behavior and real cross-origin iframe passed locally.
+
+Preservation: read-only candidate export and final comparison matched every
+previous public field in all27 original JSON documents after removing only
+approved additions and timestamp. Public validation passes all30 documents.
+683 baseline paths were checked: only authorized exporter/validator/docs/public
+JSON differ. All19 SQLite tables, historical normalized data, snapshots,
+memberships, frozen Rating/parser/credited/objective/clutch logic, private
+settings, research and Cloudflare backend are unchanged. All89 private archive
+files match their hashes and all seven archives verify Healthy. No replay
+parsing, imports, recalculation/database writes or real cloud uploads occurred.
+Ignored evidence: `data/research/series-experience-20261007/`.
+
+**NEXT ACTION:** push this coherent release; wait for Pages; run read-only live
+series/presentation/Methodology/replay-selection/submission regressions; compare
+all30 served JSON documents and JS/CSS against committed build; record deployment
+and final clean pushed checkpoint; STOP. Do not resume research or unrelated work.
+
+## Previous: public presentation and Google Sites embeds — 2026-10-07
 
 **COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Main release `674faad`
 and embed storage safeguard `9c027b9` are on main. Both Pages deployments passed;

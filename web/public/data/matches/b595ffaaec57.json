@@ -443,73 +443,94 @@
       "number": 1,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Master Bedroom, 2F Office"
+      "site": "2F Master Bedroom, 2F Office",
+      "highlights": []
     },
     {
       "number": 2,
       "side": "Attack",
       "result": "Loss",
-      "site": "2F Master Bedroom, 2F Office"
+      "site": "2F Master Bedroom, 2F Office",
+      "highlights": []
     },
     {
       "number": 3,
       "side": "Attack",
       "result": "Loss",
-      "site": "B Wine Cellar, B Snowmobile Garage"
+      "site": "B Wine Cellar, B Snowmobile Garage",
+      "highlights": []
     },
     {
       "number": 4,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Bar, 1F Gaming Room"
+      "site": "1F Bar, 1F Gaming Room",
+      "highlights": []
     },
     {
       "number": 5,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Master Bedroom, 2F Office"
+      "site": "2F Master Bedroom, 2F Office",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 6,
       "side": "Attack",
       "result": "Loss",
-      "site": "B Wine Cellar, B Snowmobile Garage"
+      "site": "B Wine Cellar, B Snowmobile Garage",
+      "highlights": []
     },
     {
       "number": 7,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Master Bedroom, 2F Office"
+      "site": "2F Master Bedroom, 2F Office",
+      "highlights": []
     },
     {
       "number": 8,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Kitchen, 1F Dining Room"
+      "site": "1F Kitchen, 1F Dining Room",
+      "highlights": []
     },
     {
       "number": 9,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Bar, 1F Gaming Room"
+      "site": "1F Bar, 1F Gaming Room",
+      "highlights": []
     },
     {
       "number": 10,
       "side": "Defense",
       "result": "Loss",
-      "site": "2F Master Bedroom, 2F Office"
+      "site": "2F Master Bedroom, 2F Office",
+      "highlights": []
     },
     {
       "number": 11,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Kitchen, 1F Dining Room"
+      "site": "1F Kitchen, 1F Dining Room",
+      "highlights": []
     },
     {
       "number": 12,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Master Bedroom, 2F Office"
+      "site": "2F Master Bedroom, 2F Office",
+      "highlights": []
     }
   ]
 }

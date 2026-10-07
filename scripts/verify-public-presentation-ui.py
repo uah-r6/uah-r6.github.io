@@ -48,16 +48,16 @@ def verify(url, output):
             assert all(x in card.inner_text() for x in ['Rating', 'K-D', 'KOST', 'Entry', 'KPR'])
         page.locator('.mobile-player .player-link').filter(has_text='Lgon').click()
         expect(page.locator('h1')).to_have_text('Lgon')
-        expect(page.locator('.trend-point')).to_have_count(4)
+        expect(page.locator('.trend-point')).to_have_count(3)
         labels = page.locator('.trend-point').evaluate_all('(els)=>els.map(e=>e.getAttribute("aria-label"))')
-        assert ['Fortress','Border','Border','Nighthaven Labs'] == [m for m in ['Fortress','Border','Border','Nighthaven Labs'] if any(m in label for label in labels)]
+        assert ['Placements','University of Michigan','UCF'] == [m for m in ['Placements','University of Michigan','UCF'] if any(m in label for label in labels)]
         page.locator('.trend-point').first.focus()
-        expect(page.locator('.trend-detail')).to_contain_text('Fortress')
-        expect(page.locator('.trend-detail')).to_contain_text('Rating 1.50')
-        page.keyboard.press('ArrowRight'); expect(page.locator('.trend-detail')).to_contain_text('Rating 1.43')
-        page.locator('.trend-point').last.click(); expect(page.locator('.trend-detail')).to_contain_text('Nighthaven Labs')
+        expect(page.locator('.trend-detail')).to_contain_text('Placements')
+        expect(page.locator('.trend-detail')).to_contain_text('1.50')
+        page.keyboard.press('ArrowRight'); expect(page.locator('.trend-detail')).to_contain_text('1.43')
+        page.locator('.trend-point').last.click(); expect(page.locator('.trend-detail')).to_contain_text('UCF'); expect(page.locator('.exact-series-rating')).to_contain_text('1.42')
         page.get_by_label('Statistics period').select_option('career')
-        expect(page.locator('.trend-point')).to_have_count(4)
+        expect(page.locator('.trend-point')).to_have_count(3)
         checks.append('mobile cards, normal profile link, exact Rating history, keyboard/tap context, career scope')
         page.goto(url+'#/matches', wait_until='networkidle')
         expect(page.locator('.series-card')).to_have_count(3)
@@ -129,8 +129,8 @@ def verify(url, output):
         expect(fixture.locator('tbody tr')).to_have_count(2)
         checks.append('generic team, active-season rollover, explicit historical season and Alumni rules')
         fixture.get_by_label('Statistics period').select_option('fall-2026')
-        for rows,label in [([profile['matches'][0]],None),([],'No eligible map Ratings yet.')]:
-            fixture.route('**/data/players/lgon/fall-2026.json',lambda r,request,rows=rows:r.fulfill(json={**profile,'matches':rows}))
+        for rows,label in [([profile['series_ratings'][0]],None),([],'No eligible Series Ratings yet.')]:
+            fixture.route('**/data/players/lgon/fall-2026.json',lambda r,request,rows=rows:r.fulfill(json={**profile,'series_ratings':rows}))
             fixture.goto(url+'#/players/lgon',wait_until='networkidle');fixture.reload(wait_until='networkidle')
             expect(fixture.locator('.trend-point')).to_have_count(len(rows))
             if label:expect(fixture.get_by_text(label,exact=True)).to_be_visible()
@@ -154,11 +154,11 @@ def verify(url, output):
             page.screenshot(path=str(output/'cross-origin-iframe.png'))
         finally:server.shutdown();server.server_close()
         checks.append('actual cross-origin iframe rendered trusted table without chrome')
-        routes=['','teams/blue','teams/white','teams/blue/roster','teams/white/roster','teams/blue/stats','players','players/lgon','matches','matches/9db26f1b6ca7','methodology/rating','submit','does-not-exist']
+        routes=['','teams/blue','teams/white','teams/blue/roster','teams/white/roster','teams/blue/stats','players','players/lgon','matches','matches/9db26f1b6ca7','series/40bf93b16f97','series/1a106d1b2f89','series/170b708e12f1','methodology/rating','submit','does-not-exist']
         for width in [1440,1150,768,390]:
             page.set_viewport_size({'width':width,'height':960})
             for route in routes:
-                page.goto(url+'#/'+route,wait_until='networkidle')
+                page.goto(url+'#/'+route,wait_until='domcontentloaded' if route=='submit' else 'networkidle')
                 expect(page.locator('h1').first).to_be_visible()
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1'),(width,route)
                 page.screenshot(path=str(output/f'{width}-{route.replace("/","_") or "home"}.png'),full_page=True)

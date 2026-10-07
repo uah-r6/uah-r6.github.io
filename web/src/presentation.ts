@@ -1,4 +1,4 @@
-import type {Match, Stats} from './publicTypes.ts'
+import type {Match, Stats, SeriesPoint} from './publicTypes.ts'
 import {leaderboardPlayers} from './scope.ts'
 
 export function embedSeason(seasons:{slug:string}[], active:string|null, explicit:string|null):string|null {
@@ -8,6 +8,15 @@ export function embedSeason(seasons:{slug:string}[], active:string|null, explici
 export function ratingHistory(matches:Match[]):Match[] {
   return matches.map((map,ordinal)=>({map,ordinal})).filter(({map})=>map.rating_eligible!==false&&map.rating_version==='siege_style_v3'&&typeof map.rating==='number'&&Number.isFinite(map.rating))
     .sort((a,b)=>a.map.date.localeCompare(b.map.date)||b.ordinal-a.ordinal).map(({map})=>map)
+}
+export function seriesRatingHistory(series:SeriesPoint[]):SeriesPoint[]{
+  const seen=new Set<string>()
+  return series.map((point,ordinal)=>({point,ordinal})).filter(({point})=>{
+    const key=JSON.stringify([point.id,point.team_slug,point.season])
+    if(seen.has(key))return false
+    seen.add(key)
+    return point.rating_version==='siege_style_v3'&&point.rating_maps>0&&point.rating_rounds>0&&typeof point.rating==='number'&&Number.isFinite(point.rating)
+  }).sort((a,b)=>a.point.date.localeCompare(b.point.date)||b.ordinal-a.ordinal).map(({point})=>point)
 }
 export function seriesGroups(matches:Match[]) {
   const groups=new Map<string,Match[]>()

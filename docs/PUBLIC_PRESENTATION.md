@@ -42,14 +42,17 @@ An actual authenticated Google Sites editor session is not part of these tests.
 
 ## What is displayed
 
-- Player Rating trends use **existing exported `siege_style_v3` player-map
-  Ratings**. Ineligible, missing or invalid values are omitted, never converted
-  to zero. Coverage reports eligible points out of recorded maps. Season/career
-  scoping comes from the requested public profile; no Rating is recalculated.
+- Player Rating trends use **exported `siege_style_v3` Series Ratings**, calculated
+  once from combined trusted eligible map counts. Ineligible, missing or invalid
+  values are omitted, never converted to zero. Context shows player-specific map
+  and round coverage. Season/career scoping comes from the requested public
+  profile; no Rating is recalculated in the frontend. See
+  [Series experience](SERIES_EXPERIENCE.md) for the formula and trust rules.
 - Dates are chronological. Within one date, the existing export's recorded
   order is reversed from newest-first to oldest-first. No precise start time is
   invented when only a date is available. Hover, focus, click or tap selects
-  map context; arrow keys move between points. Recent chips select the same data.
+  series context and its exact Rating; arrow keys move between points. Recent
+  chips select the same data. Individual map Ratings remain on map pages.
 - Series group by authoritative `series_id`, team and season. Logical map IDs
   appear once. **Recorded maps** summarizes stored W/L only; it does not assert
   that the complete competitive series was imported or won.

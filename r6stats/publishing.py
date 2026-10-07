@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from r6stats.export import export
+from r6stats.series_export import player_series
 
 DATA_PATHSPEC = ":(glob)web/public/data/**/*.json"
 
@@ -82,6 +83,62 @@ def validate_public_data(root: Path) -> int:
             for period in ['index', 'career'] + [s['slug'] for s in index.get('seasons', [])]:
                 if documents.get(f'teams/{alias}/{period}.json') != documents.get(f'teams/{slug}/{period}.json'):
                     raise ValueError(f'Website team slug alias is missing or stale: {alias}')
+    for name, series in documents.items():
+        if not name.startswith('series/'):
+            continue
+        maps = series.get('maps', [])
+        sid = series.get('id')
+        if (name != f'series/{sid}.json' or sid != series.get('series_id') or
+                not maps or len({m['id'] for m in maps}) != len(maps) or
+                series.get('rating_version') != index.get('rating_version')):
+            raise ValueError('Website series identity or logical map inventory differs.')
+        record = series.get('recorded_maps', {})
+        if record != {'count': len(maps), 'wins': sum(m['result'] == 'WIN' for m in maps),
+                      'losses': sum(m['result'] == 'LOSS' for m in maps)}:
+            raise ValueError('Website recorded series result differs.')
+        for m in maps:
+            original = documents.get(f"matches/{m['id']}.json", {})
+            if any(original.get(k) != series.get(k) or m.get(k) != series.get(k)
+                   for k in ('series_id', 'team_slug', 'team_name', 'season', 'opponent', 'week', 'notes')):
+                raise ValueError('Website series map metadata differs.')
+        for player in series.get('players', []):
+            if (player['slug'] not in player_slugs or
+                    not 0 <= player['rating_rounds'] <= player['rounds'] or
+                    not 0 <= player['rating_maps'] <= player['maps'] or
+                    ((player['rating'] is None) != (player['rating_rounds'] == 0))):
+                raise ValueError('Website Series Rating player or coverage is invalid.')
+    series_documents = {d['id']: d for name, d in documents.items() if name.startswith('series/')}
+    if series_documents:
+        for name, document in documents.items():
+            if name.startswith('matches/') and document.get('series_id') not in series_documents:
+                raise ValueError('Website map series reference is missing.')
+            if not name.startswith('players/'):
+                continue
+            seen = set()
+            for point in document.get('series_ratings', []):
+                sid = point.get('id')
+                series = series_documents.get(sid, {})
+                player = next((p for p in series.get('players', []) if p['slug'] == document.get('slug')), None)
+                if not player or sid in seen or point != player_series(series, player):
+                    raise ValueError('Website player Series Rating reference differs.')
+                if not name.endswith('/career.json') and point['season'] != name.split('/')[-1][:-5]:
+                    raise ValueError('Website player Series Rating season differs.')
+                seen.add(sid)
+    for name, document in documents.items():
+        if not name.startswith('matches/'):
+            continue
+        participants = {p['slug'] for p in document.get('players', [])}
+        for round_ in document.get('rounds', []):
+            groups = round_.get('highlights', [])
+            if len(groups) > 2 or len({g['player_slug'] for g in groups}) != len(groups):
+                raise ValueError('Website round highlights exceed compact group limits.')
+            for group in groups:
+                if (set(group) != {'player_slug', 'player_name', 'labels', 'emphasis'} or
+                        group['player_slug'] not in participants or not 1 <= len(group['labels']) <= 2 or
+                        group['emphasis'] not in ('strong', 'notable', 'objective') or
+                        len(set(group['labels'])) != len(group['labels']) or
+                        any(label not in ('3K', '4K', 'ACE', '1v1', '1v2', '1v3', '1v4', '1v5', 'Plant', 'Disable') for label in group['labels'])):
+                    raise ValueError('Website round highlight is invalid or private.')
     return len(paths)
 
 

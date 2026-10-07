@@ -249,6 +249,71 @@
       "rating": 1.207769246683868
     }
   ],
+  "series_ratings": [
+    {
+      "id": "40bf93b16f97",
+      "series_id": "40bf93b16f97",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "season": "fall-2026",
+      "season_name": "Fall 2026",
+      "opponent": "UCF",
+      "date": "2026-10-06",
+      "recorded_maps": {
+        "count": 2,
+        "wins": 2,
+        "losses": 0
+      },
+      "rating_version": "siege_style_v3",
+      "rating": 0.9273763058966268,
+      "rating_maps": 2,
+      "rating_rounds": 20,
+      "maps": 2,
+      "rounds": 20
+    },
+    {
+      "id": "1a106d1b2f89",
+      "series_id": "1a106d1b2f89",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "season": "fall-2026",
+      "season_name": "Fall 2026",
+      "opponent": "University of Michigan",
+      "date": "2026-09-30",
+      "recorded_maps": {
+        "count": 2,
+        "wins": 2,
+        "losses": 0
+      },
+      "rating_version": "siege_style_v3",
+      "rating": 1.2379969588814805,
+      "rating_maps": 1,
+      "rating_rounds": 12,
+      "maps": 2,
+      "rounds": 24
+    },
+    {
+      "id": "170b708e12f1",
+      "series_id": "170b708e12f1",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "season": "fall-2026",
+      "season_name": "Fall 2026",
+      "opponent": "Placements",
+      "date": "2026-09-23",
+      "recorded_maps": {
+        "count": 3,
+        "wins": 2,
+        "losses": 1
+      },
+      "rating_version": "siege_style_v3",
+      "rating": 1.207769246683868,
+      "rating_maps": 1,
+      "rating_rounds": 10,
+      "maps": 3,
+      "rounds": 38
+    }
+  ],
   "memberships": [
     {
       "team_slug": "blue",

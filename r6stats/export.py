@@ -5,6 +5,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from r6stats.parser.models import Match
+from r6stats.series_export import SeriesProjection, player_series
+from r6stats.round_highlights import curate, objective_match
 from r6stats.db import teams as team_repo
 from r6stats.rating_inputs_v3 import load_inputs as load_v3
 from r6stats.manual_kd import apply_display_kd
@@ -24,6 +26,8 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         raise ValueError(f"Configured Rating version is unavailable: {version}")
     if version in ("siege_style_v2", "siege_style_v3") and config["stats"]["trade_window_seconds"] != 8:
         raise ValueError(f"{version} requires its frozen 8-second trade window.")
+    if db.execute("SELECT 1 FROM maps m JOIN series s ON s.id=m.series_id WHERE m.team_id != s.team_id LIMIT 1").fetchone():
+        raise ValueError('Series team ownership differs from its maps.')
     # Remove obsolete generated files (for example after clearing demo maps).
     if root.exists():
         for old in root.rglob("*.json"):
@@ -45,10 +49,13 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     team_inputs = defaultdict(lambda: defaultdict(list))
     team_rating_inputs = defaultdict(lambda: defaultdict(list))
     team_adjustments = defaultdict(lambda: defaultdict(lambda: [0, 0]))
+    series_projection = SeriesProjection(version)
+    series_history = defaultdict(list)
+    identities = {p['id']: {'slug': p['slug'], 'name': p['display_name'], 'status': p['status']} for p in players}
     organizations = [dict(r) for r in db.execute("SELECT * FROM teams ORDER BY display_order,id")]
     by_id = {t["id"]: t for t in organizations}
     rows = db.execute("""SELECT m.*, s.opponent,s.date,s.week,s.notes,s.demo,s.id AS series_public,
-                          se.slug AS season_slug FROM maps m JOIN series s ON s.id=m.series_id
+                          se.slug AS season_slug, se.name AS season_name, s.date AS series_date FROM maps m JOIN series s ON s.id=m.series_id
                           JOIN seasons se ON se.id=s.season_id
                           ORDER BY COALESCE(m.played_on,s.date) DESC,m.rowid DESC""").fetchall()
     for row in rows:
@@ -61,7 +68,8 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
             rating_inputs = rating_stats(db, row["id"], stats, window, version)
         # Validate frozen Rating inputs against original finish events BEFORE
         # applying independent credited-count display projections.
-        stats = display_stats(match, load_credit(db, row['id']), window, display_version)
+        credit = load_credit(db, row['id'])
+        stats = display_stats(match, credit, window, display_version)
         bound_keys = defaultdict(set)
         for binding in db.execute("""SELECT DISTINCT rp.player_id,rp.player_key
             FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
@@ -84,6 +92,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         if row["demo"]:
             demo_seasons.add(row["season_slug"])
         public_players = []
+        series_participants = {}
         for p in players:
             keys = [key for key in bound_keys[p["id"]] if key in stats]
             if keys:
@@ -101,6 +110,9 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     entry.update(rating_rounds=rating_raw["rounds"] if rating_eligible else 0,
                                  rating_maps=int(rating_eligible))
                 public_players.append(entry)
+                series_participants[p['id']] = {'map_id': row['id'], 'display': raw,
+                    'rating': rating_raw if rating_eligible and version == 'siege_style_v3' else None,
+                    'delta': (correction['final_kills'] - raw['kills'], correction['final_deaths'] - raw['deaths']) if correction else (0, 0)}
                 scope = (row["team_id"], row["season_slug"])
                 team_inputs[scope][p["slug"]].append(raw)
                 if rating_eligible:
@@ -117,12 +129,29 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     adjustment[1] += correction["final_deaths"] - raw["deaths"]
                 player_matches[p["slug"]][row["season_slug"]].append(
                     {**public, "rating": rating_raw["rating"] if rating_eligible else None})
+        metadata = {'id': row['series_public'], 'series_id': row['series_public'],
+                    **{key: public[key] for key in ('team_slug', 'team_name', 'season', 'opponent', 'week', 'notes', 'demo')},
+                    'date': row['series_date'], 'season_name': row['season_name']}
+        series_projection.add(metadata, public, series_participants)
+        historical_bindings = {}
+        for player_id, keys in bound_keys.items():
+            for key in keys:
+                if key in historical_bindings and historical_bindings[key] != player_id:
+                    raise ValueError('Ambiguous historical series player identity.')
+                historical_bindings[key] = player_id
+        records = json.loads(db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (row['id'],)).fetchone()[0]) if credit is not None else []
+        highlights = curate(objective_match(db, row, match), credit if not corrections else None,
+                            records, historical_bindings, identities, row['our_team'])
         rounds = [{"number": r.number, "side": next((p.side for p in r.players if p.team == row["our_team"]), "Unknown"),
-                   "result": "Win" if r.winner == row["our_team"] else "Loss", "site": r.site}
+                   "result": "Win" if r.winner == row["our_team"] else "Loss", "site": r.site, "highlights": highlights.get(r.number, [])}
                   for r in match.rounds]
         write(root / "matches" / f"{row['id']}.json", {**public, "players": public_players, "rounds": rounds})
         season_matches[row["season_slug"]].append(public)
         team_maps[(row["team_id"], row["season_slug"])].append(public)
+    for document in series_projection.documents(identities):
+        write(root / 'series' / f"{document['id']}.json", document)
+        for player in document['players']:
+            series_history[player['slug']].append(player_series(document, player))
     for season in seasons:
         slug = season["slug"]
         leaderboard = []
@@ -226,8 +255,10 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     ratings = [r for scope in selected for r in team_rating_inputs[scope][p["slug"]]]
                     delta = [sum(team_adjustments[scope][p["slug"]][i] for scope in selected) for i in (0, 1)]
                     splits.append({"team_slug": team["slug"], "team_name": team["name"], **total(raws, ratings, delta)})
-            write(path, {**profile, "memberships": team_repo.history(db, p["id"]), "team_splits": splits})
+            write(path, {**profile, "series_ratings": [s for s in series_history[p["slug"]] if view == "career" or s["season"] == view], "memberships": team_repo.history(db, p["id"]), "team_splits": splits})
     careers = [json.loads((root / "players" / p["slug"] / "career.json").read_text(encoding="utf-8")) for p in players]
+    for career in careers:
+        career.pop('series_ratings', None)  # Trend history belongs to profiles, not table rows.
     write(root / "seasons" / "career.json", summary([m for ms in season_matches.values() for m in ms], careers, "career", "Program career"))
     write(root / "index.json", {"team": config["team"], "program": config.get("program", {"name": "UAH Rainbow Six Siege", "short_name": "UAH R6"}),
                                 "teams": public_teams, "active_season": active,

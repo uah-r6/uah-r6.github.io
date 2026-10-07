@@ -18,8 +18,10 @@ Public routes use the existing hash router: `/#/teams/blue`, `/#/teams/blue/rost
 ## Public presentation and embeds
 
 Player Stats uses compact cards on phones and the sortable table on larger
-screens. Player profiles include trusted map Rating trends, and Matches shows
-conservative recorded-map series summaries. Help controls explain each metric.
+screens. Player profiles include trusted Series Rating trends, and Matches links
+to recorded-series pages with aggregate Player Stats and visible Rating coverage.
+Map pages retain individual Ratings and show sparse replay-verified round highlights.
+See [series calculation and trust rules](docs/SERIES_EXPERIENCE.md). Help controls explain each metric.
 The footer reports the actual public-data export timestamp.
 
 Google Sites utility URLs automatically follow the active published season:

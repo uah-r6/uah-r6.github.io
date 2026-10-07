@@ -444,73 +444,140 @@
       "number": 1,
       "side": "Attack",
       "result": "Loss",
-      "site": "2F Armory Lockers, 2F Archives"
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": []
     },
     {
       "number": 2,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": [
+        {
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 3,
       "side": "Attack",
       "result": "Win",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [
+        {
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 4,
       "side": "Attack",
       "result": "Loss",
-      "site": "2F Armory Lockers, 2F Archives"
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": []
     },
     {
       "number": 5,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": []
     },
     {
       "number": 6,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [
+        {
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 7,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Armory Lockers, 2F Archives"
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": []
     },
     {
       "number": 8,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "3K",
+            "Disable"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 9,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": []
     },
     {
       "number": 10,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Armory Lockers, 2F Archives"
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": []
     },
     {
       "number": 11,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Bathroom, 1F Tellers"
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": [
+        {
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 12,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Ventilation Room, 1F Workshop"
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     }
   ]
 }

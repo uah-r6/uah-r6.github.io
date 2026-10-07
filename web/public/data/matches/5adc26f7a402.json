@@ -450,85 +450,161 @@
       "number": 1,
       "side": "Attack",
       "result": "Win",
-      "site": "3F Bar, 3F Cocktail Lounge"
+      "site": "3F Bar, 3F Cocktail Lounge",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        },
+        {
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 2,
       "side": "Attack",
       "result": "Win",
-      "site": "1F Kitchen Service, 1F Kitchen Cooking"
+      "site": "1F Kitchen Service, 1F Kitchen Cooking",
+      "highlights": [
+        {
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     },
     {
       "number": 3,
       "side": "Attack",
       "result": "Loss",
-      "site": "3F Bar, 3F Cocktail Lounge"
+      "site": "3F Bar, 3F Cocktail Lounge",
+      "highlights": []
     },
     {
       "number": 4,
       "side": "Attack",
       "result": "Loss",
-      "site": "1F Kitchen Service, 1F Kitchen Cooking"
+      "site": "1F Kitchen Service, 1F Kitchen Cooking",
+      "highlights": []
     },
     {
       "number": 5,
       "side": "Attack",
       "result": "Win",
-      "site": "2F Reading Room, 2F Fireplace Hall"
+      "site": "2F Reading Room, 2F Fireplace Hall",
+      "highlights": []
     },
     {
       "number": 6,
       "side": "Attack",
       "result": "Win",
-      "site": "3F Bar, 3F Cocktail Lounge"
+      "site": "3F Bar, 3F Cocktail Lounge",
+      "highlights": []
     },
     {
       "number": 7,
       "side": "Defense",
       "result": "Win",
-      "site": "1F Kitchen Service, 1F Kitchen Cooking"
+      "site": "1F Kitchen Service, 1F Kitchen Cooking",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "1v2"
+          ],
+          "emphasis": "strong"
+        }
+      ]
     },
     {
       "number": 8,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Reading Room, 2F Fireplace Hall"
+      "site": "2F Reading Room, 2F Fireplace Hall",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 9,
       "side": "Defense",
       "result": "Loss",
-      "site": "2F Fireplace Hall, 2F Mining Room"
+      "site": "2F Fireplace Hall, 2F Mining Room",
+      "highlights": []
     },
     {
       "number": 10,
       "side": "Defense",
       "result": "Loss",
-      "site": "1F Kitchen Service, 1F Kitchen Cooking"
+      "site": "1F Kitchen Service, 1F Kitchen Cooking",
+      "highlights": []
     },
     {
       "number": 11,
       "side": "Defense",
       "result": "Loss",
-      "site": "2F Reading Room, 2F Fireplace Hall"
+      "site": "2F Reading Room, 2F Fireplace Hall",
+      "highlights": []
     },
     {
       "number": 12,
       "side": "Defense",
       "result": "Loss",
-      "site": "2F Fireplace Hall, 2F Mining Room"
+      "site": "2F Fireplace Hall, 2F Mining Room",
+      "highlights": []
     },
     {
       "number": 13,
       "side": "Defense",
       "result": "Win",
-      "site": "2F Reading Room, 2F Fireplace Hall"
+      "site": "2F Reading Room, 2F Fireplace Hall",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "3K"
+          ],
+          "emphasis": "notable"
+        }
+      ]
     },
     {
       "number": 14,
       "side": "Attack",
       "result": "Win",
-      "site": "3F Bar, 3F Cocktail Lounge"
+      "site": "3F Bar, 3F Cocktail Lounge",
+      "highlights": [
+        {
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "labels": [
+            "Plant"
+          ],
+          "emphasis": "objective"
+        }
+      ]
     }
   ]
 }
