@@ -63,4 +63,27 @@ Frozen v2 reference has seen some earlier development rows; candidate prediction
 | corrected_nine_objectives/trade | 0.09573848 | 0.14180459 | 0.08906231 | 0.11586582 |
 | corrected_nine_objectives/objectives | 0.43814020 | 0.00000000 | 0.40820015 | 0.45703141 |
 
-Exact per-event metrics, all thresholds, fold models, residual quantiles, objective-positive and kill-credit-affected residuals are preserved in the private experiment. No new final event was selected or opened.
+Exact per-event metrics, all thresholds, fold models, residual quantiles, objective-positive and kill-credit-affected residuals are preserved in the private experiment. No new final event was selected or opened during this development experiment.
+
+## Candidate event folds and subgroup residuals
+
+| Held-out event | Rows | Exact v2 MAE | Candidate MAE | within .05 |
+| --- | ---: | ---: | ---: | ---: |
+| APAC Kickoff | 50 | .05145 | .02897 | 84.0% |
+| ASIA Stage 1 | 18 | .04526 | .03629 | 72.2% |
+| APAC North Stage 2 (consumed development) | 100 | .05093 | .03419 | 77.0% |
+| EWC | 30 | .03872 | .02451 | 86.7% |
+| EMEA Stage 1 | 50 | .04570 | .02540 | 86.0% |
+| NA Stage 1 | 150 | .04988 | .02890 | 84.0% |
+| Salt Lake City Major | 60 | .05197 | .03220 | 81.7% |
+| SAL Stage 1 | 50 | .03900 | .02676 | 86.0% |
+| SAL Stage 2 (consumed development) | 180 | .05153 | .03456 | 77.2% |
+
+The pooled development qualification passes; several individual events remain below80%. Those failures/limits are preserved and are not grounds for residual-specific tuning or regrading their historical finals.
+
+| Subgroup | Rows | MAE | RMSE | Median AE | Max AE | within .05 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Objective-positive | 147 | .03075 | .04097 | .02470 | .16662 | 83.0% |
+| Kill-credit-affected | 194 | .03029 | .04157 | .02280 | .14898 | 82.5% |
+
+Candidate pooled signed residual mean+.00012, median+.00442; quantiles5/10/25/50/75/90/95% are-.07534/-.05296/-.02011/+.00440/+.02435/+.04594/+.06321. Raw intercept.07071561632224965. The exact standardized model and full-precision coefficients remain in the frozen candidate; these rounded report values must not become runtime constants.
