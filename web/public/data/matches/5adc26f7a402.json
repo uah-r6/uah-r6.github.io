@@ -12,7 +12,9 @@
   "their_score": 6,
   "result": "WIN",
   "demo": false,
-  "rating_eligible": true,
+  "rating_eligible": false,
+  "rating_version": "siege_style_v3",
+  "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
   "players": [
     {
       "slug": "azooznewzz",
@@ -74,7 +76,7 @@
           "kpr": 0.7142857142857143
         }
       },
-      "rating": 1.0284223478831476,
+      "rating": null,
       "kd": 1.0909090909090908,
       "kpr": 0.8571428571428571,
       "kost": 0.5714285714285714,
@@ -95,7 +97,9 @@
         "3": 0,
         "4": 0,
         "5": 0
-      }
+      },
+      "rating_rounds": 0,
+      "rating_maps": 0
     },
     {
       "slug": "dinofireking",
@@ -156,7 +160,7 @@
           "kpr": 0.42857142857142855
         }
       },
-      "rating": 0.911595544069945,
+      "rating": null,
       "kd": 0.6666666666666666,
       "kpr": 0.42857142857142855,
       "kost": 0.7142857142857143,
@@ -177,7 +181,9 @@
         "3": 0,
         "4": 0,
         "5": 0
-      }
+      },
+      "rating_rounds": 0,
+      "rating_maps": 0
     },
     {
       "slug": "lgon",
@@ -239,7 +245,7 @@
           "kpr": 0.5714285714285714
         }
       },
-      "rating": 1.5064553560670397,
+      "rating": null,
       "kd": 2.5,
       "kpr": 1.0714285714285714,
       "kost": 0.6428571428571429,
@@ -260,7 +266,9 @@
         "3": 1,
         "4": 0,
         "5": 0
-      }
+      },
+      "rating_rounds": 0,
+      "rating_maps": 0
     },
     {
       "slug": "ohwowjay",
@@ -322,7 +330,7 @@
           "kpr": 1.0
         }
       },
-      "rating": 1.0466713177643931,
+      "rating": null,
       "kd": 1.3333333333333333,
       "kpr": 0.8571428571428571,
       "kost": 0.6428571428571429,
@@ -343,7 +351,9 @@
         "3": 2,
         "4": 0,
         "5": 0
-      }
+      },
+      "rating_rounds": 0,
+      "rating_maps": 0
     },
     {
       "slug": "tallman3-14",
@@ -402,7 +412,7 @@
           "kpr": 0.5714285714285714
         }
       },
-      "rating": 0.7643110603573284,
+      "rating": null,
       "kd": 0.6666666666666666,
       "kpr": 0.5714285714285714,
       "kost": 0.5714285714285714,
@@ -423,7 +433,9 @@
         "3": 0,
         "4": 0,
         "5": 0
-      }
+      },
+      "rating_rounds": 0,
+      "rating_maps": 0
     }
   ],
   "rounds": [

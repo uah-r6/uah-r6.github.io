@@ -23,6 +23,7 @@ from r6stats.db import repository as repo
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats import manual_kd
+from r6stats.rating_inputs_v3 import load_inputs as load_v3
 from r6stats.parser.models import Match
 from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
@@ -752,6 +753,10 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
             db, map_id, read_settings(root)["stats"]["trade_window_seconds"])
         details["manual_kd_correction"] = any(p["corrected"] for p in details["kd_players"])
         details["rating_eligible"] = bool(row["replay_data_complete"]) and not details["manual_kd_correction"]
+        if read_settings(root)["stats"].get("rating_version", RATING_VERSION) == "siege_style_v3":
+            inputs, reason = load_v3(db, map_id)
+            details["rating_eligible"] = inputs is not None
+            details["rating_exclusion"] = reason
         details["archive"] = replay_archive.verify(db, root / "data/replay-archive", map_id)
         return details
 
@@ -899,8 +904,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     def save_settings(payload: SettingsUpdate, db: DB):
         if payload.replay_path.strip() and not Path(payload.replay_path.strip()).expanduser().is_dir():
             raise ValueError("Replay folder does not exist. Select the folder containing match directories.")
-        if payload.rating_version == "siege_style_v2" and payload.trade_window_seconds != 8:
-            raise ValueError("siege_style_v2 requires its frozen 8-second trade window.")
+        if payload.rating_version in ("siege_style_v2", "siege_style_v3") and payload.trade_window_seconds != 8:
+            raise ValueError("Siege-style Ratings require their frozen 8-second trade window.")
         config = read_settings(root)
         config["team"] = {"name": payload.team_name.strip(), "short_name": payload.short_name.strip(),
                           "accent": payload.accent}

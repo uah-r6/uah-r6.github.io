@@ -2,9 +2,10 @@
 from collections import Counter, defaultdict
 
 from r6stats.parser.models import Match
+from r6stats.stats.rating_v3 import SiegeStyleV3Rating
 
-RATING_VERSION = "siege_style_v2"
-RATING_VERSIONS = ("collegiate_v1", "siege_style_v2")
+RATING_VERSION = "siege_style_v3"
+RATING_VERSIONS = ("collegiate_v1", "siege_style_v2", "siege_style_v3")
 COUNTS = ("rounds", "kills", "deaths", "headshots", "opening_kills", "opening_deaths",
           "refrag_kills", "deaths_traded", "kills_traded", "untraded_kills",
           "untraded_deaths", "pivot_kills", "pivot_deaths", "plants", "disables",
@@ -71,6 +72,8 @@ def calculate_rating(s: dict, version: str) -> float:
         return RatingEngine.calculate(s)
     if version == SiegeStyleRating.version:
         return SiegeStyleRating.calculate(s)
+    if version == SiegeStyleV3Rating.version:
+        return SiegeStyleV3Rating.calculate(s)
     raise ValueError(f"Configured Rating version is unavailable: {version}")
 
 
@@ -85,7 +88,11 @@ def chronological(kills):
 
 
 def calculate_match(match: Match, trade_window_seconds: float = 8,
-                    rating_version: str = RATING_VERSION) -> dict[str, dict]:
+                    rating_version: str = "siege_style_v2") -> dict[str, dict]:
+    # Historical display features/v2 preserve their original chronology. V3
+    # requires the independently verified inputs in r6stats.rating_inputs_v3.
+    if rating_version == "siege_style_v3":
+        raise ValueError("siege_style_v3 requires validated whole-map Rating inputs.")
     if rating_version not in RATING_VERSIONS:
         raise ValueError(f"Configured Rating version is unavailable: {rating_version}")
     if rating_version == SiegeStyleRating.version and trade_window_seconds != 8:
@@ -200,7 +207,7 @@ def merge(target: dict, source: dict) -> None:
             target["operators"][side][op] = target["operators"][side].get(op, 0) + count
 
 
-def finalize(s: dict, rating_version: str = RATING_VERSION) -> dict:
+def finalize(s: dict, rating_version: str = "siege_style_v2") -> dict:
     r = s["rounds"]
     s["rating"] = calculate_rating(s, rating_version)
     s["kd"] = s["kills"] / s["deaths"] if s["deaths"] else None
@@ -217,7 +224,7 @@ def finalize(s: dict, rating_version: str = RATING_VERSION) -> dict:
     return s
 
 
-def aggregate(stat_rows: list[dict], rating_version: str = RATING_VERSION) -> dict:
+def aggregate(stat_rows: list[dict], rating_version: str = "siege_style_v2") -> dict:
     total = empty()
     for row in stat_rows:
         merge(total, row)

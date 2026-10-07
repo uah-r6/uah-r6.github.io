@@ -1,4 +1,12 @@
-## Current: native-order candidate qualified; new APAC NStage1 final targets unopened - 2026-10-07
+## Current: independently passing v3 implemented; deployment verification in progress - 2026-10-07
+
+The APAC North Stage1 final was frozen at e05dfc4 BEFORE target access and evaluated ONCE: 110 clean rows /11 maps /8 rosters, MAE0.03035933, RMSE0.04020582, 81.8182%within.05, maxAE0.10683. Exact original v2 MAE0.06058645 /RMSE0.08646803. Every unchanged acceptance gate passes. This event is permanently consumed; never rerun evaluation or refit the frozen model. Earlier CNL/APAC/SAL failures stay permanent. See [final](output/v3-native-final-apac1-result.md).
+
+Exact standardized runtime coefficients live in r6stats/stats/rating_v3.py; trustworthy stored inputs in r6stats/rating_inputs_v3.py. Global legacy display chronology/parser/action-start logic are unchanged. Native opening is first opposing FINISHER, not credited-owner opening. Triangle X(X+1)/2 clutch weight is the single prospectively selected broad event-fold coefficient. Trade/KOST-trade policy stays legacy8s. Complete credited/core objective/native parity is mandatory for the whole map. Unsupported UAH maps remain unrated; all82display rounds persist. Four eligible maps/42rounds per player give 240 runtime/research comparisons with maximum error0. No UAH tuning. See [deployment review](output/native-v3-deployment-review.md).
+
+Private preview/backups: data/research/native-v3-deployment-20261007. Do not rerun old immutable experiments or migration scripts. Research/download/raw/private data remain ignored. Pending: apply reviewed default/export after passing full gates, push existing Pages workflow, verify live JSON/player pages, final checkpoint and STOP.
+
+## Historical: native-order candidate qualified; new APAC NStage1 final targets unopened - 2026-10-07
 
 Prospective native-order study3a8c3e5 fitted once:988rows/99maps/10event folds. Triangular clutch armMAE0.03031724,80.9717%within.05,maxAE0.17531; seven-percent MAE gain over native count with nine event wins. Native linear79.9595% FAILS80%, despite rounded table showing80.0%. All other arms/folds/coefficients/drift/subgroups remain preserved. See [development](output/v3-native-order-development.md). No per-size coefficient search, source or Rating change.
 

@@ -1,3 +1,13 @@
+## Current: passing v3 applied and locally verified; publish/live verification next - 2026-10-07
+
+siege_style_v3 is implemented EXACTLY from the frozen standardized native_triangular_size candidate and selected as the local/new-install default. Current seven maps/82 rounds retain every historical display statistic, credited source coverage, raw event/operator/objective/metadata/identity row and immutable v2 snapshot. Four whole maps/42 rounds are eligible for v3; original Border/Kafe lack complete core objective inventory and Chalet lacks complete credited participation. They remain historical display maps with null v3 Rating. No reparse, operator boundary, research refit or v2 coefficient change.
+
+Verified private backup and reviewed projection: data/research/native-v3-deployment-20261007. Runtime/research parity on tracked rounds/maps/season/career:240comparisons,maxdifference0. Exact v2 reproduction passes all20public documents except methodology clarification. Source/sidecar/default/export guard research/verify_native_v3_checkpoint.py passes; all7archives Healthy,20public JSON validated. Python543passed,1optional skip,6subtests; Go all/Y11 tests and vet pass; public/admin builds pass. Existing React design unchanged; only v3 formula, choice and coverage text/tooltips added.
+
+Actual quoted Start NECC Admin.cmd restarted old15472 process; current server17672 uses repository .venv Python, repository r6stats/parser/admin files. Browser automatically opened. Live local API returns siege_style_v3; headless Edge admin Settings and built public Lgon/methodology pages render correct coverage/Rating with zero page errors. Private screenshot/log evidence retained.
+
+NEXT ACTION: commit reviewed v3 implementation/public data, push main, await existing Pages workflow success, verify all20live JSON against committed LF bytes and all5player season/career pages plus methodology, preserve live evidence/final clean checkpoint, THEN STOP. All publication authorized; no more model work or unrelated features. Frozen APAC Stage1 PASS and earlier CNL/APAC/SAL FAIL results stay permanent.
+
 ## Current: frozen APAC North Stage1 final PASS; runtime deployment next - 2026-10-07
 
 Freeze e05dfc4 was committed before any Rating targets. The sole evaluation passed every unchanged gate: 110 clean rows/11 maps/8 rosters, v3 MAE0.03035933, RMSE0.04020582, medianAE0.02157404, maxAE0.10683000, 81.8182% within .05. Exact original v2 MAE0.06058645, RMSE0.08646803. All subgroup gates pass. The event is consumed; never rerun evaluation, refit the qualified model, or change gates. Immutable private result: data/research/v3-native-final-apac-n-stage1/one-shot-result.json. Public report: research/output/v3-native-final-apac1-result.md.

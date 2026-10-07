@@ -72,7 +72,7 @@
     }
   },
   "maps": 7,
-  "rating": 0.7250353703530998,
+  "rating": 0.8529785630583683,
   "kd": 0.5873015873015873,
   "kpr": 0.45121951219512196,
   "kost": 0.5,
@@ -95,6 +95,8 @@
     "4": 0,
     "5": 0
   },
+  "rating_rounds": 42,
+  "rating_maps": 4,
   "matches": [
     {
       "id": "9db26f1b6ca7",
@@ -111,7 +113,9 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.9420703149543622
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null,
+      "rating": 0.9848593026674388
     },
     {
       "id": "8af0a6db6c39",
@@ -128,7 +132,9 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.5885170805756361
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null,
+      "rating": 0.6908516244486744
     },
     {
       "id": "b595ffaaec57",
@@ -144,8 +150,10 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": true,
-      "rating": 0.8908934724966213
+      "rating_eligible": false,
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": "Incomplete credited-kill evidence",
+      "rating": null
     },
     {
       "id": "076d2b6b02bc",
@@ -162,7 +170,9 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.9133881413434675
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null,
+      "rating": 0.934669056494805
     },
     {
       "id": "5adc26f7a402",
@@ -178,8 +188,10 @@
       "their_score": 6,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": true,
-      "rating": 0.7643110603573284
+      "rating_eligible": false,
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
+      "rating": null
     },
     {
       "id": "8a6357ff307c",
@@ -195,8 +207,10 @@
       "their_score": 8,
       "result": "LOSS",
       "demo": false,
-      "rating_eligible": true,
-      "rating": 0.36726769457470887
+      "rating_eligible": false,
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
+      "rating": null
     },
     {
       "id": "d64d5478cdb3",
@@ -213,7 +227,9 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
-      "rating": 0.7007097712903336
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null,
+      "rating": 0.8145969377571439
     }
   ]
 }

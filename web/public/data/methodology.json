@@ -1,6 +1,6 @@
 {
-  "rating_version": "siege_style_v2",
+  "rating_version": "siege_style_v3",
   "trade_window_seconds": 8,
-  "kill_methodology": "Complete validated maps use Ubisoft credited round counters for kills, K/D, KPR, side kills, multikills and KOST Kill. Unsupported whole maps retain legacy finisher counts; kill_source_rounds reports coverage. Openings, trades, pivots, untraded features and clutch chronology retain legacy event semantics. Headshot percentage uses finisher headshots divided by finisher kills. Rating retains original version inputs.",
-  "rating_description": "Independent raw eight-feature Siege-style Rating. Historical objective upgrades preserve original v2 Rating inputs; displayed objectives and KOST use corrected data."
+  "kill_methodology": "Complete validated maps use Ubisoft credited round counters for kills, K/D, KPR, side kills, multikills and KOST Kill. Unsupported whole maps retain legacy finisher counts; kill_source_rounds reports coverage. Openings, trades, pivots, untraded features and clutch chronology retain legacy event semantics. Headshot percentage uses finisher headshots divided by finisher kills. V2 retains original version inputs; v3 uses verified native finisher opening/clutch chronology and complete credited/core objective inputs on eligible whole maps only.",
+  "rating_description": "Independently final-tested nine-feature native-order Rating. Complete credited kills, multikills and KOST Kill; verified core objectives; native first opposing finisher opening and triangular clutch size X(X+1)/2; frozen legacy 8-second trade features. Only eligible maps contribute to Rating; rating_rounds/rating_maps report coverage. Display statistics retain all historical maps and legacy event chronology. Not an official SiegeGG or Ubisoft formula."
 }

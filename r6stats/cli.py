@@ -25,8 +25,8 @@ def config_load() -> dict:
     value = json.loads(path.read_text(encoding="utf-8"))
     if value["stats"]["rating_version"] not in RATING_VERSIONS:
         raise ValueError(f"Unsupported Rating version: {value['stats']['rating_version']}.")
-    if value["stats"]["rating_version"] == "siege_style_v2" and value["stats"]["trade_window_seconds"] != 8:
-        raise ValueError("siege_style_v2 requires its frozen 8-second trade window.")
+    if value["stats"]["rating_version"] in ("siege_style_v2", "siege_style_v3") and value["stats"]["trade_window_seconds"] != 8:
+        raise ValueError("Siege-style Ratings require their frozen 8-second trade window.")
     return value
 
 
