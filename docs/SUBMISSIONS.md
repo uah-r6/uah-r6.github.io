@@ -90,15 +90,27 @@ directories and denied permission, so that case says **No folder added** with
 neutral guidance, not an alarming failure. Existing selections stay intact.
 See [the picker exceptions](https://developer.mozilla.org/en-US/docs/Web/API/Window/showDirectoryPicker).
 
-Desktop Chrome/Edge are the tested browsers. Dropped handles are captured during
-the event, with a Chromium `webkitGetAsEntry` fallback and complete paginated
-directory reads. Both feed the same grouping/selection rules as the native picker
+Desktop Chrome/Edge are the tested browsers. Drops prefer Chromium's read-only
+`webkitGetAsEntry` (or `getAsEntry`) and complete paginated directory reads.
+The modern handle API is used only if a read-only entry is unavailable, and is
+captured during the event. Both feed the same grouping/selection rules as the native picker
 and standard `webkitdirectory` input. Only `.rec` content enters replay groups.
 Repeated whole-folder/child-folder additions compare the complete names/size
 inventory and SHA-256 content; conflicting same-name folders are rejected. Scans
 finish before review is enabled. All selected-file limits and cloud safeguards
 remain unchanged. See [Chrome's File System Access guide](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
 and [directory input documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory).
+
+An initial modern-first drop implementation still caused the user's real
+**contains system files** popup. Chromium's
+[directory-handle access checks](https://chromium.googlesource.com/chromium/src/+/main/content/browser/file_system_access/file_system_access_manager_impl.cc)
+apply the picker sensitivity check and prompt to modern dropped directory handles,
+too. The correction avoids requesting that API when a read-only entry exists;
+capturing both APIs eagerly is insufficient because the modern request itself
+can open the blocking prompt. Clicking or keyboard-activating the drop box now
+uses the standard read-only input. The explicitly named native picker remains.
+See [read-only directory drop guidance](https://web.dev/articles/files/drag-and-drop-directories)
+and [entry documentation](https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem/webkitGetAsEntry).
 
 The standard input is a distinct, read-only browse path and also serves browsers
 without the native picker. Chrome and Edge automated input selection successfully
@@ -112,8 +124,11 @@ Browser regression scripts cover modern/legacy whole/single/multiple drops,
 duplicates, cancellation/refusal, native/input discovery, keyboard help, rehosts,
 selected-only upload manifests, retry/progress/receipt, and four screen widths.
 Cloud responses in these tests are synthetic; no production submission is created.
-Windows Explorer drag/drop and its original protected-folder dialog cannot be
-reproduced by Playwright. The minimal manual final check is: open the live page
+An additional CDP trusted browser drop passes the **real protected directory path**
+to Chrome and Edge, exercising their actual directory entry/read implementations:
+30folders/209files discovered and zero modern-handle requests. This strengthens
+the earlier synthetic drop tests but does not reproduce the Windows Explorer
+mouse gesture. The minimal manual final check is: open the live page
 in normal Chrome, drag the real MatchReplay folder onto **Add your replays**, and
 confirm the discovered folders. **Do not submit** for this check.
 

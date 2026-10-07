@@ -56,14 +56,20 @@ test('Chromium entry fallback drains every paginated batch, including beyond 100
   assert.equal(groupReplayFiles(files).length, 105)
   assert.equal(files.length, 210)
 })
-test('drop captures both APIs synchronously and falls back after modern API refuses access', async () => {
+test('read-only dropped entries never request a modern handle or its protected-folder prompt', async () => {
   let captures = 0
   const root = match('Legacy')
   const captured = captureDroppedRoots([{ kind: 'file', getAsFileSystemHandle() { captures++; return Promise.reject(new DOMException('Blocked', 'NotAllowedError')) }, webkitGetAsEntry() { captures++; return entry(root) } }])
-  assert.equal(captures, 2)
+  assert.equal(captures, 1)
   assert.equal((await readDroppedReplays(captured))[0].length, 2)
   const broken = { ...root, async *values() { throw new DOMException('Protected', 'NotAllowedError') } }
   assert.equal((await readDroppedReplays([{ handle: Promise.resolve(broken), entry: entry(root) }]))[0].length, 2)
+})
+test('modern handles are captured synchronously only when a read-only entry is unavailable', async () => {
+  let captured = false
+  const roots = captureDroppedRoots([{ kind: 'file', webkitGetAsEntry: () => null, getAsFileSystemHandle: () => { captured = true; return Promise.resolve(match('Modern-only')) } }])
+  assert.equal(captured, true)
+  assert.equal((await readDroppedReplays(roots))[0].length, 2)
 })
 test('native picker traversal and directory input produce identical selection inventories', async () => {
   const modern = groupReplayFiles(await readReplayHandle(dir('MatchReplay', match('Map1'))))

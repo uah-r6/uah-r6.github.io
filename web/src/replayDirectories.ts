@@ -15,14 +15,18 @@ export type ReplayEntry = {
 type DroppedItem = {
   kind: string
   getAsFileSystemHandle?(): Promise<ReplayHandle | null>
+  getAsEntry?(): ReplayEntry | null
   webkitGetAsEntry?(): ReplayEntry | null
 }
 export type DroppedRoot = { handle: Promise<ReplayHandle | null>; entry: ReplayEntry | null }
 
-// Capture both APIs during the drop event: Chromium stops exposing items after it.
+// Capture access during the drop event: Chromium stops exposing items after it.
+// Prefer read-only entries. Requesting a modern directory handle can itself show
+// the same sensitive-directory refusal as showDirectoryPicker, even before a read.
 export function captureDroppedRoots(items: ArrayLike<DroppedItem>): DroppedRoot[] {
   return Array.from(items).filter(item => item.kind === 'file').map(item => {
-    const entry = item.webkitGetAsEntry?.() || null
+    const entry = item.getAsEntry?.() || item.webkitGetAsEntry?.() || null
+    if (entry) return { handle: Promise.resolve(null), entry }
     let handle: Promise<ReplayHandle | null>
     try { handle = item.getAsFileSystemHandle?.() || Promise.resolve(null) }
     catch { handle = Promise.resolve(null) }
@@ -79,12 +83,9 @@ export async function readReplayEntry(root: ReplayEntry): Promise<File[]> {
 export async function readDroppedReplays(roots: DroppedRoot[]): Promise<File[][]> {
   const batches: File[][] = []
   for (const root of roots) {
+    if (root.entry?.isDirectory) { batches.push(await readReplayEntry(root.entry)); continue }
     const handle = await root.handle
-    if (handle?.kind === 'directory') {
-      try { batches.push(await readReplayHandle(handle)) }
-      catch (error) { if (root.entry?.isDirectory) batches.push(await readReplayEntry(root.entry)); else throw error }
-    }
-    else if (root.entry?.isDirectory) batches.push(await readReplayEntry(root.entry))
+    if (handle?.kind === 'directory') batches.push(await readReplayHandle(handle))
   }
   return batches
 }

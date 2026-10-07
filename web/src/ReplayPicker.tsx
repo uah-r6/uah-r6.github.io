@@ -56,7 +56,7 @@ export function ReplayPicker({ folders, selected, onFolders, onSelected, onScann
   return <section className="replay-picker" aria-labelledby="add-replays-title" aria-busy={scanning}>
     <span className="eyebrow">YOUR MATCH, YOUR CHOICE</span><h2 id="add-replays-title">Add your replays</h2>
     <p>Drag your MatchReplay folder here and we’ll find your replay folders. You don’t need to know which files are the replays.</p>
-    <button type="button" className={`replay-dropzone${dragging ? ' dragging' : ''}`} disabled={scanning} onClick={chooseFolder}
+    <button type="button" className={`replay-dropzone${dragging ? ' dragging' : ''}`} disabled={scanning} onClick={() => picker.current?.click()}
       onDragEnter={dragEnter} onDragLeave={event => { event.preventDefault(); dragDepth.current = Math.max(0, dragDepth.current - 1); if (!dragDepth.current) setDragging(false) }}
       onDragOver={event => { event.preventDefault(); event.dataTransfer.dropEffect = scanning ? 'none' : 'copy' }} onDrop={drop} aria-label="Add replay folders: drag here or choose a folder" aria-describedby="replay-drop-instructions">
       {scanning ? <LoaderCircle size={32} aria-hidden="true" /> : <FolderDown size={32} aria-hidden="true" />}

@@ -13,6 +13,7 @@ from pathlib import Path
 from playwright.sync_api import expect, sync_playwright
 
 HARNESS = r"""() => {
+  window.modernAccessCalls=0;
   const file=(name='Game-R01.rec')=>({kind:'file',name,getFile:async()=>new File(['dissect synthetic replay fixture'],name,{lastModified:1791400000000})});
   const directory=(name,children)=>({kind:'directory',name,values:async function*(){yield* children}});
   window.replayMatch=name=>directory(name,[file(),file('Game-R02.rec'),file('notes.txt')]);
@@ -24,7 +25,7 @@ HARNESS = r"""() => {
   window.dropReplayRoots=(roots,method='modern')=>{
     const target=document.querySelector('.replay-dropzone');
     const transfer={types:['Files'],dropEffect:'copy',items:roots.map(root=>({kind:'file',webkitGetAsEntry:()=>legacy(root),
-      ...(method==='legacy'?{}:{getAsFileSystemHandle:()=>method==='refused'?Promise.reject(new DOMException('Protected','NotAllowedError')):Promise.resolve(root)})}))};
+      ...(method==='legacy'?{}:{getAsFileSystemHandle:()=>{window.modernAccessCalls++;return method==='refused'?Promise.reject(new DOMException('Protected','NotAllowedError')):Promise.resolve(root)}})}))};
     for(const type of ['dragenter','dragover','drop']) {const event=new DragEvent(type,{bubbles:true,cancelable:true});Object.defineProperty(event,'dataTransfer',{value:transfer});target.dispatchEvent(event)}
   };
 }"""
@@ -54,6 +55,7 @@ def verify(url, channel, evidence, source=None):
         expect(page.get_by_role('heading', name='Add your replays')).to_be_visible()
         zone = page.get_by_role('button', name='Add replay folders: drag here or choose a folder')
         zone.focus(); expect(zone).to_be_focused()
+        with page.expect_file_chooser(): zone.press('Enter')
 
         def clear():
             if page.get_by_role('button', name='Clear folders').count():
@@ -80,6 +82,7 @@ def verify(url, channel, evidence, source=None):
         clear()
         page.evaluate("dropReplayRoots([replayMatch('Entry-fallback')],'refused')")
         count(1)
+        assert page.evaluate('modernAccessCalls') == 0, 'Read-only drops must not trigger protected directory handle requests'
         clear()
 
         # Unrelated directory and loose-file guidance, with no alarming global error.
@@ -154,6 +157,30 @@ def verify(url, channel, evidence, source=None):
             assert real['files'] == len(list(source.rglob('*.rec')))
             expect(page.locator('.replay-folder-list input:checked')).to_have_count(0)
             page.locator('.replay-picker').screenshot(path=str(evidence / f'{channel}-real-protected-input.png'))
+            # CDP sends a trusted browser drop with the REAL directory path. Its
+            # directory entries/read calls are Chromium's implementations, not
+            # the JavaScript fixtures above. This still is not an Explorer gesture.
+            clear()
+            page.evaluate("""() => {
+              window.nativeHandleCalls=0;window.nativeEntryCalls=0;
+              const modern=DataTransferItem.prototype.getAsFileSystemHandle;
+              if(modern)DataTransferItem.prototype.getAsFileSystemHandle=function(){window.nativeHandleCalls++;return modern.call(this)};
+              const readOnly=DataTransferItem.prototype.webkitGetAsEntry;
+              DataTransferItem.prototype.webkitGetAsEntry=function(){window.nativeEntryCalls++;return readOnly.call(this)};
+            }""")
+            zone.scroll_into_view_if_needed()
+            bounds = zone.bounding_box()
+            cdp = page.context.new_cdp_session(page)
+            data = {'items': [], 'files': [str(source.resolve())], 'dragOperationsMask': 1}
+            for event in ('dragEnter', 'dragOver', 'drop'):
+                cdp.send('Input.dispatchDragEvent', {'type': event, 'x': bounds['x'] + bounds['width'] / 2, 'y': bounds['y'] + bounds['height'] / 2, 'data': data})
+            count(expected)
+            assert page.evaluate('nativeHandleCalls') == 0
+            assert page.evaluate('nativeEntryCalls') > 0
+            real['trusted_browser_drop_verified'] = True
+            real['modern_handle_requests'] = page.evaluate('nativeHandleCalls')
+            page.locator('.replay-picker').screenshot(path=str(evidence / f'{channel}-real-protected-browser-drop.png'))
+            cdp.detach()
 
         assert not transfers, transfers
         assert not errors, errors
