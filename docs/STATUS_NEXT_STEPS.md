@@ -1,4 +1,49 @@
-## Current: Series Rating, trends and sparse round highlights — 2026-10-07
+## Current: main Player Stats team scope — 2026-10-07
+
+**IMPLEMENTED AND LOCALLY VERIFIED; DEPLOYMENT NEXT.** Baseline clean `af0e6eb`.
+Main Player Stats now shows one team at a time. Plain `/#/players` and invalid
+queries canonicalize to `/#/players?team=blue`; the single navigation item also
+opens Blue. A visible accessible Team selector uses the published team index and
+existing public visibility/alias rules. If Blue is unavailable, the first active
+team is selected; no available default produces a safe empty state.
+
+Selection lives in the URL, supporting refresh and browser back/forward. Global
+season/Career selection is preserved. Team-colored heading/table/mobile cards
+reuse the existing team `/stats` renderer and only fetch existing
+`teams/<slug>/<period>.json`. Sort and Alumni choices persist while switching.
+A response ownership/period guard prevents old-team players from briefly showing
+during a pending fetch. White's empty state shows no Blue players. Team Career
+leaderboards remain team-specific; global player Career profiles remain cross-team.
+Embeds retain independent active-season/team behavior. No browser recalculation.
+
+Verification: **33 frontend tests passed**; public/admin builds passed. New scope
+browser suite passed 1440/1150/768/390px: defaults, Blue/White exact data, canonical
+aliases, invalid query, team colors/titles, URL switching, keyboard selection,
+refresh/back/forward, period/sort preservation, Career, synthetic future team and
+same-player transfers, missing Blue/no teams and delayed-response isolation.
+Existing presentation suite passed, including team pages, Alumni/future-season
+fixtures, compact embeds and cross-origin iframe. The old synthetic rollover
+fixture's team/period metadata was corrected to match the scope it represents;
+production exports were not edited. Series/highlight and Methodology suites passed
+with all 82 logical rounds/110 frozen points. Mocked submission workflow passed.
+
+Preservation passed against 918 baseline file hashes: all 30 public JSON documents,
+SQLite, private settings, all 89 archived files, backend/export/Rating/parser/
+statistics/research/Cloudflare code are byte-identical. Only authorized frontend,
+browser-test and documentation files differ. No regeneration, parsing, import,
+recalculation or real cloud submission occurred.
+
+See [PUBLIC_PRESENTATION.md](PUBLIC_PRESENTATION.md#main-player-stats-team-scope)
+for behavior and read-only verification commands. Ignored preservation/browser
+reports: `data/research/player-stats-scoping-20261007/`.
+
+**NEXT ACTION:** verify protected-file hashes, commit/push, wait for Pages, run
+live scoping/presentation/series/Methodology/submission checks, compare public
+JSON and built assets, record final clean checkpoint, STOP. No backend/export,
+Rating/Series Rating, parser, statistics, archive or submission changes are part
+of this pass.
+
+## Previous: Series Rating, trends and sparse round highlights — 2026-10-07
 
 **COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Release `27c4d61`
 is on main. [Pages run37692722366](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37692722366)

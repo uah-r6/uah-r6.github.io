@@ -1,5 +1,36 @@
 # Public presentation and Google Sites embeds
 
+## Main Player Stats team scope
+
+The main **Player Stats** navigation opens `/#/players?team=blue`. Plain
+`/#/players` also defaults to UAH Blue. The visible **Team** selector comes from
+the same published team index as existing public team pages, including public
+team archives under the existing visibility rules. Future team names/colors
+and existing aliases work without a separate frontend list.
+
+The canonical team slug is stored in the hash route's query string. Switching
+teams adds browser history; missing/invalid/removed aliases normalize safely to
+Blue, or the first active team if Blue is unavailable. With no available default
+the page shows an empty state. Refresh and browser back/forward preserve scope.
+
+The existing global season selection remains authoritative. Both season and
+Career leaderboards fetch only `teams/<slug>/<period>.json`, sharing the same
+Player Stats renderer as `/teams/<slug>/stats`. Sort/Alumni choices survive team
+switches; an old network response never renders another team's players under
+the selected heading. White's empty state shows no Blue statistics.
+
+Historical map ownership remains authoritative because the existing team export
+is used directly. **Career leaderboard is team-specific; global player Career
+profiles remain cross-team.** Embeds retain their independent team route and
+active-season behavior. No statistics are recalculated in the browser.
+
+Read-only local/live scoping checks:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/verify-player-stats-scope-ui.py
+.\.venv\Scripts\python.exe scripts/verify-player-stats-scope-ui.py --url https://uah-r6.github.io/ --output data/research/player-stats-scoping-20261007/live
+```
+
 ## Embed Player Stats
 
 In Google Sites, choose **Insert → Embed → By URL** and paste one of:

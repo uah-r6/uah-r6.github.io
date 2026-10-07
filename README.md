@@ -24,6 +24,10 @@ Map pages retain individual Ratings and show sparse replay-verified round highli
 See [series calculation and trust rules](docs/SERIES_EXPERIENCE.md). Help controls explain each metric.
 The footer reports the actual public-data export timestamp.
 
+The main Player Stats page shows one team at a time, defaults to UAH Blue, and
+keeps team selection in the URL. Career leaderboards are team-specific; player
+Career profiles span the program.
+
 Google Sites utility URLs automatically follow the active published season:
 
 - [Blue Player Stats embed](https://uah-r6.github.io/#/embed/blue/player-stats)

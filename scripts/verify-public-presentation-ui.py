@@ -113,9 +113,9 @@ def verify(url, output):
         future['seasons'].append({'slug':'spring-2027','name':'Spring 2027'})
         future['teams'].append({**future['teams'][0],'slug':'yellow','name':'UAH Yellow','primary_color':'#FDDA24'})
         fixture.route('**/data/index.json',lambda r:r.fulfill(json=future))
-        spring={**season,'name':'Spring 2027','players':[{**season['players'][0],'name':'Spring active'},{**season['players'][1],'name':'Former member','status':'Alumni'}]}
-        fixture.route('**/data/teams/*/spring-2027.json',lambda r:r.fulfill(json=spring))
-        fixture.route('**/data/teams/yellow/fall-2026.json',lambda r:r.fulfill(json=season))
+        spring={**season,'slug':'spring-2027','name':'Spring 2027','players':[{**season['players'][0],'name':'Spring active'},{**season['players'][1],'name':'Former member','status':'Alumni'}]}
+        fixture.route('**/data/teams/*/spring-2027.json',lambda r:r.fulfill(json={**spring,'team':{**spring['team'],'slug':r.request.url.split('/teams/')[1].split('/')[0]}}))
+        fixture.route('**/data/teams/yellow/fall-2026.json',lambda r:r.fulfill(json={**season,'team':{**season['team'],'slug':'yellow'}}))
         fixture.goto(url+'#/embed/yellow/player-stats',wait_until='networkidle')
         expect(fixture.locator('tbody tr')).to_have_count(1)
         expect(fixture.locator('tbody')).to_contain_text('Spring active')
