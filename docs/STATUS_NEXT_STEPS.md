@@ -1,6 +1,8 @@
 ## Current: main Player Stats team scope — 2026-10-07
 
-**IMPLEMENTED AND LOCALLY VERIFIED; DEPLOYMENT NEXT.** Baseline clean `af0e6eb`.
+**COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Release `2c65b0e`
+is on main. [Pages run37694748466](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37694748466)
+succeeded. Baseline clean `af0e6eb`.
 Main Player Stats now shows one team at a time. Plain `/#/players` and invalid
 queries canonicalize to `/#/players?team=blue`; the single navigation item also
 opens Blue. A visible accessible Team selector uses the published team index and
@@ -37,11 +39,26 @@ See [PUBLIC_PRESENTATION.md](PUBLIC_PRESENTATION.md#main-player-stats-team-scope
 for behavior and read-only verification commands. Ignored preservation/browser
 reports: `data/research/player-stats-scoping-20261007/`.
 
-**NEXT ACTION:** verify protected-file hashes, commit/push, wait for Pages, run
-live scoping/presentation/series/Methodology/submission checks, compare public
-JSON and built assets, record final clean checkpoint, STOP. No backend/export,
-Rating/Series Rating, parser, statistics, archive or submission changes are part
-of this pass.
+Live verification passed for plain `/players`, explicit Blue/White, invalid
+parameters, switching/refresh/back/forward, period/Career/sort preservation,
+keyboard selection, titles/colors, phone cards, empty White and no mixed data.
+Synthetic future-team/alias/transfer/delayed-response fixtures passed against the
+live frontend. All requested 1440/1150/768/390px widths passed without overflow.
+Existing team pages and global Career profiles, series pages/all 82 rounds,
+Methodology 110-point visualization, Blue/White compact embeds and real
+cross-origin iframe, storage restrictions and mocked submission workflow passed
+live. Public cloud config remains enabled/available with Turnstile configured;
+no real cloud upload, challenge completion or backend changes were attempted.
+
+All 30 production JSON documents match committed bytes and remain identical to
+the pre-change data. Live JS/CSS match the tested build. Final preservation checks
+confirm no production SQLite/archive/settings/statistical changes. Existing
+manual protected-folder Explorer gesture and authenticated Google Sites editor
+limitations remain separate; no new claims are made about those workflows.
+
+**NEXT ACTION: none for this request.** Deployment and live checks are complete.
+This final documentation checkpoint is pushed on main; working tree is clean.
+STOP. Do not begin unrelated feature work or resume research/parser/backend work.
 
 ## Previous: Series Rating, trends and sparse round highlights — 2026-10-07
 
