@@ -13,3 +13,11 @@ The asset is outside `web/public/data/` so routine website-stat exports cannot e
 ## Verification
 
 Run `npm.cmd test` and `npm.cmd run build` in `web`. From the repository root, run `.venv\Scripts\python.exe scripts/verify-public-polish-ui.py` for the built site, or pass `--url https://uah-r6.github.io/` for deployment checks. This optional Playwright/Edge check covers section links, native accordion keyboard use, sorting, chart hover/tap/keyboard selection, malformed-data fallback and the public routes at four screen widths. `scripts/verify-team-ui.py` retains the broader team/season/Alumni checks.
+
+## Appearance scopes
+
+Normal team, season and global Career player statistics and Rating trends include
+regular roster appearances only. The Subs view and player Substitute Stats use
+the same frozen model and input eligibility for actual substitute appearances,
+scoped to the team that owns the map. Series and map pages retain all actual
+participants. See [SUBSTITUTES.md](SUBSTITUTES.md) for historical role assignment.

@@ -14,7 +14,7 @@ Rating, with unrated players retained below rated players. Desktop tables and
 phone cards reuse the existing stat definitions, sorting and help components.
 Visible secondary text shows each player's rated maps and rounds.
 
-The default player trend is now **one exported Series Rating per series**.
+The normal player trend is **one exported Rating per series from regular roster appearances only**. Substitute-only series are excluded. Mixed-role series use only roster map inputs in the normal trend; the series participant table still uses all played eligible maps and shows a SUB badge. See [substitute architecture](SUBSTITUTES.md).
 Hover, keyboard focus, click or tap selects the exact two-decimal Rating and
 opponent/date/recorded W–L/team/coverage context. Arrow keys select adjacent
 points. Season profiles contain that season's series; career profiles include

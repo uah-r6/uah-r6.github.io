@@ -210,27 +210,6 @@ def test_publishing_validation_rejects_cross_team_generated_data(tmp_path):
         validate_public_data(tmp_path)
 
 
-def test_rehost_validates_membership_on_each_source_date(tmp_path):
-    from types import SimpleNamespace
-    (tmp_path / 'config').mkdir()
-    (tmp_path / 'config/settings.json').write_text(json.dumps(settings()), encoding='utf-8')
-    with closing(repo.connect(tmp_path / 'data/r6stats.sqlite')) as db:
-        seed(db)
-        for row in db.execute('SELECT id FROM players').fetchall():
-            teams.move(db, row[0], 2, '2026-10-01')
-    first, later = replay('first'), replay('later', '2026-10-02T20:00:00Z')
-    details = [{'team_mapping': [0,1]}, {'team_mapping': [0,1]}]
-    logical = SimpleNamespace(match=first, segments=[SimpleNamespace(match=first),SimpleNamespace(match=later)], segment_details=details)
-    manifest = {'segments': [{'fingerprint':'first','replay_id':'first'}, {'fingerprint':'later','replay_id':'later'}]}
-    with TestClient(create_app(tmp_path)) as client, patch('r6stats.admin.server.assemble_rehost', return_value=(logical,manifest,'logical')):
-        headers={'X-R6-Admin-Token':client.get('/api/admin/session').json()['token']}
-        response=client.post('/api/admin/replays/rehost/preview',headers=headers,json={
-            'team_id':1,'season_slug':'fall-2026','segments':[{'path':str(tmp_path/'first')},{'path':str(tmp_path/'later')}]})
-        assert response.status_code == 400
-        assert 'segment 2' in response.json()['detail']
-        assert 'No configured roster member' in response.json()['detail']
-    with closing(repo.connect(tmp_path / 'data/r6stats.sqlite')) as db:
-        assert db.execute('SELECT count(*) FROM maps').fetchone()[0] == 0
 
 
 def test_v3_team_and_global_careers_use_eligible_inputs_across_seasons(tmp_path):

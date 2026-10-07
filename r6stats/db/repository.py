@@ -5,7 +5,7 @@ from uuid import uuid4
 
 from r6stats.parser.models import Match
 from r6stats.eligibility import is_custom_game
-from r6stats.db import teams
+from r6stats.db import teams, appearances
 
 SCHEMA = """
 PRAGMA foreign_keys=ON;
@@ -86,6 +86,7 @@ def connect(path: str | Path = "data/r6stats.sqlite") -> sqlite3.Connection:
                   WHERE NOT EXISTS (SELECT 1 FROM map_segments ms WHERE ms.map_id=m.id)""")
     db.commit()
     teams.migrate(db)
+    appearances.migrate(db)
     return db
 
 
@@ -135,7 +136,7 @@ def season_update(db, slug: str, name: str, start_date: str | None, end_date: st
 
 
 def roster_add(db, username: str, display_name: str | None = None, *, team_id: int | None = None,
-               start_date: str = "0001-01-01") -> None:
+               start_date: str = "0001-01-01", substitute_eligible: bool = False) -> None:
     username = username.strip()
     if not username:
         raise ValueError("Username cannot be empty.")
@@ -143,8 +144,8 @@ def roster_add(db, username: str, display_name: str | None = None, *, team_id: i
     if db.execute("SELECT 1 FROM players WHERE slug=?", (slug,)).fetchone():
         slug += "-" + uuid4().hex[:6]
     with db:
-        cur = db.execute("INSERT INTO players(slug,display_name,username) VALUES(?,?,?)",
-                         (slug, display_name or username, username))
+        cur = db.execute("INSERT INTO players(slug,display_name,username,substitute_eligible) VALUES(?,?,?,?)",
+                         (slug, display_name or username, username, int(substitute_eligible)))
         db.execute("INSERT INTO aliases(player_id,username) VALUES(?,?)", (cur.lastrowid, username))
         if team_id is not None:
             teams.require(db, team_id, active=True)
@@ -172,7 +173,7 @@ def roster_remove(db, username: str) -> None:
 
 
 def roster_update(db, player_id: int, *, display_name: str | None = None,
-                  tracked: bool | None = None, status: str | None = None) -> None:
+                  tracked: bool | None = None, status: str | None = None, substitute_eligible: bool | None = None) -> None:
     row = db.execute("SELECT id FROM players WHERE id=?", (player_id,)).fetchone()
     if not row:
         raise ValueError("Player not found.")
@@ -185,6 +186,8 @@ def roster_update(db, player_id: int, *, display_name: str | None = None,
             raise ValueError("Player status must be Active or Alumni.")
         tracked = status == "Active"
     with db:
+        if substitute_eligible is not None:
+            db.execute("UPDATE players SET substitute_eligible=? WHERE id=?", (int(substitute_eligible), player_id))
         if display_name is not None:
             db.execute("UPDATE players SET display_name=? WHERE id=?", (display_name, player_id))
         if tracked is not None:
@@ -209,6 +212,18 @@ def roster_add_alias(db, player_id: int, username: str, *, make_current: bool = 
             db.execute("UPDATE players SET username=? WHERE id=?", (username, player_id))
 
 
+def identity_match(db, player):
+    """Historical global identity lookup; a profile binding outranks an alias."""
+    if player.profile_id:
+        row = db.execute('SELECT * FROM players WHERE profile_id=?', (player.profile_id,)).fetchone()
+        if row:
+            return row
+    row = db.execute('SELECT p.* FROM players p JOIN aliases a ON a.player_id=p.id WHERE a.username=?', (player.username.strip(),)).fetchone()
+    if row and row['profile_id'] and player.profile_id and row['profile_id'] != player.profile_id:
+        raise ValueError(f'Profile ID conflict for {player.username}; review roster aliases before import.')
+    return row
+
+
 def roster_match(db, player, team_id: int | None = None, on: str | None = None) -> sqlite3.Row | None:
     if player.profile_id:
         row = db.execute("SELECT * FROM players WHERE profile_id=? AND (? IS NOT NULL OR tracked=1)", (player.profile_id, team_id)).fetchone()
@@ -221,9 +236,11 @@ def roster_match(db, player, team_id: int | None = None, on: str | None = None) 
     return row if row is None or team_id is None or teams.member(db, row["id"], team_id, on) else None
 
 
-def bind_profiles(db, match: Match, team_id=None) -> None:
+def bind_profiles(db, match: Match, team_id=None, side=None) -> None:
     for p in (player for round_ in match.rounds for player in round_.players):
-        row = roster_match(db, p, team_id, match.timestamp[:10])
+        if side is not None and p.team != side:
+            continue
+        row = identity_match(db, p) if side is not None else roster_match(db, p, team_id, match.timestamp[:10])
         if row and p.profile_id and not row["profile_id"]:
             db.execute("UPDATE players SET profile_id=? WHERE id=?", (p.profile_id, row["id"]))
         if row and p.username.strip() and p.username.strip().casefold() != row["username"].strip().casefold():
@@ -243,30 +260,25 @@ def choose_team(db, match: Match, explicit: int | None = None, *, team_id: int |
                 names[row["id"]] = row["display_name"]
     counts = [len(members[0]), len(members[1])]
     tracked = sorted(names.values())
-    if not tracked:
-        raise ValueError("No configured roster member was found in this replay.")
     team = explicit if explicit in (0, 1) else (counts.index(max(counts)) if max(counts) >= 3 and counts[0] != counts[1] else None)
     if team is None:
-        raise ValueError(f"Team is ambiguous ({counts[0]} vs {counts[1]} tracked). Choose team 0 or team 1 after reviewing participants.")
-    if counts[team] == 0:
+        raise ValueError(f"{'No configured roster member was found for side detection. ' if not tracked else ''}Team is ambiguous ({counts[0]} vs {counts[1]} tracked). Choose team 0 or team 1 after reviewing participants.")
+    if team_id is not None:
+        # Global substitutes never vote in side detection. Classify only after a
+        # regular-roster majority or explicit reviewed side establishes ownership.
+        selected = appearances.participants(db, match, team_id, team)
+        if members[1-team]:
+            raise ValueError('A regular roster member appears on the opposing team; review participants.')
+        return team, sorted(db.execute('SELECT display_name FROM players WHERE id=?', (pid,)).fetchone()[0] for pid in selected)
+    if not tracked or counts[team] == 0:
         raise ValueError("Selected team has no tracked roster members.")
     if members[0] & members[1]:
         raise ValueError("A tracked player changed teams across replay rounds.")
     for round_ in match.rounds:
         for p in round_.players:
-            row = roster_match(db, p, team_id, match.timestamp[:10])
+            row = roster_match(db, p)
             if row and p.team != team:
                 raise ValueError(f"Tracked player {p.username} changed team in round {round_.number}.")
-            if team_id is not None and p.team == team and row is None:
-                # Known members of another organization team cannot be treated as
-                # unconfigured substitutes just because the selected roster differs.
-                identity = db.execute("""SELECT p.id FROM players p LEFT JOIN aliases a ON a.player_id=p.id
-                    WHERE (p.profile_id IS NOT NULL AND p.profile_id=?) OR a.username=?""",
-                                      (p.profile_id or None, p.username.strip())).fetchone()
-                if identity and db.execute("""SELECT 1 FROM team_memberships WHERE player_id=? AND team_id!=?
-                    AND start_date<=? AND (end_date IS NULL OR end_date>?)""",
-                    (identity["id"], team_id, match.timestamp[:10], match.timestamp[:10])).fetchone():
-                    raise ValueError(f"Player {p.username} belongs to another team on this replay date. Review membership history.")
     return team, tracked
 
 
@@ -301,7 +313,11 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
     score = [sum(r.winner == i for r in match.rounds) for i in (0, 1)]
     map_id = uuid4().hex[:12]
     with db:
-        bind_profiles(db, match, organization_team_id)
+        if not db.in_transaction:
+            db.execute("BEGIN IMMEDIATE")
+        choose_team(db, match, team, team_id=organization_team_id)
+        roles = appearances.participants(db, match, organization_team_id, team)
+        bind_profiles(db, match, organization_team_id, team)
         db.execute("INSERT OR IGNORE INTO team_seasons VALUES(?,?)", (organization_team_id, season["id"]))
         if series_id:
             row = db.execute("SELECT * FROM series WHERE id=?", (series_id,)).fetchone()
@@ -320,6 +336,9 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
                     match.match_type, match.game_mode, team, score[team], score[1-team],
                     json.dumps(match.to_dict(), separators=(",", ":")), match.timestamp[:10],
                     json.dumps(rehost_manifest, separators=(",", ":")) if rehost_manifest else None, organization_team_id))
+        for role in roles.values():
+            db.execute("INSERT INTO map_player_appearances VALUES(?,?,?,?,?)",
+                       (map_id, role["player_id"], role["appearance_role"], role["classified_on"], role["regular_team_id"]))
         for order, source in enumerate(sources, start=1):
             db.execute("""INSERT INTO map_segments(map_id,segment_order,replay_id,fingerprint,source_name)
                           VALUES(?,?,?,?,?)""", (map_id, order, source.get("replay_id") or None,
@@ -329,7 +348,7 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
                                 (map_id, round_.number, round_.site, round_.winner, round_.win_condition))
             round_id = cursor.lastrowid
             for participant in round_.players:
-                roster = roster_match(db, participant, organization_team_id, match.timestamp[:10])
+                roster = identity_match(db, participant) if participant.team == team else None
                 db.execute("""INSERT INTO round_players
                            (round_id,player_key,player_id,username,profile_id,team,operator,side)
                            VALUES(?,?,?,?,?,?,?,?)""",

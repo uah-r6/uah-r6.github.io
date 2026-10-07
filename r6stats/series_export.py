@@ -46,7 +46,8 @@ class SeriesProjection:
         documents = []
         for sid, metadata in self.metadata.items():
             maps = self.maps[sid]
-            players = [{**identities[player_id], **player_total(records, self.version)}
+            players = [{**identities[player_id], **player_total(records, self.version),
+                        "appearance_role": ("sub" if all(r.get("appearance_role", "roster") == "sub" for r in records) else "mixed" if any(r.get("appearance_role") == "sub" for r in records) else "roster")}
                        for player_id, records in self.inputs[sid].items()]
             players.sort(key=lambda p: p['rating'] if p['rating'] is not None else -float('inf'), reverse=True)
             documents.append({**metadata, 'rating_version': self.version, 'maps': maps,

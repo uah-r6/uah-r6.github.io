@@ -103,7 +103,8 @@ def member(db, player_id, team_id, on=None):
 
 
 def move(db, player_id, team_id, effective_date):
-    require(db, team_id, active=True)
+    if team_id is not None:
+        require(db, team_id, active=True)
     date.fromisoformat(effective_date)
     if not db.execute('SELECT 1 FROM players WHERE id=?', (player_id,)).fetchone():
         raise ValueError('Player not found.')
@@ -115,8 +116,9 @@ def move(db, player_id, team_id, effective_date):
             if effective_date <= old['start_date']:
                 raise ValueError('Move date must follow the current membership start date.')
             db.execute('UPDATE team_memberships SET end_date=? WHERE id=?', (effective_date, old['id']))
-        db.execute('INSERT INTO team_memberships(player_id,team_id,start_date) VALUES(?,?,?)',
-                   (player_id, team_id, effective_date))
+        if team_id is not None:
+            db.execute('INSERT INTO team_memberships(player_id,team_id,start_date) VALUES(?,?,?)',
+                       (player_id, team_id, effective_date))
 
 
 def history(db, player_id):

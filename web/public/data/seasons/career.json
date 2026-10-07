@@ -394,6 +394,7 @@
           "rating": 1.4745687768664009
         }
       ],
+      "sub_teams": [],
       "memberships": [
         {
           "team_slug": "blue",
@@ -753,6 +754,7 @@
           "rating": 1.5010343860497093
         }
       ],
+      "sub_teams": [],
       "memberships": [
         {
           "team_slug": "blue",
@@ -1117,6 +1119,7 @@
           "rating": 1.207769246683868
         }
       ],
+      "sub_teams": [],
       "memberships": [
         {
           "team_slug": "blue",
@@ -1479,6 +1482,7 @@
           "rating": 0.8145969377571439
         }
       ],
+      "sub_teams": [],
       "memberships": [
         {
           "team_slug": "blue",
@@ -1844,6 +1848,7 @@
           "rating": 0.8708257622034421
         }
       ],
+      "sub_teams": [],
       "memberships": [
         {
           "team_slug": "blue",

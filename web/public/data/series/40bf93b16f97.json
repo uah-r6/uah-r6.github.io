@@ -145,7 +145,8 @@
         "5": 0
       },
       "rating_maps": 2,
-      "rating_rounds": 20
+      "rating_rounds": 20,
+      "appearance_role": "roster"
     },
     {
       "slug": "lgon",
@@ -235,7 +236,8 @@
         "5": 0
       },
       "rating_maps": 2,
-      "rating_rounds": 20
+      "rating_rounds": 20,
+      "appearance_role": "roster"
     },
     {
       "slug": "azooznewzz",
@@ -323,7 +325,8 @@
         "5": 0
       },
       "rating_maps": 2,
-      "rating_rounds": 20
+      "rating_rounds": 20,
+      "appearance_role": "roster"
     },
     {
       "slug": "tallman3-14",
@@ -409,7 +412,8 @@
         "5": 0
       },
       "rating_maps": 2,
-      "rating_rounds": 20
+      "rating_rounds": 20,
+      "appearance_role": "roster"
     },
     {
       "slug": "dinofireking",
@@ -498,7 +502,8 @@
         "5": 0
       },
       "rating_maps": 2,
-      "rating_rounds": 20
+      "rating_rounds": 20,
+      "appearance_role": "roster"
     }
   ]
 }

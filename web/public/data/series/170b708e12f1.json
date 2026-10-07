@@ -174,7 +174,8 @@
         "5": 0
       },
       "rating_maps": 1,
-      "rating_rounds": 10
+      "rating_rounds": 10,
+      "appearance_role": "roster"
     },
     {
       "slug": "ohwowjay",
@@ -267,7 +268,8 @@
         "5": 0
       },
       "rating_maps": 1,
-      "rating_rounds": 10
+      "rating_rounds": 10,
+      "appearance_role": "roster"
     },
     {
       "slug": "azooznewzz",
@@ -363,7 +365,8 @@
         "5": 0
       },
       "rating_maps": 1,
-      "rating_rounds": 10
+      "rating_rounds": 10,
+      "appearance_role": "roster"
     },
     {
       "slug": "dinofireking",
@@ -460,7 +463,8 @@
         "5": 0
       },
       "rating_maps": 1,
-      "rating_rounds": 10
+      "rating_rounds": 10,
+      "appearance_role": "roster"
     },
     {
       "slug": "tallman3-14",
@@ -553,7 +557,8 @@
         "5": 0
       },
       "rating_maps": 1,
-      "rating_rounds": 10
+      "rating_rounds": 10,
+      "appearance_role": "roster"
     }
   ]
 }

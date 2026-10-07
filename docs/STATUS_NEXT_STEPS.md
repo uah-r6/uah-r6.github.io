@@ -1,4 +1,68 @@
-## Current: main Player Stats team scope — 2026-10-07
+## Current: global substitute eligibility and frozen appearances - 2026-10-07
+
+**IMPLEMENTED AND VERIFIED LOCALLY; RELEASE AND LIVE VERIFICATION PENDING.**
+Baseline HEAD `f354197`. The initial working tree contained older generated
+JSON without series/highlights; its copy and complete diff were preserved under
+ignored `data/research/substitutes-20261007/` before current-source regeneration.
+
+Added global substitute eligibility, sub-only creation, dated unassignment and
+immutable per-map roles. Existing 35 player/map appearances migrate as roster.
+Role classification uses map ownership and historical membership; eligible subs
+never vote in side detection. Imports repeat validation inside the write
+transaction. Rehosts use the logical map date and retain confirmation/source
+safeguards. Aliases/profile binding, one identity, historical roles and archives
+are preserved. Active/Alumni is unchanged; explicitly eligible Alumni can sub
+without reactivation.
+
+Normal team/season/global Career and Rating trends exclude sub appearances.
+Separate team Subs aggregates and per-player/team substitute profiles use the
+same existing stat aggregation and frozen Rating. Map/series pages retain actual
+subs with a compact SUB badge. Mixed-role series retain all-played Series Rating
+while the normal trend uses only roster map inputs. Publishing validates scope
+membership/counts and profile references against actual map participants.
+
+Public Player Stats defaults Blue / active season / Roster. Roster/Subs is URL
+backed (`?team=white&players=subs`), with sorting/period/navigation preserved.
+Old persistent Career selection is ignored; deliberate session choices survive
+refresh and expire after 12 hours. Only actual substitute appearances enter
+Subs. Relevant global profiles offer a separate View Sub Stats area with team
+and period selection. Embeds remain independent, roster only.
+
+Verification: **627 Python tests + six subtests passed**, one optional real
+replay smoke test skipped; **36 frontend tests passed**; public/admin builds
+passed. Browser checks cover 1440/1100/768/390px: Blue/White Roster/Subs,
+active/default/Career/history, sub-only and multi-team profiles, Series SUB
+badges, unused-pool exclusion, actual CMD-launched admin Roster, real Fortress
+preview and frozen map details. Sub-only/eligibility browser mutations were
+intercepted; backend API tests use temporary databases. Public presentation,
+cross-origin embeds/storage restrictions and mocked submission checks passed.
+No production replay was imported or reparsed into SQLite; the real preview was
+read only. No cloud submission or cloud architecture changes occurred.
+
+Production migration/regeneration through the actual launcher/API passed:
+all original data in 19 SQLite tables and existing values in 30 public JSON
+documents preserved, including all seven maps / 82 rounds / three series /
+five identities, memberships, operators, objectives, frozen Ratings, Series
+Ratings, trends and highlights. All seven archives Healthy; 2,508 protected
+files byte-identical. SQLite integrity/FKs pass. Public diffs add role/scope
+metadata and freshness only. All current appearances remain roster, and actual
+Subs views are empty. Private backups/evidence stay ignored.
+
+Launcher: `Start NECC Admin.cmd` invoked directly using PowerShell's quoted call
+operator. `.venv\Scripts\python.exe` imports the repository source and opens
+Chrome at localhost; runtime and launch logs retained privately. Admin build:
+`admin-CJLPljeF.js` / `admin-BMfB3oRP.css`. Public build:
+`index-kgkqpUj9.js` / `index-C7bM9N6U.css`.
+
+See [SUBSTITUTES.md](SUBSTITUTES.md) for schema, scope semantics, explicit Alumni
+policy, migration and read-only verification commands.
+
+**NEXT ACTION: commit/push this verified release, await Pages deployment, run
+live substitute/presentation/submission checks and byte-integrity verification,
+then record the final clean checkpoint and STOP.** Do not resume Rating research
+or unrelated features.
+
+## Previous: main Player Stats team scope — 2026-10-07
 
 **COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Release `2c65b0e`
 is on main. [Pages run37694748466](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37694748466)

@@ -16,3 +16,11 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 .player-stats-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}.stats-team-selector{padding:12px 14px;border:1px solid var(--accent-border);border-radius:8px;background:var(--accent-muted);color:var(--accent);font-size:11px;font-weight:700;flex-shrink:0}.stats-team-selector select{width:180px;max-width:100%;min-width:0}.main-player-stats .player-stats-heading{margin-bottom:24px}.main-player-stats .heading{margin-bottom:0}@media(max-width:700px){.player-stats-heading{flex-direction:column;gap:18px}.stats-team-selector{max-width:100%}.stats-team-selector select{width:185px}}
+
+.appearance-switch{display:flex;gap:4px; margin:0 0 16px;flex-wrap:wrap}
+.appearance-switch button{border:1px solid var(--border);border-radius:8px;padding:8px 20px;background:transparent;color:inherit;cursor:pointer}
+.appearance-switch button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.scope-note{color:var(--muted);font-size:14px;max-width:65ch}
+.sub-badge{font-size:10px;letter-spacing:.08em;border:1px solid currentColor;border-radius:4px;padding:2px 4px;line-height:1.2;flex-shrink:0}
+.sub-entry{display:inline-block;margin:8px 0 16px;color:var(--accent)}
+.substitute-profile .panel{margin-top:24px}

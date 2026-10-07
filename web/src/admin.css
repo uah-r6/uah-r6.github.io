@@ -20,3 +20,9 @@
 .kd-correction-row input { min-width:0; width:100%; }
 .kd-correction-row small { grid-column:1 / -1; }
 @media (max-width: 1150px) { .kd-correction-row { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+.appearance-list{display:grid;gap:10px;margin:14px 0}
+.appearance-list small{display:block;color:var(--muted);margin-top:4px}
+.appearance-list .sub-badge{font-size:10px;letter-spacing:.08em;border:1px solid currentColor;border-radius:4px;padding:2px 4px}
+.team-choices>.appearance-list{display:grid;align-items:start;justify-content:stretch}
+.appearance-list>div{min-width:0;overflow-wrap:anywhere}

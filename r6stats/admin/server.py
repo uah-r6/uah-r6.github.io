@@ -6,7 +6,7 @@ import secrets
 import sqlite3
 import sys
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import date
 from pathlib import Path
 from typing import Annotated
@@ -21,6 +21,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from r6stats.cli import fingerprint
 from r6stats.db import repository as repo
 from r6stats.db import teams as organizations
+from r6stats.db import appearances
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats import manual_kd
@@ -72,6 +73,7 @@ class SeasonUpdate(SeasonCreate):
 
 
 class PlayerCreate(BaseModel):
+    substitute_eligible: bool = False
     team_id: int | None = None
     start_date: str = "0001-01-01"
     username: str = Field(min_length=1, max_length=80)
@@ -79,6 +81,7 @@ class PlayerCreate(BaseModel):
 
 
 class PlayerUpdate(BaseModel):
+    substitute_eligible: bool | None = None
     display_name: str | None = Field(default=None, max_length=80)
     tracked: bool | None = None
     status: str | None = None
@@ -217,7 +220,7 @@ class TeamUpdate(BaseModel):
 
 
 class MembershipMove(BaseModel):
-    team_id: int
+    team_id: int | None
     effective_date: str
 
     @field_validator("effective_date")
@@ -415,11 +418,11 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         if payload.team_id != preview.team_id or payload.season_slug != preview.season_slug:
             raise ValueError("Team or season changed since preview. Preview again in the selected context.")
 
-    def validate_rehost_rosters(db, matches, details, side, organization_id):
+    def validate_rehost_rosters(db, matches, details, side, organization_id, timestamp):
         for index, (match, detail) in enumerate(zip(matches, details), start=1):
             physical_side = detail['team_mapping'].index(side)
             try:
-                repo.choose_team(db, match, physical_side, team_id=organization_id)
+                repo.choose_team(db, replace(match, timestamp=timestamp), physical_side, team_id=organization_id)
             except ValueError as error:
                 raise ValueError(f"Rehost segment {index} does not validate for the selected team: {error}") from error
 
@@ -509,7 +512,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     @app.get("/api/admin/roster")
     def roster(db: DB, team_id: int | None = None):
         result = []
-        for row in db.execute("SELECT id,slug,display_name,username,profile_id,tracked,status FROM players ORDER BY tracked DESC,display_name"):
+        for row in db.execute("SELECT id,slug,display_name,username,profile_id,tracked,status,substitute_eligible FROM players ORDER BY tracked DESC,display_name"):
             item = dict(row)
             item["profile_bound"] = bool(item.pop("profile_id"))
             item["aliases"] = [alias[0] for alias in db.execute("SELECT username FROM aliases WHERE player_id=? ORDER BY username", (row["id"],))]
@@ -520,14 +523,15 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
 
     @app.post("/api/admin/roster")
     def add_player(payload: PlayerCreate, db: DB):
-        organizations.require(db, payload.team_id, active=True)
-        repo.roster_add(db, payload.username, payload.display_name, team_id=payload.team_id, start_date=date_value(payload.start_date, required=True))
+        if payload.team_id is not None or not payload.substitute_eligible:
+            organizations.require(db, payload.team_id, active=True)
+        repo.roster_add(db, payload.username, payload.display_name, team_id=payload.team_id, start_date=date_value(payload.start_date, required=True), substitute_eligible=payload.substitute_eligible)
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True}
 
     @app.patch("/api/admin/roster/{player_id}")
     def edit_player(player_id: int, payload: PlayerUpdate, db: DB):
-        repo.roster_update(db, player_id, display_name=payload.display_name, tracked=payload.tracked, status=payload.status)
+        repo.roster_update(db, player_id, display_name=payload.display_name, tracked=payload.tracked, status=payload.status, substitute_eligible=payload.substitute_eligible)
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True}
 
@@ -693,7 +697,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return {"preview_token": token, "map": match.map_name, "timestamp": match.timestamp,
                 "match_type": match.match_type, "game_mode": match.game_mode,
                 "rounds": len(match.rounds), "score": score, "our_team": team,
-                "tracked_players": tracked, "teams": teams, "ambiguous": ambiguity,
+                "appearances": appearances.describe(db, appearances.participants(db, match, payload.team_id, team).values()) if team is not None else [], "tracked_players": tracked, "teams": teams, "ambiguous": ambiguity,
                 "duplicate": duplicate, "active_season": active["slug"] if active else None,
                 "competition_if_confirmed": "NECC", "team_id": organization["id"],
                 "organization_team": organization["name"], "season_slug": season["slug"], "season_name": season["name"]}
@@ -767,7 +771,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                         for source in manifest["segments"])
         if team is not None:
             validate_rehost_rosters(db, [segment.match for segment in logical.segments],
-                                   logical.segment_details, team, payload.team_id)
+                                   logical.segment_details, team, payload.team_id, match.timestamp)
         token = secrets.token_urlsafe(24)
         app.state.previews = {key: value for key, value in app.state.previews.items()
                               if time.time() - value.created < 1800}
@@ -819,7 +823,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return {"preview_token": token, "map": match.map_name, "timestamp": match.timestamp,
                 "match_type": match.match_type, "game_mode": match.game_mode,
                 "rounds": len(match.rounds), "score": list(logical.final_scores),
-                "our_team": team, "tracked_players": tracked, "ambiguous": ambiguity,
+                "our_team": team, "appearances": appearances.describe(db, appearances.participants(db, match, payload.team_id, team).values()) if team is not None else [], "tracked_players": tracked, "ambiguous": ambiguity,
                 "teams": [{"index": index, "players": [p.username for p in match.rounds[0].players
                                                    if p.team == index]} for index in (0, 1)],
                 "duplicate": bool(duplicate), "active_season": active["slug"] if active else None,
@@ -848,7 +852,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 raise ValueError("A replay segment changed since preview. Preview it again.")
         team, _ = repo.choose_team(db, preview.match, payload.team, team_id=payload.team_id)
         validate_rehost_rosters(db, preview.segment_matches or [], preview.rehost_manifest['segment_details'],
-                               team, payload.team_id)
+                               team, payload.team_id, preview.match.timestamp)
         expected = ((payload.final_our_score, payload.final_their_score) if team == 0 else
                     (payload.final_their_score, payload.final_our_score))
         actual = tuple(sum(round_.winner == index for round_ in preview.match.rounds)
@@ -959,6 +963,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         details["tracked_players"] = [r[0] for r in db.execute("""SELECT DISTINCT p.display_name
                     FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
                     JOIN players p ON p.id=rp.player_id WHERE rd.map_id=? ORDER BY p.display_name""", (map_id,))]
+        details['appearances'] = appearances.describe(db, db.execute('SELECT * FROM map_player_appearances WHERE map_id=?', (map_id,)).fetchall())
         details["kd_players"] = manual_kd.map_players(
             db, map_id, read_settings(root)["stats"]["trade_window_seconds"])
         details["manual_kd_correction"] = any(p["corrected"] for p in details["kd_players"])

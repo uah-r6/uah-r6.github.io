@@ -51,6 +51,9 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     team_adjustments = defaultdict(lambda: defaultdict(lambda: [0, 0]))
     series_projection = SeriesProjection(version)
     series_history = defaultdict(list)
+    roster_series_projection = SeriesProjection(version)
+    sub_records = defaultdict(lambda: defaultdict(list))
+    sub_matches = defaultdict(lambda: defaultdict(list))
     identities = {p['id']: {'slug': p['slug'], 'name': p['display_name'], 'status': p['status']} for p in players}
     organizations = [dict(r) for r in db.execute("SELECT * FROM teams ORDER BY display_order,id")]
     by_id = {t["id"]: t for t in organizations}
@@ -75,6 +78,10 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
             FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
             WHERE rd.map_id=? AND rp.player_id IS NOT NULL""", (row["id"],)):
             bound_keys[binding["player_id"]].add(binding["player_key"])
+        roles = {r['player_id']: r['appearance_role'] for r in db.execute(
+            'SELECT player_id,appearance_role FROM map_player_appearances WHERE map_id=?', (row['id'],))}
+        if set(bound_keys) - set(roles):
+            raise ValueError('Historical map participant has no frozen appearance role.')
         corrections = {c["player_id"]: c for c in db.execute(
             "SELECT * FROM map_kd_corrections WHERE map_id=?", (row["id"],))}
         rating_eligible = bool(row["replay_data_complete"]) and not corrections and rating_inputs is not None
@@ -104,16 +111,21 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                 correction = corrections.get(p["id"])
                 shown = (apply_display_kd(raw, correction["final_kills"], correction["final_deaths"])
                          if correction else raw)
-                entry = {"slug": p["slug"], "name": p["display_name"], "status": p["status"], **shown,
+                entry = {"slug": p["slug"], "name": p["display_name"], "status": p["status"], "appearance_role": roles[p["id"]], **shown,
                          "rating": rating_raw["rating"] if rating_eligible else None}
                 if version == "siege_style_v3":
                     entry.update(rating_rounds=rating_raw["rounds"] if rating_eligible else 0,
                                  rating_maps=int(rating_eligible))
                 public_players.append(entry)
-                series_participants[p['id']] = {'map_id': row['id'], 'display': raw,
-                    'rating': rating_raw if rating_eligible and version == 'siege_style_v3' else None,
+                series_participants[p['id']] = {'map_id': row['id'], 'appearance_role': roles[p['id']], 'display': raw,
+                    'rating': rating_raw if rating_eligible else None,
                     'delta': (correction['final_kills'] - raw['kills'], correction['final_deaths'] - raw['deaths']) if correction else (0, 0)}
                 scope = (row["team_id"], row["season_slug"])
+                if roles[p['id']] == 'sub':
+                    sub_records[scope][p['slug']].append(series_participants[p['id']])
+                    sub_matches[scope][p['slug']].append({**public, 'appearance_role': 'sub',
+                        'rating': rating_raw['rating'] if rating_eligible else None})
+                    continue
                 team_inputs[scope][p["slug"]].append(raw)
                 if rating_eligible:
                     team_rating_inputs[scope][p["slug"]].append(rating_raw)
@@ -133,6 +145,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     **{key: public[key] for key in ('team_slug', 'team_name', 'season', 'opponent', 'week', 'notes', 'demo')},
                     'date': row['series_date'], 'season_name': row['season_name']}
         series_projection.add(metadata, public, series_participants)
+        roster_series_projection.add(metadata, public, {pid: record for pid, record in series_participants.items() if record['appearance_role'] == 'roster'})
         historical_bindings = {}
         for player_id, keys in bound_keys.items():
             for key in keys:
@@ -148,10 +161,15 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         write(root / "matches" / f"{row['id']}.json", {**public, "players": public_players, "rounds": rounds})
         season_matches[row["season_slug"]].append(public)
         team_maps[(row["team_id"], row["season_slug"])].append(public)
+    roster_series = {d['id']: d for d in roster_series_projection.documents(identities)}
     for document in series_projection.documents(identities):
-        write(root / 'series' / f"{document['id']}.json", document)
+        regular = {p['slug']: p for p in roster_series[document['id']]['players']}
         for player in document['players']:
-            series_history[player['slug']].append(player_series(document, player))
+            if player['slug'] in regular:
+                series_history[player['slug']].append(player_series(document, regular[player['slug']]))
+                if player['appearance_role'] != 'roster':
+                    player['roster_stats'] = {k: regular[player['slug']][k] for k in ('rating', 'rating_maps', 'rating_rounds', 'maps', 'rounds')}
+        write(root / 'series' / f"{document['id']}.json", document)
     for season in seasons:
         slug = season["slug"]
         leaderboard = []
@@ -167,7 +185,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                  rating_maps=len(season_rating_stats[slug][p["slug"]]))
             item = {"slug": p["slug"], "name": p["display_name"], "status": p["status"],
                     **effective}
-            if p["tracked"] or season_stats[slug][p["slug"]]:
+            if season_stats[slug][p["slug"]] or (p["tracked"] and team_repo.history(db, p["id"])):
                 leaderboard.append(item)
             write(root / "players" / p["slug"] / f"{slug}.json",
                   {**item, "season": slug, "matches": player_matches[p["slug"]][slug]})
@@ -229,9 +247,17 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                 delta = [sum(team_adjustments[scope][p["slug"]][i] for scope in selected) for i in (0, 1)]
                 if raws:
                     leaderboard.append({"slug": p["slug"], "name": p["display_name"], "status": p["status"], **total(raws, ratings, delta)})
+            substitutes = []
+            for p in players:
+                records = [r for scope in selected for r in sub_records[scope][p['slug']]]
+                if records:
+                    substitutes.append({'slug': p['slug'], 'name': p['display_name'], 'status': p['status'],
+                        'appearance_role': 'sub', **total([r['display'] for r in records],
+                            [r['rating'] for r in records if r['rating'] is not None],
+                            [sum(r['delta'][i] for r in records) for i in (0, 1)])})
             name = "Career" if view == "career" else next(s["name"] for s in seasons if s["slug"] == view)
             write(root / "teams" / team["slug"] / f"{view}.json",
-                  {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster})
+                  {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster, "sub_players": sorted(substitutes, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True)})
         career_summary = json.loads((root / "teams" / team["slug"] / "career.json").read_text(encoding="utf-8"))
         metadata.update(maps=career_summary["maps"], rounds=career_summary["rounds"], roster_count=len(roster))
         write(root / "teams" / team["slug"] / "index.json", {**metadata, "roster": roster,
@@ -255,8 +281,25 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     ratings = [r for scope in selected for r in team_rating_inputs[scope][p["slug"]]]
                     delta = [sum(team_adjustments[scope][p["slug"]][i] for scope in selected) for i in (0, 1)]
                     splits.append({"team_slug": team["slug"], "team_name": team["name"], **total(raws, ratings, delta)})
-            write(path, {**profile, "series_ratings": [s for s in series_history[p["slug"]] if view == "career" or s["season"] == view], "memberships": team_repo.history(db, p["id"]), "team_splits": splits})
+            sub_teams = []
+            for team in organizations:
+                ever = any(sub_records[(team['id'], se['slug'])][p['slug']] for se in seasons)
+                if not ever:
+                    continue
+                selected = [(team['id'], se['slug']) for se in seasons if view == 'career' or se['slug'] == view]
+                records = [r for scope in selected for r in sub_records[scope][p['slug']]]
+                result = total([r['display'] for r in records], [r['rating'] for r in records if r['rating'] is not None],
+                               [sum(r['delta'][i] for r in records) for i in (0, 1)])
+                metadata = {'team_slug': team['slug'], 'team_name': team['name']}
+                sub_teams.append({**metadata, 'maps': result['maps'], 'rounds': result['rounds'], 'rating': result['rating']})
+                write(root / 'players' / p['slug'] / 'subs' / team['slug'] / f'{view}.json',
+                      {'slug': p['slug'], 'name': p['display_name'], 'status': p['status'], 'season': view,
+                       'appearance_role': 'sub', **metadata, **result,
+                       'matches': [m for scope in selected for m in sub_matches[scope][p['slug']]]})
+            write(path, {**profile, 'sub_teams': sub_teams, "series_ratings": [s for s in series_history[p["slug"]] if view == "career" or s["season"] == view], "memberships": team_repo.history(db, p["id"]), "team_splits": splits})
+
     careers = [json.loads((root / "players" / p["slug"] / "career.json").read_text(encoding="utf-8")) for p in players]
+    careers = [c for c in careers if c["rounds"] or c["memberships"]]
     for career in careers:
         career.pop('series_ratings', None)  # Trend history belongs to profiles, not table rows.
     write(root / "seasons" / "career.json", summary([m for ms in season_matches.values() for m in ms], careers, "career", "Program career"))

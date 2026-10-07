@@ -40,6 +40,7 @@ def test_archive_integrity_and_no_orphan_after_failed_prepare():
         with closing(repo.connect(root / "data/test.sqlite")) as db:
             repo.season_create(db, "Fall 2026")
             match = two_round_match()
+            repo.roster_add(db, match.rounds[0].players[0].username, team_id=1)
             map_id = repo.insert_map(db, match, fingerprint, 0, "Opponent", organization_team_id=1)
             assert verify(db, archive_root, map_id)["status"] == "Missing"
             try:

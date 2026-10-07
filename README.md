@@ -259,3 +259,13 @@ For current Y11 replays, attacker operator usage uses the replay header's post-r
 Recalculate/Regenerate derive v3 from stored normalized rounds, complete credited evidence, and private objective occurrence evidence; neither reparses archives. New imports already collect the Go credited/native evidence. Reparse/Refresh invalidate historical v3 objective evidence when normalized input hashes change; fresh data must pass all gates again. Unsupported maps are preserved and shown unrated rather than assigned guessed or zero inputs. Global legacy display chronology and action-start operators are unchanged. Native openings explicitly mean the first opposing **finisher** elimination, not an inferred credited owner. Clutches use the first sole-survivor state in verified serialized order with weight X(X+1)/2. Precise credited trades remain unresolved; v3 retains its tested legacy 8-second trade inputs.
 
 The deployment's verified rollback backup is private under `data/research/native-v3-deployment-20261007/`: `before.sqlite`, `before-settings.json`, and `before-public/`. To roll back locally, stop the admin server, restore these to `data/r6stats.sqlite`, `config/settings.json`, and `web/public/data/`; archives stay intact. Production publication rollback would require a reviewed revert/export commit. Historical research seals stay immutable; use the current `research/verify_native_v3_checkpoint.py` guard after deployment, not older source-hash checkpoint guards.
+
+### Substitute players
+
+Local **Roster** administration supports a regular roster, global eligibility to
+substitute for any UAH team, and sub-only players without a regular membership.
+Active/Alumni remains separate. Preview shows ROSTER/SUB before confirmation,
+and map details retain the frozen import role. Public Player Stats defaults to
+Blue / active season / Roster; Subs and player **View Sub Stats** are separate.
+Sub appearances never enter normal season, Career or Rating trends.
+See [substitute architecture and verification](docs/SUBSTITUTES.md).

@@ -79,6 +79,24 @@ def validate_public_data(root: Path) -> int:
                     raise ValueError(f'Website team match ownership differs: {name}')
             if any(p['slug'] not in player_slugs for p in scope.get('players', [])):
                 raise ValueError(f'Website team player reference is unknown: {name}')
+            if 'sub_players' in scope:
+                # Validate the appearance scope against actual map participants;
+                # unused eligible players cannot become leaderboard entries.
+                for role, field in [('roster', 'players'), ('sub', 'sub_players')]:
+                    expected = {}
+                    for match in matches:
+                        for p in documents[f"matches/{match['id']}.json"].get('players', []):
+                            if p.get('appearance_role', 'roster') == role:
+                                expected.setdefault(p['slug'], []).append(p)
+                    actual = scope.get(field, [])
+                    if len({p['slug'] for p in actual}) != len(actual) or {p['slug'] for p in actual} != set(expected):
+                        raise ValueError(f'Website {role} appearance scope differs: {name}')
+                    for p in actual:
+                        inputs = expected[p['slug']]
+                        if (p.get('appearance_role', role) != role or p['maps'] != len(inputs) or
+                                p['rounds'] != sum(r['rounds'] for r in inputs) or
+                                any(p[k] != sum(r[k] for r in inputs) for k in ('kills', 'deaths', 'plants', 'disables', 'clutches'))):
+                            raise ValueError(f'Website {role} appearance counts differ: {name}')
         for alias in team.get('aliases', []):
             for period in ['index', 'career'] + [s['slug'] for s in index.get('seasons', [])]:
                 if documents.get(f'teams/{alias}/{period}.json') != documents.get(f'teams/{slug}/{period}.json'):
@@ -119,11 +137,49 @@ def validate_public_data(root: Path) -> int:
                 sid = point.get('id')
                 series = series_documents.get(sid, {})
                 player = next((p for p in series.get('players', []) if p['slug'] == document.get('slug')), None)
-                if not player or sid in seen or point != player_series(series, player):
+                if not player or sid in seen or point != player_series(series, player.get('roster_stats', player)) or (player and player.get('appearance_role') == 'sub'):
                     raise ValueError('Website player Series Rating reference differs.')
                 if not name.endswith('/career.json') and point['season'] != name.split('/')[-1][:-5]:
                     raise ValueError('Website player Series Rating season differs.')
                 seen.add(sid)
+    for name, document in documents.items():
+        if name.startswith('players/') and '/subs/' not in name and 'sub_teams' in document:
+            period = name.split('/')[-1][:-5]
+            expected = {}
+            for map_name, m in documents.items():
+                if not map_name.startswith('matches/') or (period != 'career' and m['season'] != period):
+                    continue
+                for p in m.get('players', []):
+                    if p['slug'] == document['slug'] and p.get('appearance_role', 'roster') == 'roster':
+                        expected[m['id']] = p
+            ids = [m['id'] for m in document.get('matches', [])]
+            if (len(ids) != len(set(ids)) or set(ids) != set(expected) or document['maps'] != len(expected) or
+                    any(document[k] != sum(p[k] for p in expected.values()) for k in ('rounds', 'kills', 'deaths', 'plants', 'disables', 'clutches'))):
+                raise ValueError('Website normal player profile contains incorrect appearance scope.')
+            for team in document['sub_teams']:
+                profile = documents.get(f"players/{document['slug']}/subs/{team['team_slug']}/{period}.json")
+                if not profile or any(team[k] != profile.get(k) for k in team):
+                    raise ValueError('Website substitute profile reference differs.')
+        if not name.startswith('players/') or '/subs/' not in name:
+            continue
+        slug, team_slug, period = name.split('/')[1], name.split('/')[3], name.split('/')[-1][:-5]
+        team = documents.get(f'teams/{team_slug}/{period}.json', {})
+        entry = next((p for p in team.get('sub_players', []) if p['slug'] == slug), None)
+        if (document.get('appearance_role') != 'sub' or document.get('team_slug') != team_slug or
+                document.get('season') != period or slug not in player_slugs):
+            raise ValueError('Website substitute profile scope differs.')
+        ids = [m['id'] for m in document.get('matches', [])]
+        if len(ids) != len(set(ids)) or document['maps'] != len(ids):
+            raise ValueError('Website substitute profile map inventory differs.')
+        if entry is None:
+            if document.get('rounds') or document.get('maps') or document.get('rating') is not None:
+                raise ValueError('Website empty substitute profile contains statistics.')
+        elif any(entry[k] != document.get(k) for k in entry):
+            raise ValueError('Website substitute profile totals differ from team scope.')
+        for m in document.get('matches', []):
+            original = documents.get(f"matches/{m['id']}.json", {})
+            if original.get('team_slug') != team_slug or (period != 'career' and original.get('season') != period) or not any(p['slug'] == slug and p.get('appearance_role') == 'sub' for p in original.get('players', [])):
+                raise ValueError('Website substitute profile map role differs.')
     for name, document in documents.items():
         if not name.startswith('matches/'):
             continue
