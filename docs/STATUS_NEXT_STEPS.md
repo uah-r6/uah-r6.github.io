@@ -1,6 +1,7 @@
 ## Current: global substitute eligibility and frozen appearances - 2026-10-07
 
-**IMPLEMENTED AND VERIFIED LOCALLY; RELEASE AND LIVE VERIFICATION PENDING.**
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Release `573086b`
+is on main. [Pages run 37700419344](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37700419344) succeeded.
 Baseline HEAD `f354197`. The initial working tree contained older generated
 JSON without series/highlights; its copy and complete diff were preserved under
 ignored `data/research/substitutes-20261007/` before current-source regeneration.
@@ -57,10 +58,30 @@ Chrome at localhost; runtime and launch logs retained privately. Admin build:
 See [SUBSTITUTES.md](SUBSTITUTES.md) for schema, scope semantics, explicit Alumni
 policy, migration and read-only verification commands.
 
-**NEXT ACTION: commit/push this verified release, await Pages deployment, run
-live substitute/presentation/submission checks and byte-integrity verification,
-then record the final clean checkpoint and STOP.** Do not resume Rating research
-or unrelated features.
+Live verification passed for Blue/White Roster/Subs at 1440/1100/768/390px,
+active-season default despite stale saved Career, deliberate Career refresh,
+URL/back navigation, real normal profiles and unchanged trends. Intercepted
+responses exercised sub-only profiles, team-specific Sub Stats, actual Series
+SUB badges and unused-pool exclusion against the live frontend without writing
+test data. Existing presentation checks passed: all series/map navigation,
+exact trusted Ratings, compact Blue/White embeds, real cross-origin framing,
+restricted storage, synthetic season rollover and Alumni. Mocked submission
+workflow passed. Cloud public config remains enabled/available with Turnstile;
+no real challenge or upload was attempted.
+
+Live JS/CSS and all 30 public JSON documents match the tested build and release
+bytes exactly. No JavaScript errors or horizontal overflow. Actual launcher
+reinvocation opens the final admin build in default Chrome from repository
+source. Final preservation recheck passes for original table values, existing
+public statistics and seven Healthy archives. No production fixtures remain.
+Private SQLite/replay/research paths passed Git ignore checks; no raw files were
+staged. The prior protected-folder Explorer gesture and authenticated Google
+Sites editor limitations remain separate and unchanged.
+
+**NEXT ACTION: none for this request.** This final documentation checkpoint is
+pushed on main, with a clean working tree. STOP. Do not resume Rating research,
+parser changes or unrelated feature work.
+
 
 ## Previous: main Player Stats team scope — 2026-10-07
 
