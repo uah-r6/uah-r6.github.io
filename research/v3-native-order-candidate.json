@@ -1,0 +1,60 @@
+{
+  "version": "siege_style_v3",
+  "status": "development_qualified_not_final_tested",
+  "variant": "native_triangular_size",
+  "model": {
+    "variant": "native_triangular_size",
+    "method": "native_order_raw",
+    "alpha": 1,
+    "intercept": 0.9873886639676113,
+    "means": {
+      "kpr": 0.6981624369782264,
+      "teamkills": 0.0021325166062008166,
+      "multikill": 0.2260358062989642,
+      "opening": 4.2139031805104626e-20,
+      "clutch": 0.02887273545168282,
+      "kost": 0.6259729670913882,
+      "survival": 0.29975444876760665,
+      "trade": 0.0001445922498554076,
+      "objectives": 0.02646333929228666
+    },
+    "scales": {
+      "kpr": 0.3170056471951219,
+      "teamkills": 0.014970420657287641,
+      "multikill": 0.18860594663007044,
+      "opening": 0.146080067002339,
+      "clutch": 0.10731630241942614,
+      "kost": 0.17481868393607577,
+      "survival": 0.18059046208567328,
+      "trade": 0.1388022244044543,
+      "objectives": 0.05302031211621311
+    },
+    "weights_standardized": {
+      "kpr": 0.18682577130471265,
+      "teamkills": -0.0025808916598358198,
+      "multikill": 0.04154007508710459,
+      "opening": 0.02237169359759703,
+      "clutch": 0.026320552236229054,
+      "kost": 0.08027335174606536,
+      "survival": 0.08815984639807335,
+      "trade": 0.013342516159598559,
+      "objectives": 0.023869776691413717
+    }
+  },
+  "experiment_id": "v3-native-order-20261007T053828Z",
+  "plan_sha256": "236a77a5f1073e38bb73751af4547f2cffc67e13c64a797951ab2a6070826270",
+  "dataset_sha256": "1a89dbc17637401e10c60713ea5f6c1c36e273f084b3116f4f9d77b2e89bb5bf",
+  "acceptance": {
+    "minimum_clean_rows": 100,
+    "minimum_clean_maps": 10,
+    "minimum_distinct_rosters": 8,
+    "minimum_objective_positive_rows": 10,
+    "max_mae": 0.035,
+    "relative_mae_improvement_vs_exact_v2": 0.1,
+    "within_0_05": 0.8,
+    "rmse_not_worse": true,
+    "max_absolute_error": 0.15,
+    "subgroup_policy": "Objective-positive and kill-credit-affected groups with >=10 rows each require MAE <=.05"
+  },
+  "feature_policy": "Credited count-derived KPR/MK/KOSTKill and supported objective signal preserved. Native opening explicitly measures FINISHER first opposing elimination, not inferred credited opening owner. Legacy trade and KOST trade flags retained under v2 compatibility; precise credited trades remain NOT READY. This does not change production chronology, action-start operators, or historical v2 snapshots."
+}

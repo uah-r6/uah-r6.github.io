@@ -1,0 +1,33 @@
+{
+  "scope": "Previously sealed independent nonnil profile/IGN bindings plus current primary participation, no outcome or Rating alias selection",
+  "aliases": {
+    "Demic164": {
+      "replay_profile_id": "7c0e21d8-7463-4d65-9ce9-fcdf0b9fbc47",
+      "siegegg_player_id": 1139,
+      "independently_verified": true,
+      "name": "Demic",
+      "observed_names": [
+        "Demic.TMT",
+        "Demic164"
+      ],
+      "independent_evidence_sha256": "c8bac948e4f5a5a80a09f3a7924eaa3d7614becbfd0c2168adc74a3739a494eb",
+      "evidence": "Exact same nonnil Ubisoft profile ID was independently bound by exact IGN and public player ID in sealed older APACStage2 metadata/header records. No digit stripping, K/D selection or remaining-player inference.",
+      "profile_history": "https://stats.cc/siege/Demic164/7c0e21d8-7463-4d65-9ce9-fcdf0b9fbc47",
+      "retrieval_limit": "StatsCC direct HTTP403; Demic browser history corroborates Demic.TMT/Demic164. Binding above relies on sealed exact profile/metadata evidence, not an unrecorded HTTP page."
+    },
+    "Nina666.SCARZ": {
+      "replay_profile_id": "2c7fa52d-19c2-4a50-aa9e-0d8f524ace77",
+      "siegegg_player_id": 3072,
+      "independently_verified": true,
+      "name": "Nina",
+      "observed_names": [
+        "Nina.SCARZ",
+        "Nina666.SCARZ"
+      ],
+      "independent_evidence_sha256": "c8bac948e4f5a5a80a09f3a7924eaa3d7614becbfd0c2168adc74a3739a494eb",
+      "evidence": "Exact same nonnil Ubisoft profile ID was independently bound by exact IGN and public player ID in sealed older APACStage2 metadata/header records. No digit stripping, K/D selection or remaining-player inference.",
+      "profile_history": "https://stats.cc/siege/Nina666.SCARZ/2c7fa52d-19c2-4a50-aa9e-0d8f524ace77",
+      "retrieval_limit": "StatsCC direct HTTP403; Demic browser history corroborates Demic.TMT/Demic164. Binding above relies on sealed exact profile/metadata evidence, not an unrecorded HTTP page."
+    }
+  }
+}

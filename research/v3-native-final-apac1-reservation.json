@@ -1,0 +1,1107 @@
+{
+  "event": "Asia Pacific League Stage 1 - APAC N 2026",
+  "official_competition_id": 505,
+  "siegegg_competition_id": 110,
+  "created_at": "2026-10-07T05:43:12.867618+00:00",
+  "matches": [
+    {
+      "official_match_id": 8126,
+      "siegegg_match_id": 3792,
+      "date": "2026-06-12T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D1_CBMEvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8126",
+      "team_ids": [
+        399,
+        401
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "metadata_sha256": "27fb02b946c8b7b3d444e486ab0617896c31edef458aa748301a9b4431b46f24",
+      "rosters": [
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        },
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        }
+      ],
+      "games": [
+        {
+          "id": 6957,
+          "map": "Fortress",
+          "win_roster_id": 474,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8127,
+      "siegegg_match_id": 3793,
+      "date": "2026-06-12T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D1_BNKvRRX.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8127",
+      "team_ids": [
+        134,
+        400
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "metadata_sha256": "4f9881ca32ff6fe98e55607511482c0e9f11f218715b9c495930d9032ac59428",
+      "rosters": [
+        {
+          "id": 965,
+          "name": "FearX"
+        },
+        {
+          "id": 698,
+          "name": "RRX"
+        }
+      ],
+      "games": [
+        {
+          "id": 6958,
+          "map": "Chalet",
+          "win_roster_id": 965,
+          "loss_roster_id": 698,
+          "win_score": 7,
+          "loss_score": 1
+        }
+      ]
+    },
+    {
+      "official_match_id": 8128,
+      "siegegg_match_id": 3794,
+      "date": "2026-06-12T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D1_KINvSZ.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8128",
+      "team_ids": [
+        273,
+        319
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "f8f855117ae9bfabf7c361d706c7e7936890f72578b595839317725c3e64ae0b",
+      "rosters": [
+        {
+          "id": 676,
+          "name": "SCARZ"
+        },
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        }
+      ],
+      "games": [
+        {
+          "id": 6959,
+          "map": "Lair",
+          "win_roster_id": 675,
+          "loss_roster_id": 676,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8129,
+      "siegegg_match_id": 3795,
+      "date": "2026-06-12T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D1_DKIAvCAG.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8129",
+      "team_ids": [
+        61,
+        116
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "40329fabc59e5abc3fa709e4f32d5898705dd5a9c29ba1ccc12394ddb1ff46d3",
+      "rosters": [
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        },
+        {
+          "id": 108,
+          "name": "CAG Osaka"
+        }
+      ],
+      "games": [
+        {
+          "id": 6960,
+          "map": "Lair",
+          "win_roster_id": 108,
+          "loss_roster_id": 902,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8130,
+      "siegegg_match_id": 3796,
+      "date": "2026-06-13T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D2_CYBMEvSZ.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8130",
+      "team_ids": [
+        273,
+        401
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "metadata_sha256": "f8c378fb40b53a1cf587ace57bc9cd63b5aac2fbe8c040611ce757b0f50b024e",
+      "rosters": [
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        },
+        {
+          "id": 676,
+          "name": "SCARZ"
+        }
+      ],
+      "games": [
+        {
+          "id": 6961,
+          "map": "Bank",
+          "win_roster_id": 676,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 2
+        }
+      ]
+    },
+    {
+      "official_match_id": 8131,
+      "siegegg_match_id": 3797,
+      "date": "2026-06-13T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D2_CAGvRRX.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8131",
+      "team_ids": [
+        61,
+        400
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "metadata_sha256": "824a6cb79fabaae6f9a0b8fc9ea7cbd8c0afa1f17d48a4c8553cb29f3f8e969f",
+      "rosters": [
+        {
+          "id": 108,
+          "name": "CAG Osaka"
+        },
+        {
+          "id": 698,
+          "name": "RRX"
+        }
+      ],
+      "games": [
+        {
+          "id": 6962,
+          "map": "Lair",
+          "win_roster_id": 108,
+          "loss_roster_id": 698,
+          "win_score": 7,
+          "loss_score": 0
+        }
+      ]
+    },
+    {
+      "official_match_id": 8132,
+      "siegegg_match_id": 3798,
+      "date": "2026-06-13T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D2_BNKvKIN.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8132",
+      "team_ids": [
+        134,
+        319
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "89269cb7b9e62c8d4b9117966f932f7d6241809fe7738681b24f920063a717cf",
+      "rosters": [
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        },
+        {
+          "id": 965,
+          "name": "FearX"
+        }
+      ],
+      "games": [
+        {
+          "id": 6965,
+          "map": "Bank",
+          "win_roster_id": 965,
+          "loss_roster_id": 675,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8133,
+      "siegegg_match_id": 3799,
+      "date": "2026-06-13T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D2_DKIAvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8133",
+      "team_ids": [
+        116,
+        399
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "metadata_sha256": "3b459366a3e5e6e930303616cf0ebc71c318dcf956a3b642a0c39851f3d0d6c2",
+      "rosters": [
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        },
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        }
+      ],
+      "games": [
+        {
+          "id": 6964,
+          "map": "Border",
+          "win_roster_id": 902,
+          "loss_roster_id": 474,
+          "win_score": 7,
+          "loss_score": 0
+        }
+      ]
+    },
+    {
+      "official_match_id": 8134,
+      "siegegg_match_id": 3800,
+      "date": "2026-06-19T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D3_RRXvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8134",
+      "team_ids": [
+        399,
+        400
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ]
+      ],
+      "metadata_sha256": "208ce3783a0c1de87d5e3fdb288b1f929e7a04e2c88ba41d2e90b5355703cbd8",
+      "rosters": [
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        },
+        {
+          "id": 698,
+          "name": "RRX"
+        }
+      ],
+      "games": [
+        {
+          "id": 7218,
+          "map": "Chalet",
+          "win_roster_id": 698,
+          "loss_roster_id": 474,
+          "win_score": 8,
+          "loss_score": 7
+        }
+      ]
+    },
+    {
+      "official_match_id": 8135,
+      "siegegg_match_id": 3801,
+      "date": "2026-06-19T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D3_CYBMEvKIN.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8135",
+      "team_ids": [
+        319,
+        401
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "metadata_sha256": "d19cbefccbd660b6ceca9ca85de6f219fb66d8c64a18429a9c64a46d6d828277",
+      "rosters": [
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        },
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        }
+      ],
+      "games": [
+        {
+          "id": 7219,
+          "map": "Chalet",
+          "win_roster_id": 675,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 1
+        }
+      ]
+    },
+    {
+      "official_match_id": 8136,
+      "siegegg_match_id": 3802,
+      "date": "2026-06-19T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D3_DPLUSvSCARZ.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8136",
+      "team_ids": [
+        116,
+        273
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "6b6d58616c9b77438179482d7efa1aaa2463b348e424e59a13c3dfa121c1ae48",
+      "rosters": [
+        {
+          "id": 676,
+          "name": "SCARZ"
+        },
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        }
+      ],
+      "games": [
+        {
+          "id": 7220,
+          "map": "Border",
+          "win_roster_id": 902,
+          "loss_roster_id": 676,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8137,
+      "siegegg_match_id": 3803,
+      "date": "2026-06-19T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D3_BNKFvCAG.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8137",
+      "team_ids": [
+        61,
+        134
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "metadata_sha256": "9fc5af2bbc409cb45ebc8c265a08ecd2be67875ae0fb1acacf6a35a884c6d26b",
+      "rosters": [
+        {
+          "id": 965,
+          "name": "FearX"
+        },
+        {
+          "id": 108,
+          "name": "CAG Osaka"
+        }
+      ],
+      "games": [
+        {
+          "id": 7222,
+          "map": "Club House",
+          "win_roster_id": 108,
+          "loss_roster_id": 965,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8138,
+      "siegegg_match_id": 3804,
+      "date": "2026-06-20T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D4_RRXvSCARZ.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8138",
+      "team_ids": [
+        273,
+        400
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "metadata_sha256": "9cd0aee99136a6fc9733faec6339ce3b1c9bd2b959e77ced91b60a846ed60074",
+      "rosters": [
+        {
+          "id": 698,
+          "name": "RRX"
+        },
+        {
+          "id": 676,
+          "name": "SCARZ"
+        }
+      ],
+      "games": [
+        {
+          "id": 7333,
+          "map": "Club House",
+          "win_roster_id": 676,
+          "loss_roster_id": 698,
+          "win_score": 7,
+          "loss_score": 1
+        }
+      ]
+    },
+    {
+      "official_match_id": 8139,
+      "siegegg_match_id": 3805,
+      "date": "2026-06-20T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D4_CAGvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8139",
+      "team_ids": [
+        61,
+        399
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "metadata_sha256": "44d85f6e9aa63552e1a28005c0a2ab88adf97b6ef169b42866fb2246d4c6d0cd",
+      "rosters": [
+        {
+          "id": 108,
+          "name": "CAG Osaka"
+        },
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        }
+      ],
+      "games": [
+        {
+          "id": 7334,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 108,
+          "loss_roster_id": 474,
+          "win_score": 7,
+          "loss_score": 1
+        }
+      ]
+    },
+    {
+      "official_match_id": 8140,
+      "siegegg_match_id": 3806,
+      "date": "2026-06-20T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D4_BNKFXvCYBME.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8140",
+      "team_ids": [
+        134,
+        401
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "metadata_sha256": "f0cd7d930299ca225574957c9a8a86cceb89397c2b01abc44b47c0725ff55697",
+      "rosters": [
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        },
+        {
+          "id": 965,
+          "name": "FearX"
+        }
+      ],
+      "games": [
+        {
+          "id": 7335,
+          "map": "Club House",
+          "win_roster_id": 965,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8141,
+      "siegegg_match_id": 3807,
+      "date": "2026-06-20T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D4_DPvKIN.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8141",
+      "team_ids": [
+        116,
+        319
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "metadata_sha256": "22f0fb6f9f84c9b51a66f56f6f955d357dcf382f5c51d4090b618dbd846740f7",
+      "rosters": [
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        },
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        }
+      ],
+      "games": [
+        {
+          "id": 7336,
+          "map": "Kafe",
+          "win_roster_id": 675,
+          "loss_roster_id": 902,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8142,
+      "siegegg_match_id": 3808,
+      "date": "2026-06-26T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D5_CYBMEvDPK.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8142",
+      "team_ids": [
+        116,
+        401
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "metadata_sha256": "79f9f16d12c55e73c8ace0eb27a86e004d5d3f1fe6ea12e7f73c5d126e9b4f4a",
+      "rosters": [
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        },
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        }
+      ],
+      "games": [
+        {
+          "id": 7414,
+          "map": "Chalet",
+          "win_roster_id": 902,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 0
+        }
+      ]
+    },
+    {
+      "official_match_id": 8143,
+      "siegegg_match_id": 3809,
+      "date": "2026-06-26T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D5_BNKFXvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8143",
+      "team_ids": [
+        134,
+        399
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "metadata_sha256": "85f561098206586f0404b8eedd7005d02897ff90028317c7b6e2cf829e3e43d1",
+      "rosters": [
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        },
+        {
+          "id": 965,
+          "name": "FearX"
+        }
+      ],
+      "games": [
+        {
+          "id": 7415,
+          "map": "Consulate",
+          "win_roster_id": 965,
+          "loss_roster_id": 474,
+          "win_score": 7,
+          "loss_score": 1
+        }
+      ]
+    },
+    {
+      "official_match_id": 8144,
+      "siegegg_match_id": 3810,
+      "date": "2026-06-26T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D5_KINvRRX.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8144",
+      "team_ids": [
+        319,
+        400
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "metadata_sha256": "87daf44403ef70b610fdffa19cf07cf4eaa52f8063d900f8ed7c68b90821bf7f",
+      "rosters": [
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        },
+        {
+          "id": 698,
+          "name": "RRX"
+        }
+      ],
+      "games": [
+        {
+          "id": 7435,
+          "map": "Bank",
+          "win_roster_id": 675,
+          "loss_roster_id": 698,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8145,
+      "siegegg_match_id": 3811,
+      "date": "2026-06-26T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D5_CAGvSCARZ.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8145",
+      "team_ids": [
+        61,
+        273
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ]
+      ],
+      "metadata_sha256": "55c22a03dfc878819aefb65e625234445ba21a0e9ea926b716edad692e189b1d",
+      "rosters": [
+        {
+          "id": 676,
+          "name": "SCARZ"
+        },
+        {
+          "id": 108,
+          "name": "CAG Osaka"
+        }
+      ],
+      "games": [
+        {
+          "id": 7436,
+          "map": "Club House",
+          "win_roster_id": 108,
+          "loss_roster_id": 676,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8146,
+      "siegegg_match_id": 3812,
+      "date": "2026-06-27T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D6_CAGvCYBME.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8146",
+      "team_ids": [
+        61,
+        401
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "9ae1125fb5690af0e05f2adc8053d6b1edf8a587f30149eb253ba98d49bdf045",
+      "rosters": [
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        },
+        {
+          "id": 108,
+          "name": "CAG Osaka"
+        }
+      ],
+      "games": [
+        {
+          "id": 7438,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 108,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8147,
+      "siegegg_match_id": 3813,
+      "date": "2026-06-27T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D6_KINvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8147",
+      "team_ids": [
+        319,
+        399
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ]
+      ],
+      "metadata_sha256": "13a23486f068cbe3ad3ebbefa5e3b7fc14f5ac71f6557974e94df4735ff2adf1",
+      "rosters": [
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        },
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        }
+      ],
+      "games": [
+        {
+          "id": 7439,
+          "map": "Chalet",
+          "win_roster_id": 675,
+          "loss_roster_id": 474,
+          "win_score": 8,
+          "loss_score": 6
+        }
+      ]
+    },
+    {
+      "official_match_id": 8148,
+      "siegegg_match_id": 3814,
+      "date": "2026-06-27T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D6_BNKFXvSCARZ.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8148",
+      "team_ids": [
+        134,
+        273
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "a427890a011e5e057cd7ef733d526c235985b3892561f99b6ee5fe8a3966a2be",
+      "rosters": [
+        {
+          "id": 676,
+          "name": "SCARZ"
+        },
+        {
+          "id": 965,
+          "name": "FearX"
+        }
+      ],
+      "games": [
+        {
+          "id": 7450,
+          "map": "Club House",
+          "win_roster_id": 676,
+          "loss_roster_id": 965,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8149,
+      "siegegg_match_id": 4160,
+      "date": "2026-06-27T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D6_DPKvRRX.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8149",
+      "team_ids": [
+        116,
+        400
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ]
+      ],
+      "metadata_sha256": "c26ab42cb4039c9c597095cf733c542cc34192eca8ee593e91d4513a34e9dfad",
+      "rosters": [
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        },
+        {
+          "id": 698,
+          "name": "RRX"
+        }
+      ],
+      "games": [
+        {
+          "id": 7466,
+          "map": "Chalet",
+          "win_roster_id": 902,
+          "loss_roster_id": 698,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8150,
+      "siegegg_match_id": 3816,
+      "date": "2026-07-01T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D7_CYBMEvRRX.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8150",
+      "team_ids": [
+        400,
+        401
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ]
+      ],
+      "metadata_sha256": "ce99d536ebc39b5414cc440e75e63f90e61ecc6097415d779444c275c5b45196",
+      "rosters": [
+        {
+          "id": 698,
+          "name": "RRX"
+        },
+        {
+          "id": 966,
+          "name": "Can You Be My Enemy"
+        }
+      ],
+      "games": [
+        {
+          "id": 7632,
+          "map": "Club House",
+          "win_roster_id": 698,
+          "loss_roster_id": 966,
+          "win_score": 7,
+          "loss_score": 1
+        }
+      ]
+    },
+    {
+      "official_match_id": 8151,
+      "siegegg_match_id": 3817,
+      "date": "2026-07-01T10:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D7_SZvTMT.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8151",
+      "team_ids": [
+        273,
+        399
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ]
+      ],
+      "metadata_sha256": "00bd0362066b2470662e774d88124e2e5d4c7394678fcbfe94056a9e06bf1149",
+      "rosters": [
+        {
+          "id": 474,
+          "name": "TRIPPY"
+        },
+        {
+          "id": 676,
+          "name": "SCARZ"
+        }
+      ],
+      "games": [
+        {
+          "id": 7633,
+          "map": "Fortress",
+          "win_roster_id": 676,
+          "loss_roster_id": 474,
+          "win_score": 7,
+          "loss_score": 0
+        }
+      ]
+    },
+    {
+      "official_match_id": 8152,
+      "siegegg_match_id": 3818,
+      "date": "2026-07-01T11:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D7_CAGvKIN.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8152",
+      "team_ids": [
+        61,
+        319
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ]
+      ],
+      "metadata_sha256": "8f059c65d2ed4e9cc09c9031628e5cf3cf2efd9c14db5bcca48e080ce9523b47",
+      "rosters": [
+        {
+          "id": 108,
+          "name": ""
+        },
+        {
+          "id": 675,
+          "name": "KINOTROPE gaming"
+        }
+      ],
+      "games": [
+        {
+          "id": 7634,
+          "map": "Lair",
+          "win_roster_id": 108,
+          "loss_roster_id": 675,
+          "win_score": 7,
+          "loss_score": 4
+        }
+      ]
+    },
+    {
+      "official_match_id": 8153,
+      "siegegg_match_id": 3819,
+      "date": "2026-07-01T12:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_APN_S1D7_BNKFXvDPKIA.zip",
+      "selected": true,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8153",
+      "team_ids": [
+        116,
+        134
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ]
+      ],
+      "metadata_sha256": "7f4227f16385d15b5424e193eb9904988cf899cc55b4d6049897c65bc2146026",
+      "rosters": [
+        {
+          "id": 965,
+          "name": "FearX"
+        },
+        {
+          "id": 902,
+          "name": "Dplus KIA"
+        }
+      ],
+      "games": [
+        {
+          "id": 7635,
+          "map": "Club House",
+          "win_roster_id": 902,
+          "loss_roster_id": 965,
+          "win_score": 7,
+          "loss_score": 2
+        }
+      ]
+    }
+  ],
+  "selection": "All28officially linked BO1 group-stage archives; playoffs remain reserved and outside this fixed final snapshot. No outcome/feature-selected archives.",
+  "exposure": "Previously cached official overview for actor source discovery; new official group schedule, SiegeGG results schedule and metadata APIs only. No Rating targets/pages/snippets inspected for APAC N Stage1. Prior Asia Stage1 Daystar-Weibo/Psykn-SoulsHeart is a distinct region/event. APAC N Stage2 remains permanently consumed.",
+  "candidate_sha256": "9cc6f7ceb10e5fec49e32147fba7b0b4841ac37a8bf906824958df97b1e1eaa9",
+  "plan_sha256": "236a77a5f1073e38bb73751af4547f2cffc67e13c64a797951ab2a6070826270",
+  "metadata_page_sha256": "21880a965a3a727a6dced2248f7456b1f8e8c47c4b646bbe4582cb2789531203",
+  "ratings_opened": false,
+  "quality_policy": "All physical/header/identity/counter/core-objective/native-order gates established before targets. No digit stripping or remaining-player aliases. Original final80%/MAE/max/subgroup gates unchanged."
+}

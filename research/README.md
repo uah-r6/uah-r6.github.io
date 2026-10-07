@@ -1,4 +1,12 @@
-## Current native-order study; CNL final permanently FAILED - 2026-10-07
+## Current: native-order candidate qualified; new APAC NStage1 final targets unopened - 2026-10-07
+
+Prospective native-order study3a8c3e5 fitted once:988rows/99maps/10event folds. Triangular clutch armMAE0.03031724,80.9717%within.05,maxAE0.17531; seven-percent MAE gain over native count with nine event wins. Native linear79.9595% FAILS80%, despite rounded table showing80.0%. All other arms/folds/coefficients/drift/subgroups remain preserved. See [development](output/v3-native-order-development.md). No per-size coefficient search, source or Rating change.
+
+APAC NorthStage1 official505/15000 and SiegeGG110 has no prior Rating exposure.28group archives reserved; all terminal prelabel decisions cached:110clean rows/11maps/8rosters/22objective-positive.17refusals preserved; old objective layouts remain unsupported. Independent nonnil UUID identity evidence resolves three username variants without statistics/digit stripping. v1/v2 preliminary refusals remain private, v3 records hold current prelabel decisions. Full pipeline succeeded on the small8142sample before broader collection.
+
+NEXT: commit clean source and use `v3_apac1_final.py freeze`, commit the freeze, then `targets` and `evaluate` ONCE. Acceptance stays80%/MAE<=.035/maxAE<=.15 plus sufficient rows/maps/rosters/objectives and subgroup safeguards. No final Rating values opened yet. No production v3 deployed. CNL and every earlier final failure remain permanent.
+
+## Historical native-order study; CNL final permanently FAILED - 2026-10-07
 
 CNL300-row one-shot final failed the frozen MAE/80%/maximum-error gates. Result committed at1a7d9f0; CNL is consumed development, never new final accuracy. V2 remains live. See [final result](output/v3-credited-final-cnl-result.md) and [native-order diagnostic](output/v3-credited-cnl-order-diagnostics.md). Percentage truncation accounts for survival discrepancies; KOST still differs on84rows. Serialized finisher order resolves seven clutch-log contradictions and34opening-death row discrepancies. No credited opening-owner/trade mapping is inferred.
 
