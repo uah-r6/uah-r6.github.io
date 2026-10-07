@@ -106,6 +106,21 @@ def acquire(source):
     if result_path.exists():return json.loads(result_path.read_text(encoding='utf-8'))
     archive=ROOT/'data/research/pro-replays'/unquote(Path(urlparse(source['archive_url']).path).name)
     print('ACQUIRE',mid,archive.name,flush=True);cache_url(source['archive_url'],archive)
+    refusal_path=out/'archive-refusal.json'
+    if refusal_path.exists():
+        refusal=json.loads(refusal_path.read_text(encoding='utf-8'))
+        if refusal['archive_sha256']!=sha(archive) or not all(p['matches_local'] and p['bytes']==65536 for p in refusal['range_probes']):
+            raise ValueError('Independent failed-archive provenance differs')
+        primary,primary_path=official_primary(source)
+        meta_path=METADATA/f"cnl1-metadata-{source['siegegg_match_id']}.json"
+        result=dict(official_match_id=mid,siegegg_match_id=source['siegegg_match_id'],archive_sha256=sha(archive),
+            archive_bytes=archive.stat().st_size,primary_sha256=sha(primary_path),metadata_sha256=sha(meta_path),
+            parser_sha256=sha(PARSER),baseline_parser_sha256=sha(BASELINE),counter_sha256=sha(COUNTER),
+            reservation_sha256=source_sha(RESERVE),ratings_opened=False,archive_refusal_sha256=sha(refusal_path),
+            maps=[dict(game_id=g['id'],map=g['map'],whole_map_refusal=refusal['reason'],rows=[],clean_rows=0) for g in source['games']])
+        immutable_write(result_path,result)
+        print('PRELABEL ARCHIVE REFUSED',mid,'all',len(result['maps']),'maps; independent payload/header evidence preserved',flush=True)
+        return result
     extraction=ROOT/'data/research/extracted'/f'v3-credited-cnl-{mid}';extraction.mkdir(parents=True,exist_ok=True)
     with zipfile.ZipFile(archive) as z:
         if z.testzip():raise ValueError('ZIP CRC failure')
