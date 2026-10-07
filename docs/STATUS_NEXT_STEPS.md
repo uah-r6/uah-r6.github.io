@@ -1,7 +1,10 @@
 ## Current: Series Rating, trends and sparse round highlights — 2026-10-07
 
-**IMPLEMENTED AND LOCALLY VERIFIED; DEPLOYMENT VERIFICATION NEXT.** Baseline
-clean `b270640`. This pass adds public `/#/series/:seriesId` pages, aggregate
+**COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Release `27c4d61`
+is on main. [Pages run37692722366](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37692722366)
+succeeded, and production serves the exact tested JS/CSS and all 30 committed
+public JSON documents. Baseline clean `b270640`. This pass adds public
+`/#/series/:seriesId` pages, aggregate
 Series Player Stats with visible player-specific Rating coverage, Matches →
 series → map navigation, and one exported Series Rating per player trend point.
 The exact Rating is prominent on hover/focus/click/tap with date/opponent/team/
@@ -28,28 +31,46 @@ export schema, evidence rules, real-map audit, reference and continuation comman
 Local verification: **606 Python tests + six subtests passed**, one optional
 real-replay smoke test skipped; **29 frontend tests passed**; public and admin
 Vite builds passed. New series browser suite and existing presentation suite
-passed at1440/1150/768/390px, including exact five-player Ratings, partial/null
+passed at 1440/1150/768/390px, including exact five-player Ratings, partial/null
 coverage, navigation, actual logical rounds, hover/focus/click/touch, keyboard
 selection, career team-move/season fixtures, Alumni and single/empty states.
-Existing Methodology suite retains110 frozen scatter points. Chrome/Edge replay
+Existing Methodology suite retains 110 frozen scatter points. Chrome/Edge replay
 selection regressions and mocked submission workflow passed. Existing compact
 embeds, restricted-storage behavior and real cross-origin iframe passed locally.
 
 Preservation: read-only candidate export and final comparison matched every
-previous public field in all27 original JSON documents after removing only
-approved additions and timestamp. Public validation passes all30 documents.
+previous public field in all 27 original JSON documents after removing only
+approved additions and timestamp. Public validation passes all 30 documents.
 683 baseline paths were checked: only authorized exporter/validator/docs/public
-JSON differ. All19 SQLite tables, historical normalized data, snapshots,
+JSON differ. All 19 SQLite tables, historical normalized data, snapshots,
 memberships, frozen Rating/parser/credited/objective/clutch logic, private
-settings, research and Cloudflare backend are unchanged. All89 private archive
+settings, research and Cloudflare backend are unchanged. All 89 private archive
 files match their hashes and all seven archives verify Healthy. No replay
 parsing, imports, recalculation/database writes or real cloud uploads occurred.
 Ignored evidence: `data/research/series-experience-20261007/`.
 
-**NEXT ACTION:** push this coherent release; wait for Pages; run read-only live
-series/presentation/Methodology/replay-selection/submission regressions; compare
-all30 served JSON documents and JS/CSS against committed build; record deployment
-and final clean pushed checkpoint; STOP. Do not resume research or unrelated work.
+Live verification: new series suite and full presentation suite passed at
+1440/1150/768/390px, checking all three series/five player Ratings and coverage,
+all 82 rounds, links, exact hover/focus/click/tap values, empty/single/career/Alumni
+fixtures and no horizontal overflow. Methodology regression passed with 110 frozen
+points and unchanged model accuracy. Existing embeds passed 1000/800/600/390px,
+restricted-storage checks and a real cross-origin iframe of production. Chrome
+and Edge replay-selection suites passed; mocked submission workflow passed.
+Real public cloud config remains HTTP 200, enabled/available, Turnstile configured,
+Blue/White. No cloud backend mutation, new real upload or bot challenge completion.
+
+Limitations: incomplete historical evidence intentionally limits Ratings and
+highlights; visible coverage is preserved rather than filled with guesses.
+Recorded W–L describes only stored maps. The earlier manual Windows Explorer
+protected-folder gesture and authenticated Google Sites editor checks remain
+separate pending manual checks; their implementations were not changed here.
+Static hash routes retain program-level social previews and route-specific
+browser titles. No new parser compatibility claims are made by this pass.
+
+**NEXT ACTION: none for this request.** The enhancement, deployment and live
+verification are complete. This final documentation checkpoint is pushed on main;
+working tree is clean. STOP. Do not resume research, parser changes, remote admin,
+notifications, opponent analytics or unrelated work without another request.
 
 ## Previous: public presentation and Google Sites embeds — 2026-10-07
 
