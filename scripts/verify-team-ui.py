@@ -38,7 +38,7 @@ def verify(url, output):
         page.get_by_label('Statistics period').select_option('fall-2026')
         page.get_by_role('link', name='Roster', exact=True).click()
         expect(page.locator('.roster-cards .panel')).to_have_count(5)
-        page.get_by_role('link', name='Statistics', exact=True).click()
+        page.get_by_role('navigation',name='Team navigation').get_by_role('link', name='Player Stats', exact=True).click()
         expect(page.locator('tbody tr')).to_have_count(5)
         # Alumni fixtures affect this browser's responses only, never production status.
         def alumni(route):
@@ -67,7 +67,7 @@ def verify(url, output):
         expect(page.get_by_text('Alumni · Global career',exact=True)).to_be_visible()
         expect(page.get_by_text('82 rounds across 7 maps',exact=True)).to_be_visible()
         page.unroute('**/data/players/lgon/career.json',alumni_profile)
-        for route, heading in [('/matches/d64d5478cdb3', '7 : 3'), ('/methodology', 'METHODOLOGY'), ('/players', 'Program players'), ('/matches', 'MATCHES')]:
+        for route, heading in [('/matches/d64d5478cdb3', '7 : 3'), ('/methodology', 'Methodology'), ('/players', 'Player Stats'), ('/matches', 'MATCHES')]:
             page.goto(url+'#'+route, wait_until='networkidle')
             expect(page.get_by_role('heading', name=heading, exact=True)).to_be_visible()
         for width, height in [(1920,1080),(1366,768),(768,1024),(390,844)]:

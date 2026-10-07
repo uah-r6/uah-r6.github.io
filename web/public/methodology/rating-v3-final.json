@@ -1,0 +1,1007 @@
+{
+  "version": "siege_style_v3",
+  "event": "Asia Pacific League Stage 1 - APAC N 2026",
+  "evaluation": "Untouched final event; model frozen before target access. No refitting.",
+  "freeze_commit": "e05dfc4",
+  "report_url": "https://github.com/uah-r6/uah-r6.github.io/blob/main/research/output/v3-native-final-apac1-result.md",
+  "maps": 11,
+  "rosters": 8,
+  "metrics": {
+    "rows": 110,
+    "mae": 0.03035933195958,
+    "v2_mae": 0.06058645313795608,
+    "within_005": 0.8181818181818182
+  },
+  "points": [
+    {
+      "player": "mity.DK",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 0.94,
+      "prediction": 0.9346973558206435,
+      "v2_prediction": 1.0442863228696397
+    },
+    {
+      "player": "Faallz.DK",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 1.48,
+      "prediction": 1.5371666944579805,
+      "v2_prediction": 1.6349851570057585
+    },
+    {
+      "player": "Muzi.DK",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 1.63,
+      "prediction": 1.5414059186476767,
+      "v2_prediction": 1.3871569128901142
+    },
+    {
+      "player": "NearZ.DK",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 2.18,
+      "prediction": 2.1367531408194393,
+      "v2_prediction": 2.022277956192605
+    },
+    {
+      "player": "Levy.DK",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 1.71,
+      "prediction": 1.7912204043209088,
+      "v2_prediction": 1.7972091335976486
+    },
+    {
+      "player": "marimo.BME",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 0.45,
+      "prediction": 0.46709402323647997,
+      "v2_prediction": 0.46901364764665304
+    },
+    {
+      "player": "AsveL.",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 0.52,
+      "prediction": 0.5532865087519347,
+      "v2_prediction": 0.4899126681933433
+    },
+    {
+      "player": "Goppi.BME",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": 0.14,
+      "prediction": 0.22352655433877378,
+      "v2_prediction": 0.07295735641915602
+    },
+    {
+      "player": "KoroMomo.BME",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": -0.04,
+      "prediction": 0.05185903167037631,
+      "v2_prediction": 0.05205833587246578
+    },
+    {
+      "player": "SikiNNGO",
+      "map": "Chalet",
+      "match_id": 3808,
+      "game_id": 7414,
+      "target": -0.04,
+      "prediction": 0.05185903167037631,
+      "v2_prediction": 0.20418724540428657
+    },
+    {
+      "player": "Demic164",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 0.61,
+      "prediction": 0.6063877243461269,
+      "v2_prediction": 0.6155140764249123
+    },
+    {
+      "player": "NL38",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 0.88,
+      "prediction": 0.8895817687093407,
+      "v2_prediction": 0.8835138848855255
+    },
+    {
+      "player": "dmaly.",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 0.48,
+      "prediction": 0.47894635596380164,
+      "v2_prediction": 0.4807622427470239
+    },
+    {
+      "player": "Harp3rXD.E36",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 0.94,
+      "prediction": 0.9103977846508162,
+      "v2_prediction": 0.9247086566310527
+    },
+    {
+      "player": "SyAIL..",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 0.65,
+      "prediction": 0.6751677047509363,
+      "v2_prediction": 0.6685676993818849
+    },
+    {
+      "player": "Rider.BFX",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 1.33,
+      "prediction": 1.436829998720624,
+      "v2_prediction": 1.3946639351547705
+    },
+    {
+      "player": "Misa.BFX",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 1.76,
+      "prediction": 1.7162099708913106,
+      "v2_prediction": 1.7120283282824496
+    },
+    {
+      "player": "Soldier.BFX",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 1.29,
+      "prediction": 1.304109318713314,
+      "v2_prediction": 1.2630888278484678
+    },
+    {
+      "player": "EunSang.BFX",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 1.26,
+      "prediction": 1.2215328273998105,
+      "v2_prediction": 1.1877167928319232
+    },
+    {
+      "player": "Woogiman.BFX",
+      "map": "Consulate",
+      "match_id": 3809,
+      "game_id": 7415,
+      "target": 1.09,
+      "prediction": 1.0977710632292201,
+      "v2_prediction": 1.0497867120651045
+    },
+    {
+      "player": "Akusu.RRX",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.86,
+      "prediction": 0.8426435939782947,
+      "v2_prediction": 0.8352183197386286
+    },
+    {
+      "player": "Duo.RRX",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.46,
+      "prediction": 0.493651178136073,
+      "v2_prediction": 0.5135643392612295
+    },
+    {
+      "player": "Maou.RRX",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.96,
+      "prediction": 0.9600365844875145,
+      "v2_prediction": 0.9772137507516384
+    },
+    {
+      "player": "JiNm.RRX",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.65,
+      "prediction": 0.6526297478026468,
+      "v2_prediction": 0.6121817388259995
+    },
+    {
+      "player": "Yuyu.RRX",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.67,
+      "prediction": 0.6765414860979507,
+      "v2_prediction": 0.7287606188397608
+    },
+    {
+      "player": "Aokayu.KN",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 1.66,
+      "prediction": 1.6674155597909421,
+      "v2_prediction": 1.6536349298004624
+    },
+    {
+      "player": "Kawa.KN",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.83,
+      "prediction": 0.8264201084966606,
+      "v2_prediction": 0.8389458738280222
+    },
+    {
+      "player": "GatoRada888.KN",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 1.26,
+      "prediction": 1.2930586601244642,
+      "v2_prediction": 1.2951152196554157
+    },
+    {
+      "player": "Eclair.KN",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 1.45,
+      "prediction": 1.497158678648988,
+      "v2_prediction": 1.5045755209108231
+    },
+    {
+      "player": "OKOMESSH",
+      "map": "Bank",
+      "match_id": 3810,
+      "game_id": 7435,
+      "target": 0.93,
+      "prediction": 0.9024661688928135,
+      "v2_prediction": 0.9329379602411519
+    },
+    {
+      "player": "marimo.BME",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 0.85,
+      "prediction": 0.8780843864614625,
+      "v2_prediction": 0.7533946853176469
+    },
+    {
+      "player": "Goppi.BME",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 0.61,
+      "prediction": 0.6269917808056589,
+      "v2_prediction": 0.6288276284249346
+    },
+    {
+      "player": "AsveL.",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 0.85,
+      "prediction": 0.8618499150729997,
+      "v2_prediction": 0.8613016675499839
+    },
+    {
+      "player": "KoroMomo.BME",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 1.02,
+      "prediction": 1.064520787871902,
+      "v2_prediction": 1.1927390795474826
+    },
+    {
+      "player": "SikiNNGO",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 0.38,
+      "prediction": 0.36053082910833634,
+      "v2_prediction": 0.3806057366951803
+    },
+    {
+      "player": "Zaka.CAG",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 1.16,
+      "prediction": 1.1353138982446749,
+      "v2_prediction": 1.0873921620668838
+    },
+    {
+      "player": "Anitun.CAG",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 1.04,
+      "prediction": 1.0616448862623313,
+      "v2_prediction": 1.0516975018261714
+    },
+    {
+      "player": "DDMan.CAG",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 1.47,
+      "prediction": 1.4788915673542735,
+      "v2_prediction": 1.54305139753339
+    },
+    {
+      "player": "ShuReap.CAG",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 1.21,
+      "prediction": 1.1949408054664987,
+      "v2_prediction": 1.2173403826228397
+    },
+    {
+      "player": "Chibisu.CAG",
+      "map": "Nighthaven Labs",
+      "match_id": 3812,
+      "game_id": 7438,
+      "target": 1.0,
+      "prediction": 0.9953549007800576,
+      "v2_prediction": 1.0123688036129814
+    },
+    {
+      "player": "Kawa.KN",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 1.05,
+      "prediction": 1.0335969783337182,
+      "v2_prediction": 1.034144935893983
+    },
+    {
+      "player": "Ayagator999.KN",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 1.48,
+      "prediction": 1.5125129954700731,
+      "v2_prediction": 1.565995434522926
+    },
+    {
+      "player": "GatoRada888.KN",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 0.77,
+      "prediction": 0.718700895904058,
+      "v2_prediction": 0.6807550044683306
+    },
+    {
+      "player": "Aokayu.KN",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 1.01,
+      "prediction": 1.045278363913376,
+      "v2_prediction": 0.9539362525505118
+    },
+    {
+      "player": "Eclair.KN",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 1.07,
+      "prediction": 1.073566744383918,
+      "v2_prediction": 1.0856562267792615
+    },
+    {
+      "player": "NL38",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 0.66,
+      "prediction": 0.6855425040311592,
+      "v2_prediction": 0.6907024853764192
+    },
+    {
+      "player": "dmaly.",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 0.91,
+      "prediction": 0.9253150425302237,
+      "v2_prediction": 0.8375404952206129
+    },
+    {
+      "player": "SyAIL..",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 0.89,
+      "prediction": 0.904080502451812,
+      "v2_prediction": 0.9705696781242973
+    },
+    {
+      "player": "Demic164",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 1.1,
+      "prediction": 1.0676439305534868,
+      "v2_prediction": 1.0540201745782383
+    },
+    {
+      "player": "Harp3rXD.E36",
+      "map": "Chalet",
+      "match_id": 3813,
+      "game_id": 7439,
+      "target": 0.86,
+      "prediction": 0.839434415769091,
+      "v2_prediction": 0.8310285207365645
+    },
+    {
+      "player": "OSAdinho.SCARZ",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.92,
+      "prediction": 0.9131522711853729,
+      "v2_prediction": 0.9121405550048579
+    },
+    {
+      "player": "Nina666.SCARZ",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.97,
+      "prediction": 0.9261936312166137,
+      "v2_prediction": 0.8496627541457525
+    },
+    {
+      "player": "Wqsyo1.SCARZ",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 1.17,
+      "prediction": 1.1554835335168008,
+      "v2_prediction": 1.209201434569081
+    },
+    {
+      "player": "REC.SCARZ",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 1.46,
+      "prediction": 1.4517690781644064,
+      "v2_prediction": 1.4200561533030052
+    },
+    {
+      "player": "yuKitz.SCARZ",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.93,
+      "prediction": 0.8875343116240307,
+      "v2_prediction": 0.8769986402169596
+    },
+    {
+      "player": "Soldier.BFX",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.79,
+      "prediction": 0.7949941349290977,
+      "v2_prediction": 0.6823767371871836
+    },
+    {
+      "player": "Woogiman.BFX",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 1.41,
+      "prediction": 1.3666431786091278,
+      "v2_prediction": 1.3118595235410795
+    },
+    {
+      "player": "Rider.BFX",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.86,
+      "prediction": 0.8521396204435037,
+      "v2_prediction": 0.8541438596999115
+    },
+    {
+      "player": "EunSang.BFX",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.92,
+      "prediction": 0.9239118235385977,
+      "v2_prediction": 0.846333164043367
+    },
+    {
+      "player": "Misa.BFX",
+      "map": "Clubhouse",
+      "match_id": 3814,
+      "game_id": 7450,
+      "target": 0.81,
+      "prediction": 0.8075447016232886,
+      "v2_prediction": 0.9081999594277248
+    },
+    {
+      "player": "mity.DK",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 0.99,
+      "prediction": 1.0506919626784168,
+      "v2_prediction": 1.0780622707524286
+    },
+    {
+      "player": "Faallz.DK",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 1.27,
+      "prediction": 1.250062473402887,
+      "v2_prediction": 1.258874722906188
+    },
+    {
+      "player": "Muzi.DK",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 1.46,
+      "prediction": 1.4838762232652063,
+      "v2_prediction": 1.5626800848901983
+    },
+    {
+      "player": "Levy.DK",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 0.75,
+      "prediction": 0.733436889178218,
+      "v2_prediction": 0.6573406762884518
+    },
+    {
+      "player": "NearZ.DK",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 1.2,
+      "prediction": 1.1274536205533838,
+      "v2_prediction": 1.1389095898417338
+    },
+    {
+      "player": "Maou.RRX",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 0.71,
+      "prediction": 0.7192123659901043,
+      "v2_prediction": 0.6823767371871836
+    },
+    {
+      "player": "Duo.RRX",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 0.95,
+      "prediction": 0.9521497787022704,
+      "v2_prediction": 0.9225098861392476
+    },
+    {
+      "player": "Yuyu.RRX",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 1.01,
+      "prediction": 0.9689287793091558,
+      "v2_prediction": 1.0383940594612644
+    },
+    {
+      "player": "JiNm.RRX",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 0.95,
+      "prediction": 0.9738707046623821,
+      "v2_prediction": 0.896206583747599
+    },
+    {
+      "player": "Akusu.RRX",
+      "map": "Chalet",
+      "match_id": 4160,
+      "game_id": 7466,
+      "target": 0.82,
+      "prediction": 0.7444100248223747,
+      "v2_prediction": 0.7477428947895564
+    },
+    {
+      "player": "SikiNNGO",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 0.45,
+      "prediction": 0.4944653399446098,
+      "v2_prediction": 0.6338007194032663
+    },
+    {
+      "player": "marimo.BME",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 0.99,
+      "prediction": 0.9996136426952025,
+      "v2_prediction": 0.9975586490863032
+    },
+    {
+      "player": "AsveL.",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 0.31,
+      "prediction": 0.4052819512510871,
+      "v2_prediction": 0.4198031907013814
+    },
+    {
+      "player": "Goppi.BME",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 0.81,
+      "prediction": 0.7985078696001626,
+      "v2_prediction": 0.8018477633627722
+    },
+    {
+      "player": "KoroMomo.BME",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 0.29,
+      "prediction": 0.3047095003543834,
+      "v2_prediction": 0.17005793602095964
+    },
+    {
+      "player": "Akusu.RRX",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 2.2,
+      "prediction": 2.245386046916474,
+      "v2_prediction": 2.2350911258728536
+    },
+    {
+      "player": "Duo.RRX",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 1.33,
+      "prediction": 1.3655890015823648,
+      "v2_prediction": 1.2709032493117158
+    },
+    {
+      "player": "Maou.RRX",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 1.28,
+      "prediction": 1.1768156939523424,
+      "v2_prediction": 1.1995680152591215
+    },
+    {
+      "player": "Yuyu.RRX",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 0.77,
+      "prediction": 0.7786978490826906,
+      "v2_prediction": 0.791099864602366
+    },
+    {
+      "player": "JiNm.RRX",
+      "map": "Clubhouse",
+      "match_id": 3816,
+      "game_id": 7632,
+      "target": 1.22,
+      "prediction": 1.1868123003189666,
+      "v2_prediction": 1.2018331963446598
+    },
+    {
+      "player": "REC.SCARZ",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 1.19,
+      "prediction": 1.0926696866723675,
+      "v2_prediction": 1.10762460704476
+    },
+    {
+      "player": "yuKitz.SCARZ",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 1.16,
+      "prediction": 1.1426915197969156,
+      "v2_prediction": 1.0449275454046891
+    },
+    {
+      "player": "Nina666.SCARZ",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 2.73,
+      "prediction": 2.679423590262594,
+      "v2_prediction": 2.6573060938975486
+    },
+    {
+      "player": "OSAdinho.SCARZ",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 1.13,
+      "prediction": 1.1515032014107573,
+      "v2_prediction": 1.2160822893831484
+    },
+    {
+      "player": "Wqsyo1.SCARZ",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 1.07,
+      "prediction": 1.0967747102552172,
+      "v2_prediction": 1.1149339814090413
+    },
+    {
+      "player": "Demic164",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 0.27,
+      "prediction": 0.24540466744353417,
+      "v2_prediction": 0.24598528649766704
+    },
+    {
+      "player": "NL38",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 0.53,
+      "prediction": 0.5368376731122801,
+      "v2_prediction": 0.549601883026259
+    },
+    {
+      "player": "SyAIL..",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 0.59,
+      "prediction": 0.6428665694877272,
+      "v2_prediction": 0.6493509520894453
+    },
+    {
+      "player": "dmaly.",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 0.5,
+      "prediction": 0.5108502494460008,
+      "v2_prediction": 0.5108116887400336
+    },
+    {
+      "player": "Harp3rXD.E36",
+      "map": "Fortress",
+      "match_id": 3817,
+      "game_id": 7633,
+      "target": 0.2,
+      "prediction": 0.1797703281292531,
+      "v2_prediction": 0.18328822485759633
+    },
+    {
+      "player": "Anitun.CAG",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 1.17,
+      "prediction": 1.1989743508016626,
+      "v2_prediction": 1.1055783619215902
+    },
+    {
+      "player": "Zaka.CAG",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 1.34,
+      "prediction": 1.2816621644695996,
+      "v2_prediction": 1.3290173259072502
+    },
+    {
+      "player": "ShuReap.CAG",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 0.98,
+      "prediction": 0.9515036002011352,
+      "v2_prediction": 0.9813586774628102
+    },
+    {
+      "player": "DDMan.CAG",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 0.63,
+      "prediction": 0.6442571342731955,
+      "v2_prediction": 0.5294761261613035
+    },
+    {
+      "player": "Chibisu.CAG",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 1.13,
+      "prediction": 1.1392065717331914,
+      "v2_prediction": 1.1910964202022236
+    },
+    {
+      "player": "Kawa.KN",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 0.93,
+      "prediction": 0.9458948276023327,
+      "v2_prediction": 0.9190506870694247
+    },
+    {
+      "player": "Ayagator999.KN",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 0.89,
+      "prediction": 0.9585443403002908,
+      "v2_prediction": 0.9701184154323265
+    },
+    {
+      "player": "Eclair.KN",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 1.03,
+      "prediction": 1.047467417190106,
+      "v2_prediction": 1.0565930858383985
+    },
+    {
+      "player": "GatoRada888.KN",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 0.72,
+      "prediction": 0.7239821888982929,
+      "v2_prediction": 0.725577105287237
+    },
+    {
+      "player": "Aokayu.KN",
+      "map": "Lair",
+      "match_id": 3818,
+      "game_id": 7634,
+      "target": 0.85,
+      "prediction": 0.8632238069416126,
+      "v2_prediction": 0.8733091093666223
+    },
+    {
+      "player": "Soldier.BFX",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 0.46,
+      "prediction": 0.47114852678134933,
+      "v2_prediction": 0.4736452451776644
+    },
+    {
+      "player": "Woogiman.BFX",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 0.95,
+      "prediction": 0.9446445702674416,
+      "v2_prediction": 0.9487758937105221
+    },
+    {
+      "player": "Misa.BFX",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 0.36,
+      "prediction": 0.40878303085036316,
+      "v2_prediction": 0.42141507229772746
+    },
+    {
+      "player": "Rider.BFX",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 0.56,
+      "prediction": 0.6493521473215874,
+      "v2_prediction": 0.6636301682371151
+    },
+    {
+      "player": "EunSang.BFX",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 0.47,
+      "prediction": 0.42324243277354723,
+      "v2_prediction": 0.41969452359042914
+    },
+    {
+      "player": "Levy.DK",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 1.28,
+      "prediction": 1.3104376562007327,
+      "v2_prediction": 1.3238531910948446
+    },
+    {
+      "player": "Muzi.DK",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 0.95,
+      "prediction": 0.9481500856652,
+      "v2_prediction": 0.9713008519267493
+    },
+    {
+      "player": "NearZ.DK",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 1.44,
+      "prediction": 1.3723320412500044,
+      "v2_prediction": 1.3134313030918112
+    },
+    {
+      "player": "mity.DK",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 1.09,
+      "prediction": 1.106705000864948,
+      "v2_prediction": 1.487602317893475
+    },
+    {
+      "player": "Faallz.DK",
+      "map": "Clubhouse",
+      "match_id": 3819,
+      "game_id": 7635,
+      "target": 1.71,
+      "prediction": 1.6962164192592264,
+      "v2_prediction": 1.4276129075033221
+    }
+  ]
+}
