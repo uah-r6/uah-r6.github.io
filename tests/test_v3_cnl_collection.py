@@ -7,6 +7,7 @@ import pytest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'research'))
 from v3_cnl_pipeline import stitch,canonical_map
 from test_verified_objective_actor_adapter import raw_round
+import v3_cnl_final as final
 
 
 def item(n,start,end,flip=False):
@@ -45,3 +46,26 @@ def test_changed_or_missing_participation_never_stitches():
 def test_independent_map_labels_are_canonicalized_without_fuzzy_identity():
     assert canonical_map('Club House')==canonical_map('Clubhouse')
     assert canonical_map('Kafe Dostoyevsky')==canonical_map('Kafe')
+
+
+def test_final_never_reopens_targets_after_interruption(tmp_path,monkeypatch):
+    monkeypatch.setattr(final,'DATA',tmp_path)
+    monkeypatch.setattr(final,'RESULT',tmp_path/'result.json')
+    (tmp_path/'rating-targets-opened.json').write_text('{}')
+    with pytest.raises(ValueError,match='already consumed'):final.evaluate()
+
+
+def test_eighty_percent_and_declared_final_extreme_error_gate_cannot_be_weakened():
+    a=dict(mae=.05,rmse=.06);b={'mae':.03,'rmse':.04,'within_0.05':.79,'max_abs_error':.14}
+    gate=dict(max_mae=.035,relative_mae_improvement_vs_exact_v2=.1,within_0_05=.8,max_absolute_error=.15)
+    checks=final.accuracy_checks(a,b,gate,{})
+    assert checks['mae'] and not checks['within_005']
+    b.update({'within_0.05':.85,'max_abs_error':.16})
+    assert not final.accuracy_checks(a,b,gate,{})['max_error']
+
+
+def test_final_coverage_counts_distinct_maps_rosters_and_objective_rows():
+    rows=[dict(match_id=1,game_id=1,roster_id=1,objective_positive=False)]*100
+    evidence,checks=final.coverage(rows,dict(minimum_clean_rows=100,minimum_clean_maps=10,minimum_distinct_rosters=8,minimum_objective_positive_rows=10))
+    assert evidence['clean_maps']==1 and checks['clean_rows']
+    assert not checks['clean_maps'] and not checks['distinct_rosters'] and not checks['objective_positive_rows']

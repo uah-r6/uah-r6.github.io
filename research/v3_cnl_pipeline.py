@@ -21,7 +21,7 @@ from credited_late_history_development import immutable_write
 from fit_models import predict
 from pipeline import cache_url,canonical_map
 from r6stats.kill_credit import validate_map_credit
-from r6stats.parser.siege_dissect import normalize,physical_round_numbers
+from r6stats.parser.siege_dissect import normalize,physical_round_numbers,map_label
 from uah_comparison import player_rounds
 from v3_cnl_metadata import DATA as METADATA,fetch
 from v3_cnl_reserve import RESERVE
@@ -116,14 +116,24 @@ def acquire(source):
             if target.exists() and target.stat().st_size==member.file_size:continue
             target.parent.mkdir(parents=True,exist_ok=True)
             with z.open(member) as src,target.open('wb') as dst:shutil.copyfileobj(src,dst)
-    physical=defaultdict(list);old_physical=defaultdict(list)
+    physical=defaultdict(list);old_physical=defaultdict(list);seen={};duplicate_copies=[]
     for folder in sorted({p.parent for p in extraction.rglob('*.rec')}):
         files=sorted(folder.glob('*.rec'));numbers=physical_round_numbers(files)
         raw=candidate_raw(folder,PARSER);old=candidate_raw(folder,BASELINE)
         if len(files)!=len(raw['rounds']) or len(files)!=len(old['rounds']):raise ValueError('Parser/physical round coverage differs')
         for rec,n,row,prior in zip(files,numbers,raw['rounds'],old['rounds']):
             item=dict(folder=folder.name,filename=rec.name,physical_round=n,replay_path=rec.relative_to(ROOT).as_posix(),sha256=sha(rec))
-            name=canonical_map(normalize([row],round_numbers=[n]).map_name)
+            key=(folder.name,rec.name)
+            if key in seen:
+                if seen[key]['sha256']!=item['sha256']:raise ValueError('Conflicting duplicate physical round source')
+                duplicate_copies.append(item|dict(original_replay_path=seen[key]['replay_path'],reason='Byte-identical duplicate archive copy of the same physical filename'))
+                continue
+            seen[key]=item
+            # Group from the parser's map label only. Explicit zero-score
+            # unfinished attempts may have no winner; stitch decides whether
+            # those sources can be excluded, before normalization.
+            header=row.get('header',row)
+            name=canonical_map(map_label(header.get('map') or header.get('mapName')))
             physical[name].append(item|dict(raw=row));old_physical[name].append(item|dict(raw=prior))
     primary,primary_path=official_primary(source)
     meta_path=METADATA/f"cnl1-metadata-{source['siegegg_match_id']}.json"
@@ -131,13 +141,14 @@ def acquire(source):
     meta=json.loads(meta_path.read_text(encoding='utf-8'))
     if len(set(canonical_map(g['map']) for g in source['games']))!=len(source['games']):raise ValueError('Repeated map ambiguous in BO3')
     known={canonical_map(g['map']) for g in source['games']}
-    if set(physical)!=known:raise ValueError('Unmapped physical map or missing completed BO3 game')
+    if set(physical)-known:raise ValueError('Unmapped physical map; no outcome-based partition')
     candidate=json.loads((ROOT/'research/v3-credited-candidate.json').read_text(encoding='utf-8'))['model']
     baseline=json.loads((ROOT/'research/frozen-rating-candidate.json').read_text(encoding='utf-8'))['model']
     results=[]
     for game in source['games']:
         name=canonical_map(game['map']);issues=[]
         try:
+            if not physical[name]:raise ValueError('Official completed map missing from replay archive')
             match,mapping,excluded,groups,score=stitch(physical[name],game['map'])
             original,old_mapping,old_excluded,old_groups,old_score=stitch(old_physical[name],game['map'])
             if mapping!=old_mapping or excluded!=old_excluded or groups!=old_groups or score!=old_score:raise ValueError('Exact v2 physical chronology differs')
@@ -206,7 +217,7 @@ def acquire(source):
     result=dict(official_match_id=mid,siegegg_match_id=source['siegegg_match_id'],archive_sha256=sha(archive),
         archive_bytes=archive.stat().st_size,primary_sha256=sha(primary_path),metadata_sha256=sha(meta_path),
         parser_sha256=sha(PARSER),baseline_parser_sha256=sha(BASELINE),counter_sha256=sha(COUNTER),
-        reservation_sha256=source_sha(RESERVE),maps=results,ratings_opened=False)
+        reservation_sha256=source_sha(RESERVE),maps=results,duplicate_archive_copies=duplicate_copies,ratings_opened=False)
     immutable_write(result_path,result);return result
 
 
