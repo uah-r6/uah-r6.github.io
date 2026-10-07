@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+from urllib.parse import unquote,urlparse
 
 from credited_late_history_development import immutable_write
 from fit_models import predict
@@ -53,6 +54,13 @@ def freeze():
         path=DATA/str(source['official_match_id'])/'prelabel-replays.json'
         record=json.loads(path.read_text(encoding='utf-8'));inputs[path.relative_to(ROOT).as_posix()]=sha(path)
         if record['reservation_sha256']!=source_sha(RESERVE) or record['parser_sha256']!=sha(PARSER) or record['baseline_parser_sha256']!=sha(BASELINE) or record['counter_sha256']!=sha(COUNTER):raise ValueError('Collection provenance changed')
+        archive=ROOT/'data/research/pro-replays'/unquote(Path(urlparse(source['archive_url']).path).name)
+        if sha(archive)!=record['archive_sha256']:raise ValueError('Selected archive bytes changed')
+        inputs[archive.relative_to(ROOT).as_posix()]=record['archive_sha256']
+        if record.get('archive_refusal_sha256'):
+            refusal=path.parent/'archive-refusal.json'
+            if sha(refusal)!=record['archive_refusal_sha256']:raise ValueError('Failed provider archive evidence changed')
+            inputs[refusal.relative_to(ROOT).as_posix()]=sha(refusal)
         primary,primary_path=official_primary(source)
         if sha(primary_path)!=record['primary_sha256']:raise ValueError('Primary evidence changed')
         inputs[primary_path.relative_to(ROOT).as_posix()]=sha(primary_path)
