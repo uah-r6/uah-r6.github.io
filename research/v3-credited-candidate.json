@@ -1,0 +1,61 @@
+{
+  "version": "siege_style_v3",
+  "status": "development_qualified_not_final_tested",
+  "model": {
+    "method": "raw",
+    "alpha": 1,
+    "intercept": 0.9852325581395349,
+    "weights_standardized": {
+      "kpr": 0.18178921345060808,
+      "teamkills": -0.002932580091681131,
+      "multikill": 0.04580940830530252,
+      "opening": 0.020819962816909808,
+      "clutch": 0.017812843190473084,
+      "kost": 0.08506671141832231,
+      "survival": 0.0865917326541487,
+      "trade": 0.01336142762360458,
+      "objectives": 0.022112683882236032
+    },
+    "means": {
+      "kpr": 0.6977472503271922,
+      "teamkills": 0.0015419456189805028,
+      "multikill": 0.22640891892345383,
+      "opening": 2.017120320903264e-19,
+      "clutch": 0.01167226668680157,
+      "kost": 0.6273759710896338,
+      "survival": 0.3003924208866069,
+      "trade": 0.00020764119601328901,
+      "objectives": 0.02365290152354106
+    },
+    "scales": {
+      "kpr": 0.3196315052503758,
+      "teamkills": 0.013187833403933927,
+      "multikill": 0.18877430830958986,
+      "opening": 0.1470185505262245,
+      "clutch": 0.033949224780228694,
+      "kost": 0.1763627564399316,
+      "survival": 0.18068443720320354,
+      "trade": 0.13956173133865965,
+      "objectives": 0.050469425204268614
+    }
+  },
+  "raw_expression": {
+    "coefficients": {
+      "kpr": 0.5687462295314343,
+      "teamkills": -0.22237011962907746,
+      "multikill": 0.2426675998207081,
+      "opening": 0.14161452920321124,
+      "clutch": 0.5246907199143735,
+      "kost": 0.48233943002186896,
+      "survival": 0.47924289437703393,
+      "trade": 0.09573847712724214,
+      "objectives": 0.4381401966187992
+    },
+    "intercept": 0.07071561632224965
+  },
+  "development_experiment_id": "v3-credited-event-folds-20261007T043107Z",
+  "development_result_sha256": "17679b0ab5fd41f96941b9a53b82f332816ef207365d9976e05b7d1689bc30b7",
+  "development_source_commit": "9bbcd8e",
+  "features": "Credited KPR/multikills/KOST Kill with supported core objectives; legacy opening/trade/clutch chronology explicitly retained; no new credited-victim or exact clock relation",
+  "production_deployed": false
+}

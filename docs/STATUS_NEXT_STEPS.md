@@ -1,4 +1,10 @@
-## Corrected counts LIVE; broad v3 dataset derived ? 2026-10-06
+## Corrected-count v3 development qualified; final targets unopened - 2026-10-06
+
+One predeclared experiment on688clean rows/69maps/9whole-event folds is complete; never refit this study. Corrected nine-family core-objective candidate: MAE0.03103384, RMSE0.04287459,81.1047%within.05; exact original frozen v2 reference MAE0.04905846/62.6453%within.05. Corrected eight-family misses80% (75%). Coefficients, event drift, all residual/subgroup metrics and exact model are preserved in research/output/v3-credited-event-development.md, research/v3-credited-candidate.json and the private immutable experiment.
+
+NEXT ACTION: metadata-only untouched-event qualification, beginning CNL2026Stage1(all27currently linked BO3 archives, earliest small pipeline proof). No new final Rating values have been opened. ChinaStage2 is excluded because earlier searches exposed Rating snippets; OCE/ASIAStage2 currently each fall below ten structurally usable maps. Existing80%final gate plus100clean rows/10maps/8rosters/10objective-positive rows/MAE<=.035/maxAE<=.15 remain unchanged. Freeze candidate, complete eligible rows, input hashes, clean source before one-shot final. No v3 runtime/default/deployment change yet.
+
+## Corrected counts LIVE; broad v3 dataset derived - 2026-10-06
 
 Production commit `b1023d4` pushed to main; GitHub Pages run37571010366 completed successfully. All20live JSON documents exactly match committed LF bytes and the current decoded Windows export (CRLF differences recorded explicitly). Current objectives and all five v2 Ratings remain unchanged;70credited/12legacy rounds are visible per player. Guard: research/verify_production_kill_checkpoint.py. Live evidence: research/production-kill-live-checkpoint.json.
 
