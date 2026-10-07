@@ -1,0 +1,43 @@
+{
+  "version": "native_order_clutch_development_v1",
+  "reason": "Serialized finisher order independently resolves seven CNL clutch log discrepancies and 34 opening-death player-map discrepancies. Broader cached evidence now supports 137 clutch wins, including 40 1v2, 11 1v3, three 1v4, one 1v5, versus 29 total in the rejected old study.",
+  "inputs": "Original 688 corrected clean development rows plus all 300 permanently consumed CNL final rows. No regrading of any final. New 988-row cohort, 99 maps, ten whole events. No new Rating targets and no UAH input.",
+  "identity_quality": "Original clean rows only; exact per-round header identities and normalized/native finisher-victim-clock-headshot parity, every native elimination offset positive and strictly increasing. Whole-map refusal if this fails. Original credited K/D and core objective gates unchanged.",
+  "variants": ["legacy_count", "native_count", "native_linear_size", "native_triangular_size"],
+  "formula": {
+    "legacy_count": "Unchanged corrected nine-family features with remaining-clock opening/clutch semantics as control",
+    "native_count": "Same nine families; native serialized first opposing finisher opening and first sole-survivor clutch count",
+    "native_linear_size": "Native nine families; clutch feature sum(X * clutch_1vX)/rounds",
+    "native_triangular_size": "Native nine families; clutch feature sum(X*(X+1)/2 * clutch_1vX)/rounds"
+  },
+  "complexity_policy": "One clutch coefficient in each arm, no separately fitted size coefficients. Linear and triangular are fixed conventional monotone count transforms, not weights fitted to Direction/Cpk. Triangular is an exploratory increasing opponent-load hypothesis; sparse 1v4/5 support and extrapolation limits must be explicit. No coefficient/alpha/window search, clipping, operator guessing, row deletion, or per-event coefficients.",
+  "feature_limits": "Credited count-derived KPR/MK/KOSTKill and supported objective signal preserved. Native opening explicitly measures FINISHER first opposing elimination, not inferred credited opening owner. Legacy trade and KOST trade flags retained under v2 compatibility; precise credited trades remain NOT READY. This does not change production chronology, action-start operators, or historical v2 snapshots.",
+  "fit_policy": "Standardized ridge alpha=1; ten leave-whole-event-out folds, full event excluded including every map/player. Also exact immutable v2 coefficients on original compatible inputs. Fit each arm once; preserve all folds, errors, metrics, coefficients and drift. No new final event until qualification.",
+  "development_qualification": {
+    "minimum_events": 10,
+    "minimum_clean_rows": 900,
+    "relative_mae_improvement_vs_exact_v2": 0.10,
+    "within_0_05": 0.80,
+    "max_absolute_error": 0.20,
+    "rmse_not_worse": true,
+    "size_arm_relative_mae_improvement_vs_native_count": 0.05,
+    "size_arm_event_wins_minimum": 6,
+    "subgroup_minimum_rows": 10,
+    "subgroup_max_mae": 0.05
+  },
+  "selection": "Lowest pooled whole-event MAE among qualified arms, native_count preferred on exact tie. No final is consumed if no arm qualifies. An extreme-only improvement without broad event wins does not justify a size arm.",
+  "prospective_final_gate": {
+    "minimum_clean_rows": 100,
+    "minimum_clean_maps": 10,
+    "minimum_distinct_rosters": 8,
+    "minimum_objective_positive_rows": 10,
+    "max_mae": 0.035,
+    "relative_mae_improvement_vs_exact_v2": 0.10,
+    "within_0_05": 0.80,
+    "rmse_not_worse": true,
+    "max_absolute_error": 0.15,
+    "subgroup_policy": "Objective-positive and kill-credit-affected groups with >=10 rows each require MAE <=.05"
+  },
+  "historical_studies": "Old 118/299-row linear clutch studies remain rejected; APAC/SAL/CNL final failures remain permanent, never rerun. CNL is now consumed development, not new independent accuracy.",
+  "new_untouched_rating_values_opened": false
+}

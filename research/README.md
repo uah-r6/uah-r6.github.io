@@ -1,4 +1,12 @@
-## Current corrected-count Rating study - 2026-10-06
+## Current native-order study; CNL final permanently FAILED - 2026-10-07
+
+CNL300-row one-shot final failed the frozen MAE/80%/maximum-error gates. Result committed at1a7d9f0; CNL is consumed development, never new final accuracy. V2 remains live. See [final result](output/v3-credited-final-cnl-result.md) and [native-order diagnostic](output/v3-credited-cnl-order-diagnostics.md). Percentage truncation accounts for survival discrepancies; KOST still differs on84rows. Serialized finisher order resolves seven clutch-log contradictions and34opening-death row discrepancies. No credited opening-owner/trade mapping is inferred.
+
+New sealed development cohort:988rows/99maps/10events,1062rounds,7447positive native offsets;125rounds reordered by old remaining-time sort. `v3-native-order-plan.json` prospectively declares four fixed alpha1 event-fold arms and strict qualification, before `v3_native_order_fit.py` is run once from clean committed source. Six focused tests pass. All targets are already-consumed development; no UAH fit and no new final Rating opened. Production/current NECC action-start behavior remains untouched.
+
+NEXT: fit the prospective native-order/clutch study once, retain every arm/fold/result, and consider another untouched final only after a genuine broad qualification. Keep the80%final gate and all prior failures permanently.
+
+## Historical corrected-count Rating study - 2026-10-06
 
 Corrected production counts are live at b1023d4. New whole-event development at af293ce qualifies the fixed nine-family core-objective candidate (688rows/9events, MAE0.03103,81.1%within.05); it is not final-tested or deployed. See [development report](output/v3-credited-event-development.md). Preserve all old studies and both failed finals.
 
