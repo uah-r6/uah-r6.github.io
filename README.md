@@ -15,6 +15,22 @@ Ratings aggregate eligible inputs using the existing engine. Display statistics 
 
 Public routes use the existing hash router: `/#/teams/blue`, `/#/teams/blue/roster`, `/#/teams/blue/stats`, and `/#/teams/blue/matches` (likewise for White and future teams). Existing `/#/players/<slug>`, `/#/matches/<map-id>`, `/#/players`, `/#/matches`, and methodology routes remain available. Existing public JSON fields remain; new team documents live under `data/teams/<slug>/`. Team slug edits preserve both route aliases and old JSON paths.
 
+## Public presentation and embeds
+
+Player Stats uses compact cards on phones and the sortable table on larger
+screens. Player profiles include trusted map Rating trends, and Matches shows
+conservative recorded-map series summaries. Help controls explain each metric.
+The footer reports the actual public-data export timestamp.
+
+Google Sites utility URLs automatically follow the active published season:
+
+- [Blue Player Stats embed](https://uah-r6.github.io/#/embed/blue/player-stats)
+- [White Player Stats embed](https://uah-r6.github.io/#/embed/white/player-stats)
+
+Start with an 800 × 360px frame. See [PUBLIC_PRESENTATION.md](docs/PUBLIC_PRESENTATION.md)
+for responsive columns, historical overrides, keyboard help, framing verification
+and static social-preview limitations.
+
 ## Public replay submissions
 
 Use [Submit Replays](https://uah-r6.github.io/#/submit) to send complete MatchReplay folders privately for review, including rehost segments. Select the team and season explicitly. Uploading does not import or publish statistics.

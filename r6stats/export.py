@@ -1,5 +1,6 @@
 """Publish only roster statistics and match context, never replay identities."""
 import json
+from datetime import datetime, timezone
 from collections import defaultdict
 from pathlib import Path
 
@@ -234,7 +235,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                              "start_date": s["start_date"], "end_date": s["end_date"]} for s in seasons],
                                 "players": [{"slug": p["slug"], "name": p["display_name"],
                                              "active": bool(p["tracked"]), "status": p["status"], "memberships": team_repo.history(db, p["id"])} for p in players],
-                                "rating_version": version})
+                                "rating_version": version, "generated_at": datetime.now(timezone.utc).isoformat()})
     write(root / "methodology.json", {"rating_version": version,
                                       "trade_window_seconds": window,
                                       "kill_methodology": "Complete validated maps use Ubisoft credited round counters for kills, K/D, KPR, side kills, multikills and KOST Kill. Unsupported whole maps retain legacy finisher counts; kill_source_rounds reports coverage. Openings, trades, pivots, untraded features and clutch chronology retain legacy event semantics. Headshot percentage uses finisher headshots divided by finisher kills. V2 retains original version inputs; v3 uses verified native finisher opening/clutch chronology and complete credited/core objective inputs on eligible whole maps only.",

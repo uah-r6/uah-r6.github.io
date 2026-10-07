@@ -1,3 +1,37 @@
+## Current: public presentation and Google Sites embeds — 2026-10-07
+
+**IMPLEMENTED; LOCAL VERIFICATION COMPLETE; DEPLOYMENT/LIVE CHECKS NEXT.**
+Baseline clean `227fb87`. This focused pass adds generic unlisted Player Stats
+embeds, responsive phone cards, exported v3 map Rating trends, recorded-map series
+summaries, stronger stored team accents, accessible shared stat help, export
+freshness, polished empty-team states, official-asset favicon/social metadata,
+route titles and 404 handling. See [PUBLIC_PRESENTATION.md](PUBLIC_PRESENTATION.md)
+for Google Sites URLs, dimensions, behavior and limitations.
+
+Local checks: **24 frontend tests**, **565 Python tests + six subtests** passed;
+one optional replay smoke test skipped. Both Vite builds pass. Public presentation
+browser checks cover 1440/1150/768/390px and 1000/800/600/390px embeds, exact trusted
+values, active-season rollover ignoring saved Career, generic future team,
+explicit historical override, Alumni rules, sorting/help keyboard/focus/click,
+viewport-safe popovers, exact chronological chart points and single/empty states,
+series links, document titles and a real cross-origin iframe. Existing Methodology
+and replay-selection Chrome/Edge regressions pass; submission workflow checks use
+mocked cloud responses only. No real submissions, imports or reparses occurred.
+
+The only export addition is UTC `index.json.generated_at`. A read-only SQLite
+candidate export matched every previous field in all27 JSON documents before its
+output was copied to public data. Public validation passes. Hash checks cover
+158 protected paths: only the authorized exporter metadata change and public
+index timestamp differ. SQLite, Rating/parser/objective/credited-kill sources,
+archives, historical maps, memberships, private settings and Cloudflare backend
+remain exact. Evidence: ignored `data/research/public-presentation-20261007/`.
+
+**NEXT ACTION:** push this release, verify Pages success and live presentation /
+embeds / framing headers, then replace this section with the final release and
+verification results, push the checkpoint, confirm a clean tree and **stop**.
+Do not resume unrelated research/backend work. The earlier real Windows Explorer
+folder gesture remains a separate pending manual check, unchanged by this pass.
+
 ## Current: focused replay-folder selection usability — 2026-10-07
 
 **READ-ONLY FOLLOW-UP DEPLOYED; AUTOMATED LIVE CHECKS PASS.** Initial release
