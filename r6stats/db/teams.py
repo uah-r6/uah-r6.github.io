@@ -9,6 +9,10 @@ def migrate(db):
         return
     with db:
         db.execute('BEGIN IMMEDIATE')
+        # Two first requests may both observe the old schema before either
+        # acquires SQLite's write lock. Recheck after acquiring that lock.
+        if db.execute("SELECT 1 FROM sqlite_master WHERE name='team_schema_version'").fetchone():
+            return
         db.execute("""CREATE TABLE teams(id INTEGER PRIMARY KEY, name TEXT NOT NULL,
             slug TEXT UNIQUE NOT NULL, primary_color TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1,
             display_order INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL)""")

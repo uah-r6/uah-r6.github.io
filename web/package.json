@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:admin": "tsc -b && vite build --config vite.admin.config.ts"
+    "build:admin": "tsc -b && vite build --config vite.admin.config.ts",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

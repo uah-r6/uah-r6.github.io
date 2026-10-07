@@ -1,0 +1,21 @@
+{
+  "slug": "fall-2026",
+  "name": "Fall 2026",
+  "maps": 0,
+  "wins": 0,
+  "rounds": 0,
+  "rounds_won": 0,
+  "matches": [],
+  "players": [],
+  "rating_version": "siege_style_v3",
+  "team": {
+    "id": 2,
+    "name": "UAH White",
+    "slug": "white",
+    "primary_color": "#E6EDF5",
+    "active": 1,
+    "display_order": 1,
+    "aliases": []
+  },
+  "roster": []
+}

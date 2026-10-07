@@ -13,12 +13,15 @@
   "result": "WIN",
   "demo": false,
   "rating_eligible": true,
+  "team_slug": "blue",
+  "team_name": "UAH Blue",
   "rating_version": "siege_style_v3",
   "rating_exclusion": null,
   "players": [
     {
       "slug": "azooznewzz",
       "name": "AzoozNewzz",
+      "status": "Active",
       "rounds": 11,
       "kills": 10,
       "deaths": 6,
@@ -103,6 +106,7 @@
     {
       "slug": "dinofireking",
       "name": "DinoFireKing",
+      "status": "Active",
       "rounds": 11,
       "kills": 3,
       "deaths": 6,
@@ -187,6 +191,7 @@
     {
       "slug": "lgon",
       "name": "Lgon",
+      "status": "Active",
       "rounds": 11,
       "kills": 11,
       "deaths": 6,
@@ -271,6 +276,7 @@
     {
       "slug": "ohwowjay",
       "name": "OhWowJay",
+      "status": "Active",
       "rounds": 11,
       "kills": 13,
       "deaths": 7,
@@ -353,6 +359,7 @@
     {
       "slug": "tallman3-14",
       "name": "Tallman3.14",
+      "status": "Active",
       "rounds": 11,
       "kills": 4,
       "deaths": 8,

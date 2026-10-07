@@ -49,6 +49,12 @@ def verify(backup, database, public):
                   json.loads((public / relative).read_text(encoding='utf-8')), str(relative))
     white = json.loads((public / 'teams/white/career.json').read_text(encoding='utf-8'))
     assert white['maps'] == white['rounds'] == 0 and white['players'] == white['roster'] == []
+    blue = json.loads((public / 'teams/blue/career.json').read_text(encoding='utf-8'))
+    for player in blue['players']:
+        career = json.loads((public / 'players' / player['slug'] / 'career.json').read_text(encoding='utf-8'))
+        for key, value in player.items():
+            assert career[key] == value, ('Blue career scope differs from preserved global career', player['slug'], key)
+    assert blue['maps'] == 7 and blue['rounds'] == 82 and len(blue['players']) == 5
     for name, expected in seal['archive_hashes'].items():
         assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == expected, name
     assert {p.as_posix() for p in Path('data/replay-archive').rglob('*') if p.is_file()} == set(seal['archive_hashes'])

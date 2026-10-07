@@ -46,6 +46,7 @@ class Preview:
     season_slug: str | None = None
     paths: list[Path] | None = None
     rehost_manifest: dict | None = None
+    segment_matches: list[Match] | None = None
 
 
 class SeasonCreate(BaseModel):
@@ -406,6 +407,14 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         if payload.team_id != preview.team_id or payload.season_slug != preview.season_slug:
             raise ValueError("Team or season changed since preview. Preview again in the selected context.")
 
+    def validate_rehost_rosters(db, matches, details, side, organization_id):
+        for index, (match, detail) in enumerate(zip(matches, details), start=1):
+            physical_side = detail['team_mapping'].index(side)
+            try:
+                repo.choose_team(db, match, physical_side, team_id=organization_id)
+            except ValueError as error:
+                raise ValueError(f"Rehost segment {index} does not validate for the selected team: {error}") from error
+
     @app.get("/api/admin/teams")
     def teams(db: DB):
         return [dict(r) for r in db.execute("SELECT * FROM teams ORDER BY display_order,id")]
@@ -666,10 +675,14 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                                 (replay_id IS NOT NULL AND replay_id=?)""",
                                    (source["fingerprint"], source["replay_id"])).fetchone()
                         for source in manifest["segments"])
+        if team is not None:
+            validate_rehost_rosters(db, [segment.match for segment in logical.segments],
+                                   logical.segment_details, team, payload.team_id)
         token = secrets.token_urlsafe(24)
         app.state.previews = {key: value for key, value in app.state.previews.items()
                               if time.time() - value.created < 1800}
-        app.state.previews[token] = Preview(paths[0], digest, match, time.time(), payload.team_id, season["slug"], paths, manifest)
+        app.state.previews[token] = Preview(paths[0], digest, match, time.time(), payload.team_id, season["slug"],
+                                            paths, manifest, [segment.match for segment in logical.segments])
         active = db.execute("SELECT slug FROM seasons WHERE active=1").fetchone()
         rounds = []
         logical_score = [0, 0]
@@ -744,6 +757,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
             if source_fingerprint(path) != source["fingerprint"]:
                 raise ValueError("A replay segment changed since preview. Preview it again.")
         team, _ = repo.choose_team(db, preview.match, payload.team, team_id=payload.team_id)
+        validate_rehost_rosters(db, preview.segment_matches or [], preview.rehost_manifest['segment_details'],
+                               team, payload.team_id)
         expected = ((payload.final_our_score, payload.final_their_score) if team == 0 else
                     (payload.final_their_score, payload.final_our_score))
         actual = tuple(sum(round_.winner == index for round_ in preview.match.rounds)
@@ -996,7 +1011,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         config = read_settings(root)
         program = config.get("program", {"name": "UAH Rainbow Six Siege", "short_name": "UAH R6"})
         return {"team_name": program["name"], "short_name": program["short_name"],
-                "accent": config["team"]["accent"], "replay_path": config["replays"].get("path", ""),
+                "accent": program.get("accent", "#0058A4"), "replay_path": config["replays"].get("path", ""),
                 "trade_window_seconds": config["stats"]["trade_window_seconds"],
                 "rating_version": config["stats"].get("rating_version", RATING_VERSION),
                 "publishing_enabled": config["publishing"].get("enabled", True),
@@ -1011,7 +1026,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         if payload.rating_version in ("siege_style_v2", "siege_style_v3") and payload.trade_window_seconds != 8:
             raise ValueError("Siege-style Ratings require their frozen 8-second trade window.")
         config = read_settings(root)
-        config["program"] = {"name": payload.team_name.strip(), "short_name": payload.short_name.strip()}
+        config["program"] = {"name": payload.team_name.strip(), "short_name": payload.short_name.strip(), "accent": payload.accent}
         # Legacy public consumers still receive the original team-brand keys.
         config["team"]["accent"] = payload.accent
         config["replays"]["path"] = payload.replay_path.strip()

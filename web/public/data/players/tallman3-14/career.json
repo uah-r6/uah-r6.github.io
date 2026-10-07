@@ -1,6 +1,7 @@
 {
   "slug": "tallman3-14",
   "name": "Tallman3.14",
+  "status": "Active",
   "season": "career",
   "rounds": 82,
   "kills": 37,
@@ -113,6 +114,8 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": null,
       "rating": 0.9848593026674388
@@ -132,6 +135,8 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": null,
       "rating": 0.6908516244486744
@@ -151,6 +156,8 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": false,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": "Incomplete credited-kill evidence",
       "rating": null
@@ -170,6 +177,8 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": null,
       "rating": 0.934669056494805
@@ -189,6 +198,8 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": false,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
       "rating": null
@@ -208,6 +219,8 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": false,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
       "rating": null
@@ -227,9 +240,121 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
       "rating_exclusion": null,
       "rating": 0.8145969377571439
+    }
+  ],
+  "memberships": [
+    {
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "team_id": 1,
+      "start_date": "2026-09-23",
+      "end_date": null
+    }
+  ],
+  "team_splits": [
+    {
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "rounds": 82,
+      "kills": 37,
+      "deaths": 63,
+      "headshots": 14,
+      "opening_kills": 14,
+      "opening_deaths": 8,
+      "refrag_kills": 1,
+      "deaths_traded": 5,
+      "kills_traded": 7,
+      "untraded_kills": 29,
+      "untraded_deaths": 58,
+      "pivot_kills": 22,
+      "pivot_deaths": 43,
+      "plants": 6,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 19,
+      "kost_rounds": 41,
+      "rounds_won": 49,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 1,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 10,
+      "operators": {
+        "Attack": {
+          "Thermite": 4,
+          "Blitz": 10,
+          "Montagne": 7,
+          "Capitao": 5,
+          "Ying": 2,
+          "Rauora": 1,
+          "Hibana": 1,
+          "Lion": 3,
+          "Ace": 3,
+          "Zofia": 1,
+          "Blackbeard": 1,
+          "Flores": 1
+        },
+        "Defense": {
+          "Mute": 6,
+          "Smoke": 23,
+          "Warden": 1,
+          "Solis": 2,
+          "Sentry": 2,
+          "Goyo": 4,
+          "Kaid": 2,
+          "Pulse": 2,
+          "Wamai": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 39,
+          "kills": 12,
+          "deaths": 30,
+          "kd": 0.4,
+          "kpr": 0.3076923076923077
+        },
+        "Defense": {
+          "rounds": 43,
+          "kills": 25,
+          "deaths": 33,
+          "kd": 0.7575757575757576,
+          "kpr": 0.5813953488372093
+        }
+      },
+      "maps": 7,
+      "rating": 0.8529785630583683,
+      "kd": 0.5873015873015873,
+      "kpr": 0.45121951219512196,
+      "kost": 0.5,
+      "srv": 0.23170731707317074,
+      "hs": 0.3888888888888889,
+      "entry_diff": 6,
+      "kd_diff": -26,
+      "objectives": 6,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 36,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 10,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_rounds": 42,
+      "rating_maps": 4
     }
   ]
 }

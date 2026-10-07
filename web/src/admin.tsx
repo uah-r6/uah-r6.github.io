@@ -3,13 +3,18 @@ import { createRoot } from 'react-dom/client'
 import { Activity, ArrowRight, Check, ChevronRight, ClipboardList, CloudUpload, Crosshair, Database, FolderSearch, LayoutDashboard, Play, Plus, RefreshCw, Settings, ShieldCheck, Swords, Users } from 'lucide-react'
 import './style.css'
 import './admin.css'
+import './brand.css'
+import './adminBrand.css'
+import { teamTheme } from './theme'
 
-type Page = 'dashboard' | 'replays' | 'roster' | 'seasons' | 'matches' | 'statistics' | 'publish' | 'settings'
+type Page = 'teams' | 'dashboard' | 'replays' | 'roster' | 'seasons' | 'matches' | 'statistics' | 'publish' | 'settings'
 type Season = { slug: string; name: string; active: number; start_date: string | null; end_date: string | null }
-type Player = { id: number; slug: string; display_name: string; username: string; tracked: number; profile_bound: boolean; aliases: string[] }
+type Team = {id:number;name:string;slug:string;primary_color:string;active:number;display_order:number}
+type Membership = {team_id:number;team_slug:string;team_name:string;start_date:string;end_date:string|null}
+type Player = {status:string;memberships:Membership[];in_selected_team:boolean; id: number; slug: string; display_name: string; username: string; tracked: number; profile_bound: boolean; aliases: string[] }
 type Series = { id: string; opponent: string; date: string; week: string; notes: string; season_slug: string; maps: number }
 type Replay = { id: string; name: string; map?: string; timestamp?: string; match_type?: string; status: string; eligible: boolean; rehost_eligible?: boolean; tracked_count?: number; rounds?: number; score?: number[]; our_team?: number | null; duplicate?: boolean }
-type Preview = { preview_token: string; map: string; timestamp: string; match_type: string; game_mode: string; rounds: number; score: number[]; our_team: number | null; tracked_players: string[]; teams: { index: number; players: string[] }[]; ambiguous: string | null; duplicate: boolean; active_season: string | null; competition_if_confirmed: string }
+type Preview = {organization_team:string;team_id:number;season_slug:string;season_name:string; preview_token: string; map: string; timestamp: string; match_type: string; game_mode: string; rounds: number; score: number[]; our_team: number | null; tracked_players: string[]; teams: { index: number; players: string[] }[]; ambiguous: string | null; duplicate: boolean; active_season: string | null; competition_if_confirmed: string }
 type RehostRound = { segment: number; physical_number: number; filename: string; site: string; winner: number; physical_score: number[]; logical_score: number[]; players: string[][]; logical_number: number | null; exclusion_reason: string | null }
 type RehostPreview = Preview & { segments: { segment: number; source_name: string; players: string[][]; absent: string[][]; added: string[][]; physical_start: number[]; logical_start: number[]; score_mode: string }[]; physical_rounds: RehostRound[]; roster_change_required: boolean; score_override_required: boolean }
 type MapRow = { id: string; map_name: string; match_type: string; our_score: number; their_score: number; opponent: string; date: string; series_date: string; week: string; notes: string; season_name: string; season_slug: string; series_id: string; competition: string; demo: number }
@@ -20,10 +25,21 @@ type Dashboard = { active_season: { slug: string; name: string } | null; roster_
 type SettingsData = { team_name: string; short_name: string; accent: string; replay_path: string; trade_window_seconds: number; rating_version: string; publishing_enabled: boolean; branch: string; remote_url: string; site_url: string }
 
 let adminToken = ''
+let adminScope: {team_id:number|null;season_slug:string} = {team_id:null,season_slug:''}
+let refreshScope: () => void = () => {}
 async function api<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
   if (!adminToken) {
     const session = await fetch('/api/admin/session', { cache: 'no-store' }).then(response => response.json())
     adminToken = session.token
+  }
+  const scopePaths=['/dashboard','/replays','/roster','/matches','/series']
+  if(method==='GET'&&scopePaths.includes(path.split('?')[0])&&adminScope.team_id!==null){
+    const url=new URL('http://localhost'+path);url.searchParams.set('team_id',String(adminScope.team_id))
+    if(['/dashboard','/matches','/series'].includes(url.pathname)&&!url.searchParams.has('season')&&adminScope.season_slug)url.searchParams.set('season',adminScope.season_slug)
+    path=url.pathname+url.search
+  }
+  if(method==='POST'&&(path==='/roster'||path.startsWith('/replays/'))){
+    body={team_id:adminScope.team_id,season_slug:adminScope.season_slug,...(body as object)}
   }
   const response = await fetch(`/api/admin${path}`, {
     method,
@@ -33,12 +49,15 @@ async function api<T>(path: string, method = 'GET', body?: unknown): Promise<T> 
   })
   const data = await response.json()
   if (!response.ok) throw new Error(typeof data.detail === 'string' ? data.detail : 'The request could not be completed.')
+  if(method==='POST'&&path.endsWith('/activate'))window.dispatchEvent(new CustomEvent('uah-active-season',{detail:path.split('/')[2]}))
+  if(method!=='GET'&&path.startsWith('/seasons'))refreshScope()
   return data as T
 }
 
 const nav: { id: Page; title: string; icon: React.ReactNode }[] = [
   { id: 'dashboard', title: 'Dashboard', icon: <LayoutDashboard size={18} /> },
   { id: 'replays', title: 'Import Match', icon: <FolderSearch size={18} /> },
+  { id: 'teams', title: 'Teams', icon: <ShieldCheck size={18} /> },
   { id: 'roster', title: 'Roster', icon: <Users size={18} /> },
   { id: 'seasons', title: 'Seasons', icon: <Swords size={18} /> },
   { id: 'matches', title: 'Matches', icon: <ClipboardList size={18} /> },
@@ -49,24 +68,42 @@ const nav: { id: Page; title: string; icon: React.ReactNode }[] = [
 
 function App() {
   const [page, setPage] = useState<Page>('dashboard')
+  const [teams,setTeams]=useState<Team[]>([]),[seasons,setSeasons]=useState<Season[]>([])
+  const [teamId,setTeamId]=useState<number|null>(null),[selectedSeason,setSelectedSeason]=useState('')
+  const loadScope=()=>Promise.all([api<Team[]>('/teams'),api<Season[]>('/seasons')]).then(([ts,ss])=>{
+    setTeams(ts);setSeasons(ss)
+    const saved=Number(localStorage.getItem('uah-admin-team'))
+    setTeamId(current=>ts.some(t=>t.id===current)?current:ts.some(t=>t.id===saved)?saved:null)
+    setSelectedSeason(current=>ss.some(s=>s.slug===current)?current:ss.some(s=>s.slug===localStorage.getItem('uah-admin-season'))?localStorage.getItem('uah-admin-season')!:ss.find(s=>s.active)?.slug||ss[0]?.slug||'')
+  }).catch(error=>setNotice({text:error.message,error:true}))
+  useEffect(()=>{void loadScope();refreshScope=()=>{void loadScope()};return()=>{refreshScope=()=>{}}},[])
+  useEffect(()=>{const update=(event:Event)=>{const slug=(event as CustomEvent<string>).detail;setSelectedSeason(slug);localStorage.setItem('uah-admin-season',slug)};window.addEventListener('uah-active-season',update);return()=>window.removeEventListener('uah-active-season',update)},[])
+  adminScope={team_id:teamId,season_slug:selectedSeason}
+  const selectedTeam=teams.find(t=>t.id===teamId)
+  const selectTeam=(id:number|null)=>{setTeamId(id);if(id!==null)localStorage.setItem('uah-admin-team',String(id));else localStorage.removeItem('uah-admin-team')}
+  const selectSeason=(slug:string)=>{setSelectedSeason(slug);localStorage.setItem('uah-admin-season',slug)}
+  const scopedReady=teamId!==null&&!!selectedSeason
+
   const [notice, setNotice] = useState<{ text: string; error: boolean } | null>(null)
   const notify = (text: string, error = false) => setNotice({ text, error })
-  return <div className="admin-shell">
+  return <div className="admin-shell" style={teamTheme(selectedTeam?.primary_color||'#0058A4')}>
     <aside className="admin-sidebar">
-      <div className="admin-brand"><span><Crosshair size={24} /></span><div><strong>NECC // CONTROL</strong><small>LOCAL TRACKER ADMIN</small></div></div>
+      <div className="admin-brand"><img src="/brand/uah-esports-logo.png" alt="UAH Esports"/><div><strong>UAH R6</strong><small>LOCAL ADMINISTRATION</small></div></div>
       <div className="sidebar-label">WORKSPACE</div>
       <nav>{nav.map(item => <button key={item.id} className={page === item.id ? 'selected' : ''} onClick={() => { setPage(item.id); setNotice(null) }}>{item.icon}<span>{item.title}</span><ChevronRight size={15} /></button>)}</nav>
       <div className="sidebar-foot"><span className="live-dot" /> Running on this PC<br /><small>127.0.0.1 · private local API</small></div>
     </aside>
     <div className="admin-main">
-      <div className="admin-topbar"><div><span className="eyebrow">LOCAL OPERATIONS</span><strong>{nav.find(item => item.id === page)?.title}</strong></div><span className="admin-local"><ShieldCheck size={15} /> Local only</span></div>
-      <div className="admin-content">
-        {notice && <div className={`admin-notice ${notice.error ? 'error' : 'success'}`}><span>{notice.text}</span><button onClick={() => setNotice(null)}>×</button></div>}
-        {page === 'dashboard' && <DashboardPage go={setPage} />}
-        {page === 'replays' && <ReplaysPage notify={notify} />}
-        {page === 'roster' && <RosterPage notify={notify} />}
+      <div className="admin-topbar"><div><span className="eyebrow">LOCAL OPERATIONS</span><strong>{nav.find(item => item.id === page)?.title}</strong></div><div className="admin-context"><label>ACTIVE TEAM<select aria-label="Active admin team" value={teamId??''} onChange={e=>selectTeam(e.target.value?Number(e.target.value):null)}><option value="">Choose a team</option>{teams.map(t=><option value={t.id} key={t.id}>{t.name}{t.active?'':' · inactive'}</option>)}</select></label><label>SEASON<select aria-label="Active admin season" value={selectedSeason} onChange={e=>selectSeason(e.target.value)}><option value="">Choose a season</option>{seasons.map(s=><option value={s.slug} key={s.slug}>{s.name}{s.active?' · active':''}</option>)}</select></label><span className="admin-local"><ShieldCheck size={15}/> Local only</span></div></div>
+      <div className="admin-content" key={`${teamId}:${selectedSeason}`}>
+        {notice && <div className={`admin-notice ${notice.error ? 'error' : 'success'}`}><span>{notice.text}</span><button aria-label="Dismiss notification" onClick={() => setNotice(null)}>×</button></div>}
+        {!scopedReady&&!['teams','seasons','settings','statistics','publish'].includes(page)&&<div className="admin-empty">Choose an active team and season above to open this workspace.</div>}
+        {page === 'teams' && <TeamsPage notify={notify} teams={teams} after={loadScope}/>}
+        {page === 'dashboard' && scopedReady && <DashboardPage go={setPage} />}
+        {page === 'replays' && scopedReady && (selectedTeam?.active?<ReplaysPage notify={notify} />:<div className="admin-empty">This team is inactive. Reactivate it in Teams before importing. Its history remains available in Matches.</div>)}
+        {page === 'roster' && scopedReady && <RosterPage notify={notify} />}
         {page === 'seasons' && <SeasonsPage notify={notify} />}
-        {page === 'matches' && <MatchesPage notify={notify} />}
+        {page === 'matches' && scopedReady && <MatchesPage notify={notify} />}
         {page === 'statistics' && <StatisticsPage notify={notify} />}
         {page === 'publish' && <PublishPage notify={notify} />}
         {page === 'settings' && <SettingsPage notify={notify} />}
@@ -121,10 +158,10 @@ function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => vo
   const [confirmed, setConfirmed] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
-  useEffect(() => { api<Season[]>('/seasons').then(rows => { setSeasons(rows); setSeason(rows.find(row => row.active)?.slug || rows[0]?.slug || '') }).catch(error => setError(error.message)) }, [])
+  useEffect(() => { api<Season[]>('/seasons').then(rows => { setSeasons(rows); setSeason(adminScope.season_slug || rows.find(row => row.active)?.slug || rows[0]?.slug || '') }).catch(error => setError(error.message)) }, [])
   useEffect(() => { if (season) api<Series[]>(`/series?season=${encodeURIComponent(season)}`).then(setSeries).catch(error => setError(error.message)); else setSeries([]) }, [season])
   async function scan() { setBusy(true); setError(''); setPreview(null); try { setItems(await api<Replay[]>('/replays')); notify('Replay scan completed.') } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
-  async function review(replayId?: string, path?: string, chosenTeam?: number) { setBusy(true); setError(''); try { const result = await api<Preview>('/replays/preview', 'POST', { replay_id: replayId || null, path: path || null, team: chosenTeam ?? null }); setPreview(result); setSelectedId(replayId || ''); setTeam(result.our_team); setConfirmed(false); if (result.active_season) setSeason(result.active_season); if (result.duplicate) notify('This replay has already been imported.', true) } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
+  async function review(replayId?: string, path?: string, chosenTeam?: number) { setBusy(true); setError(''); try { const result = await api<Preview>('/replays/preview', 'POST', { replay_id: replayId || null, path: path || null, team: chosenTeam ?? null }); setPreview(result); setSelectedId(replayId || ''); setTeam(result.our_team); setConfirmed(false);  if (result.duplicate) notify('This replay has already been imported.', true) } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   async function importMap() { if (!preview) return; setBusy(true); setError(''); try { const result = await api<{ map_id: string; rounds: number }>('/replays/import', 'POST', { preview_token: preview.preview_token, season_slug: season, opponent, week, notes, series_id: seriesId || null, team, confirm_necc: confirmed }); notify(`Imported ${result.rounds} rounds as NECC map ${result.map_id}. Website data refreshed.`); setPreview(null); setConfirmed(false); setOpponent(''); setSeriesId(''); void scan() } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   const selectedSeries = series.find(row => row.id === seriesId)
   if (importType === 'rehost') return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC rehost" description="Choose ordered Custom Game folders, mark abandoned rounds, and confirm the competitive score." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> Scan replay folder</Button>} />
@@ -140,13 +177,13 @@ function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => vo
       {items.length ? <div className="replay-list">{items.map(item => <div className={`replay-item ${item.eligible ? '' : 'disabled'}`} key={item.id}><div className="replay-icon"><Play size={17} /></div><div className="replay-meta"><b>{item.map || item.name}</b><small>{item.timestamp?.slice(0, 16) || item.name} · {item.rounds ?? '—'} rounds · {item.our_team != null && item.score ? `${item.score[item.our_team]}–${item.score[1 - item.our_team]} · ` : ''}{item.tracked_count ?? '—'} roster matches</small></div><span className={`replay-status ${item.eligible ? 'eligible' : 'ineligible'}`}>{item.duplicate ? 'ALREADY IMPORTED' : item.status}</span><Button secondary disabled={!item.eligible || item.duplicate || busy} onClick={() => void review(item.id)}>Preview</Button></div>)}</div> : <p className="admin-muted">No replay scan results yet.</p>}
       <div className="manual-path"><label>Or paste a complete match folder / ZIP path<input value={manualPath} onChange={event => setManualPath(event.target.value)} placeholder="C:\...\Match-folder" /></label><Button secondary disabled={!manualPath.trim() || busy} onClick={() => void review(undefined, manualPath)}>Preview path</Button></div>
     </section>
-    {preview && <section className="admin-panel preview-panel"><span className="eyebrow">IMPORT PREVIEW</span><h2>{preview.map} <span>· {preview.match_type}</span></h2><div className="preview-facts"><div><small>DATE</small><b>{preview.timestamp.slice(0, 10)}</b></div><div><small>ROUNDS</small><b>{preview.rounds}</b></div><div><small>MODE</small><b>{preview.game_mode}</b></div><div><small>SCORE</small><b>{team === null ? 'Choose team' : `${preview.score[team]} – ${preview.score[1 - team]}`}</b></div></div>
+    {preview && <section className="admin-panel preview-panel"><span className="eyebrow">IMPORT TO {preview.organization_team} — {preview.season_name}</span><h2>{preview.map} <span>· {preview.match_type}</span></h2><div className="preview-facts"><div><small>DATE</small><b>{preview.timestamp.slice(0, 10)}</b></div><div><small>ROUNDS</small><b>{preview.rounds}</b></div><div><small>MODE</small><b>{preview.game_mode}</b></div><div><small>SCORE</small><b>{team === null ? 'Choose team' : `${preview.score[team]} – ${preview.score[1 - team]}`}</b></div></div>
       <div className="team-choices"><b>Tracked team</b><p>{preview.tracked_players.join(', ') || 'Choose your team below.'}</p>{preview.teams.map(choice => <div key={choice.index}><span>Team {choice.index}: {choice.players.join(', ')}</span>{preview.ambiguous && <Button secondary onClick={() => void review(selectedId || undefined, selectedId ? undefined : manualPath, choice.index)}>Use team {choice.index}</Button>}</div>)}</div>
       {preview.ambiguous && <div className="admin-inline-error">{preview.ambiguous}</div>}
       {preview.duplicate && <div className="admin-inline-error">This replay has already been imported. No changes can be made.</div>}
-      <div className="form-grid"><label>Season<select value={season} onChange={event => { setSeason(event.target.value); setSeriesId('') }}><option value="">Select season</option>{seasons.map(row => <option value={row.slug} key={row.slug}>{row.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; setSeriesId(id); const found = series.find(row => row.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(row => <option value={row.id} key={row.id}>vs {row.opponent} · {row.date} ({row.maps} maps)</option>)}</select></label><label>Opponent name<input value={opponent} onChange={event => setOpponent(event.target.value)} placeholder="e.g. UAB" readOnly={!!selectedSeries} /></label><label>NECC week (optional)<input value={week} onChange={event => setWeek(event.target.value)} placeholder="Week 4" /></label><label className="wide">Notes (optional)<textarea value={notes} onChange={event => setNotes(event.target.value)} placeholder="Series context or match notes" rows={3} /></label></div>
+      <div className="form-grid"><label>Season ? selected above<select disabled value={season} onChange={event => { setSeason(event.target.value); setSeriesId('') }}><option value="">Select season</option>{seasons.map(row => <option value={row.slug} key={row.slug}>{row.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; setSeriesId(id); const found = series.find(row => row.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(row => <option value={row.id} key={row.id}>vs {row.opponent} · {row.date} ({row.maps} maps)</option>)}</select></label><label>Opponent name<input value={opponent} onChange={event => setOpponent(event.target.value)} placeholder="e.g. UAB" readOnly={!!selectedSeries} /></label><label>NECC week (optional)<input value={week} onChange={event => setWeek(event.target.value)} placeholder="Week 4" /></label><label className="wide">Notes (optional)<textarea value={notes} onChange={event => setNotes(event.target.value)} placeholder="Series context or match notes" rows={3} /></label></div>
       <label className="confirm-line"><input type="checkbox" checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /><span>I manually selected this Custom Game and confirm it was an <b>NECC match</b>. Store it as competition = NECC.</span></label>
-      <Button disabled={busy || !confirmed || !opponent.trim() || !season || team === null || preview.duplicate} onClick={() => void importMap()}><Check size={16} /> {busy ? 'Importing…' : 'Import NECC map'}</Button>
+      <Button disabled={busy || !confirmed || !opponent.trim() || !season || team === null || preview.duplicate} onClick={() => void importMap()}><Check size={16} /> {busy ? 'Importing…' : `Import to ${preview.organization_team} — ${preview.season_name}`}</Button>
     </section>}
   </>
 }
@@ -190,7 +227,6 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
       })
       const result = await api<RehostPreview>('/replays/rehost/preview', 'POST', { segments: selected, exclusions: omitted, team: chosenTeam ?? team })
       setPreview(result); setTeam(result.our_team); setDirty(false); setConfirmMap(false); setConfirmNecc(false); setConfirmRoster(false); setConfirmScoreOverride(false)
-      if (result.active_season) setSeason(result.active_season)
       if (result.our_team !== null) { setFinalOur(String(result.score[result.our_team])); setFinalTheir(String(result.score[1 - result.our_team])) }
       if (result.duplicate) notify('One of these replay folders was already imported.', true)
     } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) }
@@ -222,7 +258,7 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
       <div className="detail-actions"><Button secondary onClick={() => { setSegments([...segments, { replay_id: '', path: '' }]); setPreview(null); setExclusions({}) }}><Plus size={15} /> Add segment</Button><Button disabled={busy || segments.some(item => !item.replay_id && !item.path.trim())} onClick={() => void review()}>{busy ? 'Inspecting…' : 'Preview physical rounds'}</Button></div>
     </section>
     <ErrorBox message={error} />
-    {preview && <section className="admin-panel preview-panel"><span className="eyebrow">LOGICAL MAP PREVIEW</span><h2>{preview.map} · {preview.match_type}</h2><p className="admin-muted">{preview.segments.length} physical folders · {preview.physical_rounds.length} physical rounds · {preview.rounds} counting rounds. Physical scores restart within each folder; the logical score counts only selected rounds.</p>
+    {preview && <section className="admin-panel preview-panel"><span className="eyebrow">IMPORT TO {preview.organization_team} — {preview.season_name}</span><h2>{preview.map} · {preview.match_type}</h2><p className="admin-muted">{preview.segments.length} physical folders · {preview.physical_rounds.length} physical rounds · {preview.rounds} counting rounds. Physical scores restart within each folder; the logical score counts only selected rounds.</p>
       <div className="team-choices"><b>Tracked team</b><p>{preview.tracked_players.join(', ') || 'Choose your team below.'}</p>{preview.teams.map(choice => <div key={choice.index}><span>Team {choice.index}: {choice.players.join(', ')}</span>{preview.ambiguous && <Button secondary onClick={() => void review(choice.index)}>Use team {choice.index}</Button>}</div>)}</div>
       {preview.ambiguous && <div className="admin-inline-error">{preview.ambiguous}</div>}
       {preview.duplicate && <div className="admin-inline-error">A physical replay folder was already imported.</div>}
@@ -234,28 +270,32 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
       {preview.segments.map(segment => <div key={segment.segment} className="rehost-round-group"><h3>Segment {segment.segment}: {segment.source_name}</h3>{preview.physical_rounds.filter(round => round.segment === segment.segment).map(round => <div className="rehost-round" key={key(round)}><label><input type="checkbox" checked={!(key(round) in exclusions)} onChange={event => { setExclusions(current => { const next = { ...current }; if (event.target.checked) delete next[key(round)]; else next[key(round)] = 'abandoned rehost round'; return next }); setDirty(true) }} /> R{String(round.physical_number).padStart(2, '0')}</label><span>{round.site} · physical {round.physical_score.join('–')}</span><strong>{key(round) in exclusions ? 'DOES NOT COUNT' : `Logical R${round.logical_number ?? '—'}`}</strong>{key(round) in exclusions && <input aria-label={`Reason segment ${round.segment} round ${round.physical_number}`} value={exclusions[key(round)]} onChange={event => { setExclusions(current => ({ ...current, [key(round)]: event.target.value })); setDirty(true) }} />}</div>)}</div>)}
       {dirty && <div className="admin-inline-error">Round choices changed. Update the preview before importing.</div>}
       <div className="detail-actions"><Button secondary disabled={busy} onClick={() => void review(team ?? undefined)}>Update preview and logical score</Button></div>
-      <div className="form-grid"><label>Final UAH score<input type="number" min="0" max="30" value={finalOur} onChange={event => setFinalOur(event.target.value)} /></label><label>Final opponent score<input type="number" min="0" max="30" value={finalTheir} onChange={event => setFinalTheir(event.target.value)} /></label><label>Season<select value={season} onChange={event => { setSeason(event.target.value); chooseSeries(''); setSeriesId('') }}><option value="">Select season</option>{seasons.map(item => <option value={item.slug} key={item.slug}>{item.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; chooseSeries(id); setSeriesId(id); const found = series.find(item => item.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(item => <option value={item.id} key={item.id}>vs {item.opponent} · {item.date}</option>)}</select></label><label>Opponent<input value={opponent} readOnly={!!seriesId} onChange={event => setOpponent(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div>
+      <div className="form-grid"><label>Final UAH score<input type="number" min="0" max="30" value={finalOur} onChange={event => setFinalOur(event.target.value)} /></label><label>Final opponent score<input type="number" min="0" max="30" value={finalTheir} onChange={event => setFinalTheir(event.target.value)} /></label><label>Season ? selected above<select disabled value={season} onChange={event => { setSeason(event.target.value); chooseSeries(''); setSeriesId('') }}><option value="">Select season</option>{seasons.map(item => <option value={item.slug} key={item.slug}>{item.name}</option>)}</select></label><label>Series<select value={seriesId} onChange={event => { const id = event.target.value; chooseSeries(id); setSeriesId(id); const found = series.find(item => item.id === id); if (found) { setOpponent(found.opponent); setWeek(found.week || '') } }}><option value="">New series / matchup</option>{series.map(item => <option value={item.id} key={item.id}>vs {item.opponent} · {item.date}</option>)}</select></label><label>Opponent<input value={opponent} readOnly={!!seriesId} onChange={event => setOpponent(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea rows={3} value={notes} onChange={event => setNotes(event.target.value)} /></label></div>
       <label className="confirm-line"><input type="checkbox" checked={confirmMap} onChange={event => setConfirmMap(event.target.checked)} /><span>These ordered replay folders belong to one competitive map, and I reviewed every counted or abandoned round.</span></label>
       {preview.roster_change_required && <label className="confirm-line"><input type="checkbox" checked={confirmRoster} onChange={event => setConfirmRoster(event.target.checked)} /><span>I reviewed and confirm the expected roster change. Absent players did not play the later rounds.</span></label>}
       {preview.score_override_required && <label className="confirm-line"><input type="checkbox" checked={confirmScoreOverride} onChange={event => setConfirmScoreOverride(event.target.checked)} /><span>I confirm the physical lobby restarted at 0-0 while the logical competitive score continued as shown above.</span></label>}
       <label className="confirm-line"><input type="checkbox" checked={confirmNecc} onChange={event => setConfirmNecc(event.target.checked)} /><span>I confirm this Custom Game map was an NECC match.</span></label>
-      <Button disabled={busy || dirty || preview.duplicate || team === null || !season || !opponent.trim() || !confirmMap || !confirmNecc || (preview.roster_change_required && !confirmRoster) || (preview.score_override_required && !confirmScoreOverride) || finalOur === '' || finalTheir === ''} onClick={() => void importMap()}><Check size={16} /> Import one logical NECC map</Button>
+      <Button disabled={busy || dirty || preview.duplicate || team === null || !season || !opponent.trim() || !confirmMap || !confirmNecc || (preview.roster_change_required && !confirmRoster) || (preview.score_override_required && !confirmScoreOverride) || finalOur === '' || finalTheir === ''} onClick={() => void importMap()}><Check size={16} /> Import to {preview.organization_team} — {preview.season_name}</Button>
     </section>}
   </>
 }
 
 function RosterPage({ notify }: { notify: (text: string, error?: boolean) => void }) {
   const [players, setPlayers] = useState<Player[]>([])
+  const [includeOther,setIncludeOther]=useState(false)
+  const [includeAlumni,setIncludeAlumni]=useState(false)
+  const [startDate,setStartDate]=useState(new Date().toLocaleDateString('en-CA'))
   const [username, setUsername] = useState('')
   const [display, setDisplay] = useState('')
   const [error, setError] = useState('')
   const load = () => api<Player[]>('/roster').then(setPlayers).catch(error => setError(error.message))
   useEffect(() => { void load() }, [])
-  async function add(event: React.FormEvent) { event.preventDefault(); setError(''); try { await api('/roster', 'POST', { username, display_name: display || null }); setUsername(''); setDisplay(''); notify('Player added to your roster.'); await load() } catch (error) { setError((error as Error).message) } }
-  return <><PageHead label="TEAM MANAGEMENT" title="Your roster" description="Manage Ubisoft names and display names. Deactivation preserves all historical match data." /><ErrorBox message={error} />
-    <form className="admin-panel add-player" onSubmit={event => void add(event)}><div><span className="eyebrow">ADD PLAYER</span><h2>Track a teammate</h2></div><label>Ubisoft username<input value={username} onChange={event => setUsername(event.target.value)} required placeholder="SiegeUsername" /></label><label>Display name (optional)<input value={display} onChange={event => setDisplay(event.target.value)} placeholder="First name or nickname" /></label><Button type="submit" disabled={!username.trim()}><Plus size={16} /> Add player</Button></form>
-    <div className="admin-section-head"><h2>Players <small>{players.filter(player => player.tracked).length} active</small></h2></div>
-    <div className="roster-list">{players.map(player => <RosterRow key={player.id} player={player} after={load} notify={notify} />)}{!players.length && <div className="admin-empty">Add your five Ubisoft usernames to get started.</div>}</div>
+  async function add(event: React.FormEvent) { event.preventDefault(); setError(''); try { await api('/roster', 'POST', { username, display_name: display || null, start_date:startDate }); setUsername(''); setDisplay(''); notify('Player added to your roster.'); await load() } catch (error) { setError((error as Error).message) } }
+  const visiblePlayers=players.filter(p=>(includeOther||p.in_selected_team)&&(includeAlumni||p.status==='Active'))
+  return <><PageHead label="TEAM MANAGEMENT" title="Roster & player history" description="Team memberships and player status are separate. Moves and Alumni status preserve every historical map and profile." /><ErrorBox message={error} />
+    <form className="admin-panel add-player" onSubmit={event => void add(event)}><div><span className="eyebrow">ADD PLAYER</span><h2>Track a teammate</h2></div><label>Ubisoft username<input value={username} onChange={event => setUsername(event.target.value)} required placeholder="SiegeUsername" /></label><label>Display name (optional)<input value={display} onChange={event => setDisplay(event.target.value)} placeholder="First name or nickname" /></label><label>Membership starts<input type="date" required value={startDate} onChange={e=>setStartDate(e.target.value)}/></label><Button type="submit" disabled={!username.trim()}><Plus size={16} /> Add player</Button></form>
+    <div className="admin-section-head"><h2>Players <small>{visiblePlayers.filter(p=>p.status==='Active').length} active in this view</small></h2></div>
+    <label className="filter-toggle"><input type="checkbox" checked={includeOther} onChange={e=>setIncludeOther(e.target.checked)}/> Show other teams and unassigned players</label><label className="filter-toggle"><input type="checkbox" checked={includeAlumni} onChange={e=>setIncludeAlumni(e.target.checked)}/> Include Alumni</label><div className="roster-list">{visiblePlayers.map(player => <RosterRow key={player.id} player={player} after={load} notify={notify} />)}{!visiblePlayers.length && <div className="admin-empty">No players in this view. Add a teammate or show other teams to move an existing player.</div>}</div>
   </>
 }
 
@@ -265,8 +305,29 @@ function RosterRow({ player, after, notify }: { player: Player; after: () => Pro
   const [error, setError] = useState('')
   async function saveName() { try { await api(`/roster/${player.id}`, 'PATCH', { display_name: name }); notify('Display name saved.'); await after() } catch (error) { setError((error as Error).message) } }
   async function addAlias() { try { await api(`/roster/${player.id}/aliases`, 'POST', { username: alias, make_current: true }); setAlias(''); notify('Ubisoft username updated; the previous alias remains available.'); await after() } catch (error) { setError((error as Error).message) } }
-  async function toggle() { try { await api(`/roster/${player.id}`, 'PATCH', { tracked: !player.tracked }); notify(player.tracked ? 'Player deactivated. Historical stats remain.' : 'Player reactivated.'); await after() } catch (error) { setError((error as Error).message) } }
-  return <div className={`admin-panel roster-row ${player.tracked ? '' : 'inactive'}`}><div className="roster-identity"><span className="avatar">{player.display_name.slice(0, 2).toUpperCase()}</span><div><b>{player.display_name}</b><small>@{player.username} · {player.profile_bound ? 'Profile ID linked' : 'Awaiting first replay'}</small></div><span className={`replay-status ${player.tracked ? 'eligible' : 'ineligible'}`}>{player.tracked ? 'ACTIVE' : 'INACTIVE'}</span></div><div className="roster-edit"><label>Display name<input value={name} onChange={event => setName(event.target.value)} /></label><Button secondary disabled={!name.trim() || name === player.display_name} onClick={() => void saveName()}>Save</Button><label>New Ubisoft username / alias<input value={alias} onChange={event => setAlias(event.target.value)} placeholder="NewUsername" /></label><Button secondary disabled={!alias.trim()} onClick={() => void addAlias()}>Add alias</Button></div><div className="roster-footer"><span>Known names: {player.aliases.join(' · ')}</span><button onClick={() => void toggle()}>{player.tracked ? 'Deactivate player' : 'Reactivate player'}</button></div><ErrorBox message={error} /></div>
+  async function toggle() { try { await api(`/roster/${player.id}`, 'PATCH', { status: player.status==='Active'?'Alumni':'Active' }); notify(player.tracked ? 'Marked Alumni. Historical stats remain.' : 'Marked Active.'); await after() } catch (error) { setError((error as Error).message) } }
+  return <div className={`admin-panel roster-row ${player.tracked ? '' : 'inactive'}`}><div className="roster-identity"><span className="avatar">{player.display_name.slice(0, 2).toUpperCase()}</span><div><b>{player.display_name}</b><small>@{player.username} · {player.profile_bound ? 'Profile ID linked' : 'Awaiting first replay'}</small></div><span className={`replay-status ${player.tracked ? 'eligible' : 'ineligible'}`}>{player.tracked ? 'Active' : 'Alumni'}</span></div><div className="roster-edit"><label>Display name<input value={name} onChange={event => setName(event.target.value)} /></label><Button secondary disabled={!name.trim() || name === player.display_name} onClick={() => void saveName()}>Save</Button><label>New Ubisoft username / alias<input value={alias} onChange={event => setAlias(event.target.value)} placeholder="NewUsername" /></label><Button secondary disabled={!alias.trim()} onClick={() => void addAlias()}>Add alias</Button></div><div className="roster-footer"><span>Known names: {player.aliases.join(' · ')}</span><button onClick={() => void toggle()}>{player.tracked ? 'Mark Alumni' : 'Mark Active'}</button></div><MembershipEditor player={player} after={after} notify={notify}/><ErrorBox message={error} /></div>
+}
+
+function MembershipEditor({player,after,notify}:{player:Player;after:()=>Promise<void>;notify:(text:string,error?:boolean)=>void}) {
+  const [teams,setTeams]=useState<Team[]>([]),[target,setTarget]=useState(''),[effective,setEffective]=useState(new Date().toLocaleDateString('en-CA'))
+  useEffect(()=>{api<Team[]>('/teams').then(setTeams).catch(error=>notify(error.message,true))},[])
+  async function move(){
+    const team=teams.find(t=>t.id===Number(target))
+    if(!team||!window.confirm(`Move ${player.display_name} to ${team.name} from ${effective}? Previous membership closes on that date. Historical map ownership stays unchanged.`))return
+    try{await api(`/roster/${player.id}/membership`,'POST',{team_id:team.id,effective_date:effective});notify('Membership history updated; historical statistics preserved.');await after()}catch(error){notify((error as Error).message,true)}
+  }
+  return <div className="membership-editor"><details><summary>Team membership history</summary>{player.memberships.map(m=><p key={m.team_id+m.start_date}>{m.team_name} · {m.start_date==='0001-01-01'?'Before recorded history':m.start_date} → {m.end_date||'present'}</p>)}{!player.memberships.length&&<p>No team membership recorded.</p>}</details><div className="membership-controls"><label>Move / assign to<select value={target} onChange={e=>setTarget(e.target.value)}><option value="">Choose team</option>{teams.filter(t=>t.active).map(t=><option value={t.id} key={t.id}>{t.name}</option>)}</select></label><label>Effective date<input type="date" value={effective} onChange={e=>setEffective(e.target.value)}/></label><Button secondary disabled={!target||!effective} onClick={()=>void move()}>Update membership</Button></div></div>
+}
+
+function TeamsPage({teams,after,notify}:{teams:Team[];after:()=>Promise<void>;notify:(text:string,error?:boolean)=>void}){
+  return <><PageHead label="PROGRAM MANAGEMENT" title="Rainbow Six teams" description="Create and maintain teams without changing historical map ownership. Previous public slugs remain valid after renaming."/>
+    <TeamEditor after={after} notify={notify}/>{teams.map(t=><TeamEditor key={t.id+JSON.stringify(t)} team={t} after={after} notify={notify}/>)}</>
+}
+function TeamEditor({team,after,notify}:{team?:Team;after:()=>Promise<void>;notify:(text:string,error?:boolean)=>void}){
+  const [name,setName]=useState(team?.name||''),[slug,setSlug]=useState(team?.slug||''),[primary,setPrimary]=useState(team?.primary_color||'#0058A4'),[active,setActive]=useState(team?!!team.active:true),[order,setOrder]=useState(team?.display_order||0),[busy,setBusy]=useState(false)
+  async function save(event:React.FormEvent){event.preventDefault();setBusy(true);try{await api(team?`/teams/${team.id}`:'/teams',team?'PATCH':'POST',{name,slug,primary_color:primary,active,display_order:order});notify(team?'Team saved.':'Team created with an empty roster and match history.');if(!team){setName('');setSlug('')}await after()}catch(error){notify((error as Error).message,true)}finally{setBusy(false)}}
+  return <form className="admin-panel team-editor" onSubmit={event=>void save(event)} style={teamTheme(primary)}><h2>{team?.name||'Create a team'}</h2><div className="form-grid"><label>Team name<input value={name} required maxLength={120} onChange={e=>setName(e.target.value)}/></label><label>Public URL slug<input value={slug} required pattern="[a-z0-9]+(-[a-z0-9]+)*" onChange={e=>setSlug(e.target.value)}/></label><label>Primary color<div className="color-field"><input aria-label="Team color picker" type="color" value={primary} onChange={e=>setPrimary(e.target.value)}/><input aria-label="Team hex color" value={primary} pattern="#[0-9a-fA-F]{6}" onChange={e=>setPrimary(e.target.value)}/></div></label><label>Display order<input type="number" value={order} onChange={e=>setOrder(Number(e.target.value))}/></label></div><label className="confirm-line"><input type="checkbox" checked={active} onChange={e=>setActive(e.target.checked)}/> Active team</label><div className="team-preview"><strong>{name||'Team preview'}</strong><span>Readable text and accents adapt to your primary color.</span></div><Button type="submit" disabled={busy||!name.trim()||!slug.trim()}>{team?'Save team':'Create team'}</Button></form>
 }
 
 function SeasonsPage({ notify }: { notify: (text: string, error?: boolean) => void }) {
@@ -302,7 +363,7 @@ function MatchesPage({ notify }: { notify: (text: string, error?: boolean) => vo
   const [filter, setFilter] = useState('')
   const [error, setError] = useState('')
   const load = async () => { try { const suffix = filter ? `?season=${encodeURIComponent(filter)}` : ''; const [mapRows, seriesRows] = await Promise.all([api<MapRow[]>(`/matches${suffix}`), api<Series[]>(`/series${suffix}`)]); setMatches(mapRows); setSeries(seriesRows) } catch (error) { setError((error as Error).message) } }
-  useEffect(() => { api<Season[]>('/seasons').then(rows => { setSeasons(rows); setFilter(rows.find(row => row.active)?.slug || '') }).catch(error => setError(error.message)) }, [])
+  useEffect(() => { api<Season[]>('/seasons').then(rows => { setSeasons(rows); setFilter(adminScope.season_slug || rows.find(row => row.active)?.slug || '') }).catch(error => setError(error.message)) }, [])
   useEffect(() => { void load() }, [filter])
   return <><PageHead label="NECC HISTORY" title="Imported matches" description="Open a map to review its rounds, edit its date or series, or remove an accidental import. Matchup details can be edited below." action={<select className="head-select" value={filter} onChange={event => setFilter(event.target.value)}><option value="">All seasons</option>{seasons.map(row => <option value={row.slug} key={row.slug}>{row.name}{row.active ? ' (active)' : ''}</option>)}</select>} /><ErrorBox message={error} />
     {series.map(group => <SeriesCard key={group.id} group={group} maps={matches.filter(map => map.series_id === group.id)} seasonSeries={series.filter(row => row.season_slug === group.season_slug)} notify={notify} after={load} />)}{!series.length && <div className="admin-empty">No real matches have been imported in this season.</div>}
@@ -427,7 +488,7 @@ function StatisticsPage({ notify }: { notify: (text: string, error?: boolean) =>
   const load = () => api<Dashboard>('/dashboard').then(setDashboard).catch(error => setError(error.message))
   useEffect(() => { void load() }, [])
   async function run(path: string) { setBusy(true); setError(''); try { const result = await api<{ message: string }>(path, 'POST', {}); notify(result.message); await load() } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
-  return <><PageHead label="LOCAL STATISTICS" title="Statistics maintenance" description="Rebuild derived numbers from stored normalized matches. Stored replay records support future improvements to trades, KOST, and Rating without re-entering matches." /><ErrorBox message={error} />
+  return <><PageHead label="LOCAL STATISTICS" title="Statistics maintenance · all teams" description="Rebuild derived numbers from stored normalized matches. Stored replay records support future improvements to trades, KOST, and Rating without re-entering matches." /><ErrorBox message={error} />
     <div className="admin-columns"><section className="admin-panel"><span className="eyebrow">RECALCULATE</span><h2>Recalculate Statistics</h2><p className="admin-muted">Rebuild statistics from stored parsed maps. This does not reparse replay archives or discover parser improvements. Use Refresh objective actors or Reparse from archive on a map to update parsed data.</p><div className="panel-action"><Button disabled={busy} onClick={() => void run('/recalculate')}><RefreshCw size={16} /> Recalculate Statistics</Button></div></section><section className="admin-panel"><span className="eyebrow">LOCAL EXPORT</span><h2>Regenerate Website Data</h2><p className="admin-muted">Write fresh sanitized JSON for the public site from the local database without pushing to GitHub.</p><div className="panel-action"><Button secondary disabled={busy} onClick={() => void run('/regenerate')}><Database size={16} /> Regenerate Website Data</Button></div></section></div>
     <div className="admin-status"><Database size={17} /><span>{dashboard?.database.path || 'Loading database…'}</span><b>Integrity: {dashboard?.database.status || '…'} · {dashboard?.maps_imported ?? 0} NECC maps</b></div>
   </>
@@ -456,7 +517,7 @@ function SettingsPage({ notify }: { notify: (text: string, error?: boolean) => v
   return <><PageHead label="LOCAL CONFIGURATION" title="Settings" description="Configure your team, replay folder, statistics method, and GitHub Pages destination." /><ErrorBox message={error} />
     {settings ? <form className="admin-panel settings-form" onSubmit={event => void save(event)}>
       <span className="eyebrow">TEAM IDENTITY</span>
-      <div className="form-grid"><label>Team name<input required value={settings.team_name} onChange={event => change('team_name', event.target.value)} /></label><label>Short name<input required value={settings.short_name} onChange={event => change('short_name', event.target.value)} /></label><label>Accent color<input type="color" value={settings.accent} onChange={event => change('accent', event.target.value)} /></label></div>
+      <div className="form-grid"><label>Program name<input required value={settings.team_name} onChange={event => change('team_name', event.target.value)} /></label><label>Short name<input required value={settings.short_name} onChange={event => change('short_name', event.target.value)} /></label><label>Accent color<input type="color" value={settings.accent} onChange={event => change('accent', event.target.value)} /></label></div>
       <span className="eyebrow">REPLAYS & METHODS</span>
       <div className="form-grid"><label className="wide">MatchReplay directory<input value={settings.replay_path} onChange={event => change('replay_path', event.target.value)} placeholder="C:\Users\YOU\Documents\My Games\Rainbow Six - Siege\MatchReplay" /><small>Leave blank to use the standard Windows location.</small></label><label>Trade window (seconds)<input type="number" min="1" max="60" value={settings.trade_window_seconds} onChange={event => change('trade_window_seconds', Number(event.target.value))} /></label><label>Active Rating version<select value={settings.rating_version} onChange={event => change('rating_version', event.target.value)}><option value="collegiate_v1">collegiate_v1</option><option value="siege_style_v3">Siege-style V3 (validated credited/native inputs)</option><option value="siege_style_v2">siege_style_v2</option></select><small>Current public Rating is selected here.</small></label></div>
       <span className="eyebrow">GITHUB PAGES</span>

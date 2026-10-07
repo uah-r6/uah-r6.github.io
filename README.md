@@ -1,4 +1,51 @@
-# NECC Rainbow Six statistics
+# UAH Rainbow Six statistics
+
+## Teams, history, and statistics views
+
+The public homepage represents **UAH R6**, with separate UAH Blue and UAH White team pages. All seven existing maps (82 rounds) belong to Blue. White starts empty: no invented roster, matches, or statistics. The current `siege_style_v3` model and all historical statistics remain unchanged.
+
+| View | Scope |
+| --- | --- |
+| Team season | Maps owned by that team in the selected season |
+| Team career | Maps owned by that team across every season |
+| Player season | That player's selected season across all teams, with team splits |
+| Player career | That player's entire UAH R6 history across all teams |
+
+Ratings aggregate eligible inputs using the existing engine. Display statistics retain every historical map; Rating coverage remains explicit. The period selector includes actual seasons and Career. Alumni are hidden from current rosters/leaderboards by default, with an inclusion control; their profile, map links, operators, and season/career statistics remain accessible.
+
+Public routes use the existing hash router: `/#/teams/blue`, `/#/teams/blue/roster`, `/#/teams/blue/stats`, and `/#/teams/blue/matches` (likewise for White and future teams). Existing `/#/players/<slug>`, `/#/matches/<map-id>`, `/#/players`, `/#/matches`, and methodology routes remain available. Existing public JSON fields remain; new team documents live under `data/teams/<slug>/`. Team slug edits preserve both route aliases and old JSON paths.
+
+## Local administration
+
+Double-click **Start NECC Admin.cmd**. Choose an **active team** and **season** in the persistent top controls. An initial team choice is required; the application never silently assigns an import to Blue.
+
+- **Teams:** add teams, edit names/slugs/colors/order, activate/deactivate. Deactivation preserves history. Color accents adapt for readable contrast.
+- **Roster:** add a teammate with a membership start date, maintain aliases, inspect membership history, move an existing player with an effective date, or mark Active/Alumni. Moves close the old membership and open the new one without duplicating the player or moving past maps. Dates use half-open intervals: the move date belongs to the new team.
+- **Import Match:** scan, select one Custom Game, preview the selected team's dated roster matches, and confirm opponent/season/NECC membership. The final button names the team and season. Changing context clears the preview; the API independently rejects mismatched context. Ranked/Standard/Quick Match stay ineligible. Rehost segments must validate for the same team/season.
+- **Matches:** scoped history, metadata editing, confirmed deletion, and existing archive operations. A map's organization team is immutable; series grouping cannot cross team/season. Archive reparse retains ownership and stored historical player bindings.
+- **Statistics / Publish:** maintenance and publishing operate across the program, all teams and seasons. Public Pages remains static/read-only. Publishing failure never rolls back local data.
+- **Settings:** program branding, local replay path, existing statistics and Git settings. Individual team colors/names belong in Teams.
+
+Player status is separate from team membership. Use only **Active** and **Alumni**. Show other teams/unassigned players to move an existing identity instead of adding a duplicate.
+
+CLI/debug imports additionally support `--organization-team <stable-id>`; `--team 0/1` still means the replay's Siege side. Roster CLI additions also require `--organization-team`. Normal management uses the browser.
+
+The metadata migration is automatic and transactional on connection, with a one-time version marker. Existing players retain status and identity, existing maps/series become Blue, and White remains empty. Back up **both** SQLite and `data/replay-archive/`. This deployment's ignored pre-migration backup and preservation report are under `data/research/team-architecture-20261007/`.
+
+Verification commands (PowerShell, repository root):
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+npm.cmd --prefix web test
+npm.cmd --prefix web run build
+npm.cmd --prefix web run build:admin
+.\.venv\Scripts\python.exe scripts\verify-team-migration.py --backup data/research/team-architecture-20261007
+# Optional browser checks require Playwright and Microsoft Edge:
+.\.venv\Scripts\python.exe scripts\verify-team-ui.py
+.\.venv\Scripts\python.exe scripts\verify-team-admin-ui.py
+```
+
+Official logo/font/color provenance: [BRANDING.md](docs/BRANDING.md). The program-level root can later support a broader Esports landing page. Public replay submission, authentication, queues, other games, and hosted storage are future work and are not implemented here.
 
 ### Credited kill counts
 
@@ -23,7 +70,7 @@ validated objective occurrence. Canceled/restarted attempts stay separate;
 ambiguous identity, unknown body states and incomplete rosters stay unresolved.
 Actor provenance is stored and duplicate legacy timer credit is prevented.
 Existing SQLite matches are not automatically reparsed or corrected. The deployed
-`siege_style_v2` formula remains unchanged. See the [current checkpoint](docs/STATUS_NEXT_STEPS.md).
+`siege_style_v3` formula remains unchanged, and original v2 inputs stay preserved. See the [current checkpoint](docs/STATUS_NEXT_STEPS.md).
 
 A local, NECC-only replay tracker. Python parses explicitly selected Siege match folders or ZIPs with [Lumina's siege-dissect](https://github.com/lumina-r6/siege-dissect), stores normalized rounds in private SQLite, and exports teammate-only JSON to a React/Vite site. The public GitHub Pages site is static and read-only. A separate FastAPI admin runs on your Windows PC at `http://127.0.0.1:8000/admin` for day-to-day management. Replay files have no NECC tag: a manually selected and confirmed **Custom Game** is assigned `competition = "NECC"` by this application. Ranked, Standard, Quick Match, and other matchmaking replays are rejected before any database write. Scrims and other Custom Games are never imported automatically.
 

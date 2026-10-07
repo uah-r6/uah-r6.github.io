@@ -1,0 +1,14 @@
+{
+  "id": 2,
+  "name": "UAH White",
+  "slug": "white",
+  "primary_color": "#E6EDF5",
+  "active": 1,
+  "display_order": 1,
+  "aliases": [],
+  "maps": 0,
+  "rounds": 0,
+  "roster_count": 0,
+  "roster": [],
+  "seasons": []
+}

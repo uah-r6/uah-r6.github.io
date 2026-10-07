@@ -47,11 +47,17 @@ def test_legacy_migration_preserves_columns_is_atomic_and_idempotent(tmp_path):
     db.row_factory = sqlite3.Row
     db.executescript(repo.SCHEMA)
     db.execute("INSERT INTO players(slug,display_name,username,tracked) VALUES('old','Old','Old',0)")
+    db.execute("INSERT INTO seasons(slug,name,active) VALUES('fall-2026','Fall 2026',1)")
+    db.execute("INSERT INTO series VALUES('legacy',1,'Opponent','2026-09-29','','','NECC',0)")
+    db.execute("""INSERT INTO maps(id,series_id,fingerprint,map_name,match_type,game_mode,our_team,
+        our_score,their_score,normalized_json) VALUES('old-map','legacy','old','Bank','CustomGame','Bomb',0,7,3,'{}')""")
     db.commit()
     original = tuple(db.execute('SELECT * FROM players').fetchone())
     teams.migrate(db)
     assert tuple(db.execute('SELECT id,slug,profile_id,display_name,username,tracked FROM players').fetchone()) == original
     assert db.execute('SELECT status FROM players').fetchone()[0] == 'Alumni'
+    assert db.execute('SELECT team_id FROM maps WHERE id=\'old-map\'').fetchone()[0] == 1
+    assert db.execute('SELECT team_id FROM series WHERE id=\'legacy\'').fetchone()[0] == 1
     assert db.execute('SELECT count(*) FROM team_memberships WHERE team_id=2').fetchone()[0] == 0
     teams.move(db, 1, 2, '2026-10-01')
     rows = [tuple(r) for r in db.execute('SELECT * FROM team_memberships')]
@@ -108,6 +114,34 @@ def test_move_team_career_season_and_alumni_preserve_identity_and_history(tmp_pa
         assert db.execute('SELECT team_id FROM maps WHERE id=?', (blue,)).fetchone()[0] == 1
 
 
+def test_two_first_connections_can_migrate_the_same_legacy_database(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    from threading import Barrier
+    path=tmp_path/'concurrent.sqlite'
+    with sqlite3.connect(path) as db:
+        db.executescript(repo.SCHEMA)
+    barrier=Barrier(2)
+    class RacingConnection(sqlite3.Connection):
+        first=True
+        def execute(self, sql, *args):
+            cursor=super().execute(sql,*args)
+            if "name='team_schema_version'" in sql and self.first:
+                self.first=False
+                barrier.wait(timeout=5)
+            return cursor
+    def migrate():
+        with closing(sqlite3.connect(path,factory=RacingConnection)) as db:
+            db.row_factory=sqlite3.Row
+            teams.migrate(db)
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        futures=[executor.submit(migrate) for _ in range(2)]
+        for future in futures:
+            future.result(timeout=10)
+    with closing(repo.connect(path)) as db:
+        assert db.execute('SELECT count(*) FROM teams').fetchone()[0]==2
+        assert db.execute('SELECT version FROM team_schema_version').fetchone()[0]==1
+
+
 def test_team_slug_aliases_arbitrary_colors_and_overlapping_membership(tmp_path):
     with closing(repo.connect(tmp_path / 'db.sqlite')) as db:
         seed(db)
@@ -123,6 +157,7 @@ def test_team_slug_aliases_arbitrary_colors_and_overlapping_membership(tmp_path)
         index = json.loads((tmp_path / 'public/index.json').read_text(encoding='utf-8'))
         gray = next(t for t in index['teams'] if t['id'] == new_id)
         assert gray['aliases'] == ['gray'] and gray['maps'] == 0 and gray['roster_count'] == 0
+        assert (tmp_path/'public/teams/gray/career.json').read_bytes() == (tmp_path/'public/teams/gray-team/career.json').read_bytes()
         assert db.execute('PRAGMA foreign_key_check').fetchall() == []
 
 
@@ -158,6 +193,44 @@ def test_admin_requires_team_and_rejects_stale_preview_context_without_import(tm
         assert db.execute('SELECT count(*) FROM maps').fetchone()[0] == 0
         assert db.execute('SELECT count(*) FROM teams').fetchone()[0] == 2
     assert not list((tmp_path / 'data').rglob('manifest.json'))
+
+
+def test_publishing_validation_rejects_cross_team_generated_data(tmp_path):
+    from r6stats.publishing import validate_public_data
+    with closing(repo.connect(tmp_path/'db.sqlite')) as db:
+        seed(db)
+        repo.insert_map(db, replay(), 'blue', 0, 'Opponent', organization_team_id=1)
+        export(db, settings(), tmp_path/'web/public/data')
+    assert validate_public_data(tmp_path) == 21
+    target=tmp_path/'web/public/data/teams/blue/career.json'
+    data=json.loads(target.read_text(encoding='utf-8'))
+    data['matches'][0]['team_slug']='white'
+    target.write_text(json.dumps(data),encoding='utf-8')
+    with pytest.raises(ValueError,match='ownership differs'):
+        validate_public_data(tmp_path)
+
+
+def test_rehost_validates_membership_on_each_source_date(tmp_path):
+    from types import SimpleNamespace
+    (tmp_path / 'config').mkdir()
+    (tmp_path / 'config/settings.json').write_text(json.dumps(settings()), encoding='utf-8')
+    with closing(repo.connect(tmp_path / 'data/r6stats.sqlite')) as db:
+        seed(db)
+        for row in db.execute('SELECT id FROM players').fetchall():
+            teams.move(db, row[0], 2, '2026-10-01')
+    first, later = replay('first'), replay('later', '2026-10-02T20:00:00Z')
+    details = [{'team_mapping': [0,1]}, {'team_mapping': [0,1]}]
+    logical = SimpleNamespace(match=first, segments=[SimpleNamespace(match=first),SimpleNamespace(match=later)], segment_details=details)
+    manifest = {'segments': [{'fingerprint':'first','replay_id':'first'}, {'fingerprint':'later','replay_id':'later'}]}
+    with TestClient(create_app(tmp_path)) as client, patch('r6stats.admin.server.assemble_rehost', return_value=(logical,manifest,'logical')):
+        headers={'X-R6-Admin-Token':client.get('/api/admin/session').json()['token']}
+        response=client.post('/api/admin/replays/rehost/preview',headers=headers,json={
+            'team_id':1,'season_slug':'fall-2026','segments':[{'path':str(tmp_path/'first')},{'path':str(tmp_path/'later')}]})
+        assert response.status_code == 400
+        assert 'segment 2' in response.json()['detail']
+        assert 'No configured roster member' in response.json()['detail']
+    with closing(repo.connect(tmp_path / 'data/r6stats.sqlite')) as db:
+        assert db.execute('SELECT count(*) FROM maps').fetchone()[0] == 0
 
 
 def test_v3_team_and_global_careers_use_eligible_inputs_across_seasons(tmp_path):

@@ -17,7 +17,8 @@ def validate_public_data(root: Path) -> int:
     if not paths:
         raise ValueError("Website export contains no JSON files.")
     documents = {}
-    forbidden = {"profile_id", "profileid", "username", "normalized_json", "recordingprofileid"}
+    forbidden = {"profile_id", "profileid", "username", "normalized_json", "recordingprofileid",
+                 "fingerprint", "archive_path", "source_path", "rehost_json", "database_path"}
 
     def inspect(value):
         if isinstance(value, dict):
@@ -59,6 +60,28 @@ def validate_public_data(root: Path) -> int:
         for season in index.get("seasons", []):
             if f"players/{slug}/{season['slug']}.json" not in documents:
                 raise ValueError(f"Website player season data is missing: {slug} / {season['slug']}")
+    player_slugs = {p['slug'] for p in index.get('players', [])}
+    for team in index.get('teams', []):
+        slug = team['slug']
+        for period in [s['slug'] for s in index.get('seasons', [])] + ['career']:
+            name = f'teams/{slug}/{period}.json'
+            scope = documents.get(name)
+            if not isinstance(scope, dict) or scope.get('team', {}).get('slug') != slug:
+                raise ValueError(f'Website team scope is missing or incorrect: {name}')
+            matches = scope.get('matches', [])
+            if scope.get('maps') != len(matches) or scope.get('rating_version') != index.get('rating_version'):
+                raise ValueError(f'Website team scope counts/version differ: {name}')
+            for match in matches:
+                original = documents.get(f"matches/{match['id']}.json", {})
+                if match.get('team_slug') != slug or original.get('team_slug') != slug or (
+                        period != 'career' and match.get('season') != period):
+                    raise ValueError(f'Website team match ownership differs: {name}')
+            if any(p['slug'] not in player_slugs for p in scope.get('players', [])):
+                raise ValueError(f'Website team player reference is unknown: {name}')
+        for alias in team.get('aliases', []):
+            for period in ['index', 'career'] + [s['slug'] for s in index.get('seasons', [])]:
+                if documents.get(f'teams/{alias}/{period}.json') != documents.get(f'teams/{slug}/{period}.json'):
+                    raise ValueError(f'Website team slug alias is missing or stale: {alias}')
     return len(paths)
 
 

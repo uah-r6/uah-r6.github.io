@@ -1,0 +1,47 @@
+{
+  "id": 1,
+  "name": "UAH Blue",
+  "slug": "blue",
+  "primary_color": "#0058A4",
+  "active": 1,
+  "display_order": 0,
+  "aliases": [],
+  "maps": 7,
+  "rounds": 82,
+  "roster_count": 5,
+  "roster": [
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "status": "Active"
+    },
+    {
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
+      "status": "Active"
+    },
+    {
+      "slug": "lgon",
+      "name": "Lgon",
+      "status": "Active"
+    },
+    {
+      "slug": "ohwowjay",
+      "name": "OhWowJay",
+      "status": "Active"
+    },
+    {
+      "slug": "tallman3-14",
+      "name": "Tallman3.14",
+      "status": "Active"
+    }
+  ],
+  "seasons": [
+    {
+      "slug": "fall-2026",
+      "name": "Fall 2026",
+      "start_date": "2026-09-30",
+      "end_date": "2026-12-25"
+    }
+  ]
+}
