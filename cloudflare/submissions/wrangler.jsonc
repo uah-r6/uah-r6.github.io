@@ -1,0 +1,16 @@
+{
+  "name": "uah-r6-submissions",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-07-30",
+  "workers_dev": true,
+  "vars": {
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFQnbPYP0MyBLX9U",
+    "PUBLIC_ORIGIN": "https://uah-r6.github.io",
+    "SUBMISSIONS_ENABLED": "true",
+    "STORAGE_CAP_BYTES": "9663676416",
+    "RETENTION_DAYS": "7"
+  },
+  "triggers": { "crons": ["17 * * * *"] },
+  "r2_buckets": [{ "binding": "INBOX", "bucket_name": "uah-r6-replay-submissions" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "uah-r6-submissions", "database_id": "f8e47ffc-7049-4bcd-b35a-407c5ee065b2", "migrations_dir": "migrations" }]
+}

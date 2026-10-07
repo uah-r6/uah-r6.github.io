@@ -6,6 +6,10 @@ data/kill-credit-cache/
 data/logs/
 data/*.sqlite
 data/publish-status.json
+data/private/
+data/submission-staging/
+cloudflare/submissions/node_modules/
+cloudflare/submissions/.wrangler/
 *.rec
 *.zip
 .env
@@ -18,3 +22,5 @@ web/dist/
 web/admin-dist/
 web/*.tsbuildinfo
 config/settings.json
+
+.wrangler/

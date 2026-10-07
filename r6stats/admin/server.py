@@ -29,7 +29,7 @@ from r6stats.parser.models import Match
 from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
-from r6stats import replay_archive, objective_refresh
+from r6stats import replay_archive, objective_refresh, submissions
 from r6stats.credited_refresh import collect_after_import
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
@@ -95,6 +95,14 @@ class PreviewRequest(BaseModel):
     replay_id: str | None = None
     path: str | None = None
     team: int | None = Field(default=None, ge=0, le=1)
+
+
+class SubmissionAction(BaseModel):
+    reason: str = Field(default='', max_length=240)
+    notes: str = Field(default='', max_length=2000)
+    confirm_display_id: str = Field(default='', max_length=32)
+    delete_metadata: bool = False
+    enabled: bool = True
 
 
 class ImportRequest(BaseModel):
@@ -568,6 +576,79 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         app.state.scanned = scanned
         return items
 
+    @app.get('/api/admin/submissions/storage')
+    def submission_storage():
+        client = submissions.Client(root)
+        if not client.configured:
+            return {'configured': False, 'message': 'Private replay inbox is not configured on this PC.'}
+        return {'configured': True, **client.call('/storage')}
+
+    @app.get('/api/admin/submissions')
+    def submission_list(status: str = 'pending'):
+        client = submissions.Client(root)
+        return client.call('/submissions?status=' + ('all' if status == 'all' else 'pending')) if client.configured else []
+
+    @app.post('/api/admin/submissions/reconcile')
+    def submission_reconcile():
+        return submissions.Client(root).call('/reconcile', 'POST', {})
+
+    @app.post('/api/admin/submissions/cleanup')
+    def submission_cleanup():
+        return submissions.Client(root).call('/cleanup', 'POST', {})
+
+    @app.post('/api/admin/submissions/settings')
+    def submission_settings(payload: SubmissionAction):
+        return submissions.Client(root).call('/settings', 'POST', {'enabled': payload.enabled})
+
+    @app.post('/api/admin/submissions/options')
+    def submission_choices(db: DB):
+        options = {'teams': [dict(r) for r in db.execute('SELECT slug,name FROM teams WHERE active=1 ORDER BY display_order,id')],
+                   'seasons': [dict(r) for r in db.execute('SELECT slug,name FROM seasons WHERE active=1 ORDER BY id DESC')]}
+        return submissions.Client(root).call('/options', 'POST', options)
+
+    @app.get('/api/admin/submissions/{submission_id}')
+    def submission_detail(submission_id: str):
+        return submissions.Client(root).call('/submissions/' + submissions.identity(submission_id))
+
+    @app.post('/api/admin/submissions/{submission_id}/stage')
+    def submission_stage(submission_id: str):
+        return {'folders': submissions.download(root, submissions.Client(root), submissions.identity(submission_id)),
+                'submission_id': submission_id}
+
+    @app.post('/api/admin/submissions/{submission_id}/inspect')
+    def submission_inspect(submission_id: str, payload: PreviewRequest, db: DB):
+        import_context(db, payload.team_id, payload.season_slug)
+        folders = submissions.verify_staging(root, submission_id)
+        results = []
+        for folder in folders:
+            try:
+                match = parse_match(Path(folder['path']), allow_incomplete=True)
+                tracked = len({roster['id'] for round_ in match.rounds for player in round_.players
+                               if (roster := repo.roster_match(db, player, payload.team_id, match.timestamp[:10])) is not None})
+                results.append({**folder, 'map': match.map_name, 'rounds': len(match.rounds),
+                                'match_type': match.match_type, 'eligible': len(match.rounds) >= 2 and is_custom_game(match.match_type),
+                                'rehost_eligible': is_custom_game(match.match_type), 'tracked_count': tracked,
+                                'score': [sum(r.winner == team for r in match.rounds) for team in (0, 1)],
+                                'duplicate': bool(db.execute('SELECT 1 FROM map_segments WHERE replay_id=?', (match.replay_id,)).fetchone()) if match.replay_id else False,
+                                'status': scan_label(match.match_type)})
+            except (ValueError, OSError) as error:
+                results.append({**folder, 'eligible': False, 'status': f'Unable to inspect: {error}'})
+        return {'folders': results}
+
+    @app.post('/api/admin/submissions/{submission_id}/reject')
+    def submission_reject(submission_id: str, payload: SubmissionAction):
+        return submissions.Client(root).call('/submissions/' + submissions.identity(submission_id) + '/reject', 'POST',
+                                             {'reason': payload.reason, 'notes': payload.notes})
+
+    @app.post('/api/admin/submissions/{submission_id}/sync')
+    def submission_sync(submission_id: str, db: DB):
+        return submissions.sync_receipts(root, db, submissions.identity(submission_id))
+
+    @app.post('/api/admin/submissions/{submission_id}/purge')
+    def submission_purge(submission_id: str, payload: SubmissionAction):
+        return submissions.Client(root).call('/submissions/' + submissions.identity(submission_id) + '/purge', 'POST',
+                                             payload.model_dump(include={'confirm_display_id', 'delete_metadata'}))
+
     @app.post("/api/admin/replays/preview")
     def preview_replay(payload: PreviewRequest, db: DB):
         organization, season = import_context(db, payload.team_id, payload.season_slug)
@@ -627,6 +708,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         config = read_settings(root)
         calculate_match(match, config["stats"]["trade_window_seconds"])
         archive_root = root / "data/replay-archive"
+        submission_context = submissions.source_context(root, [preview.path])
         prepared = replay_archive.prepare(preview.path, archive_root, preview.fingerprint, len(match.rounds))
         try:
             map_id = repo.insert_map(db, match, preview.fingerprint, team, payload.opponent.strip(),
@@ -642,7 +724,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         app.state.previews.pop(payload.preview_token, None)
         kill_credit = collect_after_import(db, archive_root, map_id)
         export(db, config, root / "web/public/data")
-        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC", "kill_credit": kill_credit}
+        intake = submissions.record_import(root, db, submission_context, map_id)
+        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC", "kill_credit": kill_credit, "submission": intake}
 
     @app.post("/api/admin/replays/rehost/preview")
     def preview_rehost(payload: RehostPreviewRequest, db: DB):
@@ -769,6 +852,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         config = read_settings(root)
         calculate_match(preview.match, config["stats"]["trade_window_seconds"])
         archive_root = root / "data/replay-archive"
+        submission_context = submissions.source_context(root, preview.paths)
         prepared = replay_archive.prepare_rehost(preview.paths, archive_root,
                                                  preview.fingerprint, preview.rehost_manifest)
         try:
@@ -788,8 +872,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         app.state.previews.pop(payload.preview_token, None)
         kill_credit = collect_after_import(db, archive_root, map_id)
         export(db, config, root / "web/public/data")
+        intake = submissions.record_import(root, db, submission_context, map_id)
         return {"ok": True, "map_id": map_id, "rounds": len(preview.match.rounds),
-                "segments": len(preview.paths), "competition": "NECC", "kill_credit": kill_credit}
+                "segments": len(preview.paths), "competition": "NECC", "kill_credit": kill_credit, "submission": intake}
 
     @app.get("/api/admin/series")
     def series(db: DB, season: str | None = None, team_id: int | None = None):

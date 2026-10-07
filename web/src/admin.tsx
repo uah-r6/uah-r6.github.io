@@ -6,8 +6,9 @@ import './admin.css'
 import './brand.css'
 import './adminBrand.css'
 import { teamTheme } from './theme'
+import { SubmissionsPage, type SubmissionHandoff } from './adminSubmissions'
 
-type Page = 'teams' | 'dashboard' | 'replays' | 'roster' | 'seasons' | 'matches' | 'statistics' | 'publish' | 'settings'
+type Page = 'submissions' | 'teams' | 'dashboard' | 'replays' | 'roster' | 'seasons' | 'matches' | 'statistics' | 'publish' | 'settings'
 type Season = { slug: string; name: string; active: number; start_date: string | null; end_date: string | null }
 type Team = {id:number;name:string;slug:string;primary_color:string;active:number;display_order:number}
 type Membership = {team_id:number;team_slug:string;team_name:string;start_date:string;end_date:string|null}
@@ -56,6 +57,7 @@ async function api<T>(path: string, method = 'GET', body?: unknown): Promise<T> 
 
 const nav: { id: Page; title: string; icon: React.ReactNode }[] = [
   { id: 'dashboard', title: 'Dashboard', icon: <LayoutDashboard size={18} /> },
+  { id: 'submissions', title: 'Submissions', icon: <CloudUpload size={18} /> },
   { id: 'replays', title: 'Import Match', icon: <FolderSearch size={18} /> },
   { id: 'teams', title: 'Teams', icon: <ShieldCheck size={18} /> },
   { id: 'roster', title: 'Roster', icon: <Users size={18} /> },
@@ -67,6 +69,8 @@ const nav: { id: Page; title: string; icon: React.ReactNode }[] = [
 ]
 
 function App() {
+  const [handoff,setHandoff]=useState<SubmissionHandoff|null>(null),[pending,setPending]=useState(0)
+  useEffect(()=>{const refresh=()=>api<{pending_count?:number}>('/submissions/storage').then(s=>setPending(s.pending_count||0)).catch(()=>{});void refresh();const timer=setInterval(()=>void refresh(),60000);return()=>clearInterval(timer)},[])
   const [page, setPage] = useState<Page>('dashboard')
   const [teams,setTeams]=useState<Team[]>([]),[seasons,setSeasons]=useState<Season[]>([])
   const [teamId,setTeamId]=useState<number|null>(null),[selectedSeason,setSelectedSeason]=useState('')
@@ -90,17 +94,18 @@ function App() {
     <aside className="admin-sidebar">
       <div className="admin-brand"><img src="/brand/uah-esports-logo.png" alt="UAH Esports"/><div><strong>UAH R6</strong><small>LOCAL ADMINISTRATION</small></div></div>
       <div className="sidebar-label">WORKSPACE</div>
-      <nav>{nav.map(item => <button key={item.id} className={page === item.id ? 'selected' : ''} onClick={() => { setPage(item.id); setNotice(null) }}>{item.icon}<span>{item.title}</span><ChevronRight size={15} /></button>)}</nav>
+      <nav>{nav.map(item => <button key={item.id} className={page === item.id ? 'selected' : ''} onClick={() => { setPage(item.id); setNotice(null) }}>{item.icon}<span>{item.title}{item.id==='submissions'&&pending>0?` (${pending})`:null}</span><ChevronRight size={15} /></button>)}</nav>
       <div className="sidebar-foot"><span className="live-dot" /> Running on this PC<br /><small>127.0.0.1 · private local API</small></div>
     </aside>
     <div className="admin-main">
       <div className="admin-topbar"><div><span className="eyebrow">LOCAL OPERATIONS</span><strong>{nav.find(item => item.id === page)?.title}</strong></div><div className="admin-context"><label>ACTIVE TEAM<select aria-label="Active admin team" value={teamId??''} onChange={e=>selectTeam(e.target.value?Number(e.target.value):null)}><option value="">Choose a team</option>{teams.map(t=><option value={t.id} key={t.id}>{t.name}{t.active?'':' · inactive'}</option>)}</select></label><label>SEASON<select aria-label="Active admin season" value={selectedSeason} onChange={e=>selectSeason(e.target.value)}><option value="">Choose a season</option>{seasons.map(s=><option value={s.slug} key={s.slug}>{s.name}{s.active?' · active':''}</option>)}</select></label><span className="admin-local"><ShieldCheck size={15}/> Local only</span></div></div>
       <div className="admin-content" key={`${teamId}:${selectedSeason}`}>
         {notice && <div className={`admin-notice ${notice.error ? 'error' : 'success'}`}><span>{notice.text}</span><button aria-label="Dismiss notification" onClick={() => setNotice(null)}>×</button></div>}
-        {!scopedReady&&!['teams','seasons','settings','statistics','publish'].includes(page)&&<div className="admin-empty">Choose an active team and season above to open this workspace.</div>}
+        {!scopedReady&&!['submissions','teams','seasons','settings','statistics','publish'].includes(page)&&<div className="admin-empty">Choose an active team and season above to open this workspace.</div>}
+        {page === 'submissions' && <SubmissionsPage api={api} teams={teams} seasons={seasons} changed={setPending} handoff={(value,team,season)=>{setHandoff(value);selectTeam(team);selectSeason(season);setPage('replays')}}/>}
         {page === 'teams' && <TeamsPage notify={notify} teams={teams} after={loadScope}/>}
         {page === 'dashboard' && scopedReady && <DashboardPage go={setPage} />}
-        {page === 'replays' && scopedReady && (selectedTeam?.active?<ReplaysPage notify={notify} />:<div className="admin-empty">This team is inactive. Reactivate it in Teams before importing. Its history remains available in Matches.</div>)}
+        {page === 'replays' && scopedReady && (selectedTeam?.active?<ReplaysPage key={handoff?.submission||'local'} notify={notify} handoff={handoff} clearHandoff={()=>setHandoff(null)} />:<div className="admin-empty">This team is inactive. Reactivate it in Teams before importing. Its history remains available in Matches.</div>)}
         {page === 'roster' && scopedReady && <RosterPage notify={notify} />}
         {page === 'seasons' && <SeasonsPage notify={notify} />}
         {page === 'matches' && scopedReady && <MatchesPage notify={notify} />}
@@ -141,17 +146,17 @@ function DashboardPage({ go }: { go: (page: Page) => void }) {
   </>
 }
 
-function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => void }) {
-  const [importType, setImportType] = useState<'normal' | 'rehost'>('normal')
+function ReplaysPage({ notify, handoff, clearHandoff }: { notify: (text: string, error?: boolean) => void; handoff: SubmissionHandoff|null; clearHandoff:()=>void }) {
+  const [importType, setImportType] = useState<'normal' | 'rehost'>(handoff?.mode||'normal')
   const [items, setItems] = useState<Replay[]>([])
   const [seasons, setSeasons] = useState<Season[]>([])
   const [series, setSeries] = useState<Series[]>([])
   const [preview, setPreview] = useState<Preview | null>(null)
   const [selectedId, setSelectedId] = useState('')
-  const [manualPath, setManualPath] = useState('')
+  const [manualPath, setManualPath] = useState(handoff?.paths[0]||'')
   const [team, setTeam] = useState<number | null>(null)
   const [season, setSeason] = useState('')
-  const [opponent, setOpponent] = useState('')
+  const [opponent, setOpponent] = useState(handoff?.opponent||'')
   const [week, setWeek] = useState('')
   const [notes, setNotes] = useState('')
   const [seriesId, setSeriesId] = useState('')
@@ -160,17 +165,17 @@ function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => vo
   const [error, setError] = useState('')
   useEffect(() => { api<Season[]>('/seasons').then(rows => { setSeasons(rows); setSeason(adminScope.season_slug || rows.find(row => row.active)?.slug || rows[0]?.slug || '') }).catch(error => setError(error.message)) }, [])
   useEffect(() => { if (season) api<Series[]>(`/series?season=${encodeURIComponent(season)}`).then(setSeries).catch(error => setError(error.message)); else setSeries([]) }, [season])
-  async function scan() { setBusy(true); setError(''); setPreview(null); try { setItems(await api<Replay[]>('/replays')); notify('Replay scan completed.') } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
+  async function scan(silent=false) { setBusy(true); setError(''); setPreview(null); try { setItems(await api<Replay[]>('/replays')); if(!silent)notify('Replay scan completed.') } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   async function review(replayId?: string, path?: string, chosenTeam?: number) { setBusy(true); setError(''); try { const result = await api<Preview>('/replays/preview', 'POST', { replay_id: replayId || null, path: path || null, team: chosenTeam ?? null }); setPreview(result); setSelectedId(replayId || ''); setTeam(result.our_team); setConfirmed(false);  if (result.duplicate) notify('This replay has already been imported.', true) } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
-  async function importMap() { if (!preview) return; setBusy(true); setError(''); try { const result = await api<{ map_id: string; rounds: number }>('/replays/import', 'POST', { preview_token: preview.preview_token, season_slug: season, opponent, week, notes, series_id: seriesId || null, team, confirm_necc: confirmed }); notify(`Imported ${result.rounds} rounds as NECC map ${result.map_id}. Website data refreshed.`); setPreview(null); setConfirmed(false); setOpponent(''); setSeriesId(''); void scan() } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
+  async function importMap() { if (!preview) return; setBusy(true); setError(''); try { const result = await api<{ map_id: string; rounds: number; submission?: {synced:boolean;message:string}|null }>('/replays/import', 'POST', { preview_token: preview.preview_token, season_slug: season, opponent, week, notes, series_id: seriesId || null, team, confirm_necc: confirmed }); notify(`Imported ${result.rounds} rounds as NECC map ${result.map_id}. Website data refreshed.${result.submission ? ' '+result.submission.message : ''}`); setPreview(null); setConfirmed(false); setOpponent(''); setSeriesId(''); void scan(true) } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   const selectedSeries = series.find(row => row.id === seriesId)
   if (importType === 'rehost') return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC rehost" description="Choose ordered Custom Game folders, mark abandoned rounds, and confirm the competitive score." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> Scan replay folder</Button>} />
-    <div className="import-type"><Button secondary onClick={() => setImportType('normal')}>Normal map</Button><Button onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
+    <div className="import-type">{handoff&&<span>Submission {handoff.submission} <button onClick={()=>{clearHandoff();setManualPath('')}}>Clear submission selection</button></span>}<Button secondary onClick={() => setImportType('normal')}>Normal map</Button><Button onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
     <ErrorBox message={error} />
-    <RehostImportPanel items={items} seasons={seasons} series={series} season={season} setSeason={setSeason} setSeriesId={setSeriesId} notify={notify} afterImport={scan} />
+    <RehostImportPanel items={items} seasons={seasons} series={series} season={season} setSeason={setSeason} setSeriesId={setSeriesId} notify={notify} afterImport={()=>scan(true)} handoff={handoff} />
   </>
   return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC map" description="Scan replays, select one Custom Game, then explicitly confirm it was your NECC match." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> {busy ? 'Working…' : 'Scan replay folder'}</Button>} />
-    <div className="import-type"><Button onClick={() => setImportType('normal')}>Normal map</Button><Button secondary onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
+    <div className="import-type">{handoff&&<span>Submission {handoff.submission} <button onClick={()=>{clearHandoff();setManualPath('')}}>Clear submission selection</button></span>}<Button onClick={() => setImportType('normal')}>Normal map</Button><Button secondary onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
     <ErrorBox message={error} />
     <div className="admin-panel admin-tip"><ShieldCheck size={22} /><div><b>Custom Game is eligibility, not proof of NECC.</b><p>Ranked, Standard and Quick Match cannot be selected. Scrims and other Custom Games stay out of your stats unless you choose and confirm them.</p></div></div>
     <section className="admin-panel"><div className="admin-panel-head"><div><span className="eyebrow">RECENT REPLAYS</span><h2>MatchReplay folder</h2></div><small>{items.length ? `${items.length} replay folders` : 'Click Scan replay folder to begin'}</small></div>
@@ -190,19 +195,19 @@ function ReplaysPage({ notify }: { notify: (text: string, error?: boolean) => vo
 
 type SegmentChoice = { replay_id: string; path: string }
 
-function RehostImportPanel({ items, seasons, series, season, setSeason, setSeriesId, notify, afterImport }: {
+function RehostImportPanel({ items, seasons, series, season, setSeason, setSeriesId, notify, afterImport, handoff }: {
   items: Replay[]; seasons: Season[]; series: Series[]; season: string;
   setSeason: (value: string) => void; setSeriesId: (value: string) => void;
-  notify: (text: string, error?: boolean) => void; afterImport: () => Promise<void>
+  notify: (text: string, error?: boolean) => void; afterImport: () => Promise<void>; handoff: SubmissionHandoff|null
 }) {
-  const [segments, setSegments] = useState<SegmentChoice[]>([{ replay_id: '', path: '' }, { replay_id: '', path: '' }])
+  const [segments, setSegments] = useState<SegmentChoice[]>(handoff?.mode==='rehost'?handoff.paths.map(path=>({replay_id:'',path})):[{ replay_id: '', path: '' }, { replay_id: '', path: '' }])
   const [exclusions, setExclusions] = useState<Record<string, string>>({})
   const [preview, setPreview] = useState<RehostPreview | null>(null)
   const [dirty, setDirty] = useState(false)
   const [team, setTeam] = useState<number | null>(null)
   const [finalOur, setFinalOur] = useState('')
   const [finalTheir, setFinalTheir] = useState('')
-  const [opponent, setOpponent] = useState('')
+  const [opponent, setOpponent] = useState(handoff?.opponent||'')
   const [week, setWeek] = useState('')
   const [notes, setNotes] = useState('')
   const [seriesId, chooseSeries] = useState('')
@@ -235,14 +240,14 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
     if (!preview || dirty || team === null) return
     setBusy(true); setError('')
     try {
-      const result = await api<{ map_id: string; rounds: number }>('/replays/rehost/import', 'POST', {
+      const result = await api<{ map_id: string; rounds: number; submission?: {synced:boolean;message:string}|null }>('/replays/rehost/import', 'POST', {
         preview_token: preview.preview_token, season_slug: season, opponent, week, notes,
         series_id: seriesId || null, team, confirm_necc: confirmNecc,
         confirm_folders_one_map: confirmMap, confirm_roster_change: confirmRoster,
         confirm_score_override: confirmScoreOverride,
         final_our_score: Number(finalOur), final_their_score: Number(finalTheir),
       })
-      notify(`Imported ${result.rounds} logical rounds as NECC map ${result.map_id}.`)
+      notify(`Imported ${result.rounds} logical rounds as NECC map ${result.map_id}.${result.submission?' '+result.submission.message:''}`)
       setPreview(null); setExclusions({}); setConfirmMap(false); setConfirmNecc(false); setConfirmRoster(false); setConfirmScoreOverride(false)
       await afterImport()
     } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) }

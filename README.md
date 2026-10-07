@@ -15,6 +15,12 @@ Ratings aggregate eligible inputs using the existing engine. Display statistics 
 
 Public routes use the existing hash router: `/#/teams/blue`, `/#/teams/blue/roster`, `/#/teams/blue/stats`, and `/#/teams/blue/matches` (likewise for White and future teams). Existing `/#/players/<slug>`, `/#/matches/<map-id>`, `/#/players`, `/#/matches`, and methodology routes remain available. Existing public JSON fields remain; new team documents live under `data/teams/<slug>/`. Team slug edits preserve both route aliases and old JSON paths.
 
+## Public replay submissions
+
+Use [Submit Replays](https://uah-r6.github.io/#/submit) to send complete MatchReplay folders privately for review, including rehost segments. Select the team and season explicitly. Uploading does not import or publish statistics.
+
+The local **Submissions** section downloads and verifies the private inbox, then opens the existing normal/rehost review. It also manages storage, retention, rejection, context corrections and cloud status retries. Cloudflare R2 is temporary; the local verified archive remains authoritative. See [SUBMISSIONS.md](docs/SUBMISSIONS.md) for privacy, limits, configuration and maintenance.
+
 ## Local administration
 
 Double-click **Start NECC Admin.cmd**. Choose an **active team** and **season** in the persistent top controls. An initial team choice is required; the application never silently assigns an import to Blue.

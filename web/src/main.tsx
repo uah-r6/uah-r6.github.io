@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Link, NavLink, Route, Routes, useParams, useNavigate } from 'react-router-dom'
+import { HashRouter, Link, NavLink, Route, Routes, useParams, useNavigate, useLocation } from 'react-router-dom'
 import { ArrowUpRight, Crosshair, Swords, Trophy, CalendarDays } from 'lucide-react'
 import './style.css'
 import './brand.css'
 import { teamTheme } from './theme'
 import { leaderboardPlayers, selectedPeriod } from './scope'
 import { Methodology } from './methodology'
+import { SubmitPage } from './submit'
 
 type Team = {id:number;slug:string;name:string;primary_color:string;active:number;aliases:string[];maps:number;rounds:number;roster_count:number}
 type Stats = {status?:string;rating_rounds?:number;rating_maps?:number;kill_source_rounds?:Record<string,number>;slug:string;name:string;rating:number|null;rounds:number;maps:number;kills:number;deaths:number;kd:number|null;kd_diff:number;kpr:number;kost:number;srv:number;hs:number;opening_kills:number;opening_deaths:number;entry_diff:number;plants:number;disables:number;clutches:number;clutch_1v1:number;clutch_1v2:number;clutch_1v3:number;clutch_1v4:number;clutch_1v5:number;refrag_kills:number;deaths_traded:number;kills_traded:number;untraded_kills:number;untraded_deaths:number;pivot_kills:number;pivot_deaths:number;teamkills:number;operators:Record<string,Record<string,number>>;sides:Record<string,{rounds:number;kills:number;deaths:number;kd:number|null;kpr:number}>}
@@ -32,6 +33,7 @@ const color=(n:number)=>n>0?'positive':n<0?'negative':''
 const hints:Record<string,string>={Rating:'Performance estimate from eligible maps; player profiles show coverage',KOST:'Rounds with a kill, objective, survival or traded death',Entry:'Opening kills minus opening deaths',KPR:'Enemy kills per round',SRV:'Rounds survived divided by rounds played','HS%':'Headshot eliminations as a share of final eliminations','1vX':'Rounds won after becoming the last player alive against one or more opponents.'}
 function Loading({error}:{error:string}){return <div className="empty">{error||'Loading statistics…'}</div>}
 function App(){
+  const location=useLocation()
   const {data:index,error}=useData<Index>('index.json')
   const [season,setSeason]=useState('')
   useEffect(()=>{if(index){setSeason(selectedPeriod(index.seasons,index.active_season,localStorage.getItem('necc-season')))}},[index])
@@ -39,10 +41,10 @@ function App(){
   const change=(value:string)=>{setSeason(value);localStorage.setItem('necc-season',value)}
   return <div className="app" style={teamTheme(index.program.accent||'#0058A4')}>
     <header className="topbar"><Link className="brand" to="/"><img src={import.meta.env.BASE_URL+'brand/uah-esports-logo.png'} alt="UAH Esports"/><div><b>{index.program.short_name}</b><small>Rainbow Six Siege · NECC</small></div></Link>
-      <nav aria-label="Main navigation"><NavLink end to="/">Program</NavLink><NavLink to="/players">Player Stats</NavLink><NavLink to="/matches">Matches</NavLink><NavLink to="/methodology">Methodology</NavLink></nav>
-      <label className="season-select">VIEW <select aria-label="Statistics period" value={season} onChange={e=>change(e.target.value)}>{index.seasons.map(s=><option key={s.slug} value={s.slug}>{s.name}</option>)}<option value="career">Career · all seasons</option></select></label>
+      <nav aria-label="Main navigation"><NavLink end to="/">Program</NavLink><NavLink to="/players">Player Stats</NavLink><NavLink to="/matches">Matches</NavLink><NavLink to="/methodology">Methodology</NavLink><NavLink to="/submit">Submit Replays</NavLink></nav>
+      {location.pathname!=='/submit'&&<label className="season-select">VIEW <select aria-label="Statistics period" value={season} onChange={e=>change(e.target.value)}>{index.seasons.map(s=><option key={s.slug} value={s.slug}>{s.name}</option>)}<option value="career">Career · all seasons</option></select></label>}
     </header>
-    <main><Routes><Route path="/" element={<ProgramHome index={index} season={season}/>}/><Route path="/teams/:teamSlug/*" element={<TeamView index={index} season={season}/>}/><Route path="/players" element={<Players season={season}/>}/><Route path="/players/:slug" element={<PlayerPage season={season}/>}/><Route path="/matches" element={<Matches season={season}/>}/><Route path="/matches/:id" element={<MapPage/>}/><Route path="/methodology/*" element={<Methodology/>}/><Route path="*" element={<div className="empty">Page not found. <Link to="/">Return to the program</Link></div>}/></Routes></main>
+    <main><Routes><Route path="/submit" element={<SubmitPage teams={index.teams} seasons={index.seasons}/>}/><Route path="/" element={<ProgramHome index={index} season={season}/>}/><Route path="/teams/:teamSlug/*" element={<TeamView index={index} season={season}/>}/><Route path="/players" element={<Players season={season}/>}/><Route path="/players/:slug" element={<PlayerPage season={season}/>}/><Route path="/matches" element={<Matches season={season}/>}/><Route path="/matches/:id" element={<MapPage/>}/><Route path="/methodology/*" element={<Methodology/>}/><Route path="*" element={<div className="empty">Page not found. <Link to="/">Return to the program</Link></div>}/></Routes></main>
     <footer><span>UAH Rainbow Six Siege · NECC statistics</span><Link to="/methodology">Definitions & Rating coverage</Link></footer>
   </div>
 }
@@ -50,7 +52,7 @@ function ProgramHome({index,season}:{index:Index;season:string}){
   return <><Heading eyebrow="THE UNIVERSITY OF ALABAMA IN HUNTSVILLE" title={index.program.name} subtitle="One program. Every team. Explore the roster, matches and performance behind each season."/>
     <div className="section-title"><h2>Our teams</h2><span className="section-aside">{season==='career'?'All seasons':index.seasons.find(s=>s.slug===season)?.name}</span></div>
     <div className="team-grid">{index.teams.map(team=><TeamCard key={team.id} team={team} season={season}/>)}</div>
-    <section className="panel program-note"><span className="eyebrow">FROM THE REPLAYS</span><h2>Statistics with context</h2><p>Follow UAH’s NECC matches, organized by team and season. Player profiles show the full performance breakdown and Rating coverage.</p><Link className="button" to="/methodology">Explore the methodology</Link></section></>
+    <section className="panel program-note"><span className="eyebrow">FROM THE REPLAYS</span><h2>Statistics with context</h2><p>Follow UAH’s NECC matches, organized by team and season. Player profiles show the full performance breakdown and Rating coverage.</p><Link className="button" to="/methodology">Explore the methodology</Link> <Link className="button" to="/submit">Submit match replays</Link></section></>
 }
 function TeamCard({team,season}:{team:Team;season:string}){
   const {data,error}=useData<Season>(`teams/${team.slug}/${season}.json`)
