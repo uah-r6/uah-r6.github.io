@@ -124,5 +124,13 @@ test('real Worker / D1 / R2 intake lifecycle and security',async t=>{
   assert.equal(rejected.status,'imported');assert.deepEqual(rejected.folders.map(f=>f.disposition),['imported','rejected'])
   await admin(`/submissions/${a.id}/purge`,'POST',{confirm_display_id:a.display_id})
  })
+ await t.test('concurrent archive receipts cannot claim the same folder for different maps',async()=>{
+  await db.exec('DELETE FROM rate_limits')
+  const s=await create();await upload(s);await complete(s)
+  const receipt={folder_ids:[s.files[0].folder_id],team_slug:'blue',season_slug:'fall-2026',archive_verified:true}
+  const results=await Promise.all(['111111111111','222222222222'].map(map_id=>admin(`/submissions/${s.id}/consume`,'POST',{...receipt,map_id})))
+  assert.deepEqual(results.map(r=>r.status).sort(),[200,409])
+  const d=await(await admin(`/submissions/${s.id}`)).json();assert.equal(d.status,'imported');assert.ok(['111111111111','222222222222'].includes(d.folders[0].map_id))
+ })
  }finally{await mf.dispose()}
 })

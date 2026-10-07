@@ -87,7 +87,8 @@ async function putFile(env,request,s,fid){
   await env.INBOX.put(f.object_key,fixed.readable,{sha256:sha,httpMetadata:{contentType:'application/octet-stream'},customMetadata:{sha256:f.sha256,submission:s.id},storageClass:'Standard'})
   const transfer=await pump;if(transfer instanceof Error)throw transfer
   const object=await env.INBOX.head(f.object_key);requireValue(object&&object.size===f.declared_size,'Stored replay size could not be verified.')
-  await run(env,"UPDATE files SET status='uploaded',actual_size=?,lease=NULL,lease_until=0 WHERE id=? AND lease=? AND (SELECT status FROM submissions WHERE id=?)='uploading'",object.size,fid,lease,s.id)
+  const acknowledged=await run(env,"UPDATE files SET status='uploaded',actual_size=?,lease=NULL,lease_until=0 WHERE id=? AND lease=? AND (SELECT status FROM submissions WHERE id=?)='uploading'",object.size,fid,lease,s.id)
+  requireValue(acknowledged.meta.changes,'Upload session closed during transfer.',409)
   return json({uploaded:true,bytes:object.size})
  }catch(error){await run(env,"UPDATE files SET status='waiting',lease=NULL,lease_until=0 WHERE id=? AND lease=?",fid,lease);throw new HttpError(400,'Replay upload failed validation or transfer. Retry this file.')}finally{clearTimeout(timer)}
 }
@@ -98,7 +99,7 @@ async function complete(env,s){
  const batch=await rows(env,'SELECT * FROM files WHERE submission_id=? AND ordinal>=? ORDER BY ordinal LIMIT 20',s.id,s.verify_cursor)
  for(const f of batch){const object=await env.INBOX.head(f.object_key);requireValue(object&&object.size===f.declared_size&&object.customMetadata?.sha256===f.sha256,'A stored replay is missing or inconsistent. Retry or cancel the submission.',409)}
  const next=s.verify_cursor+batch.length
- if(next>=counts.total){await run(env,"UPDATE submissions SET status='pending',submitted_at=?,verify_cursor=? WHERE id=? AND status='uploading' AND verify_cursor=?",now(),next,s.id,s.verify_cursor);return json({received:true,display_id:s.display_id})}
+ if(next>=counts.total){const result=await run(env,"UPDATE submissions SET status='pending',submitted_at=?,verify_cursor=? WHERE id=? AND status='uploading' AND verify_cursor=?",now(),next,s.id,s.verify_cursor);requireValue(result.meta.changes||(await first(env,'SELECT status FROM submissions WHERE id=?',s.id)).status==='pending','Upload session closed before completion.',409);return json({received:true,display_id:s.display_id})}
  await run(env,'UPDATE submissions SET verify_cursor=? WHERE id=? AND verify_cursor=?',next,s.id,s.verify_cursor)
  return json({received:false,verified:next,total:counts.total})
 }
@@ -199,7 +200,8 @@ async function admin(env,request,path){
   requireValue(b.archive_verified===true&&/^[a-f0-9]{12}$/.test(b.map_id)&&Array.isArray(b.folder_ids)&&b.folder_ids.length>0,'Verified local archive receipt required.')
   const selected=s.folders.filter(f=>b.folder_ids.includes(f.id));requireValue(selected.length===new Set(b.folder_ids).size&&selected.every(f=>!f.disposition||(f.disposition==='imported'&&f.map_id===b.map_id)),'Replay folder was already consumed or rejected.',409)
   requireValue(/^[a-z0-9-]+$/.test(b.team_slug||'')&&/^[a-z0-9-]+$/.test(b.season_slug||''),'Import context is required.')
-  await env.DB.batch([...selected.map(f=>query(env,"UPDATE folders SET disposition='imported',map_id=?,import_team=?,import_season=? WHERE id=? AND (disposition IS NULL OR map_id=?)",b.map_id,b.team_slug,b.season_slug,f.id,b.map_id)),query(env,"UPDATE submissions SET status=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN 'imported' ELSE 'reviewing' END,terminal_at=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN ? ELSE NULL END WHERE id=?",id,id,now(),id)])
+  const updates=await env.DB.batch([...selected.map(f=>query(env,"UPDATE folders SET disposition='imported',map_id=?,import_team=?,import_season=? WHERE id=? AND (disposition IS NULL OR (disposition='imported' AND map_id=?))",b.map_id,b.team_slug,b.season_slug,f.id,b.map_id)),query(env,`UPDATE submissions SET status=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN 'imported' ELSE 'reviewing' END,terminal_at=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN ? ELSE NULL END WHERE id=? AND status IN('pending','reviewing','imported') AND (SELECT COUNT(*) FROM folders WHERE disposition='imported' AND map_id=? AND id IN(${selected.map(()=>'?').join(',')}))=?`,id,id,now(),id,b.map_id,...selected.map(f=>f.id),selected.length)])
+  requireValue(updates.every(result=>result.meta.changes),'Folder approval changed concurrently. Review the current cloud status.',409)
   return json(await detail(env,id))
  }
  if(action==='purge'){

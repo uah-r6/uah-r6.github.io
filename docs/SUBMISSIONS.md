@@ -189,6 +189,10 @@ data. The source feature deployment is a normal reviewed repository commit.
 
 - Inbox unavailable: check public config URL, Worker enable switch, account quotas,
   storage/reservations and Turnstile. Local statistics remain safe.
+- Browser verification failed: use **Retry verification** or refresh in your normal
+  browser. Managed Turnstile can reject automated browser sessions even when a
+  human clicks their checkbox; normal Chrome was independently confirmed to pass.
+  [Cloudflare error guidance](https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/) explains these challenge failures.
 - Upload failed: keep the page open and retry unfinished files. Back out for a new
   bot challenge if session creation failed. An expired capability requires restart.
 - Download checksum/inventory failure: retry staging; `.part` files are removed.

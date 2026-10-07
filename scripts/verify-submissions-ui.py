@@ -20,7 +20,7 @@ def verify(url):
         page = browser.new_page(viewport={'width': 1366, 'height': 900})
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
-        state = {'files': [], 'uploaded': set(), 'failure': True, 'full': False, 'cancelled': False}
+        state = {'files': [], 'uploaded': set(), 'failure': True, 'full': False, 'cancelled': False, 'bot': False}
 
         def reply(route, payload, status=200):
             route.fulfill(status=status, json=payload, headers={'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Methods': 'GET,POST,PUT,OPTIONS'})
@@ -29,7 +29,7 @@ def verify(url):
             request = route.request
             if request.method == 'OPTIONS': return reply(route, {})
             if request.url.endswith('/config'):
-                return reply(route, {'enabled': True, 'available': True, 'turnstile_site_key': None,
+                return reply(route, {'enabled': True, 'available': True, 'turnstile_site_key': 'synthetic-widget' if state['bot'] else None,
                                      'teams': [{'slug': 'blue', 'name': 'UAH Blue'}, {'slug': 'white', 'name': 'UAH White'}],
                                      'seasons': [{'slug': 'fall-2026', 'name': 'Fall 2026'}]})
             if request.url.endswith('/submissions'):
@@ -100,6 +100,12 @@ def verify(url):
           window.showDirectoryPicker=async()=>({name:'MatchReplay',values:async function*(){yield match}}); }""")
         page.get_by_role('button', name='Select MatchReplay Folder', exact=True).click()
         expect(page.get_by_text('Match-modern', exact=True)).to_be_visible()
+        state['bot'] = True
+        page.add_init_script("window.turnstile={render:(el,options)=>{window.syntheticBot=options;setTimeout(()=>options['error-callback']('600010'),0);return 'mock-id'},reset:()=>window.syntheticBot.callback('mock-token'),remove:()=>{}}")
+        page.reload(wait_until='networkidle')
+        expect(page.get_by_role('alert')).to_contain_text('Browser verification failed')
+        page.get_by_role('button', name='Retry verification', exact=True).click()
+        expect(page.get_by_role('alert')).to_have_count(0)
         assert not errors, errors
         browser.close()
         print('PASS: directory/fallback, context, confirmation, cap, retry, receipt, responsive layout and modern picker.')
