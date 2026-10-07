@@ -1,38 +1,66 @@
 ## Current: public presentation and Google Sites embeds — 2026-10-07
 
-**IMPLEMENTED; LOCAL VERIFICATION COMPLETE; DEPLOYMENT/LIVE CHECKS NEXT.**
-Baseline clean `227fb87`. This focused pass adds generic unlisted Player Stats
-embeds, responsive phone cards, exported v3 map Rating trends, recorded-map series
-summaries, stronger stored team accents, accessible shared stat help, export
-freshness, polished empty-team states, official-asset favicon/social metadata,
-route titles and 404 handling. See [PUBLIC_PRESENTATION.md](PUBLIC_PRESENTATION.md)
-for Google Sites URLs, dimensions, behavior and limitations.
+**COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Release `674faad`
+is on main. [Pages run37686846258](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37686846258)
+succeeded; production serves the exact built JS/CSS. Baseline clean `227fb87`.
 
-Local checks: **24 frontend tests**, **565 Python tests + six subtests** passed;
-one optional replay smoke test skipped. Both Vite builds pass. Public presentation
-browser checks cover 1440/1150/768/390px and 1000/800/600/390px embeds, exact trusted
-values, active-season rollover ignoring saved Career, generic future team,
-explicit historical override, Alumni rules, sorting/help keyboard/focus/click,
-viewport-safe popovers, exact chronological chart points and single/empty states,
-series links, document titles and a real cross-origin iframe. Existing Methodology
-and replay-selection Chrome/Edge regressions pass; submission workflow checks use
-mocked cloud responses only. No real submissions, imports or reparses occurred.
+Implemented generic unlisted active-season Player Stats embeds, compact phone
+cards, trusted exported v3 map Rating trends, recorded-map series summaries,
+stronger stored team accents, accessible shared stat help, export freshness,
+polished empty-team states, official-asset favicon/social metadata, meaningful
+route titles and 404 handling. No new chart dependency. Shared display definitions
+and filters serve desktop, mobile and embed views. See
+[PUBLIC_PRESENTATION.md](PUBLIC_PRESENTATION.md) for behavior and instructions.
+
+Google Sites **Insert → Embed → By URL**:
+
+- Blue: https://uah-r6.github.io/#/embed/blue/player-stats
+- White: https://uah-r6.github.io/#/embed/white/player-stats
+
+Start with **800 × 360px** for five players. The same URL follows the active
+published season, independent of the normal site's saved period. Optional fixed
+history: `?season=fall-2026` after the hash route. Responsive embeds keep
+10/7/5 columns with Rating always visible and no normal page chrome. Unknown
+teams/seasons show a safe error. Future valid team slugs use the same component.
+
+Verification: **24 frontend tests**, **565 Python tests + six subtests** passed;
+one optional replay smoke test skipped. Both public/admin Vite builds passed.
+The presentation suite passed **locally and LIVE**: 1440/1150/768/390px public
+routes; 1000/800/600/390px embeds; exact trusted stats; saved Career isolation,
+active-season rollover, generic team, explicit historical override and Alumni
+fixtures; sorting and accessible focus/click/keyboard help with viewport-safe
+popovers; chronological exact chart values, career scope, single/empty states,
+map context and keyboard/tap selection; recorded-series W/L and map links;
+404/titles/metadata; and a **real cross-origin iframe of production**. Existing
+Methodology regression passed locally/live (110 frozen points). Replay-selection
+Chrome/Edge regressions passed locally/live. Mocked submission workflow tests
+passed. Live public cloud config is enabled/available with Turnstile configured.
+No new real upload, challenge completion, import or reparse was attempted.
 
 The only export addition is UTC `index.json.generated_at`. A read-only SQLite
-candidate export matched every previous field in all27 JSON documents before its
-output was copied to public data. Public validation passes. Hash checks cover
-158 protected paths: only the authorized exporter metadata change and public
-index timestamp differ. SQLite, Rating/parser/objective/credited-kill sources,
+candidate export matched every previous field in **all27 JSON documents** before
+its output was copied to public data. Public validation passed. **All27 live JSON
+documents match committed bytes**, and JS/CSS match the tested build. Hash checks
+cover158 protected paths: only the authorized exporter metadata change and public
+index timestamp differ. SQLite, Rating/parser/objective/credited-kill logic,
 archives, historical maps, memberships, private settings and Cloudflare backend
-remain exact. Evidence: ignored `data/research/public-presentation-20261007/`.
+remain exact. Blue stays7maps/82rounds (4v3eligible maps/42rounds); White is empty.
+Evidence remains ignored under `data/research/public-presentation-20261007/`.
 
-**NEXT ACTION:** push this release, verify Pages success and live presentation /
-embeds / framing headers, then replace this section with the final release and
-verification results, push the checkpoint, confirm a clean tree and **stop**.
-Do not resume unrelated research/backend work. The earlier real Windows Explorer
-folder gesture remains a separate pending manual check, unchanged by this pass.
+Limitations: the production response has no X-Frame-Options or CSP framing
+restriction and the cross-origin harness passes; an authenticated Google Sites
+editor session was not tested. Sites controls frame height. Static hash routes
+share program-level Open Graph previews; browser document titles are specific.
+Same-date trend ordering uses recorded export order, not invented precise times.
+The earlier real Windows Explorer gesture remains a separate pending manual
+check; its implementation and recorded limitation are preserved.
 
-## Current: focused replay-folder selection usability — 2026-10-07
+**NEXT ACTION: none for this request.** The presentation release and verification
+are complete. This final documentation checkpoint is pushed on main; working
+tree is clean. Stop. Do not resume research, parser changes, remote administration,
+notifications or unrelated backend work without another request.
+
+## Previous: focused replay-folder selection usability — 2026-10-07
 
 **READ-ONLY FOLLOW-UP DEPLOYED; AUTOMATED LIVE CHECKS PASS.** Initial release
 `dad2429` and corrective release `0090a04` are pushed on main.
