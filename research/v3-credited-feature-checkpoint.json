@@ -1,0 +1,19 @@
+{
+  "base_commit": "b1023d4",
+  "status": "corrected_features_before_deliberate_event_fold_fit",
+  "dataset_sha256": "112e977e67a664795eff3601bb7a7fab8a9a44889951a9b80c15d033c328e5f7",
+  "reservation_sha256": "59758f5dce894103b4b848aee1ab954f1ed257d0494893d4f973ea951ca62582",
+  "plan_sha256": "04ee6954adf755285d203c9e48528339fc9d2e9370f29ace7ffda33f13e152f0",
+  "rows": 790,
+  "clean_rows": 688,
+  "clean_maps": 69,
+  "clean_events": 9,
+  "sources": {
+    "research/v3_credited_derive.py": "d3140e6e2e767a211f236611d9c805b90b7488bc02f5570d0729718813f3fcbe",
+    "research/v3_credited_fit.py": "464bc0fe9cd922581d759b47af6065406af5514a4be4b1bf5161eb2c1bdebb3c",
+    "research/credited_transitive_owned_controls.py": "8e2b791e0f2e74f5a906d9ae1db14a6ade2f9b2ea12fa82bdfe7d571d6df9464"
+  },
+  "transitive_result_sha256": "6213d476a8dd7f84ce4f4d64d0e83af45a1f760ac2b6230600c5b583d0380cd3",
+  "new_final_targets_opened": false,
+  "model_fitted": false
+}

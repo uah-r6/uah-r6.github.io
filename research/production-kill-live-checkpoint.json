@@ -1,0 +1,12 @@
+{
+  "commit": "b1023d4",
+  "checked_at": "2026-10-07T04:22:48.820452+00:00",
+  "url": "https://uah-r6.github.io/",
+  "workflow_run": 37571010366,
+  "workflow_conclusion": "success",
+  "rating_version": "siege_style_v2",
+  "corrected_counts_live": true,
+  "newline_note": "GitHub publishes committed LF bytes; local Windows export uses CRLF. Both exact committed-byte and decoded-JSON parity are checked.",
+  "live_verification_sha256": "cd3e25dc2e9c62b2e020ff92ba264a53562ca88ad30a11bec1acca2fe6dad8bf",
+  "documents_verified": 20
+}

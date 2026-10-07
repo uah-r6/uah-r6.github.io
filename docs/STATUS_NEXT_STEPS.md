@@ -1,3 +1,13 @@
+## Corrected counts LIVE; broad v3 dataset derived ? 2026-10-06
+
+Production commit `b1023d4` pushed to main; GitHub Pages run37571010366 completed successfully. All20live JSON documents exactly match committed LF bytes and the current decoded Windows export (CRLF differences recorded explicitly). Current objectives and all five v2 Ratings remain unchanged;70credited/12legacy rounds are visible per player. Guard: research/verify_production_kill_checkpoint.py. Live evidence: research/production-kill-live-checkpoint.json.
+
+Separate corrected professional inventory now79maps/790player-map rows,688clean on69maps across9events. Uses existing470objective-derived development rows plus all32consumed APAC/SAL maps; old decisions/final results remain immutable. Ten whole maps fail complete counter/objective gates; two additional alias rows stay excluded. Exact credited K/D resolves old finisher-based mismatches; no alias is chosen from totals. All-nil LAN records use an explicit exact ten-header-UID/name/team adapter, never known-profile substitution. No new Rating final target is opened.
+
+Predeclared development plan research/v3-credited-development-plan.json: whole-event folds, fixed alpha1, exact original v2 reference, frozen weights/corrected-input control, corrected8/9-family candidates. No new model fit yet. NEXT ACTION: fit that deliberate broad study once, report all event/subgroup/coefficient/residual metrics, and require the declared qualification before selecting an untouched final. Prior80%within.05 gate remains; passing final must be frozen from clean source before targets. UAH is sanity only.
+
+Additional ten-source declared transitive-component audit extends UID routes through depth4:49,332uniquely rooted fields,0incoming numeric target refs,984shared/1,115unknown refusals. Nina/OSAdinho and all eight missing kind5 remain unresolved; no generic credited-victim association is promoted. See research/output/credited-transitive-owned-controls.md. Production/event policies are unchanged from b1023d4.
+
 ## Authorized credited-count migration ? 2026-10-06
 
 Recovered user import HEAD `7b2bb57`: seven maps /82 rounds. Verified private backup and new current-state audit preserve the earlier five-map research seals. Six whole maps /70 rounds use stable_uid_scoreboard_delta_v1; all12 Chalet rounds remain legacy because the rehost has nine participants. Raw normalized/elimination/objective records, identities, metadata, operators, archives and original five v2 snapshots are unchanged. Two new-map v2 snapshots were added without replacing existing snapshots.

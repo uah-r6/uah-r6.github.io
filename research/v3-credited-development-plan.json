@@ -1,0 +1,16 @@
+{
+  "version": "credited_counts_core_objectives_development_v1",
+  "base_commit": "b1023d4",
+  "purpose": "New broad whole-event development using corrected production count semantics, preserving all historical studies",
+  "consumed_development_inputs": ["470 existing objective-derived development rows", "12 consumed APAC Stage 2 maps", "20 consumed South America Stage 2 maps"],
+  "forbidden_training": ["UAH", "any newly untouched final Rating event"],
+  "feature_policy": "Whole-map complete stable UID counter deltas; supported core objective actors only; corrected credited KPR/multikills/KOST Kill; retain legacy opening/trade/clutch chronology, no guessed credited-victim links; unresolved objective/counter maps excluded",
+  "identity_policy": "Exact nonnil profiles, or explicitly audited all-nil LAN header UID plus unique exact username adapter; existing independently confirmed public identities only; no fuzzy or counter-derived aliases",
+  "quality_policy": "Recompute exact credited K/D and rounds without changing old decisions; retain unresolved aliases and incomplete maps; do not require old finisher K/D to match when credited K/D is independently verified",
+  "models": ["exact frozen v2 on original compatible features", "exact frozen v2 weights on corrected features", "corrected eight-family ridge alpha=1", "corrected nine-family ridge alpha=1 with supported objective rate"],
+  "fold_policy": "Leave one whole event out; all players/maps of each event remain together; no random row split, hyperparameter/window search or individual old-final residual tuning",
+  "development_qualification": {"minimum_events": 8, "minimum_clean_rows": 400, "relative_mae_improvement_vs_exact_v2": 0.10, "within_0_05": 0.80, "rmse_not_worse": true, "max_absolute_error": 0.20},
+  "prospective_final_gate": {"minimum_clean_rows": 100, "minimum_clean_maps": 10, "minimum_distinct_rosters": 8, "minimum_objective_positive_rows": 10, "max_mae": 0.035, "relative_mae_improvement_vs_exact_v2": 0.10, "within_0_05": 0.80, "rmse_not_worse": true, "max_absolute_error": 0.15, "subgroup_policy": "Predeclare objective-positive and kill-credit-affected residual summaries; any subgroup with at least ten rows must have MAE <= 0.05"},
+  "new_final_selected": false,
+  "historical_finals": "Both original v3 failures and v2 benchmark remain immutable and are never rerun/regraded"
+}
