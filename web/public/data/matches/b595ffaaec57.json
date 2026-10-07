@@ -79,7 +79,20 @@
       "hs": 0.5555555555555556,
       "entry_diff": 3,
       "kd_diff": -2,
-      "objectives": 0
+      "objectives": 0,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "legacy_finisher_v1",
+      "finisher_kills": 9,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "dinofireking",
@@ -147,7 +160,20 @@
       "hs": 0.125,
       "entry_diff": 0,
       "kd_diff": 2,
-      "objectives": 0
+      "objectives": 0,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "legacy_finisher_v1",
+      "finisher_kills": 8,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "lgon",
@@ -215,7 +241,20 @@
       "hs": 0.2,
       "entry_diff": -2,
       "kd_diff": -3,
-      "objectives": 1
+      "objectives": 1,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "legacy_finisher_v1",
+      "finisher_kills": 5,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "ohwowjay",
@@ -284,7 +323,20 @@
       "hs": 0.4,
       "entry_diff": 1,
       "kd_diff": 3,
-      "objectives": 0
+      "objectives": 0,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "legacy_finisher_v1",
+      "finisher_kills": 10,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 0,
+        "4": 1,
+        "5": 0
+      }
     },
     {
       "slug": "tallman3-14",
@@ -351,7 +403,20 @@
       "hs": 0.375,
       "entry_diff": 2,
       "kd_diff": -1,
-      "objectives": 0
+      "objectives": 0,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "legacy_finisher_v1",
+      "finisher_kills": 8,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 3,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     }
   ],
   "rounds": [

@@ -2,6 +2,7 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $toolRoot = Join-Path $projectRoot '.local-tools'
 $parserPath = Join-Path $toolRoot 'bin\siege-dissect.exe'
+$creditPath = Join-Path $toolRoot 'bin\siege-kill-credit.exe'
 $sourceRoot = Join-Path $projectRoot 'third_party\siege-dissect'
 $manifestPath = Join-Path $toolRoot 'bin\parser-source.txt'
 $sources = @(Get-ChildItem -LiteralPath $sourceRoot -Recurse -File |
@@ -12,6 +13,7 @@ $manifest = ($sources | ForEach-Object {
     "$relative $((Get-FileHash -Algorithm SHA256 -LiteralPath $_.FullName).Hash)"
 }) -join "`n"
 if ((Test-Path -LiteralPath $parserPath) -and
+    (Test-Path -LiteralPath $creditPath) -and
     (Test-Path -LiteralPath $manifestPath) -and
     (Get-Content -LiteralPath $manifestPath -Raw).TrimEnd() -eq $manifest) {
     Write-Host 'Local siege-dissect build matches repository source.'
@@ -48,5 +50,14 @@ if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath $buildPath)) {
     throw 'The siege-dissect build failed. Check the Go output above.'
 }
 Move-Item -LiteralPath $buildPath -Destination $parserPath -Force
+$creditBuildPath = Join-Path $toolRoot 'bin\siege-kill-credit-building.exe'
+Push-Location $sourceRoot
+try {
+    & $goExe build -o $creditBuildPath ./cmd/kill-credit
+} finally { Pop-Location }
+if ($LASTEXITCODE -ne 0 -or -not (Test-Path -LiteralPath $creditBuildPath)) {
+    throw 'The credited-kill reader build failed.'
+}
+Move-Item -LiteralPath $creditBuildPath -Destination $creditPath -Force
 [IO.File]::WriteAllText($manifestPath, $manifest + "`n")
 Write-Host "Parser ready: $parserPath"

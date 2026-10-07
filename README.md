@@ -1,5 +1,20 @@
 # NECC Rainbow Six statistics
 
+### Credited kill counts
+
+Complete validated whole maps use Ubisoft's stable UID scoreboard round deltas
+for kills, K/D, KPR, side kills, multikills, and KOST's Kill component. Raw replay
+finisher events remain stored separately. Unsupported whole maps retain legacy
+counts; player pages and public JSON report credited/legacy round coverage.
+Openings, trades, pivots, untraded features and clutch chronology retain existing
+event semantics. Headshot percentage retains finisher headshots/finisher kills.
+Original v2 Rating inputs and objective corrections are preserved.
+
+New confirmed imports collect counts locally from their verified archive; parser
+compatibility failures retain the valid imported map with an explicit legacy
+source. Recalculate/Regenerate use stored evidence and never reparse archives.
+See [readiness and rollback](research/output/credited-production-readiness-20261006.md).
+
 ### Verified objective actors
 
 The local parser attributes completed plants/disables through the completing

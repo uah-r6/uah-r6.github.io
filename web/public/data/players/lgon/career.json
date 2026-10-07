@@ -3,7 +3,7 @@
   "name": "Lgon",
   "season": "career",
   "rounds": 82,
-  "kills": 82,
+  "kills": 81,
   "deaths": 48,
   "headshots": 49,
   "opening_kills": 10,
@@ -27,7 +27,7 @@
   "clutch_1v3": 0,
   "clutch_1v4": 0,
   "clutch_1v5": 0,
-  "multikill_extra": 36,
+  "multikill_extra": 34,
   "operators": {
     "Attack": {
       "Thatcher": 2,
@@ -60,29 +60,43 @@
   "sides": {
     "Attack": {
       "rounds": 39,
-      "kills": 31,
+      "kills": 33,
       "deaths": 24,
-      "kd": 1.2916666666666667,
-      "kpr": 0.7948717948717948
+      "kd": 1.375,
+      "kpr": 0.8461538461538461
     },
     "Defense": {
       "rounds": 43,
-      "kills": 51,
+      "kills": 48,
       "deaths": 24,
-      "kd": 2.125,
-      "kpr": 1.186046511627907
+      "kd": 2.0,
+      "kpr": 1.1162790697674418
     }
   },
   "maps": 7,
   "rating": 1.2741673060116592,
-  "kd": 1.7083333333333333,
-  "kpr": 1.0,
+  "kd": 1.6875,
+  "kpr": 0.9878048780487805,
   "kost": 0.6585365853658537,
   "srv": 0.4146341463414634,
   "hs": 0.5975609756097561,
   "entry_diff": 4,
-  "kd_diff": 34,
+  "kd_diff": 33,
   "objectives": 4,
+  "kill_source_rounds": {
+    "stable_uid_scoreboard_delta_v1": 70,
+    "legacy_finisher_v1": 12
+  },
+  "kill_source": "mixed_whole_map_sources",
+  "finisher_kills": 82,
+  "headshot_source": "legacy_finisher_v1",
+  "event_feature_source": "legacy_finisher_v1",
+  "multikill_sizes": {
+    "2": 17,
+    "3": 7,
+    "4": 1,
+    "5": 0
+  },
   "matches": [
     {
       "id": "9db26f1b6ca7",

@@ -82,6 +82,20 @@
   "entry_diff": 3,
   "kd_diff": -4,
   "objectives": 2,
+  "kill_source_rounds": {
+    "stable_uid_scoreboard_delta_v1": 70,
+    "legacy_finisher_v1": 12
+  },
+  "kill_source": "mixed_whole_map_sources",
+  "finisher_kills": 57,
+  "headshot_source": "legacy_finisher_v1",
+  "event_feature_source": "legacy_finisher_v1",
+  "multikill_sizes": {
+    "2": 13,
+    "3": 4,
+    "4": 0,
+    "5": 0
+  },
   "season": "fall-2026",
   "matches": [
     {

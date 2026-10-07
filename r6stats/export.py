@@ -6,6 +6,7 @@ from pathlib import Path
 from r6stats.parser.models import Match
 from r6stats.manual_kd import apply_display_kd
 from r6stats.objective_refresh import rating_stats
+from r6stats.credited_refresh import aggregate_display, display_stats, load as load_credit
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, aggregate, calculate_match
 
 
@@ -44,6 +45,9 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         match = Match.from_dict(json.loads(row["normalized_json"]))
         stats = calculate_match(match, window, version)
         rating_inputs = rating_stats(db, row["id"], stats, window, version)
+        # Validate frozen Rating inputs against original finish events BEFORE
+        # applying independent credited-count display projections.
+        stats = display_stats(match, load_credit(db, row['id']), window, version)
         bound_keys = defaultdict(set)
         for binding in db.execute("""SELECT DISTINCT rp.player_id,rp.player_key
             FROM round_players rp JOIN rounds rd ON rd.id=rp.round_id
@@ -64,7 +68,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         for p in players:
             keys = [key for key in bound_keys[p["id"]] if key in stats]
             if keys:
-                raw = stats[keys[0]] if len(keys) == 1 else aggregate([stats[key] for key in keys], version)
+                raw = stats[keys[0]] if len(keys) == 1 else aggregate_display([stats[key] for key in keys], version)
                 rating_raw = (rating_inputs[keys[0]] if len(keys) == 1 else
                               aggregate([rating_inputs[key] for key in keys], version))
                 if len(keys) > 1:
@@ -93,7 +97,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         slug = season["slug"]
         leaderboard = []
         for p in players:
-            raw_total = aggregate(season_stats[slug][p["slug"]], version)
+            raw_total = aggregate_display(season_stats[slug][p["slug"]], version)
             delta = season_adjustments[slug][p["slug"]]
             effective = apply_display_kd(raw_total, raw_total["kills"] + delta[0],
                                          raw_total["deaths"] + delta[1])
@@ -119,7 +123,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         all_rating_stats = [s for season in season_rating_stats.values() for s in season[p["slug"]]]
         delta_k = sum(season[p["slug"]][0] for season in season_adjustments.values())
         delta_d = sum(season[p["slug"]][1] for season in season_adjustments.values())
-        career_raw = aggregate(all_stats, version)
+        career_raw = aggregate_display(all_stats, version)
         career = apply_display_kd(career_raw, career_raw["kills"] + delta_k,
                                   career_raw["deaths"] + delta_d)
         career["rating"] = aggregate(all_rating_stats, version)["rating"] if all_rating_stats else None
@@ -135,6 +139,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                 "rating_version": version})
     write(root / "methodology.json", {"rating_version": version,
                                       "trade_window_seconds": window,
+                                      "kill_methodology": "Complete validated maps use Ubisoft credited round counters for kills, K/D, KPR, side kills, multikills and KOST Kill. Unsupported whole maps retain legacy finisher counts; kill_source_rounds reports coverage. Openings, trades, pivots, untraded features and clutch chronology retain legacy event semantics. Headshot percentage uses finisher headshots divided by finisher kills. Rating retains original version inputs.",
                                       "rating_description": (
                                           "Independent raw eight-feature Siege-style Rating. Historical objective upgrades preserve original v2 Rating inputs; displayed objectives and KOST use corrected data."
                                           if version == "siege_style_v2" else "Collegiate V1 composite Rating.")})

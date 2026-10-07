@@ -65,17 +65,17 @@
       "sides": {
         "Attack": {
           "rounds": 39,
-          "kills": 48,
+          "kills": 46,
           "deaths": 23,
-          "kd": 2.0869565217391304,
-          "kpr": 1.2307692307692308
+          "kd": 2.0,
+          "kpr": 1.1794871794871795
         },
         "Defense": {
           "rounds": 43,
-          "kills": 43,
+          "kills": 45,
           "deaths": 27,
-          "kd": 1.5925925925925926,
-          "kpr": 1.0
+          "kd": 1.6666666666666667,
+          "kpr": 1.0465116279069768
         }
       },
       "maps": 7,
@@ -87,13 +87,27 @@
       "hs": 0.5054945054945055,
       "entry_diff": 5,
       "kd_diff": 41,
-      "objectives": 2
+      "objectives": 2,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 91,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 15,
+        "3": 6,
+        "4": 5,
+        "5": 0
+      }
     },
     {
       "slug": "lgon",
       "name": "Lgon",
       "rounds": 82,
-      "kills": 82,
+      "kills": 81,
       "deaths": 48,
       "headshots": 49,
       "opening_kills": 10,
@@ -117,7 +131,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
-      "multikill_extra": 36,
+      "multikill_extra": 34,
       "operators": {
         "Attack": {
           "Thatcher": 2,
@@ -150,29 +164,43 @@
       "sides": {
         "Attack": {
           "rounds": 39,
-          "kills": 31,
+          "kills": 33,
           "deaths": 24,
-          "kd": 1.2916666666666667,
-          "kpr": 0.7948717948717948
+          "kd": 1.375,
+          "kpr": 0.8461538461538461
         },
         "Defense": {
           "rounds": 43,
-          "kills": 51,
+          "kills": 48,
           "deaths": 24,
-          "kd": 2.125,
-          "kpr": 1.186046511627907
+          "kd": 2.0,
+          "kpr": 1.1162790697674418
         }
       },
       "maps": 7,
       "rating": 1.2741673060116592,
-      "kd": 1.7083333333333333,
-      "kpr": 1.0,
+      "kd": 1.6875,
+      "kpr": 0.9878048780487805,
       "kost": 0.6585365853658537,
       "srv": 0.4146341463414634,
       "hs": 0.5975609756097561,
       "entry_diff": 4,
-      "kd_diff": 34,
-      "objectives": 4
+      "kd_diff": 33,
+      "objectives": 4,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 82,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 17,
+        "3": 7,
+        "4": 1,
+        "5": 0
+      }
     },
     {
       "slug": "azooznewzz",
@@ -257,7 +285,21 @@
       "hs": 0.5087719298245614,
       "entry_diff": 3,
       "kd_diff": -4,
-      "objectives": 2
+      "objectives": 2,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 57,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 13,
+        "3": 4,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "dinofireking",
@@ -279,7 +321,7 @@
       "disables": 0,
       "teamkills": 0,
       "survived": 31,
-      "kost_rounds": 51,
+      "kost_rounds": 50,
       "rounds_won": 49,
       "clutches": 0,
       "clutch_1v1": 0,
@@ -287,7 +329,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
-      "multikill_extra": 7,
+      "multikill_extra": 8,
       "operators": {
         "Attack": {
           "Flores": 5,
@@ -323,35 +365,49 @@
       "sides": {
         "Attack": {
           "rounds": 39,
-          "kills": 18,
+          "kills": 17,
           "deaths": 27,
-          "kd": 0.6666666666666666,
-          "kpr": 0.46153846153846156
+          "kd": 0.6296296296296297,
+          "kpr": 0.4358974358974359
         },
         "Defense": {
           "rounds": 43,
-          "kills": 18,
+          "kills": 19,
           "deaths": 24,
-          "kd": 0.75,
-          "kpr": 0.4186046511627907
+          "kd": 0.7916666666666666,
+          "kpr": 0.4418604651162791
         }
       },
       "maps": 7,
       "rating": 0.8510017574368487,
       "kd": 0.7058823529411765,
       "kpr": 0.43902439024390244,
-      "kost": 0.6219512195121951,
+      "kost": 0.6097560975609756,
       "srv": 0.3780487804878049,
       "hs": 0.4722222222222222,
       "entry_diff": 0,
       "kd_diff": -15,
-      "objectives": 3
+      "objectives": 3,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 36,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 8,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "tallman3-14",
       "name": "Tallman3.14",
       "rounds": 82,
-      "kills": 36,
+      "kills": 37,
       "deaths": 63,
       "headshots": 14,
       "opening_kills": 14,
@@ -375,7 +431,7 @@
       "clutch_1v3": 1,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
-      "multikill_extra": 9,
+      "multikill_extra": 10,
       "operators": {
         "Attack": {
           "Thermite": 4,
@@ -406,10 +462,10 @@
       "sides": {
         "Attack": {
           "rounds": 39,
-          "kills": 11,
+          "kills": 12,
           "deaths": 30,
-          "kd": 0.36666666666666664,
-          "kpr": 0.28205128205128205
+          "kd": 0.4,
+          "kpr": 0.3076923076923077
         },
         "Defense": {
           "rounds": 43,
@@ -421,14 +477,28 @@
       },
       "maps": 7,
       "rating": 0.7250353703530998,
-      "kd": 0.5714285714285714,
-      "kpr": 0.43902439024390244,
+      "kd": 0.5873015873015873,
+      "kpr": 0.45121951219512196,
       "kost": 0.5,
       "srv": 0.23170731707317074,
       "hs": 0.3888888888888889,
       "entry_diff": 6,
-      "kd_diff": -27,
-      "objectives": 6
+      "kd_diff": -26,
+      "objectives": 6,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 36,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 10,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     }
   ],
   "matches": [

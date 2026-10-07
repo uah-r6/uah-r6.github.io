@@ -28,6 +28,7 @@ from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
 from r6stats import replay_archive, objective_refresh
+from r6stats.credited_refresh import collect_after_import
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -537,8 +538,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         finally:
             prepared.cleanup()
         app.state.previews.pop(payload.preview_token, None)
+        kill_credit = collect_after_import(db, archive_root, map_id)
         export(db, config, root / "web/public/data")
-        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC"}
+        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC", "kill_credit": kill_credit}
 
     @app.post("/api/admin/replays/rehost/preview")
     def preview_rehost(payload: RehostPreviewRequest, db: DB):
@@ -671,9 +673,10 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         finally:
             prepared.cleanup()
         app.state.previews.pop(payload.preview_token, None)
+        kill_credit = collect_after_import(db, archive_root, map_id)
         export(db, config, root / "web/public/data")
         return {"ok": True, "map_id": map_id, "rounds": len(preview.match.rounds),
-                "segments": len(preview.paths), "competition": "NECC"}
+                "segments": len(preview.paths), "competition": "NECC", "kill_credit": kill_credit}
 
     @app.get("/api/admin/series")
     def series(db: DB, season: str | None = None):

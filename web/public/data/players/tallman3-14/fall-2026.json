@@ -2,7 +2,7 @@
   "slug": "tallman3-14",
   "name": "Tallman3.14",
   "rounds": 82,
-  "kills": 36,
+  "kills": 37,
   "deaths": 63,
   "headshots": 14,
   "opening_kills": 14,
@@ -26,7 +26,7 @@
   "clutch_1v3": 1,
   "clutch_1v4": 0,
   "clutch_1v5": 0,
-  "multikill_extra": 9,
+  "multikill_extra": 10,
   "operators": {
     "Attack": {
       "Thermite": 4,
@@ -57,10 +57,10 @@
   "sides": {
     "Attack": {
       "rounds": 39,
-      "kills": 11,
+      "kills": 12,
       "deaths": 30,
-      "kd": 0.36666666666666664,
-      "kpr": 0.28205128205128205
+      "kd": 0.4,
+      "kpr": 0.3076923076923077
     },
     "Defense": {
       "rounds": 43,
@@ -72,14 +72,28 @@
   },
   "maps": 7,
   "rating": 0.7250353703530998,
-  "kd": 0.5714285714285714,
-  "kpr": 0.43902439024390244,
+  "kd": 0.5873015873015873,
+  "kpr": 0.45121951219512196,
   "kost": 0.5,
   "srv": 0.23170731707317074,
   "hs": 0.3888888888888889,
   "entry_diff": 6,
-  "kd_diff": -27,
+  "kd_diff": -26,
   "objectives": 6,
+  "kill_source_rounds": {
+    "stable_uid_scoreboard_delta_v1": 70,
+    "legacy_finisher_v1": 12
+  },
+  "kill_source": "mixed_whole_map_sources",
+  "finisher_kills": 36,
+  "headshot_source": "legacy_finisher_v1",
+  "event_feature_source": "legacy_finisher_v1",
+  "multikill_sizes": {
+    "2": 10,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  },
   "season": "fall-2026",
   "matches": [
     {

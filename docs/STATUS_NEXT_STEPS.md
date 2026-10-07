@@ -1,3 +1,19 @@
+## Authorized credited-count migration ? 2026-10-06
+
+Recovered user import HEAD `7b2bb57`: seven maps /82 rounds. Verified private backup and new current-state audit preserve the earlier five-map research seals. Six whole maps /70 rounds use stable_uid_scoreboard_delta_v1; all12 Chalet rounds remain legacy because the rehost has nine participants. Raw normalized/elimination/objective records, identities, metadata, operators, archives and original five v2 snapshots are unchanged. Two new-map v2 snapshots were added without replacing existing snapshots.
+
+Current season kills: Lgon81, OhWowJay91, AzoozNewzz57, Tallman3.14 37, DinoFireKing36. Deaths unchanged; all five v2 Ratings exactly unchanged. Dino KOST51->50 is the supported credited Kill-flag correction; all other KOST unchanged. Public map/season/career JSON includes source coverage, finisher kills and multikill sizes. HS retains its finisher denominator; opening/trade/pivot/untraded/clutch event semantics remain legacy. See research/output/credited-production-readiness-20261006.md.
+
+509 Python passed, one optional smoke skipped, six subtests; Go/Y11 tests and go vet passed; public/admin builds passed. Privacy validation and whole-table/public-field comparison pass. Interrupted74-source finisher-refrag audit is preserved:225candidate pairs,73within/99beyond/1straddling/52unresolved,3determinate coarse-window disagreements. No credited identity or precise time promotion.
+
+Publishing is explicitly authorized by the latest task; local corrected data is applied, push/live verification pending. NEXT ACTION: commit and publish validated corrected counts, verify live JSON, then derive a separately versioned corrected-input professional development dataset with whole-event folds. Preserve exact v2 and both failed v3 finals; never rerun/regrade them. Nina/OSAdinho/missing kind5 and event ownership/time remain unresolved; independent READY features have migrated without speculative links. Bonus-health and older objective compatibility remain excluded. No new v3 is fitted/deployed yet. A future candidate must freeze on clean source before new final Rating targets; prior80%within.05 gate cannot be lowered.
+
+## Finisher-refrag clock bands before cached job - 2026-10-03
+
+HEAD `5406610`. Clock case milestone committed; chained preservation guard running (large cached-input hashes), prior full guard passed at016e51e. Command `.venv/Scripts/python.exe research/credited_refrag_clock_controls.py`: fixed74prefix-audited sources, exact original filtered finish identities/order, actual final deaths update alive; duplicates retained/notrecounted, teamkill/self/unnamed death never manufacture opposing kills. Finisher-identity refrag pattern compared with raw same-region span bounds at8000observed countdown units and the old8scoarse numeric expression. No alternate-window search, credited owner, exact elapsed time or production trade policy.
+
+NEXT: inspect all raw-window disagreements/uncertain phase and end boundaries; retain evidence, then direct missing-actor/recovery source research. No target/model/Rating experiment, default helper, SQL/public/archive write or publishing.
+
 ## Latest checkpoint: clock-annotated case timelines - 2026-10-03
 
 Base `016e51e`.10fixed cached cases, exact counter/header UID-profile-name-team identity. Reviewed Stk/resetz raw3->raw4 brackets4330-4397/821-889raw units; Kheyze counter increment after his own elimination, beforeStkraw4; Neskin counter before resetzraw4. No event timestamp/downer/credited-victim inference. Missing targets:Aokayu1522-1589,stemp0-67,xSexyCake298-397; fiveothers zero/terminal/missing. Original failedv1counter-id harness source/reservation preserved separately. See research/output/credited-clock-case-timelines.md.

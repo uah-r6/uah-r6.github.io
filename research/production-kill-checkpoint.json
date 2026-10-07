@@ -1,0 +1,65 @@
+{
+  "base_head": "7b2bb57",
+  "status": "applied_validated_counts_live_verification_pending",
+  "maps": 7,
+  "rounds": 82,
+  "sources": {
+    "r6stats/credited_refresh.py": "b85d4689569fa6cdbdd9e33c934d34238e2466a14bbb368b960d86f9a4d78c31",
+    "r6stats/export.py": "18d9d6216336fc242481f65a6c6baf24c77b0d9af312a717a1704e58f640f776",
+    "r6stats/manual_kd.py": "28d0df3b94b5779586211772290edc31c5ca5525981609e7ee360e8eec6707ed",
+    "r6stats/objective_refresh.py": "29a214605a9b8e6a45cd740a43aa59c41380342a685c3affa503472d3c1ca4ec",
+    "r6stats/stats/calculate.py": "cf35e38115134807e317baa3972f257e2a7e8726aa4dafa38c0106efecb9206c",
+    "r6stats/parser/siege_dissect.py": "045aea2a02394a7a81959b0213a8f6794c71e4a27df68e4e2af175cf14a14059",
+    "r6stats/parser/models.py": "9be0e995c0ea5533eae5c19f2a88de4f04748cc03e8ca4b36670cb0bac05189a",
+    "research/apply_current_kill_migration.py": "26aeaff768c37d01873ce47ff632f6ad2edd8d91771da5e205af5163ac8dc60f",
+    "research/current_kill_migration.py": "111929abc3e1470ec61f545295de992a8c439d0d4e553d552374a7c08ae5fb51",
+    "research/credited_refrag_clock_controls.py": "ad8c7d29c33875fca9502b0a08d25c8675860d023ca5d849f51e5f287761d214",
+    "research/verify_production_kill_checkpoint.py": "c552b547c6d1f6cd1514cc9a06cb804d454656cca5e2cefeaa57a01ba3819730"
+  },
+  "private_artifacts": {
+    "data/research/production-kill-migration-20261006/before.json": "081a7188466c6d04084e124212f56bc675601995d9f39bea5803d96547a95793",
+    "data/research/production-kill-migration-20261006/before.sqlite": "6ee9ee77b68aba349b1fe35b25fe9a5743fba17efbce13241ae642c9fa180a8a",
+    "data/research/production-kill-migration-20261006/audit.json": "9dade8ecd7d7bdf223a6d903a1592b5ed976c870f0c28b98560c738aa3a8b68e",
+    "data/research/production-kill-migration-20261006/preview.json": "0d433b3e3215a6ea68372b80bb12e3e7a7353cf8d6c264124e5bd4ec77907edb",
+    "data/research/production-kill-migration-20261006/applied.json": "d0976a0cdb15fcd03c01166ea257a0838a2fdf490b3a85b24a2be0df0b5998d8",
+    "data/research/credited-refrag-clock-controls/result.json": "674c051e6dea7309f97c4b4dd1180736aff670d8166dc7a68f28c84dffc16749",
+    "data/research/credited-refrag-clock-controls/reservation.json": "7a374027eb34977461e43d6c84da4250d2346b55233d4180d1702d0dfdc3d824"
+  },
+  "map_credit_complete": {
+    "076d2b6b02bc": true,
+    "5adc26f7a402": true,
+    "8a6357ff307c": true,
+    "8af0a6db6c39": true,
+    "9db26f1b6ca7": true,
+    "b595ffaaec57": false,
+    "d64d5478cdb3": true
+  },
+  "public_hashes": {
+    "web/public/data/index.json": "46fe68f50c61f5d04bf7ea2ed6a6417c1e5053e9e9b9c5ae1e90d8b6401fff3f",
+    "web/public/data/methodology.json": "c4171d010fbf7c127ab482fa4d1afb05d7ad7eee8b55280e582fd9feffda8d79",
+    "web/public/data/matches/076d2b6b02bc.json": "8a389e5081705021e562e4fbe74217b7946f123dde483d269dcf94b637975200",
+    "web/public/data/matches/5adc26f7a402.json": "f38de0cc5821b3b9a88b303669e76463c013f34c1596471c0c90b86854ac4f95",
+    "web/public/data/matches/8a6357ff307c.json": "b621dcd1c2c1f6285966d83ea9c706f712ba87ded02b9953640522f417264465",
+    "web/public/data/matches/8af0a6db6c39.json": "8b590b8334b98638895a22a183ee8b6ef02a036b92e133c51ebeedc2db9f84fe",
+    "web/public/data/matches/9db26f1b6ca7.json": "2951eb8be2b896ead84128920f662041ee15120b6fd849fd735b13684c103ffa",
+    "web/public/data/matches/b595ffaaec57.json": "700e6d88ce59bf3777540260693c89f395c869726635cd84574080ece194905e",
+    "web/public/data/matches/d64d5478cdb3.json": "50057840e57a128e20fb86b4d1281af4b3d997a0105cc097cc4f20ed2c909f68",
+    "web/public/data/seasons/fall-2026.json": "b94d99ee1600f397aed379d5bd641883c85b6276c6e22cbf7dce6923da18026e",
+    "web/public/data/players/azooznewzz/career.json": "07a70e6e9ea148fe9dc639c7811a9b1ed6a037ee6cd52dcb86e5beb03ff2d2b9",
+    "web/public/data/players/azooznewzz/fall-2026.json": "295099f92870560f303606b98206e1ecacf10d048840c477c17083edd9bbec10",
+    "web/public/data/players/dinofireking/career.json": "68ef9a93d0ea63e74a9f0b8cfd469c88e984abada473bb00e70daf55c6ca36f0",
+    "web/public/data/players/dinofireking/fall-2026.json": "02251aa9f371038b3e56127a999f83316abdfb55b2561f4486c1a96aab6bef19",
+    "web/public/data/players/lgon/career.json": "a7a1b7ef43eee705882a09524fb888cbd85a51b73f10eadb78d45e3872680e9b",
+    "web/public/data/players/lgon/fall-2026.json": "f33e49899ffeb520301926f734c10e12ce3a77d1ac07b5fe5a3f317ba0abae13",
+    "web/public/data/players/ohwowjay/career.json": "141dd648666d5ea61ce2eac0969ad272f5088daaa2f381e0ef10bb3c15ab3e6a",
+    "web/public/data/players/ohwowjay/fall-2026.json": "5c83e55a0ce4b02464e1ab1a6424213ec3e573b5ff65f92b9a1e8563a62329b5",
+    "web/public/data/players/tallman3-14/career.json": "eccc6e26fdb9d9ff552335af8fe9eff976205e32f2b67cad9eb75d672f6bf84b",
+    "web/public/data/players/tallman3-14/fall-2026.json": "7d9b11e1ae55b757382cc69fb1950638abf5638b2c8e9b0d1a4bba748ced3588"
+  },
+  "immutable_research": {
+    "research/frozen-rating-candidate.json": "1d8386767247e0d78ed36a23ff09128ff94f7d65fc86599619573a7cbad0a295",
+    "research/v3-frozen-objective-candidate.json": "2c0a5b12af4beeca81f20d56ee12e7dafe204b63a893f27a14c190cea3f62814",
+    "data/research/v3-final-apac-n-stage2/one-shot-result.json": "c168c369a4c3f754f5a8376401e87a7857698907b6ebd79330cdd007e594afd2",
+    "data/research/v3-corrected-final-sal-stage2/one-shot-result.json": "73b17d45f73cc7f07da5fc996bd9e1379017120d451e67c5e145ad1c1b9cbaa2"
+  }
+}

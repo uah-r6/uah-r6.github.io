@@ -80,7 +80,20 @@
       "hs": 0.4,
       "entry_diff": -2,
       "kd_diff": -8,
-      "objectives": 1
+      "objectives": 1,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 14
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 5,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "dinofireking",
@@ -153,13 +166,26 @@
       "hs": 0.42857142857142855,
       "entry_diff": -1,
       "kd_diff": -3,
-      "objectives": 1
+      "objectives": 1,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 14
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 7,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "lgon",
       "name": "Lgon",
       "rounds": 14,
-      "kills": 15,
+      "kills": 14,
       "deaths": 11,
       "headshots": 9,
       "opening_kills": 1,
@@ -183,7 +209,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
-      "multikill_extra": 6,
+      "multikill_extra": 5,
       "operators": {
         "Attack": {
           "Grim": 1,
@@ -211,27 +237,40 @@
         },
         "Defense": {
           "rounds": 7,
-          "kills": 10,
+          "kills": 9,
           "deaths": 6,
-          "kd": 1.6666666666666667,
-          "kpr": 1.4285714285714286
+          "kd": 1.5,
+          "kpr": 1.2857142857142858
         }
       },
       "rating": 1.1807023947063986,
-      "kd": 1.3636363636363635,
-      "kpr": 1.0714285714285714,
+      "kd": 1.2727272727272727,
+      "kpr": 1.0,
       "kost": 0.6428571428571429,
       "srv": 0.21428571428571427,
       "hs": 0.6,
       "entry_diff": 1,
-      "kd_diff": 4,
-      "objectives": 0
+      "kd_diff": 3,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 14
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 15,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 3,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      }
     },
     {
       "slug": "ohwowjay",
       "name": "OhWowJay",
       "rounds": 14,
-      "kills": 15,
+      "kills": 16,
       "deaths": 10,
       "headshots": 5,
       "opening_kills": 1,
@@ -255,7 +294,7 @@
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
-      "multikill_extra": 8,
+      "multikill_extra": 9,
       "operators": {
         "Attack": {
           "Gridlock": 2,
@@ -280,21 +319,34 @@
         },
         "Defense": {
           "rounds": 7,
-          "kills": 6,
+          "kills": 7,
           "deaths": 5,
-          "kd": 1.2,
-          "kpr": 0.8571428571428571
+          "kd": 1.4,
+          "kpr": 1.0
         }
       },
       "rating": 1.2213810721427476,
-      "kd": 1.5,
-      "kpr": 1.0714285714285714,
+      "kd": 1.6,
+      "kpr": 1.1428571428571428,
       "kost": 0.5714285714285714,
       "srv": 0.2857142857142857,
       "hs": 0.3333333333333333,
       "entry_diff": -2,
-      "kd_diff": 5,
-      "objectives": 0
+      "kd_diff": 6,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 14
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 15,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 0
+      }
     },
     {
       "slug": "tallman3-14",
@@ -361,7 +413,20 @@
       "hs": 0.5,
       "entry_diff": -2,
       "kd_diff": -11,
-      "objectives": 0
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 14
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 2,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
     }
   ],
   "rounds": [

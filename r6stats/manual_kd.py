@@ -5,13 +5,14 @@ from datetime import datetime, timezone
 
 from r6stats.parser.models import Match
 from r6stats.stats.calculate import calculate_match
+from r6stats.credited_refresh import display_stats, load as load_credit
 
 
 def map_players(db, map_id: str, trade_window_seconds: float) -> list[dict]:
     row = db.execute("SELECT normalized_json FROM maps WHERE id=?", (map_id,)).fetchone()
     if not row:
         raise ValueError("NECC map not found.")
-    stats = calculate_match(Match.from_dict(json.loads(row["normalized_json"])), trade_window_seconds)
+    stats = display_stats(Match.from_dict(json.loads(row["normalized_json"])), load_credit(db, map_id), trade_window_seconds)
     players = db.execute("""SELECT DISTINCT p.id,p.display_name,p.tracked,rp.player_key
         FROM round_players rp JOIN rounds r ON r.id=rp.round_id
         JOIN players p ON p.id=rp.player_id WHERE r.map_id=? ORDER BY p.display_name""", (map_id,))
@@ -77,6 +78,8 @@ def remove(db, map_id: str, player_id: int) -> None:
 
 def apply_display_kd(stats: dict, final_kills: int, final_deaths: int) -> dict:
     result = {**stats, "kills": final_kills, "deaths": final_deaths}
+    if (final_kills, final_deaths) != (stats['kills'], stats['deaths']):
+        result['kill_source'] = 'manual_final_kd_over_round_sources'
     result["kd"] = final_kills / final_deaths if final_deaths else None
     result["kd_diff"] = final_kills - final_deaths
     return result
