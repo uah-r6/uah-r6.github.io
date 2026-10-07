@@ -1,3 +1,11 @@
+## Current corrected-count Rating study - 2026-10-06
+
+Corrected production counts are live at b1023d4. New whole-event development at af293ce qualifies the fixed nine-family core-objective candidate (688rows/9events, MAE0.03103,81.1%within.05); it is not final-tested or deployed. See [development report](output/v3-credited-event-development.md). Preserve all old studies and both failed finals.
+
+Prospective fresh final: CNL2026Stage1, all27linked BO3 archives from45scheduled matches, selected using schedules only. ChinaStage2 is exposed and excluded. Candidate/gates fixed in v3-credited-candidate.json and v3-credited-development-plan.json. `v3_cnl_pipeline.py --limit N` caches download/extraction/current core parsing/exact e7c2 v2 parsing/counter observations, explicit score chronology and independent primary/public identities. No player-stat target endpoint is called during collection. First3series/6maps yield30clean rows/4rosters; incomplete counters/objectives and unresolved identities abstain. Do not run old overwrite-prone pipelines or production mutations. Current guard: `verify_production_kill_checkpoint.py`.
+
+NEXT: finish all27selected archives, seal complete prelabel row list and dependency/input hashes from clean source before one-shot Rating target access. Frozen final requires100rows/10maps/8rosters/10objective-positive rows, MAE<=.035,>=10%improvement versus exact v2,>=80%within.05, RMSE no worse, maxAE<=.15 and subgroup limits. No Rating target opened yet.
+
 ## Latest checkpoint: clock-annotated case timelines - 2026-10-03
 
 Base `016e51e`.10fixed cached cases, exact counter/header UID-profile-name-team identity. Reviewed Stk/resetz raw3->raw4 brackets4330-4397/821-889raw units; Kheyze counter increment after his own elimination, beforeStkraw4; Neskin counter before resetzraw4. No event timestamp/downer/credited-victim inference. Missing targets:Aokayu1522-1589,stemp0-67,xSexyCake298-397; fiveothers zero/terminal/missing. Original failedv1counter-id harness source/reservation preserved separately. See research/output/credited-clock-case-timelines.md.

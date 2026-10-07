@@ -1,0 +1,1888 @@
+{
+  "event": "China League 2026 Stage 1",
+  "official_competition_id": 517,
+  "siegegg_competition_id": 105,
+  "created_at": "2026-10-07T04:45:05.383081+00:00",
+  "matches": [
+    {
+      "official_match_id": 8731,
+      "date": "2026-06-05T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D1_AGvMQ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8731",
+      "team_ids": [
+        412,
+        415
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3645,
+      "siegegg_page": "https://siege.gg/matches/3645-cnl-apac-all-gamers-vs-my-queen",
+      "metadata_sha256": "66d000c3a7bf3cb1d2dad3fd60670a9759b3ec394118962d1b67a96a21310d18",
+      "rosters": [
+        {
+          "id": 909,
+          "name": "All Gamers"
+        },
+        {
+          "id": 950,
+          "name": "My Queen"
+        }
+      ],
+      "games": [
+        {
+          "id": 6820,
+          "map": "Club House",
+          "win_roster_id": 909,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6821,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 909,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 2
+        }
+      ]
+    },
+    {
+      "official_match_id": 8732,
+      "date": "2026-06-05T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D1_EDGvTEC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8732",
+      "team_ids": [
+        409,
+        416
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3646,
+      "siegegg_page": "https://siege.gg/matches/3646-cnl-apac-edward-gaming-vs-titan-esports-club",
+      "metadata_sha256": "cf1030ff44cd700a5950ed647b3a613de531653c4fdd903ea4e32772166524b7",
+      "rosters": [
+        {
+          "id": 954,
+          "name": "EDward Gaming"
+        },
+        {
+          "id": 951,
+          "name": "Titan Esports Club"
+        }
+      ],
+      "games": [
+        {
+          "id": 6822,
+          "map": "Lair",
+          "win_roster_id": 954,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6823,
+          "map": "Kafe",
+          "win_roster_id": 954,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8733,
+      "date": "2026-06-05T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D1_KZvPOZY.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8733",
+      "team_ids": [
+        413,
+        418
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3650,
+      "siegegg_page": "https://siege.gg/matches/3650-cnl-apac-kingzero-esports-vs-pozy",
+      "metadata_sha256": "9c723e279cb2a2064c31ed9b8953d1a9a81faa09c2849a2ea34e6e3f09cd11e4",
+      "rosters": [
+        {
+          "id": 949,
+          "name": "KINGZERO eSports"
+        },
+        {
+          "id": 973,
+          "name": "POZY"
+        }
+      ],
+      "games": [
+        {
+          "id": 6824,
+          "map": "Chalet",
+          "win_roster_id": 949,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6825,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 949,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 2
+        }
+      ]
+    },
+    {
+      "official_match_id": 8734,
+      "date": "2026-06-06T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D2_LEVSvOC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8734",
+      "team_ids": [
+        411,
+        417
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3786,
+      "siegegg_page": "https://siege.gg/matches/3786-cnl-apac-leviatn-esports-vs-one-coin",
+      "metadata_sha256": "91964c8ed326f62273b9d6224d566e0502a0008ab3990cf51bdda2c292cd9596",
+      "rosters": [
+        {
+          "id": 985,
+          "name": "Leviat\u00e1n Esports"
+        },
+        {
+          "id": 955,
+          "name": "One Coin"
+        }
+      ],
+      "games": [
+        {
+          "id": 6938,
+          "map": "Club House",
+          "win_roster_id": 985,
+          "loss_roster_id": 955,
+          "win_score": 7,
+          "loss_score": 3
+        },
+        {
+          "id": 6939,
+          "map": "Bank",
+          "win_roster_id": 955,
+          "loss_roster_id": 985,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 6940,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 985,
+          "loss_roster_id": 955,
+          "win_score": 8,
+          "loss_score": 7
+        }
+      ]
+    },
+    {
+      "official_match_id": 8735,
+      "date": "2026-06-06T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D2_4AMvTYL.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8735",
+      "team_ids": [
+        410,
+        414
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3648,
+      "siegegg_page": "https://siege.gg/matches/3648-cnl-apac-four-angry-men-vs-tyloo",
+      "metadata_sha256": "9a3399a8eb51ebe449d575bee688424d0d2871cc1c4794a19c868fea4d96a22b",
+      "rosters": [
+        {
+          "id": 910,
+          "name": "Four Angry Men"
+        },
+        {
+          "id": 952,
+          "name": "TYLOO"
+        }
+      ],
+      "games": [
+        {
+          "id": 6829,
+          "map": "Lair",
+          "win_roster_id": 952,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 3
+        },
+        {
+          "id": 6830,
+          "map": "Chalet",
+          "win_roster_id": 952,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 2
+        }
+      ]
+    },
+    {
+      "official_match_id": 8736,
+      "date": "2026-06-06T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D2_AGvTEC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8736",
+      "team_ids": [
+        409,
+        415
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3649,
+      "siegegg_page": "https://siege.gg/matches/3649-cnl-apac-all-gamers-vs-titan-esports-club",
+      "metadata_sha256": "e0736f2e2f4c65b243c70af2be946ca85183db2c9d53feb683cfa4e71836055d",
+      "rosters": [
+        {
+          "id": 909,
+          "name": "All Gamers"
+        },
+        {
+          "id": 951,
+          "name": "Titan Esports Club"
+        }
+      ],
+      "games": [
+        {
+          "id": 6831,
+          "map": "Lair",
+          "win_roster_id": 909,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 2
+        },
+        {
+          "id": 6832,
+          "map": "Chalet",
+          "win_roster_id": 909,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 4
+        }
+      ]
+    },
+    {
+      "official_match_id": 8737,
+      "date": "2026-06-07T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D3_KZvTYL.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8737",
+      "team_ids": [
+        413,
+        414
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3651,
+      "siegegg_page": "https://siege.gg/matches/3651-cnl-apac-tyloo-vs-kingzero-esports",
+      "metadata_sha256": "3e3cc019815553dbc2a3044b3040065210799ff3967ac04021aa026d31ccf17f",
+      "rosters": [
+        {
+          "id": 952,
+          "name": "TYLOO"
+        },
+        {
+          "id": 949,
+          "name": "KINGZERO eSports"
+        }
+      ],
+      "games": [
+        {
+          "id": 6833,
+          "map": "Chalet",
+          "win_roster_id": 952,
+          "loss_roster_id": 949,
+          "win_score": 7,
+          "loss_score": 2
+        },
+        {
+          "id": 6834,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 949,
+          "loss_roster_id": 952,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 6835,
+          "map": "Lair",
+          "win_roster_id": 952,
+          "loss_roster_id": 949,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8738,
+      "date": "2026-06-07T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D3_EDGvOC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8738",
+      "team_ids": [
+        416,
+        417
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3652,
+      "siegegg_page": "https://siege.gg/matches/3652-cnl-apac-edward-gaming-vs-one-coin",
+      "metadata_sha256": "45a752d393b967c2f64b0d0fbaf3026db2b3048164a0af4c720da723fd208dd1",
+      "rosters": [
+        {
+          "id": 954,
+          "name": "EDward Gaming"
+        },
+        {
+          "id": 955,
+          "name": "One Coin"
+        }
+      ],
+      "games": [
+        {
+          "id": 6836,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 954,
+          "loss_roster_id": 955,
+          "win_score": 7,
+          "loss_score": 2
+        },
+        {
+          "id": 6837,
+          "map": "Club House",
+          "win_roster_id": 954,
+          "loss_roster_id": 955,
+          "win_score": 7,
+          "loss_score": 4
+        }
+      ]
+    },
+    {
+      "official_match_id": 8739,
+      "date": "2026-06-07T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D3_MQvPOZY.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8739",
+      "team_ids": [
+        412,
+        418
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3653,
+      "siegegg_page": "https://siege.gg/matches/3653-cnl-apac-my-queen-vs-pozy",
+      "metadata_sha256": "65730768531c3e7d1f0ba613d5fe9c08eecdca51cb9d48a6473cc2132c00f29b",
+      "rosters": [
+        {
+          "id": 950,
+          "name": "My Queen"
+        },
+        {
+          "id": 973,
+          "name": "POZY"
+        }
+      ],
+      "games": [
+        {
+          "id": 6838,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 950,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6839,
+          "map": "Chalet",
+          "win_roster_id": 950,
+          "loss_roster_id": 973,
+          "win_score": 8,
+          "loss_score": 6
+        }
+      ]
+    },
+    {
+      "official_match_id": 8740,
+      "date": "2026-06-12T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D4_4AMvLEV.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8740",
+      "team_ids": [
+        410,
+        411
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3787,
+      "siegegg_page": "https://siege.gg/matches/3787-cnl-apac-leviatn-esports-vs-four-angry-men",
+      "metadata_sha256": "3843d47afb789a8f855a49ec0a6c1c336ae350bcd0d2c0be45b61899871e8296",
+      "rosters": [
+        {
+          "id": 985,
+          "name": "Leviat\u00e1n Esports"
+        },
+        {
+          "id": 910,
+          "name": "Four Angry Men"
+        }
+      ],
+      "games": [
+        {
+          "id": 6941,
+          "map": "Club House",
+          "win_roster_id": 985,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 4
+        },
+        {
+          "id": 6942,
+          "map": "Lair",
+          "win_roster_id": 985,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8741,
+      "date": "2026-06-12T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D4_AGvPOZY.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8741",
+      "team_ids": [
+        415,
+        418
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3689,
+      "siegegg_page": "https://siege.gg/matches/3689-cnl-apac-all-gamers-vs-pozy",
+      "metadata_sha256": "7f9571aa0b283598c06cc846a3db169aecca82dcd5e5ce4f6888355cef6268bc",
+      "rosters": [
+        {
+          "id": 909,
+          "name": "All Gamers"
+        },
+        {
+          "id": 973,
+          "name": "POZY"
+        }
+      ],
+      "games": [
+        {
+          "id": 6900,
+          "map": "Club House",
+          "win_roster_id": 909,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6901,
+          "map": "Chalet",
+          "win_roster_id": 909,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 0
+        }
+      ]
+    },
+    {
+      "official_match_id": 8742,
+      "date": "2026-06-12T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D4_OCvTEC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8742",
+      "team_ids": [
+        409,
+        417
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3690,
+      "siegegg_page": "https://siege.gg/matches/3690-cnl-apac-titan-esports-club-vs-one-coin",
+      "metadata_sha256": "b442dc1275617d7eb46d8eb122362b93e542ac6eff1afaf741a3ae58079cd49e",
+      "rosters": [
+        {
+          "id": 951,
+          "name": "Titan Esports Club"
+        },
+        {
+          "id": 955,
+          "name": "One Coin"
+        }
+      ],
+      "games": [
+        {
+          "id": 6902,
+          "map": "Club House",
+          "win_roster_id": 955,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 6903,
+          "map": "Bank",
+          "win_roster_id": 955,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8743,
+      "date": "2026-06-13T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D5_MQvTYL.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8743",
+      "team_ids": [
+        412,
+        414
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3691,
+      "siegegg_page": "https://siege.gg/matches/3691-cnl-apac-my-queen-vs-tyloo",
+      "metadata_sha256": "60d0e072ed78e5b62d7c4ba9258e3f40f3d1a49371d19257360f4c63710066bf",
+      "rosters": [
+        {
+          "id": 950,
+          "name": "My Queen"
+        },
+        {
+          "id": 952,
+          "name": "TYLOO"
+        }
+      ],
+      "games": [
+        {
+          "id": 6975,
+          "map": "Fortress",
+          "win_roster_id": 952,
+          "loss_roster_id": 950,
+          "win_score": 8,
+          "loss_score": 6
+        },
+        {
+          "id": 6976,
+          "map": "Chalet",
+          "win_roster_id": 952,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8744,
+      "date": "2026-06-13T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D5_4AMvEDG.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8744",
+      "team_ids": [
+        410,
+        416
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3692,
+      "siegegg_page": "https://siege.gg/matches/3692-cnl-apac-edward-gaming-vs-four-angry-men",
+      "metadata_sha256": "3f249fba1af17a742fae56321cf979dd1ffd13e0f165e6c4e57ed65f686757da",
+      "rosters": [
+        {
+          "id": 954,
+          "name": "EDward Gaming"
+        },
+        {
+          "id": 910,
+          "name": "Four Angry Men"
+        }
+      ],
+      "games": [
+        {
+          "id": 6932,
+          "map": "Club House",
+          "win_roster_id": 954,
+          "loss_roster_id": 910,
+          "win_score": 8,
+          "loss_score": 6
+        },
+        {
+          "id": 6933,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 954,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 4
+        }
+      ]
+    },
+    {
+      "official_match_id": 8745,
+      "date": "2026-06-13T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D5_KZvLEV.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8745",
+      "team_ids": [
+        411,
+        413
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3788,
+      "siegegg_page": "https://siege.gg/matches/3788-cnl-apac-kingzero-esports-vs-leviatn-esports",
+      "metadata_sha256": "83fc250c4df6b129de38499b6a6274772e187b7d4b3adfa3818b47560143dba8",
+      "rosters": [
+        {
+          "id": 949,
+          "name": "KINGZERO eSports"
+        },
+        {
+          "id": 985,
+          "name": "Leviat\u00e1n Esports"
+        }
+      ],
+      "games": [
+        {
+          "id": 6943,
+          "map": "Club House",
+          "win_roster_id": 949,
+          "loss_roster_id": 985,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6944,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 985,
+          "loss_roster_id": 949,
+          "win_score": 7,
+          "loss_score": 2
+        },
+        {
+          "id": 6945,
+          "map": "Chalet",
+          "win_roster_id": 949,
+          "loss_roster_id": 985,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8746,
+      "date": "2026-06-14T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D6_AGvOC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8746",
+      "team_ids": [
+        415,
+        417
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3694,
+      "siegegg_page": "https://siege.gg/matches/3694-cnl-apac-all-gamers-vs-one-coin",
+      "metadata_sha256": "2170f729d3032ba7045d1d8d0e34719cbe5a71c6d8e8b9953a2644d4a56c5bcb",
+      "rosters": [
+        {
+          "id": 909,
+          "name": "All Gamers"
+        },
+        {
+          "id": 955,
+          "name": "One Coin"
+        }
+      ],
+      "games": [
+        {
+          "id": 6923,
+          "map": "Club House",
+          "win_roster_id": 909,
+          "loss_roster_id": 955,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 6924,
+          "map": "Chalet",
+          "win_roster_id": 909,
+          "loss_roster_id": 955,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8747,
+      "date": "2026-06-14T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D6_POZYvTYL.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8747",
+      "team_ids": [
+        414,
+        418
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3695,
+      "siegegg_page": "https://siege.gg/matches/3695-cnl-apac-pozy-vs-tyloo",
+      "metadata_sha256": "f75a126794fdb665a3be4df1c91e610877205b2e4d71fa289cd10e66b93ec795",
+      "rosters": [
+        {
+          "id": 973,
+          "name": "POZY"
+        },
+        {
+          "id": 952,
+          "name": "TYLOO"
+        }
+      ],
+      "games": [
+        {
+          "id": 6925,
+          "map": "Chalet",
+          "win_roster_id": 952,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 4
+        },
+        {
+          "id": 6926,
+          "map": "Fortress",
+          "win_roster_id": 952,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8748,
+      "date": "2026-06-14T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D6_4AMvTEC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8748",
+      "team_ids": [
+        409,
+        410
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3696,
+      "siegegg_page": "https://siege.gg/matches/3696-cnl-apac-titan-esports-club-vs-four-angry-men",
+      "metadata_sha256": "0dda37507d4bf37331a5e35611d2cdb48e27b8df4d857e83d82127974ddd0ae9",
+      "rosters": [
+        {
+          "id": 951,
+          "name": "Titan Esports Club"
+        },
+        {
+          "id": 910,
+          "name": "Four Angry Men"
+        }
+      ],
+      "games": [
+        {
+          "id": 6934,
+          "map": "Bank",
+          "win_roster_id": 951,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 2
+        },
+        {
+          "id": 6935,
+          "map": "Lair",
+          "win_roster_id": 951,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8749,
+      "date": "2026-06-19T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D7_LEVvMQ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8749",
+      "team_ids": [
+        411,
+        412
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3789,
+      "siegegg_page": "https://siege.gg/matches/3789-cnl-apac-my-queen-vs-leviatn-esports",
+      "metadata_sha256": "0cd4584b2142956e9952ddb05d68d766f2e7bd15ea268d526a33121ae2e2b97d",
+      "rosters": [
+        {
+          "id": 950,
+          "name": "My Queen"
+        },
+        {
+          "id": 985,
+          "name": "Leviat\u00e1n Esports"
+        }
+      ],
+      "games": [
+        {
+          "id": 7209,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 985,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 3
+        },
+        {
+          "id": 7210,
+          "map": "Club House",
+          "win_roster_id": 985,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8750,
+      "date": "2026-06-19T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D7_EDGvKZ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8750",
+      "team_ids": [
+        413,
+        416
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3732,
+      "siegegg_page": "https://siege.gg/matches/3732-cnl-apac-edward-gaming-vs-kingzero-esports",
+      "metadata_sha256": "caad7fad912112604be7369a2942cc1c71cf6fbd304885085725ed7e4b7127e6",
+      "rosters": [
+        {
+          "id": 954,
+          "name": "EDward Gaming"
+        },
+        {
+          "id": 949,
+          "name": "KINGZERO eSports"
+        }
+      ],
+      "games": [
+        {
+          "id": 7211,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 954,
+          "loss_roster_id": 949,
+          "win_score": 7,
+          "loss_score": 2
+        },
+        {
+          "id": 7212,
+          "map": "Bank",
+          "win_roster_id": 954,
+          "loss_roster_id": 949,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8751,
+      "date": "2026-06-19T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D7_AGvTYL.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8751",
+      "team_ids": [
+        414,
+        415
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3733,
+      "siegegg_page": "https://siege.gg/matches/3733-cnl-apac-all-gamers-vs-tyloo",
+      "metadata_sha256": "915c1e2af244a0f42e9c84d74a750761bcb304fbd2ff1ece8dd258815061834c",
+      "rosters": [
+        {
+          "id": 909,
+          "name": "All Gamers"
+        },
+        {
+          "id": 952,
+          "name": "TYLOO"
+        }
+      ],
+      "games": [
+        {
+          "id": 7213,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 909,
+          "loss_roster_id": 952,
+          "win_score": 7,
+          "loss_score": 4
+        },
+        {
+          "id": 7214,
+          "map": "Border",
+          "win_roster_id": 952,
+          "loss_roster_id": 909,
+          "win_score": 8,
+          "loss_score": 6
+        },
+        {
+          "id": 7215,
+          "map": "Chalet",
+          "win_roster_id": 952,
+          "loss_roster_id": 909,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8752,
+      "date": "2026-06-20T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D8_4AMvOC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8752",
+      "team_ids": [
+        410,
+        417
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3734,
+      "siegegg_page": "https://siege.gg/matches/3734-cnl-apac-one-coin-vs-four-angry-men",
+      "metadata_sha256": "4e0b8358f81a61232e1c6604f9617012412c5ade30a35b001580da23cfc8d519",
+      "rosters": [
+        {
+          "id": 955,
+          "name": "One Coin"
+        },
+        {
+          "id": 910,
+          "name": "Four Angry Men"
+        }
+      ],
+      "games": [
+        {
+          "id": 7339,
+          "map": "Club House",
+          "win_roster_id": 910,
+          "loss_roster_id": 955,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 7340,
+          "map": "Fortress",
+          "win_roster_id": 910,
+          "loss_roster_id": 955,
+          "win_score": 8,
+          "loss_score": 7
+        }
+      ]
+    },
+    {
+      "official_match_id": 8753,
+      "date": "2026-06-20T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D8_LEVvPOZY.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8753",
+      "team_ids": [
+        411,
+        418
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3790,
+      "siegegg_page": "https://siege.gg/matches/3790-cnl-apac-pozy-vs-leviatn-esports",
+      "metadata_sha256": "c03b0b2b151f0225acad5404fd1913522cb553bf012b06ffe1aa3ef7722db749",
+      "rosters": [
+        {
+          "id": 973,
+          "name": "POZY"
+        },
+        {
+          "id": 985,
+          "name": "Leviat\u00e1n Esports"
+        }
+      ],
+      "games": [
+        {
+          "id": 7341,
+          "map": "Consulate",
+          "win_roster_id": 985,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 7342,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 985,
+          "loss_roster_id": 973,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8754,
+      "date": "2026-06-20T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D8_KZvTEC.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8754",
+      "team_ids": [
+        409,
+        413
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3736,
+      "siegegg_page": "https://siege.gg/matches/3736-cnl-apac-titan-esports-club-vs-kingzero-esports",
+      "metadata_sha256": "aed82902a673d63ad30f06e9f7c4c358f2aff2f73fb965fbfc5fb309c89d6abf",
+      "rosters": [
+        {
+          "id": 951,
+          "name": "Titan Esports Club"
+        },
+        {
+          "id": 949,
+          "name": "KINGZERO eSports"
+        }
+      ],
+      "games": [
+        {
+          "id": 7343,
+          "map": "Chalet",
+          "win_roster_id": 949,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 1
+        },
+        {
+          "id": 7344,
+          "map": "Bank",
+          "win_roster_id": 951,
+          "loss_roster_id": 949,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 7345,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 949,
+          "loss_roster_id": 951,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8755,
+      "date": "2026-06-21T05:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D9_EDGvMQ.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8755",
+      "team_ids": [
+        412,
+        416
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3737,
+      "siegegg_page": "https://siege.gg/matches/3737-cnl-apac-my-queen-vs-edward-gaming",
+      "metadata_sha256": "5944212d98dd260e09bb12ef9d05087ee5828b2d6eb8d859f0ca5d7155b18967",
+      "rosters": [
+        {
+          "id": 950,
+          "name": "My Queen"
+        },
+        {
+          "id": 954,
+          "name": "EDward Gaming"
+        }
+      ],
+      "games": [
+        {
+          "id": 7356,
+          "map": "Fortress",
+          "win_roster_id": 954,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 3
+        },
+        {
+          "id": 7357,
+          "map": "Lair",
+          "win_roster_id": 954,
+          "loss_roster_id": 950,
+          "win_score": 7,
+          "loss_score": 2
+        }
+      ]
+    },
+    {
+      "official_match_id": 8756,
+      "date": "2026-06-21T09:00:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D9_AGv4AM.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8756",
+      "team_ids": [
+        410,
+        415
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3738,
+      "siegegg_page": "https://siege.gg/matches/3738-cnl-apac-all-gamers-vs-four-angry-men",
+      "metadata_sha256": "35ad80e050ae9615581bd514c3e34ad3b8ad9e976f92da101b1f88776893d015",
+      "rosters": [
+        {
+          "id": 909,
+          "name": "All Gamers"
+        },
+        {
+          "id": 910,
+          "name": "Four Angry Men"
+        }
+      ],
+      "games": [
+        {
+          "id": 7358,
+          "map": "Nighthaven Labs",
+          "win_roster_id": 909,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 4
+        },
+        {
+          "id": 7359,
+          "map": "Fortress",
+          "win_roster_id": 909,
+          "loss_roster_id": 910,
+          "win_score": 7,
+          "loss_score": 3
+        }
+      ]
+    },
+    {
+      "official_match_id": 8757,
+      "date": "2026-06-21T12:30:00Z",
+      "archive_url": "https://static-dm-3rdp.akamaized.net/rainbowsixsiege/esports/replays/2026%20Match%20Replays/LEAGUES%2026/BR62026_CNL_S1D9_LEVvTYL.zip",
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8757",
+      "team_ids": [
+        411,
+        414
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": true,
+      "siegegg_match_id": 3791,
+      "siegegg_page": "https://siege.gg/matches/3791-cnl-apac-tyloo-vs-leviatn-esports",
+      "metadata_sha256": "91bea0d20fd168ff477e587662755fec0d55d96bef76451e41b67fa26c8c9408",
+      "rosters": [
+        {
+          "id": 952,
+          "name": "TYLOO"
+        },
+        {
+          "id": 985,
+          "name": "Leviat\u00e1n Esports"
+        }
+      ],
+      "games": [
+        {
+          "id": 7360,
+          "map": "Kafe",
+          "win_roster_id": 985,
+          "loss_roster_id": 952,
+          "win_score": 8,
+          "loss_score": 7
+        },
+        {
+          "id": 7361,
+          "map": "Lair",
+          "win_roster_id": 952,
+          "loss_roster_id": 985,
+          "win_score": 7,
+          "loss_score": 5
+        },
+        {
+          "id": 7362,
+          "map": "Border",
+          "win_roster_id": 952,
+          "loss_roster_id": 985,
+          "win_score": 7,
+          "loss_score": 5
+        }
+      ]
+    },
+    {
+      "official_match_id": 8758,
+      "date": "2026-06-26T05:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8758",
+      "team_ids": [
+        413,
+        417
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8759,
+      "date": "2026-06-26T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8759",
+      "team_ids": [
+        416,
+        418
+      ],
+      "official_scores": [
+        [
+          0,
+          7
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8760,
+      "date": "2026-06-26T12:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8760",
+      "team_ids": [
+        409,
+        412
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8761,
+      "date": "2026-06-27T05:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8761",
+      "team_ids": [
+        411,
+        415
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8762,
+      "date": "2026-06-27T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8762",
+      "team_ids": [
+        410,
+        413
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8763,
+      "date": "2026-06-27T12:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8763",
+      "team_ids": [
+        414,
+        416
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8764,
+      "date": "2026-06-28T05:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8764",
+      "team_ids": [
+        412,
+        417
+      ],
+      "official_scores": [
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8765,
+      "date": "2026-06-28T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8765",
+      "team_ids": [
+        409,
+        418
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8766,
+      "date": "2026-06-28T12:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8766",
+      "team_ids": [
+        413,
+        415
+      ],
+      "official_scores": [
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8767,
+      "date": "2026-07-03T05:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8767",
+      "team_ids": [
+        411,
+        416
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8768,
+      "date": "2026-07-03T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8768",
+      "team_ids": [
+        410,
+        412
+      ],
+      "official_scores": [
+        [
+          6,
+          8
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8769,
+      "date": "2026-07-03T12:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8769",
+      "team_ids": [
+        409,
+        414
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8770,
+      "date": "2026-07-04T05:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8770",
+      "team_ids": [
+        417,
+        418
+      ],
+      "official_scores": [
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8771,
+      "date": "2026-07-04T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8771",
+      "team_ids": [
+        415,
+        416
+      ],
+      "official_scores": [
+        [
+          4,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8772,
+      "date": "2026-07-04T12:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8772",
+      "team_ids": [
+        412,
+        413
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8773,
+      "date": "2026-07-05T05:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8773",
+      "team_ids": [
+        414,
+        417
+      ],
+      "official_scores": [
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8774,
+      "date": "2026-07-05T09:00:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8774",
+      "team_ids": [
+        409,
+        411
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "official_match_id": 8775,
+      "date": "2026-07-05T12:30:00Z",
+      "archive_url": null,
+      "official_page": "https://www.ubisoft.com/en-us/esports/rainbow-six/siege/match/8775",
+      "team_ids": [
+        410,
+        418
+      ],
+      "official_scores": [
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "selected": false
+    }
+  ],
+  "selection": "All27officially linked group-stage BO3 archives at checkpoint, not selected by outcomes/objectives; other18scheduled matches remain reserved outside fixed snapshot.",
+  "exposure": "Schedule and metadata-only API projection; no player-stat targets or match/player Rating pages opened. ChinaStage2 excluded because prior search snippets exposed Ratings.",
+  "metadata_page_sha256": "23414b61e1594d0582749f368ad49e308ed383fe21731805169b0508d3f9d55f",
+  "candidate_sha256": "80865c3379120c009c8306c996843a65cce63b49c86684dbdb2ad15a557b2ec6",
+  "plan_sha256": "04ee6954adf755285d203c9e48528339fc9d2e9370f29ace7ffda33f13e152f0",
+  "ratings_opened": false
+}
