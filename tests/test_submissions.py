@@ -133,6 +133,7 @@ def test_admin_normal_import_keeps_local_data_on_cloud_failure(tmp_path):
             inspected = client.post(url + '/inspect', json={'team_id': 1, 'season_slug': 'fall-2026'}, headers=headers)
             assert inspected.status_code == 200, inspected.text
             assert inspected.json()['folders'][0]['tracked_count'] == 5
+            assert inspected.json()['folders'][0]['our_score'] == 2
             with closing(repo.connect(tmp_path / 'data/r6stats.sqlite')) as db:
                 assert db.execute('SELECT COUNT(*) FROM maps').fetchone()[0] == 0
             preview = client.post('/api/admin/replays/preview', json={'path': folders[0]['path'], 'team_id': 1, 'season_slug': 'fall-2026'}, headers=headers).json()
@@ -217,3 +218,13 @@ def test_rehost_submission_uses_existing_confirmations_and_archives(tmp_path):
             assert set(receipt['folder_ids']) == {f['id'] for f in folders}
             with closing(repo.connect(tmp_path / 'data/r6stats.sqlite')) as db:
                 assert submissions.replay_archive.verify(db, tmp_path / 'data/replay-archive', imported.json()['map_id'])['status'] == 'Healthy'
+
+
+def test_staging_rejects_undeclared_nested_replay_sources(tmp_path):
+    inbox = Inbox()
+    folders = submissions.download(tmp_path, inbox, inbox.remote['id'])
+    nested = Path(folders[0]['path']) / 'unexpected'
+    nested.mkdir()
+    (nested / 'Extra-R03.rec').write_bytes(inbox.bytes)
+    with pytest.raises(ValueError, match='inventory'):
+        submissions.verify_staging(tmp_path, inbox.remote['id'])

@@ -150,7 +150,9 @@ def verify_staging(root, submission):
             raise ValueError('Submission folder escaped staging.')
         files = [f for f in manifest['files'] if f['folder_id'] == folder['id']]
         expected = {f['name'].casefold() for f in files}
-        if {p.name.casefold() for p in path.iterdir() if p.is_file() and p.suffix.lower() == '.rec'} != expected:
+        entries = list(path.iterdir())
+        if (any(not p.is_file() or p.is_symlink() for p in entries) or
+                {p.name.casefold() for p in entries} != expected):
             raise ValueError('Staged replay inventory changed. Download and verify it again.')
         for f in files:
             p = (path / safe_name(f['name'], replay=True)).resolve()

@@ -625,10 +625,17 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 match = parse_match(Path(folder['path']), allow_incomplete=True)
                 tracked = len({roster['id'] for round_ in match.rounds for player in round_.players
                                if (roster := repo.roster_match(db, player, payload.team_id, match.timestamp[:10])) is not None})
+                try:
+                    our_team, _ = repo.choose_team(db, match, team_id=payload.team_id)
+                except ValueError:
+                    our_team = None
+                scores = [sum(r.winner == team for r in match.rounds) for team in (0, 1)]
                 results.append({**folder, 'map': match.map_name, 'rounds': len(match.rounds),
                                 'match_type': match.match_type, 'eligible': len(match.rounds) >= 2 and is_custom_game(match.match_type),
                                 'rehost_eligible': is_custom_game(match.match_type), 'tracked_count': tracked,
-                                'score': [sum(r.winner == team for r in match.rounds) for team in (0, 1)],
+                                'score': scores, 'our_team': our_team,
+                                'our_score': scores[our_team] if our_team is not None else None,
+                                'their_score': scores[1-our_team] if our_team is not None else None,
                                 'duplicate': bool(db.execute('SELECT 1 FROM map_segments WHERE replay_id=?', (match.replay_id,)).fetchone()) if match.replay_id else False,
                                 'status': scan_label(match.match_type)})
             except (ValueError, OSError) as error:

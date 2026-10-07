@@ -45,7 +45,7 @@ def review(browser, sid, display, report, errors):
     expect(admin.get_by_text('duplicate already imported', exact=False)).to_be_visible()
     report['inspection'] = local('/submissions/' + sid + '/inspect', 'POST', {'team_id': 1, 'season_slug': 'fall-2026'})
     f = report['inspection']['folders'][0]
-    assert f['map'] == 'Fortress' and f['rounds'] == 10 and f['score'] == [7, 3]
+    assert f['map'] == 'Fortress' and f['rounds'] == 10 and f['our_score'] == 7 and f['their_score'] == 3
     assert f['tracked_count'] == 5 and f['eligible'] and f['duplicate']
     admin.locator('.activity-row input[type=checkbox]').check()
     admin.get_by_role('button', name='Open existing import review').click()
@@ -145,7 +145,8 @@ def review_receipt(display):
     assert 'TEST' in item['opponent'].upper() and 'DO NOT IMPORT' in item['submitter'].upper()
     sid = item['id']
     seal = json.loads((EVIDENCE / 'before.json').read_text(encoding='utf-8'))['hashes']
-    report = {'display_id': display, 'submission_id': sid, 'normal_browser_public_upload': True,
+    report = {'display_id': display, 'submission_id': sid, 'normal_browser_public_upload': 'RESTORED' not in item['opponent'],
+              'original_public_receipt': 'R6-546784BFDD' if 'RESTORED' in item['opponent'] else display,
               'storage_after_upload': local('/submissions/storage')}
     errors = []
     try:
