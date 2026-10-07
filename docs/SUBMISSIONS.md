@@ -38,11 +38,14 @@ R2 is a temporary inbox, not their replacement.
 1. Open Submit Replays; explicitly select the UAH team and active season.
 2. Enter opponent, match date, name, and No/Yes/Not sure for rehost. Discord/notes
    are optional and private.
-3. Select the installed game's `MatchReplay` folder. Granting directory access
-   scans locally; it does not upload the whole directory. The alternate folder
-   picker supports browsers without `showDirectoryPicker`.
+3. Under **Add your replays**, drag the whole `MatchReplay` folder from File
+   Explorer, or drag one or more of its individual match folders together.
+   **Choose MatchReplay Folder** and **Browse for replay folder** are also available.
+   Adding folders only inspects them locally; it never starts an upload.
 4. Select the complete folders belonging to this one series, including rehosts.
-   The list shows folder dates, names, `.rec` counts and sizes, newest first.
+   The list shows friendly replay cards, dates, original folder names, replay
+   counts and sizes, newest first. Repeated additions are kept once; choices are
+   preserved when adding more folders.
 5. Review the prominent team/season and totals. Check the confirmation and click
    **Submit for Review**. Hashing and transfer progress are displayed.
 6. Keep the page and original selection open if retrying an interrupted upload.
@@ -52,11 +55,67 @@ R2 is a temporary inbox, not their replacement.
    Submission alone does not publish or import statistics.
 
 Replays are inside the game's installation directory, according to [Ubisoft's
-Match Replay help](https://www.ubisoft.com/en-ca/help/article/000100946). The form
-provides Steam/Ubisoft Connect guidance and an example path; library locations
-and launcher menu wording vary. No ZIP creation or individual-file picking is
-needed. Browser scanning identifies replay folders, not Ranked/Custom eligibility:
+Match Replay help](https://www.ubisoft.com/en-ca/help/article/000100946). No ZIP
+creation or individual-file picking is needed. Browser scanning identifies replay
+folders, not Ranked/Custom eligibility:
 only the trusted local parser establishes match type and team membership.
+
+### Finding replays and protected game folders
+
+**Show me where to find my replays** has numbered instructions and keyboard
+accessible Steam/Ubisoft Connect tabs. Steam comes first:
+
+- Steam: open Steam → Library → find and right-click Rainbow Six Siege → Manage
+  → Browse local files. In Explorer, find MatchReplay. Drag the whole folder or
+  open it and drag the folders for the series. This menu route is documented in
+  [official Steam support](https://help.steampowered.com/en/faqs/view/4DBA-E6A9-1115-7852).
+- Ubisoft Connect: open and sign in → Library → Rainbow Six Siege → Manage →
+  Properties. Read/copy the location in **Installation directory**. Open Explorer
+  (Windows + E), paste it into the address bar and press Enter, then find MatchReplay.
+  This uses [Ubisoft's current installation-location guide](https://www.ubisoft.com/en-gb/help/connectivity-and-performance/article/finding-the-installation-location-for-your-ubisoft-game/000063991),
+  rendered and checked on 2026-10-07. The current article confirms that section;
+  it does not establish an Open folder button. For a Steam installation use Steam's
+  steps. The previous unverified Local files/Open folder instructions were removed.
+
+Paths appear only in collapsed **Still can't find it?** help. The Steam example
+uses the real local game's folder name `Tom Clancy's Rainbow Six Siege` and is
+explicitly an example; another drive/library may be used. No Ubisoft default
+game path is needed in the public UI.
+
+Chrome/Edge's native `showDirectoryPicker()` can block Program Files/game locations
+as sensitive/system folders. The page explains the refusal and provides **Show
+me how**; drag the folder from Explorer or try **Browse for replay folder**.
+The browser sometimes uses the same `AbortError` for cancellation, sensitive
+directories and denied permission, so that case says **No folder added** with
+neutral guidance, not an alarming failure. Existing selections stay intact.
+See [the picker exceptions](https://developer.mozilla.org/en-US/docs/Web/API/Window/showDirectoryPicker).
+
+Desktop Chrome/Edge are the tested browsers. Dropped handles are captured during
+the event, with a Chromium `webkitGetAsEntry` fallback and complete paginated
+directory reads. Both feed the same grouping/selection rules as the native picker
+and standard `webkitdirectory` input. Only `.rec` content enters replay groups.
+Repeated whole-folder/child-folder additions compare the complete names/size
+inventory and SHA-256 content; conflicting same-name folders are rejected. Scans
+finish before review is enabled. All selected-file limits and cloud safeguards
+remain unchanged. See [Chrome's File System Access guide](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+and [directory input documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory).
+
+The standard input is a distinct, read-only browse path and also serves browsers
+without the native picker. Chrome and Edge automated input selection successfully
+discovered **30 folders / 209 replay files** in the real protected Steam MatchReplay
+folder without transfer. Automation supplies the files directly, so this does
+**not** prove that every OS chooser permits that path. It is a useful secondary
+option, not a guaranteed workaround; Explorer drag/drop remains the primary
+fallback. Mobile keeps compact browse controls and recommends the gaming PC.
+
+Browser regression scripts cover modern/legacy whole/single/multiple drops,
+duplicates, cancellation/refusal, native/input discovery, keyboard help, rehosts,
+selected-only upload manifests, retry/progress/receipt, and four screen widths.
+Cloud responses in these tests are synthetic; no production submission is created.
+Windows Explorer drag/drop and its original protected-folder dialog cannot be
+reproduced by Playwright. The minimal manual final check is: open the live page
+in normal Chrome, drag the real MatchReplay folder onto **Add your replays**, and
+confirm the discovered folders. **Do not submit** for this check.
 
 ## Local review and import
 
@@ -189,6 +248,13 @@ data. The source feature deployment is a normal reviewed repository commit.
 
 - Inbox unavailable: check public config URL, Worker enable switch, account quotas,
   storage/reservations and Turnstile. Local statistics remain safe.
+- Folder blocked/system files: open the in-page **Show me how** help, find
+  MatchReplay through Steam or Ubisoft Connect, and drag it from Explorer.
+  **Browse for replay folder** is another option; do not change Windows permissions.
+- No replay files found: choose MatchReplay or its actual match folders, rather
+  than individual files or an unrelated folder. Ensure Siege Match Replay is enabled.
+- Folder already added: it is kept once, with its selections intact. A same-name
+  folder with different replay contents requires a separate submission.
 - Browser verification failed: use **Retry verification** or refresh in your normal
   browser. Managed Turnstile can reject automated browser sessions even when a
   human clicks their checkbox; normal Chrome was independently confirmed to pass.

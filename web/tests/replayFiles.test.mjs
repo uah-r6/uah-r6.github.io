@@ -19,4 +19,6 @@ test('empty, oversized and excessive selections are rejected locally', () => {
   assert.throws(() => validateSelection([]))
   assert.throws(() => validateSelection(groupReplayFiles([file('Match', 'R01.rec', 64 * 1024 ** 2 + 1)])))
   assert.throws(() => validateSelection(groupReplayFiles(Array.from({ length: 13 }, (_, i) => file('Match-' + i, 'R01.rec')))))
+  assert.throws(() => validateSelection(groupReplayFiles(Array.from({ length: 241 }, (_, i) => file('Match', `R${i}.rec`)))), /240 files/)
+  assert.throws(() => validateSelection(groupReplayFiles(Array.from({ length: 33 }, (_, i) => file('Match', `R${i}.rec`, 64 * 1024 ** 2)))), /2 GiB/)
 })

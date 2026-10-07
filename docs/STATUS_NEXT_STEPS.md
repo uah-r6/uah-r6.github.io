@@ -1,4 +1,36 @@
-## Current: public replay submissions deployed and verified — 2026-10-07
+## Current: focused replay-folder selection usability — 2026-10-07
+
+Baseline clean `3cf6c77`. The requested frontend improvement is implemented:
+whole MatchReplay or single/multiple replay-folder drag/drop, native picker,
+standard directory browse, one shared discovery/selection path, SHA-256 duplicate
+addition checks, selected-only uploads, friendly protected-folder/cancel guidance,
+keyboard-accessible Steam/Ubisoft help, compact mobile selection and newest-first
+replay cards. Upload protocol, rehost/Turnstile and backend remain unchanged.
+
+**18 frontend tests and both builds pass.** Chrome and Edge browser suites pass
+at 1920/1366/768/390: modern/legacy/refused-handle drop paths, duplicates, native
+success/cancellation/refusal, fallback controls, exact sourced help, keyboard tabs,
+multiple-map rehost confirmation, selected-only manifest, cap/error/progress/retry
+and receipt. The real protected Steam directory yields **30 folders / 209 files**
+via automated read-only input in both browsers. No production submission/import.
+
+All **158 protected files** (SQLite, public statistics, archive, backend/parser/
+Rating/Cloudflare/config/private settings sources) remain byte-for-byte unchanged;
+all209 original replay sizes/timestamps remain exact. Cloud inbox was read-only
+checked: enabled, cap9GiB, zero stored/reserved bytes or pending submissions.
+
+Instructions were checked against official Steam support and Ubisoft's rendered
+current installation-location guide: Library → game → Manage → Properties →
+Installation directory. Ubisoft's old unverified Open folder wording is removed.
+See [SUBMISSIONS.md](SUBMISSIONS.md) for sources, compatibility and troubleshooting.
+Private evidence: `data/research/replay-selection-20261007/`.
+
+**NEXT ACTION:** deploy and verify live Pages, then request the minimal normal
+Chrome Explorer drag/drop check. Playwright's direct file input does not prove the
+OS chooser or Explorer gesture. Do not upload a test just for this check. Stop
+after the focused fix; no backend/statistics or unrelated feature work.
+
+## Previous: public replay submissions deployed and verified — 2026-10-07
 
 **COMPLETE, PUSHED & LIVE VERIFIED.** Initial release `244fe4d`, verification/retry follow-up `28c489a`, and final implementation `27728ec` are on main. [GitHub Pages run 37673326321](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37673326321) succeeded. Baseline was clean `b82399a`. Public [Submit Replays](https://uah-r6.github.io/#/submit) is live. No paid plan/add-on was enabled. See [SUBMISSIONS.md](SUBMISSIONS.md) for architecture, privacy, limits, workflow, deployment, rotation, maintenance, troubleshooting and future remote-admin/storage alternatives.
 

@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import { groupReplayFiles, selectionTotals, validateSelection, bytesLabel, type ReplayFolder } from './replayFiles'
+import { selectionTotals, validateSelection, bytesLabel, type ReplayFolder } from './replayFiles'
+import { ReplayPicker } from './ReplayPicker'
 import './submit.css'
 
 type Choice = { slug: string; name: string }
 type Config = { enabled: boolean; available: boolean; teams: Choice[]; seasons: Choice[]; turnstile_site_key: string | null }
 type Session = { id: string; display_id: string; upload_token: string; expires_at: number; files: { id: string; folder: string; name: string; size: number }[] }
-type Directory = { kind: string; name: string; values(): AsyncIterable<Directory>; getFile?(): Promise<File> }
 type Turnstile = { render(element: HTMLElement, options: Record<string, unknown>): string; reset(id: string): void; remove(id: string): void }
-type BrowserWindow = Window & { showDirectoryPicker?: () => Promise<Directory>; turnstile?: Turnstile }
+type BrowserWindow = Window & { turnstile?: Turnstile }
 
 export function SubmitPage({ teams, seasons }: { teams: (Choice & { active: number })[]; seasons: Choice[] }) {
   const [config, setConfig] = useState<Config | null>(null), [url, setUrl] = useState(''), [error, setError] = useState('')
@@ -18,7 +18,8 @@ export function SubmitPage({ teams, seasons }: { teams: (Choice & { active: numb
   const [session, setSession] = useState<Session | null>(null), [received, setReceived] = useState(''), [progress, setProgress] = useState(0), [activity, setActivity] = useState('')
   const [botToken, setBotToken] = useState(''), [botError,setBotError]=useState('')
   const botWidget=useRef<string|null>(null)
-  const picker = useRef<HTMLInputElement>(null), xhr = useRef<XMLHttpRequest | null>(null), cancelled = useRef(false), bot = useRef<HTMLDivElement>(null)
+  const [scanning, setScanning] = useState(false)
+  const xhr = useRef<XMLHttpRequest | null>(null), cancelled = useRef(false), bot = useRef<HTMLDivElement>(null)
   const chosen = folders.filter(f => selected.includes(f.name)), totals = selectionTotals(chosen)
   const teamOptions = config?.teams.filter(t => teams.some(p => p.slug === t.slug && p.active)) || []
   const seasonOptions = config?.seasons.filter(s => seasons.some(p => p.slug === s.slug)) || []
@@ -41,20 +42,6 @@ export function SubmitPage({ teams, seasons }: { teams: (Choice & { active: numb
   async function request<T>(path: string, method = 'GET', payload?: unknown, token?: string): Promise<T> {
     const r = await fetch(url + '/v1' + path, { method, headers: { ...(payload !== undefined ? { 'Content-Type': 'application/json' } : {}), ...(token ? { Authorization: 'Bearer ' + token } : {}) }, body: payload === undefined ? undefined : JSON.stringify(payload), cache: 'no-store' })
     const data = await r.json(); if (!r.ok) throw Object.assign(Error(data.error || 'The submission could not be completed.'), {status:r.status}); return data
-  }
-  async function findReplays() {
-    if (!(window as BrowserWindow).showDirectoryPicker) { picker.current?.click(); return }
-    try {
-      const directory = await (window as BrowserWindow).showDirectoryPicker!(), files: File[] = []
-      async function walk(handle: Directory, prefix: string, depth = 0) {
-        if (depth > 3) return
-        for await (const entry of handle.values()) {
-          if (entry.kind === 'directory') await walk(entry, prefix + '/' + entry.name, depth + 1)
-          else if (/\.rec$/i.test(entry.name) && entry.getFile) { const file = await entry.getFile(); Object.defineProperty(file, 'webkitRelativePath', { value: prefix + '/' + file.name }); files.push(file) }
-        }
-      }
-      await walk(directory, directory.name); setFolders(groupReplayFiles(files)); setSelected([]); setError('')
-    } catch (e) { if ((e as Error).name !== 'AbortError') { setError('Folder access was unavailable. Use the alternative folder picker below.'); picker.current?.click() } }
   }
   function review(event: React.FormEvent) { event.preventDefault(); try { validateSelection(chosen); setError(''); setConfirmed(false); setConfirming(true) } catch (e) { setError((e as Error).message) } }
   async function upload() {
@@ -109,10 +96,7 @@ export function SubmitPage({ teams, seasons }: { teams: (Choice & { active: numb
         <fieldset className="rehost-choice"><legend>Was there a rehost?</legend>{[['no','No'],['yes','Yes'],['unsure','Not sure']].map(([value,label]) => <label key={value}><input required type="radio" name="rehost" checked={rehost === value} onChange={() => setRehost(value)} />{label}</label>)}</fieldset>
         <label>Notes <span>(optional)</span><textarea rows={3} maxLength={2000} value={notes} onChange={e => setNotes(e.target.value)} placeholder="For example: Map 2 rehosted at 4–4." /></label>
         <label className="submission-honeypot" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} /></label>
-        <section className="replay-picker"><h2>Find your match replays</h2><p>Your computer is scanned locally after you select a folder. Only the replay folders you choose below will upload.</p><button className="button" type="button" onClick={() => void findReplays()}>Select MatchReplay Folder</button><button className="folder-fallback" type="button" onClick={() => picker.current?.click()}>Use alternative folder picker</button><input ref={picker} className="directory-input" type="file" multiple accept=".rec" {...{ webkitdirectory: '', directory: '' }} onChange={e => { try { setFolders(groupReplayFiles(Array.from(e.target.files || []))); setSelected([]); setError('') } catch (error) { setError((error as Error).message) } }} />
-          <details className="replay-help"><summary>Where are my replays?</summary><p>On PC, replays are in <strong>MatchReplay</strong> inside the Rainbow Six Siege installation folder.</p><p><strong>Steam:</strong> Library → Rainbow Six Siege → Manage → Browse local files → MatchReplay.</p><p><strong>Ubisoft Connect:</strong> Library → Rainbow Six Siege → game settings / properties → Local files → Open folder. Open MatchReplay inside the installation directory. Menu wording may vary with launcher updates.</p><p>Example: <code>C:\Program Files (x86)\Steam\steamapps\common\Tom Clancy's Rainbow Six Siege\MatchReplay</code>. Your drive and library location may differ.</p><a href="https://www.ubisoft.com/en-ca/help/article/000100946">Ubisoft Match Replay help ↗</a></details>
-          {!!folders.length && <><p><strong>{folders.length} replay folders found</strong> · Select every folder for this one match, including rehost segments.</p><div className="replay-folder-list">{folders.map(f => <label key={f.name} className={selected.includes(f.name) ? 'chosen' : ''}><input type="checkbox" checked={selected.includes(f.name)} onChange={e => setSelected(e.target.checked ? [...selected, f.name] : selected.filter(n => n !== f.name))} /><span><strong>{new Date(f.modified).toLocaleString()}</strong><small>{f.name}</small></span><span>{f.files.length} .rec files<br/>{bytesLabel(f.bytes)}</span></label>)}</div><p>{totals.folders} folders selected · {totals.files} files · {bytesLabel(totals.bytes)}</p></>}
-        </section><div ref={bot}/>{botError&&<div className="submission-error" role="alert">{botError}<button type="button" className="button" onClick={()=>{setBotError('');setBotToken('');if(botWidget.current)(window as BrowserWindow).turnstile?.reset(botWidget.current)}}>Retry verification</button></div>}<button className="button submit-primary" disabled={busy || !config?.enabled || !config.available || !totals.files || (!!config.turnstile_site_key && !botToken)} type="submit">Review submission →</button>
-      </form> : <section className="panel confirmation"><span className="eyebrow">SUBMITTING FOR</span><h2>{teamOptions.find(t => t.slug === team)?.name}</h2><h3>{seasonOptions.find(s => s.slug === season)?.name}</h3><p>vs {opponent} · {date}</p><div className="confirmation-facts"><span>{totals.folders} replay folders</span><span>{totals.files} .rec files</span><span>{bytesLabel(totals.bytes)}</span><span>Rehost: {rehost === 'yes' ? 'Yes' : rehost === 'no' ? 'No' : 'Not sure'}</span></div><p>Files upload privately for review. Match type, team identity and rehost reconstruction are verified by the administrator.</p><label className="submit-confirm"><input type="checkbox" checked={confirmed} disabled={busy || !!session} onChange={e => setConfirmed(e.target.checked)} />I confirm these are match replay files for the UAH team and season selected.</label>{(busy || session) && <div className="upload-progress" role="status"><label htmlFor="replay-upload-progress">{activity || 'Upload paused. Retry to resume.'} · {progress}%</label><progress id="replay-upload-progress" value={progress} max={100}/></div>}<div className="submit-actions"><button className="button submit-primary" disabled={busy || !confirmed} onClick={() => void upload()}>{busy ? 'Uploading…' : session ? 'Retry unfinished uploads' : 'Submit for Review'}</button><button className="button" onClick={() => void cancel()}>{busy || session ? 'Cancel upload' : 'Back to selection'}</button></div></section>}
+        <ReplayPicker folders={folders} selected={selected} onFolders={setFolders} onSelected={setSelected} onScanning={setScanning} /><div ref={bot}/>{botError&&<div className="submission-error" role="alert">{botError}<button type="button" className="button" onClick={()=>{setBotError('');setBotToken('');if(botWidget.current)(window as BrowserWindow).turnstile?.reset(botWidget.current)}}>Retry verification</button></div>}<button className="button submit-primary" disabled={busy || scanning || !config?.enabled || !config.available || !totals.files || (!!config.turnstile_site_key && !botToken)} type="submit">Review submission →</button>
+      </form> : <section className="panel confirmation"><span className="eyebrow">SUBMITTING FOR</span><h2>{teamOptions.find(t => t.slug === team)?.name}</h2><h3>{seasonOptions.find(s => s.slug === season)?.name}</h3><p>vs {opponent} · {date}</p><div className="confirmation-facts"><span>{totals.folders} replay folders</span><span>{totals.files} replay files</span><span>{bytesLabel(totals.bytes)}</span><span>Rehost: {rehost === 'yes' ? 'Yes' : rehost === 'no' ? 'No' : 'Not sure'}</span></div><p>Files upload privately for review. Match type, team identity and rehost reconstruction are verified by the administrator.</p><label className="submit-confirm"><input type="checkbox" checked={confirmed} disabled={busy || !!session} onChange={e => setConfirmed(e.target.checked)} />I confirm these are match replay files for the UAH team and season selected.</label>{(busy || session) && <div className="upload-progress" role="status"><label htmlFor="replay-upload-progress">{activity || 'Upload paused. Retry to resume.'} · {progress}%</label><progress id="replay-upload-progress" value={progress} max={100}/></div>}<div className="submit-actions"><button className="button submit-primary" disabled={busy || !confirmed} onClick={() => void upload()}>{busy ? 'Uploading…' : session ? 'Retry unfinished uploads' : 'Submit for Review'}</button><button className="button" onClick={() => void cancel()}>{busy || session ? 'Cancel upload' : 'Back to selection'}</button></div></section>}
     </>}</div>
 }

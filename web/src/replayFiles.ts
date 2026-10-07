@@ -34,6 +34,27 @@ export function selectionTotals<T extends ReplayFile>(folders: ReplayFolder<T>[]
   return { folders: folders.length, files: files.length, bytes: files.reduce((n, f) => n + f.size, 0) }
 }
 
+export async function mergeReplayFolders<T extends ReplayFile>(existing: ReplayFolder<T>[], incoming: ReplayFolder<T>[], sameContents: (a: T, b: T) => Promise<boolean>) {
+  const groups = new Map(existing.map(folder => [folder.name.toLowerCase(), folder]))
+  let duplicates = 0
+  for (const folder of incoming) {
+    const previous = groups.get(folder.name.toLowerCase())
+    if (!previous) { groups.set(folder.name.toLowerCase(), folder); continue }
+    const ordered = (files: T[]) => [...files].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+    const a = ordered(previous.files), b = ordered(folder.files)
+    // A parent drop and child drop have different relative roots. Compare the complete
+    // physical inventory, then content hashes, rather than trusting the folder title.
+    if (a.length !== b.length || a.some((file, i) => file.name.toLowerCase() !== b[i].name.toLowerCase() || file.size !== b[i].size)) {
+      throw Error('Two different replay folders have the same name. Keep them separate and submit them one at a time.')
+    }
+    for (let i = 0; i < a.length; i++) {
+      if (!await sameContents(a[i], b[i])) throw Error('Two different replay folders have the same name. Keep them separate and submit them one at a time.')
+    }
+    duplicates++
+  }
+  return { folders: [...groups.values()].sort((a, b) => b.modified - a.modified || a.name.localeCompare(b.name)), duplicates }
+}
+
 export function validateSelection<T extends ReplayFile>(folders: ReplayFolder<T>[]) {
   const totals = selectionTotals(folders)
   if (!totals.files || totals.folders > replayLimits.folders || totals.files > replayLimits.files || totals.bytes > replayLimits.submissionBytes) {
