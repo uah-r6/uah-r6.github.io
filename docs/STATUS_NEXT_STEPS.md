@@ -1,8 +1,9 @@
 ## Current: public presentation and Google Sites embeds — 2026-10-07
 
-**COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Release `674faad`
-is on main. [Pages run37686846258](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37686846258)
-succeeded; production serves the exact built JS/CSS. Baseline clean `227fb87`.
+**COMPLETE, PUSHED & LIVE VERIFIED. STOP AFTER THIS PASS.** Main release `674faad`
+and embed storage safeguard `9c027b9` are on main. Both Pages deployments passed;
+[final release run37687556321](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37687556321)
+succeeded. Production serves the exact final built JS/CSS. Baseline clean `227fb87`.
 
 Implemented generic unlisted active-season Player Stats embeds, compact phone
 cards, trusted exported v3 map Rating trends, recorded-map series summaries,
@@ -18,7 +19,8 @@ Google Sites **Insert → Embed → By URL**:
 - White: https://uah-r6.github.io/#/embed/white/player-stats
 
 Start with **800 × 360px** for five players. The same URL follows the active
-published season, independent of the normal site's saved period. Optional fixed
+published season, independent of the normal site's saved period and without
+accessing browser storage. Optional fixed
 history: `?season=fall-2026` after the hash route. Responsive embeds keep
 10/7/5 columns with Rating always visible and no normal page chrome. Unknown
 teams/seasons show a safe error. Future valid team slugs use the same component.
@@ -27,7 +29,8 @@ Verification: **24 frontend tests**, **565 Python tests + six subtests** passed;
 one optional replay smoke test skipped. Both public/admin Vite builds passed.
 The presentation suite passed **locally and LIVE**: 1440/1150/768/390px public
 routes; 1000/800/600/390px embeds; exact trusted stats; saved Career isolation,
-active-season rollover, generic team, explicit historical override and Alumni
+active-season rollover, **restricted browser storage without any embed storage
+access**, generic team, explicit historical override and Alumni
 fixtures; sorting and accessible focus/click/keyboard help with viewport-safe
 popovers; chronological exact chart values, career scope, single/empty states,
 map context and keyboard/tap selection; recorded-series W/L and map links;
