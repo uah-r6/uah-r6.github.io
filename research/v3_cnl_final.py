@@ -3,6 +3,7 @@ import argparse
 from collections import Counter
 from datetime import datetime,timezone
 import json
+import hashlib
 from pathlib import Path
 import subprocess
 import sys
@@ -111,7 +112,16 @@ def freeze():
         target_policy='All eligible primary-KD-verified rows frozen before player-stat downloads; any public exact-KD/round discrepancy fails final quality without selecting replacement rows. No target-dependent alias or eligibility changes.',
         baseline_policy='Exact e7c2 v2 occurrence-era Go binary; original finisher KPR/MK/KOST/objective inputs retained. Candidate uses current supported core actors/credited counts and corrected KOST; other event features identical.',
         exposure='CNLStage1 schedules and metadata only; no Rating targets opened. CNLStage2 excluded due known search exposure.')
-    immutable_write(DATA/'prelabel-quality-seal.json',result);immutable_write(FREEZE,result)
+    private_seal=DATA/'prelabel-quality-seal.json'
+    immutable_write(private_seal,result)
+    # Source control receives the model, row identities and hashes. Complete
+    # normalized/player-round research data remains under ignored data/.
+    public=result|dict(private_seal_sha256=sha(private_seal),rows=[dict(
+        match_id=r['match_id'],game_id=r['game_id'],official_match_id=r['official_match_id'],
+        player=r['player'],player_id=r['player_id'],roster_id=r['roster_id'],
+        rounds=len(r['rounds']),objective_positive=r['objective_positive'],kill_credit_affected=r['kill_credit_affected'],
+        row_sha256=hashlib.sha256(json.dumps(r,sort_keys=True,separators=(',',':')).encode()).hexdigest()) for r in rows])
+    immutable_write(FREEZE,public)
     lines=['# Prospective CNL Stage 1 corrected-count final seal','',f'All27selected BO3 archives have terminal decisions. Coverage: {evidence}; gates: {checks}.','',
         'Candidate, exact-v2 baseline, all rows, excluded maps, source commit and input/binary hashes are sealed before any player-stat targets. Strong independent primary objective audit refuses entire mismatched maps. No Rating values opened.','',
         '| Official / game | Map | Clean rows | Reasons |','| --- | --- | ---: | --- |']
@@ -127,6 +137,18 @@ def accuracy_checks(a,b,gate,subgroups):
     return checks
 
 
+def read_frozen():
+    public=json.loads(FREEZE.read_text(encoding='utf-8'));path=DATA/'prelabel-quality-seal.json'
+    if sha(path)!=public['private_seal_sha256']:raise ValueError('Private feature seal changed')
+    private=json.loads(path.read_text(encoding='utf-8'))
+    for key in private:
+        if key!='rows' and private[key]!=public[key]:raise ValueError('Public/private freeze differs')
+    for r,p in zip(private['rows'],public['rows']):
+        if hashlib.sha256(json.dumps(r,sort_keys=True,separators=(',',':')).encode()).hexdigest()!=p['row_sha256']:raise ValueError('Frozen row hash changed')
+    if len(private['rows'])!=len(public['rows']):raise ValueError('Frozen row inventory changed')
+    return private
+
+
 def prepare_targets():
     """Stage complete raw targets after the row freeze, without decoding them.
 
@@ -134,7 +156,7 @@ def prepare_targets():
     evaluation. The scientific consumption marker is written only once every
     frozen target file has been successfully cached and hashed.
     """
-    frozen=json.loads(FREEZE.read_text(encoding='utf-8'))
+    frozen=read_frozen()
     if not frozen['qualified']:raise ValueError('Insufficient prelabel coverage; keep targets unopened')
     if (DATA/'rating-targets-opened.json').exists():raise ValueError('Final already consumed')
     clean_tree();targets={}
@@ -149,7 +171,7 @@ def prepare_targets():
 def evaluate():
     marker=DATA/'rating-targets-opened.json'
     if RESULT.exists() or marker.exists():raise ValueError('Final event already consumed; never reopen/refit/regrade')
-    clean_tree();frozen=json.loads(FREEZE.read_text(encoding='utf-8'))
+    clean_tree();frozen=read_frozen()
     if not frozen['qualified']:raise ValueError('Prospective coverage insufficient; keep Ratings unopened')
     for p,d in frozen['source_hashes'].items():
         if source_sha(ROOT/p)!=d:raise ValueError('Frozen source changed: '+p)
