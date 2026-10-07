@@ -1,6 +1,8 @@
 ## Current: focused replay-folder selection usability — 2026-10-07
 
-Baseline clean `3cf6c77`. The requested frontend improvement is implemented:
+**DEPLOYED; AUTOMATED LIVE CHECKS PASS.** Release `dad2429` is pushed on main.
+[Pages run37680190314](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37680190314)
+succeeded. Baseline clean `3cf6c77`. The requested frontend improvement is implemented:
 whole MatchReplay or single/multiple replay-folder drag/drop, native picker,
 standard directory browse, one shared discovery/selection path, SHA-256 duplicate
 addition checks, selected-only uploads, friendly protected-folder/cancel guidance,
@@ -14,6 +16,14 @@ multiple-map rehost confirmation, selected-only manifest, cap/error/progress/ret
 and receipt. The real protected Steam directory yields **30 folders / 209 files**
 via automated read-only input in both browsers. No production submission/import.
 
+Both browser suites also pass against **https://uah-r6.github.io/**, including
+real-directory read-only input. Served JS/CSS exactly match the production build;
+all27 live statistics documents match committed LF bytes. The real public cloud
+config returns HTTP200, enabled/available, Turnstile configured, Blue/White and
+Fall2026. Authenticated read-only cloud storage equals the initial snapshot:
+zero stored/reserved/pending. Upload/retry/receipt browser tests use mocked Worker
+responses only; this pass did not test a new production cloud upload or challenge.
+
 All **158 protected files** (SQLite, public statistics, archive, backend/parser/
 Rating/Cloudflare/config/private settings sources) remain byte-for-byte unchanged;
 all209 original replay sizes/timestamps remain exact. Cloud inbox was read-only
@@ -25,10 +35,15 @@ Installation directory. Ubisoft's old unverified Open folder wording is removed.
 See [SUBMISSIONS.md](SUBMISSIONS.md) for sources, compatibility and troubleshooting.
 Private evidence: `data/research/replay-selection-20261007/`.
 
-**NEXT ACTION:** deploy and verify live Pages, then request the minimal normal
-Chrome Explorer drag/drop check. Playwright's direct file input does not prove the
-OS chooser or Explorer gesture. Do not upload a test just for this check. Stop
-after the focused fix; no backend/statistics or unrelated feature work.
+**MANUAL CHECK PENDING:** the user was asked to hard-refresh the live Submit
+Replays page in normal Chrome and drag the real MatchReplay folder from Explorer.
+Expected discovery:30folders/209files; **do not submit/upload**. Playwright's direct
+file input does not prove the OS chooser or Explorer gesture. No claim of a
+verified real Windows drag is made until the user reports its result.
+
+**NEXT ACTION:** record that minimal manual check or fix any reported selection
+issue. Implementation/deployment/automated verification are complete. Stop after
+this focused fix; no backend/statistics or unrelated feature work.
 
 ## Previous: public replay submissions deployed and verified — 2026-10-07
 
