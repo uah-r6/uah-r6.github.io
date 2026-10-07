@@ -1,8 +1,9 @@
 ## Current: focused replay-folder selection usability — 2026-10-07
 
-**FOLLOW-UP DEPLOYMENT REQUIRED.** Initial release `dad2429` is pushed on main.
-[Pages run37680190314](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37680190314)
-succeeded. Baseline clean `3cf6c77`. The requested frontend improvement is implemented:
+**READ-ONLY FOLLOW-UP DEPLOYED; AUTOMATED LIVE CHECKS PASS.** Initial release
+`dad2429` and corrective release `0090a04` are pushed on main.
+[Pages run37681761490](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37681761490)
+succeeded for the correction. Baseline clean `3cf6c77`. The requested frontend improvement is implemented:
 whole MatchReplay or single/multiple replay-folder drag/drop, native picker,
 standard directory browse, one shared discovery/selection path, SHA-256 duplicate
 addition checks, selected-only uploads, friendly protected-folder/cancel guidance,
@@ -25,8 +26,11 @@ directory browse. A trusted browser/CDP drop of the real protected folder passes
 in both Chrome/Edge with30folders/209files and **zero modern-handle requests**;
 those entry/read calls are real browser implementations, not JS file fixtures.
 
-The initial browser suites also passed against **https://uah-r6.github.io/**, including
-real-directory read-only input. Served JS/CSS exactly match the production build;
+The corrected browser suites pass against **https://uah-r6.github.io/**, including
+the trusted browser drop of the real protected path (all209files), zero modern
+access requests, and a repeated physical child folder preserving its selection
+without duplication. OS Explorer gesture verification remains separate. Served
+JS/CSS exactly match the corrected production build;
 all27 live statistics documents match committed LF bytes. The real public cloud
 config returns HTTP200, enabled/available, Turnstile configured, Blue/White and
 Fall2026. Authenticated read-only cloud storage equals the initial snapshot:
@@ -44,14 +48,15 @@ Installation directory. Ubisoft's old unverified Open folder wording is removed.
 See [SUBMISSIONS.md](SUBMISSIONS.md) for sources, compatibility and troubleshooting.
 Private evidence: `data/research/replay-selection-20261007/`.
 
-**MANUAL CHECK NEEDS RETRY AFTER FOLLOW-UP:** the initial normal Chrome Explorer
-drop failed with the protected-folder popup. Deploy the read-only-entry correction
-and verify live, then retry real Explorer drag. Expected discovery:30folders/209files;
+**MANUAL CHECK PENDING AFTER FOLLOW-UP:** the initial normal Chrome Explorer
+drop failed with the protected-folder popup. The read-only correction is deployed
+and live verified; the user was asked to retry Explorer drag after a hard refresh.
+Expected discovery:30folders/209files;
 **do not submit/upload**. Playwright/CDP does not prove the OS Explorer gesture.
 No claim of a verified real Windows drag is made until the user reports its result.
 
-**NEXT ACTION:** deploy the follow-up, run live tests, then record that minimal
-manual check or fix any reported selection issue. Stop after
+**NEXT ACTION:** record that minimal manual check or fix any reported selection
+issue. Corrected implementation/deployment/automated verification are complete. Stop after
 this focused fix; no backend/statistics or unrelated feature work.
 
 ## Previous: public replay submissions deployed and verified — 2026-10-07

@@ -6,6 +6,7 @@ file input automation. This is not proof of an OS picker or Explorer drag gestur
 import argparse
 import functools
 import json
+import re
 import threading
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -178,7 +179,21 @@ def verify(url, channel, evidence, source=None):
             assert page.evaluate('nativeHandleCalls') == 0
             assert page.evaluate('nativeEntryCalls') > 0
             real['trusted_browser_drop_verified'] = True
+            real['trusted_browser_drop_files'] = sum(int(re.match(r'(\d+) replay files', text)[1]) for text in page.locator('.replay-folder-list label>span:last-child').all_text_contents())
+            assert real['trusted_browser_drop_files'] == real['files']
             real['modern_handle_requests'] = page.evaluate('nativeHandleCalls')
+            child = min({file.parent for file in source.rglob('*.rec')}, key=lambda folder: sum(file.stat().st_size for file in folder.glob('*.rec')))
+            chosen_card = page.locator('.replay-folder-list label').filter(has_text=child.name)
+            chosen_card.locator('input').check()
+            zone.scroll_into_view_if_needed(); bounds = zone.bounding_box()
+            data['files'] = [str(child.resolve())]
+            for event in ('dragEnter', 'dragOver', 'drop'):
+                cdp.send('Input.dispatchDragEvent', {'type': event, 'x': bounds['x'] + bounds['width'] / 2, 'y': bounds['y'] + bounds['height'] / 2, 'data': data})
+            expect(page.locator('.replay-scan-status')).to_contain_text('kept just once')
+            count(expected)
+            expect(chosen_card.locator('input')).to_be_checked()
+            assert page.evaluate('nativeHandleCalls') == 0
+            real['trusted_browser_duplicate_child_verified'] = True
             page.locator('.replay-picker').screenshot(path=str(evidence / f'{channel}-real-protected-browser-drop.png'))
             cdp.detach()
 
