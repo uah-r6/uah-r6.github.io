@@ -53,7 +53,7 @@ def test_admin_manages_roster_and_only_imports_confirmed_custom_game():
             assert client.post("/api/admin/seasons", json={"name": "Fall 2026"}, headers=headers).status_code == 200
             assert client.post("/api/admin/seasons", json={"name": "Spring 2027"}, headers=headers).status_code == 200
             for index in range(5):
-                assert client.post("/api/admin/roster", json={"username": f"Player{index}"}, headers=headers).status_code == 200
+                assert client.post("/api/admin/roster", json={**({"username": f"Player{index}"}), 'team_id': 1}, headers=headers).status_code == 200
             roster = client.get("/api/admin/roster").json()
             first_id = next(row["id"] for row in roster if row["username"] == "Player0")
             assert client.patch(f"/api/admin/roster/{first_id}", json={"display_name": "Captain"}, headers=headers).status_code == 200
@@ -72,7 +72,7 @@ def test_admin_manages_roster_and_only_imports_confirmed_custom_game():
                 return normalize(raw)
 
             with patch("r6stats.admin.server.parse_match", side_effect=parse):
-                scan = client.get("/api/admin/replays")
+                scan = client.get("/api/admin/replays", params={'team_id': 1})
                 assert scan.status_code == 200
                 results = {row["name"]: row for row in scan.json()}
                 assert results["ranked"]["eligible"] is False
@@ -80,10 +80,10 @@ def test_admin_manages_roster_and_only_imports_confirmed_custom_game():
                 with closing(repo.connect(root / "data/r6stats.sqlite")) as db:
                     assert db.execute("SELECT count(*) FROM maps").fetchone()[0] == 0
                 assert not list((root / "data").rglob("manifest.json"))
-                rejected = client.post("/api/admin/replays/preview", json={"replay_id": results["ranked"]["id"]}, headers=headers)
+                rejected = client.post("/api/admin/replays/preview", json={**({"replay_id": results["ranked"]["id"]}), 'team_id': 1}, headers=headers)
                 assert rejected.status_code == 400
                 assert "Ranked" in rejected.json()["detail"]
-                preview = client.post("/api/admin/replays/preview", json={"replay_id": results["custom"]["id"]}, headers=headers)
+                preview = client.post("/api/admin/replays/preview", json={**({"replay_id": results["custom"]["id"], "season_slug": "spring-2027"}), 'team_id': 1}, headers=headers)
                 assert preview.status_code == 200
                 data = preview.json()
                 assert data["match_type"] == "CustomGameOnline"
@@ -92,17 +92,17 @@ def test_admin_manages_roster_and_only_imports_confirmed_custom_game():
                 request = {"preview_token": data["preview_token"], "season_slug": "spring-2027",
                            "opponent": "UAB", "week": "Week 1", "notes": "", "team": 0,
                            "confirm_necc": False}
-                assert client.post("/api/admin/replays/import", json=request, headers=headers).status_code == 400
+                assert client.post("/api/admin/replays/import", json={**(request), 'team_id': 1}, headers=headers).status_code == 400
                 with closing(repo.connect(root / "data/r6stats.sqlite")) as db:
                     assert db.execute("SELECT count(*) FROM maps").fetchone()[0] == 0
                 assert not list((root / "data").rglob("manifest.json"))
                 request["confirm_necc"] = True
-                imported = client.post("/api/admin/replays/import", json=request, headers=headers)
+                imported = client.post("/api/admin/replays/import", json={**(request), 'team_id': 1}, headers=headers)
                 assert imported.status_code == 200, imported.text
                 assert imported.json()["competition"] == "NECC"
                 archive = client.get(f"/api/admin/matches/{imported.json()['map_id']}/archive").json()
                 assert archive["status"] == "Healthy" and archive["rounds"] == 2
-                assert client.post("/api/admin/replays/import", json=request, headers=headers).status_code == 400
+                assert client.post("/api/admin/replays/import", json={**(request), 'team_id': 1}, headers=headers).status_code == 400
                 with closing(repo.connect(root / "data/r6stats.sqlite")) as db:
                     row = db.execute("SELECT se.slug, s.competition, m.match_type FROM maps m JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id").fetchone()
                     assert tuple(row) == ("spring-2027", "NECC", "CustomGameOnline")
@@ -126,13 +126,13 @@ def test_season_match_maintenance_keeps_player_history():
         with closing(repo.connect(root / "data/r6stats.sqlite")) as db:
             repo.season_create(db, "Fall 2026")
             for index in range(5):
-                repo.roster_add(db, f"Player{index}")
+                repo.roster_add(db, f"Player{index}", team_id=1)
             maps = []
             for index in range(3):
                 match = normalize(match_fixture("Custom Game", f"map-{index}"))
                 series_id = maps[0][1] if index == 1 else None
                 map_id = repo.insert_map(db, match, f"fingerprint-{index}", 0,
-                                         "UAB" if index < 2 else "North", series_id=series_id)
+                                         "UAB" if index < 2 else "North", series_id=series_id, organization_team_id=1)
                 group_id = db.execute("SELECT series_id FROM maps WHERE id=?", (map_id,)).fetchone()[0]
                 maps.append((map_id, group_id))
             player_id = db.execute("SELECT id FROM players WHERE username='Player0'").fetchone()[0]

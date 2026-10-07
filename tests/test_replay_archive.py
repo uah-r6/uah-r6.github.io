@@ -40,7 +40,7 @@ def test_archive_integrity_and_no_orphan_after_failed_prepare():
         with closing(repo.connect(root / "data/test.sqlite")) as db:
             repo.season_create(db, "Fall 2026")
             match = two_round_match()
-            map_id = repo.insert_map(db, match, fingerprint, 0, "Opponent")
+            map_id = repo.insert_map(db, match, fingerprint, 0, "Opponent", organization_team_id=1)
             assert verify(db, archive_root, map_id)["status"] == "Missing"
             try:
                 prepare(source, archive_root, "wrong-fingerprint", 2)
@@ -83,9 +83,9 @@ def test_admin_backfill_reparse_and_delete_archive_without_changing_metadata():
         with closing(repo.connect(root / "data/r6stats.sqlite")) as db:
             repo.season_create(db, "Fall 2026")
             for index in range(5):
-                repo.roster_add(db, f"Player{index}")
+                repo.roster_add(db, f"Player{index}", team_id=1)
             original = two_round_match()
-            map_id = repo.insert_map(db, original, fingerprint, 0, "Opponent", "Week 3", "Keep notes")
+            map_id = repo.insert_map(db, original, fingerprint, 0, "Opponent", "Week 3", "Keep notes", organization_team_id=1)
             repo.match_update(db, map_id, played_on="2026-09-30")
             before = dict(db.execute("SELECT * FROM maps WHERE id=?", (map_id,)).fetchone())
             series = dict(db.execute("SELECT * FROM series WHERE id=?", (before["series_id"],)).fetchone())

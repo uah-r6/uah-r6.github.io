@@ -200,7 +200,7 @@ def test_admin_scan_endpoint_uses_physical_rounds_for_zero_based_parser_output(t
                               for number in (2, 3))
     with repo.connect(tmp_path / "data/r6stats.sqlite") as db:
         for username in ("ExampleTeammate", "Teammate2", "Teammate3"):
-            repo.roster_add(db, username)
+            repo.roster_add(db, username, team_id=1)
 
     def fake_parser(command, *, capture_output, text, timeout):
         assert Path(command[1]) == folder
@@ -210,7 +210,7 @@ def test_admin_scan_endpoint_uses_physical_rounds_for_zero_based_parser_output(t
     with patch("r6stats.parser.siege_dissect.parser_executable", return_value="siege-dissect"), \
          patch("r6stats.parser.siege_dissect.subprocess.run", side_effect=fake_parser), \
          TestClient(create_app(tmp_path)) as client:
-        response = client.get("/api/admin/replays")
+        response = client.get("/api/admin/replays", params={'team_id': 1})
         assert response.status_code == 200
         assert response.headers["Cache-Control"] == "no-store"
         replay = response.json()[0]

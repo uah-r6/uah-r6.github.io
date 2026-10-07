@@ -82,11 +82,11 @@ def test_public_export_keeps_partial_map_unrated_and_private_data_out(tmp_path):
     with closing(repo.connect(tmp_path/'data/r6stats.sqlite')) as db:
         repo.season_create(db, 'Fall 2026')
         for i in range(5):
-            repo.roster_add(db, f'Player{i}')
+            repo.roster_add(db, f'Player{i}', team_id=1)
         complete = fixture('complete')
         partial = fixture('partial')
-        complete_id = repo.insert_map(db, complete, 'hash-complete', 0, 'Opponent')
-        partial_id = repo.insert_map(db, partial, 'hash-partial', 0, 'Opponent')
+        complete_id = repo.insert_map(db, complete, 'hash-complete', 0, 'Opponent', organization_team_id=1)
+        partial_id = repo.insert_map(db, partial, 'hash-partial', 0, 'Opponent', organization_team_id=1)
         player_id = db.execute("SELECT id FROM players WHERE username='Player0'").fetchone()[0]
         save_kd(db, partial_id, player_id, 8, 4, 'Missing physical replay rounds', '', 8)
         config = {'team': {'name': 'Test', 'short_name': 'T', 'accent': '#82e3db'},

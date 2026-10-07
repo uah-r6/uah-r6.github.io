@@ -217,12 +217,12 @@ def test_source_registry_prevents_importing_a_segment_again(tmp_path):
     with closing(repo.connect(tmp_path / "tracker.sqlite")) as db:
         repo.season_create(db, "Fall 2026")
         for index in range(5):
-            repo.roster_add(db, f"Our{index}")
+            repo.roster_add(db, f"Our{index}", team_id=1)
         map_id = repo.insert_map(db, logical.match, "logical-fingerprint", 0, "Opponent",
-                                 rehost_manifest={"mapping": []}, source_segments=source_rows)
+                                 rehost_manifest={"mapping": []}, source_segments=source_rows, organization_team_id=1)
         assert db.execute("SELECT count(*) FROM map_segments WHERE map_id=?", (map_id,)).fetchone()[0] == 2
         with pytest.raises(ValueError, match="already been imported"):
-            repo.insert_map(db, first.match, source_rows[0]["fingerprint"], 0, "Opponent")
+            repo.insert_map(db, first.match, source_rows[0]["fingerprint"], 0, "Opponent", organization_team_id=1)
 
 
 def test_rehost_archive_keeps_excluded_physical_round_and_verifies_all_segments(tmp_path):
@@ -237,9 +237,9 @@ def test_rehost_archive_keeps_excluded_physical_round_and_verifies_all_segments(
     with closing(repo.connect(tmp_path / "tracker.sqlite")) as db:
         repo.season_create(db, "Fall 2026")
         for index in range(5):
-            repo.roster_add(db, f"Our{index}")
+            repo.roster_add(db, f"Our{index}", team_id=1)
         map_id = repo.insert_map(db, logical.match, fingerprint, 0, "Opponent",
-                                 rehost_manifest=manifest, source_segments=manifest["segments"])
+                                 rehost_manifest=manifest, source_segments=manifest["segments"], organization_team_id=1)
         prepared = replay_archive.prepare_rehost(paths, archive_root, fingerprint, manifest)
         try:
             target = replay_archive.commit_rehost(prepared, archive_root, db, map_id)

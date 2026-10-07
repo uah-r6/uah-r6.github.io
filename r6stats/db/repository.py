@@ -5,6 +5,7 @@ from uuid import uuid4
 
 from r6stats.parser.models import Match
 from r6stats.eligibility import is_custom_game
+from r6stats.db import teams
 
 SCHEMA = """
 PRAGMA foreign_keys=ON;
@@ -84,6 +85,7 @@ def connect(path: str | Path = "data/r6stats.sqlite") -> sqlite3.Connection:
                   SELECT m.id,1,m.replay_id,m.fingerprint,'' FROM maps m
                   WHERE NOT EXISTS (SELECT 1 FROM map_segments ms WHERE ms.map_id=m.id)""")
     db.commit()
+    teams.migrate(db)
     return db
 
 
@@ -132,7 +134,8 @@ def season_update(db, slug: str, name: str, start_date: str | None, end_date: st
                    (name, start_date, end_date, slug))
 
 
-def roster_add(db, username: str, display_name: str | None = None) -> None:
+def roster_add(db, username: str, display_name: str | None = None, *, team_id: int | None = None,
+               start_date: str = "0001-01-01") -> None:
     username = username.strip()
     if not username:
         raise ValueError("Username cannot be empty.")
@@ -143,6 +146,12 @@ def roster_add(db, username: str, display_name: str | None = None) -> None:
         cur = db.execute("INSERT INTO players(slug,display_name,username) VALUES(?,?,?)",
                          (slug, display_name or username, username))
         db.execute("INSERT INTO aliases(player_id,username) VALUES(?,?)", (cur.lastrowid, username))
+        if team_id is not None:
+            teams.require(db, team_id, active=True)
+            from datetime import date
+            date.fromisoformat(start_date)
+            db.execute("INSERT INTO team_memberships(player_id,team_id,start_date) VALUES(?,?,?)",
+                       (cur.lastrowid, team_id, start_date))
 
 
 def roster_alias(db, old: str, new: str) -> None:
@@ -159,11 +168,11 @@ def roster_remove(db, username: str) -> None:
     if not row:
         raise ValueError(f"Unknown roster username: {username}")
     with db:
-        db.execute("UPDATE players SET tracked=0 WHERE id=?", (row[0],))
+        db.execute("UPDATE players SET tracked=0,status='Alumni' WHERE id=?", (row[0],))
 
 
 def roster_update(db, player_id: int, *, display_name: str | None = None,
-                  tracked: bool | None = None) -> None:
+                  tracked: bool | None = None, status: str | None = None) -> None:
     row = db.execute("SELECT id FROM players WHERE id=?", (player_id,)).fetchone()
     if not row:
         raise ValueError("Player not found.")
@@ -171,11 +180,16 @@ def roster_update(db, player_id: int, *, display_name: str | None = None,
         display_name = display_name.strip()
         if not display_name:
             raise ValueError("Display name cannot be empty.")
+    if status is not None:
+        if status not in ("Active", "Alumni"):
+            raise ValueError("Player status must be Active or Alumni.")
+        tracked = status == "Active"
     with db:
         if display_name is not None:
             db.execute("UPDATE players SET display_name=? WHERE id=?", (display_name, player_id))
         if tracked is not None:
-            db.execute("UPDATE players SET tracked=? WHERE id=?", (int(tracked), player_id))
+            db.execute("UPDATE players SET tracked=?,status=? WHERE id=?",
+                       (int(tracked), "Active" if tracked else "Alumni", player_id))
 
 
 def roster_add_alias(db, player_id: int, username: str, *, make_current: bool = True) -> None:
@@ -195,21 +209,21 @@ def roster_add_alias(db, player_id: int, username: str, *, make_current: bool = 
             db.execute("UPDATE players SET username=? WHERE id=?", (username, player_id))
 
 
-def roster_match(db, player) -> sqlite3.Row | None:
+def roster_match(db, player, team_id: int | None = None, on: str | None = None) -> sqlite3.Row | None:
     if player.profile_id:
-        row = db.execute("SELECT * FROM players WHERE profile_id=? AND tracked=1", (player.profile_id,)).fetchone()
+        row = db.execute("SELECT * FROM players WHERE profile_id=? AND (? IS NOT NULL OR tracked=1)", (player.profile_id, team_id)).fetchone()
         if row:
-            return row
-    row = db.execute("SELECT p.* FROM players p JOIN aliases a ON p.id=a.player_id WHERE a.username=? AND p.tracked=1",
-                     (player.username.strip(),)).fetchone()
+            return row if team_id is None or teams.member(db, row["id"], team_id, on) else None
+    row = db.execute("SELECT p.* FROM players p JOIN aliases a ON p.id=a.player_id WHERE a.username=? AND (? IS NOT NULL OR p.tracked=1)",
+                     (player.username.strip(), team_id)).fetchone()
     if row and row["profile_id"] and player.profile_id and row["profile_id"] != player.profile_id:
         raise ValueError(f"Profile ID conflict for {player.username}; review roster aliases before import.")
-    return row
+    return row if row is None or team_id is None or teams.member(db, row["id"], team_id, on) else None
 
 
-def bind_profiles(db, match: Match) -> None:
+def bind_profiles(db, match: Match, team_id=None) -> None:
     for p in (player for round_ in match.rounds for player in round_.players):
-        row = roster_match(db, p)
+        row = roster_match(db, p, team_id, match.timestamp[:10])
         if row and p.profile_id and not row["profile_id"]:
             db.execute("UPDATE players SET profile_id=? WHERE id=?", (p.profile_id, row["id"]))
         if row and p.username.strip() and p.username.strip().casefold() != row["username"].strip().casefold():
@@ -218,12 +232,12 @@ def bind_profiles(db, match: Match) -> None:
             db.execute("UPDATE players SET username=? WHERE id=?", (p.username.strip(), row["id"]))
 
 
-def choose_team(db, match: Match, explicit: int | None = None) -> tuple[int, list]:
+def choose_team(db, match: Match, explicit: int | None = None, *, team_id: int | None = None) -> tuple[int, list]:
     members = [set(), set()]
     names = {}
     for round_ in match.rounds:
         for p in round_.players:
-            row = roster_match(db, p)
+            row = roster_match(db, p, team_id, match.timestamp[:10])
             if row:
                 members[p.team].add(row["id"])
                 names[row["id"]] = row["display_name"]
@@ -240,9 +254,19 @@ def choose_team(db, match: Match, explicit: int | None = None) -> tuple[int, lis
         raise ValueError("A tracked player changed teams across replay rounds.")
     for round_ in match.rounds:
         for p in round_.players:
-            row = roster_match(db, p)
+            row = roster_match(db, p, team_id, match.timestamp[:10])
             if row and p.team != team:
                 raise ValueError(f"Tracked player {p.username} changed team in round {round_.number}.")
+            if team_id is not None and p.team == team and row is None:
+                # Known members of another organization team cannot be treated as
+                # unconfigured substitutes just because the selected roster differs.
+                identity = db.execute("""SELECT p.id FROM players p LEFT JOIN aliases a ON a.player_id=p.id
+                    WHERE (p.profile_id IS NOT NULL AND p.profile_id=?) OR a.username=?""",
+                                      (p.profile_id or None, p.username.strip())).fetchone()
+                if identity and db.execute("""SELECT 1 FROM team_memberships WHERE player_id=? AND team_id!=?
+                    AND start_date<=? AND (end_date IS NULL OR end_date>?)""",
+                    (identity["id"], team_id, match.timestamp[:10], match.timestamp[:10])).fetchone():
+                    raise ValueError(f"Player {p.username} belongs to another team on this replay date. Review membership history.")
     return team, tracked
 
 
@@ -250,7 +274,8 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
                week: str = "", notes: str = "", series_id: str | None = None,
                demo: bool = False, season_slug: str | None = None,
                rehost_manifest: dict | None = None,
-               source_segments: list[dict] | None = None) -> str:
+               source_segments: list[dict] | None = None, organization_team_id: int | None = None) -> str:
+    teams.require(db, organization_team_id, active=True)
     if not is_custom_game(match.match_type):
         raise ValueError("Only Custom Game replay types can be stored as NECC maps.")
     if db.execute("SELECT 1 FROM series WHERE demo!=? LIMIT 1", (int(demo),)).fetchone():
@@ -270,27 +295,31 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
                        (source["fingerprint"], source.get("replay_id") or None)).fetchone()
             for source in sources):
         raise ValueError("One of these replay folders has already been imported.")
+    if any(source.get("team_id", organization_team_id) != organization_team_id or
+           source.get("season_slug", season["slug"]) != season["slug"] for source in sources):
+        raise ValueError("Rehost sources must share the selected team and season.")
     score = [sum(r.winner == i for r in match.rounds) for i in (0, 1)]
     map_id = uuid4().hex[:12]
     with db:
-        bind_profiles(db, match)
+        bind_profiles(db, match, organization_team_id)
+        db.execute("INSERT OR IGNORE INTO team_seasons VALUES(?,?)", (organization_team_id, season["id"]))
         if series_id:
             row = db.execute("SELECT * FROM series WHERE id=?", (series_id,)).fetchone()
-            if not row or row["season_id"] != season["id"] or row["demo"] != int(demo):
-                raise ValueError("Series not found in the selected season and data mode.")
+            if not row or row["season_id"] != season["id"] or row["demo"] != int(demo) or row["team_id"] != organization_team_id:
+                raise ValueError("Series not found in the selected team, season and data mode.")
             if row["opponent"].casefold() != opponent.casefold():
                 raise ValueError("Opponent differs from the selected series.")
         else:
             series_id = uuid4().hex[:12]
-            db.execute("INSERT INTO series VALUES(?,?,?,?,?,?,?,?)",
-                       (series_id, season["id"], opponent, match.timestamp[:10], week, notes, "NECC", int(demo)))
+            db.execute("INSERT INTO series(id,season_id,opponent,date,week,notes,competition,demo,team_id) VALUES(?,?,?,?,?,?,?,?,?)",
+                       (series_id, season["id"], opponent, match.timestamp[:10], week, notes, "NECC", int(demo), organization_team_id))
         db.execute("""INSERT INTO maps(id,series_id,replay_id,fingerprint,map_name,match_type,
-                   game_mode,our_team,our_score,their_score,normalized_json,played_on,rehost_json)
-                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                   game_mode,our_team,our_score,their_score,normalized_json,played_on,rehost_json,team_id)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                    (map_id, series_id, match.replay_id or None, fingerprint, match.map_name,
                     match.match_type, match.game_mode, team, score[team], score[1-team],
                     json.dumps(match.to_dict(), separators=(",", ":")), match.timestamp[:10],
-                    json.dumps(rehost_manifest, separators=(",", ":")) if rehost_manifest else None))
+                    json.dumps(rehost_manifest, separators=(",", ":")) if rehost_manifest else None, organization_team_id))
         for order, source in enumerate(sources, start=1):
             db.execute("""INSERT INTO map_segments(map_id,segment_order,replay_id,fingerprint,source_name)
                           VALUES(?,?,?,?,?)""", (map_id, order, source.get("replay_id") or None,
@@ -300,7 +329,7 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
                                 (map_id, round_.number, round_.site, round_.winner, round_.win_condition))
             round_id = cursor.lastrowid
             for participant in round_.players:
-                roster = roster_match(db, participant)
+                roster = roster_match(db, participant, organization_team_id, match.timestamp[:10])
                 db.execute("""INSERT INTO round_players
                            (round_id,player_key,player_id,username,profile_id,team,operator,side)
                            VALUES(?,?,?,?,?,?,?,?)""",
@@ -322,7 +351,7 @@ def insert_map(db, match: Match, fingerprint: str, team: int, opponent: str,
 
 def match_update(db, map_id: str, *, played_on: str, series_id: str | None = None,
                  make_new_series: bool = False) -> str:
-    current = db.execute("""SELECT m.series_id,s.season_id,s.opponent,s.week,s.notes,s.demo
+    current = db.execute("""SELECT m.series_id,m.team_id,s.season_id,s.opponent,s.week,s.notes,s.demo
                             FROM maps m JOIN series s ON s.id=m.series_id WHERE m.id=?""", (map_id,)).fetchone()
     if not current or current["demo"]:
         raise ValueError("NECC map not found.")
@@ -330,17 +359,17 @@ def match_update(db, map_id: str, *, played_on: str, series_id: str | None = Non
         raise ValueError("Choose an existing series or make a new one, not both.")
     target = current["series_id"]
     if series_id:
-        destination = db.execute("SELECT season_id,demo FROM series WHERE id=?", (series_id,)).fetchone()
-        if not destination or destination["demo"] or destination["season_id"] != current["season_id"]:
-            raise ValueError("Choose an existing NECC series from the same season.")
+        destination = db.execute("SELECT season_id,demo,team_id FROM series WHERE id=?", (series_id,)).fetchone()
+        if not destination or destination["demo"] or destination["season_id"] != current["season_id"] or destination["team_id"] != current["team_id"]:
+            raise ValueError("Choose an existing NECC series from the same team and season.")
         target = series_id
     with db:
         if make_new_series:
             target = uuid4().hex[:12]
-            db.execute("""INSERT INTO series(id,season_id,opponent,date,week,notes,competition,demo)
-                          VALUES(?,?,?,?,?,?,'NECC',0)""",
+            db.execute("""INSERT INTO series(id,season_id,opponent,date,week,notes,competition,demo,team_id)
+                          VALUES(?,?,?,?,?,?,'NECC',0,?)""",
                        (target, current["season_id"], current["opponent"], played_on,
-                        current["week"], current["notes"]))
+                        current["week"], current["notes"], current["team_id"]))
         db.execute("UPDATE maps SET series_id=?,played_on=? WHERE id=?", (target, played_on, map_id))
         if target != current["series_id"]:
             db.execute("DELETE FROM series WHERE id=? AND NOT EXISTS (SELECT 1 FROM maps WHERE series_id=?)",

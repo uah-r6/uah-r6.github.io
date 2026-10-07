@@ -20,6 +20,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from r6stats.cli import fingerprint
 from r6stats.db import repository as repo
+from r6stats.db import teams as organizations
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats import manual_kd
@@ -41,6 +42,8 @@ class Preview:
     fingerprint: str
     match: Match
     created: float
+    team_id: int | None = None
+    season_slug: str | None = None
     paths: list[Path] | None = None
     rehost_manifest: dict | None = None
 
@@ -68,6 +71,8 @@ class SeasonUpdate(SeasonCreate):
 
 
 class PlayerCreate(BaseModel):
+    team_id: int | None = None
+    start_date: str = "0001-01-01"
     username: str = Field(min_length=1, max_length=80)
     display_name: str | None = Field(default=None, max_length=80)
 
@@ -75,6 +80,7 @@ class PlayerCreate(BaseModel):
 class PlayerUpdate(BaseModel):
     display_name: str | None = Field(default=None, max_length=80)
     tracked: bool | None = None
+    status: str | None = None
 
 
 class AliasCreate(BaseModel):
@@ -83,12 +89,15 @@ class AliasCreate(BaseModel):
 
 
 class PreviewRequest(BaseModel):
+    team_id: int | None = None
+    season_slug: str | None = None
     replay_id: str | None = None
     path: str | None = None
     team: int | None = Field(default=None, ge=0, le=1)
 
 
 class ImportRequest(BaseModel):
+    team_id: int | None = None
     preview_token: str
     season_slug: str
     opponent: str = Field(min_length=1, max_length=120)
@@ -107,6 +116,8 @@ class ImportRequest(BaseModel):
 
 
 class RehostSource(BaseModel):
+    team_id: int | None = None
+    season_slug: str | None = None
     replay_id: str | None = None
     path: str | None = None
 
@@ -118,6 +129,8 @@ class RehostExclusion(BaseModel):
 
 
 class RehostPreviewRequest(BaseModel):
+    team_id: int | None = None
+    season_slug: str | None = None
     segments: list[RehostSource] = Field(min_length=2)
     exclusions: list[RehostExclusion] = Field(default_factory=list)
     team: int | None = Field(default=None, ge=0, le=1)
@@ -184,6 +197,24 @@ class ArchiveBackfill(BaseModel):
     path: str = ""
     segment_paths: list[str] = Field(default_factory=list)
     confirm_map_id: str
+
+
+class TeamUpdate(BaseModel):
+    name: str = Field(min_length=1, max_length=120)
+    slug: str = Field(min_length=1, max_length=80)
+    primary_color: str
+    active: bool = True
+    display_order: int = 0
+
+
+class MembershipMove(BaseModel):
+    team_id: int
+    effective_date: str
+
+    @field_validator("effective_date")
+    @classmethod
+    def valid_date(cls, value):
+        return date_value(value, required=True)
 
 
 class SettingsUpdate(BaseModel):
@@ -333,6 +364,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return RedirectResponse("/admin")
 
     build = root / "web/admin-dist"
+    app.mount("/brand", StaticFiles(directory=root / "web/public/brand", check_dir=False), name="brand")
     app.mount("/admin/assets", StaticFiles(directory=build / "assets", check_dir=False), name="admin-assets")
 
     @app.get("/admin", response_class=HTMLResponse)
@@ -361,8 +393,43 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 "server_file": str(Path(__file__).resolve()),
                 "source_hashes": app.state.source_hashes}
 
+    def import_context(db, team_id, season_slug=None):
+        organization = organizations.require(db, team_id, active=True)
+        season = (db.execute("SELECT * FROM seasons WHERE slug=?", (season_slug,)).fetchone()
+                  if season_slug else db.execute("SELECT * FROM seasons WHERE active=1").fetchone())
+        if not season:
+            raise ValueError("Select an existing season before previewing an import.")
+        return organization, season
+
+    def verify_context(db, payload, preview):
+        import_context(db, payload.team_id, payload.season_slug)
+        if payload.team_id != preview.team_id or payload.season_slug != preview.season_slug:
+            raise ValueError("Team or season changed since preview. Preview again in the selected context.")
+
+    @app.get("/api/admin/teams")
+    def teams(db: DB):
+        return [dict(r) for r in db.execute("SELECT * FROM teams ORDER BY display_order,id")]
+
+    @app.post("/api/admin/teams")
+    def add_team(payload: TeamUpdate, db: DB):
+        team_id = organizations.save(db, **payload.model_dump())
+        export(db, read_settings(root), root / "web/public/data")
+        return {"ok": True, "team_id": team_id}
+
+    @app.patch("/api/admin/teams/{team_id}")
+    def edit_team(team_id: int, payload: TeamUpdate, db: DB):
+        organizations.save(db, team_id=team_id, **payload.model_dump())
+        export(db, read_settings(root), root / "web/public/data")
+        return {"ok": True}
+
+    @app.post("/api/admin/roster/{player_id}/membership")
+    def move_player(player_id: int, payload: MembershipMove, db: DB):
+        organizations.move(db, player_id, payload.team_id, payload.effective_date)
+        export(db, read_settings(root), root / "web/public/data")
+        return {"ok": True, "memberships": organizations.history(db, player_id)}
+
     @app.get("/api/admin/dashboard")
-    def dashboard(db: DB):
+    def dashboard(db: DB, team_id: int | None = None, season: str | None = None):
         active = db.execute("SELECT slug,name FROM seasons WHERE active=1").fetchone()
         last = db.execute("""SELECT m.id,m.map_name,s.opponent,
                                     COALESCE(m.played_on,s.date) AS date,se.name AS season
@@ -371,7 +438,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         database_path = root / "data/r6stats.sqlite"
         publish_path = root / "data/publish-status.json"
         last_publish = json.loads(publish_path.read_text(encoding="utf-8")) if publish_path.exists() else None
-        return {"active_season": dict(active) if active else None,
+        result = {"active_season": dict(active) if active else None,
                 "roster_count": db.execute("SELECT count(*) FROM players WHERE tracked=1").fetchone()[0],
                 "maps_imported": db.execute("SELECT count(*) FROM maps WHERE series_id IN (SELECT id FROM series WHERE demo=0)").fetchone()[0],
                 "demo_maps": db.execute("SELECT count(*) FROM maps WHERE series_id IN (SELECT id FROM series WHERE demo=1)").fetchone()[0],
@@ -379,6 +446,24 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 "last_publish": last_publish,
                 "database": {"status": db.execute("PRAGMA integrity_check").fetchone()[0],
                              "path": str(database_path), "size_bytes": database_path.stat().st_size}}
+        if team_id is not None:
+            organization = organizations.require(db, team_id)
+            result["team"] = dict(organization)
+            result["roster_count"] = sum(organizations.member(db, r[0], team_id) for r in
+                                          db.execute("SELECT id FROM players WHERE status='Active'").fetchall())
+            query = """SELECT m.id,m.map_name,s.opponent,COALESCE(m.played_on,s.date) AS date,se.name AS season
+                FROM maps m JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id
+                WHERE m.team_id=? AND s.demo=0"""
+            params = [team_id]
+            if season:
+                query += " AND se.slug=?"
+                params.append(season)
+                selected = db.execute("SELECT slug,name FROM seasons WHERE slug=?", (season,)).fetchone()
+                result["active_season"] = dict(selected) if selected else None
+            scoped = db.execute(query + " ORDER BY m.rowid DESC", params).fetchall()
+            result["maps_imported"] = len(scoped)
+            result["last_imported"] = dict(scoped[0]) if scoped else None
+        return result
 
     @app.get("/api/admin/seasons")
     def seasons(db: DB):
@@ -405,24 +490,27 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return {"ok": True}
 
     @app.get("/api/admin/roster")
-    def roster(db: DB):
+    def roster(db: DB, team_id: int | None = None):
         result = []
-        for row in db.execute("SELECT id,slug,display_name,username,profile_id,tracked FROM players ORDER BY tracked DESC,display_name"):
+        for row in db.execute("SELECT id,slug,display_name,username,profile_id,tracked,status FROM players ORDER BY tracked DESC,display_name"):
             item = dict(row)
             item["profile_bound"] = bool(item.pop("profile_id"))
             item["aliases"] = [alias[0] for alias in db.execute("SELECT username FROM aliases WHERE player_id=? ORDER BY username", (row["id"],))]
+            item["memberships"] = organizations.history(db, row["id"])
+            item["in_selected_team"] = team_id is None or organizations.member(db, row["id"], team_id)
             result.append(item)
         return result
 
     @app.post("/api/admin/roster")
     def add_player(payload: PlayerCreate, db: DB):
-        repo.roster_add(db, payload.username, payload.display_name)
+        organizations.require(db, payload.team_id, active=True)
+        repo.roster_add(db, payload.username, payload.display_name, team_id=payload.team_id, start_date=date_value(payload.start_date, required=True))
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True}
 
     @app.patch("/api/admin/roster/{player_id}")
     def edit_player(player_id: int, payload: PlayerUpdate, db: DB):
-        repo.roster_update(db, player_id, display_name=payload.display_name, tracked=payload.tracked)
+        repo.roster_update(db, player_id, display_name=payload.display_name, tracked=payload.tracked, status=payload.status)
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True}
 
@@ -433,7 +521,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return {"ok": True}
 
     @app.get("/api/admin/replays")
-    def scan_replays(response: Response, db: DB):
+    def scan_replays(response: Response, db: DB, team_id: int | None = None):
+        organizations.require(db, team_id, active=True)
         response.headers["Cache-Control"] = "no-store"
         config = read_settings(root)
         paths = sorted((p for p in replay_directory(config).iterdir() if p.is_dir() or p.suffix.lower() == ".zip"),
@@ -449,9 +538,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 eligible = complete and is_custom_game(match.match_type)
                 rehost_eligible = is_custom_game(match.match_type)
                 tracked = len({roster["id"] for round_ in match.rounds for player in round_.players
-                               if (roster := repo.roster_match(db, player)) is not None})
+                               if (roster := repo.roster_match(db, player, team_id, match.timestamp[:10])) is not None})
                 try:
-                    our_team, _ = repo.choose_team(db, match)
+                    our_team, _ = repo.choose_team(db, match, team_id=team_id)
                 except ValueError:
                     our_team = None
                 score = [sum(round_.winner == team for round_ in match.rounds) for team in (0, 1)]
@@ -472,6 +561,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
 
     @app.post("/api/admin/replays/preview")
     def preview_replay(payload: PreviewRequest, db: DB):
+        organization, season = import_context(db, payload.team_id, payload.season_slug)
         if payload.replay_id:
             path = app.state.scanned.get(payload.replay_id)
             if path is None:
@@ -490,7 +580,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         tracked = []
         ambiguity = None
         try:
-            team, tracked = repo.choose_team(db, match, payload.team)
+            team, tracked = repo.choose_team(db, match, payload.team, team_id=payload.team_id)
         except ValueError as error:
             if "ambiguous" not in str(error).lower():
                 raise
@@ -501,14 +591,15 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         token = secrets.token_urlsafe(24)
         app.state.previews = {key: value for key, value in app.state.previews.items()
                               if time.time() - value.created < 1800}
-        app.state.previews[token] = Preview(path, digest, match, time.time())
+        app.state.previews[token] = Preview(path, digest, match, time.time(), payload.team_id, season["slug"])
         active = db.execute("SELECT slug FROM seasons WHERE active=1").fetchone()
         return {"preview_token": token, "map": match.map_name, "timestamp": match.timestamp,
                 "match_type": match.match_type, "game_mode": match.game_mode,
                 "rounds": len(match.rounds), "score": score, "our_team": team,
                 "tracked_players": tracked, "teams": teams, "ambiguous": ambiguity,
                 "duplicate": duplicate, "active_season": active["slug"] if active else None,
-                "competition_if_confirmed": "NECC"}
+                "competition_if_confirmed": "NECC", "team_id": organization["id"],
+                "organization_team": organization["name"], "season_slug": season["slug"], "season_name": season["name"]}
 
     @app.post("/api/admin/replays/import")
     def import_replay(payload: ImportRequest, db: DB):
@@ -517,12 +608,13 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         preview = app.state.previews.get(payload.preview_token)
         if not preview or time.time() - preview.created >= 1800:
             raise ValueError("Import preview expired. Preview the replay again.")
+        verify_context(db, payload, preview)
         if fingerprint(preview.path) != preview.fingerprint:
             raise ValueError("Replay files changed since preview. Preview the replay again.")
         match = preview.match
         if not is_custom_game(match.match_type):
             raise ValueError(rejection_message(match.match_type))
-        team, _ = repo.choose_team(db, match, payload.team)
+        team, _ = repo.choose_team(db, match, payload.team, team_id=payload.team_id)
         config = read_settings(root)
         calculate_match(match, config["stats"]["trade_window_seconds"])
         archive_root = root / "data/replay-archive"
@@ -530,7 +622,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         try:
             map_id = repo.insert_map(db, match, preview.fingerprint, team, payload.opponent.strip(),
                                      payload.week.strip(), payload.notes.strip(), payload.series_id or None,
-                                     season_slug=payload.season_slug)
+                                     season_slug=payload.season_slug, organization_team_id=payload.team_id)
             try:
                 replay_archive.commit(prepared, archive_root, db, map_id)
             except Exception:
@@ -545,8 +637,12 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
 
     @app.post("/api/admin/replays/rehost/preview")
     def preview_rehost(payload: RehostPreviewRequest, db: DB):
+        organization, season = import_context(db, payload.team_id, payload.season_slug)
         paths = []
         for source in payload.segments:
+            if ((source.team_id is not None and source.team_id != payload.team_id) or
+                    (source.season_slug is not None and source.season_slug != season["slug"])):
+                raise ValueError("Rehost segments must share the selected team and season.")
             if bool(source.replay_id) == bool(source.path):
                 raise ValueError("Select a scanned replay or enter one folder path per segment.")
             path = (app.state.scanned.get(source.replay_id) if source.replay_id else
@@ -561,7 +657,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         tracked = []
         ambiguity = None
         try:
-            team, tracked = repo.choose_team(db, match, payload.team)
+            team, tracked = repo.choose_team(db, match, payload.team, team_id=payload.team_id)
         except ValueError as error:
             if "ambiguous" not in str(error).lower():
                 raise
@@ -573,8 +669,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         token = secrets.token_urlsafe(24)
         app.state.previews = {key: value for key, value in app.state.previews.items()
                               if time.time() - value.created < 1800}
-        app.state.previews[token] = Preview(paths[0], digest, match, time.time(), paths,
-                                            manifest)
+        app.state.previews[token] = Preview(paths[0], digest, match, time.time(), payload.team_id, season["slug"], paths, manifest)
         active = db.execute("SELECT slug FROM seasons WHERE active=1").fetchone()
         rounds = []
         logical_score = [0, 0]
@@ -628,7 +723,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 "competition_if_confirmed": "NECC", "segments": segment_summaries,
                 "roster_change_required": manifest["roster_change_confirmed"],
                 "score_override_required": manifest["score_override_confirmed"],
-                "physical_rounds": rounds}
+                "physical_rounds": rounds, "team_id": organization["id"], "organization_team": organization["name"],
+                "season_slug": season["slug"], "season_name": season["name"]}
 
     @app.post("/api/admin/replays/rehost/import")
     def import_rehost(payload: RehostImportRequest, db: DB):
@@ -637,6 +733,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         preview = app.state.previews.get(payload.preview_token)
         if not preview or not preview.paths or not preview.rehost_manifest or time.time() - preview.created >= 1800:
             raise ValueError("Rehost preview expired. Preview the segments again.")
+        verify_context(db, payload, preview)
         if (preview.rehost_manifest.get("roster_change_confirmed") and
                 not payload.confirm_roster_change):
             raise ValueError("Confirm the expected roster change before importing this rehost.")
@@ -646,7 +743,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         for path, source in zip(preview.paths, preview.rehost_manifest["segments"]):
             if source_fingerprint(path) != source["fingerprint"]:
                 raise ValueError("A replay segment changed since preview. Preview it again.")
-        team, _ = repo.choose_team(db, preview.match, payload.team)
+        team, _ = repo.choose_team(db, preview.match, payload.team, team_id=payload.team_id)
         expected = ((payload.final_our_score, payload.final_their_score) if team == 0 else
                     (payload.final_their_score, payload.final_our_score))
         actual = tuple(sum(round_.winner == index for round_ in preview.match.rounds)
@@ -665,7 +762,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                                      payload.notes.strip(), payload.series_id or None,
                                      season_slug=payload.season_slug,
                                      rehost_manifest=preview.rehost_manifest,
-                                     source_segments=preview.rehost_manifest["segments"])
+                                     source_segments=preview.rehost_manifest["segments"], organization_team_id=payload.team_id)
             try:
                 replay_archive.commit_rehost(prepared, archive_root, db, map_id)
             except Exception:
@@ -680,11 +777,14 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                 "segments": len(preview.paths), "competition": "NECC", "kill_credit": kill_credit}
 
     @app.get("/api/admin/series")
-    def series(db: DB, season: str | None = None):
-        query = """SELECT s.id,s.opponent,s.date,s.week,s.notes,se.slug AS season_slug,
+    def series(db: DB, season: str | None = None, team_id: int | None = None):
+        query = """SELECT s.id,s.team_id,s.opponent,s.date,s.week,s.notes,se.slug AS season_slug,
                    count(m.id) AS maps FROM series s JOIN seasons se ON se.id=s.season_id
                    LEFT JOIN maps m ON m.series_id=s.id WHERE s.demo=0"""
         params = []
+        if team_id is not None:
+            query += " AND s.team_id=?"
+            params.append(team_id)
         if season:
             query += " AND se.slug=?"
             params.append(season)
@@ -703,13 +803,16 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return {"ok": True}
 
     @app.get("/api/admin/matches")
-    def matches(db: DB, season: str | None = None):
-        query = """SELECT m.id,m.map_name,m.match_type,m.game_mode,m.our_score,m.their_score,
+    def matches(db: DB, season: str | None = None, team_id: int | None = None):
+        query = """SELECT m.id,m.team_id,m.map_name,m.match_type,m.game_mode,m.our_score,m.their_score,
                    s.id AS series_id,s.opponent,s.date AS series_date,
                    COALESCE(m.played_on,s.date) AS date,s.week,s.notes,s.competition,s.demo,
                    se.slug AS season_slug,se.name AS season_name
                    FROM maps m JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id WHERE 1=1"""
         params = []
+        if team_id is not None:
+            query += " AND s.team_id=?"
+            params.append(team_id)
         if season:
             query += " AND se.slug=?"
             params.append(season)
@@ -718,7 +821,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
 
     @app.get("/api/admin/matches/{map_id}")
     def match_detail(map_id: str, db: DB):
-        row = db.execute("""SELECT m.id,m.map_name,m.match_type,m.game_mode,m.our_team,
+        row = db.execute("""SELECT m.id,m.team_id,m.map_name,m.match_type,m.game_mode,m.our_team,
                           m.our_score,m.their_score,m.normalized_json,m.rehost_json,
                           m.replay_data_complete,m.series_id,
                           COALESCE(m.played_on,s.date) AS date,s.date AS series_date,
@@ -891,7 +994,8 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     @app.get("/api/admin/settings")
     def settings():
         config = read_settings(root)
-        return {"team_name": config["team"]["name"], "short_name": config["team"]["short_name"],
+        program = config.get("program", {"name": "UAH Rainbow Six Siege", "short_name": "UAH R6"})
+        return {"team_name": program["name"], "short_name": program["short_name"],
                 "accent": config["team"]["accent"], "replay_path": config["replays"].get("path", ""),
                 "trade_window_seconds": config["stats"]["trade_window_seconds"],
                 "rating_version": config["stats"].get("rating_version", RATING_VERSION),
@@ -907,8 +1011,9 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         if payload.rating_version in ("siege_style_v2", "siege_style_v3") and payload.trade_window_seconds != 8:
             raise ValueError("Siege-style Ratings require their frozen 8-second trade window.")
         config = read_settings(root)
-        config["team"] = {"name": payload.team_name.strip(), "short_name": payload.short_name.strip(),
-                          "accent": payload.accent}
+        config["program"] = {"name": payload.team_name.strip(), "short_name": payload.short_name.strip()}
+        # Legacy public consumers still receive the original team-brand keys.
+        config["team"]["accent"] = payload.accent
         config["replays"]["path"] = payload.replay_path.strip()
         config["stats"]["trade_window_seconds"] = payload.trade_window_seconds
         config["stats"]["rating_version"] = payload.rating_version

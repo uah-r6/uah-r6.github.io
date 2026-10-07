@@ -82,8 +82,8 @@ def make_db(tmp_path):
     match,records=fixture()
     repo.season_create(db,'Fall 2026')
     for p in match.rounds[0].players[:5]:
-        repo.roster_add(db,p.username,p.username)
-    mid=repo.insert_map(db,match,'fingerprint',0,'Opponent','','')
+        repo.roster_add(db,p.username,p.username, team_id=1)
+    mid=repo.insert_map(db,match,'fingerprint',0,'Opponent','','', organization_team_id=1)
     return db,mid,match,records
 
 

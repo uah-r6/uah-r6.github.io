@@ -37,7 +37,7 @@ class ImportTests(unittest.TestCase):
         self.db = repo.connect(Path(self.tmp.name) / "test.sqlite")
         repo.season_create(self.db, "Fall 2026")
         for i in range(5):
-            repo.roster_add(self.db, f"Player{i}")
+            repo.roster_add(self.db, f"Player{i}", team_id=1)
         self.config = {"team": {"name": "Team", "short_name": "T", "accent": "#fff"},
                        "stats": {"trade_window_seconds": 8}}
 
@@ -80,10 +80,10 @@ class ImportTests(unittest.TestCase):
     def test_ranked_rejected_before_write(self):
         with patch("r6stats.cli.parse_match", return_value=normalize(fixture("Ranked"))):
             with self.assertRaisesRegex(ValueError, "Ranked"):
-                import_path(self.db, self.config, "unused")
+                import_path(self.db, self.config, "unused", organization_team_id=1)
         self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 0)
         with self.assertRaisesRegex(ValueError, "Only Custom Game"):
-            repo.insert_map(self.db, normalize(fixture("Ranked")), "ranked-hash", 0, "Opponent")
+            repo.insert_map(self.db, normalize(fixture("Ranked")), "ranked-hash", 0, "Opponent", organization_team_id=1)
         self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 0)
 
     def test_only_custom_game_replays_are_eligible(self):
@@ -94,9 +94,9 @@ class ImportTests(unittest.TestCase):
         for kind in ("Ranked", "Standard", "Quick Match", "QuickMatch", "NotCustomGame", "Unknown"):
             with self.subTest(kind=kind), patch("r6stats.cli.parse_match", return_value=normalize(fixture(kind))):
                 with self.assertRaisesRegex(ValueError, "Import rejected"):
-                    import_path(self.db, self.config, "unused")
+                    import_path(self.db, self.config, "unused", organization_team_id=1)
                 with self.assertRaisesRegex(ValueError, "Only Custom Game"):
-                    repo.insert_map(self.db, normalize(fixture(kind)), kind, 0, "Opponent")
+                    repo.insert_map(self.db, normalize(fixture(kind)), kind, 0, "Opponent", organization_team_id=1)
         self.assertEqual(self.db.execute("SELECT count(*) FROM series").fetchone()[0], 0)
 
     def test_scan_marks_custom_eligible_but_does_not_import_it(self):
@@ -125,13 +125,13 @@ class ImportTests(unittest.TestCase):
         team, names = repo.choose_team(self.db, m)
         self.assertEqual(team, 0)
         self.assertEqual(len(names), 5)
-        repo.insert_map(self.db, m, "hash-1", team, "Opponent")
+        repo.insert_map(self.db, m, "hash-1", team, "Opponent", organization_team_id=1)
         with self.assertRaisesRegex(ValueError, "already been imported"):
-            repo.insert_map(self.db, m, "hash-1", team, "Opponent")
+            repo.insert_map(self.db, m, "hash-1", team, "Opponent", organization_team_id=1)
         repo.season_create(self.db, "Spring 2027")
         repo.season_activate(self.db, "Spring 2027")
         m.replay_id = "replay-2"
-        repo.insert_map(self.db, m, "hash-2", team, "Opponent")
+        repo.insert_map(self.db, m, "hash-2", team, "Opponent", organization_team_id=1)
         rows = self.db.execute("SELECT se.slug, count(*) FROM maps m JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id GROUP BY se.slug").fetchall()
         self.assertEqual({r[0]: r[1] for r in rows}, {"fall-2026": 1, "spring-2027": 1})
 
@@ -147,7 +147,7 @@ class ImportTests(unittest.TestCase):
         with patch("r6stats.cli.parse_match", return_value=normalize(raw)), \
              patch("builtins.input", side_effect=["Opponent", "Week 1", "", "NECC"]), \
              patch("r6stats.cli.export", side_effect=lambda database, config: export(database, config, output)):
-            map_id = import_path(self.db, self.config, str(folder), archive_root=Path(self.tmp.name) / "archive")
+            map_id = import_path(self.db, self.config, str(folder), archive_root=Path(self.tmp.name) / "archive", organization_team_id=1)
             assert (Path(self.tmp.name) / "archive/fall-2026" / map_id / "manifest.json").exists()
             self.assertTrue((output / "matches" / f"{map_id}.json").exists())
             map_data = json.loads((output / "matches" / f"{map_id}.json").read_text())
@@ -165,7 +165,7 @@ class ImportTests(unittest.TestCase):
             self.assertEqual(self.db.execute("SELECT count(*) FROM round_players").fetchone()[0], 20)
             self.assertEqual(self.db.execute("SELECT count(*) FROM kill_events").fetchone()[0], 2)
             with self.assertRaisesRegex(ValueError, "already been imported"):
-                import_path(self.db, self.config, str(folder), archive_root=Path(self.tmp.name) / "archive")
+                import_path(self.db, self.config, str(folder), archive_root=Path(self.tmp.name) / "archive", organization_team_id=1)
             self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 1)
 
     def test_failed_import_does_not_leave_completed_archive(self):
@@ -180,7 +180,7 @@ class ImportTests(unittest.TestCase):
              patch("builtins.input", side_effect=["Opponent", "", "", "NECC"]), \
              patch("r6stats.cli.repo.insert_map", side_effect=ValueError("database failed")):
             with self.assertRaisesRegex(ValueError, "database failed"):
-                import_path(self.db, self.config, str(folder), archive_root=archive_root)
+                import_path(self.db, self.config, str(folder), archive_root=archive_root, organization_team_id=1)
         self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 0)
         self.assertFalse(list(archive_root.rglob("manifest.json")))
         self.assertFalse(list(archive_root.glob(".pending-*")))
@@ -190,7 +190,7 @@ class ImportTests(unittest.TestCase):
         with patch("r6stats.cli.parse_match", return_value=normalize(fixture())), \
              patch("builtins.input", side_effect=["Opponent", "", "", "YES"]), \
              redirect_stdout(output):
-            self.assertIsNone(import_path(self.db, self.config, "unused"))
+            self.assertIsNone(import_path(self.db, self.config, "unused", organization_team_id=1))
         self.assertIn("Competition if confirmed: NECC", output.getvalue())
         self.assertEqual(self.db.execute("SELECT count(*) FROM series").fetchone()[0], 0)
         self.assertEqual(self.db.execute("SELECT count(*) FROM maps").fetchone()[0], 0)
@@ -198,14 +198,14 @@ class ImportTests(unittest.TestCase):
 
     def test_profile_id_survives_username_change(self):
         first = normalize(fixture())
-        repo.insert_map(self.db, first, "first", 0, "Opponent")
+        repo.insert_map(self.db, first, "first", 0, "Opponent", organization_team_id=1)
         changed = fixture()
         changed["rounds"][0]["matchID"] = "replay-2"
         changed["rounds"][0]["players"][0]["username"] = "RenamedPlayer"
         changed["rounds"][0]["matchFeedback"][0]["username"] = "RenamedPlayer"
         second = normalize(changed)
         self.assertEqual(repo.choose_team(self.db, second)[0], 0)
-        repo.insert_map(self.db, second, "second", 0, "Opponent")
+        repo.insert_map(self.db, second, "second", 0, "Opponent", organization_team_id=1)
         player = self.db.execute("SELECT id,username,profile_id FROM players WHERE profile_id='our-0'").fetchone()
         self.assertEqual(player["username"], "RenamedPlayer")
         self.assertEqual(self.db.execute("SELECT count(*) FROM aliases WHERE player_id=?", (player["id"],)).fetchone()[0], 2)
@@ -213,7 +213,7 @@ class ImportTests(unittest.TestCase):
     def test_reparse_preserves_metadata_and_rolls_back_on_failure(self):
         original = normalize(fixture())
         map_id = repo.insert_map(self.db, original, "same-physical-replay", 0,
-                                 "Opponent", "Week 0", "Keep these notes")
+                                 "Opponent", "Week 0", "Keep these notes", organization_team_id=1)
         repo.match_update(self.db, map_id, played_on="2026-09-30")
         before = dict(self.db.execute("SELECT * FROM maps WHERE id=?", (map_id,)).fetchone())
         series = dict(self.db.execute("SELECT * FROM series WHERE id=?", (before["series_id"],)).fetchone())

@@ -33,11 +33,11 @@ def test_admin_manual_final_kd_is_auditable_and_rating_ineligible(tmp_path):
     with closing(repo.connect(tmp_path / "data/r6stats.sqlite")) as db:
         repo.season_create(db, "Fall 2026")
         for i in range(5):
-            repo.roster_add(db, f"Player{i}")
+            repo.roster_add(db, f"Player{i}", team_id=1)
         first = fixture("partial")
         second = fixture("complete")
-        partial_id = repo.insert_map(db, first, "hash-partial", 0, "Opponent")
-        complete_id = repo.insert_map(db, second, "hash-complete", 0, "Opponent")
+        partial_id = repo.insert_map(db, first, "hash-partial", 0, "Opponent", organization_team_id=1)
+        complete_id = repo.insert_map(db, second, "hash-complete", 0, "Opponent", organization_team_id=1)
         player_id = db.execute("SELECT id FROM players WHERE username='Player0'").fetchone()[0]
     app = create_app(tmp_path)
     with TestClient(app) as client:

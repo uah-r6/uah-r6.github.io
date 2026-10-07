@@ -29,7 +29,7 @@ def test_scan_allows_one_round_custom_only_as_rehost_segment(tmp_path):
     with TestClient(create_app(tmp_path)) as client, patch(
             "r6stats.admin.server.parse_match",
             side_effect=lambda path, **kwargs: matches[Path(path).name]):
-        response = client.get("/api/admin/replays")
+        response = client.get("/api/admin/replays", params={'team_id': 1})
     assert response.status_code == 200
     rows = {row["name"]: row for row in response.json()}
     assert rows["segment1"]["rounds"] == 1
@@ -52,7 +52,7 @@ def test_admin_rehost_preview_import_archive_reparse_delete(tmp_path):
     with closing(repo.connect(tmp_path / "data/r6stats.sqlite")) as db:
         repo.season_create(db, "Fall 2026")
         for index in range(5):
-            repo.roster_add(db, f"Our{index}")
+            repo.roster_add(db, f"Our{index}", team_id=1)
     matches = {"segment1": first.match, "segment2": second.match,
                "segment-01": first.match, "segment-02": second.match}
     app = create_app(tmp_path)
@@ -64,7 +64,7 @@ def test_admin_rehost_preview_import_archive_reparse_delete(tmp_path):
                                 {"path": str(tmp_path / "segment2")}],
                    "exclusions": [{"segment": 1, "physical_number": 3,
                                    "reason": "abandoned rehost round"}], "team": 0}
-        preview = client.post("/api/admin/replays/rehost/preview", json=request, headers=headers)
+        preview = client.post("/api/admin/replays/rehost/preview", json={**(request), 'team_id': 1}, headers=headers)
         assert preview.status_code == 200, preview.text
         data = preview.json()
         assert data["score"] == [2, 2] and data["rounds"] == 4
@@ -78,15 +78,15 @@ def test_admin_rehost_preview_import_archive_reparse_delete(tmp_path):
                           "team": 0, "confirm_necc": True,
                           "confirm_folders_one_map": False,
                           "final_our_score": 2, "final_their_score": 2}
-        assert client.post("/api/admin/replays/rehost/import", json=import_request,
+        assert client.post("/api/admin/replays/rehost/import", json={**(import_request), 'team_id': 1},
                            headers=headers).status_code == 400
         import_request["confirm_folders_one_map"] = True
         import_request["final_our_score"] = 3
-        assert client.post("/api/admin/replays/rehost/import", json=import_request,
+        assert client.post("/api/admin/replays/rehost/import", json={**(import_request), 'team_id': 1},
                            headers=headers).status_code == 400
         import_request["final_our_score"] = 2
         import_request["confirm_score_override"] = True
-        imported = client.post("/api/admin/replays/rehost/import", json=import_request,
+        imported = client.post("/api/admin/replays/rehost/import", json={**(import_request), 'team_id': 1},
                                headers=headers)
         assert imported.status_code == 200, imported.text
         map_id = imported.json()["map_id"]
@@ -100,11 +100,11 @@ def test_admin_rehost_preview_import_archive_reparse_delete(tmp_path):
             assert db.execute("SELECT count(*) FROM kill_events").fetchone()[0] == 4
         public = (tmp_path / "web/public/data/matches" / f"{map_id}.json").read_text()
         assert "segment1" not in public and "source_path" not in public
-        duplicate = client.post("/api/admin/replays/rehost/preview", json=request, headers=headers)
+        duplicate = client.post("/api/admin/replays/rehost/preview", json={**(request), 'team_id': 1}, headers=headers)
         assert duplicate.json()["duplicate"] is True
         with patch("r6stats.admin.server.parse_match", return_value=first.match):
             normal_preview = client.post("/api/admin/replays/preview",
-                                         json={"path": str(tmp_path / "segment1")}, headers=headers)
+                                         json={**({"path": str(tmp_path / "segment1")}), 'team_id': 1}, headers=headers)
         assert normal_preview.status_code == 200 and normal_preview.json()["duplicate"] is True
         archived_file = Path(client.get(archive_url).json()["path"]) / "segment-01/segment1-R03.rec"
         original = archived_file.read_bytes()
@@ -142,7 +142,7 @@ def test_admin_rehost_5v5_to_4v5_requires_roster_confirmation_and_keeps_rating(t
     with closing(repo.connect(tmp_path / "data/r6stats.sqlite")) as db:
         repo.season_create(db, "Fall 2026")
         for index in range(5):
-            repo.roster_add(db, f"Our{index}")
+            repo.roster_add(db, f"Our{index}", team_id=1)
     matches = {"segment1": first.match, "segment2": second.match,
                "segment-01": first.match, "segment-02": second.match}
     app = create_app(tmp_path)
@@ -152,7 +152,7 @@ def test_admin_rehost_5v5_to_4v5_requires_roster_confirmation_and_keeps_rating(t
         headers = {"X-R6-Admin-Token": client.get("/api/admin/session").json()["token"]}
         request = {"segments": [{"path": str(tmp_path / "segment1")},
                                 {"path": str(tmp_path / "segment2")}], "team": 0}
-        response = client.post("/api/admin/replays/rehost/preview", json=request, headers=headers)
+        response = client.post("/api/admin/replays/rehost/preview", json={**(request), 'team_id': 1}, headers=headers)
         assert response.status_code == 200, response.text
         preview = response.json()
         assert preview["score"] == [2, 2] and preview["rounds"] == 4
@@ -166,12 +166,12 @@ def test_admin_rehost_5v5_to_4v5_requires_roster_confirmation_and_keeps_rating(t
                    "opponent": "Opponent", "team": 0, "confirm_necc": True,
                    "confirm_folders_one_map": True,
                    "final_our_score": 2, "final_their_score": 2}
-        refused = client.post("/api/admin/replays/rehost/import", json=payload, headers=headers)
+        refused = client.post("/api/admin/replays/rehost/import", json={**(payload), 'team_id': 1}, headers=headers)
         assert refused.status_code == 400 and "roster change" in refused.text
         with closing(repo.connect(tmp_path / "data/r6stats.sqlite")) as db:
             assert db.execute("SELECT count(*) FROM maps").fetchone()[0] == 0
         payload["confirm_roster_change"] = True
-        imported = client.post("/api/admin/replays/rehost/import", json=payload, headers=headers)
+        imported = client.post("/api/admin/replays/rehost/import", json={**(payload), 'team_id': 1}, headers=headers)
         assert imported.status_code == 200, imported.text
         map_id = imported.json()["map_id"]
         detail = client.get(f"/api/admin/matches/{map_id}").json()

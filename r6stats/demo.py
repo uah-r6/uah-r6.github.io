@@ -32,7 +32,7 @@ def run(db, config, clear=False):
     own = [dict(row) for row in db.execute("SELECT * FROM players WHERE tracked=1 ORDER BY id LIMIT 5")]
     if len(own) < 5:
         for i in range(len(own), 5):
-            repo.roster_add(db, f"DemoPlayer{i+1}")
+            repo.roster_add(db, f"DemoPlayer{i+1}", team_id=1)
         own = [dict(row) for row in db.execute("SELECT * FROM players WHERE tracked=1 ORDER BY id LIMIT 5")]
     randomizer = random.Random(41)
     for map_index, (map_name, opponent) in enumerate([("Clubhouse", "North College"), ("Bank", "East University"),
@@ -70,6 +70,6 @@ def run(db, config, clear=False):
         timestamp = (datetime(2026, 9, 10, tzinfo=timezone.utc) + timedelta(days=map_index*7)).isoformat()
         match = Match(f"demo-match-{map_index}", timestamp, map_name, "Custom Game", "Bomb", rounds)
         repo.insert_map(db, match, hashlib.sha256(match.replay_id.encode()).hexdigest(), 0,
-                        opponent, str(map_index + 1), "Synthetic demonstration", demo=True)
+                        opponent, str(map_index + 1), "Synthetic demonstration", demo=True, organization_team_id=1)
     export(db, config)
     print("Created four clearly labeled synthetic NECC maps. Run demo --clear before real imports.")

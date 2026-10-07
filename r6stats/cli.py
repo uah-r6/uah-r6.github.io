@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 from r6stats.db import repository as repo
+from r6stats.db import teams
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats.parser.siege_dissect import parse_match
@@ -72,7 +73,7 @@ def scan(db, config):
     return paths
 
 
-def import_path(db, config, path, series_id=None, team=None, *, archive_root=None):
+def import_path(db, config, path, series_id=None, team=None, *, archive_root=None, organization_team_id=None):
     if db.execute("SELECT 1 FROM series WHERE demo=1 LIMIT 1").fetchone():
         raise ValueError("Demo data exists. Run `python -m r6stats demo --clear` before importing real NECC maps.")
     match = parse_match(path)
@@ -82,8 +83,17 @@ def import_path(db, config, path, series_id=None, team=None, *, archive_root=Non
     if db.execute("SELECT 1 FROM maps WHERE fingerprint=? OR (replay_id IS NOT NULL AND replay_id=?)",
                   (fp, match.replay_id or None)).fetchone():
         raise ValueError("This replay has already been imported. No changes were made.")
+    if organization_team_id is None:
+        choices = db.execute("SELECT id,name FROM teams WHERE active=1 ORDER BY display_order,id").fetchall()
+        for choice in choices:
+            print(f"[{choice['id']}] {choice['name']}")
+        selected = input("Select the organization team ID for this NECC map: ").strip()
+        if not selected.isdigit():
+            raise ValueError("An explicit organization team is required.")
+        organization_team_id = int(selected)
+    organization = teams.require(db, organization_team_id, active=True)
     try:
-        our_team, tracked = repo.choose_team(db, match, team)
+        our_team, tracked = repo.choose_team(db, match, team, team_id=organization_team_id)
     except ValueError as exc:
         if "ambiguous" not in str(exc).lower():
             raise
@@ -93,13 +103,13 @@ def import_path(db, config, path, series_id=None, team=None, *, archive_root=Non
         selected = input("Which team is yours? Enter 0 or 1: ").strip()
         if selected not in {"0", "1"}:
             raise ValueError("No team selected; no changes made.")
-        our_team, tracked = repo.choose_team(db, match, int(selected))
+        our_team, tracked = repo.choose_team(db, match, int(selected), team_id=organization_team_id)
     calculate_match(match, config["stats"]["trade_window_seconds"])
     score = [sum(r.winner == i for r in match.rounds) for i in (0, 1)]
     season = db.execute("SELECT name FROM seasons WHERE active=1").fetchone()
     if not season:
         raise ValueError("Create an active season before import.")
-    print(f"\nCUSTOM GAME IMPORT PREVIEW\nSeason: {season[0]}\nDate: {match.timestamp[:10]}\nMap: {match.map_name}\nMode: {match.game_mode}\nMatch type: {match.match_type}\nTracked team: {', '.join(tracked)}\nScore: {score[our_team]}-{score[1-our_team]}\nRounds: {len(match.rounds)}\nCompetition if confirmed: NECC")
+    print(f"\nCUSTOM GAME IMPORT PREVIEW\nOrganization: {organization['name']}\nSeason: {season[0]}\nDate: {match.timestamp[:10]}\nMap: {match.map_name}\nMode: {match.game_mode}\nMatch type: {match.match_type}\nTracked team: {', '.join(tracked)}\nScore: {score[our_team]}-{score[1-our_team]}\nRounds: {len(match.rounds)}\nCompetition if confirmed: NECC")
     opponent = input("Opponent name: ").strip()
     if not opponent:
         raise ValueError("Opponent is required; no changes made.")
@@ -111,7 +121,7 @@ def import_path(db, config, path, series_id=None, team=None, *, archive_root=Non
     archive_root = Path(archive_root) if archive_root else Path("data/replay-archive")
     prepared = replay_archive.prepare(path, archive_root, fp, len(match.rounds))
     try:
-        map_id = repo.insert_map(db, match, fp, our_team, opponent, week, notes, series_id)
+        map_id = repo.insert_map(db, match, fp, our_team, opponent, week, notes, series_id, organization_team_id=organization_team_id)
         try:
             replay_archive.commit(prepared, archive_root, db, map_id)
         except Exception:
@@ -144,11 +154,13 @@ def main():
     roster.add_argument("username", nargs="?")
     roster.add_argument("new_username", nargs="?")
     roster.add_argument("--display-name")
+    roster.add_argument("--organization-team", type=int)
     sub.add_parser("scan")
     imp = sub.add_parser("import")
     imp.add_argument("path")
     imp.add_argument("--series")
-    imp.add_argument("--team", type=int, choices=[0, 1])
+    imp.add_argument("--team", type=int, choices=[0, 1], help="Replay side 0 or 1")
+    imp.add_argument("--organization-team", type=int, help="Stable organization team ID")
     sub.add_parser("export")
     sub.add_parser("recalculate")
     sub.add_parser("publish")
@@ -192,7 +204,8 @@ def main():
             elif not args.username:
                 raise ValueError("Username is required.")
             elif args.action == "add":
-                repo.roster_add(db, args.username, args.display_name)
+                teams.require(db, args.organization_team, active=True)
+                repo.roster_add(db, args.username, args.display_name, team_id=args.organization_team)
             elif args.action == "remove":
                 repo.roster_remove(db, args.username)
             elif args.action == "alias":
@@ -202,7 +215,7 @@ def main():
         elif args.command == "scan":
             scan(db, config)
         elif args.command == "import":
-            import_path(db, config, args.path, args.series, args.team)
+            import_path(db, config, args.path, args.series, args.team, organization_team_id=args.organization_team)
         elif args.command in {"export", "recalculate"}:
             export(db, config)
             print("Website statistics recalculated and exported from stored rounds.")

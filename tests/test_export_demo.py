@@ -18,7 +18,7 @@ class ExportDemoTests(unittest.TestCase):
             db = repo.connect(Path(directory) / "test.sqlite")
             repo.season_create(db, "Fall 2026")
             for i in range(5):
-                repo.roster_add(db, f"Player{i}")
+                repo.roster_add(db, f"Player{i}", team_id=1)
             root = Path(directory) / "public"
             from unittest.mock import patch
             # Demo's default destination is normally web/public/data.

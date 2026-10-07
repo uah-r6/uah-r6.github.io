@@ -45,9 +45,9 @@ def setup_map(root, original):
         (source / f"Match-test-R{n:02d}.rec").write_bytes(f"physical round {n}".encode())
     db = repo.connect(root / "data/r6stats.sqlite")
     repo.season_create(db, "Fall 2026")
-    repo.roster_add(db, "Player0")
+    repo.roster_add(db, "Player0", team_id=1)
     digest = replay_fingerprint(sorted(source.glob("*.rec")))
-    map_id = repo.insert_map(db, original, digest, 0, "Opponent", "Week 2", "Preserve")
+    map_id = repo.insert_map(db, original, digest, 0, "Opponent", "Week 2", "Preserve", organization_team_id=1)
     prepared = prepare(source, root / "data/replay-archive", digest, 2)
     try:
         commit(prepared, root / "data/replay-archive", db, map_id)

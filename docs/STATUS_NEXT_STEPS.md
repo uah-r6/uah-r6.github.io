@@ -1,4 +1,16 @@
-## Current: validated siege_style_v3 LIVE; authorized run complete - 2026-10-07
+## Current: team architecture and UI migration in progress — 2026-10-07
+
+Baseline HEAD: `90739ed`. The prior v3 run below is complete and remains preserved; the current authorized task is the team architecture/redesign. No Rating/parser research has resumed.
+
+Private safety checkpoint: `data/research/team-architecture-20261007/` contains a verified SQLite backup, settings copy, all original public JSON, HEAD/database/public/archive hashes, and candidate migration/export. `scripts/verify-team-migration.py` confirms every original database column and every original public JSON field remains exact, all 89 archive files are unchanged, protected parser/stat/Rating/archive source is unchanged, and White is empty. Candidate has seven Blue maps and 82 rounds. Production SQLite has not yet been migrated at this checkpoint.
+
+Implemented: atomic/idempotent metadata migration, immutable map/series ownership, dated memberships, Active/Alumni status, team slug aliases, team season/career export, global profile splits/history, team CRUD/movement API, explicit import context bound to previews, scoped scans/series/matches/dashboard. Existing API/CLI test fixtures now supply explicit organization ownership. New tests cover moves, Alumni retention, overlap rejection, aliases, preview context, cross-team segments, and v3 eligible-input career aggregation. Full suite at first checkpoint: 547 passed, one optional smoke skipped, six subtests; the additional v3 scope test passed separately. Both initial web builds passed.
+
+Public/admin UI work is implemented locally and awaits final responsive browser checks. UAH colors/font were verified against the official guide; the unmodified official Esports homepage logo is downloaded. See [BRANDING.md](BRANDING.md).
+
+**NEXT ACTION:** finish browser/UI checks; rerun full tests/builds; verify candidate and apply controlled production metadata migration; regenerate public data and rerun preservation/privacy guard; launch through the actual CMD entry; commit/push/deploy and verify live pages, assets, and JSON. No publishing yet in this architecture session.
+
+## Previous completed checkpoint: validated siege_style_v3 LIVE — 2026-10-07
 
 **STOP CONDITION MET.** Runtime/default/public v3 deployment commit `6ae184a` is pushed. GitHub Pages [run37580585635](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37580585635) succeeded. At2026-10-07T06:22:12Z, all20live JSON documents matched committed LF bytes AND decoded local export at both normal and cache-busted URLs. Headless Edge verified all5player season/career pages and methodology, correct Ratings/coverage, zero JavaScript page errors. Public JSON has no private fields, research/archive paths or raw replay data. Live evidence: research/native-v3-live-checkpoint.json; private screenshots/logs: data/research/native-v3-deployment-20261007. Default local publish status now records the verified deployed commit. All7launcher/admin match endpoints independently confirm v3 eligibility and Healthy archives; actual CMD launcher uses repository .venv Python and source files.
 
