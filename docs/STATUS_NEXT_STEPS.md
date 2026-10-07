@@ -1,4 +1,6 @@
-## Current: team architecture complete locally; deployment pending — 2026-10-07
+## Current: UAH R6 teams/admin redesign LIVE and verified — 2026-10-07
+
+**COMPLETE.** Backend milestone `0c4ec0c` and production release `ee6844b` are pushed to main. [GitHub Pages run 37643709268](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37643709268) succeeded. Live verification at `2026-10-07T15:26:48Z`: all **27 public JSON documents** and the official logo match committed LF bytes at both normal and cache-busted URLs; deployed JS/CSS match local build bytes. Headless Edge verified root, Blue/White team pages, Blue roster/statistics, both selectors, player season/career, map Rating, methodology and legacy routes at 1920/1366/768/390 widths. Zero JavaScript errors, same-origin HTTP errors, or page overflow. Browser-only Alumni fixtures verified default exclusion and an intact Alumni career profile; real statuses were not changed. Evidence stays private in `data/research/team-architecture-20261007/live-checkpoint.json` and `live-browser/`.
 
 Baseline HEAD: `90739ed`. The prior v3 run below is complete and remains preserved; the current authorized task is the team architecture/redesign. No Rating/parser research has resumed.
 
@@ -10,7 +12,7 @@ Public/admin redesign is complete: program root, explicit team navigation, seaso
 
 Verification: **551 Python tests passed**, one optional real-replay smoke skipped, six subtests passed; **three frontend tests passed**; all Go tests and vet passed; both Vite builds passed. Headless Edge public/admin checks passed at 1920, 1366, 768, and 390 widths with zero JS errors or page overflow. Browser-only Alumni fixtures confirm default exclusion and preserved career profile. The actual quoted CMD launcher opened Chrome, using repository `.venv/Scripts/python.exe` and repository parser/server modules. Live admin scan: 12 recent folders, nine Ranked/ineligible, three existing Custom Games with five Blue roster matches; preview-only checks verify Blue's explicit named confirmation and clearing/revalidation for empty White. No import or database mutation was performed during browser checks. A tablet Seasons-form overflow was found and corrected. All 27 public JSON documents passed preservation/privacy/ownership validation; every original document's old fields remain exact.
 
-**NEXT ACTION:** commit the production UI/public export milestone, push main, wait for the existing Pages workflow, then verify live root/team/roster/leaderboard/season/career/player/map/legacy routes, logo/assets, and all 27 JSON documents. Update this checkpoint with deployment evidence and stop after completion.
+**NEXT ACTION:** none for this authorized pass. Launch **Start NECC Admin.cmd**, choose Blue (or another explicitly selected team) and the season, then use the browser. The working application uses the repository's `.venv` and current source. The first-time team choice is deliberate; later choices persist. White is available but empty. This session stops after its completion checkpoint. Future public replay submissions/broader Esports expansion remain documented future work; do not resume Rating/parser research merely because historical notes below contain older next actions.
 
 ## Previous completed checkpoint: validated siege_style_v3 LIVE — 2026-10-07
 
