@@ -1,6 +1,9 @@
 ## Current: match discovery and map analytics - 2026-10-08
 
-**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/LIVE VERIFICATION PENDING.**
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Release `0982b0c` deployed successfully in
+[Pages run 37858456292](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37858456292).
+This final documentation checkpoint records the verified release.
 Baseline `dd4a584`. Focused public Matches filters and team Maps views; no Rating,
 parser, evidence, archive, roster, uploader or Worker changes.
 See [MAP_ANALYTICS.md](MAP_ANALYTICS.md) for architecture, URLs and exact counts.
@@ -33,7 +36,15 @@ Private verification baseline/reports/screenshots:
 `data/research/match-map-analytics-20261008/` (ignored).
 Verification: **799 Python tests + six subtests** (one optional replay smoke skipped),
 **69 frontend tests**, **19 Worker tests**, Go tests/vet and both builds passed.
-Release will be followed by live checks and a final clean documentation checkpoint.
+- All **53 live JSON documents match local exports exactly**. Live browser checks
+  pass at all four widths for global/team Matches, filters/history/share/clear,
+  Blue/White Maps, played/unplayed details, rates/sites/sample sizes and match links.
+  The 33-route public/admin regression also passes against the deployed site with
+  no page overflow, JavaScript errors or API mutations.
+  Links: [Matches](https://uah-r6.github.io/#/matches),
+  [Blue Maps](https://uah-r6.github.io/#/teams/blue/maps),
+  [White Maps](https://uah-r6.github.io/#/teams/white/maps),
+  [UCF Nighthaven](https://uah-r6.github.io/#/teams/blue/maps/nighthaven-labs?season=fall-2026).
 **STOP after this pass; do not begin spatial analytics or other features.**
 
 ---

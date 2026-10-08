@@ -129,3 +129,10 @@ archive manifests/files and Healthy status, and all nine v3 eligibility paths.
 Browser evidence stays in that ignored directory. Future-team, empty-period and
 unknown-site fixtures are intercepted responses only. Tests never submit, import,
 reparse or modify production data.
+
+Release `0982b0c` passed [Pages deployment](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37858456292).
+799 Python tests plus six subtests passed (one optional real-replay smoke skipped),
+69 frontend tests, 19 Worker tests, Go tests/vet and both builds passed. Local and
+live feature browser checks plus the 33-route public/admin regression passed at
+1440/1100/768/390px. All 53 live JSON documents match local exports exactly.
+The nine-profile/four-series Rating browser regression passed locally too.
