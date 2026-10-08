@@ -1,7 +1,10 @@
 ## Current: public presentation redesign — 2026-10-08
 
-**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/DEPLOYMENT PENDING. STOP AFTER THIS PASS.**
-Baseline `b98b46d`. Public composition only; no statistics/export/backend changes.
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Baseline `b98b46d`; release `da093d1` is pushed to main and deployed by successful
+[Pages run 37840479530](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37840479530).
+This documentation checkpoint records the verified presentation release.
+Public composition only; no statistics/export/backend changes.
 
 - Compact program hero, Player Stats/Submit actions, selected-period summary,
   substantial Blue/White identity cards and latest recorded series. Existing
@@ -52,9 +55,23 @@ public JSON, protected hashes, before/after screenshots/galleries and reports.
 Uploader regression uploads and admin handoffs use isolated browser fixtures;
 this pass does not perform a human production Turnstile submission.
 
-After release: confirm successful Pages deployment, live public redesign/embeds/
-Submit, unchanged live public JSON and original PNG hashes. Record a final pushed
-clean checkpoint, then **STOP**. Do not begin research or unrelated features.
+Live verification PASS: all 33 actual routes at all four widths, future empty/
+multi-team fixtures, exact Ratings/coverage and scores, compact embeds, keyboard
+interaction and read-only local admin. Actual deployed screenshots were inspected
+for the homepage, Blue/White, series/maps, profiles, embeds and Submit. The live
+uploader's unmocked configuration returns HTTP 200 with Blue/White and Fall 2026;
+the replay controls and Turnstile script/widget render without a configuration
+error. Structured upload/retry/cancel/rehost/admin-handoff regression passes using
+isolated fixtures. No human verification or real replay upload is claimed.
+
+All **49 live public JSON files** match the pre-redesign baseline byte for byte
+after Git CRLF/LF normalization; all **five live brand PNGs** match byte for byte.
+Final local preservation again passes 22 tables, 219 protected files, 49 JSON
+files and nine Healthy archives. Live browser, uploader, Pages and preservation
+reports/screenshots are in the ignored evidence directory above.
+
+**STOP.** This presentation pass is complete. Do not begin research, statistics,
+roster changes, replay parsing or unrelated features without a new task.
 
 ## Previous: team logo branding — 2026-10-08
 
