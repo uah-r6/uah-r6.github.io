@@ -139,6 +139,14 @@ normal/rehost import API tests use isolated fixture databases and archives.
 
 ## Verification and recovery
 
+Release **`490e4ff`** was pushed and deployed. [Pages run 37805431015](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37805431015)
+completed successfully. All **49 live JSON documents** at
+`https://uah-r6.github.io/` match local exports exactly. Live White Player Stats,
+FSU series and Nighthaven, all Blue series and partial/full trend interactions,
+SUB separation, embeds and Submit Replays shell pass at all four widths without
+JavaScript errors. Final bulk maintenance with the final binaries again reported
+nine maps, six already eligible, no additional changes, three blocked.
+
 - **708 Python tests**, six subtests passed; one optional real-replay smoke skip.
 - **39 frontend tests**; both Vite builds passed.
 - Full Go tests and `go vet ./...` passed.
@@ -159,6 +167,18 @@ It also contains full baseline tables, public JSON, protected hashes, exact
 objective diagnostics, current credited observations and browser reports.
 No archive bytes, SQLite, private paths, replay downloads or research-model data
 are committed or published.
+
+Changed implementation files: `r6stats/rating_evidence.py`,
+`r6stats/objective_refresh.py`, `r6stats/admin/server.py`, `r6stats/cli.py`,
+`third_party/siege-dissect/dissect/objective_actor.go`, `web/src/admin.tsx` and
+`web/src/admin.css`. Regression coverage is in
+`tests/test_rating_evidence_production.py` and
+`third_party/siege-dissect/dissect/objective_terminal_snapshot_test.go`.
+Three production verification scripts were added; existing series/sub browser
+scripts and two frontend scope tests were updated for the current nine-map
+dataset. Nineteen generated JSON files changed only in Rating/coverage,
+Rating-driven ordering or freshness. README, this report and the status
+checkpoint document the workflow and exact remaining blockers.
 
 Read-only verification commands (from the repository root):
 

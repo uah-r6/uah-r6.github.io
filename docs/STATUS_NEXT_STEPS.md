@@ -1,6 +1,11 @@
 ## Current: production Rating evidence reliability — 2026-10-08
 
-**LOCAL VERIFICATION COMPLETE; RELEASE/LIVE CHECKS NEXT.** Baseline `f62263e`.
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Baseline `f62263e`.
+Release `490e4ff` is on main; [Pages run 37805431015](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37805431015)
+completed successfully. All **49 live public JSON documents** match local exports
+at `https://uah-r6.github.io/`. White Player Stats, all four series, White
+Nighthaven, Blue partial/full trends, real and synthetic SUB views, read-only
+embeds and Submit Replays shell passed at 1440/1100/768/390px with no JS errors.
 See [RATING_EVIDENCE_PRODUCTION.md](RATING_EVIDENCE_PRODUCTION.md) for the nine-map
 audit, exact diagnosis, twenty per-player Series Ratings and preservation checks.
 
@@ -35,9 +40,11 @@ Private recovery and diagnostic reports: `data/research/rating-evidence-producti
 Backup SHA-256: `d77e18a41e2cb56129ed24f3ad17235c25cf8e4f5dfabb0b474542c472a3fa53`.
 Read-only continuation: `scripts/verify-rating-production.py --verify` and the
 production admin/public browser scripts documented in the focused report.
-**NEXT ACTION:** commit/push this reviewed reliability release, wait for Pages,
-verify all 49 live JSON documents and public UI, record the clean checkpoint,
-then **STOP**. Do not begin another model or unrelated feature.
+**NEXT ACTION: STOP.** This reliability pass is complete. The three blocked maps
+remain unrated until independent trustworthy evidence can be proven. Do not
+begin another model or unrelated feature. The following documentation checkpoint
+records the completed release and live verification; it changes no application
+or website data.
 
 ## Previous: roster administration and mistaken-player deletion ? 2026-10-07
 
