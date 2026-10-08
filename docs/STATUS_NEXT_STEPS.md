@@ -1,3 +1,43 @@
+## Current: match discovery and map analytics - 2026-10-08
+
+**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/LIVE VERIFICATION PENDING.**
+Baseline `dd4a584`. Focused public Matches filters and team Maps views; no Rating,
+parser, evidence, archive, roster, uploader or Worker changes.
+See [MAP_ANALYTICS.md](MAP_ANALYTICS.md) for architecture, URLs and exact counts.
+
+- Global Matches defaults to All UAH Teams with dynamic team choices, partial
+  opponent search/suggestions, newest/oldest/team/opponent sort, URL state and
+  filter-aware clear/empty states. Whole series remain intact. Team Matches is
+  owner-scoped without a redundant team filter.
+- Team Maps and map detail routes use one new team/period JSON. The centralized
+  catalog covers 26 tracker-supported replay identities including legacy maps;
+  it makes no current competitive-pool claim. Unplayed maps show no recorded data.
+  Map/round W/L, Attack/Defense rates, side-specific sites and recent maps derive
+  from existing logical round projections. Best sites require two known rounds.
+- Independently verified UCF Nighthaven is 7-2 / nine rounds: Attack 3-0,
+  Defense 4-2. Blue Border/Kafe/Chalet and White Border/Nighthaven were verified
+  independently too. Career is team-specific and substitutes do not change results.
+- All 49 previous public documents match exactly except generated_at. Four new
+  analytics documents pass publishing validation. Every row in all 23 SQLite
+  tables is unchanged. All nine maps remain v3-eligible and archives Healthy;
+  all protected source/binary/brand/archive hashes match the private baseline.
+- Local browser checks pass at 1440/1100/768/390px: filters, back/forward, refresh,
+  period, scope, catalog, played/unplayed details, site samples and links. Existing
+  33-route public/admin and nine-profile/four-series regressions also pass.
+  No mutation, import, reparse or submission was performed.
+- Actual quoted `Start NECC Admin.cmd` restarted the repository-source server,
+  confirmed .venv Python and parser/server paths, and opened Chrome. Admin remains
+  responsive for both teams without API writes.
+
+Private verification baseline/reports/screenshots:
+`data/research/match-map-analytics-20261008/` (ignored).
+Verification: **799 Python tests + six subtests** (one optional replay smoke skipped),
+**69 frontend tests**, **19 Worker tests**, Go tests/vet and both builds passed.
+Release will be followed by live checks and a final clean documentation checkpoint.
+**STOP after this pass; do not begin spatial analytics or other features.**
+
+---
+
 ## Current: deep Rating evidence recovery — 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**

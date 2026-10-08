@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from r6stats.export import export
+from r6stats.map_analytics import build_analytics
 from r6stats.series_export import player_series, series_rating_complete
 
 DATA_PATHSPEC = ":(glob)web/public/data/**/*.json"
@@ -78,6 +79,11 @@ def validate_public_data(root: Path) -> int:
                 if match.get('team_slug') != slug or original.get('team_slug') != slug or (
                         period != 'career' and match.get('season') != period):
                     raise ValueError(f'Website team match ownership differs: {name}')
+            analytics_name = f'teams/{slug}/maps/{period}.json'
+            expected_analytics = build_analytics(slug, period, scope['name'],
+                [documents[f"matches/{m['id']}.json"] for m in matches])
+            if documents.get(analytics_name) != expected_analytics:
+                raise ValueError(f'Website map analytics are missing or inconsistent: {analytics_name}')
             if any(p['slug'] not in player_slugs for p in scope.get('players', [])):
                 raise ValueError(f'Website team player reference is unknown: {name}')
             if 'sub_players' in scope:
@@ -102,6 +108,9 @@ def validate_public_data(root: Path) -> int:
             for period in ['index', 'career'] + [s['slug'] for s in index.get('seasons', [])]:
                 if documents.get(f'teams/{alias}/{period}.json') != documents.get(f'teams/{slug}/{period}.json'):
                     raise ValueError(f'Website team slug alias is missing or stale: {alias}')
+            for period in ['career'] + [s['slug'] for s in index.get('seasons', [])]:
+                if documents.get(f'teams/{alias}/maps/{period}.json') != documents.get(f'teams/{slug}/maps/{period}.json'):
+                    raise ValueError(f'Website map analytics alias is missing or stale: {alias}')
     for name, series in documents.items():
         if not name.startswith('series/'):
             continue

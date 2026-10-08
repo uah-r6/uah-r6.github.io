@@ -1,5 +1,16 @@
 # Public presentation and Google Sites embeds
 
+## Match discovery and Maps (2026-10-08)
+
+Matches now has URL-backed team/opponent/sort filters, preserving whole series
+and season/Career context. Team Matches retains owner scope without a redundant
+team filter. Team navigation adds Maps and dedicated map details, with map records,
+round/Attack/Defense rates, separate side-specific sites, visible samples and
+recent-match links. Supported unplayed maps show no recorded data, never fake
+zero performance. The browser reads one exported analytics document per team/period.
+See [MAP_ANALYTICS.md](MAP_ANALYTICS.md) for query parameters, trusted source data,
+catalog maintenance, sample rules and independently verified production counts.
+
 ## Program and team presentation (2026-10-08)
 
 Series Rating availability was subsequently corrected to complete-only coverage.

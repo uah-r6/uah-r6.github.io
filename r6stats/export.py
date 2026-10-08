@@ -5,6 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from r6stats.parser.models import Match
+from r6stats.map_analytics import build_analytics
 from r6stats.series_export import SeriesProjection, player_series
 from r6stats.round_highlights import curate, objective_match
 from r6stats.db import teams as team_repo
@@ -46,6 +47,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     player_matches = defaultdict(lambda: defaultdict(list))
     demo_seasons = set()
     team_maps = defaultdict(list)
+    team_round_maps = defaultdict(list)
     team_inputs = defaultdict(lambda: defaultdict(list))
     team_rating_inputs = defaultdict(lambda: defaultdict(list))
     team_adjustments = defaultdict(lambda: defaultdict(lambda: [0, 0]))
@@ -161,6 +163,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         write(root / "matches" / f"{row['id']}.json", {**public, "players": public_players, "rounds": rounds})
         season_matches[row["season_slug"]].append(public)
         team_maps[(row["team_id"], row["season_slug"])].append(public)
+        team_round_maps[(row["team_id"], row["season_slug"])].append({**public, 'rounds': rounds})
     roster_series = {d['id']: d for d in roster_series_projection.documents(identities)}
     for document in series_projection.documents(identities):
         regular = {p['slug']: p for p in roster_series[document['id']]['players']}
@@ -256,6 +259,9 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                             [r['rating'] for r in records if r['rating'] is not None],
                             [sum(r['delta'][i] for r in records) for i in (0, 1)])})
             name = "Career" if view == "career" else next(s["name"] for s in seasons if s["slug"] == view)
+            write(root / 'teams' / team['slug'] / 'maps' / f'{view}.json',
+                  build_analytics(team['slug'], view, name,
+                                  [m for scope in selected for m in team_round_maps[scope]]))
             write(root / "teams" / team["slug"] / f"{view}.json",
                   {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster, "sub_players": sorted(substitutes, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True)})
         career_summary = json.loads((root / "teams" / team["slug"] / "career.json").read_text(encoding="utf-8"))
@@ -267,6 +273,8 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         for alias in aliases:
             for path in (root / "teams" / team["slug"]).glob('*.json'):
                 write(root / "teams" / alias / path.name, json.loads(path.read_text(encoding='utf-8')))
+            for path in (root / 'teams' / team['slug'] / 'maps').glob('*.json'):
+                write(root / 'teams' / alias / 'maps' / path.name, json.loads(path.read_text(encoding='utf-8')))
         public_teams.append(metadata)
     # Global profiles survive moves and Alumni status; splits use map ownership, never today's roster.
     for p in players:

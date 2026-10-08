@@ -1,0 +1,1143 @@
+{
+  "schema_version": 1,
+  "team_slug": "blue",
+  "period": "career",
+  "period_name": "Career",
+  "catalog_source": "tracker-supported replay maps",
+  "maps": [
+    {
+      "slug": "border",
+      "name": "Border",
+      "supported": true,
+      "maps_played": 3,
+      "map_wins": 2,
+      "map_losses": 1,
+      "rounds": 37,
+      "wins": 20,
+      "losses": 17,
+      "attack": {
+        "rounds": 19,
+        "wins": 8,
+        "losses": 11
+      },
+      "defense": {
+        "rounds": 18,
+        "wins": 12,
+        "losses": 6
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [
+          {
+            "site": "2F Armory Lockers, 2F Archives",
+            "unknown": false,
+            "rounds": 8,
+            "wins": 5,
+            "losses": 3
+          },
+          {
+            "site": "1F Bathroom, 1F Tellers",
+            "unknown": false,
+            "rounds": 6,
+            "wins": 2,
+            "losses": 4
+          },
+          {
+            "site": "1F Ventilation Room, 1F Workshop",
+            "unknown": false,
+            "rounds": 5,
+            "wins": 1,
+            "losses": 4
+          }
+        ],
+        "Defense": [
+          {
+            "site": "1F Bathroom, 1F Tellers",
+            "unknown": false,
+            "rounds": 7,
+            "wins": 5,
+            "losses": 2
+          },
+          {
+            "site": "2F Armory Lockers, 2F Archives",
+            "unknown": false,
+            "rounds": 6,
+            "wins": 4,
+            "losses": 2
+          },
+          {
+            "site": "1F Ventilation Room, 1F Workshop",
+            "unknown": false,
+            "rounds": 5,
+            "wins": 3,
+            "losses": 2
+          }
+        ],
+        "Unknown": []
+      },
+      "matches": [
+        {
+          "id": "8af0a6db6c39",
+          "series_id": "40bf93b16f97",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "UCF",
+          "date": "2026-10-06",
+          "map": "Border",
+          "our_score": 7,
+          "their_score": 4,
+          "result": "WIN"
+        },
+        {
+          "id": "076d2b6b02bc",
+          "series_id": "1a106d1b2f89",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "University of Michigan",
+          "date": "2026-09-30",
+          "map": "Border",
+          "our_score": 7,
+          "their_score": 5,
+          "result": "WIN"
+        },
+        {
+          "id": "8a6357ff307c",
+          "series_id": "170b708e12f1",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "Placements",
+          "date": "2026-09-23",
+          "map": "Border",
+          "our_score": 6,
+          "their_score": 8,
+          "result": "LOSS"
+        }
+      ]
+    },
+    {
+      "slug": "chalet",
+      "name": "Chalet",
+      "supported": true,
+      "maps_played": 1,
+      "map_wins": 1,
+      "map_losses": 0,
+      "rounds": 12,
+      "wins": 7,
+      "losses": 5,
+      "attack": {
+        "rounds": 6,
+        "wins": 2,
+        "losses": 4
+      },
+      "defense": {
+        "rounds": 6,
+        "wins": 5,
+        "losses": 1
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [
+          {
+            "site": "2F Master Bedroom, 2F Office",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 2,
+            "losses": 1
+          },
+          {
+            "site": "B Wine Cellar, B Snowmobile Garage",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          },
+          {
+            "site": "1F Bar, 1F Gaming Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Master Bedroom, 2F Office",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 2,
+            "losses": 1
+          },
+          {
+            "site": "1F Kitchen, 1F Dining Room",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 2,
+            "losses": 0
+          },
+          {
+            "site": "1F Bar, 1F Gaming Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 1,
+            "losses": 0
+          }
+        ],
+        "Unknown": []
+      },
+      "matches": [
+        {
+          "id": "b595ffaaec57",
+          "series_id": "1a106d1b2f89",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "University of Michigan",
+          "date": "2026-09-30",
+          "map": "Chalet",
+          "our_score": 7,
+          "their_score": 5,
+          "result": "WIN"
+        }
+      ]
+    },
+    {
+      "slug": "fortress",
+      "name": "Fortress",
+      "supported": true,
+      "maps_played": 1,
+      "map_wins": 1,
+      "map_losses": 0,
+      "rounds": 10,
+      "wins": 7,
+      "losses": 3,
+      "attack": {
+        "rounds": 4,
+        "wins": 3,
+        "losses": 1
+      },
+      "defense": {
+        "rounds": 6,
+        "wins": 4,
+        "losses": 2
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [
+          {
+            "site": "2F Bathroom, 2F Commander's Office",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 2,
+            "losses": 0
+          },
+          {
+            "site": "2F Dormitory, 2F Games Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 1,
+            "losses": 0
+          },
+          {
+            "site": "1F Waiting Room, 1F Cafeteria",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Dormitory, 2F Games Room",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 2,
+            "losses": 0
+          },
+          {
+            "site": "1F Waiting Room, 1F Cafeteria",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          },
+          {
+            "site": "2F Bathroom, 2F Commander's Office",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          }
+        ],
+        "Unknown": []
+      },
+      "matches": [
+        {
+          "id": "d64d5478cdb3",
+          "series_id": "170b708e12f1",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "Placements",
+          "date": "2026-09-23",
+          "map": "Fortress",
+          "our_score": 7,
+          "their_score": 3,
+          "result": "WIN"
+        }
+      ]
+    },
+    {
+      "slug": "kafe-dostoyevsky",
+      "name": "Kafe Dostoyevsky",
+      "supported": true,
+      "maps_played": 1,
+      "map_wins": 1,
+      "map_losses": 0,
+      "rounds": 14,
+      "wins": 8,
+      "losses": 6,
+      "attack": {
+        "rounds": 7,
+        "wins": 5,
+        "losses": 2
+      },
+      "defense": {
+        "rounds": 7,
+        "wins": 3,
+        "losses": 4
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [
+          {
+            "site": "3F Bar, 3F Cocktail Lounge",
+            "unknown": false,
+            "rounds": 4,
+            "wins": 3,
+            "losses": 1
+          },
+          {
+            "site": "1F Kitchen Service, 1F Kitchen Cooking",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          },
+          {
+            "site": "2F Reading Room, 2F Fireplace Hall",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 1,
+            "losses": 0
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Reading Room, 2F Fireplace Hall",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 2,
+            "losses": 1
+          },
+          {
+            "site": "1F Kitchen Service, 1F Kitchen Cooking",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          },
+          {
+            "site": "2F Fireplace Hall, 2F Mining Room",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          }
+        ],
+        "Unknown": []
+      },
+      "matches": [
+        {
+          "id": "5adc26f7a402",
+          "series_id": "170b708e12f1",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "Placements",
+          "date": "2026-09-23",
+          "map": "Kafe Dostoyevsky",
+          "our_score": 8,
+          "their_score": 6,
+          "result": "WIN"
+        }
+      ]
+    },
+    {
+      "slug": "nighthaven-labs",
+      "name": "Nighthaven Labs",
+      "supported": true,
+      "maps_played": 1,
+      "map_wins": 1,
+      "map_losses": 0,
+      "rounds": 9,
+      "wins": 7,
+      "losses": 2,
+      "attack": {
+        "rounds": 3,
+        "wins": 3,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 6,
+        "wins": 4,
+        "losses": 2
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [
+          {
+            "site": "2F Command Center, 2F Servers",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 2,
+            "losses": 0
+          },
+          {
+            "site": "1F Storage, 1F Control Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 1,
+            "losses": 0
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Command Center, 2F Servers",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 2,
+            "losses": 0
+          },
+          {
+            "site": "1F Storage, 1F Control Room",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          },
+          {
+            "site": "B Assembly, B Tank",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          }
+        ],
+        "Unknown": []
+      },
+      "matches": [
+        {
+          "id": "9db26f1b6ca7",
+          "series_id": "40bf93b16f97",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "UCF",
+          "date": "2026-10-06",
+          "map": "Nighthaven Labs",
+          "our_score": 7,
+          "their_score": 2,
+          "result": "WIN"
+        }
+      ]
+    },
+    {
+      "slug": "bank",
+      "name": "Bank",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "bartlett-university",
+      "name": "Bartlett University",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "clubhouse",
+      "name": "Clubhouse",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "coastline",
+      "name": "Coastline",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "consulate",
+      "name": "Consulate",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "emerald-plains",
+      "name": "Emerald Plains",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "favela",
+      "name": "Favela",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "hereford-base",
+      "name": "Hereford Base",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "house",
+      "name": "House",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "kanal",
+      "name": "Kanal",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "lair",
+      "name": "Lair",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "oregon",
+      "name": "Oregon",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "outback",
+      "name": "Outback",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "presidential-plane",
+      "name": "Presidential Plane",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "skyscraper",
+      "name": "Skyscraper",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "stadium-2020",
+      "name": "Stadium 2020",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "stadium-bravo",
+      "name": "Stadium Bravo",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "theme-park",
+      "name": "Theme Park",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "tower",
+      "name": "Tower",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "villa",
+      "name": "Villa",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    },
+    {
+      "slug": "yacht",
+      "name": "Yacht",
+      "supported": true,
+      "maps_played": 0,
+      "map_wins": 0,
+      "map_losses": 0,
+      "rounds": 0,
+      "wins": 0,
+      "losses": 0,
+      "attack": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "defense": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "unknown_side": {
+        "rounds": 0,
+        "wins": 0,
+        "losses": 0
+      },
+      "sites": {
+        "Attack": [],
+        "Defense": [],
+        "Unknown": []
+      },
+      "matches": []
+    }
+  ]
+}

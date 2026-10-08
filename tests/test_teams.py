@@ -201,7 +201,7 @@ def test_publishing_validation_rejects_cross_team_generated_data(tmp_path):
         seed(db)
         repo.insert_map(db, replay(), 'blue', 0, 'Opponent', organization_team_id=1)
         export(db, settings(), tmp_path/'web/public/data')
-    assert validate_public_data(tmp_path) == 22  # Includes the new series document.
+    assert validate_public_data(tmp_path) == 26  # Series plus four team/period analytics documents.
     target=tmp_path/'web/public/data/teams/blue/career.json'
     data=json.loads(target.read_text(encoding='utf-8'))
     data['matches'][0]['team_slug']='white'
