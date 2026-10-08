@@ -116,6 +116,15 @@ buttons. Public browser checks cover real partial/full points and Series pages
 at 1440/1100/768/390px, including hover/focus/keyboard/tap. Player Stats/Sub Stats,
 embeds and mocked submission flow regressions passed.
 
+Release `88d858e` was deployed by
+[Pages run 37708846633](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37708846633).
+The same browser checks passed live at all four widths, including all five
+players on each Series page and Lgon's partial Placements/Michigan versus full
+UCF points. All 30 live JSON files and both public assets match the release
+exactly. Submission configuration remains enabled and available; no cloud
+upload was performed. The subsequent documentation checkpoint records the
+completed verification. This focused pass is complete; stop here.
+
 Preservation compared all 21 preexisting SQLite tables, all 30 public documents
 (only freshness allowed), all four eligible maps and the UCF series exactly,
 and 168 protected archive/parser/formula files. All seven archives remain

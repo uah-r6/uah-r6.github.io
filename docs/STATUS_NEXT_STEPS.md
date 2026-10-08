@@ -1,6 +1,7 @@
 ## Current: historical Series Rating evidence audit - 2026-10-07
 
-**IMPLEMENTED AND LOCALLY VERIFIED; LIVE DEPLOYMENT VERIFICATION PENDING.**
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Release `88d858e`
+is on main. [Pages run 37708846633](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37708846633) succeeded.
 Baseline HEAD `1b00f59`, initial working tree clean. This focused pass audited
 every production map and every participating player, implemented guarded local
 evidence maintenance, and added restrained partial Series Rating presentation.
@@ -65,8 +66,23 @@ API/browser results, preservation and all-player raw-input checks. Verification
 scripts are `verify-rating-evidence-repair.py`,
 `verify-rating-evidence-admin-ui.py` and updated `verify-series-experience-ui.py`.
 
-**STOP after deployment/live verification and the final clean pushed checkpoint.
-No additional parser or Rating research is authorized by this pass.**
+Live browser verification passed at 1440/1100/768/390px for Lgon's real partial
+Placements/Michigan and full UCF trend points, all three Series pages, exact
+five-player Ratings/coverage, hover/focus/arrow keys/tap and logical round
+highlights. Player Stats/Sub Stats, public presentation/embeds and mocked
+submission flow passed live; no cloud upload or production import occurred.
+All 30 live JSON files and public JS/CSS match the release byte for byte.
+Submission configuration remains enabled, available and Turnstile configured.
+Public assets: `index-BroLbviU.js` / `index-Dx1KU8S8.css`; local admin assets:
+`admin-JFBeboSB.js` / `admin-cAL6FB7E.css`. Current launcher PID 23388 imported
+the repository source. The private audit table contains nine explicit checks
+from three verification passes; all recorded the same exclusions and no repair.
+All 15 before/after Series Rating/coverage rows compare exactly equal.
+
+The documentation checkpoint following the release records these results.
+The focused historical evidence audit and partial presentation pass is finished;
+three genuinely unsupported maps remain unrated. **STOP. No additional parser
+or Rating research is authorized by this pass.**
 
 ## Previous: global substitute eligibility and frozen appearances - 2026-10-07
 
