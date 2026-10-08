@@ -1,0 +1,88 @@
+{
+  "slug": "ctrlaltdyleted",
+  "name": "CtrlAltDyleted",
+  "status": "Active",
+  "rounds": 0,
+  "kills": 0,
+  "deaths": 0,
+  "headshots": 0,
+  "opening_kills": 0,
+  "opening_deaths": 0,
+  "refrag_kills": 0,
+  "deaths_traded": 0,
+  "kills_traded": 0,
+  "untraded_kills": 0,
+  "untraded_deaths": 0,
+  "pivot_kills": 0,
+  "pivot_deaths": 0,
+  "plants": 0,
+  "disables": 0,
+  "teamkills": 0,
+  "survived": 0,
+  "kost_rounds": 0,
+  "rounds_won": 0,
+  "clutches": 0,
+  "clutch_1v1": 0,
+  "clutch_1v2": 0,
+  "clutch_1v3": 0,
+  "clutch_1v4": 0,
+  "clutch_1v5": 0,
+  "multikill_extra": 0,
+  "operators": {
+    "Attack": {},
+    "Defense": {}
+  },
+  "sides": {
+    "Attack": {
+      "rounds": 0,
+      "kills": 0,
+      "deaths": 0,
+      "kd": null,
+      "kpr": 0
+    },
+    "Defense": {
+      "rounds": 0,
+      "kills": 0,
+      "deaths": 0,
+      "kd": null,
+      "kpr": 0
+    }
+  },
+  "maps": 0,
+  "rating": null,
+  "kd": null,
+  "kpr": 0,
+  "kost": 0,
+  "srv": 0,
+  "hs": 0,
+  "entry_diff": 0,
+  "kd_diff": 0,
+  "objectives": 0,
+  "kill_source_rounds": {},
+  "kill_source": "legacy_finisher_v1",
+  "finisher_kills": 0,
+  "headshot_source": "legacy_finisher_v1",
+  "event_feature_source": "legacy_finisher_v1",
+  "multikill_sizes": {
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  },
+  "rating_rounds": 0,
+  "rating_maps": 0,
+  "season": "fall-2026",
+  "matches": [],
+  "sub_teams": [],
+  "series_ratings": [],
+  "memberships": [
+    {
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "team_id": 2,
+      "start_date": "2026-10-07",
+      "end_date": null
+    }
+  ],
+  "team_splits": []
+}

@@ -17,6 +17,27 @@
     "display_order": 1,
     "aliases": []
   },
-  "roster": [],
+  "roster": [
+    {
+      "slug": "ctrlaltdyleted",
+      "name": "CtrlAltDyleted",
+      "status": "Active"
+    },
+    {
+      "slug": "flex-uah",
+      "name": "Flex.UAH",
+      "status": "Active"
+    },
+    {
+      "slug": "gloop",
+      "name": "Gloop...",
+      "status": "Active"
+    },
+    {
+      "slug": "jellyholic-uah",
+      "name": "Jellyholic.UAH",
+      "status": "Active"
+    }
+  ],
   "sub_players": []
 }

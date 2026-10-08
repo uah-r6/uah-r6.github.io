@@ -8,7 +8,28 @@
   "aliases": [],
   "maps": 0,
   "rounds": 0,
-  "roster_count": 0,
-  "roster": [],
+  "roster_count": 4,
+  "roster": [
+    {
+      "slug": "ctrlaltdyleted",
+      "name": "CtrlAltDyleted",
+      "status": "Active"
+    },
+    {
+      "slug": "flex-uah",
+      "name": "Flex.UAH",
+      "status": "Active"
+    },
+    {
+      "slug": "gloop",
+      "name": "Gloop...",
+      "status": "Active"
+    },
+    {
+      "slug": "jellyholic-uah",
+      "name": "Jellyholic.UAH",
+      "status": "Active"
+    }
+  ],
   "seasons": []
 }
