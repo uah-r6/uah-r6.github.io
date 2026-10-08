@@ -1,7 +1,10 @@
 ## Current: complete Series Ratings and trends — 2026-10-08
 
-**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/DEPLOYMENT PENDING. STOP AFTER THIS PASS.**
-Baseline `339cbd0`. This changes Series Rating availability only; the frozen v3
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Baseline `339cbd0`; release `f10eda6` is pushed and deployed by successful
+[Pages run 37844094626](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37844094626).
+This documentation checkpoint records the verified correction.
+This changes Series Rating availability only; the frozen v3
 formula, map eligibility/evidence and independent Season/Career Rating stay intact.
 
 - Shared `series_rating_complete` requires nonzero player-specific played maps
@@ -54,9 +57,23 @@ Ignored baseline/evidence is `data/research/series-completeness-20261008/`:
 SQLite backup/rows, 49 original documents, hashes, archive baseline, screenshots
 and reports. No import, reparse, evidence repair, cloud mutation or research.
 
-After release: confirm Pages success, live Lgon/White compact states and complete
-UCF/FSU versus unavailable Michigan/Placements; verify deployed JSON, map Ratings
-and preservation. Record the final pushed clean checkpoint, then **STOP**.
+Live verification PASS: all nine actual normal profiles and four Series pages at
+all four widths. Lgon shows one complete UCF Rating with no SVG/line; White shows
+one complete FSU Rating with no SVG/line. UCF/FSU numbers remain exact; Michigan/
+Placements show unavailable Ratings, exact coverage and all player performance.
+Zero/one/two-complete, stale partial, multiple-team and long-opponent fixtures,
+hover/focus/click/touch/keyboard context and methodology also pass live. No JS
+errors or API/cloud mutations. Actual live screenshots were visually inspected.
+
+All **49 deployed public JSON files** match the corrected export byte for byte
+after Git CRLF/LF normalization; all **five branding PNGs** are byte-identical.
+Final local preservation again passes all 22 tables, 226 protected files, raw and
+map/Season/Career statistics, complete Series Ratings/coverage and nine Healthy
+archives. Reports, live screenshots and exact Pages release metadata are in the
+ignored evidence directory above.
+
+**STOP.** The complete-Series Rating correction is finished. Do not begin Rating
+research, evidence repair, parsing or unrelated features without a new task.
 
 ## Previous: public presentation redesign — 2026-10-08
 
