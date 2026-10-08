@@ -2,79 +2,159 @@
   "slug": "ctrlaltdyleted",
   "name": "CtrlAltDyleted",
   "status": "Active",
-  "rounds": 0,
-  "kills": 0,
-  "deaths": 0,
+  "rounds": 21,
+  "kills": 5,
+  "deaths": 16,
   "headshots": 0,
   "opening_kills": 0,
-  "opening_deaths": 0,
-  "refrag_kills": 0,
-  "deaths_traded": 0,
+  "opening_deaths": 2,
+  "refrag_kills": 1,
+  "deaths_traded": 1,
   "kills_traded": 0,
-  "untraded_kills": 0,
-  "untraded_deaths": 0,
-  "pivot_kills": 0,
-  "pivot_deaths": 0,
-  "plants": 0,
+  "untraded_kills": 5,
+  "untraded_deaths": 15,
+  "pivot_kills": 4,
+  "pivot_deaths": 8,
+  "plants": 2,
   "disables": 0,
   "teamkills": 0,
-  "survived": 0,
-  "kost_rounds": 0,
-  "rounds_won": 0,
+  "survived": 5,
+  "kost_rounds": 8,
+  "rounds_won": 6,
   "clutches": 0,
   "clutch_1v1": 0,
   "clutch_1v2": 0,
   "clutch_1v3": 0,
   "clutch_1v4": 0,
   "clutch_1v5": 0,
-  "multikill_extra": 0,
+  "multikill_extra": 2,
   "operators": {
-    "Attack": {},
-    "Defense": {}
+    "Attack": {
+      "Thermite": 7,
+      "Zofia": 1,
+      "Nomad": 2,
+      "Ace": 1,
+      "Grim": 2
+    },
+    "Defense": {
+      "Denari": 2,
+      "Lesion": 1,
+      "Ela": 1,
+      "Goyo": 1,
+      "Kapkan": 2,
+      "Thorn": 1
+    }
   },
   "sides": {
     "Attack": {
-      "rounds": 0,
-      "kills": 0,
-      "deaths": 0,
-      "kd": null,
-      "kpr": 0
+      "rounds": 13,
+      "kills": 4,
+      "deaths": 10,
+      "kd": 0.4,
+      "kpr": 0.3076923076923077
     },
     "Defense": {
-      "rounds": 0,
-      "kills": 0,
-      "deaths": 0,
-      "kd": null,
-      "kpr": 0
+      "rounds": 8,
+      "kills": 1,
+      "deaths": 6,
+      "kd": 0.16666666666666666,
+      "kpr": 0.125
     }
   },
-  "maps": 0,
-  "rating": null,
-  "kd": null,
-  "kpr": 0,
-  "kost": 0,
-  "srv": 0,
-  "hs": 0,
-  "entry_diff": 0,
-  "kd_diff": 0,
-  "objectives": 0,
-  "kill_source_rounds": {},
-  "kill_source": "legacy_finisher_v1",
-  "finisher_kills": 0,
+  "maps": 2,
+  "rating": 0.265962813644708,
+  "kd": 0.3125,
+  "kpr": 0.23809523809523808,
+  "kost": 0.38095238095238093,
+  "srv": 0.23809523809523808,
+  "hs": 0.0,
+  "entry_diff": -2,
+  "kd_diff": -11,
+  "objectives": 2,
+  "kill_source_rounds": {
+    "stable_uid_scoreboard_delta_v1": 21
+  },
+  "kill_source": "stable_uid_scoreboard_delta_v1",
+  "finisher_kills": 5,
   "headshot_source": "legacy_finisher_v1",
   "event_feature_source": "legacy_finisher_v1",
   "multikill_sizes": {
     "2": 0,
-    "3": 0,
+    "3": 1,
     "4": 0,
     "5": 0
   },
-  "rating_rounds": 0,
-  "rating_maps": 0,
+  "rating_rounds": 7,
+  "rating_maps": 1,
   "season": "fall-2026",
-  "matches": [],
+  "matches": [
+    {
+      "id": "035ff71d4884",
+      "series_id": "ada4becd7c74",
+      "season": "fall-2026",
+      "opponent": "FSU Maroon",
+      "date": "2026-10-07",
+      "week": "",
+      "notes": "",
+      "map": "Nighthaven Labs",
+      "mode": "Bomb",
+      "our_score": 6,
+      "their_score": 8,
+      "result": "LOSS",
+      "demo": false,
+      "rating_eligible": false,
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": "Whole map has unsupported core objective evidence.",
+      "rating": null
+    },
+    {
+      "id": "5525677668c0",
+      "series_id": "ada4becd7c74",
+      "season": "fall-2026",
+      "opponent": "FSU Maroon",
+      "date": "2026-10-07",
+      "week": "",
+      "notes": "",
+      "map": "Border",
+      "mode": "Bomb",
+      "our_score": 0,
+      "their_score": 7,
+      "result": "LOSS",
+      "demo": false,
+      "rating_eligible": true,
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null,
+      "rating": 0.265962813644708
+    }
+  ],
   "sub_teams": [],
-  "series_ratings": [],
+  "series_ratings": [
+    {
+      "id": "ada4becd7c74",
+      "series_id": "ada4becd7c74",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "season": "fall-2026",
+      "season_name": "Fall 2026",
+      "opponent": "FSU Maroon",
+      "date": "2026-10-07",
+      "recorded_maps": {
+        "count": 2,
+        "wins": 0,
+        "losses": 2
+      },
+      "rating_version": "siege_style_v3",
+      "rating": 0.265962813644708,
+      "rating_maps": 1,
+      "rating_rounds": 7,
+      "maps": 2,
+      "rounds": 21
+    }
+  ],
   "memberships": [
     {
       "team_slug": "white",
@@ -84,5 +164,94 @@
       "end_date": null
     }
   ],
-  "team_splits": []
+  "team_splits": [
+    {
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "rounds": 21,
+      "kills": 5,
+      "deaths": 16,
+      "headshots": 0,
+      "opening_kills": 0,
+      "opening_deaths": 2,
+      "refrag_kills": 1,
+      "deaths_traded": 1,
+      "kills_traded": 0,
+      "untraded_kills": 5,
+      "untraded_deaths": 15,
+      "pivot_kills": 4,
+      "pivot_deaths": 8,
+      "plants": 2,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 5,
+      "kost_rounds": 8,
+      "rounds_won": 6,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 2,
+      "operators": {
+        "Attack": {
+          "Thermite": 7,
+          "Zofia": 1,
+          "Nomad": 2,
+          "Ace": 1,
+          "Grim": 2
+        },
+        "Defense": {
+          "Denari": 2,
+          "Lesion": 1,
+          "Ela": 1,
+          "Goyo": 1,
+          "Kapkan": 2,
+          "Thorn": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 13,
+          "kills": 4,
+          "deaths": 10,
+          "kd": 0.4,
+          "kpr": 0.3076923076923077
+        },
+        "Defense": {
+          "rounds": 8,
+          "kills": 1,
+          "deaths": 6,
+          "kd": 0.16666666666666666,
+          "kpr": 0.125
+        }
+      },
+      "maps": 2,
+      "rating": 0.265962813644708,
+      "kd": 0.3125,
+      "kpr": 0.23809523809523808,
+      "kost": 0.38095238095238093,
+      "srv": 0.23809523809523808,
+      "hs": 0.0,
+      "entry_diff": -2,
+      "kd_diff": -11,
+      "objectives": 2,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 21
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 5,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "rating_rounds": 7,
+      "rating_maps": 1
+    }
+  ]
 }

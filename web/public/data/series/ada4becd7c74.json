@@ -1,11 +1,17 @@
 {
-  "slug": "career",
-  "name": "Career",
-  "maps": 2,
-  "wins": 0,
-  "rounds": 21,
-  "rounds_won": 6,
-  "matches": [
+  "id": "ada4becd7c74",
+  "series_id": "ada4becd7c74",
+  "team_slug": "white",
+  "team_name": "UAH White",
+  "season": "fall-2026",
+  "opponent": "FSU Maroon",
+  "week": "",
+  "notes": "",
+  "demo": false,
+  "date": "2026-10-07",
+  "season_name": "Fall 2026",
+  "rating_version": "siege_style_v3",
+  "maps": [
     {
       "id": "035ff71d4884",
       "series_id": "ada4becd7c74",
@@ -47,6 +53,12 @@
       "rating_exclusion": null
     }
   ],
+  "rounds": 21,
+  "recorded_maps": {
+    "count": 2,
+    "wins": 0,
+    "losses": 2
+  },
   "players": [
     {
       "slug": "gloop",
@@ -131,8 +143,9 @@
         "4": 0,
         "5": 0
       },
+      "rating_maps": 1,
       "rating_rounds": 7,
-      "rating_maps": 1
+      "appearance_role": "roster"
     },
     {
       "slug": "nachofries-08",
@@ -218,8 +231,97 @@
         "4": 0,
         "5": 0
       },
+      "rating_maps": 1,
       "rating_rounds": 7,
-      "rating_maps": 1
+      "appearance_role": "roster"
+    },
+    {
+      "slug": "dinoted11",
+      "name": "Dinoted11",
+      "status": "Active",
+      "rounds": 21,
+      "kills": 9,
+      "deaths": 15,
+      "headshots": 3,
+      "opening_kills": 1,
+      "opening_deaths": 3,
+      "refrag_kills": 2,
+      "deaths_traded": 0,
+      "kills_traded": 1,
+      "untraded_kills": 8,
+      "untraded_deaths": 15,
+      "pivot_kills": 7,
+      "pivot_deaths": 9,
+      "plants": 1,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 6,
+      "kost_rounds": 9,
+      "rounds_won": 6,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 2,
+      "operators": {
+        "Attack": {
+          "Dokkaebi": 5,
+          "Ying": 2,
+          "Ram": 1,
+          "Hibana": 2,
+          "Sens": 2,
+          "Brava": 1
+        },
+        "Defense": {
+          "Thorn": 3,
+          "Skopos": 2,
+          "Clash": 3
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 13,
+          "kills": 5,
+          "deaths": 10,
+          "kd": 0.5,
+          "kpr": 0.38461538461538464
+        },
+        "Defense": {
+          "rounds": 8,
+          "kills": 4,
+          "deaths": 5,
+          "kd": 0.8,
+          "kpr": 0.5
+        }
+      },
+      "maps": 2,
+      "rating": 0.6250292462586454,
+      "kd": 0.6,
+      "kpr": 0.42857142857142855,
+      "kost": 0.42857142857142855,
+      "srv": 0.2857142857142857,
+      "hs": 0.3333333333333333,
+      "entry_diff": -2,
+      "kd_diff": -6,
+      "objectives": 1,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 21
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 9,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 1,
+      "rating_rounds": 7,
+      "appearance_role": "sub"
     },
     {
       "slug": "flex-uah",
@@ -309,8 +411,9 @@
         "4": 0,
         "5": 0
       },
+      "rating_maps": 1,
       "rating_rounds": 7,
-      "rating_maps": 1
+      "appearance_role": "roster"
     },
     {
       "slug": "ctrlaltdyleted",
@@ -398,135 +501,9 @@
         "4": 0,
         "5": 0
       },
+      "rating_maps": 1,
       "rating_rounds": 7,
-      "rating_maps": 1
-    }
-  ],
-  "rating_version": "siege_style_v3",
-  "team": {
-    "id": 2,
-    "name": "UAH White",
-    "slug": "white",
-    "primary_color": "#E6EDF5",
-    "active": 1,
-    "display_order": 1,
-    "aliases": []
-  },
-  "roster": [
-    {
-      "slug": "ctrlaltdyleted",
-      "name": "CtrlAltDyleted",
-      "status": "Active"
-    },
-    {
-      "slug": "flex-uah",
-      "name": "Flex.UAH",
-      "status": "Active"
-    },
-    {
-      "slug": "gloop",
-      "name": "Gloop...",
-      "status": "Active"
-    },
-    {
-      "slug": "jellyholic-uah",
-      "name": "Jellyholic.UAH",
-      "status": "Active"
-    },
-    {
-      "slug": "nachofries-08",
-      "name": "Nachofries_08",
-      "status": "Active"
-    }
-  ],
-  "sub_players": [
-    {
-      "slug": "dinoted11",
-      "name": "Dinoted11",
-      "status": "Active",
-      "appearance_role": "sub",
-      "rounds": 21,
-      "kills": 9,
-      "deaths": 15,
-      "headshots": 3,
-      "opening_kills": 1,
-      "opening_deaths": 3,
-      "refrag_kills": 2,
-      "deaths_traded": 0,
-      "kills_traded": 1,
-      "untraded_kills": 8,
-      "untraded_deaths": 15,
-      "pivot_kills": 7,
-      "pivot_deaths": 9,
-      "plants": 1,
-      "disables": 0,
-      "teamkills": 0,
-      "survived": 6,
-      "kost_rounds": 9,
-      "rounds_won": 6,
-      "clutches": 0,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "multikill_extra": 2,
-      "operators": {
-        "Attack": {
-          "Dokkaebi": 5,
-          "Ying": 2,
-          "Ram": 1,
-          "Hibana": 2,
-          "Sens": 2,
-          "Brava": 1
-        },
-        "Defense": {
-          "Thorn": 3,
-          "Skopos": 2,
-          "Clash": 3
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 13,
-          "kills": 5,
-          "deaths": 10,
-          "kd": 0.5,
-          "kpr": 0.38461538461538464
-        },
-        "Defense": {
-          "rounds": 8,
-          "kills": 4,
-          "deaths": 5,
-          "kd": 0.8,
-          "kpr": 0.5
-        }
-      },
-      "maps": 2,
-      "rating": 0.6250292462586454,
-      "kd": 0.6,
-      "kpr": 0.42857142857142855,
-      "kost": 0.42857142857142855,
-      "srv": 0.2857142857142857,
-      "hs": 0.3333333333333333,
-      "entry_diff": -2,
-      "kd_diff": -6,
-      "objectives": 1,
-      "kill_source_rounds": {
-        "stable_uid_scoreboard_delta_v1": 21
-      },
-      "kill_source": "stable_uid_scoreboard_delta_v1",
-      "finisher_kills": 9,
-      "headshot_source": "legacy_finisher_v1",
-      "event_feature_source": "legacy_finisher_v1",
-      "multikill_sizes": {
-        "2": 2,
-        "3": 0,
-        "4": 0,
-        "5": 0
-      },
-      "rating_rounds": 7,
-      "rating_maps": 1
+      "appearance_role": "roster"
     }
   ]
 }

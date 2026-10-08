@@ -73,7 +73,15 @@
   "rating_maps": 0,
   "season": "fall-2026",
   "matches": [],
-  "sub_teams": [],
+  "sub_teams": [
+    {
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "maps": 2,
+      "rounds": 21,
+      "rating": 0.6250292462586454
+    }
+  ],
   "series_ratings": [],
   "memberships": [],
   "team_splits": []

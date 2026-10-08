@@ -6,8 +6,8 @@
   "active": 1,
   "display_order": 1,
   "aliases": [],
-  "maps": 0,
-  "rounds": 0,
+  "maps": 2,
+  "rounds": 21,
   "roster_count": 5,
   "roster": [
     {
@@ -36,5 +36,12 @@
       "status": "Active"
     }
   ],
-  "seasons": []
+  "seasons": [
+    {
+      "slug": "fall-2026",
+      "name": "Fall 2026",
+      "start_date": "2026-09-30",
+      "end_date": "2026-12-25"
+    }
+  ]
 }

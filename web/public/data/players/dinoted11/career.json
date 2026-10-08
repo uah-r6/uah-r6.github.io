@@ -73,7 +73,15 @@
   "rating_rounds": 0,
   "rating_maps": 0,
   "matches": [],
-  "sub_teams": [],
+  "sub_teams": [
+    {
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "maps": 2,
+      "rounds": 21,
+      "rating": 0.6250292462586454
+    }
+  ],
   "series_ratings": [],
   "memberships": [],
   "team_splits": []
