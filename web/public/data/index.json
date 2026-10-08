@@ -31,7 +31,7 @@
       "aliases": [],
       "maps": 0,
       "rounds": 0,
-      "roster_count": 4
+      "roster_count": 5
     }
   ],
   "active_season": "fall-2026",
@@ -161,6 +161,21 @@
       "name": "Nachofries_08",
       "active": true,
       "status": "Active",
+      "memberships": [
+        {
+          "team_slug": "white",
+          "team_name": "UAH White",
+          "team_id": 2,
+          "start_date": "2026-10-07",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "slug": "nanor555",
+      "name": "Nanor555",
+      "active": true,
+      "status": "Active",
       "memberships": []
     },
     {
@@ -195,5 +210,5 @@
     }
   ],
   "rating_version": "siege_style_v3",
-  "generated_at": "2026-10-08T00:55:43.495117+00:00"
+  "generated_at": "2026-10-08T02:50:29.662224+00:00"
 }

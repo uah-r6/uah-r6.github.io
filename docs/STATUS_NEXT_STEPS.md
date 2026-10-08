@@ -1,3 +1,52 @@
+## Current: roster administration and mistaken-player deletion ? 2026-10-07
+
+**IMPLEMENTED AND LOCALLY VERIFIED; DEPLOYMENT VERIFICATION NEXT.** Baseline HEAD
+`8ff6c46` included user roster additions and dirty public exports; these were
+backed up and preserved. See [ROSTER_ADMIN.md](ROSTER_ADMIN.md) for the diagnosis,
+real data changes, three separate actions, reference audit and rollback design.
+
+- Existing global **Nachofries_08 / player 10** is now a regular White member from
+  **2026-10-07**. No pending/imported White replay supported an earlier date.
+  Exactly one identity/alias represents this username. It remains Active, unbound
+  and not substitute eligible, with no invented statistics.
+- **Nanor555 / player 12** is no longer on White. Its same-day unused mistaken
+  membership was cancelled; identity, alias, Active status and eligibility were
+  preserved. Nanor555 was not globally deleted.
+- Add / Assign detects existing global usernames and aliases case-insensitively,
+  including hidden unassigned/sub-only identities. The old failure was a unique
+  alias collision from attempting to add an already-existing hidden identity.
+- Obvious dated **Remove from roster**, separate **Mark Active/Alumni**, and
+  **Advanced / Danger zone ? Delete mistaken player** are available locally.
+  Historical deletion is blocked. Unused deletion requires the exact current
+  username, repeats the audit under a write lock, and restores database/public
+  JSON on export, validation, installation, SQL or commit failure.
+
+Verification: **687 Python tests + six subtests**, one optional replay smoke
+skip; **39 frontend tests**; both builds. Actual **Start NECC Admin.cmd** restarted
+PID 23388 to **5752**, opened Chrome and confirmed current `.venv` and repository
+imports. The real admin browser created, aliased, removed, changed status,
+reassigned and permanently deleted a temporary player; no test identity remains.
+Lgon deletion was blocked in UI and API. Admin/public checks passed at
+1440/1100/768/390px. Existing Series/trend/highlight/substitute/embed/submission
+shell checks passed. Public White has five regular roster members and no match
+statistics; Nacho's empty profile and retained Nanor profile work.
+
+Preservation PASS: **22 original SQLite tables**, **44 public JSON documents**,
+**101 protected archive/parser/formula files**, all **7 Healthy archives**,
+7 maps / **82 rounds**, frozen appearances, corrections, statistics, Ratings and
+Series Ratings. Only the requested memberships and export freshness changed.
+SQLite integrity/FKs pass. Private backup/evidence:
+`data/research/roster-deletion-20261007/`; backup SHA-256
+`6c9e7714bfb8a91bb857ff3241f0e4e444aea74ae7842fc125e75e2c81b116cf`.
+No parser, formula, evidence, appearance classification, ownership/rehost,
+archive, submission, Cloudflare or embed implementation was modified.
+
+**NEXT ACTION:** push this focused release, wait for Pages, compare all 44 live
+JSON documents and verify live White roster/empty profiles, record the final
+clean checkpoint, then **STOP**. Do not resume research or unrelated features.
+
+---
+
 ## Current: historical Series Rating evidence audit - 2026-10-07
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Release `88d858e`

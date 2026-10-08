@@ -75,6 +75,14 @@
   "matches": [],
   "sub_teams": [],
   "series_ratings": [],
-  "memberships": [],
+  "memberships": [
+    {
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "team_id": 2,
+      "start_date": "2026-10-07",
+      "end_date": null
+    }
+  ],
   "team_splits": []
 }

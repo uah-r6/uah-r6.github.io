@@ -1,6 +1,6 @@
 {
-  "slug": "nachofries-08",
-  "name": "Nachofries_08",
+  "slug": "nanor555",
+  "name": "Nanor555",
   "status": "Active",
   "rounds": 0,
   "kills": 0,
@@ -75,14 +75,6 @@
   "matches": [],
   "sub_teams": [],
   "series_ratings": [],
-  "memberships": [
-    {
-      "team_slug": "white",
-      "team_name": "UAH White",
-      "team_id": 2,
-      "start_date": "2026-10-07",
-      "end_date": null
-    }
-  ],
+  "memberships": [],
   "team_splits": []
 }

@@ -30,7 +30,7 @@ from r6stats.parser.models import Match
 from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
-from r6stats import replay_archive, objective_refresh, submissions, rating_evidence
+from r6stats import replay_archive, objective_refresh, submissions, rating_evidence, roster_admin
 from r6stats.credited_refresh import collect_after_import
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
@@ -90,6 +90,15 @@ class PlayerUpdate(BaseModel):
 class AliasCreate(BaseModel):
     username: str = Field(min_length=1, max_length=80)
     make_current: bool = True
+
+
+class PlayerDelete(BaseModel):
+    confirm_username: str = Field(min_length=1, max_length=80)
+
+
+class RosterRemoval(BaseModel):
+    team_id: int
+    effective_date: str
 
 
 class PreviewRequest(BaseModel):
@@ -540,6 +549,23 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         repo.roster_add_alias(db, player_id, payload.username, make_current=payload.make_current)
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True}
+
+    @app.post('/api/admin/roster/{player_id}/remove-from-roster')
+    def remove_roster_membership(player_id: int, payload: RosterRemoval, db: DB):
+        message = organizations.remove(db, player_id, payload.team_id, date_value(payload.effective_date, required=True))
+        export(db, read_settings(root), root / 'web/public/data')
+        return {'ok': True, 'message': message}
+
+    @app.get('/api/admin/roster/{player_id}/deletion')
+    def audit_player_deletion(player_id: int, db: DB):
+        return repo.roster_deletion_audit(db, player_id)
+
+    @app.delete('/api/admin/roster/{player_id}')
+    def delete_mistaken_player(player_id: int, payload: PlayerDelete, db: DB):
+        try:
+            return roster_admin.delete_and_export(db, player_id, payload.confirm_username, read_settings(root), root)
+        except OSError as error:
+            raise ValueError('Player deletion was rolled back because website data could not be regenerated or installed. The player and previous exports were restored. Check local file permissions and try again.') from error
 
     @app.get("/api/admin/replays")
     def scan_replays(response: Response, db: DB, team_id: int | None = None):

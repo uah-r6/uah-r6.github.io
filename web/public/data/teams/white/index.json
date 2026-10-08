@@ -8,7 +8,7 @@
   "aliases": [],
   "maps": 0,
   "rounds": 0,
-  "roster_count": 4,
+  "roster_count": 5,
   "roster": [
     {
       "slug": "ctrlaltdyleted",
@@ -28,6 +28,11 @@
     {
       "slug": "jellyholic-uah",
       "name": "Jellyholic.UAH",
+      "status": "Active"
+    },
+    {
+      "slug": "nachofries-08",
+      "name": "Nachofries_08",
       "status": "Active"
     }
   ],

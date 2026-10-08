@@ -2,7 +2,7 @@
 
 ## Teams, history, and statistics views
 
-The public homepage represents **UAH R6**, with separate UAH Blue and UAH White team pages. All seven existing maps (82 rounds) belong to Blue. White starts empty: no invented roster, matches, or statistics. The current `siege_style_v3` model and all historical statistics remain unchanged.
+The public homepage represents **UAH R6**, with separate UAH Blue and UAH White team pages. All seven existing maps (82 rounds) belong to Blue. White has five regular roster members and no approved matches or statistics yet. The current `siege_style_v3` model and all historical statistics remain unchanged.
 
 | View | Scope |
 | --- | --- |
@@ -48,13 +48,13 @@ The local **Submissions** section downloads and verifies the private inbox, then
 Double-click **Start NECC Admin.cmd**. Choose an **active team** and **season** in the persistent top controls. An initial team choice is required; the application never silently assigns an import to Blue.
 
 - **Teams:** add teams, edit names/slugs/colors/order, activate/deactivate. Deactivation preserves history. Color accents adapt for readable contrast.
-- **Roster:** add a teammate with a membership start date, maintain aliases, inspect membership history, move an existing player with an effective date, or mark Active/Alumni. Moves close the old membership and open the new one without duplicating the player or moving past maps. Dates use half-open intervals: the move date belongs to the new team.
+- **Roster:** add a teammate or assign a recognized existing username/alias with a membership start date. Maintain aliases, inspect membership history, move teams, or use **Remove from roster** with an effective date and confirmation. Removal retains identity, profile, aliases, substitute eligibility and all history; **Mark Active/Alumni** changes status separately. **Advanced / Danger zone → Delete mistaken player** requires the exact current username and is blocked by any imported history. Successful deletion regenerates validated website data; failures restore the player and previous exports. Dates use half-open intervals: the move date belongs to the new team. See [roster safeguards and verification](docs/ROSTER_ADMIN.md).
 - **Import Match:** scan, select one Custom Game, preview the selected team's dated roster matches, and confirm opponent/season/NECC membership. The final button names the team and season. Changing context clears the preview; the API independently rejects mismatched context. Ranked/Standard/Quick Match stay ineligible. Rehost segments must validate for the same team/season.
 - **Matches:** scoped history, metadata editing, confirmed deletion, and existing archive operations. A map's organization team is immutable; series grouping cannot cross team/season. Archive reparse retains ownership and stored historical player bindings.
 - **Statistics / Publish:** maintenance and publishing operate across the program, all teams and seasons. Public Pages remains static/read-only. Publishing failure never rolls back local data.
 - **Settings:** program branding, local replay path, existing statistics and Git settings. Individual team colors/names belong in Teams.
 
-Player status is separate from team membership. Use only **Active** and **Alumni**. Show other teams/unassigned players to move an existing identity instead of adding a duplicate.
+Player status is separate from team membership. Use only **Active** and **Alumni**. The Add / Assign form finds existing identities across all teams, including hidden unassigned and sub-only players. **Show existing player** reveals the row; it never creates a duplicate. A player with no regular team is labelled **Unassigned**, or **None (sub-only)** when eligible. Neither state causes automatic deletion.
 
 CLI/debug imports additionally support `--organization-team <stable-id>`; `--team 0/1` still means the replay's Siege side. Roster CLI additions also require `--organization-team`. Normal management uses the browser.
 

@@ -144,6 +144,8 @@ def roster_add(db, username: str, display_name: str | None = None, *, team_id: i
     if db.execute("SELECT 1 FROM players WHERE slug=?", (slug,)).fetchone():
         slug += "-" + uuid4().hex[:6]
     with db:
+        if roster_identity(db, username):
+            raise ValueError('This Ubisoft username already belongs to an existing player. Assign that existing player using dated membership; do not add a duplicate.')
         cur = db.execute("INSERT INTO players(slug,display_name,username,substitute_eligible) VALUES(?,?,?,?)",
                          (slug, display_name or username, username, int(substitute_eligible)))
         db.execute("INSERT INTO aliases(player_id,username) VALUES(?,?)", (cur.lastrowid, username))
@@ -153,6 +155,38 @@ def roster_add(db, username: str, display_name: str | None = None, *, team_id: i
             date.fromisoformat(start_date)
             db.execute("INSERT INTO team_memberships(player_id,team_id,start_date) VALUES(?,?,?)",
                        (cur.lastrowid, team_id, start_date))
+
+
+def roster_identity(db, username):
+    rows = db.execute('''SELECT DISTINCT p.* FROM players p LEFT JOIN aliases a ON a.player_id=p.id
+        WHERE p.username=? COLLATE NOCASE OR a.username=? COLLATE NOCASE''', (username.strip(), username.strip())).fetchall()
+    if len(rows) > 1:
+        raise ValueError('Username matches conflicting player identities; review profile/alias evidence before assigning membership.')
+    return rows[0] if rows else None
+
+
+def roster_deletion_audit(db, player_id):
+    from r6stats.db.player_history import audit
+    return audit(db, player_id)
+
+
+def roster_delete(db, player_id, confirmation, *, before_commit=None):
+    """Delete only an unused mistaken identity, with a locked history recheck."""
+    with db:
+        db.execute('BEGIN IMMEDIATE')
+        row = db.execute('SELECT * FROM players WHERE id=?', (player_id,)).fetchone()
+        if not row:
+            raise ValueError('Player not found.')
+        if confirmation.strip() != row['username']:
+            raise ValueError('Type the exact current Ubisoft username to confirm permanent deletion.')
+        status = roster_deletion_audit(db, player_id)
+        if not status['can_delete']:
+            raise ValueError(status['message'])
+        db.execute('DELETE FROM aliases WHERE player_id=?', (player_id,))
+        db.execute('DELETE FROM team_memberships WHERE player_id=?', (player_id,))
+        db.execute('DELETE FROM players WHERE id=?', (player_id,))
+        if before_commit:
+            before_commit()
 
 
 def roster_alias(db, old: str, new: str) -> None:

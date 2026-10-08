@@ -125,3 +125,24 @@ def history(db, player_id):
     return [dict(r) for r in db.execute('''SELECT t.slug AS team_slug,t.name AS team_name,
         tm.team_id,tm.start_date,tm.end_date FROM team_memberships tm JOIN teams t ON t.id=tm.team_id
         WHERE tm.player_id=? ORDER BY tm.start_date''', (player_id,))]
+
+
+def remove(db, player_id, team_id, effective_date):
+    """End regular membership; cancel a same-day unused mistaken assignment."""
+    from r6stats.db.player_history import audit
+    require(db, team_id)
+    date.fromisoformat(effective_date)
+    with db:
+        db.execute('BEGIN IMMEDIATE')
+        row = db.execute('SELECT * FROM team_memberships WHERE player_id=? AND team_id=? AND end_date IS NULL', (player_id, team_id)).fetchone()
+        if not row:
+            raise ValueError('Player has no open membership on this team.')
+        if effective_date < row['start_date']:
+            raise ValueError('Removal date cannot precede the membership start date.')
+        if effective_date == row['start_date']:
+            if not audit(db, player_id)['can_delete']:
+                raise ValueError('Historical membership must be retained; choose an effective date after its start date.')
+            db.execute('DELETE FROM team_memberships WHERE id=?', (row['id'],))
+            return 'Cancelled unused same-day membership; player identity retained.'
+        db.execute('UPDATE team_memberships SET end_date=? WHERE id=?', (effective_date, row['id']))
+    return 'Regular membership ended; player identity and historical statistics retained.'

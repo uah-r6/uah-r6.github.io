@@ -23,8 +23,8 @@ def edit(root, name, change):
 
 
 def test_all_actual_series_highlights_and_profile_references_validate(tmp_path):
-    candidate(tmp_path)
-    assert validate_public_data(tmp_path) == 30
+    root = candidate(tmp_path)
+    assert validate_public_data(tmp_path) == len(list(root.rglob('*.json')))
 
 
 @pytest.mark.parametrize('change,reason', [

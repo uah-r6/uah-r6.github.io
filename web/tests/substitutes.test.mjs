@@ -30,7 +30,9 @@ test('all real current participants remain roster with no fabricated substitute 
  }
  for(const p of load('index.json').players){
   const profile=load(`players/${p.slug}/career.json`)
-  assert.equal(profile.rounds,82)
+  const historical=profile.matches.length>0
+  assert.equal(profile.rounds,historical?82:0)
+  if(!historical){assert.equal(profile.rating,null);assert.equal(profile.kd,null)}
   assert.deepEqual(profile.sub_teams,[])
   for(const m of profile.matches)for(const player of load(`matches/${m.id}.json`).players)
    assert.equal(player.appearance_role,'roster')
