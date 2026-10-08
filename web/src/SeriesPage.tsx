@@ -4,6 +4,7 @@ import type {Series,Team} from './publicTypes'
 import {useData} from './publicData'
 import {PlayerStats} from './PlayerStats'
 import {teamTheme} from './theme'
+import {TeamLogo} from './TeamLogo'
 
 export function SeriesPage({teams}:{teams:Team[]}){
  const {seriesId}=useParams(),{data,error}=useData<Series>(`series/${seriesId}.json`)
@@ -13,7 +14,7 @@ export function SeriesPage({teams}:{teams:Team[]}){
  const anyRated=data.players.some(p=>p.rating!==null)
  return <div className="team-scope series-page" style={teamTheme(team?.primary_color||'#0058A4')}>
  <Link className="back-series" to={`/teams/${data.team_slug}/matches`}>← {data.team_name} series</Link>
- <header className="series-hero"><div><span className="team-chip">{data.team_name}</span><div className="eyebrow">{data.season_name}</div><h1>vs {data.opponent}</h1><p>{data.date}{data.week?` · ${/^week\b/i.test(data.week)?data.week:'Week '+data.week}`:''}</p></div><div className="recorded-score"><span>Recorded maps</span><strong>{data.recorded_maps.wins}–{data.recorded_maps.losses}</strong><small>{data.maps.length} maps · {data.rounds} rounds</small></div></header>
+ <header className="series-hero"><div className="team-heading-identity"><TeamLogo team={{slug:data.team_slug,name:data.team_name}} decorative/><div><span className="team-chip">{data.team_name}</span><div className="eyebrow">{data.season_name}</div><h1>vs {data.opponent}</h1><p>{data.date}{data.week?` · ${/^week\b/i.test(data.week)?data.week:'Week '+data.week}`:''}</p></div></div><div className="recorded-score"><span>Recorded maps</span><strong>{data.recorded_maps.wins}–{data.recorded_maps.losses}</strong><small>{data.maps.length} maps · {data.rounds} rounds</small></div></header>
  {data.demo&&<div className="demo">DEMO DATA · Synthetic maps</div>}
  <div className="series-maps series-map-summary">{data.maps.map(m=><Link to={`/matches/${m.id}`} key={m.id}><span>{m.map}</span><strong>{m.our_score}–{m.their_score}</strong><span className={`badge ${m.result.toLowerCase()}`}>{m.result==='WIN'?'W':'L'}</span><span aria-hidden="true">↗</span></Link>)}</div>
  <div className="section-title"><div><span className="eyebrow">ACROSS RECORDED MAPS</span><h2>Series Player Stats</h2></div></div>

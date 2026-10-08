@@ -1,4 +1,49 @@
-## Current: logical map replay submissions — 2026-10-08
+## Current: team logo branding — 2026-10-08
+
+**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/DEPLOYMENT PENDING. STOP AFTER THIS PASS.**
+Baseline `1b0d6cb`. This pass changes frontend branding only.
+
+- Four authoritative user PNGs are installed byte for byte under
+  `web/public/brand/teams/{blue,white,grey,black}.png`. Valid 1080 x 1080 RGBA,
+  64-95 KiB; browser decoding confirms transparent pixels and intact proportions.
+  Artwork, canvas and the original program asset remain unchanged.
+- Central `teamLogos.ts` registry and shared `TeamLogo.tsx` provide team asset,
+  program fallback, then plain UAH if both images fail. Known team slugs resolve
+  independently of page code. Grey/Black use frontend fixtures only; production
+  still has exactly Blue and White. No public types or exported metadata changed.
+- Team overview/roster/stats header, main Player Stats, owning series/map, program
+  cards, compact embeds and local admin context/editors use logos. One per context,
+  no player-row repetition. Native selectors, program navigation mark and global
+  profiles retain their current behavior. Mobile series spacing accommodates the
+  logo without splitting the opponent name beside the score.
+- **51 frontend tests**, both public/admin builds, and Edge browser checks pass.
+  All **21 actual team/roster/stats/series/map routes** were checked at
+  **1440/1100/768/390px**, plus both embeds, preserved team/Career/sort selection,
+  future-team fixtures, missing images, contrast on dark/team/light panels and
+  read-only admin previews. No JavaScript errors or admin mutation requests.
+- Actual quoted **Start NECC Admin.cmd** requests Chrome and serves the new admin
+  build from this repository. Python:
+  `C:\Users\logan\Documents\R6\r6-necc-stats\.venv\Scripts\python.exe`.
+  Runtime imports resolve to this repository's `r6stats` sources. Shared logo URLs
+  explicitly use `/brand/` in admin, rather than its Vite `/admin/` base.
+- Preservation PASS: **22 SQLite tables**, **49 public JSON files**, **210 protected
+  archive/backend/parser/rating/submission/cloud files**, original program logo,
+  **nine Healthy archives**, integrity and foreign keys. No imports, reparse,
+  recalculation, export, team creation, membership edits or cloud mutations.
+  Python/export/types, Worker and Go are unchanged, so their suites were not rerun
+  for this frontend pass.
+
+Read [BRANDING.md](BRANDING.md) for the asset convention and fallback. Regressions:
+`scripts/verify-team-logos-ui.py` (build or `--url https://uah-r6.github.io/`) and
+`scripts/verify-team-branding-preservation.py`. Ignored baseline and evidence:
+`data/research/team-logos-20261008/` (SQLite backup, full table rows, exact public
+JSON, protected hashes, PNG metadata, screenshots and verification reports).
+
+After release: verify Pages, all four live PNG hashes, live Blue/White at all four
+widths and unchanged live public JSON; record the final pushed clean checkpoint.
+Then **STOP**. Do not resume earlier research or other production features.
+
+## Previous: logical map replay submissions — 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Baseline `d687542`.
 Release `e493f90` is on main; [Pages run 37828061045](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37828061045)
