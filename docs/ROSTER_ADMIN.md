@@ -136,3 +136,16 @@ The opt-in production admin script creates and deletes a temporary unused player
 Public browser verification accepts `--url https://uah-r6.github.io/` and compares
 every published JSON document to the local export. Never publish the SQLite
 database, private settings, replay archives, test screenshots or backup files.
+
+## Release and live verification
+
+Release **`0cf0cfe`** was pushed to main and deployed successfully by
+[Pages run 37720209529](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37720209529).
+Live browser checks at [the White roster](https://uah-r6.github.io/#/teams/white/roster)
+passed at all four widths. All 44 published JSON documents match the local export
+exactly; season/Career empty states, Nacho's zero-match profile, Nanor's retained
+unassigned profile, unchanged Blue Player Stats and isolated Sub Stats were verified.
+No temporary test identity or its public data remains. Private live evidence is
+under `data/research/roster-deletion-20261007/live-browser/`.
+
+**Complete. Stop after this focused roster-management cleanup.**

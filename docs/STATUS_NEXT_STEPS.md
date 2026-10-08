@@ -1,6 +1,7 @@
 ## Current: roster administration and mistaken-player deletion ? 2026-10-07
 
-**IMPLEMENTED AND LOCALLY VERIFIED; DEPLOYMENT VERIFICATION NEXT.** Baseline HEAD
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Release `0cf0cfe`
+is on main. [Pages run 37720209529](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37720209529) succeeded. Baseline HEAD
 `8ff6c46` included user roster additions and dirty public exports; these were
 backed up and preserved. See [ROSTER_ADMIN.md](ROSTER_ADMIN.md) for the diagnosis,
 real data changes, three separate actions, reference audit and rollback design.
@@ -41,9 +42,16 @@ SQLite integrity/FKs pass. Private backup/evidence:
 No parser, formula, evidence, appearance classification, ownership/rehost,
 archive, submission, Cloudflare or embed implementation was modified.
 
-**NEXT ACTION:** push this focused release, wait for Pages, compare all 44 live
-JSON documents and verify live White roster/empty profiles, record the final
-clean checkpoint, then **STOP**. Do not resume research or unrelated features.
+Live verification PASS at `https://uah-r6.github.io/`: **all 44 JSON documents**
+match local exports exactly; White has five current regular members, including
+Nachofries_08 and excluding Nanor555. Season/Career empty states, both zero-match
+profiles, unchanged Blue Player Stats and empty Sub Stats pass at all four widths
+with no JavaScript errors. The temporary production test identity, aliases,
+memberships and public JSON are fully gone; the database retains its original
+12 real identities. Live evidence is in the ignored `live-browser/` directory.
+
+**NEXT ACTION: STOP.** This roster cleanup is complete. The repository checkpoint
+records verified deployment; do not resume research or unrelated features.
 
 ---
 
