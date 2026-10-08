@@ -26,7 +26,7 @@ def verify(url, output):
         browser = p.chromium.launch(channel='msedge', headless=True)
         page = browser.new_page(viewport={'width': 1440, 'height': 960})
         page.on('pageerror', lambda e: errors.append(str(e)))
-        for width in (1440, 1150, 768, 390):
+        for width in (1440, 1100, 768, 390):
             page.set_viewport_size({'width': width, 'height': 960})
             for doc in series:
                 page.goto(url + '#/series/' + doc['id'], wait_until='networkidle')
@@ -48,16 +48,29 @@ def verify(url, output):
                 page.screenshot(path=str(output / f"series-{doc['id']}-{width}.png"), full_page=True)
             page.goto(url + '#/players/lgon', wait_until='networkidle')
             expect(page.locator('.trend-point')).to_have_count(3)
-            for i, (rating, opponent, coverage) in enumerate((('1.50', 'Placements', '1 / 3 maps rated'), ('1.43', 'University of Michigan', '1 / 2 maps rated'), ('1.42', 'UCF', '2 / 2 maps rated'))):
+            points=sorted(profile['series_ratings'],key=lambda p:p['date'])
+            for i, point_data in enumerate(points):
+                rating=f"{point_data['rating']:.2f}";opponent=point_data['opponent'];coverage=f"{point_data['rating_maps']} / {point_data['maps']} maps rated"
+                partial=point_data['rating_maps']<point_data['maps'] or point_data['rating_rounds']<point_data['rounds']
                 point = page.locator('.trend-point').nth(i)
+                assert ('trend-point-partial' in point.get_attribute('class'))==partial
                 point.hover()
                 expect(page.locator('.exact-series-rating')).to_contain_text(rating)
                 point.focus()
                 expect(page.locator('.trend-detail')).to_contain_text(opponent)
                 point.click()
                 expect(page.locator('.trend-coverage')).to_contain_text(coverage)
+                expect(page.locator('.trend-coverage')).to_contain_text(f"{point_data['rating_rounds']} / {point_data['rounds']} rounds rated")
+                expect(page.locator('.trend-partial-label')).to_have_count(int(partial))
+                assert ('partial Series Rating' in point.get_attribute('aria-label'))==partial
+                if partial:
+                    assert point.evaluate('e=>getComputedStyle(e).fill')=='rgb(20, 31, 43)'
                 assert page.locator('.exact-series-rating').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)') >= 24
                 assert point.get_attribute('aria-describedby') == page.locator('.trend-detail').get_attribute('id')
+            page.locator('.trend-point').first.focus()
+            page.keyboard.press('ArrowRight')
+            expect(page.locator('.trend-detail')).to_contain_text(points[1]['opponent'])
+            page.locator('.trend-point').last.click()
             page.screenshot(path=str(output / f'trend-{width}.png'), full_page=True)
             page.locator('.trend-context a').click()
             expect(page.locator('h1')).to_have_text('vs UCF')
@@ -65,7 +78,7 @@ def verify(url, output):
             expect(page.locator('h1')).to_contain_text('Nighthaven Labs')
             page.get_by_role('link', name='Back to series').click()
             expect(page.locator('h1')).to_have_text('vs UCF')
-        checks.append('all three real series: exact five-player Ratings/coverage, map links and prominent hover/focus/click trend values at 1440/1150/768/390px')
+        checks.append('all three real series: exact five-player Ratings/coverage, hollow partial vs full points, hover/focus/click/arrow keys at 1440/1100/768/390px')
         page.goto(url + '#/matches', wait_until='networkidle')
         expect(page.locator('.series-summary-link')).to_have_count(3)
         page.locator('.series-summary-link').first.click()
@@ -73,7 +86,7 @@ def verify(url, output):
         checks.append('Matches → series → map → series and trend → series navigation')
 
         highlighted, total = 0, 0
-        for width in (1440, 1150, 768, 390):
+        for width in (1440, 1100, 768, 390):
             page.set_viewport_size({'width': width, 'height': 960})
             for path in sorted((DATA / 'matches').glob('*.json')):
                 doc = json.loads(path.read_text(encoding='utf-8'))
@@ -115,6 +128,14 @@ def verify(url, output):
         expect(fixture.locator('.mobile-rating strong').first).to_have_text('—')
         checks.append('entirely unrated series and historical Alumni remain visible on desktop/mobile, never fake 0.00')
         fixture.unroute('**/data/series/' + unrated['id'] + '.json')
+        for width in (1440,1100,768,390):
+            fixture.set_viewport_size({'width':width,'height':960})
+            fixture.goto(url+'#/players/lgon',wait_until='networkidle')
+            fixture.locator('.trend-point').first.tap()
+            expect(fixture.locator('.trend-partial-label')).to_have_text('PARTIAL')
+            fixture.locator('.trend-point').last.tap()
+            expect(fixture.locator('.trend-partial-label')).to_have_count(0)
+        checks.append('touch context: real partial and full points at all four widths')
         for points in ([], profile['series_ratings'][:1]):
             fixture.route('**/data/players/lgon/fall-2026.json', lambda r, request, rows=points: r.fulfill(json={**profile, 'series_ratings': rows}))
             fixture.goto(url + '#/players/lgon', wait_until='networkidle')

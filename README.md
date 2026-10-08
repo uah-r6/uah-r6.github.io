@@ -164,6 +164,14 @@ Objective-only refresh saves the original normalized map in an immutable `siege_
 
 ## Rating research
 
+For historical Rating exclusions, use **Statistics → Audit Rating Evidence** in
+the local admin. **Repair From Healthy Archive** checks complete trusted kill
+and objective evidence without replacing normalized matches or forcing
+eligibility. Missing actors/rosters remain unrated; conflicts require review.
+Partial Series Rating trend points are hollow, with **PARTIAL** and exact
+player-specific coverage in their detail. See [the complete historical evidence
+audit and repair safeguards](docs/RATING_EVIDENCE.md).
+
 The default Rating is `siege_style_v3`, the frozen nine-feature credited-count/native-order model that passed its untouched APAC North Stage 1 final. `siege_style_v2` and `collegiate_v1` remain selectable in Settings; original v2 snapshots and coefficients are unchanged. V3 uses only whole maps with complete credited-kill, native elimination and verified core objective evidence. Current UAH Rating coverage is 4 maps / 42 rounds, while all 7 maps / 82 rounds remain in displayed statistics. Rating tooltips/player pages report coverage. See the [v3 deployment review](research/output/native-v3-deployment-review.md), [final result](research/output/v3-native-final-apac1-result.md), and [historical v2 review](research/output/rating-deployment-review.md). The reproducible research pipeline uses official Ubisoft replay downloads and public SiegeGG player-map ratings; its sources and commands are in [research/README.md](research/README.md). Downloads, normalized replays, targets, and experiment caches stay under ignored `data/research/`.
 
 ## GitHub Pages setup and publishing

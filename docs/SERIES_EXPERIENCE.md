@@ -41,6 +41,11 @@ a substitute did not play do not enter that player's denominators. No eligible
 rounds means `rating: null`, displayed as **—**. A partially eligible series may
 still have a Rating, with its exact coverage visible.
 
+Partial trend points use hollow rings and a subtle **PARTIAL** in the selected
+detail. A point is partial only when its own eligible map or round count is
+below that player's played count. Full points remain filled. Historical archive
+audits and guarded local repair are documented in [Rating evidence](RATING_EVIDENCE.md).
+
 ### Mathematical relationship to map Ratings
 
 The frozen model has the form

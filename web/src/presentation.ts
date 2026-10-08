@@ -18,6 +18,9 @@ export function seriesRatingHistory(series:SeriesPoint[]):SeriesPoint[]{
     return point.rating_version==='siege_style_v3'&&point.rating_maps>0&&point.rating_rounds>0&&typeof point.rating==='number'&&Number.isFinite(point.rating)
   }).sort((a,b)=>a.point.date.localeCompare(b.point.date)||b.ordinal-a.ordinal).map(({point})=>point)
 }
+export function partialSeriesRating(point:Pick<SeriesPoint,'maps'|'rating_maps'|'rounds'|'rating_rounds'>):boolean{
+  return point.rating_maps<point.maps||point.rating_rounds<point.rounds
+}
 export function seriesGroups(matches:Match[]) {
   const groups=new Map<string,Match[]>()
   for(const map of matches){const key=JSON.stringify([map.team_slug,map.season,map.series_id]);const maps=groups.get(key)||[];if(!maps.some(m=>m.id===map.id))maps.push(map);groups.set(key,maps)}

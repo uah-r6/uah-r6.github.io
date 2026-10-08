@@ -30,7 +30,7 @@ from r6stats.parser.models import Match
 from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
-from r6stats import replay_archive, objective_refresh, submissions
+from r6stats import replay_archive, objective_refresh, submissions, rating_evidence
 from r6stats.credited_refresh import collect_after_import
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
@@ -1153,6 +1153,20 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     def regenerate(db: DB):
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True, "message": "Public website JSON regenerated from the local database."}
+
+    @app.get("/api/admin/rating-evidence")
+    def audit_rating_evidence(db: DB):
+        return [rating_evidence.audit_map(db, root / 'data/replay-archive', r['id'])
+                for r in db.execute('SELECT id FROM maps ORDER BY id')]
+
+    @app.post("/api/admin/matches/{map_id}/rating-evidence")
+    def repair_rating_evidence(map_id: str, payload: ArchiveBackfill, db: DB):
+        if payload.confirm_map_id != map_id:
+            raise ValueError('Confirm the exact map ID before repairing evidence.')
+        result = rating_evidence.repair(db, root / 'data/replay-archive', map_id)
+        if result['changes']:
+            export(db, read_settings(root), root / 'web/public/data')
+        return result
 
     return app
 

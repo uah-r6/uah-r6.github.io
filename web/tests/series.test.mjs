@@ -1,8 +1,17 @@
 import {test} from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import {seriesRatingHistory,sortedPlayers} from '../src/presentation.ts'
+import {seriesRatingHistory,partialSeriesRating,sortedPlayers} from '../src/presentation.ts'
 const load=path=>JSON.parse(fs.readFileSync(new URL('../public/data/'+path,import.meta.url)))
+
+test('partial presentation uses actual player map and round coverage without changing values',()=>{
+ const points=seriesRatingHistory(load('players/lgon/fall-2026.json').series_ratings)
+ assert.deepEqual(points.map(partialSeriesRating),[true,true,false])
+ const p=points[0],before=structuredClone(p)
+ assert.equal(partialSeriesRating({...p,maps:1,rating_maps:1,rounds:10,rating_rounds:10}),false)
+ assert.equal(partialSeriesRating({...p,maps:1,rating_maps:1,rounds:10,rating_rounds:9}),true)
+ assert.deepEqual(p,before)
+})
 
 test('one chronological trusted point per series; exact exported values and map history retained',()=>{
  const profile=load('players/lgon/fall-2026.json'),points=seriesRatingHistory(profile.series_ratings)

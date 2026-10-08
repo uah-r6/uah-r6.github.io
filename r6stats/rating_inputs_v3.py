@@ -119,7 +119,7 @@ def prepare(match, records):
     return {key: aggregate(rows, 'siege_style_v3') for key, rows in features.items()}, dict(features)
 
 
-def store_objective_evidence(db, map_id, evidence):
+def store_objective_evidence(db, map_id, evidence, *, audit=None):
     row = db.execute('SELECT * FROM maps WHERE id=?', (map_id,)).fetchone()
     if not row:
         raise ValueError('NECC map not found.')
@@ -134,8 +134,18 @@ def store_objective_evidence(db, map_id, evidence):
     payload = json.dumps(evidence.to_dict(), sort_keys=True, separators=(',', ':'), allow_nan=False)
     with db:
         db.execute(SCHEMA)
-        db.execute('INSERT OR REPLACE INTO map_v3_objective_evidence VALUES(?,?,?,?,?)',
+        prior = db.execute('SELECT * FROM map_v3_objective_evidence WHERE map_id=?', (map_id,)).fetchone()
+        if prior and (prior['fingerprint'] != row['fingerprint'] or prior['normalized_sha256'] != digest(row['normalized_json'])
+                      or prior['evidence_sha256'] != digest(payload) or digest(prior['evidence_json']) != prior['evidence_sha256']):
+            raise ValueError('Existing objective evidence differs; explicit review required.')
+        db.execute('INSERT OR IGNORE INTO map_v3_objective_evidence VALUES(?,?,?,?,?)',
                    (map_id, row['fingerprint'], digest(row['normalized_json']), payload, digest(payload)))
+        if audit is not None and not prior:
+            from r6stats.rating_evidence import record_audit
+            record_audit(db, map_id, 'objective_backfill', None,
+                dict(fingerprint=row['fingerprint'], normalized_sha256=digest(row['normalized_json']),
+                     evidence_json=payload, evidence_sha256=digest(payload), **audit),
+                'Healthy archive; exact replay, logical rounds, roster, sides and winners; every stored objective matches a unique trusted occurrence; normalized data unchanged.')
 
 
 def load_inputs(db, map_id, window=8):
@@ -160,8 +170,8 @@ def load_inputs(db, map_id, window=8):
                 raise ValueError('V3 objective evidence integrity check failed.')
             if saved['fingerprint'] == row['fingerprint'] and saved['normalized_sha256'] == digest(row['normalized_json']):
                 match = Match.from_dict(json.loads(saved['evidence_json']))
-            # Reparse/refresh invalidates old evidence automatically. Use new
-            # normalized evidence only if it independently passes every gate.
+            else:
+                return None, 'Stale V3 objective evidence; explicit review required.'
     try:
         return prepare(match, records)[0], None
     except (ValueError, KeyError, TypeError) as error:

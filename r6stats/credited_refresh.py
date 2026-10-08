@@ -126,7 +126,7 @@ def load(db, map_id):
     return credit if credit['complete'] else None
 
 
-def collect_archive(db, archive_root, map_id, executable=None):
+def read_archive(db, archive_root, map_id, executable=None):
     """Use the validated Go reader, with a private binary/replay keyed cache."""
     executable = Path(executable) if executable else Path(__file__).resolve().parents[1]/'.local-tools/bin/siege-kill-credit.exe'
     if not executable.is_file():
@@ -162,7 +162,76 @@ def collect_archive(db, archive_root, map_id, executable=None):
             cache.write_text(json.dumps(dict(observation=observation,binary_sha256=binary,replay_sha256=digest,
                 payload_sha256=hashlib.sha256(payload.encode()).hexdigest()),sort_keys=True),encoding='utf-8')
         records.append(dict(logical_round=logical,physical_round=physical,segment=segment,credit=observation['credit']))
-    return store(db,map_id,records,binary)
+    return records, binary
+
+
+def collect_archive(db, archive_root, map_id, executable=None):
+    observation = read_archive(db, archive_root, map_id, executable)
+    if observation is None:
+        return None
+    records, binary = observation
+    return store(db, map_id, records, binary)
+
+
+def reconcile_incomplete(db, map_id, records, parser_sha256, *, archive_root, fingerprint, prior_sha256):
+    """Explicit, compare-and-swap replacement of incomplete evidence only.
+
+    The caller collects from a verified archive using read_archive. Retain the
+    entire prior record in the private audit; store() still refuses overwrites.
+    """
+    from r6stats.rating_evidence import AUDIT_SCHEMA, record_audit
+    trusted = read_archive(db, archive_root, map_id)
+    if trusted is None or trusted != (records, parser_sha256):
+        raise ValueError('Reconciliation must use exact current healthy-archive reader evidence.')
+    if db.execute('SELECT 1 FROM map_kd_corrections WHERE map_id=?', (map_id,)).fetchone():
+        raise ValueError('Manual K/D overrides require separate credited-count reconciliation.')
+    row = db.execute('SELECT * FROM maps WHERE id=?', (map_id,)).fetchone()
+    prior = db.execute('SELECT * FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone()
+    if not row or row['fingerprint'] != fingerprint or not prior or prior['fingerprint'] != fingerprint:
+        raise ValueError('Reconciliation source identity differs.')
+    if prior['evidence_sha256'] != prior_sha256 or hashlib.sha256(prior['evidence_json'].encode()).hexdigest() != prior_sha256:
+        raise ValueError('Prior credited evidence changed or failed integrity.')
+    old = json.loads(prior['evidence_json'])
+    old_credit = validate_map_credit(old)
+    if old_credit['complete']:
+        raise ValueError('Complete credited evidence cannot be reconciled by this operation.')
+    new = validate_map_credit(records)
+    match = Match.from_dict(json.loads(row['normalized_json']))
+    round_counts(match, new)
+    source = lambda r: (r['logical_round'], r['physical_round'], r['segment'])
+    if [source(r) for r in old] != [source(r) for r in records]:
+        raise ValueError('Reconciliation physical/logical round sources differ.')
+    for a, b in zip(old, records):
+        current = {p['profileID']: p for p in b['credit']['players']}
+        for p in a['credit']['players']:
+            q = current.get(p['profileID'])
+            if not q or any(p[k] != q[k] for k in ('username', 'team', 'uid')):
+                raise ValueError('Reconciliation player/team identity differs.')
+            if a['credit']['complete'] and any(p[k] != q[k] for k in ('initial', 'terminal', 'kills')):
+                raise ValueError('Reconciliation conflicts with complete round counts.')
+    # Evidence repair must not silently change any displayed historical count.
+    preserve_display(match, new)
+    payload = json.dumps(records, sort_keys=True, separators=(',', ':'), allow_nan=False)
+    digest = hashlib.sha256(payload.encode()).hexdigest()
+    with db:
+        db.execute(AUDIT_SCHEMA)
+        cursor = db.execute('UPDATE map_kill_credit SET evidence_json=?,evidence_sha256=?,parser_sha256=? WHERE map_id=? AND evidence_sha256=? AND fingerprint=?',
+            (payload, digest, parser_sha256, map_id, prior_sha256, fingerprint))
+        if cursor.rowcount != 1:
+            raise ValueError('Credited evidence changed during reconciliation.')
+        record_audit(db, map_id, 'credited_reconciliation', dict(prior),
+            dict(fingerprint=fingerprint, evidence_json=payload, evidence_sha256=digest, parser_sha256=parser_sha256),
+            'Healthy archive; same physical/logical sources and identities; complete counters; display statistics preserved.')
+    return new
+
+
+def preserve_display(match, credit):
+    """Evidence-only maintenance refuses changes to historical count features."""
+    a, b = display_stats(match, credit), display_stats(match, None)
+    for s in (*a.values(), *b.values()):
+        s.pop('kill_source', None); s.pop('kill_source_rounds', None)
+    if a != b:
+        raise ValueError('Evidence repair would change historical display statistics; separate review required.')
 
 
 def collect_after_import(db, archive_root, map_id):

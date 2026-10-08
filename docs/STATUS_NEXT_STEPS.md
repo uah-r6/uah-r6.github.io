@@ -1,4 +1,74 @@
-## Current: global substitute eligibility and frozen appearances - 2026-10-07
+## Current: historical Series Rating evidence audit - 2026-10-07
+
+**IMPLEMENTED AND LOCALLY VERIFIED; LIVE DEPLOYMENT VERIFICATION PENDING.**
+Baseline HEAD `1b00f59`, initial working tree clean. This focused pass audited
+every production map and every participating player, implemented guarded local
+evidence maintenance, and added restrained partial Series Rating presentation.
+See [the complete audit and repair safeguards](RATING_EVIDENCE.md).
+
+All seven archives are Healthy, but **none of the three missing evidence sets
+can be safely recovered by the current trusted readers**:
+
+- Michigan Chalet `b595ffaaec57`: logical R09–R12 / segment 2 R01–R04 have only
+  nine players in normalized and fresh trusted kill-reader output. Current and
+  prior reader hashes match. Complete kill counters/roster continuity remain
+  unavailable; no profile or counter was synthesized.
+- Placements Kafe `5adc26f7a402`: R09 plant occurrence has no verified actor or
+  UID (`timer_owner_body_unresolved`). Other supported actors match history.
+- Placements Border `8a6357ff307c`: R06's stored disable has no trusted disable
+  occurrence; its verified plant matches AzoozNewzz. No supported actor correction
+  exists. Removing the historical disable would not be an evidence-only repair.
+
+No production evidence sidecar, normalized round, historical objective or Rating
+was rewritten. New private audit metadata records actual archive checks and
+blockers. Placements remains 1/3 maps / 10/38 rounds; Michigan 1/2 / 12/24; UCF
+2/2 / 20/20 for all five participants. All 15 player/series Ratings were verified
+against combined eligible raw inputs evaluated once and full-precision weighted
+map Ratings within `1e-12`; exact values are in the evidence document.
+
+**Statistics → Audit Rating Evidence / Repair From Healthy Archive** is available
+only on localhost. The collector and parser semantics are unchanged. Normal
+kill `store()` still rejects overwrite; explicit incomplete reconciliation
+requires a fresh Healthy-archive proof, same sources/profile/team identities,
+complete inventory, unchanged display counts, compare-and-swap and a private
+prior/new audit. Objective backfill requires matching unique core actors and
+immutable normalized inputs; sidecar/audit commit together. Conflicting evidence
+cannot be overwritten; stale/corrupt seals fail closed. Every repaired map still
+runs the complete existing v3 native/opening/clutch path. No eligibility gate or
+formula was weakened. The admin reports blocked repairs without exporting.
+
+Partial trend points are hollow rings with subtle **PARTIAL** in selected detail;
+full points remain filled. Exact displayed Rating and player map/round coverage
+remain prominent. Roster/Sub roles, normal/sub statistics isolation and normal
+trend exclusion are preserved.
+
+Verification: **657 Python tests + six subtests passed**, one optional replay
+smoke test skipped; **37 frontend tests** and public/admin builds passed. Actual
+`Start NECC Admin.cmd` launch restarted the previous server, opened Chrome and
+confirmed `.venv\Scripts\python.exe` and repository imports. Real admin browser
+buttons audited all seven maps and attempted all three guarded repairs.
+Admin and public checks cover 1440/1100/768/390px; trend checks include hover,
+keyboard focus/arrow keys and touch taps for partial/full points, all three
+Series pages, plus Player Stats/Sub Stats, embeds and mocked submission flow.
+
+Preservation PASS: all **21 preexisting SQLite tables**, all **30 public JSON
+documents** (freshness only), all four eligible map Ratings and UCF Series
+Ratings exactly, **168 protected archive/parser/formula files**, all seven
+Healthy archives, SQLite integrity/FKs. No reimport, normalized replacement,
+parser/operator changes, Rating research or substitute refactor occurred.
+
+Private evidence is ignored under `data/research/series-evidence-repair-20261007/`:
+unchanged SQLite backup SHA-256
+`ad66d9e69c8a82a98a952d2c25dbc1912dd1fb8dabb11394681503de71ff042d`, original
+tables/JSON/hashes, complete map audit, current raw objective JSON, actual admin
+API/browser results, preservation and all-player raw-input checks. Verification
+scripts are `verify-rating-evidence-repair.py`,
+`verify-rating-evidence-admin-ui.py` and updated `verify-series-experience-ui.py`.
+
+**STOP after deployment/live verification and the final clean pushed checkpoint.
+No additional parser or Rating research is authorized by this pass.**
+
+## Previous: global substitute eligibility and frozen appearances - 2026-10-07
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Release `573086b`
 is on main. [Pages run 37700419344](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37700419344) succeeded.

@@ -26,3 +26,4 @@
 .appearance-list .sub-badge{font-size:10px;letter-spacing:.08em;border:1px solid currentColor;border-radius:4px;padding:2px 4px}
 .team-choices>.appearance-list{display:grid;align-items:start;justify-content:stretch}
 .appearance-list>div{min-width:0;overflow-wrap:anywhere}
+ .rating-evidence-panel{margin-top:20px}.evidence-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid #304254}.evidence-row>div{min-width:0;display:flex;flex-direction:column;gap:6px}.evidence-row small{color:#aebcca;font-size:11px}.evidence-row span{font-size:12px}.evidence-row button{flex-shrink:0}.evidence-result{padding:18px 0;font-size:13px;overflow-wrap:anywhere}.evidence-result li{margin:10px 0}.evidence-result summary{cursor:pointer}@media(max-width:700px){.evidence-row{align-items:stretch;flex-direction:column}.evidence-row button{align-self:start}}
