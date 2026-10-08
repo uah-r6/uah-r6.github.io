@@ -1,7 +1,9 @@
 ## Current: team logo branding — 2026-10-08
 
-**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/DEPLOYMENT PENDING. STOP AFTER THIS PASS.**
-Baseline `1b0d6cb`. This pass changes frontend branding only.
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Baseline `1b0d6cb`; release `aa286e6` is pushed to main and deployed by successful
+[Pages run 37836254044](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37836254044).
+This documentation checkpoint records the verified branding release.
 
 - Four authoritative user PNGs are installed byte for byte under
   `web/public/brand/teams/{blue,white,grey,black}.png`. Valid 1080 x 1080 RGBA,
@@ -32,6 +34,15 @@ Baseline `1b0d6cb`. This pass changes frontend branding only.
   recalculation, export, team creation, membership edits or cloud mutations.
   Python/export/types, Worker and Go are unchanged, so their suites were not rerun
   for this frontend pass.
+- **Live Pages browser regression PASS**: the same 21 actual public routes and
+  both embeds at all four widths show the correct Blue/White owning logos and
+  no JS errors. Native selection preserves Career/sorting. Grey/Black/unknown
+  future teams and missing assets pass intercepted browser fixtures only; no
+  production team records were added. The actual launcher admin passes again.
+  Four live PNG SHA-256 hashes match the exact source assets; the general program
+  PNG is byte-identical. All **49 live public JSON files** match the baseline after
+  Git's CRLF/LF normalization; local JSON bytes remain exact. No cloud deployment
+  or mutations were made. Local and live screenshots/reports remain ignored.
 
 Read [BRANDING.md](BRANDING.md) for the asset convention and fallback. Regressions:
 `scripts/verify-team-logos-ui.py` (build or `--url https://uah-r6.github.io/`) and
@@ -39,9 +50,8 @@ Read [BRANDING.md](BRANDING.md) for the asset convention and fallback. Regressio
 `data/research/team-logos-20261008/` (SQLite backup, full table rows, exact public
 JSON, protected hashes, PNG metadata, screenshots and verification reports).
 
-After release: verify Pages, all four live PNG hashes, live Blue/White at all four
-widths and unchanged live public JSON; record the final pushed clean checkpoint.
-Then **STOP**. Do not resume earlier research or other production features.
+Release and verification are complete. **STOP**. Do not resume earlier research
+or other production features without a new request.
 
 ## Previous: logical map replay submissions — 2026-10-08
 
