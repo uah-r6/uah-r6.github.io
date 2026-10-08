@@ -46,8 +46,11 @@ serves shared brand assets at `/brand/`, outside its `/admin/` application base.
 One logo identifies each team header (including roster), selected Player Stats,
 owning series and match. Program team cards and local team editors also use it.
 Native selectors stay text-based; compact context logos accompany admin selection
-and Google Sites embeds (a 32px row plus 6px spacing). Global player profiles and
-individual player rows retain their existing presentation.
+and Google Sites embeds (a 32px row plus 6px spacing). Public player heroes use
+their scoped regular team contributions for identity; multi-team views use the
+program mark. Individual player rows do not repeat team logos. See
+[Public presentation](PUBLIC_PRESENTATION.md) for the larger public identity
+heroes and cards; compact embeds and local admin retain their utility sizing.
 
 The shared neutral CSS chip supports light and dark artwork without modifying
 the images. Images use `object-fit: contain`, fixed responsive bounds and no

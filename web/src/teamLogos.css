@@ -16,4 +16,3 @@
 .embed-team-identity>span:last-child{color:#afbecc;font-size:10px}
 .admin-context>.team-logo{align-self:center}
 @media(max-width:600px){.team-heading-identity{gap:12px}.team-logo-lg{width:68px;height:68px}.heading-with-logo .team-logo{width:52px;height:52px}.team-card-identity{gap:12px}.team-editor-title{gap:12px}}
-@media(max-width:540px){.series-hero{flex-wrap:wrap}.series-hero>.team-heading-identity{flex:1 1 100%}.series-hero .team-logo{width:52px;height:52px}.series-hero>.recorded-score{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin-left:64px;min-width:0;text-align:left}.series-hero>.recorded-score strong{font-size:26px}}

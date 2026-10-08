@@ -1,5 +1,70 @@
 # Public presentation and Google Sites embeds
 
+## Program and team presentation (2026-10-08)
+
+The public site is a program hub with a compact UAH Rainbow Six hero, Player Stats
+and Submit Replays actions, selected-period summary, logo-forward team cards and
+the latest four recorded series. Counts and latest matchups come from the existing
+season/team exports. No backend aggregation or public JSON fields were added.
+Only published team records create cards; installed Grey/Black logos do not.
+
+Team routes share a prominent identity hero with map record, maps, rounds and a
+latest-matchup link. Native team switching retains the route section and Sub
+query. Persistent tabs expose their active state with `aria-current`. Overview
+places season numbers, the existing player table/cards, then recent series below
+the hero, without repeating the same team title. Roster and Player Stats keep
+their controls, membership filters, role separation and exact trusted values.
+
+Series history and series pages emphasize the owning UAH team, opponent text,
+date and **Recorded maps**. This is an imported-map score, not a claim that a
+complete competitive series was won. Series pages show one summary card per map
+before player stats. Map cards show both team scores, WIN/LOSS and a small explicit
+Rating-eligibility label. Individual map heroes emphasize map, opponent, round
+score and period/date. Opponents have no fabricated branding.
+
+Player heroes show Rating, K-D and difference, KOST, and opening K-D/difference.
+Rating is the existing exported value, with a Partial label when exported coverage
+is incomplete. Regular scoped `team_splits`, rather than current membership or
+sub appearances, determine identity. Exactly one contributing team uses its mark;
+multiple teams use the program mark and contribution chips. Career remains global,
+and Sub Stats stays a separate view. The existing Series Rating trend, detailed
+performance, sides, operators and map history retain their values and interaction.
+
+`PublicIdentity.tsx` shares identity and score primitives; `PublicHub.tsx`,
+`PublicMatches.tsx`, and `ProfileHero.tsx` compose page context.
+`publicView.ts` contains presentation-only counts, grouping, identity, date and
+eligibility formatting; it does not calculate Ratings. `publicLayout.css` groups
+public composition by identity, hub, team, matches, profile and responsive rules.
+Obsolete small card/header/series-hero styling was removed from the earlier CSS
+files. Shared tables, help, compact embeds, uploader and admin keep their components.
+TeamLogo lookup, fallback and all original PNG bytes are preserved.
+
+The four layouts are checked at **1440/1100/768/390px**, including actual full- and
+partial-rated series, all nine maps, both teams, normal/sub profiles, Methodology,
+Submit Replays and both embeds. Screenshots are inspected as well as DOM assertions.
+Phone score sections stack deliberately; table/nav scrolling remains confined to
+those elements. Focus and reduced-motion behavior remain available. Future empty
+teams show no fabricated 0-0 record; Grey/Black/unknown and multi-team Career use
+intercepted browser fixtures without writing production data.
+
+Current focused verification:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py --url https://uah-r6.github.io/ --output data/research/public-redesign-20261008/live
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-preservation.py
+.\.venv\Scripts\python.exe scripts/verify-substitutes-ui.py
+.\.venv\Scripts\python.exe scripts/verify-logical-submissions-ui.py
+```
+
+The ignored `data/research/public-redesign-20261008/` baseline holds a SQLite
+backup, full table rows, original public JSON, protected file hashes and before/
+after screenshots. Preservation checks cover all 22 SQLite tables, 49 public JSON
+files, 219 backend/parser/archive/logo/submission/trusted-component files, integrity,
+foreign keys and all nine Healthy archives. No import/reparse/recalculation/export
+or cloud mutations are part of this pass. Tests use temporary/local fixtures;
+uploader browser checks intercept uploads, not a real human Turnstile submission.
+
 ## Main Player Stats team scope
 
 The main **Player Stats** navigation opens `/#/players?team=blue`. Plain
@@ -17,18 +82,19 @@ The existing global season selection remains authoritative. Both season and
 Career leaderboards fetch only `teams/<slug>/<period>.json`, sharing the same
 Player Stats renderer as `/teams/<slug>/stats`. Sort/Alumni choices survive team
 switches; an old network response never renders another team's players under
-the selected heading. White's empty state shows no Blue statistics.
+the selected heading. An empty team never shows another team's statistics.
 
 Historical map ownership remains authoritative because the existing team export
 is used directly. **Career leaderboard is team-specific; global player Career
 profiles remain cross-team.** Embeds retain their independent team route and
 active-season behavior. No statistics are recalculated in the browser.
 
-Read-only local/live scoping checks:
+Current read-only local/live checks include team scope, Career, sorting and Sub
+navigation alongside the presentation regression:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/verify-player-stats-scope-ui.py
-.\.venv\Scripts\python.exe scripts/verify-player-stats-scope-ui.py --url https://uah-r6.github.io/ --output data/research/player-stats-scoping-20261007/live
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py --url https://uah-r6.github.io/ --output data/research/public-redesign-20261008/live
 ```
 
 ## Embed Player Stats
@@ -39,8 +105,9 @@ In Google Sites, choose **Insert → Embed → By URL** and paste one of:
 - White: https://uah-r6.github.io/#/embed/white/player-stats
 
 The same route works with any valid team slug. These utility URLs are public
-and unlisted. They render only Player Stats, without navigation, period selector,
-title or footer. Player and definition links open the full website in another tab.
+and unlisted. They render a compact 32px team identity row and Player Stats,
+without navigation, period selector, full-page hero or footer. Player and
+definition links open the full website in another tab.
 
 The default URL always reads `active_season` from exported `index.json`, ignoring
 the normal site's saved period. Embeds do not access browser storage, so a frame
@@ -114,11 +181,12 @@ npm.cmd test
 npm.cmd run build
 npm.cmd run build:admin
 Pop-Location
-.\.venv\Scripts\python.exe scripts/verify-public-presentation-ui.py
-.\.venv\Scripts\python.exe scripts/verify-public-presentation-ui.py --url https://uah-r6.github.io/ --output data/research/public-presentation-20261007/live
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py --url https://uah-r6.github.io/ --output data/research/public-redesign-20261008/live
 ```
 
-The browser suite uses actual exported data plus isolated synthetic future-team,
-active-season and single/empty profile fixtures. It checks 1440/1150/768/390px
-public routes and 1000/800/600/390px embeds. It performs no real submissions,
+The current browser suite uses actual exported data plus isolated future-team and
+multi-team Career fixtures. It checks 1440/1100/768/390px public routes and embeds.
+The separate substitute and uploader regressions retain their existing cases.
+It performs no real submissions,
 imports, reparses or database writes. Evidence remains in ignored research data.

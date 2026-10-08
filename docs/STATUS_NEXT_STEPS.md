@@ -1,4 +1,62 @@
-## Current: team logo branding — 2026-10-08
+## Current: public presentation redesign — 2026-10-08
+
+**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/DEPLOYMENT PENDING. STOP AFTER THIS PASS.**
+Baseline `b98b46d`. Public composition only; no statistics/export/backend changes.
+
+- Compact program hero, Player Stats/Submit actions, selected-period summary,
+  substantial Blue/White identity cards and latest recorded series. Existing
+  exports yield 2 active teams, 9 maps and 4 series for Fall 2026. No new public
+  fields or fake Grey/Black teams. Current records remain Blue 6-1 over 7 maps /
+  82 rounds and White 0-2 over 2 maps / 21 rounds.
+- Shared prominent team hero, native logo/context switcher, persistent active
+  tabs and cleaner overview/roster/stats hierarchy. Series history and matchup
+  pages emphasize owner, opponent typography and Recorded maps; map summaries
+  show exact individual scores and explicit eligibility. Individual map heroes
+  lead with map, round score, opponent, result and formatted date/period.
+- Player hero shows the existing Rating, K-D/difference, KOST and Entry. Scoped
+  regular team contributions choose the mark; multi-team Career uses program
+  identity plus team chips. No current-membership inference or sub mixing.
+  The existing trend, Series Ratings/partial coverage, sorting, stat help, SUB
+  badges, detailed performance, sides, operators and highlights are retained.
+- `PublicIdentity`, `PublicHub`, `PublicMatches`, `ProfileHero` and `publicView`
+  share presentation components/derivations. Organized public composition CSS
+  replaces obsolete small team/series header rules. Original team/program PNGs
+  and centralized logo lookup/fallback are unchanged. Compact embed identity/
+  tables remain the same size. Uploader/admin components are unchanged.
+- **57 frontend tests**, **718 Python tests + six subtests** (one optional smoke
+  skip), **19 Worker tests**, Go tests/vet and both builds pass. Python reported
+  the existing TestClient deprecation and local pytest-cache permission warning.
+  These did not fail tests; no dependency or filesystem repair was attempted.
+- Edge regression covers **33 actual routes at 1440/1100/768/390px**: program,
+  both team sections, Player Stats, both profiles, a real Sub Stats profile, all
+  four full/partial-rated series, all nine maps, global Matches, Methodology,
+  Submit Replays and both embeds. Exact scores/Ratings/coverage and active nav
+  are checked, with screenshots visually inspected. Future empty Grey/Black/
+  unknown and multi-team Career use intercepted fixtures only. Keyboard help/
+  trend, native scope switching and reduced motion pass; no JS errors or API
+  mutations. Existing logo, substitute and structured-uploader regressions pass.
+- Actual quoted **Start NECC Admin.cmd** requests Chrome and serves repository
+  source through `.venv\Scripts\python.exe`. Read-only Blue/White admin checks
+  pass at all four widths. No administrative redesign or real uploads/imports.
+- Preservation PASS: all **22 SQLite tables**, **49 byte-identical public JSON
+  files**, **219 protected backend/parser/archive/logo/submission/trusted frontend
+  files**, integrity/FKs and **nine Healthy archives**. No import, reparse,
+  recalculation, Rating/model/evidence, role/membership, export or cloud mutation.
+
+Read [PUBLIC_PRESENTATION.md](PUBLIC_PRESENTATION.md) and [BRANDING.md](BRANDING.md).
+Current regressions: `scripts/verify-public-redesign-ui.py` (build or `--url`),
+`scripts/verify-public-redesign-preservation.py`, and the existing substitute,
+logical-submission and logo browser checks. Ignored baseline/evidence lives in
+`data/research/public-redesign-20261008/`: SQLite backup, all table rows, original
+public JSON, protected hashes, before/after screenshots/galleries and reports.
+Uploader regression uploads and admin handoffs use isolated browser fixtures;
+this pass does not perform a human production Turnstile submission.
+
+After release: confirm successful Pages deployment, live public redesign/embeds/
+Submit, unchanged live public JSON and original PNG hashes. Record a final pushed
+clean checkpoint, then **STOP**. Do not begin research or unrelated features.
+
+## Previous: team logo branding — 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
 Baseline `1b0d6cb`; release `aa286e6` is pushed to main and deployed by successful
