@@ -13,7 +13,7 @@ test('real Worker / D1 / R2 intake lifecycle and security',async t=>{
  const mf=new Miniflare({modules:true,modulesRules:[{type:'ESModule',include:['**/*.js']}],scriptPath:new URL('../src/worker.js',import.meta.url).pathname.replace(/^\/([A-Z]:)/,'$1'),compatibilityDate:'2026-07-30',d1Databases:['DB'],r2Buckets:['INBOX'],bindings:{PUBLIC_ORIGIN:'https://uah-r6.github.io',ADMIN_SECRET:'test-admin-only',IP_SALT:'test-salt-only',SUBMISSIONS_ENABLED:'true',STORAGE_CAP_BYTES:'9663676416',RETENTION_DAYS:'7'}})
  try{
  const db=await mf.getD1Database('DB'),bucket=await mf.getR2Bucket('INBOX')
- const schema=await readFile(new URL('../migrations/0001_inbox.sql',import.meta.url),'utf8')
+ const schema=(await readFile(new URL('../migrations/0001_inbox.sql',import.meta.url),'utf8'))+'\n'+await readFile(new URL('../migrations/0002_logical_maps.sql',import.meta.url),'utf8')
  await db.batch(schema.match(/\s*CREATE TRIGGER[\s\S]+?\nEND;|[^;]+;/gi).map(sql=>db.prepare(sql)))
  const request=(path,method='GET',data,headers={})=>mf.dispatchFetch('https://test.invalid/v1'+path,{method,headers:{Origin:'https://uah-r6.github.io','CF-Connecting-IP':'192.0.2.1',...(data?{'Content-Type':'application/json'}:{}),...headers},body:data?JSON.stringify(data):undefined})
  const admin=(path,method='GET',data)=>request('/admin'+path,method,data,{Authorization:'Bearer test-admin-only'})
@@ -71,7 +71,7 @@ test('real Worker / D1 / R2 intake lifecycle and security',async t=>{
   assert.equal((await db.prepare('SELECT reserved_bytes FROM storage').first()).reserved_bytes,0)
   await db.prepare('UPDATE storage SET stored_bytes=0').run()
   const existing=await db.prepare('SELECT * FROM submissions WHERE id=?').bind(accepted.id).first()
-  await assert.rejects(db.prepare(`INSERT INTO submissions SELECT ?,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,submitted_at,terminal_at,objects_deleted_at,expires_at,token_hash,declared_bytes,reserved_bytes,actual_bytes,verify_cursor,review_reason,admin_notes,cleanup_lease_until FROM submissions WHERE id=?`).bind(crypto.randomUUID(),existing.id).run())
+  await assert.rejects(db.prepare(`INSERT INTO submissions(id,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,submitted_at,terminal_at,objects_deleted_at,expires_at,token_hash,declared_bytes,reserved_bytes,actual_bytes,verify_cursor,review_reason,admin_notes,cleanup_lease_until) SELECT ?,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,submitted_at,terminal_at,objects_deleted_at,expires_at,token_hash,declared_bytes,reserved_bytes,actual_bytes,verify_cursor,review_reason,admin_notes,cleanup_lease_until FROM submissions WHERE id=?`).bind(crypto.randomUUID(),existing.id).run())
  })
  await t.test('expired capability, abandoned cleanup, rejection, disabled service and rate limit',async()=>{
   await db.exec('DELETE FROM rate_limits')

@@ -109,7 +109,7 @@ function App() {
         {page === 'submissions' && <SubmissionsPage api={api} teams={teams} seasons={seasons} changed={setPending} handoff={(value,team,season)=>{setHandoff(value);selectTeam(team);selectSeason(season);setPage('replays')}}/>}
         {page === 'teams' && <TeamsPage notify={notify} teams={teams} after={loadScope}/>}
         {page === 'dashboard' && scopedReady && <DashboardPage go={setPage} />}
-        {page === 'replays' && scopedReady && (selectedTeam?.active?<ReplaysPage key={handoff?.submission||'local'} notify={notify} handoff={handoff} clearHandoff={()=>setHandoff(null)} />:<div className="admin-empty">This team is inactive. Reactivate it in Teams before importing. Its history remains available in Matches.</div>)}
+        {page === 'replays' && scopedReady && (selectedTeam?.active?<ReplaysPage key={handoff?`${handoff.submission}/${handoff.logical_map_id||handoff.paths.join('|')}`:'local'} notify={notify} handoff={handoff} clearHandoff={()=>setHandoff(null)} />:<div className="admin-empty">This team is inactive. Reactivate it in Teams before importing. Its history remains available in Matches.</div>)}
         {page === 'roster' && scopedReady && <RosterPage notify={notify} />}
         {page === 'seasons' && <SeasonsPage notify={notify} />}
         {page === 'matches' && scopedReady && <MatchesPage notify={notify} />}
@@ -164,7 +164,7 @@ function ReplaysPage({ notify, handoff, clearHandoff }: { notify: (text: string,
   const [opponent, setOpponent] = useState(handoff?.opponent||'')
   const [week, setWeek] = useState('')
   const [notes, setNotes] = useState('')
-  const [seriesId, setSeriesId] = useState('')
+  const [seriesId, setSeriesId] = useState(handoff?.series_id||'')
   const [confirmed, setConfirmed] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
@@ -175,12 +175,12 @@ function ReplaysPage({ notify, handoff, clearHandoff }: { notify: (text: string,
   async function importMap() { if (!preview) return; setBusy(true); setError(''); try { const result = await api<{ map_id: string; rounds: number; rating?:ImportRating; submission?: {synced:boolean;message:string}|null }>('/replays/import', 'POST', { preview_token: preview.preview_token, season_slug: season, opponent, week, notes, series_id: seriesId || null, team, confirm_necc: confirmed }); notify(`Imported ${result.rounds} rounds as NECC map ${result.map_id}. Website data refreshed.${result.submission ? ' '+result.submission.message : ''}`); if(result.rating)setLastImport({map_id:result.map_id,rating:result.rating}); setPreview(null); setConfirmed(false); setOpponent(''); setSeriesId(''); void scan(true) } catch (error) { setError((error as Error).message) } finally { setBusy(false) } }
   const selectedSeries = series.find(row => row.id === seriesId)
   if (importType === 'rehost') return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC rehost" description="Choose ordered Custom Game folders, mark abandoned rounds, and confirm the competitive score." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> Scan replay folder</Button>} />
-    <div className="import-type">{handoff&&<span>Submission {handoff.submission} <button onClick={()=>{clearHandoff();setManualPath('')}}>Clear submission selection</button></span>}<Button secondary onClick={() => setImportType('normal')}>Normal map</Button><Button onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
+    <div className="import-type">{handoff&&<span>Submission {handoff.submission}{handoff.match_date&&` / submitted match date ${handoff.match_date}`}{handoff.series_id&&' / same confirmed series'} <button onClick={()=>{clearHandoff();setManualPath('')}}>Clear submission selection</button></span>}<Button secondary onClick={() => setImportType('normal')}>Normal map</Button><Button onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
     <ErrorBox message={error} />
     <RehostImportPanel items={items} seasons={seasons} series={series} season={season} setSeason={setSeason} setSeriesId={setSeriesId} notify={notify} afterImport={()=>scan(true)} handoff={handoff} />
   </>
   return <><PageHead label="REPLAY OPERATIONS" title="Import an NECC map" description="Scan replays, select one Custom Game, then explicitly confirm it was your NECC match." action={<Button onClick={() => void scan()} disabled={busy}><FolderSearch size={16} /> {busy ? 'Working…' : 'Scan replay folder'}</Button>} />
-    <div className="import-type">{handoff&&<span>Submission {handoff.submission} <button onClick={()=>{clearHandoff();setManualPath('')}}>Clear submission selection</button></span>}<Button onClick={() => setImportType('normal')}>Normal map</Button><Button secondary onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
+    <div className="import-type">{handoff&&<span>Submission {handoff.submission}{handoff.match_date&&` / submitted match date ${handoff.match_date}`}{handoff.series_id&&' / same confirmed series'} <button onClick={()=>{clearHandoff();setManualPath('')}}>Clear submission selection</button></span>}<Button onClick={() => setImportType('normal')}>Normal map</Button><Button secondary onClick={() => setImportType('rehost')}>Rehosted map</Button></div>
     <ErrorBox message={error} />
     {lastImport&&<RatingStatusCard mapId={lastImport.map_id} eligible={lastImport.rating.eligible} reason={lastImport.rating.reason} healthy imported blockers={lastImport.rating.blockers}/>}
     <div className="admin-panel admin-tip"><ShieldCheck size={22} /><div><b>Custom Game is eligibility, not proof of NECC.</b><p>Ranked, Standard and Quick Match cannot be selected. Scrims and other Custom Games stay out of your stats unless you choose and confirm them.</p></div></div>
@@ -217,7 +217,7 @@ function RehostImportPanel({ items, seasons, series, season, setSeason, setSerie
   const [opponent, setOpponent] = useState(handoff?.opponent||'')
   const [week, setWeek] = useState('')
   const [notes, setNotes] = useState('')
-  const [seriesId, chooseSeries] = useState('')
+  const [seriesId, chooseSeries] = useState(handoff?.series_id||'')
   const [confirmMap, setConfirmMap] = useState(false)
   const [confirmNecc, setConfirmNecc] = useState(false)
   const [confirmRoster, setConfirmRoster] = useState(false)

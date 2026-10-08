@@ -36,23 +36,32 @@ R2 is a temporary inbox, not their replacement.
 ## Submitter workflow
 
 1. Open Submit Replays; explicitly select the UAH team and active season.
-2. Enter opponent, match date, name, and No/Yes/Not sure for rehost. Discord/notes
-   are optional and private.
-3. Under **Add your replays**, drag the whole `MatchReplay` folder from File
-   Explorer, or drag one or more of its individual match folders together.
-   **Choose MatchReplay Folder** and **Browse for replay folder** are also available.
-   Adding folders only inspects them locally; it never starts an upload.
-4. Select the complete folders belonging to this one series, including rehosts.
-   The list shows friendly replay cards, dates, original folder names, replay
-   counts and sizes, newest first. Repeated additions are kept once; choices are
-   preserved when adding more folders.
-5. Review the prominent team/season and totals. Check the confirmation and click
-   **Submit for Review**. Hashing and transfer progress are displayed.
-6. Keep the page and original selection open if retrying an interrupted upload.
-   Completed files are retained; only unfinished files transfer again. Cancel
-   releases the session through cleanup. Expired sessions require a new submission.
-7. A receipt appears only after every declared file passes server storage checks.
-   Submission alone does not publish or import statistics.
+2. Enter opponent, match date and your name. Discord/notes are optional and private.
+3. Choose **How many maps are you submitting?** (1–5). Each map independently
+   chooses **Normal**, **Rehosted**, or **Not sure**; there is no series-wide rehost flag.
+4. Under **Add your replays**, drag the whole `MatchReplay` folder from Explorer,
+   or one/multiple match folders. **Choose MatchReplay Folder** and **Browse for
+   replay folder** remain available. Discovery never starts an upload.
+5. Assign discovered folders to map slots. **Normal** requires exactly one folder;
+   **Rehosted** requires at least two ordered parts. Add/remove parts and use
+   keyboard-accessible **Move up/down** controls. **Not sure** preserves one or
+   more folders for administrator classification. One folder cannot be assigned twice.
+6. Candidates appear **oldest first**, with file-time ranges, original folder names,
+   file counts and sizes. The scrollable pool is shared by all map slots. File times
+   come from browser `File.lastModified`; missing/invalid times show unavailable.
+   They identify folders, not official match starts. Repeated additions are kept once
+   by inventory and SHA-256; conflicting content is rejected.
+7. Adding maps preserves selections. Removing populated maps or switching a
+   populated rehost to Normal asks before releasing assignments. Released folders
+   remain in the discovery pool.
+8. Review the team/season and **Map → Part → Folder** hierarchy, dates and totals.
+   Confirm and click **Submit for Review**. Checking, transfer and verification
+   progress identifies Map/Part; only assigned files upload, in the saved part order.
+9. Keep the page and original selection open when retrying. Completed files remain
+   complete; only unfinished files transfer again. Cancel releases the session
+   through cleanup. Expired sessions return to selection for a new submission.
+10. A receipt appears only after all declared files pass storage checks.
+    Submission alone does not publish or import statistics.
 
 Replays are inside the game's installation directory, according to [Ubisoft's
 Match Replay help](https://www.ubisoft.com/en-ca/help/article/000100946). No ZIP
@@ -147,24 +156,85 @@ private list and storage card update without entering CLI commands.
 - Inspection uses the existing Siege parser and roster matching. Ranked and
   other matchmaking replays remain ineligible; a Custom Game is not automatically
   NECC. Existing replay identity/fingerprint duplicate checks remain authoritative.
-- Select one normal map, or multiple segments of one rehosted map, and choose
-  **Open existing import review**. The existing preview, team identity, duplicate,
-  explicit NECC, rehost ordering/exclusion/roster/final-score safeguards apply.
-  Import multiple normal maps separately; do not combine a whole series as one
-  rehost. Rehost notes are hints, not score/order authority.
-- A folder is consumed only after SQLite import and a verified healthy local
-  archive. A series stays Reviewing until all folders are imported or rejected.
-- If cloud status sync fails, valid local stats/archive remain intact. The local
-  receipt is saved first. Use **Retry cloud status sync**; do not import again.
-- Reject remaining folders with a reason and optional private notes. Rejection
-  does not change historical data. If some folders were already imported, those
-  remain imported and the remainder is recorded as rejected.
+- Review displays **logical map cards**, the original submitted classification and
+  ordered folders, file times/counts/sizes, inspection and roster results.
+  **Open Normal Import** opens one reviewed map; **Open Rehost Builder** hands
+  off only that map's ordered segments. Both retain the trusted preview, Custom
+  Game, team identity, duplicate, explicit NECC, roster/sub, exclusions, round
+  mapping and final-score confirmations. No submitter label bypasses validation.
+- Correct types, folder assignments and part order locally, then **Save reviewed
+  map structure**. Every folder must remain assigned exactly once. The private
+  `review.json` records original structure, reviewed structure and dated changes;
+  the original cloud submission is preserved. Imported/rejected maps are frozen.
+  Unclassified **Not sure** maps cannot open an importer. Legacy flat submissions
+  remain available, initially as separate unclassified cards, for explicit grouping.
+- After the first confirmed import, later maps reuse the actual local series's
+  opponent/team/season/date and `series_id` when scope matches. Corrected team/season
+  survives inspection. Changing scope requires fresh inspection and does not
+  silently discard structure edits. Submitted dates/file times never create a
+  series or override parser/rehost authority.
+- A folder is consumed only after SQLite import and a verified **Healthy** archive.
+  Rehost segments are consumed together as exactly one reviewed map in reviewed
+  order. Other maps remain available. The submission stays **Reviewing** until
+  every folder is imported or rejected.
+- Cloud failure cannot roll back valid local stats/archive. A private receipt is
+  saved first; **Retry cloud status sync** sends only unsynchronized receipts.
+  Local receipts also block repeat import and rejection of already imported folders.
+- Reject one map's remaining folders, an individual remaining folder, or all
+  remaining folders with a reason/private notes. Imported maps remain valid.
+  Mixed imported/rejected submissions finish as Imported, with folder dispositions
+  retained individually.
 
 Cloud objects for imported/rejected submissions are retained seven days, then
 removed. Lightweight private audit metadata remains. Pending/reviewing objects
 never expire merely because they are old. Manual terminal-file removal requires
 the display ID; it preserves local archives. Verified staging remains private
 on this PC and can be removed after local import/rejection when no retry is needed.
+
+## Versioned private hierarchy and migration
+
+New browser submissions use `schema_version: 2`. Intake map indices are 1–5;
+`normal` has one segment, `rehost` two or more, `unsure` one or more. Segment
+indices are contiguous and explicit, never inferred from timestamps. The Worker
+assigns UUID map/folder/file identities and generates private object keys. D1's
+additive `0002_logical_maps.sql` stores immutable submitted maps and folder bindings,
+private `first_file_modified_at`/`last_file_modified_at`, separate reviewed structure,
+and archive import receipts. Existing v1 records default to schema version 1,
+with nullable new folder fields; no old pending record is destructively regrouped.
+
+Corrected structure enters the cloud audit only with a verified import receipt;
+original map rows remain unchanged. A D1 transaction, review revision check and
+receipt guard reject competing claims atomically, including partial segment claims.
+Idempotent receipt retries do not overwrite newer corrections. Receipts bind exact
+owned folders/order to the local map. All existing global folder/file/byte/storage
+limits apply across maps. The overall submission retains **all** its cloud objects
+while any map/folder is unreviewed; the seven-day window starts only at terminal
+status. Hourly cleanup/reconciliation and private UUID object ownership are unchanged.
+
+### Regression verification
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider
+npm.cmd --prefix web test
+npm.cmd --prefix cloudflare/submissions test
+npm.cmd --prefix web run build
+npm.cmd --prefix web run build:admin
+& ".\Start NECC Admin.cmd"
+.\.venv\Scripts\python.exe scripts/verify-logical-submissions-ui.py
+.\.venv\Scripts\python.exe scripts/verify-replay-selection-ui.py --source "<actual MatchReplay folder>"
+```
+
+The browser tests intercept cloud responses; they do not submit production data.
+The required **Normal A + Rehost B/C** workflow runs through real local D1/R2
+bindings in Worker tests and both trusted importers/Healthy archive checks in
+isolated Python SQLite. Browser tests cover assignment, timestamps, confirmation,
+interrupt/retry/cancel/expiry, Turnstile callbacks, corrected admin context, ordered
+handoffs and shared confirmed series at 1440/1100/768/390px. The protected-folder
+script separately sends real directory paths through Chromium's trusted CDP drops
+and input selection in Chrome/Edge. It does not emulate the Windows Explorer mouse
+gesture or solve an actual managed Turnstile challenge. `verify-submissions-ui.py`
+now delegates to the structured regression. The opt-in live-upload script remains
+available for a human Turnstile session; it is not run by normal verification.
 
 ## Storage, abuse controls and costs
 

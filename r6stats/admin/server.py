@@ -113,11 +113,16 @@ class PreviewRequest(BaseModel):
 
 
 class SubmissionAction(BaseModel):
+    folder_ids: list[str] | None = Field(default=None, max_length=12)
     reason: str = Field(default='', max_length=240)
     notes: str = Field(default='', max_length=2000)
     confirm_display_id: str = Field(default='', max_length=32)
     delete_metadata: bool = False
     enabled: bool = True
+
+
+class SubmissionStructure(BaseModel):
+    maps: list[dict] = Field(min_length=1, max_length=12)
 
 
 class ImportRequest(BaseModel):
@@ -640,8 +645,13 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         return submissions.Client(root).call('/options', 'POST', options)
 
     @app.get('/api/admin/submissions/{submission_id}')
-    def submission_detail(submission_id: str):
-        return submissions.Client(root).call('/submissions/' + submissions.identity(submission_id))
+    def submission_detail(submission_id: str, db: DB):
+        remote = submissions.Client(root).call('/submissions/' + submissions.identity(submission_id))
+        return submissions.enrich_detail(root, remote, db)
+
+    @app.post('/api/admin/submissions/{submission_id}/structure')
+    def submission_structure(submission_id: str, payload: SubmissionStructure):
+        return submissions.save_review(root, submissions.identity(submission_id), payload.maps)
 
     @app.post('/api/admin/submissions/{submission_id}/stage')
     def submission_stage(submission_id: str):
@@ -673,12 +683,19 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                                 'status': scan_label(match.match_type)})
             except (ValueError, OSError) as error:
                 results.append({**folder, 'eligible': False, 'status': f'Unable to inspect: {error}'})
-        return {'folders': results}
+        return {'folders': results, 'reviewed_maps': submissions.reviewed_maps(root, submission_id)}
 
     @app.post('/api/admin/submissions/{submission_id}/reject')
     def submission_reject(submission_id: str, payload: SubmissionAction):
-        return submissions.Client(root).call('/submissions/' + submissions.identity(submission_id) + '/reject', 'POST',
-                                             {'reason': payload.reason, 'notes': payload.notes})
+        client = submissions.Client(root)
+        sid = submissions.identity(submission_id)
+        remote = submissions.enrich_detail(root, client.call('/submissions/' + sid))
+        locally_imported = {fid for receipt in remote['local_receipts'] for fid in receipt['folder_ids']}
+        selected = payload.folder_ids if payload.folder_ids is not None else [f['id'] for f in remote['folders'] if not f['disposition'] and f['id'] not in locally_imported]
+        if not selected or locally_imported.intersection(selected):
+            raise ValueError('These folders were already imported locally. Retry cloud status sync; do not reject them.')
+        return client.call('/submissions/' + sid + '/reject', 'POST',
+                           {'reason': payload.reason, 'notes': payload.notes, 'folder_ids': selected})
 
     @app.post('/api/admin/submissions/{submission_id}/sync')
     def submission_sync(submission_id: str, db: DB):
@@ -748,7 +765,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         config = read_settings(root)
         calculate_match(match, config["stats"]["trade_window_seconds"])
         archive_root = root / "data/replay-archive"
-        submission_context = submissions.source_context(root, [preview.path])
+        submission_context = submissions.source_context(root, [preview.path], mode='normal')
         prepared = replay_archive.prepare(preview.path, archive_root, preview.fingerprint, len(match.rounds))
         try:
             map_id = repo.insert_map(db, match, preview.fingerprint, team, payload.opponent.strip(),
@@ -893,7 +910,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         config = read_settings(root)
         calculate_match(preview.match, config["stats"]["trade_window_seconds"])
         archive_root = root / "data/replay-archive"
-        submission_context = submissions.source_context(root, preview.paths)
+        submission_context = submissions.source_context(root, preview.paths, mode='rehost')
         prepared = replay_archive.prepare_rehost(preview.paths, archive_root,
                                                  preview.fingerprint, preview.rehost_manifest)
         try:

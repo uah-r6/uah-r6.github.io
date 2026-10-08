@@ -1,4 +1,69 @@
-## Current: production Rating evidence reliability — 2026-10-08
+## Current: logical map replay submissions — 2026-10-08
+
+Implemented and locally verified from clean baseline `d687542`. The additive
+production D1 migration and Worker deployment succeeded. Pages release/live
+verification is pending in this release commit; the following documentation
+checkpoint will record the result. **STOP after this focused intake overhaul.**
+
+- Submit Replays asks for 1–5 maps above folder discovery. Each map independently
+  uses Normal (one folder), Rehosted (two or more ordered parts), or Not sure
+  (explicit administrator review). The shared candidate pool is chronological,
+  compact and keyboard scrollable; cards show private browser file-time ranges,
+  original names/counts/sizes. Duplicate assignment is blocked, populated removal
+  prompts, and confirmation/progress follow Map/Part. Interrupted uploads retry
+  only unfinished files; cancellation and session/Turnstile expiry are covered.
+- Schema v2 preserves original intent and UUID folder/object ownership in D1.
+  Migration `0002_logical_maps.sql` adds nullable/defaulted metadata without
+  regrouping old records. Current schema was inspected and privately exported
+  before applying. Four existing terminal legacy records remain accessible and
+  unchanged; there were no pending records. Worker version
+  `11b311fb-ad38-4454-9da4-2b07de4aa836` is deployed. Live config advertises v1/v2,
+  retains Turnstile and the original global limits; an invalid structured request
+  is rejected before reservation, with no session/upload created.
+- Local Submissions shows map cards, original intent, corrected structure and
+  inspection. Corrections save a separate dated local audit; resolved groups
+  freeze. Normal/Rehost handoffs retain all existing trusted importer checks.
+  Corrected team/season survives inspection; later maps naturally reuse confirmed
+  local series context. File times remain identification hints only.
+- Healthy archive receipts consume exactly one reviewed map in order, with all
+  rehost segments together. D1 revision checks and transaction guards prevent
+  concurrent partial claims/audit overwrites. Receipt retry is idempotent.
+  Local receipts prevent duplicate import/rejection even if cloud sync fails.
+  Partial submissions remain Reviewing; individual/map/remaining-folder rejection
+  preserves valid local imports. All objects remain until overall terminal status
+  plus seven days; hourly minute-17 cleanup, reconciliation and caps are unchanged.
+- **718 Python tests + six subtests**, one optional smoke skip; **44 frontend
+  tests**, **19 Worker tests**, Go tests/vet and both builds pass. The required
+  Normal A + Rehost B/C fixture exercises D1/R2, upload interruption/retry,
+  staging, both local importers, Healthy archives, same-series reuse, independent
+  consumption, sync failure/retry and terminal retention. All fixture imports use
+  isolated SQLite and parser fixtures; no production map was imported/reparsed.
+- Actual quoted **Start NECC Admin.cmd** restarts `.venv` Python from repository
+  source and requests the browser. Structured uploader/admin browser checks pass
+  at 1440/1100/768/390px. Chrome/Edge trusted CDP drops and read-only input both
+  discover the real protected **30 folders / 209 files**, retain assignments on
+  duplicate child addition and make zero modern-handle requests. These tests do
+  not reproduce the Windows Explorer mouse gesture or a human Turnstile upload.
+- Preservation PASS: all **22 SQLite tables**, **49 public JSON files**, **171
+  archive/parser/formula/validator files**, and all **nine Healthy archives**.
+  Integrity/FKs pass; old cloud inbox/storage remain unchanged. No Rating,
+  statistics, player/team/role data, rehost reconstruction or public stats output
+  changed. No new research or unrelated feature was started.
+
+Private backup/evidence: `data/research/logical-submissions-20261008/`, including
+`before.sqlite`, `d1-before.sql`, schema/deployment logs and browser/preservation
+reports. SQLite backup SHA-256:
+`6caa9cc4b5ec93931d9ebc490757b823039a6d14233869104e0ea3ca1deb7b03`.
+These files, credentials, staging and raw replay bytes remain ignored.
+
+Read [SUBMISSIONS.md](SUBMISSIONS.md) for workflow, migration and recovery guidance.
+Focused verification: `scripts/verify-logical-submission-preservation.py --cloud`,
+`scripts/verify-logical-submissions-ui.py`, and the extended protected-folder
+`scripts/verify-replay-selection-ui.py`. **NEXT ACTION: finish Pages deployment,
+verify live structured workflow, push the final clean documentation checkpoint,
+then STOP.**
+
+## Previous: production Rating evidence reliability — 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Baseline `f62263e`.
 Release `490e4ff` is on main; [Pages run 37805431015](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37805431015)

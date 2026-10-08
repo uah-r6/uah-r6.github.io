@@ -39,6 +39,7 @@ def verify(url, channel, evidence, source=None):
         page = browser.new_page(viewport={'width': 1366, 'height': 900})
         errors, transfers = [], []
         page.on('pageerror', lambda error: errors.append(str(error)))
+        page.on('dialog',lambda dialog: dialog.accept())
 
         def inbox(route):
             if route.request.url.endswith('/config'):
@@ -63,17 +64,17 @@ def verify(url, channel, evidence, source=None):
                 page.get_by_role('button', name='Clear folders').click()
 
         def count(n):
-            expect(page.locator('.replay-folder-list label')).to_have_count(n)
+            expect(page.locator('.replay-folder-list article')).to_have_count(n)
             expect(page.locator('.replay-picker')).to_have_attribute('aria-busy', 'false')
 
         # Whole tree; selection retained after repeated child and parent additions.
         page.evaluate("dropReplayRoots([replayParent()])")
         count(2)
-        page.locator('.replay-folder-list input').first.check()
+        page.get_by_role('combobox',name='Map 1 replay folder',exact=True).select_option('Match-new')
         page.evaluate("dropReplayRoots([replayMatch('Match-new')])")
         count(2)
         expect(page.locator('.replay-scan-status')).to_contain_text('kept just once')
-        expect(page.locator('.replay-folder-list input').first).to_be_checked()
+        expect(page.get_by_role('combobox',name='Map 1 replay folder',exact=True)).to_have_value('Match-new')
         clear()
         page.evaluate("dropReplayRoots([replayMatch('Single')])")
         count(1)
@@ -126,7 +127,7 @@ def verify(url, channel, evidence, source=None):
         with page.expect_file_chooser():
             page.get_by_role('button', name='Browse for replay folder', exact=True).click()
 
-        for width in (1920, 1366, 768, 390):
+        for width in (1440, 1100, 768, 390):
             page.set_viewport_size({'width': width, 'height': 1000})
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), width
             page.locator('.replay-picker').screenshot(path=str(evidence / f'{channel}-selection-{width}.png'))
@@ -136,13 +137,13 @@ def verify(url, channel, evidence, source=None):
         page.get_by_label('Opponent', exact=True).fill('TEST ONLY')
         page.get_by_label('Match date', exact=True).fill('2026-10-07')
         page.get_by_label('Your name / gamer tag').fill('TEST ONLY')
-        for name in ('Yes', 'No', 'Not sure'):
-            page.get_by_role('radio', name=name, exact=True).check()
-        for checkbox in page.locator('.replay-folder-list input').all(): checkbox.check()
+        page.get_by_role('combobox',name='How many maps are you submitting?',exact=True).select_option('2')
+        page.get_by_role('combobox',name='Map 1 replay folder',exact=True).select_option('Match-old')
+        page.get_by_role('combobox',name='Map 2 replay folder',exact=True).select_option('Match-new')
         page.get_by_role('button', name='Review submission').click()
         expect(page.locator('.confirmation-facts')).to_contain_text('2 replay folders')
-        expect(page.locator('.confirmation-facts')).to_contain_text('Not sure')
-        for width in (1920, 1366, 768, 390):
+        expect(page.locator('.confirmation-facts')).to_contain_text('2 logical maps')
+        for width in (1440, 1100, 768, 390):
             page.set_viewport_size({'width': width, 'height': 900})
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), width
         page.locator('.confirmation').screenshot(path=str(evidence / f'{channel}-confirmation.png'))
@@ -156,7 +157,7 @@ def verify(url, channel, evidence, source=None):
             count(expected)
             real = {'folders': expected, 'files': page.evaluate('realFiles.filter(f=>/\\.rec$/i.test(f.name)).length'), 'source': str(source)}
             assert real['files'] == len(list(source.rglob('*.rec')))
-            expect(page.locator('.replay-folder-list input:checked')).to_have_count(0)
+            expect(page.get_by_role('combobox',name='Map 1 replay folder',exact=True)).to_have_value('')
             page.locator('.replay-picker').screenshot(path=str(evidence / f'{channel}-real-protected-input.png'))
             # CDP sends a trusted browser drop with the REAL directory path. Its
             # directory entries/read calls are Chromium's implementations, not
@@ -179,19 +180,19 @@ def verify(url, channel, evidence, source=None):
             assert page.evaluate('nativeHandleCalls') == 0
             assert page.evaluate('nativeEntryCalls') > 0
             real['trusted_browser_drop_verified'] = True
-            real['trusted_browser_drop_files'] = sum(int(re.match(r'(\d+) replay files', text)[1]) for text in page.locator('.replay-folder-list label>span:last-child').all_text_contents())
+            real['trusted_browser_drop_files'] = sum(int(re.match(r'(\d+) replay files', text)[1]) for text in page.locator('.replay-folder-list article>span:last-child').all_text_contents())
             assert real['trusted_browser_drop_files'] == real['files']
             real['modern_handle_requests'] = page.evaluate('nativeHandleCalls')
             child = min({file.parent for file in source.rglob('*.rec')}, key=lambda folder: sum(file.stat().st_size for file in folder.glob('*.rec')))
-            chosen_card = page.locator('.replay-folder-list label').filter(has_text=child.name)
-            chosen_card.locator('input').check()
+            chosen_card = page.locator('.replay-folder-list article').filter(has_text=child.name)
+            page.get_by_role('combobox',name='Map 1 replay folder',exact=True).select_option(child.name)
             zone.scroll_into_view_if_needed(); bounds = zone.bounding_box()
             data['files'] = [str(child.resolve())]
             for event in ('dragEnter', 'dragOver', 'drop'):
                 cdp.send('Input.dispatchDragEvent', {'type': event, 'x': bounds['x'] + bounds['width'] / 2, 'y': bounds['y'] + bounds['height'] / 2, 'data': data})
             expect(page.locator('.replay-scan-status')).to_contain_text('kept just once')
             count(expected)
-            expect(chosen_card.locator('input')).to_be_checked()
+            expect(page.get_by_role('combobox',name='Map 1 replay folder',exact=True)).to_have_value(child.name)
             assert page.evaluate('nativeHandleCalls') == 0
             real['trusted_browser_duplicate_child_verified'] = True
             page.locator('.replay-picker').screenshot(path=str(evidence / f'{channel}-real-protected-browser-drop.png'))

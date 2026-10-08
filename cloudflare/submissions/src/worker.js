@@ -1,4 +1,4 @@
-import {HttpError,LIMITS,requireValue,safeName,validateManifest} from './validation.js'
+import {HttpError,LIMITS,requireValue,safeName,validateManifest,reviewedHierarchy} from './validation.js'
 
 const now=()=>Math.floor(Date.now()/1000)
 const uuid=()=>crypto.randomUUID()
@@ -42,11 +42,17 @@ async function create(env,request){
  }
  await cap(env)
  const id=uuid(),token=secret(),display='R6-'+secret().slice(0,10).toUpperCase(),created=now()
- const commands=[query(env,`INSERT INTO submissions(id,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,expires_at,token_hash,declared_bytes,reserved_bytes) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,'uploading',?,?,?,?,?)`,id,display,manifest.team.slug,manifest.team.name,manifest.season.slug,manifest.season.name,manifest.opponent,manifest.date,manifest.submitter,manifest.discord,manifest.rehost,manifest.notes,created,created+LIMITS.sessionSeconds,await hash(token),manifest.bytes,manifest.bytes)]
- let ordinal=0;const files=[],fileValues=[]
- for(const [i,f] of manifest.folders.entries()){
-  const folder=uuid();commands.push(query(env,'INSERT INTO folders(id,submission_id,name,ordinal) VALUES(?,?,?,?)',folder,id,f.name,i))
-  for(const p of f.files){const fid=uuid();fileValues.push([fid,id,folder,p.name,`submissions/${id}/${folder}/${fid}.rec`,ordinal++,p.size,p.sha256]);files.push({id:fid,folder_id:folder,folder:f.name,name:p.name,size:p.size})}
+ const commands=[query(env,`INSERT INTO submissions(id,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,expires_at,token_hash,declared_bytes,reserved_bytes,schema_version) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,'uploading',?,?,?,?,?,?)`,id,display,manifest.team.slug,manifest.team.name,manifest.season.slug,manifest.season.name,manifest.opponent,manifest.date,manifest.submitter,manifest.discord,manifest.rehost,manifest.notes,created,created+LIMITS.sessionSeconds,await hash(token),manifest.bytes,manifest.bytes,manifest.schema_version)]
+ let ordinal=0;const files=[],fileValues=[],folderIds=new Map(manifest.folders.map(f=>[f.name,uuid()])),assignment=new Map()
+ for(const m of manifest.maps){
+  const mid=uuid();commands.push(query(env,'INSERT INTO logical_maps(id,submission_id,logical_index,submitted_type) VALUES(?,?,?,?)',mid,id,m.index,m.type))
+  for(const segment of m.segments)assignment.set(segment.folder_name,{id:mid,index:m.index,part:segment.index})
+ }
+ const ordered=manifest.schema_version===2?manifest.maps.flatMap(m=>m.segments.map(part=>manifest.folders.find(f=>f.name===part.folder_name))):manifest.folders
+ for(const [i,f] of ordered.entries()){
+  const folder=folderIds.get(f.name),assigned=assignment.get(f.name)
+  commands.push(query(env,'INSERT INTO folders(id,submission_id,name,ordinal,logical_map_id,segment_index,first_file_modified_at,last_file_modified_at) VALUES(?,?,?,?,?,?,?,?)',folder,id,f.name,i,assigned?.id||null,assigned?.part||null,f.first_file_modified_at,f.last_file_modified_at))
+  for(const p of f.files){const fid=uuid();fileValues.push([fid,id,folder,p.name,`submissions/${id}/${folder}/${fid}.rec`,ordinal++,p.size,p.sha256]);files.push({id:fid,folder_id:folder,folder:f.name,name:p.name,size:p.size,logical_index:assigned?.index||null,segment_index:assigned?.part||null})}
  }
  // Multi-row inserts stay below D1's 100 bound parameters / 50 free-plan
  // queries per invocation. The entire manifest and reservation commit together.
@@ -103,7 +109,28 @@ async function complete(env,s){
  await run(env,'UPDATE submissions SET verify_cursor=? WHERE id=? AND verify_cursor=?',next,s.id,s.verify_cursor)
  return json({received:false,verified:next,total:counts.total})
 }
-async function detail(env,id){const s=await first(env,'SELECT * FROM submissions WHERE id=?',id);requireValue(s,'Submission not found.',404);delete s.token_hash;return {...s,folders:await rows(env,'SELECT * FROM folders WHERE submission_id=? ORDER BY ordinal',id),files:await rows(env,'SELECT * FROM files WHERE submission_id=? ORDER BY ordinal',id)}}
+function logicalStructure(records,folders){return records.map(m=>({id:m.id,index:m.logical_index,type:m.submitted_type,segments:folders.filter(f=>f.logical_map_id===m.id).sort((a,b)=>a.segment_index-b.segment_index).map(f=>({index:f.segment_index,folder_id:f.id}))}))}
+async function detail(env,id,internal=false){
+ const s=await first(env,'SELECT * FROM submissions WHERE id=?',id);requireValue(s,'Submission not found.',404);delete s.token_hash
+ const folders=await rows(env,'SELECT * FROM folders WHERE submission_id=? ORDER BY ordinal',id),maps=logicalStructure(await rows(env,'SELECT * FROM logical_maps WHERE submission_id=? ORDER BY logical_index',id),folders)
+ const reviewed_maps=s.reviewed_structure_json?JSON.parse(s.reviewed_structure_json):maps;if(internal)s._reviewed_json=s.reviewed_structure_json;delete s.reviewed_structure_json
+ return {...s,maps,reviewed_maps,folders,files:await rows(env,'SELECT * FROM files WHERE submission_id=? ORDER BY ordinal',id)}
+}
+function reviewedSelection(s,b){
+ const maps=reviewedHierarchy(b.reviewed_maps||s.reviewed_maps||s.maps,s.folders)
+ const map=maps.find(m=>m.id===b.logical_map_id)
+ requireValue(map,'Choose a reviewed logical map.')
+ requireValue(map.type!=='unsure','Classify this logical map before import.')
+ const ids=map.segments.map(p=>p.folder_id)
+ requireValue(Array.isArray(b.folder_ids)&&b.folder_ids.length===ids.length&&b.folder_ids.every((id,i)=>id===ids[i]),'Receipt folders must exactly match the selected logical map in reviewed order.')
+ for(const f of s.folders.filter(f=>f.disposition==='imported')){
+  const prior=s.reviewed_maps.find(m=>m.segments.some(p=>p.folder_id===f.id))
+  const next=maps.find(m=>m.segments.some(p=>p.folder_id===f.id))
+  requireValue(prior&&next&&JSON.stringify(prior)===JSON.stringify(next),'Previously imported logical structure cannot change.',409)
+ }
+ return maps
+}
+
 // A durable lease serializes R2 maintenance across Worker isolates. The longer
 // scan lock additionally blocks upload reservations/transfers between pages.
 async function maintenance(env,work){
@@ -175,8 +202,9 @@ async function admin(env,request,path){
   const result=status==='all'?await rows(env,"SELECT id FROM submissions WHERE status!='uploading' ORDER BY created_at DESC LIMIT 100"):await rows(env,"SELECT id FROM submissions WHERE status IN('pending','reviewing') ORDER BY created_at LIMIT 100")
   if(!result.length)return json([])
   const ids=result.map(s=>s.id),placeholders=ids.map(()=>'?').join(',')
-  const records=await rows(env,`SELECT id,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,submitted_at,terminal_at,objects_deleted_at,actual_bytes FROM submissions WHERE id IN(${placeholders}) ORDER BY created_at`,...ids)
-  const folders=await rows(env,`SELECT * FROM folders WHERE submission_id IN(${placeholders})`,...ids);return json(records.map(s=>({...s,folders:folders.filter(f=>f.submission_id===s.id)})))
+  const records=await rows(env,`SELECT id,display_id,team_slug,team_name,season_slug,season_name,opponent,match_date,submitter,discord,rehost,notes,status,created_at,submitted_at,terminal_at,objects_deleted_at,actual_bytes,schema_version,reviewed_structure_json FROM submissions WHERE id IN(${placeholders}) ORDER BY created_at`,...ids)
+  const folders=await rows(env,`SELECT * FROM folders WHERE submission_id IN(${placeholders})`,...ids),maps=await rows(env,`SELECT * FROM logical_maps WHERE submission_id IN(${placeholders}) ORDER BY logical_index`,...ids)
+  return json(records.map(s=>{const fs=folders.filter(f=>f.submission_id===s.id),ms=logicalStructure(maps.filter(m=>m.submission_id===s.id),fs),reviewed=s.reviewed_structure_json?JSON.parse(s.reviewed_structure_json):ms;delete s.reviewed_structure_json;return {...s,folders:fs,maps:ms,reviewed_maps:reviewed}}))
  }
  const match=path.match(/^\/submissions\/([a-f0-9-]{36})(?:\/(review|reject|consume|purge|files\/([a-f0-9-]{36})))?$/)
  requireValue(match,'Admin endpoint not found.',404);const id=match[1],action=match[2]
@@ -188,26 +216,36 @@ async function admin(env,request,path){
  }
  requireValue(request.method==='POST','Method not allowed.',405)
  if(action==='review'){await run(env,"UPDATE submissions SET status='reviewing' WHERE id=? AND status='pending'",id);return json(await detail(env,id))}
- const b=await body(request),s=await detail(env,id)
+ const b=await body(request),s=await detail(env,id,true)
  if(action==='reject'){
   requireValue(['pending','reviewing'].includes(s.status),'This submission is already terminal.',409)
   requireValue(typeof b.reason==='string'&&b.reason.trim().length>0&&b.reason.length<=240&&typeof (b.notes||'')==='string'&&(b.notes||'').length<=2000,'Provide a rejection reason.')
-  await env.DB.batch([query(env,"UPDATE folders SET disposition='rejected',reason=? WHERE submission_id=? AND disposition IS NULL",b.reason,id),query(env,"UPDATE submissions SET status=CASE WHEN EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition='imported') THEN 'imported' ELSE 'rejected' END,terminal_at=?,review_reason=?,admin_notes=? WHERE id=? AND status IN('pending','reviewing')",id,now(),b.reason,b.notes||'',id)])
+  let selected=s.folders.filter(f=>!f.disposition)
+  if(b.folder_ids){requireValue(Array.isArray(b.folder_ids)&&b.folder_ids.length>0&&new Set(b.folder_ids).size===b.folder_ids.length,'Choose remaining folders to reject.');selected=s.folders.filter(f=>b.folder_ids.includes(f.id));requireValue(selected.length===b.folder_ids.length&&selected.every(f=>!f.disposition),'Only unresolved owned folders can be rejected.',409)}
+  await env.DB.batch([...selected.map(f=>query(env,"UPDATE folders SET disposition='rejected',reason=? WHERE id=? AND submission_id=? AND disposition IS NULL",b.reason,f.id,id)),query(env,"UPDATE submissions SET status=CASE WHEN EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN 'reviewing' WHEN EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition='imported') THEN 'imported' ELSE 'rejected' END,terminal_at=CASE WHEN EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN NULL ELSE ? END,review_reason=?,admin_notes=? WHERE id=? AND status IN('pending','reviewing')",id,id,id,now(),b.reason,b.notes||'',id)])
   return json(await detail(env,id))
  }
  if(action==='consume'){
   requireValue(['pending','reviewing','imported'].includes(s.status),'This submission cannot be imported.',409)
   requireValue(b.archive_verified===true&&/^[a-f0-9]{12}$/.test(b.map_id)&&Array.isArray(b.folder_ids)&&b.folder_ids.length>0,'Verified local archive receipt required.')
+  if(s.schema_version===2){const prior=await first(env,'SELECT * FROM logical_import_receipts WHERE submission_id=? AND local_map_id=?',id,b.map_id);if(prior){requireValue(prior.logical_map_id===b.logical_map_id&&prior.folder_ids_json===JSON.stringify(b.folder_ids),'Local map receipt already belongs to another logical map.',409);return json(await detail(env,id))}}
+  const reviewed=s.schema_version===2?reviewedSelection(s,b):null
   const selected=s.folders.filter(f=>b.folder_ids.includes(f.id));requireValue(selected.length===new Set(b.folder_ids).size&&selected.every(f=>!f.disposition||(f.disposition==='imported'&&f.map_id===b.map_id)),'Replay folder was already consumed or rejected.',409)
   requireValue(/^[a-z0-9-]+$/.test(b.team_slug||'')&&/^[a-z0-9-]+$/.test(b.season_slug||''),'Import context is required.')
-  const updates=await env.DB.batch([...selected.map(f=>query(env,"UPDATE folders SET disposition='imported',map_id=?,import_team=?,import_season=? WHERE id=? AND (disposition IS NULL OR (disposition='imported' AND map_id=?))",b.map_id,b.team_slug,b.season_slug,f.id,b.map_id)),query(env,`UPDATE submissions SET status=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN 'imported' ELSE 'reviewing' END,terminal_at=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN ? ELSE NULL END WHERE id=? AND status IN('pending','reviewing','imported') AND (SELECT COUNT(*) FROM folders WHERE disposition='imported' AND map_id=? AND id IN(${selected.map(()=>'?').join(',')}))=?`,id,id,now(),id,b.map_id,...selected.map(f=>f.id),selected.length)])
-  requireValue(updates.every(result=>result.meta.changes),'Folder approval changed concurrently. Review the current cloud status.',409)
+  const evidence=reviewed?[query(env,'INSERT INTO logical_import_receipts(submission_id,local_map_id,logical_map_id,reviewed_structure_json,folder_ids_json,created_at) VALUES(?,?,?,?,?,?) ON CONFLICT(submission_id,local_map_id) DO NOTHING',id,b.map_id,b.logical_map_id,JSON.stringify(reviewed),JSON.stringify(b.folder_ids),now())]:[]
+  // D1 batches are transactions. The receipt trigger aborts the entire batch
+  // if a concurrent claim or review revision invalidates any selected segment.
+  const revision=reviewed?[query(env,'UPDATE submissions SET reviewed_structure_json=? WHERE id=? AND reviewed_structure_json IS ?',JSON.stringify(reviewed),id,s._reviewed_json)]:[]
+  let updates
+  try{updates=await env.DB.batch([...revision,...selected.map(f=>query(env,"UPDATE folders SET disposition='imported',map_id=?,import_team=?,import_season=? WHERE id=? AND (disposition IS NULL OR (disposition='imported' AND map_id=?))",b.map_id,b.team_slug,b.season_slug,f.id,b.map_id)),query(env,`UPDATE submissions SET status=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN 'imported' ELSE 'reviewing' END,terminal_at=CASE WHEN NOT EXISTS(SELECT 1 FROM folders WHERE submission_id=? AND disposition IS NULL) THEN ? ELSE NULL END WHERE id=? AND status IN('pending','reviewing','imported') AND (SELECT COUNT(*) FROM folders WHERE disposition='imported' AND map_id=? AND id IN(${selected.map(()=>'?').join(',')}))=?`,id,id,now(),id,b.map_id,...selected.map(f=>f.id),selected.length),...evidence])}catch(error){if(String(error).includes('logical receipt conflict'))throw new HttpError(409,'Folder approval changed concurrently. Review the current cloud status.');throw error}
+  updates=updates.slice(revision.length)
+  requireValue(updates.slice(0,selected.length+1).every(result=>result.meta.changes),'Folder approval changed concurrently. Review the current cloud status.',409)
   return json(await detail(env,id))
  }
  if(action==='purge'){
   requireValue(b.confirm_display_id===s.display_id&&['rejected','imported','failed'].includes(s.status),'Confirm a terminal submission before removing its cloud files.',409)
   if(!s.objects_deleted_at)await maintenance(env,async()=>{requireValue((await first(env,'SELECT lock_until FROM storage WHERE id=1')).lock_until<=now(),'Reconciliation is in progress.',409);await removeObjects(env,id,true)})
-  if(b.delete_metadata===true)await env.DB.batch([query(env,'DELETE FROM files WHERE submission_id=?',id),query(env,'DELETE FROM folders WHERE submission_id=?',id),query(env,'DELETE FROM submissions WHERE id=?',id)])
+  if(b.delete_metadata===true)await env.DB.batch([query(env,'DELETE FROM files WHERE submission_id=?',id),query(env,'DELETE FROM logical_import_receipts WHERE submission_id=?',id),query(env,'DELETE FROM folders WHERE submission_id=?',id),query(env,'DELETE FROM logical_maps WHERE submission_id=?',id),query(env,'DELETE FROM submissions WHERE id=?',id)])
   await alert(env);return json({ok:true})
  }
  throw new HttpError(404,'Admin endpoint not found.')
@@ -221,7 +259,7 @@ export default {
    if(origin&&origin!==env.PUBLIC_ORIGIN)throw new HttpError(403,'Origin is not allowed.')
    if(request.method==='OPTIONS')response=new Response(null,{status:204})
    else if(path.startsWith('/v1/admin/'))response=await admin(env,request,path.slice(9))
-   else if(path==='/v1/config'&&request.method==='GET'){const s=await storage(env);response=json({enabled:s.enabled,available:s.enabled&&s.stored_bytes+s.reserved_bytes<s.cap_bytes&&s.lock_until<=now(),limits:LIMITS,turnstile_site_key:env.TURNSTILE_SITE_KEY||null,...await options(env)})}
+   else if(path==='/v1/config'&&request.method==='GET'){const s=await storage(env);response=json({enabled:s.enabled,available:s.enabled&&s.stored_bytes+s.reserved_bytes<s.cap_bytes&&s.lock_until<=now(),limits:LIMITS,turnstile_site_key:env.TURNSTILE_SITE_KEY||null,schema_versions:[1,2],...await options(env)})}
    else if(path==='/v1/submissions'&&request.method==='POST'){requireValue(origin===env.PUBLIC_ORIGIN,'Use the public submission page.',403);response=await create(env,request)}
    else{
     const m=path.match(/^\/v1\/uploads\/([a-f0-9-]{36})(?:\/(complete|cancel|files\/([a-f0-9-]{36})))?$/);requireValue(m,'Endpoint not found.',404)

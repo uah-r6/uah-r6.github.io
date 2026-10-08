@@ -3,10 +3,11 @@ import { FolderOpen, FolderDown, LoaderCircle, ShieldCheck } from 'lucide-react'
 import { bytesLabel, groupReplayFiles, mergeReplayFolders, selectionTotals, type ReplayFolder } from './replayFiles'
 import { captureDroppedRoots, pickerNotice, readDroppedReplays, readReplayHandle, type ReplayHandle } from './replayDirectories'
 import { ReplayHelp } from './ReplayHelp'
+import {chronological,fileTimes,timeLabel} from './logicalMaps'
 
-type Props = { folders: ReplayFolder<File>[]; selected: string[]; onFolders(folders: ReplayFolder<File>[]): void; onSelected(names: string[]): void; onScanning(value: boolean): void }
+type Props = { folders: ReplayFolder<File>[]; selected: string[]; onFolders(folders: ReplayFolder<File>[]): void; onSelected(names: string[]): void; onScanning(value: boolean): void; discoveryOnly?:boolean; assignments?:Record<string,string> }
 
-export function ReplayPicker({ folders, selected, onFolders, onSelected, onScanning }: Props) {
+export function ReplayPicker({ folders, selected, onFolders, onSelected, onScanning, discoveryOnly=false, assignments={} }: Props) {
   const picker = useRef<HTMLInputElement>(null), help = useRef<HTMLDetailsElement>(null)
   const locked = useRef(false), dragDepth = useRef(0), digests = useRef(new WeakMap<File, Promise<string>>())
   const [scanning, setScanning] = useState(false), [dragging, setDragging] = useState(false), [notice, setNotice] = useState(''), [needsHelp, setNeedsHelp] = useState(false)
@@ -69,12 +70,13 @@ export function ReplayPicker({ folders, selected, onFolders, onSelected, onScann
     <p className="replay-privacy"><ShieldCheck size={16} aria-hidden="true" /> We only upload the replay folders you choose. Adding a folder just looks for replays on your PC.</p>
     <div className="replay-scan-status" role="status" aria-live="polite" aria-atomic="true">{scanning ? 'Looking for Rainbow Six replays…' : notice}{needsHelp && <button type="button" className="button" onClick={showHelp}>Show me how</button>}</div>
     <ReplayHelp helpRef={help} />
-    {!!folders.length && <><div className="replay-results-heading"><h3>Choose folders for this match</h3><button type="button" className="folder-fallback" disabled={scanning} onClick={() => { onFolders([]); onSelected([]); setNotice('Replay selection cleared.') }}>Clear folders</button></div>
-      <p>Select all maps for this series, including any rehost segments. Nothing uploads until you review and confirm.</p>
-      <div className="replay-folder-list">{folders.map((folder, i) => <label key={folder.name} className={selected.includes(folder.name) ? 'chosen' : ''}>
-        <input type="checkbox" disabled={scanning} checked={selected.includes(folder.name)} onChange={event => onSelected(event.target.checked ? [...selected, folder.name] : selected.filter(name => name !== folder.name))} />
-        <span><strong>Replay {i + 1}</strong><span>{new Date(folder.modified).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</span><small>{folder.name}</small></span>
-        <span>{folder.files.length} replay files<br />{bytesLabel(folder.bytes)}</span>
-      </label>)}</div><p className="replay-selection-total">{totals.folders} folders selected · {totals.files} replay files · {bytesLabel(totals.bytes)}</p></>}
+    {!!folders.length && <><div className="replay-results-heading"><h3>{discoveryOnly?'Candidate folders (oldest first)':'Choose folders for this match'}</h3><button type="button" className="folder-fallback" disabled={scanning} onClick={() => { if(selected.length&&!window.confirm('Clear discovered folders and all map assignments?'))return;onFolders([]); onSelected([]); setNotice('Replay selection cleared.') }}>Clear folders</button></div>
+      <p>{discoveryOnly?'File time is useful for identifying replay folders, not the official match start or authoritative part order. Assign folders to maps below.':'Select all maps for this series, including any rehost segments. Nothing uploads until you review and confirm.'}</p>
+      <div className={`replay-folder-list${discoveryOnly?' discovery-pool':''}`} role={discoveryOnly?'region':undefined} aria-label={discoveryOnly?'Candidate folders, oldest first':undefined} tabIndex={discoveryOnly?0:undefined}>{(discoveryOnly?chronological(folders):folders).map((folder, i) => {
+       const times=fileTimes(folder.files)
+       const content=<><span><strong>{timeLabel(times.first_file_modified_at,times.last_file_modified_at)}</strong><small>{folder.name}</small><small>{discoveryOnly?(assignments[folder.name]?`Assigned to ${assignments[folder.name]}`:'Available'): `Replay ${i+1}`}</small></span><span>{folder.files.length} replay files<br />{bytesLabel(folder.bytes)}</span></>
+       return discoveryOnly?<article key={folder.name} className={`candidate-folder ${assignments[folder.name]?'chosen':''}`}>{content}</article>:<label key={folder.name} className={selected.includes(folder.name) ? 'chosen' : ''}><input type="checkbox" disabled={scanning} checked={selected.includes(folder.name)} onChange={event => onSelected(event.target.checked ? [...selected, folder.name] : selected.filter(name => name !== folder.name))} />{content}</label>
+      })}</div><p className="replay-selection-total">{totals.folders} folders assigned / {totals.files} replay files / {bytesLabel(totals.bytes)}</p></>}
+
   </section>
 }

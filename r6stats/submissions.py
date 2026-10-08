@@ -1,5 +1,7 @@
 """Private cloud intake and staging. The existing local importer owns all statistics."""
 import hashlib
+from copy import deepcopy
+from datetime import datetime, timezone
 import json
 import re
 import threading
@@ -109,6 +111,15 @@ def validate_manifest(remote):
     file_ids = set()
     for f in folders:
         safe_name(f['name'])
+        first, last = f.get('first_file_modified_at'), f.get('last_file_modified_at')
+        if first is not None or last is not None:
+            try:
+                if not all(isinstance(t, str) and re.fullmatch(r'\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z', t) for t in (first, last)):
+                    raise ValueError()
+                if datetime.fromisoformat(first) > datetime.fromisoformat(last):
+                    raise ValueError()
+            except (ValueError, TypeError):
+                raise ValueError('Invalid private replay file timestamp range.') from None
     for f in remote['files']:
         identity(f['id'])
         if f['id'] in file_ids:
@@ -129,6 +140,102 @@ def validate_manifest(remote):
         raise ValueError('A submission folder contains no replay files.')
     if sum(f['declared_size'] for f in remote['files']) > 2 * 1024**3:
         raise ValueError('Submission exceeds the local staging limit.')
+    version = remote.get('schema_version', 1)
+    if type(version) is not int or version not in (1, 2):
+        raise ValueError('Unsupported submission schema.')
+    if version == 2:
+        maps = validate_structure(remote.get('maps'), folders, max_maps=5)
+        for m in maps:
+            for part in m['segments']:
+                folder = next(f for f in folders if f['id'] == part['folder_id'])
+                if folder.get('logical_map_id') != m['id'] or folder.get('segment_index') != part['index']:
+                    raise ValueError('Submission logical map/folder ownership differs.')
+
+
+def validate_structure(maps, folders, *, max_maps=12):
+    if not isinstance(maps, list) or not 1 <= len(maps) <= max_maps:
+        raise ValueError('Choose a valid logical map count.')
+    expected = {f['id'] for f in folders}
+    used, map_ids, result = set(), set(), []
+    for i, m in enumerate(maps, 1):
+        if not isinstance(m, dict) or type(m.get('index')) is not int or m['index'] != i or m.get('type') not in ('normal', 'rehost', 'unsure'):
+            raise ValueError(f'Map {i} has an invalid type/index.')
+        mid = identity(m.get('id'))
+        if mid in map_ids:
+            raise ValueError('Duplicate logical map identity.')
+        map_ids.add(mid)
+        segments = m.get('segments')
+        if (not isinstance(segments, list) or not 1 <= len(segments) <= 12 or
+                (m['type'] == 'normal' and len(segments) != 1) or
+                (m['type'] == 'rehost' and len(segments) < 2)):
+            raise ValueError(f'Map {i} needs exactly one Normal folder or at least two Rehost parts.')
+        parts = []
+        for j, part in enumerate(segments, 1):
+            if (not isinstance(part, dict) or type(part.get('index')) is not int or part['index'] != j or
+                    part.get('folder_id') not in expected or part['folder_id'] in used):
+                raise ValueError(f'Map {i} Part {j} has an invalid, unknown or duplicate folder assignment.')
+            used.add(part['folder_id']); parts.append(dict(index=j, folder_id=part['folder_id']))
+        result.append(dict(id=mid, index=i, type=m['type'], segments=parts))
+    if used != expected:
+        raise ValueError('Every submission folder must belong to exactly one reviewed map.')
+    return result
+
+
+def reviewed_maps(root, submission, manifest=None):
+    manifest = manifest or local_manifest(root, submission)
+    path = directory(root, submission) / 'review.json'
+    if path.is_file():
+        review = json.loads(path.read_text(encoding='utf-8'))
+        if review['submitted_maps'] != manifest.get('maps', []):
+            raise ValueError('Submitted structure changed; review it again.')
+        return validate_structure(review['reviewed_maps'], manifest['folders'])
+    initial = manifest.get('reviewed_maps') or manifest.get('maps')
+    if initial:
+        return validate_structure(initial, manifest['folders'])
+    # Legacy folders remain separate and unclassified until a human groups them.
+    return [dict(id=f['id'], index=i, type='unsure', segments=[dict(index=1, folder_id=f['id'])])
+            for i, f in enumerate(manifest['folders'], 1)]
+
+
+def save_review(root, submission, maps):
+    with LOCK:
+        manifest = local_manifest(root, submission)
+        updated = validate_structure(maps, manifest['folders'])
+        previous = reviewed_maps(root, submission, manifest)
+        receipts_path = directory(root, submission) / 'receipts.json'
+        receipts = json.loads(receipts_path.read_text(encoding='utf-8')) if receipts_path.exists() else []
+        frozen = {f['id'] for f in manifest['folders'] if f.get('disposition')}
+        frozen.update(fid for receipt in receipts for fid in receipt['folder_ids'])
+        for fid in frozen:
+            old = next(m for m in previous if any(p['folder_id'] == fid for p in m['segments']))
+            new = next(m for m in updated if any(p['folder_id'] == fid for p in m['segments']))
+            if old != new:
+                raise ValueError('Resolved logical map assignments cannot change.')
+        path = directory(root, submission) / 'review.json'
+        prior = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+        history = prior.get('history', [])
+        if previous != updated:
+            history.append(dict(at=datetime.now(timezone.utc).isoformat(), before=previous, after=updated))
+        review = dict(submitted_maps=manifest.get('maps', []), reviewed_maps=updated, history=history)
+        atomic_json(path, review)
+        return review
+
+
+def enrich_detail(root, remote, db=None):
+    result = deepcopy(remote)
+    path = directory(root, remote['id'])
+    if (path / 'manifest.json').is_file():
+        result['reviewed_maps'] = reviewed_maps(root, remote['id'])
+    elif not result.get('maps'):
+        result['reviewed_maps'] = [dict(id=f['id'], index=i, type='unsure', segments=[dict(index=1, folder_id=f['id'])])
+                                 for i, f in enumerate(remote['folders'], 1)]
+    receipt_path = path / 'receipts.json'
+    receipts = json.loads(receipt_path.read_text(encoding='utf-8')) if receipt_path.exists() else []
+    result['local_receipts'] = receipts
+    # Series context is a confirmed local import, never inferred from file times.
+    result['series_context'] = next((dict(r) for receipt in reversed(receipts) if db is not None
+        and (r := db.execute('SELECT s.id AS series_id,s.opponent,s.date AS match_date,t.slug AS team_slug,se.slug AS season_slug FROM maps m JOIN series s ON s.id=m.series_id JOIN teams t ON t.id=m.team_id JOIN seasons se ON se.id=s.season_id WHERE m.id=?', (receipt['map_id'],)).fetchone())), None)
+    return result
 
 
 def local_manifest(root, submission):
@@ -160,6 +267,8 @@ def verify_staging(root, submission):
                 raise ValueError('Staged replay size or checksum differs. Download and verify it again.')
         results.append({'id': folder['id'], 'name': folder['name'], 'path': str(path),
                         'files': len(files), 'bytes': sum(f['actual_size'] for f in files),
+                        'first_file_modified_at': folder.get('first_file_modified_at'),
+                        'last_file_modified_at': folder.get('last_file_modified_at'),
                         'disposition': folder.get('disposition')})
     return results
 
@@ -206,7 +315,7 @@ def download(root, client, submission):
         return verify_staging(root, submission)
 
 
-def source_context(root, paths, client=None):
+def source_context(root, paths, client=None, *, mode=None):
     base = staging_root(root)
     selected = [Path(p).resolve() for p in paths]
     staged = [p for p in selected if p.is_relative_to(base)]
@@ -230,7 +339,17 @@ def source_context(root, paths, client=None):
     remote = (client or Client(root)).call('/submissions/' + submission)
     if remote['status'] not in ('pending', 'reviewing') or any(f['disposition'] for f in remote['folders'] if f['id'] in ids):
         raise ValueError('These submission folders were already consumed or rejected.')
-    return {'submission_id': submission, 'folder_ids': ids}
+    context = {'submission_id': submission, 'folder_ids': ids}
+    manifest = local_manifest(root, submission)
+    if manifest.get('schema_version') == 2 or (directory(root, submission) / 'review.json').is_file():
+        structure = reviewed_maps(root, submission, manifest)
+        selected_map = next((m for m in structure if [p['folder_id'] for p in m['segments']] == ids), None)
+        if not selected_map:
+            raise ValueError('Select exactly one reviewed logical map in its saved part order. Do not mix maps; save structure corrections before previewing again.')
+        if selected_map['type'] == 'unsure' or selected_map['type'] != (mode or ('normal' if len(ids) == 1 else 'rehost')):
+            raise ValueError('Classify the reviewed logical map as Normal or Rehosted before import.')
+        context.update(logical_map_id=selected_map['id'], submitted_maps=manifest.get('maps', []), reviewed_maps=structure)
+    return context
 
 
 def record_import(root, db, context, map_id, client=None):
@@ -241,7 +360,7 @@ def record_import(root, db, context, map_id, client=None):
             archive = replay_archive.verify(db, Path(root) / 'data/replay-archive', map_id)
             if archive['status'] != 'Healthy':
                 raise ValueError('Local archive must verify Healthy before cloud approval.')
-            row = db.execute('SELECT t.slug team_slug,se.slug season_slug FROM maps m JOIN teams t ON t.id=m.team_id JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id WHERE m.id=?', (map_id,)).fetchone()
+            row = db.execute('SELECT t.slug team_slug,se.slug season_slug,s.id series_id,s.opponent,s.date match_date FROM maps m JOIN teams t ON t.id=m.team_id JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id WHERE m.id=?', (map_id,)).fetchone()
             receipt = {**context, 'map_id': map_id, 'team_slug': row['team_slug'],
                        'season_slug': row['season_slug'], 'archive_verified': True, 'synced': False}
             path = directory(root, context['submission_id']) / 'receipts.json'
@@ -251,7 +370,7 @@ def record_import(root, db, context, map_id, client=None):
             (client or Client(root)).call('/submissions/' + context['submission_id'] + '/consume', 'POST', receipt)
             receipt['synced'] = True
             atomic_json(path, receipts)
-        return {'synced': True, 'message': 'Local import and archive verified; cloud review updated.'}
+        return {'synced': True, 'message': 'Local import and archive verified; cloud review updated.', 'series_context': dict(row)}
     except (ValueError, OSError):
         return {'synced': False, 'message': 'Local import succeeded. Cloud approval is pending; retry status sync in Submissions.'}
 

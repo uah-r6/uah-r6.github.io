@@ -47,8 +47,10 @@ def review(browser, sid, display, report, errors):
     f = report['inspection']['folders'][0]
     assert f['map'] == 'Fortress' and f['rounds'] == 10 and f['our_score'] == 7 and f['their_score'] == 3
     assert f['tracked_count'] == 5 and f['eligible'] and f['duplicate']
-    admin.locator('.activity-row input[type=checkbox]').check()
-    admin.get_by_role('button', name='Open existing import review').click()
+    # Duplicate guard intentionally disables the map handoff. Preview the verified
+    # source via the existing importer directly, without importing.
+    admin.get_by_role('button',name='Import Match',exact=True).click()
+    admin.get_by_label('Or paste a complete match folder / ZIP path').fill(f['path'])
     expect(admin.get_by_role('heading', name='Import an NECC map')).to_be_visible()
     # Preview only; the existing duplicate guard must still block import.
     admin.get_by_role('button', name='Preview path', exact=False).click()
@@ -89,9 +91,8 @@ def verify(headful=False):
             page.get_by_label('Opponent', exact=True).fill('TEST ONLY · submission verification')
             page.get_by_label('Match date', exact=True).fill('2026-10-07')
             page.get_by_label('Your name / gamer tag').fill('TEST ONLY · DO NOT IMPORT')
-            page.get_by_role('radio', name='Not sure', exact=True).check()
             page.locator('input[type=file]').set_input_files(str(target.parent))
-            page.locator('.replay-folder-list input').check()
+            page.get_by_role('combobox',name='Map 1 replay folder',exact=True).select_option(target.name)
             review = page.get_by_role('button', name='Review submission')
             expect(review).to_be_enabled(timeout=600000 if headful else 60000)
             report['real_turnstile'] = True
