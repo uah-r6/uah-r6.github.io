@@ -236,6 +236,14 @@ gesture or solve an actual managed Turnstile challenge. `verify-submissions-ui.p
 now delegates to the structured regression. The opt-in live-upload script remains
 available for a human Turnstile session; it is not run by normal verification.
 
+The 2026-10-08 release `e493f90` is deployed and verified live. D1 migration 0002
+and Worker version `11b311fb-ad38-4454-9da4-2b07de4aa836` succeeded; all four legacy
+audit records remain unchanged. The real launcher inbox and public structured
+workflow pass at all four widths. Live Chrome/Edge trusted directory drops still
+discover 30 folders / 209 files with zero modern-handle requests. All 22 local
+database tables, 49 public JSON files and nine Healthy archives remain unchanged.
+See [STATUS_NEXT_STEPS.md](STATUS_NEXT_STEPS.md) for private backup/evidence paths.
+
 ## Storage, abuse controls and costs
 
 Default cap: **9 GiB / 9,663,676,416 bytes**, including actual R2 bytes and active

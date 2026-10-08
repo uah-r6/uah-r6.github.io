@@ -1,9 +1,10 @@
 ## Current: logical map replay submissions — 2026-10-08
 
-Implemented and locally verified from clean baseline `d687542`. The additive
-production D1 migration and Worker deployment succeeded. Pages release/live
-verification is pending in this release commit; the following documentation
-checkpoint will record the result. **STOP after this focused intake overhaul.**
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Baseline `d687542`.
+Release `e493f90` is on main; [Pages run 37828061045](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37828061045)
+completed successfully. The additive production D1 migration and Worker deployment
+succeeded. This documentation checkpoint records the final verification and makes
+no application or statistics changes.
 
 - Submit Replays asks for 1–5 maps above folder discovery. Each map independently
   uses Normal (one folder), Rehosted (two or more ordered parts), or Not sure
@@ -44,11 +45,24 @@ checkpoint will record the result. **STOP after this focused intake overhaul.**
   discover the real protected **30 folders / 209 files**, retain assignments on
   duplicate child addition and make zero modern-handle requests. These tests do
   not reproduce the Windows Explorer mouse gesture or a human Turnstile upload.
+- The deployed [Submit Replays page](https://uah-r6.github.io/#/submit) passes the
+  complete structured browser regression at all four widths: hierarchy, file
+  times, duplicate assignment, removal prompts, keyboard reorder, cap errors,
+  interrupted upload/retry, cancellation/expiry, and grouped admin handoffs/shared
+  confirmed series. Uploads in these browser checks use intercepted fixture cloud
+  responses. Separately, an unmocked live browser confirms real Worker config,
+  v1/v2 support, configured Turnstile, BO5 cards and responsive layout. No real
+  production replay submission/upload/import was created. Real launcher admin
+  reads all four preserved terminal legacy records and zero pending records
+  through the deployed Worker at all widths, with no JS errors or mutations.
 - Preservation PASS: all **22 SQLite tables**, **49 public JSON files**, **171
   archive/parser/formula/validator files**, and all **nine Healthy archives**.
   Integrity/FKs pass; old cloud inbox/storage remain unchanged. No Rating,
   statistics, player/team/role data, rehost reconstruction or public stats output
-  changed. No new research or unrelated feature was started.
+  changed. All **49 live public statistics JSON documents** match the repository
+  baseline byte for byte after Git's Windows/Linux newline normalization; local
+  JSON bytes remain exact against the pre-task backup. No new research or
+  unrelated feature was started.
 
 Private backup/evidence: `data/research/logical-submissions-20261008/`, including
 `before.sqlite`, `d1-before.sql`, schema/deployment logs and browser/preservation
@@ -59,9 +73,10 @@ These files, credentials, staging and raw replay bytes remain ignored.
 Read [SUBMISSIONS.md](SUBMISSIONS.md) for workflow, migration and recovery guidance.
 Focused verification: `scripts/verify-logical-submission-preservation.py --cloud`,
 `scripts/verify-logical-submissions-ui.py`, and the extended protected-folder
-`scripts/verify-replay-selection-ui.py`. **NEXT ACTION: finish Pages deployment,
-verify live structured workflow, push the final clean documentation checkpoint,
-then STOP.**
+`scripts/verify-replay-selection-ui.py`. **NEXT ACTION: STOP.** Logical-map intake
+is complete. This final documentation checkpoint is pushed separately from the
+verified release; normal administration remains browser driven and all existing
+statistics/importer safeguards remain authoritative.
 
 ## Previous: production Rating evidence reliability — 2026-10-08
 
