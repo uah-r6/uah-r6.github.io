@@ -31,7 +31,6 @@ from r6stats.parser.confirmed_rehost import assemble_rehost, source_fingerprint
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
 from r6stats import replay_archive, objective_refresh, submissions, rating_evidence, roster_admin
-from r6stats.credited_refresh import collect_after_import
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, calculate_match
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -94,6 +93,10 @@ class AliasCreate(BaseModel):
 
 class PlayerDelete(BaseModel):
     confirm_username: str = Field(min_length=1, max_length=80)
+
+
+class BulkEvidenceRepair(BaseModel):
+    confirm_all: bool = False
 
 
 class RosterRemoval(BaseModel):
@@ -759,10 +762,11 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         finally:
             prepared.cleanup()
         app.state.previews.pop(payload.preview_token, None)
-        kill_credit = collect_after_import(db, archive_root, map_id)
+        rating = rating_evidence.after_import(db, archive_root, map_id)
+        kill_credit = rating['kill_credit']
         export(db, config, root / "web/public/data")
         intake = submissions.record_import(root, db, submission_context, map_id)
-        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC", "kill_credit": kill_credit, "submission": intake}
+        return {"ok": True, "map_id": map_id, "rounds": len(match.rounds), "competition": "NECC", "kill_credit": kill_credit, "rating": rating, "submission": intake}
 
     @app.post("/api/admin/replays/rehost/preview")
     def preview_rehost(payload: RehostPreviewRequest, db: DB):
@@ -907,11 +911,12 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         finally:
             prepared.cleanup()
         app.state.previews.pop(payload.preview_token, None)
-        kill_credit = collect_after_import(db, archive_root, map_id)
+        rating = rating_evidence.after_import(db, archive_root, map_id)
+        kill_credit = rating['kill_credit']
         export(db, config, root / "web/public/data")
         intake = submissions.record_import(root, db, submission_context, map_id)
         return {"ok": True, "map_id": map_id, "rounds": len(preview.match.rounds),
-                "segments": len(preview.paths), "competition": "NECC", "kill_credit": kill_credit, "submission": intake}
+                "segments": len(preview.paths), "competition": "NECC", "kill_credit": kill_credit, "rating": rating, "submission": intake}
 
     @app.get("/api/admin/series")
     def series(db: DB, season: str | None = None, team_id: int | None = None):
@@ -1191,6 +1196,15 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
             raise ValueError('Confirm the exact map ID before repairing evidence.')
         result = rating_evidence.repair(db, root / 'data/replay-archive', map_id)
         if result['changes']:
+            export(db, read_settings(root), root / 'web/public/data')
+        return result
+
+    @app.post('/api/admin/rating-evidence/repair-all')
+    def repair_all_rating_evidence(payload: BulkEvidenceRepair, db: DB):
+        if not payload.confirm_all:
+            raise ValueError('Confirm auditing and repairing all imported maps.')
+        result = rating_evidence.repair_all(db, root / 'data/replay-archive')
+        if any(r['changes'] for r in result['results']):
             export(db, read_settings(root), root / 'web/public/data')
         return result
 

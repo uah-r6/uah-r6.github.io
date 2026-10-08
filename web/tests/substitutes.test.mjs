@@ -22,19 +22,26 @@ test('appearance query has two isolated scopes with roster as the safe default',
  assert.equal(playerScope(query.get('players')),'roster')
 })
 
-test('all real current participants remain roster with no fabricated substitute totals',()=>{
+test('current exported participation preserves normal and substitute separation',()=>{
  const load=name=>JSON.parse(readFileSync(new URL('../public/data/'+name,import.meta.url)))
  for(const period of ['fall-2026','career'])for(const team of ['blue','white']){
   const data=load(`teams/${team}/${period}.json`)
-  assert.deepEqual(data.sub_players,[])
+  assert.equal(data.players.length,team==='blue'?5:4)
+  assert.equal(data.sub_players.length,team==='blue'?0:1)
+  for(const player of data.players)assert.equal(player.rounds,team==='blue'?82:21)
+  for(const player of data.sub_players){
+   assert.equal(player.slug,'dinoted11')
+   assert.equal(player.rounds,21)
+   assert.equal(player.appearance_role,'sub')
+  }
  }
  for(const p of load('index.json').players){
   const profile=load(`players/${p.slug}/career.json`)
   const historical=profile.matches.length>0
-  assert.equal(profile.rounds,historical?82:0)
+  assert.equal(profile.rounds,profile.matches.reduce((total,m)=>total+load(`matches/${m.id}.json`).players.find(row=>row.slug===p.slug&&row.appearance_role==='roster').rounds,0))
   if(!historical){assert.equal(profile.rating,null);assert.equal(profile.kd,null)}
-  assert.deepEqual(profile.sub_teams,[])
-  for(const m of profile.matches)for(const player of load(`matches/${m.id}.json`).players)
-   assert.equal(player.appearance_role,'roster')
+  assert.equal(profile.sub_teams.length,p.slug==='dinoted11'?1:0)
+  for(const m of profile.matches)
+   assert.equal(load(`matches/${m.id}.json`).players.find(row=>row.slug===p.slug).appearance_role,'roster')
  }
 })

@@ -33,7 +33,8 @@ test('team season/career exports preserve map ownership and distinct scopes',()=
  for(const period of ['fall-2026','career']){
   const blue=load(`teams/blue/${period}.json`),white=load(`teams/white/${period}.json`)
   assert.equal(blue.team.slug,'blue');assert.equal(white.team.slug,'white')
-  assert.equal(blue.players.length,5);assert.equal(white.players.length,0)
+  assert.equal(blue.players.length,5);assert.equal(white.players.length,4)
+  assert.equal(blue.sub_players.length,0);assert.equal(white.sub_players.length,1)
   assert.ok(blue.matches.every(m=>m.team_slug==='blue'))
   assert.ok(white.matches.every(m=>m.team_slug==='white'))
  }

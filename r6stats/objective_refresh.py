@@ -106,7 +106,7 @@ def parse_archive(db, archive_root: Path, map_id: str, parser=None) -> Match:
     return result
 
 
-def apply(db, map_id: str, parsed: Match) -> list[dict]:
+def apply(db, map_id: str, parsed: Match, *, preserve_rounds=False, audit=None) -> list[dict]:
     """Save snapshot and overlay in one transaction using existing map replacement."""
     row = db.execute("SELECT normalized_json,fingerprint FROM maps WHERE id=?", (map_id,)).fetchone()
     if not row:
@@ -115,6 +115,36 @@ def apply(db, map_id: str, parsed: Match) -> list[dict]:
     updated, changes = overlay(original, parsed)
     if not changes:
         return []
+    if preserve_rounds:
+        # Rating maintenance may correct supported actors while keeping every
+        # round ID, player binding, kill row and frozen appearance unchanged.
+        from r6stats.rating_inputs_v3 import validate_objectives
+        validate_objectives(updated)
+        with db:
+            db.execute('BEGIN IMMEDIATE')
+            current = db.execute('SELECT normalized_json,fingerprint FROM maps WHERE id=?', (map_id,)).fetchone()
+            if current is None or tuple(current) != tuple(row):
+                raise ValueError('Objective inputs changed during repair; retry the audit.')
+            db.execute('''INSERT OR IGNORE INTO rating_input_snapshots(map_id,version,normalized_json,source_sha256)
+                VALUES(?,?,?,?)''', (map_id, 'siege_style_v2', row['normalized_json'], hashlib.sha256(row['normalized_json'].encode()).hexdigest()))
+            payload = json.dumps(updated.to_dict())
+            db.execute('UPDATE maps SET normalized_json=? WHERE id=?', (payload, map_id))
+            for number in {c['round'] for c in changes}:
+                round_id = db.execute('SELECT id FROM rounds WHERE map_id=? AND number=?', (map_id, number)).fetchone()[0]
+                db.execute('DELETE FROM objective_events WHERE round_id=?', (round_id,))
+                for sequence, objective in enumerate(next(r for r in updated.rounds if r.number == number).objectives):
+                    db.execute('INSERT INTO objective_events VALUES(?,?,?,?,?,?)',
+                        (round_id, sequence, objective.kind, objective.player, objective.team, objective.remaining))
+            from r6stats.rating_inputs_v3 import load_inputs
+            inputs, reason = load_inputs(db, map_id)
+            if inputs is None:
+                raise ValueError('Objective correction did not pass full v3 validation: '+str(reason))
+            if audit is not None:
+                from r6stats.rating_evidence import record_audit
+                record_audit(db, map_id, 'objective_actor_correction',
+                    dict(normalized_json=row['normalized_json']), dict(normalized_json=payload, changes=changes, **audit),
+                    'Healthy archive; completing timer owner; fully validated objectives and v3 inputs; only supported objective actors/counts corrected. Round IDs and unrelated historical rows retained.')
+        return changes
     # reparse_map's transaction includes the pending snapshot insertion and
     # rolls both back if replacement fails. No independent snapshot commit.
     with db:

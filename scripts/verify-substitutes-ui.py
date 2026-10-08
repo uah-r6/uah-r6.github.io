@@ -36,7 +36,8 @@ def verify(url, output):
                 for role in ('roster','subs'):
                     page.goto(url+f'#/players?team={team}'+('&players=subs' if role=='subs' else ''),wait_until='networkidle')
                     expect(page.get_by_role('button',name='Subs' if role=='subs' else 'Roster',exact=True)).to_have_attribute('aria-pressed','true')
-                    count = 5 if team=='blue' and role=='roster' else 0
+                    data=load(f'teams/{team}/{index["active_season"]}.json')
+                    count=len(data['players' if role=='roster' else 'sub_players'])
                     expect(page.locator('.mobile-player' if width<=540 else 'tbody tr')).to_have_count(count)
                     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(width,team,role)
                     page.screenshot(path=str(output/f'{team}-{role}-{width}.png'),full_page=True)
@@ -102,7 +103,7 @@ def verify(url, output):
         checks.append('intercepted sub-only profile, per-team Subs totals/selector and Series SUB badge at all four widths; no production fixture data')
         for team in ('blue','white'):
             page.goto(url+f'#/embed/{team}/player-stats',wait_until='networkidle')
-            expect(page.locator('tbody tr')).to_have_count(5 if team=='blue' else 0)
+            expect(page.locator('tbody tr')).to_have_count(len(load(f'teams/{team}/{index["active_season"]}.json')['players']))
             expect(page.locator('.appearance-switch')).to_have_count(0)
         page.goto(url+'#/submit',wait_until='networkidle')
         expect(page.locator('h1')).to_contain_text('Submit')

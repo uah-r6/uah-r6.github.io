@@ -12,11 +12,11 @@
   "their_score": 8,
   "result": "LOSS",
   "demo": false,
-  "rating_eligible": false,
+  "rating_eligible": true,
   "team_slug": "white",
   "team_name": "UAH White",
   "rating_version": "siege_style_v3",
-  "rating_exclusion": "Whole map has unsupported core objective evidence.",
+  "rating_exclusion": null,
   "players": [
     {
       "slug": "ctrlaltdyleted",
@@ -78,7 +78,7 @@
           "kpr": 0.14285714285714285
         }
       },
-      "rating": null,
+      "rating": 0.7056084922083203,
       "kd": 0.4444444444444444,
       "kpr": 0.2857142857142857,
       "kost": 0.5,
@@ -100,8 +100,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "dinoted11",
@@ -162,7 +162,7 @@
           "kpr": 0.2857142857142857
         }
       },
-      "rating": null,
+      "rating": 0.716238443398528,
       "kd": 0.625,
       "kpr": 0.35714285714285715,
       "kost": 0.42857142857142855,
@@ -184,8 +184,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "flex-uah",
@@ -248,7 +248,7 @@
           "kpr": 1.5714285714285714
         }
       },
-      "rating": null,
+      "rating": 1.26941599937023,
       "kd": 1.3333333333333333,
       "kpr": 1.1428571428571428,
       "kost": 0.7142857142857143,
@@ -270,8 +270,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "gloop",
@@ -332,7 +332,7 @@
           "kpr": 0.42857142857142855
         }
       },
-      "rating": null,
+      "rating": 0.680990431904646,
       "kd": 0.6,
       "kpr": 0.42857142857142855,
       "kost": 0.5,
@@ -354,8 +354,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "nachofries-08",
@@ -418,7 +418,7 @@
           "kpr": 0.5714285714285714
         }
       },
-      "rating": null,
+      "rating": 1.1113541508925326,
       "kd": 1.3333333333333333,
       "kpr": 0.8571428571428571,
       "kost": 0.6428571428571429,
@@ -440,8 +440,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     }
   ],
   "rounds": [

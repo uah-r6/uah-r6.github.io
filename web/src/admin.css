@@ -4,6 +4,11 @@
 @media(max-width:760px){.season-summary{align-items:flex-start;flex-direction:column}.season-create label{min-width:100%}.series-maps>div>.admin-button{grid-column:1/-1}.map-rounds{grid-template-columns:1fr}.publish-target{grid-template-columns:1fr;gap:5px}.publish-target b{margin-bottom:9px}}
 .archive-card{border:1px solid #36524d;background:#172924;padding:18px;margin:18px 0}
 .archive-card h4{font:700 24px 'Red Hat Text',Arial,sans-serif;margin:8px 0}
+.rating-status-card,.evidence-bulk{overflow-wrap:anywhere}
+.evidence-bulk{margin:18px 0;font-size:13px}
+.evidence-bulk details{padding:12px 0;border-bottom:1px solid #304254}
+.evidence-bulk summary{cursor:pointer}
+.rating-evidence-panel>.detail-actions{flex-wrap:wrap}
 .archive-card .detail-actions{flex-wrap:wrap;justify-content:flex-start}
 .import-type { display: flex; gap: 10px; margin: 0 0 18px; }
 .rehost-segment { display: grid; grid-template-columns: 90px minmax(190px, 1fr) minmax(240px, 1.4fr); gap: 12px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line, #29434a); }

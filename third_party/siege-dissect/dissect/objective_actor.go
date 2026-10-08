@@ -205,6 +205,28 @@ func (e *objectiveEvidence) splitEpisodes(build int) {
 		return keys[i].record < keys[j].record
 	})
 	active := map[uint32]*objectiveEpisode{}
+	// A replay can redeclare the same timer component and repeat its already
+	// closed state-2 snapshot. It is not a new interaction. Retain the exact
+	// terminal fields only while the unique typed ownership stays continuous.
+	type terminalSnapshot struct {
+		route  objectiveRoute
+		fields []objectiveProperty
+	}
+	closed := map[uint32]terminalSnapshot{}
+	sameOwner := func(a, b objectiveRoute) bool {
+		return a.owner == b.owner && a.player == b.player && a.slot == b.slot && a.class == b.class
+	}
+	sameFields := func(a, b []objectiveProperty) bool {
+		if len(a) != len(b) {
+			return false
+		}
+		for i := range a {
+			if a[i].tag != b[i].tag || a[i].size != b[i].size || a[i].bits != b[i].bits || a[i].text != b[i].text {
+				return false
+			}
+		}
+		return true
+	}
 	closeEpisode := func(entity uint32, reason string, end int) {
 		ep := active[entity]
 		if reason != "ownership_declaration_boundary" && reason != "explicit_state_2" {
@@ -217,6 +239,12 @@ func (e *objectiveEvidence) splitEpisodes(build int) {
 	}
 	declIndex := 0
 	declarationBoundary := func(offset int) {
+		for entity, snapshot := range closed {
+			route, ok := e.binding(entity, offset)
+			if !ok || !sameOwner(route, snapshot.route) {
+				delete(closed, entity)
+			}
+		}
 		for entity, ep := range active {
 			route, ok := e.binding(entity, offset)
 			if !ok || route != ep.route {
@@ -250,6 +278,7 @@ func (e *objectiveEvidence) splitEpisodes(build int) {
 			}
 		}
 		if !valid {
+			delete(closed, k.entity)
 			if active[k.entity] != nil {
 				closeEpisode(k.entity, "ownership_missing_or_changed", ps[len(ps)-1].end)
 			}
@@ -262,6 +291,7 @@ func (e *objectiveEvidence) splitEpisodes(build int) {
 			closeEpisode(k.entity, "ownership_changed", ps[len(ps)-1].end)
 		}
 		if phaseCount > 1 || (phaseCount == 1 && width != 4) {
+			delete(closed, k.entity)
 			if active[k.entity] != nil {
 				closeEpisode(k.entity, "unsupported_state", ps[len(ps)-1].end)
 			}
@@ -269,6 +299,7 @@ func (e *objectiveEvidence) splitEpisodes(build int) {
 			continue
 		}
 		if phase == 0 || phase == 1 {
+			delete(closed, k.entity)
 			if active[k.entity] != nil {
 				closeEpisode(k.entity, "explicit_restart", ps[len(ps)-1].end)
 			}
@@ -287,11 +318,20 @@ func (e *objectiveEvidence) splitEpisodes(build int) {
 			}
 			if phase == 2 {
 				closeEpisode(k.entity, "explicit_state_2", ps[len(ps)-1].end)
+				closed[k.entity] = terminalSnapshot{route: route, fields: ps}
 			} else if phaseCount > 0 && phase != 0 && phase != 1 {
+				delete(closed, k.entity)
 				closeEpisode(k.entity, "unknown_state", ps[len(ps)-1].end)
 			}
-		} else if hasTimer {
-			e.orphans = append(e.orphans, k.record)
+		} else {
+			if snapshot, exists := closed[k.entity]; exists && phaseCount == 1 && phase == 2 &&
+				sameOwner(route, snapshot.route) && sameFields(ps, snapshot.fields) {
+				continue
+			}
+			delete(closed, k.entity)
+			if hasTimer {
+				e.orphans = append(e.orphans, k.record)
+			}
 		}
 	}
 	for declIndex < len(e.declarations) {

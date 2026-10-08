@@ -1,4 +1,45 @@
-## Current: roster administration and mistaken-player deletion ? 2026-10-07
+## Current: production Rating evidence reliability — 2026-10-08
+
+**LOCAL VERIFICATION COMPLETE; RELEASE/LIVE CHECKS NEXT.** Baseline `f62263e`.
+See [RATING_EVIDENCE_PRODUCTION.md](RATING_EVIDENCE_PRODUCTION.md) for the nine-map
+audit, exact diagnosis, twenty per-player Series Ratings and preservation checks.
+
+- White Nighthaven `035ff71d4884` is eligible. A generic extraction fix recognizes
+  an identical canceled objective terminal snapshot under continuous typed
+  ownership. The later complete owner now binds correctly. Only the previously
+  unbound FSU opponent Avner.oL R6 plant was added; all unrelated raw UAH stats,
+  score, metadata, round IDs, mappings, identities and frozen roles are unchanged.
+- White FSU has **2/2 maps / 21/21 rounds** rated for four normal participants and
+  Dinoted11's actual SUB appearance. His normal Career/Season/trend remain empty.
+- All nine archives Healthy; **six maps / 63 rounds** eligible. Kafe R9 body/owner,
+  Placements Border R6 unsupported disable, and Chalet R9–12 nine-player segment
+  remain blocked. Blue coverage: Placements 1/3, 10/38; Michigan 1/2, 12/24; UCF
+  2/2, 20/20. No evidence guessed and no eligibility gate weakened.
+- Normal and rehost imports automatically attempt the existing trusted evidence
+  pipeline after core import/archive success. Exact secondary failures are shown
+  with a local repair action; valid match data survives them. Map detail shows
+  eligibility/exclusion. Bulk maintenance isolates every map's result and never
+  publishes. Existing eligible maps are no-ops.
+- **708 Python tests + six subtests**, one optional smoke skip; **39 frontend
+  tests**, full Go tests, Go vet and both builds pass. Actual quoted
+  **Start NECC Admin.cmd** runs repository `.venv` Python and source modules,
+  opens Chrome and serves the real admin repair/audit path. Admin, import result
+  fixtures, all four Series, White full trends, Blue partial/mobile tooltips, SUB
+  views, embeds and submission shell pass at 1440/1100/768/390 with no JS errors.
+- Preservation PASS: **22 original SQLite tables**, **49 public JSON documents**,
+  **116 protected archive/formula/validator files**, exact five prior eligible
+  maps' v3 inputs, all v2 snapshots, unchanged memberships/appearances/operators/
+  native inputs, SQLite integrity/FKs. Frozen model and research data unchanged.
+
+Private recovery and diagnostic reports: `data/research/rating-evidence-production-20261008/`.
+Backup SHA-256: `d77e18a41e2cb56129ed24f3ad17235c25cf8e4f5dfabb0b474542c472a3fa53`.
+Read-only continuation: `scripts/verify-rating-production.py --verify` and the
+production admin/public browser scripts documented in the focused report.
+**NEXT ACTION:** commit/push this reviewed reliability release, wait for Pages,
+verify all 49 live JSON documents and public UI, record the clean checkpoint,
+then **STOP**. Do not begin another model or unrelated feature.
+
+## Previous: roster administration and mistaken-player deletion ? 2026-10-07
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.** Release `0cf0cfe`
 is on main. [Pages run 37720209529](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37720209529) succeeded. Baseline HEAD

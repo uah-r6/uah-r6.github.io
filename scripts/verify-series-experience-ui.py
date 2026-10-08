@@ -19,7 +19,7 @@ def load(name):
 
 def verify(url, output):
     output.mkdir(parents=True, exist_ok=True)
-    series = [load(f'series/{sid}.json') for sid in ('170b708e12f1', '1a106d1b2f89', '40bf93b16f97')]
+    series = [load(f'series/{sid}.json') for sid in ('170b708e12f1', '1a106d1b2f89', 'ada4becd7c74', '40bf93b16f97')]
     profile = load('players/lgon/fall-2026.json')
     errors, checks = [], []
     with sync_playwright() as p:
@@ -78,10 +78,10 @@ def verify(url, output):
             expect(page.locator('h1')).to_contain_text('Nighthaven Labs')
             page.get_by_role('link', name='Back to series').click()
             expect(page.locator('h1')).to_have_text('vs UCF')
-        checks.append('all three real series: exact five-player Ratings/coverage, hollow partial vs full points, hover/focus/click/arrow keys at 1440/1100/768/390px')
+        checks.append('all four real series: exact per-player Ratings/coverage including White SUB, partial vs full points, hover/focus/click/arrow keys at 1440/1100/768/390px')
         page.goto(url + '#/matches', wait_until='networkidle')
-        expect(page.locator('.series-summary-link')).to_have_count(3)
-        page.locator('.series-summary-link').first.click()
+        expect(page.locator('.series-summary-link')).to_have_count(len(series))
+        page.locator('.series-summary-link[href="#/series/40bf93b16f97"]').click()
         expect(page.locator('h1')).to_have_text('vs UCF')
         checks.append('Matches → series → map → series and trend → series navigation')
 
@@ -108,8 +108,8 @@ def verify(url, output):
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1'), (width, doc['id'])
                 if doc['id'] in ('d64d5478cdb3', '076d2b6b02bc', 'b595ffaaec57'):
                     page.screenshot(path=str(output / f"breakdown-{doc['id']}-{width}.png"), full_page=True)
-        assert (highlighted, total) == (31, 82)
-        checks.append('all 82 actual logical rounds: 31 highlighted/51 empty; max two groups/two labels, no overflow, exact safe export labels')
+        assert total==sum(len(load(f'matches/{path.stem}.json')['rounds']) for path in (DATA/'matches').glob('*.json'))
+        checks.append(f'all {total} actual logical rounds: {highlighted} highlighted; max two groups/two labels, no overflow, exact safe export labels')
 
         fixture = browser.new_page(viewport={'width': 1440, 'height': 960}, has_touch=True)
         fixture.on('pageerror', lambda e: errors.append(str(e)))

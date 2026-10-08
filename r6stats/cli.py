@@ -15,7 +15,7 @@ from r6stats.export import export
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.publishing import publish_site
 from r6stats import replay_archive
-from r6stats.credited_refresh import collect_after_import
+from r6stats.rating_evidence import after_import
 from r6stats.stats.calculate import RATING_VERSIONS, calculate_match
 
 
@@ -129,10 +129,12 @@ def import_path(db, config, path, series_id=None, team=None, *, archive_root=Non
             raise
     finally:
         prepared.cleanup()
-    credit = collect_after_import(db, archive_root, map_id)
+    rating = after_import(db, archive_root, map_id)
+    credit = rating['kill_credit']
     export(db, config)
     print(f"Imported {len(match.rounds)} rounds as map {map_id}. Website data generated.")
     print(f"Kill count source: {credit['source']}.")
+    print(f"Rating: {rating['status']}." + (f" Reason: {rating['reason']}" if rating['reason'] else ''))
     return map_id
 
 
