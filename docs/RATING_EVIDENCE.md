@@ -8,12 +8,20 @@ retained. Normal trends contain complete regular-roster Series Ratings only and
 need two complete series before drawing a line. The shared series projection
 and publishing validator enforce this rule. See [Series experience](SERIES_EXPERIENCE.md).
 
-Blue Placements (1/3 maps, 10/38 rounds) and Michigan (1/2 maps, 12/24 rounds)
-are unavailable for all five players. UCF (2/2 maps, 20/20 rounds) stays numeric.
-White FSU retains complete player-specific coverage and numeric Series Ratings,
-including its substitute. No map Rating, Season/Career Rating, formula, evidence
-or archive changed. The older partial aggregate numbers below are historical
-diagnostics and no longer public Series Ratings.
+The deep archive recovery now makes **all nine maps eligible**. Blue Placements
+has **3/3 maps, 38/38 rounds**, Michigan **2/2 maps, 24/24 rounds**, and UCF
+retains **2/2 maps, 20/20 rounds**, for all five regular participants. White FSU
+retains its exact complete player-specific Ratings, including its substitute.
+All five Blue profiles now have three complete trend points; White profiles
+retain one complete-series summary. The formula and complete-only Series rules
+are unchanged. See [deep recovery](DEEP_RATING_RECOVERY.md) for source-specific
+proofs, exact newly enabled Ratings and the three audited objective corrections.
+Original six map feature rows/Ratings and all archive hashes remain exact.
+
+## Earlier audit (historical; superseded by deep recovery)
+
+The following blockers describe what the older readers could prove. Their
+unavailable/partial numbers are historical diagnostics, not current exports.
 
 Baseline: `1b00f59`. All seven production maps and every participating player
 were audited through the existing frozen `siege_style_v3` load/prepare path.

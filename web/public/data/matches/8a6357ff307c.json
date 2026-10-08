@@ -12,11 +12,11 @@
   "their_score": 8,
   "result": "LOSS",
   "demo": false,
-  "rating_eligible": false,
+  "rating_eligible": true,
   "team_slug": "blue",
   "team_name": "UAH Blue",
   "rating_version": "siege_style_v3",
-  "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
+  "rating_exclusion": null,
   "players": [
     {
       "slug": "azooznewzz",
@@ -78,7 +78,7 @@
           "kpr": 0.42857142857142855
         }
       },
-      "rating": null,
+      "rating": 0.6704412739619303,
       "kd": 0.38461538461538464,
       "kpr": 0.35714285714285715,
       "kost": 0.5,
@@ -100,8 +100,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "dinofireking",
@@ -168,7 +168,7 @@
           "kpr": 0.5714285714285714
         }
       },
-      "rating": null,
+      "rating": 0.850424143089836,
       "kd": 0.7,
       "kpr": 0.5,
       "kost": 0.5714285714285714,
@@ -190,8 +190,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "lgon",
@@ -257,7 +257,7 @@
           "kpr": 1.2857142857142858
         }
       },
-      "rating": null,
+      "rating": 1.131879570337306,
       "kd": 1.2727272727272727,
       "kpr": 1.0,
       "kost": 0.6428571428571429,
@@ -279,8 +279,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "ohwowjay",
@@ -343,7 +343,7 @@
           "kpr": 1.0
         }
       },
-      "rating": null,
+      "rating": 1.2757182324775775,
       "kd": 1.6,
       "kpr": 1.1428571428571428,
       "kost": 0.5714285714285714,
@@ -365,8 +365,8 @@
         "4": 1,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     },
     {
       "slug": "tallman3-14",
@@ -427,7 +427,7 @@
           "kpr": 0.14285714285714285
         }
       },
-      "rating": null,
+      "rating": 0.34864626955589506,
       "kd": 0.15384615384615385,
       "kpr": 0.14285714285714285,
       "kost": 0.35714285714285715,
@@ -449,8 +449,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 0,
-      "rating_maps": 0
+      "rating_rounds": 14,
+      "rating_maps": 1
     }
   ],
   "rounds": [

@@ -17,6 +17,7 @@ from r6stats.kill_credit import SOURCE, validate_map_credit
 from r6stats.parser.models import Match
 from r6stats.replay_archive import verify, sha256
 from r6stats.stats.calculate import aggregate, calculate_match
+from r6stats.participant_inventory import inventory_valid
 
 LEGACY = 'legacy_finisher_v1'
 SCHEMA = '''CREATE TABLE IF NOT EXISTS map_kill_credit (
@@ -35,7 +36,9 @@ def round_counts(match, credit):
         except (ValueError, TypeError, AttributeError):
             raise ValueError('Credited participation requires exact nonnil profiles.') from None
         rows = observed['players']
-        if len(profiles) != len(normalized.players) or len(profiles) != 10 or profiles.keys() != rows.keys():
+        if (len(profiles) != len(normalized.players) or profiles.keys() != rows.keys()
+                or (len(profiles) != 10 and not inventory_valid(normalized.players,
+                    observed.get('participant_evidence'), allow_team_remap=True))):
             raise ValueError('Credited and normalized participation differ.')
         pairs = {(rows[key]['team'], p.team) for key, p in profiles.items()}
         if pairs not in ({(0, 0), (1, 1)}, {(0, 1), (1, 0)}):

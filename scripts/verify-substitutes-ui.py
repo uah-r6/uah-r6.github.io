@@ -42,7 +42,9 @@ def verify(url, output):
                     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(width,team,role)
                     page.screenshot(path=str(output/f'{team}-{role}-{width}.png'),full_page=True)
             page.goto(url+'#/players/lgon',wait_until='networkidle')
-            expect(page.locator('.rating-trend svg,.trend-point')).to_have_count(0)
+            complete=[s for s in load('players/lgon/'+index['active_season']+'.json')['series_ratings'] if s['rating'] is not None]
+            expect(page.locator('.rating-trend svg')).to_have_count(int(len(complete)>=2))
+            expect(page.locator('.trend-point')).to_have_count(len(complete) if len(complete)>=2 else 0)
             expect(page.locator('.trend-detail')).to_contain_text('UCF')
             expect(page.get_by_role('link',name='View Sub Stats')).to_have_count(0)
         page.goto(url+'#/players?team=blue',wait_until='networkidle')
@@ -69,7 +71,7 @@ def verify(url, output):
         fixture=context.new_page();fixture.on('pageerror',lambda e:errors.append(str(e)))
         profile=load('players/lgon/fall-2026.json')
         sub={**deepcopy(profile),'slug':'sub-only','name':'Fixture Substitute','appearance_role':'sub',
-             'team_slug':'white','team_name':'UAH White','season':'fall-2026','matches':[dict(profile['matches'][0],team_slug='white',team_name='UAH White')]}
+             'team_slug':'white','team_name':'UAH White','season':'fall-2026','series_ratings':[],'matches':[dict(profile['matches'][0],team_slug='white',team_name='UAH White')]}
         normal={**deepcopy(sub),'rounds':0,'maps':0,'rating':None,'matches':[],'series_ratings':[],
                 'memberships':[],'team_splits':[],
                 'sub_teams':[{'team_slug':'white','team_name':'UAH White','maps':1,'rounds':10,'rating':sub['rating']},

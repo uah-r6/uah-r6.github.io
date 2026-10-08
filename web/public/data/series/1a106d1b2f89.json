@@ -26,11 +26,11 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence"
+      "rating_exclusion": null
     },
     {
       "id": "076d2b6b02bc",
@@ -60,6 +60,97 @@
     "losses": 0
   },
   "players": [
+    {
+      "slug": "ohwowjay",
+      "name": "OhWowJay",
+      "status": "Active",
+      "rounds": 24,
+      "kills": 21,
+      "deaths": 14,
+      "headshots": 12,
+      "opening_kills": 4,
+      "opening_deaths": 1,
+      "refrag_kills": 3,
+      "deaths_traded": 4,
+      "kills_traded": 2,
+      "untraded_kills": 20,
+      "untraded_deaths": 10,
+      "pivot_kills": 15,
+      "pivot_deaths": 9,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 10,
+      "kost_rounds": 17,
+      "rounds_won": 14,
+      "clutches": 1,
+      "clutch_1v1": 1,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 7,
+      "operators": {
+        "Attack": {
+          "Gridlock": 6,
+          "Thatcher": 1,
+          "Twitch": 2,
+          "Zofia": 2,
+          "Capitao": 1
+        },
+        "Defense": {
+          "Wamai": 2,
+          "Warden": 5,
+          "Bandit": 1,
+          "Jager": 1,
+          "Mute": 1,
+          "Goyo": 2
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 12,
+          "kills": 9,
+          "deaths": 8,
+          "kd": 1.125,
+          "kpr": 0.75
+        },
+        "Defense": {
+          "rounds": 12,
+          "kills": 12,
+          "deaths": 6,
+          "kd": 2.0,
+          "kpr": 1.0
+        }
+      },
+      "maps": 2,
+      "rating": 1.2534187731416586,
+      "kd": 1.5,
+      "kpr": 0.875,
+      "kost": 0.7083333333333334,
+      "srv": 0.4166666666666667,
+      "hs": 0.5454545454545454,
+      "entry_diff": 3,
+      "kd_diff": 7,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12,
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 22,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "rating_maps": 2,
+      "rating_rounds": 24,
+      "appearance_role": "roster"
+    },
     {
       "slug": "azooznewzz",
       "name": "AzoozNewzz",
@@ -124,7 +215,7 @@
         }
       },
       "maps": 2,
-      "rating": null,
+      "rating": 1.08376446520794,
       "kd": 1.1176470588235294,
       "kpr": 0.7916666666666666,
       "kost": 0.6666666666666666,
@@ -147,100 +238,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_maps": 1,
-      "rating_rounds": 12,
-      "appearance_role": "roster"
-    },
-    {
-      "slug": "dinofireking",
-      "name": "DinoFireKing",
-      "status": "Active",
-      "rounds": 24,
-      "kills": 13,
-      "deaths": 13,
-      "headshots": 2,
-      "opening_kills": 0,
-      "opening_deaths": 1,
-      "refrag_kills": 3,
-      "deaths_traded": 2,
-      "kills_traded": 2,
-      "untraded_kills": 11,
-      "untraded_deaths": 11,
-      "pivot_kills": 6,
-      "pivot_deaths": 6,
-      "plants": 0,
-      "disables": 0,
-      "teamkills": 0,
-      "survived": 11,
-      "kost_rounds": 16,
-      "rounds_won": 14,
-      "clutches": 0,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "multikill_extra": 2,
-      "operators": {
-        "Attack": {
-          "Sens": 2,
-          "Flores": 1,
-          "Ram": 6,
-          "Lion": 1,
-          "Gridlock": 1,
-          "Sledge": 1
-        },
-        "Defense": {
-          "Castle": 4,
-          "Melusi": 2,
-          "Wamai": 1,
-          "Mira": 1,
-          "Mute": 1,
-          "Fenrir": 3
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 12,
-          "kills": 5,
-          "deaths": 10,
-          "kd": 0.5,
-          "kpr": 0.4166666666666667
-        },
-        "Defense": {
-          "rounds": 12,
-          "kills": 8,
-          "deaths": 3,
-          "kd": 2.6666666666666665,
-          "kpr": 0.6666666666666666
-        }
-      },
-      "maps": 2,
-      "rating": null,
-      "kd": 1.0,
-      "kpr": 0.5416666666666666,
-      "kost": 0.6666666666666666,
-      "srv": 0.4583333333333333,
-      "hs": 0.15384615384615385,
-      "entry_diff": -1,
-      "kd_diff": 0,
-      "objectives": 0,
-      "kill_source_rounds": {
-        "legacy_finisher_v1": 12,
-        "stable_uid_scoreboard_delta_v1": 12
-      },
-      "kill_source": "mixed_whole_map_sources",
-      "finisher_kills": 13,
-      "headshot_source": "legacy_finisher_v1",
-      "event_feature_source": "legacy_finisher_v1",
-      "multikill_sizes": {
-        "2": 2,
-        "3": 0,
-        "4": 0,
-        "5": 0
-      },
-      "rating_maps": 1,
-      "rating_rounds": 12,
+      "rating_maps": 2,
+      "rating_rounds": 24,
       "appearance_role": "roster"
     },
     {
@@ -309,7 +308,7 @@
         }
       },
       "maps": 2,
-      "rating": null,
+      "rating": 1.0781565595142777,
       "kd": 1.2666666666666666,
       "kpr": 0.7916666666666666,
       "kost": 0.625,
@@ -332,99 +331,100 @@
         "4": 0,
         "5": 0
       },
-      "rating_maps": 1,
-      "rating_rounds": 12,
+      "rating_maps": 2,
+      "rating_rounds": 24,
       "appearance_role": "roster"
     },
     {
-      "slug": "ohwowjay",
-      "name": "OhWowJay",
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
       "status": "Active",
       "rounds": 24,
-      "kills": 21,
-      "deaths": 14,
-      "headshots": 12,
-      "opening_kills": 4,
+      "kills": 13,
+      "deaths": 13,
+      "headshots": 2,
+      "opening_kills": 0,
       "opening_deaths": 1,
       "refrag_kills": 3,
-      "deaths_traded": 4,
+      "deaths_traded": 2,
       "kills_traded": 2,
-      "untraded_kills": 20,
-      "untraded_deaths": 10,
-      "pivot_kills": 15,
-      "pivot_deaths": 9,
+      "untraded_kills": 11,
+      "untraded_deaths": 11,
+      "pivot_kills": 6,
+      "pivot_deaths": 6,
       "plants": 0,
       "disables": 0,
       "teamkills": 0,
-      "survived": 10,
-      "kost_rounds": 17,
+      "survived": 11,
+      "kost_rounds": 16,
       "rounds_won": 14,
-      "clutches": 1,
-      "clutch_1v1": 1,
+      "clutches": 0,
+      "clutch_1v1": 0,
       "clutch_1v2": 0,
       "clutch_1v3": 0,
       "clutch_1v4": 0,
       "clutch_1v5": 0,
-      "multikill_extra": 7,
+      "multikill_extra": 2,
       "operators": {
         "Attack": {
-          "Gridlock": 6,
-          "Thatcher": 1,
-          "Twitch": 2,
-          "Zofia": 2,
-          "Capitao": 1
+          "Sens": 2,
+          "Flores": 1,
+          "Ram": 6,
+          "Lion": 1,
+          "Gridlock": 1,
+          "Sledge": 1
         },
         "Defense": {
-          "Wamai": 2,
-          "Warden": 5,
-          "Bandit": 1,
-          "Jager": 1,
+          "Castle": 4,
+          "Melusi": 2,
+          "Wamai": 1,
+          "Mira": 1,
           "Mute": 1,
-          "Goyo": 2
+          "Fenrir": 3
         }
       },
       "sides": {
         "Attack": {
           "rounds": 12,
-          "kills": 9,
-          "deaths": 8,
-          "kd": 1.125,
-          "kpr": 0.75
+          "kills": 5,
+          "deaths": 10,
+          "kd": 0.5,
+          "kpr": 0.4166666666666667
         },
         "Defense": {
           "rounds": 12,
-          "kills": 12,
-          "deaths": 6,
-          "kd": 2.0,
-          "kpr": 1.0
+          "kills": 8,
+          "deaths": 3,
+          "kd": 2.6666666666666665,
+          "kpr": 0.6666666666666666
         }
       },
       "maps": 2,
-      "rating": null,
-      "kd": 1.5,
-      "kpr": 0.875,
-      "kost": 0.7083333333333334,
-      "srv": 0.4166666666666667,
-      "hs": 0.5454545454545454,
-      "entry_diff": 3,
-      "kd_diff": 7,
+      "rating": 0.9348062366024169,
+      "kd": 1.0,
+      "kpr": 0.5416666666666666,
+      "kost": 0.6666666666666666,
+      "srv": 0.4583333333333333,
+      "hs": 0.15384615384615385,
+      "entry_diff": -1,
+      "kd_diff": 0,
       "objectives": 0,
       "kill_source_rounds": {
         "legacy_finisher_v1": 12,
         "stable_uid_scoreboard_delta_v1": 12
       },
       "kill_source": "mixed_whole_map_sources",
-      "finisher_kills": 22,
+      "finisher_kills": 13,
       "headshot_source": "legacy_finisher_v1",
       "event_feature_source": "legacy_finisher_v1",
       "multikill_sizes": {
         "2": 2,
-        "3": 1,
-        "4": 1,
+        "3": 0,
+        "4": 0,
         "5": 0
       },
-      "rating_maps": 1,
-      "rating_rounds": 12,
+      "rating_maps": 2,
+      "rating_rounds": 24,
       "appearance_role": "roster"
     },
     {
@@ -491,7 +491,7 @@
         }
       },
       "maps": 2,
-      "rating": null,
+      "rating": 0.8790235371369184,
       "kd": 0.875,
       "kpr": 0.5833333333333334,
       "kost": 0.5416666666666666,
@@ -514,8 +514,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_maps": 1,
-      "rating_rounds": 12,
+      "rating_maps": 2,
+      "rating_rounds": 24,
       "appearance_role": "roster"
     }
   ]

@@ -14,8 +14,8 @@ test('complete coverage requires every player-specific map and round, with nonze
 
 test('only complete series become chronological points; incomplete records and all map history remain',()=>{
  const profile=load('players/lgon/fall-2026.json'),points=seriesRatingHistory(profile.series_ratings)
- assert.equal(points.length,1)
- assert.deepEqual(points.map(s=>s.opponent),['UCF'])
+ assert.equal(points.length,3)
+ assert.deepEqual(points.map(s=>s.opponent),['Placements','University of Michigan','UCF'])
  assert.equal(profile.series_ratings.length,3)
  for(const point of profile.series_ratings){
   const series=load(`series/${point.id}.json`),player=series.players.find(p=>p.slug==='lgon')
@@ -25,14 +25,14 @@ test('only complete series become chronological points; incomplete records and a
   assert.equal(point.rating!==null,completeSeriesRating(point))
  }
  assert.equal(profile.matches.length,7)
- assert.equal(profile.matches.filter(m=>m.rating!==null).length,4)
+ assert.equal(profile.matches.filter(m=>m.rating!==null).length,7)
 })
 
-test('incomplete Series Ratings are null with exact coverage; UCF still aggregates trusted inputs',()=>{
+test('recovered Series Ratings have complete exact coverage; UCF still aggregates trusted inputs',()=>{
  const profile=load('players/lgon/fall-2026.json')
  const rows=[...profile.series_ratings].reverse()
- assert.deepEqual(rows.map(s=>[s.rating_maps,s.maps,s.rating_rounds,s.rounds]),[[1,3,10,38],[1,2,12,24],[2,2,20,20]])
- assert.equal(rows[0].rating,null);assert.equal(rows[1].rating,null)
+ assert.deepEqual(rows.map(s=>[s.rating_maps,s.maps,s.rating_rounds,s.rounds]),[[3,3,38,38],[2,2,24,24],[2,2,20,20]])
+ assert.ok(rows.every(s=>Number.isFinite(s.rating)&&completeSeriesRating(s)))
  const ucf=rows.at(-1),maps=profile.matches.filter(m=>m.series_id===ucf.id)
  assert.equal(ucf.rating,1.4156752657694631)
  assert.ok(Math.abs(ucf.rating-maps.reduce((n,m)=>n+m.rating,0)/maps.length)>.01)

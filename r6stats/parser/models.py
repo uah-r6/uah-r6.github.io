@@ -51,6 +51,7 @@ class ObjectiveOccurrence:
     actor_uid: int | None = None
     actor_source: str | None = None
     actor_reason: str | None = None
+    actor_evidence: dict | None = None
 
 
 @dataclass

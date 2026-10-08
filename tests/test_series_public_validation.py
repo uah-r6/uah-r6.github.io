@@ -58,7 +58,7 @@ def test_rejects_frontend_series_rating_drift_and_missing_series(tmp_path):
 
 def test_rejects_numeric_partial_series_and_incomplete_roster_projection(tmp_path):
     root = candidate(tmp_path)
-    edit(root, 'series/170b708e12f1.json', lambda d: d['players'][0].update(rating=1.5))
+    edit(root, 'series/170b708e12f1.json', lambda d: d['players'][0].update(rating=1.5,rating_maps=1,rating_rounds=10))
     with pytest.raises(ValueError, match='coverage'):
         validate_public_data(tmp_path)
     shutil.copyfile(PUBLIC / 'series/170b708e12f1.json', root / 'series/170b708e12f1.json')

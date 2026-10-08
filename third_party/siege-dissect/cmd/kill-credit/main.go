@@ -28,7 +28,9 @@ func main() {
 		var credit dissect.RoundKillCredit
 		if os.Args[1] == "--evidence" {
 			var evidence dissect.CreditStructuralEvidence
-			err = json.NewDecoder(f).Decode(&evidence)
+			decoder := json.NewDecoder(f)
+			decoder.UseNumber()
+			err = decoder.Decode(&evidence)
 			header = evidence.Header
 			if err == nil {
 				credit = dissect.ValidateKillCreditEvidence(evidence)

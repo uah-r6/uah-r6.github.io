@@ -43,12 +43,13 @@ type CreditFinish struct {
 }
 
 type RoundKillCredit struct {
-	Source            string             `json:"source"`
-	Complete          bool               `json:"complete"`
-	Reason            string             `json:"reason"`
-	ActionStartOffset int64              `json:"actionStartOffset"`
-	Players           []PlayerKillCredit `json:"players"`
-	Finishes          []CreditFinish     `json:"finishes"`
+	Source              string             `json:"source"`
+	Complete            bool               `json:"complete"`
+	Reason              string             `json:"reason"`
+	ActionStartOffset   int64              `json:"actionStartOffset"`
+	Players             []PlayerKillCredit `json:"players"`
+	Finishes            []CreditFinish     `json:"finishes"`
+	ParticipantEvidence map[string]any     `json:"participantEvidence,omitempty"`
 }
 
 // Structural evidence is also accepted for cached, independently decoded
@@ -167,11 +168,11 @@ func deriveKillCredit(header Header, data []byte, finishes []CreditFinish) Round
 
 func deriveKillCreditObservations(header Header, declarations []objectiveDeclaration, uidFields, counters []objectiveProperty, finishes []CreditFinish) RoundKillCredit {
 	result := RoundKillCredit{Source: CreditedKillSource, Complete: true, Reason: CreditedKillSource,
-		ActionStartOffset: header.ActionPhaseStartOffset, Players: []PlayerKillCredit{}, Finishes: finishes}
+		ActionStartOffset: header.ActionPhaseStartOffset, Players: []PlayerKillCredit{}, Finishes: finishes, ParticipantEvidence: header.ParticipantEvidence}
 	ids := map[uint64]bool{}
 	names := map[string]bool{}
 	teams := [2]int{}
-	valid := len(header.Players) == 10
+	valid := len(header.Players) == 10 || explicitInventoryValid(header)
 	for _, p := range header.Players {
 		if p.ID == 0 || ids[p.ID] || p.Username == "" || names[p.Username] || p.TeamIndex < 0 || p.TeamIndex > 1 {
 			valid = false
@@ -183,7 +184,7 @@ func deriveKillCreditObservations(header Header, declarations []objectiveDeclara
 		}
 		result.Players = append(result.Players, PlayerKillCredit{UID: p.ID, ProfileID: p.ProfileID, Username: p.Username, Team: p.TeamIndex, Samples: []CreditSample{}})
 	}
-	if !valid || teams[0] != 5 || teams[1] != 5 {
+	if !valid || (teams != [2]int{5, 5} && !(explicitInventoryValid(header) && (teams == [2]int{5, 4} || teams == [2]int{4, 5}))) {
 		result.Complete = false
 		result.Reason = "incomplete_or_ambiguous_uid_roster"
 		for i := range result.Players {

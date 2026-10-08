@@ -9,6 +9,8 @@ from r6stats.parser.models import Match
 from r6stats.parser.siege_dissect import parse_match
 from r6stats.replay_archive import map_record, verify
 from r6stats.stats.calculate import COUNTS, calculate_match
+from r6stats.objective_proofs import trusted_actor, proven_no_disable, TRUSTED_OBJECTIVE_ACTOR_SOURCES
+from r6stats.participant_inventory import inventory_valid
 
 SOURCE = "completing_timer_owner_v1"
 
@@ -25,21 +27,25 @@ def overlay(original: Match, parsed: Match) -> tuple[Match, list[dict]]:
     for old, current, target in zip(original.rounds, parsed.rounds, result.rounds):
         if old.winner != current.winner:
             raise ValueError("Objective refresh winner differs.")
+        if sorted((p.key,p.username,p.team,p.side) for p in old.players) != sorted((p.key,p.username,p.team,p.side) for p in current.players):
+            raise ValueError('Objective refresh player/team identity differs.')
         for occurrence in current.objective_occurrences:
-            if not occurrence.actor or occurrence.actor_source != SOURCE or occurrence.actor_reason != SOURCE:
-                continue
             kind = occurrence.kind
             expected = {"plant": "Attack", "disable": "Defense"}.get(kind)
             expected_source = {"plant": "defuser_state_v1", "disable": "defuser_state_and_defense_win_v1"}.get(kind)
             actor = next((p for p in current.players if p.key == occurrence.actor), None)
+            if (not occurrence.actor or occurrence.actor_source not in TRUSTED_OBJECTIVE_ACTOR_SOURCES
+                    or occurrence.actor_reason != occurrence.actor_source):
+                continue
             stable = next((p for p in old.players if actor and p.key == actor.key), None)
             objectives = [o for o in current.objectives if o.kind == kind]
-            if (not actor or not stable or not actor.profile_id or actor.key != actor.profile_id or
+            proven_empty = inventory_valid(current.players, (occurrence.actor_evidence or {}).get('participant_inventory'), allow_team_remap=True)
+            if (not trusted_actor(occurrence, actor) or not actor or not stable or not actor.profile_id or actor.key != actor.profile_id or
                     actor.side != expected or stable.side != actor.side or stable.team != actor.team or
                     type(occurrence.actor_uid) is not int or occurrence.actor_uid <= 0 or
                     occurrence.source != expected_source or occurrence.plant_state_offset <= 0 or
-                    len(current.players) != 10 or len({p.key for p in current.players}) != 10 or
-                    any(sum(p.team == team for p in current.players) != 5 for team in (0, 1)) or
+                    (len(current.players) != 10 and not proven_empty) or len({p.key for p in current.players}) != len(current.players) or
+                    (any(sum(p.team == team for p in current.players) != 5 for team in (0, 1)) and not proven_empty) or
                     len([o for o in current.objective_occurrences if o.kind == kind]) != 1 or
                     len(objectives) != 1 or objectives[0].player != actor.key or objectives[0].team != actor.team or
                     (kind == "disable" and actor.team != current.winner)):
@@ -51,6 +57,21 @@ def overlay(original: Match, parsed: Match) -> tuple[Match, list[dict]]:
             target.objective_occurrences = [o for o in target.objective_occurrences if o.kind != kind] + [deepcopy(occurrence)]
             changes.append({"round": old.number, "kind": kind, "before": prior,
                             "actor": actor.key, "actor_uid": occurrence.actor_uid})
+        # Remove only a positively proven repeat of the SAME completed planting
+        # timer. Missing/unsupported disable evidence by itself never deletes history.
+        for occurrence in current.objective_occurrences:
+            if proven_no_disable(current, occurrence):
+                prior = [o for o in old.objectives if o.kind == 'disable']
+                if not prior:
+                    continue
+                if ((old.starting_scores is not None and old.starting_scores != current.starting_scores)
+                        or (old.ending_scores is not None and old.ending_scores != current.ending_scores)
+                        or len(prior) != occurrence.actor_evidence['no_disable']['legacy_disable_count']):
+                    raise ValueError('Objective absence proof differs from historical round evidence.')
+                target.objectives = [o for o in target.objectives if o.kind != 'disable']
+                target.objective_occurrences = deepcopy(current.objective_occurrences)
+                changes.append(dict(round=old.number, kind='disable', before=[o.player for o in prior],
+                    actor=None, actor_uid=None, source='repeated_plant_zero_before_transition_v1'))
     before, after = calculate_match(original), calculate_match(result)
     if before.keys() != after.keys():
         raise ValueError("Objective refresh changed participation.")
@@ -106,7 +127,7 @@ def parse_archive(db, archive_root: Path, map_id: str, parser=None) -> Match:
     return result
 
 
-def apply(db, map_id: str, parsed: Match, *, preserve_rounds=False, audit=None) -> list[dict]:
+def apply(db, map_id: str, parsed: Match, *, preserve_rounds=False, audit=None, rating_credit=None, archive_root=None) -> list[dict]:
     """Save snapshot and overlay in one transaction using existing map replacement."""
     row = db.execute("SELECT normalized_json,fingerprint FROM maps WHERE id=?", (map_id,)).fetchone()
     if not row:
@@ -136,6 +157,9 @@ def apply(db, map_id: str, parsed: Match, *, preserve_rounds=False, audit=None) 
                     db.execute('INSERT INTO objective_events VALUES(?,?,?,?,?,?)',
                         (round_id, sequence, objective.kind, objective.player, objective.team, objective.remaining))
             from r6stats.rating_inputs_v3 import load_inputs
+            if rating_credit is not None:
+                from r6stats.rating_credit_evidence import store
+                store(db, archive_root, map_id, *rating_credit)
             inputs, reason = load_inputs(db, map_id)
             if inputs is None:
                 raise ValueError('Objective correction did not pass full v3 validation: '+str(reason))
@@ -143,7 +167,7 @@ def apply(db, map_id: str, parsed: Match, *, preserve_rounds=False, audit=None) 
                 from r6stats.rating_evidence import record_audit
                 record_audit(db, map_id, 'objective_actor_correction',
                     dict(normalized_json=row['normalized_json']), dict(normalized_json=payload, changes=changes, **audit),
-                    'Healthy archive; completing timer owner; fully validated objectives and v3 inputs; only supported objective actors/counts corrected. Round IDs and unrelated historical rows retained.')
+                    'Healthy archive; structurally validated objective proofs and full v3 inputs; only proven objective actors/counts corrected. Round IDs, historical display kills and unrelated rows retained.')
         return changes
     # reparse_map's transaction includes the pending snapshot insertion and
     # rolls both back if replacement fails. No independent snapshot commit.

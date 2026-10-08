@@ -1,4 +1,66 @@
-## Current: complete Series Ratings and trends — 2026-10-08
+## Current: deep Rating evidence recovery — 2026-10-08
+
+Local repair and all release gates are complete; deployment verification follows.
+Baseline `e179add`. All **nine maps / 103 rounds** now pass the whole-map frozen
+v3 input path. Kafe, Placements Border and Michigan Chalet are recovered through
+generic structurally validated replay proofs, never guessed actors or counters.
+See [DEEP_RATING_RECOVERY.md](DEEP_RATING_RECOVERY.md) for exact Ratings, feature
+versus provenance classification, offsets, sources and all preservation results.
+
+- Kafe R9 uses `terminal_active_numeric_bonus_timer_owner_v1`: exact same-body
+  numerical proof throughout the uniquely owned completing timer, with known
+  active terminal state; corrects the invalid Tallman Defense plant to Kenbot.
+- Placements Border R6 uses `repeated_plant_zero_before_transition_v1`: both
+  zero samples are the same plant timer before planting, independently consistent
+  with Attack's score increment; removes the false Lxgacy disable.
+- Chalet R9–12 uses `explicit_ten_slot_empty_participant_v1`: nine actual stable
+  profiles plus one explicitly empty initial slot. Every actual participant has
+  direct `stable_uid_scoreboard_delta_v1` counters. No missing player/count is
+  invented. Rating-only sealed evidence preserves the original historical display
+  sidecar and counts. The same full inventory recovers Ophanbear's R10 plant.
+- All five Blue profiles now have complete Placements **3/3, 38/38**, Michigan
+  **2/2, 24/24** and UCF **2/2, 20/20** Series Ratings and three trend points.
+  White keeps its exact complete Series Ratings and compact one-series summaries.
+  Series still aggregates trusted feature counts once; incomplete fixtures remain
+  null. Normal/Sub projections remain isolated. Season/Career Ratings update
+  independently from newly eligible maps; no formula or feature semantics changed.
+- Actual quoted **Start NECC Admin.cmd** rebuilt repository binaries, restarted
+  the outdated process and opened Chrome. The live local admin API audited nine,
+  preserved six and repaired three, with zero blockers. Imported repository paths
+  and `.venv` Python were verified, and binary hashes equal trial candidates.
+- Strict production/trial comparison passes. Original six per-round features and
+  Ratings are exact; all original display/objective sidecars, v2 snapshots,
+  identities, roles, round IDs, rehost mappings, metadata and unrelated tables
+  remain unchanged. Seven new audited entries and one sealed Rating-only table.
+  All archives/manifests retain exact hashes and all nine remain Healthy.
+- Three normalized objective changes are explicit. Calculated count deltas are
+  opponent-only: Kenbot plants 0→1; Lxgacy disables 1→0 and KOST rounds 12→11;
+  Ophanbear plants 0→1. All public player raw statistics and highlights remain
+  exact; 20 of 49 public documents change only Rating/coverage/availability,
+  resulting Rating sorting and freshness. Six map and UCF/White Series JSON
+  documents remain exact. Every series participant and normal Season/Career
+  Rating was independently checked against trusted aggregate inputs.
+- **781 Python tests + six subtests**, one optional smoke skipped; **59 frontend
+  tests**, **19 Worker tests**, Go tests/vet and both builds pass. Existing
+  TestClient deprecation and pytest-cache permission warnings are nonfatal.
+  New proof rejection, integrity, cache and transactional tests are included.
+- Read-only admin, broad 33-route, focused nine-profile/four-series and substitute
+  browser gates pass at **1440/1100/768/390px**, with no JS errors or unintended
+  mutations. Screenshots inspected at every width. Public/admin frontend source
+  and bundles, formula, branding, uploader and Worker remain unchanged.
+
+Verification: `scripts/verify-deep-rating-recovery.py verify`,
+`scripts/verify-complete-series-ui.py`, `scripts/verify-public-redesign-ui.py`,
+`scripts/verify-substitutes-ui.py`, and read-only
+`scripts/verify-rating-production-admin-ui.py`.
+Ignored backup/evidence/reports: `data/research/deep-rating-recovery-20261008/`.
+The older baseline-specific preservation scripts describe previous checkpoints;
+use the deep-recovery verifier for the current production state.
+
+**STOP after release, live verification and the final clean checkpoint.**
+No map-history fallback, further fitting or unrelated feature is planned.
+
+## Earlier: complete Series Ratings and trends — 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
 Baseline `339cbd0`; release `f10eda6` is pushed and deployed by successful

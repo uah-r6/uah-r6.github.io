@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .models import Kill, Match, Objective, ObjectiveOccurrence, Player, Round
+from r6stats.objective_proofs import trusted_actor as verify_actor
+from r6stats.participant_inventory import inventory_valid
 
 LOG = logging.getLogger(__name__)
 
@@ -176,20 +178,23 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
                     event["plantStateOffset"] >= 0):
                 actor = names.get(str(event.get("actor") or "").strip().casefold())
                 uid = event.get("actorID")
-                trusted_source = "completing_timer_owner_v1"
+                trusted_source = event.get("actorSource")
+                occurrence = ObjectiveOccurrence(event["kind"], event["source"], event["plantStateOffset"],
+                    actor.key if actor else None, uid, trusted_source, event.get("actorReason"), event.get("actorEvidence"))
                 raw_actor = [p for p in raw_players if actor and
                              str(p.get("username") or "").strip().casefold() == actor.username.casefold()]
                 numeric_ids = [p.get("id") for p in raw_players]
+                proven_empty = (inventory_valid(raw_players, row.get('participantEvidence'))
+                    and occurrence.actor_evidence and occurrence.actor_evidence.get('participant_inventory') == row.get('participantEvidence'))
                 expected_side = "Attack" if event["kind"] == "plant" else "Defense"
                 trusted_actor = (
                     actor is not None and actor.side == expected_side and
-                    event.get("actorSource") == trusted_source and
-                    event.get("actorReason") == trusted_source and
+                    verify_actor(occurrence, actor) and
                     type(uid) is int and uid > 0 and
                     len(raw_actor) == 1 and raw_actor[0].get("id") == uid and
-                    len(raw_players) == 10 and all(type(i) is int and i > 0 for i in numeric_ids) and
-                    len(set(numeric_ids)) == 10 and
-                    all(sum(p.team == team for p in players) == 5 for team in (0, 1)) and
+                    (len(raw_players) == 10 or proven_empty) and all(type(i) is int and i > 0 for i in numeric_ids) and
+                    len(set(numeric_ids)) == len(raw_players) and
+                    (all(sum(p.team == team for p in players) == 5 for team in (0, 1)) or proven_empty) and
                     event["plantStateOffset"] > 0 and
                     sum(o.get("kind") == event["kind"] for o in row["objectiveOccurrences"]) == 1 and
                     (event["kind"] == "plant" or label(teams[wins[0]].get("role")) == "Defense"))
@@ -201,7 +206,7 @@ def normalize(raw, *, round_numbers: list[int] | None = None) -> Match:
                 occurrences.append(ObjectiveOccurrence(event["kind"], event["source"],
                     event["plantStateOffset"], actor.key if trusted_actor else None,
                     uid if trusted_actor else None, trusted_source if trusted_actor else None,
-                    event.get("actorReason")))
+                    event.get("actorReason"), event.get("actorEvidence") if trusted_actor else None))
                 if trusted_actor:
                     # The completing-owner record supersedes a legacy timer
                     # completion of the same kind, preventing duplicate credit.

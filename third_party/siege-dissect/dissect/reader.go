@@ -29,6 +29,7 @@ type Reader struct {
 	planted                  bool
 	readPartial              bool // reads up to the player info packets
 	playersRead              int
+	recordedParticipants     []Player
 	lastTimerSeconds         uint32
 	timerTicksSeen           int
 	actionPhaseStarted       bool
@@ -66,6 +67,7 @@ func NewReader(in io.Reader) (r *Reader, err error) {
 		}
 	}
 	log.Debug().Int("size", len(r.b)).Send()
+	r.recordedParticipants = append([]Player(nil), r.Header.Players...)
 	log.Debug().Str("season", r.Header.GameVersion).Int("code", r.Header.CodeVersion).Send()
 	r.Listen([]byte{0x22, 0x07, 0x94, 0x9B, 0xDC}, readPlayer)
 	r.Listen([]byte{0x22, 0xA9, 0x26, 0x0B, 0xE4}, readAtkOpSwap)
@@ -245,6 +247,7 @@ func (r *Reader) Read() (err error) {
 	}
 	if !r.readPartial {
 		r.roundEnd()
+		r.Header.ParticipantEvidence = explicitEmptyParticipantInventory(r.Header, r.recordedParticipants, r.b, r.MatchFeedback)
 		r.resolveObjectiveOccurrences()
 		r.resolveObjectiveActors()
 	}

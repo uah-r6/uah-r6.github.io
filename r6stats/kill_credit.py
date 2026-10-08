@@ -1,10 +1,11 @@
 """Validated scoreboard credit, separate from immutable replay finish events.
 
-Opt-in migration preparation only. The existing import/export and frozen rating
-engine do not call this module. No SQLite or filesystem writes occur here.
+Used by guarded evidence maintenance and the stored frozen Rating input path.
+No SQLite or filesystem writes occur here.
 """
 from collections import Counter
 from uuid import UUID
+from r6stats.participant_inventory import inventory_valid
 
 SOURCE = "stable_uid_scoreboard_delta_v1"
 
@@ -23,8 +24,9 @@ def identity(player: dict) -> str:
 def validate_map_credit(records: list[dict]) -> dict:
     """Accept complete consecutive physical sources, never bridge an unknown gap.
 
-    A new folder/R01/all-zero baseline resets only with the same ten distinct
-    nonzero profiles. Reconnect/component changes are refused pending evidence;
+    A new folder/R01/all-zero baseline resets with the same ten distinct nonzero
+    profiles, or a proven nine-player subset plus an explicit empty tenth slot.
+    Reconnect/component changes are refused pending evidence;
     missing participation is retained, never synthesized from official totals.
     """
     issues, resets, rounds = [], [], []
@@ -41,10 +43,13 @@ def validate_map_credit(records: list[dict]) -> dict:
             raise ValueError("Unsupported credited-kill evidence source.")
         players = report["players"]
         current = {identity(p): p for p in players}
-        valid = (report.get("complete") is True and len(current) == len(players) == 10
+        proven_empty = (inventory_valid(players, report.get('participantEvidence'))
+                        and report.get('actionStartOffset') == report['participantEvidence']['action_offset'])
+        valid = (report.get("complete") is True and len(current) == len(players)
+                 and (len(players) == 10 or proven_empty)
                  and all(type(p.get("uid")) is int and p["uid"] > 0 for p in players)
-                 and len({p["uid"] for p in players}) == 10
-                 and Counter(p["team"] for p in players) == Counter({0: 5, 1: 5}))
+                 and len({p["uid"] for p in players}) == len(players)
+                 and (Counter(p["team"] for p in players) == Counter({0: 5, 1: 5}) or proven_empty))
         for p in players:
             values = (p.get("initial"), p.get("terminal"), p.get("kills"))
             if (any(type(v) is not int for v in values) or
@@ -62,11 +67,14 @@ def validate_map_credit(records: list[dict]) -> dict:
             else:
                 same_profiles = (prior.keys() == current.keys() and
                                  all(not key.startswith("uid:") for key in current))
-                reset = (same_profiles and source[0] != previous_record["segment"]
+                known_subset = (proven_empty and current.keys() < prior.keys() and len(prior)==10
+                    and all(not key.startswith('uid:') and current[key]['username']==prior[key]['username'] for key in current))
+                reset = ((same_profiles or known_subset) and source[0] != previous_record["segment"]
                          and source[1] == 1 and all(p["initial"] == 0 for p in players))
                 if reset:
                     resets.append({"round": logical, "segment": source[0],
-                                   "reason": "new_R01_same_ten_profiles_all_zero"})
+                                   "reason": ("new_R01_explicit_empty_slot_known_profiles_all_zero" if known_subset
+                                              else "new_R01_same_ten_profiles_all_zero")})
                 elif prior.keys() != current.keys():
                     issues.append({"round": logical, "reason": "participation_or_identity_changed"})
                 else:
@@ -76,7 +84,8 @@ def validate_map_credit(records: list[dict]) -> dict:
                                            "reason": "unexplained_counter_discontinuity",
                                            "previous": prior[key]["terminal"], "initial": p["initial"]})
         rounds.append({"number": logical, "valid": valid, "players": current,
-                       "segment": source[0], "physical_round": source[1]})
+                       "segment": source[0], "physical_round": source[1],
+                       "participant_evidence": report.get('participantEvidence')})
         previous = record, current, valid
     totals = Counter()
     for r in rounds:

@@ -133,9 +133,11 @@ def verify(url, output, admin):
         expect(page.get_by_role('dialog',name='KOST explained')).to_be_visible()
         page.keyboard.press('Escape')
         go('players/lgon')
-        expect(page.locator('.rating-trend svg')).to_have_count(0)
-        expect(page.locator('.trend-pending')).to_contain_text('another fully rated series')
-        expect(page.locator('.exact-series-rating')).to_contain_text('1.42')
+        history=load('players/lgon/'+season+'.json')['series_ratings']
+        complete=[s for s in history if s['rating'] is not None]
+        expect(page.locator('.rating-trend svg')).to_have_count(int(len(complete)>=2))
+        expect(page.locator('.trend-point')).to_have_count(len(complete) if len(complete)>=2 else 0)
+        expect(page.locator('.trend-detail')).to_contain_text('UCF')
         checks.append('team switch retains section/Sub query; main selector preserves Career/sort; keyboard stat help and complete-only compact Series Rating summary retained')
 
         fixture = browser.new_page(viewport={'width':390,'height':960})

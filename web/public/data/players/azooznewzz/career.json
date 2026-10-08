@@ -75,7 +75,7 @@
     }
   },
   "maps": 7,
-  "rating": 1.0828852878892616,
+  "rating": 0.9807614469695178,
   "kd": 0.9344262295081968,
   "kpr": 0.6951219512195121,
   "kost": 0.6097560975609756,
@@ -98,8 +98,8 @@
     "4": 0,
     "5": 0
   },
-  "rating_rounds": 42,
-  "rating_maps": 4,
+  "rating_rounds": 82,
+  "rating_maps": 7,
   "matches": [
     {
       "id": "9db26f1b6ca7",
@@ -157,12 +157,12 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence",
-      "rating": null
+      "rating_exclusion": null,
+      "rating": 0.9295319715343993
     },
     {
       "id": "076d2b6b02bc",
@@ -199,12 +199,12 @@
       "their_score": 6,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
-      "rating": null
+      "rating_exclusion": null,
+      "rating": 1.028621076162262
     },
     {
       "id": "8a6357ff307c",
@@ -220,12 +220,12 @@
       "their_score": 8,
       "result": "LOSS",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Objective credits lack complete unique core occurrence evidence.",
-      "rating": null
+      "rating_exclusion": null,
+      "rating": 0.6704412739619303
     },
     {
       "id": "d64d5478cdb3",
@@ -287,9 +287,9 @@
         "losses": 0
       },
       "rating_version": "siege_style_v3",
-      "rating": null,
-      "rating_maps": 1,
-      "rating_rounds": 12,
+      "rating": 1.08376446520794,
+      "rating_maps": 2,
+      "rating_rounds": 24,
       "maps": 2,
       "rounds": 24
     },
@@ -308,9 +308,9 @@
         "losses": 1
       },
       "rating_version": "siege_style_v3",
-      "rating": null,
-      "rating_maps": 1,
-      "rating_rounds": 10,
+      "rating": 0.9438043518046677,
+      "rating_maps": 3,
+      "rating_rounds": 38,
       "maps": 3,
       "rounds": 38
     }
@@ -400,7 +400,7 @@
         }
       },
       "maps": 7,
-      "rating": 1.0828852878892616,
+      "rating": 0.9807614469695178,
       "kd": 0.9344262295081968,
       "kpr": 0.6951219512195121,
       "kost": 0.6097560975609756,
@@ -423,8 +423,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 42,
-      "rating_maps": 4
+      "rating_rounds": 82,
+      "rating_maps": 7
     }
   ]
 }

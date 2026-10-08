@@ -9,13 +9,14 @@ import (
 // ObjectiveOccurrence retains round-level completion evidence independently
 // from conservative actor attribution. Unresolved actors remain nil.
 type ObjectiveOccurrence struct {
-	Kind             string  `json:"kind"`
-	Source           string  `json:"source"`
-	Actor            *string `json:"actor"`
-	PlantStateOffset int64   `json:"plantStateOffset"`
-	ActorID          uint64  `json:"actorID,omitempty"`
-	ActorSource      string  `json:"actorSource,omitempty"`
-	ActorReason      string  `json:"actorReason,omitempty"`
+	Kind             string         `json:"kind"`
+	Source           string         `json:"source"`
+	Actor            *string        `json:"actor"`
+	PlantStateOffset int64          `json:"plantStateOffset"`
+	ActorID          uint64         `json:"actorID,omitempty"`
+	ActorSource      string         `json:"actorSource,omitempty"`
+	ActorReason      string         `json:"actorReason,omitempty"`
+	ActorEvidence    map[string]any `json:"actorEvidence,omitempty"`
 }
 
 type objectiveState struct {

@@ -13,6 +13,8 @@ from r6stats.credited_refresh import load as load_credit, round_counts
 from r6stats.kill_credit import validate_map_credit
 from r6stats.parser.models import Match
 from r6stats.stats.calculate import aggregate, calculate_match
+from r6stats.objective_proofs import trusted_actor
+from r6stats.participant_inventory import inventory_valid
 
 SCHEMA = '''CREATE TABLE IF NOT EXISTS map_v3_objective_evidence (
  map_id TEXT PRIMARY KEY REFERENCES maps(id) ON DELETE CASCADE,
@@ -28,8 +30,9 @@ def digest(text):
 def native_state(round_, report):
     players = {p.key: p for p in round_.players}
     names = {p.username: p for p in round_.players}
-    if (len(players) != 10 or len(names) != 10 or round_.winner not in (0, 1)
-            or Counter(p.team for p in players.values()) != Counter({0: 5, 1: 5})
+    proven_empty = inventory_valid(round_.players, report.get('participantEvidence'), allow_team_remap=True)
+    if ((len(players) != 10 and not proven_empty) or len(names) != len(players) or round_.winner not in (0, 1)
+            or (Counter(p.team for p in players.values()) != Counter({0: 5, 1: 5}) and not proven_empty)
             or len({k.sequence for k in round_.kills}) != len(round_.kills)):
         raise ValueError('Distinct full roster and native event ordinals required.')
     finishes = report.get('finishes')
@@ -80,7 +83,7 @@ def validate_objectives(match):
             side = {'plant': 'Attack', 'disable': 'Defense'}.get(o.kind)
             source = {'plant': 'defuser_state_v1', 'disable': 'defuser_state_and_defense_win_v1'}.get(o.kind)
             if (not actor or not side or actor.side != side or o.source != source
-                    or o.actor_source != CORE or o.actor_reason != CORE
+                    or not trusted_actor(o, actor)
                     or type(o.actor_uid) is not int or o.actor_uid <= 0
                     or o.plant_state_offset <= 0
                     or (o.kind == 'disable' and actor.team != r.winner)):
@@ -159,9 +162,14 @@ def load_inputs(db, map_id, window=8):
         return None, 'Manual K/D correction'
     # Corrupt credited evidence raises through its integrity guard. Genuine
     # unsupported evidence is an eligibility refusal, never a zero substitution.
-    if load_credit(db, map_id) is None:
-        return None, 'Incomplete credited-kill evidence'
-    records = json.loads(db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone()[0])
+    from r6stats.rating_credit_evidence import load as load_rating_credit
+    records, credit_reason = load_rating_credit(db, map_id)
+    if credit_reason:
+        return None, credit_reason
+    if records is None:
+        if load_credit(db, map_id) is None:
+            return None, 'Incomplete credited-kill evidence'
+        records = json.loads(db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone()[0])
     match = Match.from_dict(json.loads(row['normalized_json']))
     if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='map_v3_objective_evidence'").fetchone():
         saved = db.execute('SELECT * FROM map_v3_objective_evidence WHERE map_id=?', (map_id,)).fetchone()

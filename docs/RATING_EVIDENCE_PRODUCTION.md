@@ -1,5 +1,42 @@
 # Production Rating evidence repair — 2026-10-08
 
+## Current deep recovery: nine eligible maps
+
+Baseline `e179add`. The three previously blocked maps now pass full frozen v3
+preparation; the original six retain exact per-round feature rows and map
+Ratings. All nine archives and manifests remain unchanged and Healthy.
+
+| Map ID | Team / opponent | Map | Before → after | Trusted recovery |
+| --- | --- | --- | --- | --- |
+| `035ff71d4884` | White / FSU | Nighthaven Labs | Eligible → exact | Existing evidence |
+| `5525677668c0` | White / FSU | Border | Eligible → exact | Existing evidence |
+| `076d2b6b02bc` | Blue / Michigan | Border | Eligible → exact | Existing evidence |
+| `b595ffaaec57` | Blue / Michigan | Chalet | Unrated → eligible | Explicit empty tenth slot; direct nine-player UID scoreboard deltas; R10 completing plant timer |
+| `5adc26f7a402` | Blue / Placements | Kafe | Unrated → eligible | Terminal-active numeric bonus/body proof for R9 timer owner |
+| `8a6357ff307c` | Blue / Placements | Border | Unrated → eligible | Repeated zeros of one plant timer before transition disprove R6 disable |
+| `d64d5478cdb3` | Blue / Placements | Fortress | Eligible → exact | Existing evidence |
+| `8af0a6db6c39` | Blue / UCF | Border | Eligible → exact | Existing evidence |
+| `9db26f1b6ca7` | Blue / UCF | Nighthaven Labs | Eligible → exact | Existing evidence |
+
+See [DEEP_RATING_RECOVERY.md](DEEP_RATING_RECOVERY.md) for complete forensic
+findings, validation classification, exact map/Series Ratings and preservation
+results. No model fitting, formula/scaling/intercept/trade change or UI redesign.
+Chalet's original incomplete display sidecar is intentionally retained; a
+separate integrity-bound Rating-only record supplies direct credited inputs.
+All public raw statistics, roles, ownership, scores and highlights are exact.
+Opponent-only objective corrections and seven new audits are explicit.
+
+Current verification: 781 Python tests plus six subtests (one optional smoke
+skip), 59 frontend tests, 19 Worker tests, Go tests/vet, both builds; actual quoted
+CMD launcher and live local admin repair API. Browser checks cover all maps,
+all normal profiles and all four series at 1440/1100/768/390px, complete-only
+history, zero/one/two-point fixtures, substitutes and unchanged presentation.
+
+## Earlier production repair (historical)
+
+The following report describes the previous six-eligible-map checkpoint and is
+retained for its audit trail. Its three blockers are superseded by deep recovery.
+
 Baseline: `f62263e`, nine maps / 103 rounds. The database was authoritative.
 All nine private archives verified Healthy before and after maintenance.
 The frozen `siege_style_v3` model and every eligibility gate are unchanged.

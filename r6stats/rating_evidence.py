@@ -11,6 +11,7 @@ from r6stats.kill_credit import validate_map_credit
 from r6stats.parser.models import Match
 from r6stats.parser.siege_dissect import parser_executable
 from r6stats.rating_inputs_v3 import load_inputs, prepare, store_objective_evidence, validate_objectives
+from r6stats.participant_inventory import inventory_valid
 
 AUDIT_SCHEMA = '''CREATE TABLE IF NOT EXISTS rating_evidence_audit (
  id INTEGER PRIMARY KEY, map_id TEXT NOT NULL REFERENCES maps(id) ON DELETE CASCADE,
@@ -82,6 +83,8 @@ def repair(db, archive_root: Path, map_id):
     if before['eligible']:
         return dict(before=before, after=before, changes=[], blockers=[], message='Already eligible; existing evidence and Rating preserved.')
     changes, blockers = [], []
+    rating_credit = None
+    rating_credit_stored = False
     manifest_path = Path(before['archive']['path']) / 'manifest.json'
     source_hash = replay_archive.sha256(manifest_path)
     executable = parser_executable()
@@ -98,7 +101,11 @@ def repair(db, archive_root: Path, map_id):
             else:
                 has_credit = db.execute("SELECT 1 FROM sqlite_master WHERE name='map_kill_credit'").fetchone()
                 prior = db.execute('SELECT * FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone() if has_credit else None
-                if prior:
+                if prior and any(inventory_valid(r['credit']['players'],r['credit'].get('participantEvidence')) for r in records):
+                    # A recovered smaller actual roster must not silently replace
+                    # historical finisher counts in the display sidecar.
+                    rating_credit = (records, binary)
+                elif prior:
                     credited_refresh.reconcile_incomplete(db, map_id, records, binary,
                         archive_root=archive_root, fingerprint=prior['fingerprint'], prior_sha256=prior['evidence_sha256'])
                 else:
@@ -107,13 +114,16 @@ def repair(db, archive_root: Path, map_id):
                     credited_refresh.preserve_display(match, credit)
                     credited_refresh.store(db, map_id, records, binary)
                     with db: record_audit(db, map_id, 'credited_backfill', None, dict(parser_sha256=binary), 'Complete healthy-archive collection through the existing trusted reader.')
-                changes.append('credited evidence')
+                if rating_credit is None:
+                    changes.append('credited evidence')
     # Exact metadata-only backfill first; independently proven actor corrections
     # use the existing objective overlay and retain every unrelated database row.
     row = replay_archive.map_record(db, map_id)
     original = Match.from_dict(json.loads(row['normalized_json']))
     try:
         validate_objectives(original)
+        if rating_credit is not None:
+            raise ValueError('Recovered participation requires a fresh archive objective inventory.')
     except ValueError:
         parsed = None
         try:
@@ -131,12 +141,13 @@ def repair(db, archive_root: Path, map_id):
                     has_sidecar = db.execute("SELECT 1 FROM sqlite_master WHERE name='map_v3_objective_evidence'").fetchone()
                     if has_sidecar and db.execute('SELECT 1 FROM map_v3_objective_evidence WHERE map_id=?', (map_id,)).fetchone():
                         raise ValueError('Existing objective sidecar requires explicit reconciliation before an actor correction.')
-                    if credited_refresh.load(db, map_id) is None:
+                    if rating_credit is None and credited_refresh.load(db, map_id) is None:
                         raise ValueError('Objective correction requires complete trusted credited evidence.')
-                    records = json.loads(db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone()[0])
+                    records = rating_credit[0] if rating_credit else json.loads(db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone()[0])
                     prepare(updated, records)
                     objective_refresh.apply(db, map_id, parsed, preserve_rounds=True,
-                        audit=dict(parser_sha256=parser_hash, archive_manifest_sha256=source_hash))
+                        audit=dict(parser_sha256=parser_hash, archive_manifest_sha256=source_hash),
+                        rating_credit=rating_credit, archive_root=archive_root)
                 except ValueError as correction_error:
                     blockers.append(str(correction_error))
                     for old, new in zip(original.rounds, parsed.rounds):
@@ -146,6 +157,7 @@ def repair(db, archive_root: Path, map_id):
                         if expected != supported or unresolved:
                             blockers.append(f'Logical R{old.number}: stored credits {sorted(expected)}; trusted occurrences {sorted(supported)}; reasons {[o.actor_reason for o in new.objective_occurrences]}')
                 else:
+                    rating_credit_stored = rating_credit is not None
                     changes.append('supported objective actor correction')
                     blockers.clear()
         except (OSError, subprocess.SubprocessError) as error:
@@ -154,6 +166,15 @@ def repair(db, archive_root: Path, map_id):
             store_objective_evidence(db, map_id, candidate,
                 audit=dict(parser_sha256=parser_hash, archive_manifest_sha256=source_hash))
             changes.append('objective evidence')
+    if rating_credit is not None:
+        if not rating_credit_stored:
+            # Do not persist pending counters while any objective remains
+            # unresolved. store() runs full prepare and owns no transaction.
+            from r6stats.rating_credit_evidence import store
+            with db:
+                db.execute('BEGIN IMMEDIATE')
+                store(db, archive_root, map_id, *rating_credit)
+        changes.append('Rating-only credited evidence')
     after = audit_map(db, archive_root, map_id)  # Full prepare path, including native offsets/parity/opening/clutch.
     with db: record_audit(db, map_id, 'archive_repair_check', before, after,
         json.dumps(dict(changes=changes, blockers=blockers, archive_manifest_sha256=source_hash, parser_sha256=parser_hash), sort_keys=True))

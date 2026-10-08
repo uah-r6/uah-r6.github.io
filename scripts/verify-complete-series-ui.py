@@ -49,16 +49,25 @@ def verify(url, output):
             for slug in profiles:
                 data = load(f'players/{slug}/{season}.json')
                 page.goto(url+'#/players/'+slug, wait_until='networkidle')
-                expect(page.locator('.rating-trend svg')).to_have_count(0)
-                expect(page.locator('.trend-point,.trend-point-partial,.trend-partial-label,.recent-rating button')).to_have_count(0)
-                expect(page.locator('.trend-pending')).to_contain_text('another fully rated series')
                 complete = [s for s in data['series_ratings'] if s['rating'] is not None]
-                assert len(complete)==1
-                expect(page.locator('.trend-heading .section-aside')).to_have_text(f"1 of {len(data['series_ratings'])} series has a complete Rating")
-                expect(page.locator('.exact-series-rating')).to_contain_text(f"{complete[0]['rating']:.2f}")
+                count=len(complete)
+                expect(page.locator('.rating-trend svg')).to_have_count(int(count>=2))
+                expect(page.locator('.trend-point')).to_have_count(count if count>=2 else 0)
+                expect(page.locator('.trend-point-partial,.trend-partial-label')).to_have_count(0)
+                expect(page.locator('.recent-rating button')).to_have_count(count if count>=2 else 0)
+                if count==1:
+                    expect(page.locator('.trend-pending')).to_contain_text('another fully rated series')
+                    expect(page.locator('.exact-series-rating')).to_contain_text(f"{complete[0]['rating']:.2f}")
+                else:
+                    expect(page.locator('.trend-pending')).to_have_count(0)
+                    for point in page.locator('.trend-point').all():
+                        assert 'complete Series Rating' in point.get_attribute('aria-label')
+                        point.hover();point.focus();point.click();point.tap();layout()
+                    page.locator('.recent-rating button').last.click()
+                expect(page.locator('.trend-heading .section-aside')).to_have_text(f"{count} of {len(data['series_ratings'])} series "+('has a complete Rating' if count==1 else 'have complete Ratings'))
                 expect(page.locator('.trend-detail')).to_contain_text(complete[0]['opponent'])
                 expect(page.locator('.profile-key-stats dd').first).to_have_text(f"{data['rating']:.2f}")
-                assert page.locator('.rating-trend').bounding_box()['height']<430
+                assert page.locator('.rating-trend').bounding_box()['height']<(430 if count==1 else 750)
                 capture('profile-'+slug,width)
             for doc in series:
                 page.goto(url+'#/series/'+doc['id'],wait_until='networkidle')
@@ -83,18 +92,19 @@ def verify(url, output):
                 expect(page.get_by_role('dialog',name='Rating explained')).to_be_visible()
                 page.keyboard.press('Escape')
                 capture('series-'+doc['id'],width)
-            # Both scoped normal season and Career have the same single complete series.
+            # Career must retain every complete series.
             page.goto(url+'#/players/lgon',wait_until='networkidle')
             page.get_by_label('Statistics period').select_option('career')
-            expect(page.locator('.rating-trend svg')).to_have_count(0)
+            expect(page.locator('.rating-trend svg')).to_have_count(1)
+            expect(page.locator('.trend-point')).to_have_count(3)
             expect(page.locator('.trend-detail')).to_contain_text('UCF')
             capture('career-lgon',width)
             page.get_by_label('Statistics period').select_option(season)
-        checks.append('all nine normal profiles and four actual series at four widths: complete-only numbers, no single-point graph, exact coverage/raw stats, SUB badge and Rating help')
+        checks.append('all nine normal profiles and four actual series at four widths: five Blue profiles have three complete points; four White profiles retain compact single-series summaries; exact coverage/raw stats, SUB badge and Rating help')
 
         # No eligible series, stale partial numerics, and true multi-team 2+ history.
         complete = lgon['series_ratings'][0]
-        incomplete = {**lgon['series_ratings'][1], 'rating':1.4342647708955862}
+        incomplete = {**lgon['series_ratings'][1], 'rating':1.4342647708955862,'rating_maps':1,'rating_rounds':12}
         future = {**complete,'id':'fixture-white','series_id':'fixture-white','date':'2027-02-01',
                   'team_slug':'white','team_name':'UAH White','season':'spring-2027','season_name':'Spring 2027',
                   'opponent':'University of the Northern Lakes Competitive Rainbow Six Varsity Program', 'rating':1.23}

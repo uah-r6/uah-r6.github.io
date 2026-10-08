@@ -27,6 +27,7 @@ type Header struct {
 	OvertimeRoundNumber    int                   `json:"overtimeRoundNumber"`
 	Teams                  [2]Team               `json:"teams"`
 	Players                []Player              `json:"players"`
+	ParticipantEvidence    map[string]any        `json:"participantEvidence,omitempty"`
 	ActionPhaseDetected    bool                  `json:"actionPhaseDetected,omitempty"`
 	ActionPhaseStartOffset int64                 `json:"actionPhaseStartOffset,omitempty"`
 	ObjectiveOccurrences   []ObjectiveOccurrence `json:"objectiveOccurrences,omitempty"`

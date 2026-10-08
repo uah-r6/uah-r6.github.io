@@ -14,8 +14,8 @@ test('embed independently follows active season and validates explicit overrides
 })
 test('trend keeps exact exported v3 values, chronology and eligibility',()=>{
  const copy=structuredClone(profile.matches),points=ratingHistory(copy)
- assert.equal(points.length,4)
- assert.deepEqual(points.map(p=>p.id),['d64d5478cdb3','076d2b6b02bc','8af0a6db6c39','9db26f1b6ca7'])
+ assert.equal(points.length,7)
+ assert.deepEqual(points.map(p=>p.id),['d64d5478cdb3','8a6357ff307c','5adc26f7a402','076d2b6b02bc','b595ffaaec57','8af0a6db6c39','9db26f1b6ca7'])
  for(const p of points)assert.equal(p.rating,profile.matches.find(m=>m.id===p.id).rating)
  assert.deepEqual(copy,profile.matches)
  assert.equal(ratingHistory([{...copy[0],rating:null}]).length,0)

@@ -100,7 +100,7 @@ func objectiveComponentFields(data []byte) ([]objectiveDeclaration, []objectiveP
 					p.bits |= uint64(data[at+5+i]) << uint(8*i)
 				}
 			}
-			if tag == objectiveUIDTag || tag == objectiveBodyState || tag == objectiveTimerTag || tag == objectivePhaseTag || tag == objectiveProgressTag {
+			if tag == objectiveUIDTag || tag == objectiveBodyState || tag == objectiveTimerTag || tag == objectivePhaseTag || tag == objectiveProgressTag || bonusBodyField(tag) {
 				fields[at] = p
 			}
 			if end >= len(data) || data[end] != 0x22 {
@@ -426,7 +426,7 @@ func (e *objectiveEvidence) activeBody(ep objectiveEpisode) bool {
 }
 
 func objectiveRosterValid(h Header) bool {
-	if h.GameMode != Bomb || len(h.Players) != 10 || h.Teams[0].Role == h.Teams[1].Role ||
+	if h.GameMode != Bomb || (len(h.Players) != 10 && !explicitInventoryValid(h)) || h.Teams[0].Role == h.Teams[1].Role ||
 		(h.Teams[0].Role != Attack && h.Teams[0].Role != Defense) || (h.Teams[1].Role != Attack && h.Teams[1].Role != Defense) {
 		return false
 	}
@@ -441,7 +441,7 @@ func objectiveRosterValid(h Header) bool {
 		uids[p.ID] = true
 		counts[p.TeamIndex]++
 	}
-	return counts == [2]int{5, 5}
+	return counts == [2]int{5, 5} || (explicitInventoryValid(h) && (counts == [2]int{5, 4} || counts == [2]int{4, 5}))
 }
 
 func (e *objectiveEvidence) selectActor(h Header, feedback []MatchUpdate, occurrence ObjectiveOccurrence) (int, string) {
@@ -541,6 +541,11 @@ func (e *objectiveEvidence) selectActor(h Header, feedback []MatchUpdate, occurr
 		}
 	}
 	if !e.activeBody(ep) {
+		if phase == 0 {
+			if _, ok := e.boundedBonusBody(ep); ok {
+				return player, boundedBonusSource
+			}
+		}
 		return -1, "timer_owner_body_unresolved"
 	}
 	return player, "completing_timer_owner_v1"
@@ -579,7 +584,36 @@ func (r *Reader) resolveObjectiveActors() {
 			name := r.Header.Players[player].Username
 			o.Actor = &name
 			o.ActorID = r.Header.Players[player].ID
-			o.ActorSource = "completing_timer_owner_v1"
+			o.ActorSource = reason
+			if reason == boundedBonusSource {
+				for _, ep := range e.episodes {
+					if ep.phase == 0 && ep.route.player == player && e.complete(ep, 0) {
+						o.ActorEvidence, _ = e.boundedBonusBody(ep)
+						o.ActorEvidence["actor_uid"] = o.ActorID
+						o.ActorEvidence["profile_id"] = r.Header.Players[player].ProfileID
+						o.ActorEvidence["username"] = name
+						uidOffsets := []int{}
+						for _, p := range e.properties {
+							if p.entity == ep.route.owner && p.tag == objectiveUIDTag && p.size == 8 && p.bits == o.ActorID {
+								uidOffsets = append(uidOffsets, p.offset)
+							}
+						}
+						o.ActorEvidence["uid_offsets"] = uidOffsets
+					}
+				}
+			}
+			if proof := e.noDisableProof(r.Header, r.MatchFeedback, *o); proof != nil {
+				if o.ActorEvidence == nil {
+					o.ActorEvidence = map[string]any{}
+				}
+				o.ActorEvidence["no_disable"] = proof
+			}
+			if explicitInventoryValid(r.Header) {
+				if o.ActorEvidence == nil {
+					o.ActorEvidence = map[string]any{}
+				}
+				o.ActorEvidence["participant_inventory"] = r.Header.ParticipantEvidence
+			}
 		}
 	}
 }

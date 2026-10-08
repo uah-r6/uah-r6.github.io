@@ -60,11 +60,11 @@
       "their_score": 5,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence"
+      "rating_exclusion": null
     },
     {
       "id": "076d2b6b02bc",
@@ -100,11 +100,11 @@
       "their_score": 6,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Objective credits lack complete unique core occurrence evidence."
+      "rating_exclusion": null
     },
     {
       "id": "8a6357ff307c",
@@ -120,11 +120,11 @@
       "their_score": 8,
       "result": "LOSS",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Objective credits lack complete unique core occurrence evidence."
+      "rating_exclusion": null
     },
     {
       "id": "d64d5478cdb3",
@@ -219,7 +219,7 @@
         }
       },
       "maps": 7,
-      "rating": 1.5814211739096358,
+      "rating": 1.4041059864688028,
       "kd": 1.82,
       "kpr": 1.1097560975609757,
       "kost": 0.7073170731707317,
@@ -242,8 +242,8 @@
         "4": 5,
         "5": 0
       },
-      "rating_rounds": 42,
-      "rating_maps": 4
+      "rating_rounds": 82,
+      "rating_maps": 7
     },
     {
       "slug": "lgon",
@@ -321,7 +321,7 @@
         }
       },
       "maps": 7,
-      "rating": 1.4413101530150807,
+      "rating": 1.28520873284775,
       "kd": 1.6875,
       "kpr": 0.9878048780487805,
       "kost": 0.6585365853658537,
@@ -344,8 +344,8 @@
         "4": 1,
         "5": 0
       },
-      "rating_rounds": 42,
-      "rating_maps": 4
+      "rating_rounds": 82,
+      "rating_maps": 7
     },
     {
       "slug": "azooznewzz",
@@ -423,7 +423,7 @@
         }
       },
       "maps": 7,
-      "rating": 1.0828852878892616,
+      "rating": 0.9807614469695178,
       "kd": 0.9344262295081968,
       "kpr": 0.6951219512195121,
       "kost": 0.6097560975609756,
@@ -446,108 +446,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 42,
-      "rating_maps": 4
-    },
-    {
-      "slug": "tallman3-14",
-      "name": "Tallman3.14",
-      "status": "Active",
-      "rounds": 82,
-      "kills": 37,
-      "deaths": 63,
-      "headshots": 14,
-      "opening_kills": 14,
-      "opening_deaths": 8,
-      "refrag_kills": 1,
-      "deaths_traded": 5,
-      "kills_traded": 7,
-      "untraded_kills": 29,
-      "untraded_deaths": 58,
-      "pivot_kills": 22,
-      "pivot_deaths": 43,
-      "plants": 6,
-      "disables": 0,
-      "teamkills": 0,
-      "survived": 19,
-      "kost_rounds": 41,
-      "rounds_won": 49,
-      "clutches": 1,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 1,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "multikill_extra": 10,
-      "operators": {
-        "Attack": {
-          "Thermite": 4,
-          "Blitz": 10,
-          "Montagne": 7,
-          "Capitao": 5,
-          "Ying": 2,
-          "Rauora": 1,
-          "Hibana": 1,
-          "Lion": 3,
-          "Ace": 3,
-          "Zofia": 1,
-          "Blackbeard": 1,
-          "Flores": 1
-        },
-        "Defense": {
-          "Mute": 6,
-          "Smoke": 23,
-          "Warden": 1,
-          "Solis": 2,
-          "Sentry": 2,
-          "Goyo": 4,
-          "Kaid": 2,
-          "Pulse": 2,
-          "Wamai": 1
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 39,
-          "kills": 12,
-          "deaths": 30,
-          "kd": 0.4,
-          "kpr": 0.3076923076923077
-        },
-        "Defense": {
-          "rounds": 43,
-          "kills": 25,
-          "deaths": 33,
-          "kd": 0.7575757575757576,
-          "kpr": 0.5813953488372093
-        }
-      },
-      "maps": 7,
-      "rating": 0.8529785630583683,
-      "kd": 0.5873015873015873,
-      "kpr": 0.45121951219512196,
-      "kost": 0.5,
-      "srv": 0.23170731707317074,
-      "hs": 0.3888888888888889,
-      "entry_diff": 6,
-      "kd_diff": -26,
-      "objectives": 6,
-      "kill_source_rounds": {
-        "stable_uid_scoreboard_delta_v1": 70,
-        "legacy_finisher_v1": 12
-      },
-      "kill_source": "mixed_whole_map_sources",
-      "finisher_kills": 36,
-      "headshot_source": "legacy_finisher_v1",
-      "event_feature_source": "legacy_finisher_v1",
-      "multikill_sizes": {
-        "2": 10,
-        "3": 0,
-        "4": 0,
-        "5": 0
-      },
-      "rating_rounds": 42,
-      "rating_maps": 4
+      "rating_rounds": 82,
+      "rating_maps": 7
     },
     {
       "slug": "dinofireking",
@@ -628,7 +528,7 @@
         }
       },
       "maps": 7,
-      "rating": 0.764537723798764,
+      "rating": 0.8443529487895954,
       "kd": 0.7058823529411765,
       "kpr": 0.43902439024390244,
       "kost": 0.6097560975609756,
@@ -651,8 +551,108 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 42,
-      "rating_maps": 4
+      "rating_rounds": 82,
+      "rating_maps": 7
+    },
+    {
+      "slug": "tallman3-14",
+      "name": "Tallman3.14",
+      "status": "Active",
+      "rounds": 82,
+      "kills": 37,
+      "deaths": 63,
+      "headshots": 14,
+      "opening_kills": 14,
+      "opening_deaths": 8,
+      "refrag_kills": 1,
+      "deaths_traded": 5,
+      "kills_traded": 7,
+      "untraded_kills": 29,
+      "untraded_deaths": 58,
+      "pivot_kills": 22,
+      "pivot_deaths": 43,
+      "plants": 6,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 19,
+      "kost_rounds": 41,
+      "rounds_won": 49,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 1,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 10,
+      "operators": {
+        "Attack": {
+          "Thermite": 4,
+          "Blitz": 10,
+          "Montagne": 7,
+          "Capitao": 5,
+          "Ying": 2,
+          "Rauora": 1,
+          "Hibana": 1,
+          "Lion": 3,
+          "Ace": 3,
+          "Zofia": 1,
+          "Blackbeard": 1,
+          "Flores": 1
+        },
+        "Defense": {
+          "Mute": 6,
+          "Smoke": 23,
+          "Warden": 1,
+          "Solis": 2,
+          "Sentry": 2,
+          "Goyo": 4,
+          "Kaid": 2,
+          "Pulse": 2,
+          "Wamai": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 39,
+          "kills": 12,
+          "deaths": 30,
+          "kd": 0.4,
+          "kpr": 0.3076923076923077
+        },
+        "Defense": {
+          "rounds": 43,
+          "kills": 25,
+          "deaths": 33,
+          "kd": 0.7575757575757576,
+          "kpr": 0.5813953488372093
+        }
+      },
+      "maps": 7,
+      "rating": 0.7591005854477864,
+      "kd": 0.5873015873015873,
+      "kpr": 0.45121951219512196,
+      "kost": 0.5,
+      "srv": 0.23170731707317074,
+      "hs": 0.3888888888888889,
+      "entry_diff": 6,
+      "kd_diff": -26,
+      "objectives": 6,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 70,
+        "legacy_finisher_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 36,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 10,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_rounds": 82,
+      "rating_maps": 7
     }
   ],
   "rating_version": "siege_style_v3",

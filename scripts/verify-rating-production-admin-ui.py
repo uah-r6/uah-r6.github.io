@@ -99,7 +99,7 @@ def main():
         with page.expect_response('**/api/admin/rating-evidence',timeout=120000) as response:
             page.get_by_role('button',name='Audit Rating Evidence',exact=True).click()
         audit = response.value.json()
-        assert len(audit)==9 and sum(r['eligible'] for r in audit)==6, audit
+        assert len(audit)==9 and sum(r['eligible'] for r in audit)==9, audit
         assert all(r['archive']['status']=='Healthy' for r in audit)
         expect(page.locator('.evidence-row')).to_have_count(9)
         if args.repair:
