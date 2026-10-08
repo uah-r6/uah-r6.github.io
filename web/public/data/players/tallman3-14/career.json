@@ -285,7 +285,7 @@
         "losses": 0
       },
       "rating_version": "siege_style_v3",
-      "rating": 0.934669056494805,
+      "rating": null,
       "rating_maps": 1,
       "rating_rounds": 12,
       "maps": 2,
@@ -306,7 +306,7 @@
         "losses": 1
       },
       "rating_version": "siege_style_v3",
-      "rating": 0.8145969377571439,
+      "rating": null,
       "rating_maps": 1,
       "rating_rounds": 10,
       "maps": 3,

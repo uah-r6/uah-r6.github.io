@@ -15,11 +15,11 @@ export function seriesRatingHistory(series:SeriesPoint[]):SeriesPoint[]{
     const key=JSON.stringify([point.id,point.team_slug,point.season])
     if(seen.has(key))return false
     seen.add(key)
-    return point.rating_version==='siege_style_v3'&&point.rating_maps>0&&point.rating_rounds>0&&typeof point.rating==='number'&&Number.isFinite(point.rating)
+    return point.rating_version==='siege_style_v3'&&completeSeriesRating(point)&&typeof point.rating==='number'&&Number.isFinite(point.rating)
   }).sort((a,b)=>a.point.date.localeCompare(b.point.date)||b.ordinal-a.ordinal).map(({point})=>point)
 }
-export function partialSeriesRating(point:Pick<SeriesPoint,'maps'|'rating_maps'|'rounds'|'rating_rounds'>):boolean{
-  return point.rating_maps<point.maps||point.rating_rounds<point.rounds
+export function completeSeriesRating(point:Pick<SeriesPoint,'maps'|'rating_maps'|'rounds'|'rating_rounds'>):boolean{
+  return point.maps>0&&point.rounds>0&&point.rating_maps===point.maps&&point.rating_rounds===point.rounds
 }
 export function seriesGroups(matches:Match[]) {
   const groups=new Map<string,Match[]>()

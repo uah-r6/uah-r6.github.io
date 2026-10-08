@@ -1,4 +1,64 @@
-## Current: public presentation redesign — 2026-10-08
+## Current: complete Series Ratings and trends — 2026-10-08
+
+**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/DEPLOYMENT PENDING. STOP AFTER THIS PASS.**
+Baseline `339cbd0`. This changes Series Rating availability only; the frozen v3
+formula, map eligibility/evidence and independent Season/Career Rating stay intact.
+
+- Shared `series_rating_complete` requires nonzero player-specific played maps
+  and rounds with exact trusted map and round coverage. The series projection
+  evaluates the existing model once only when complete; otherwise Rating is
+  `null`. Coverage counts and all display statistics remain. Publishing uses the
+  same rule, including mixed-role regular projections, and refuses numeric
+  incomplete, missing complete or nonfinite Ratings.
+- Normal profile history still uses only frozen regular-roster appearances.
+  Substitute/mixed participant tracks use the same coverage rule independently;
+  no substitute inputs leak into normal Season/Career/history. Map Ratings and
+  Season/Career Ratings independently consume trusted map inputs in `export.py`,
+  without any dependency on Series Ratings; no broader semantics were changed.
+- Lgon: UCF **1.4156752657694631**, **2/2 maps, 20/20 rounds**; Michigan
+  **unavailable**, **1/2 maps, 12/24 rounds**; Placements **unavailable**,
+  **1/3 maps, 10/38 rounds**. All five Blue players have the same completeness
+  pattern. White FSU retains complete numeric Series Ratings, including its
+  substitute. Every current normal profile has only one complete series.
+- Trend accepts only complete finite v3 Series Ratings. Partial helper, hollow
+  points and PARTIAL chart labels are removed. Zero/one complete series has no
+  SVG or line; compact readable messages and a latest complete fact appear.
+  Two or more retains keyboard/focus/hover/click context and complete-only recent
+  controls. Incomplete series/history and every recorded performance remain.
+- **729 Python tests plus six subtests**, one optional smoke skip; **59 frontend
+  tests**, **19 Worker tests**, Go tests/vet and both builds pass. Existing
+  TestClient deprecation/pytest-cache permission warnings remain nonfatal.
+  Tests prove player-specific participation, aggregate-once/non-arithmetic-mean,
+  incomplete map/round abstention, display preservation and appearance isolation.
+- Actual quoted **Start NECC Admin.cmd** restarted the outdated project process
+  and launched Chrome with `.venv\Scripts\python.exe` / current repository
+  source. Broad 33-route/four-width regression and read-only admin checks pass.
+  Focused checks cover all nine normal profiles and four Series pages, exact
+  complete/unavailable Ratings and coverage, raw stats, SUB badge and help.
+  Zero/one/two-complete, stale partial numbers, long names and multi-team fixtures
+  pass at **1440/1100/768/390px**. Existing substitute regression also passes.
+- Regenerated 49 public documents through a **read-only SQLite connection**.
+  Preservation permits exactly **30 incomplete Series Rating fields becoming
+  null**, resulting series sorting and export freshness. All other public values
+  are exact, including complete Ratings, coverage, map/Season/Career Ratings and
+  raw stats. All nine map JSON files remain byte-identical. All **22 SQLite
+  tables**, **226 protected parser/formula/evidence/archive/branding/uploader/
+  admin/presentation files** and **nine Healthy archives** are unchanged.
+
+Current gates: `scripts/verify-complete-series-ui.py` (build or `--url`),
+`scripts/verify-series-completeness-preservation.py`, the updated broad public
+redesign gate and substitute browser gate. See [SERIES_EXPERIENCE.md](SERIES_EXPERIENCE.md),
+[RATING_EVIDENCE.md](RATING_EVIDENCE.md) and [PUBLIC_METHODOLOGY.md](PUBLIC_METHODOLOGY.md).
+Older evidence-audit partial aggregate tables are explicitly historical diagnostics.
+Ignored baseline/evidence is `data/research/series-completeness-20261008/`:
+SQLite backup/rows, 49 original documents, hashes, archive baseline, screenshots
+and reports. No import, reparse, evidence repair, cloud mutation or research.
+
+After release: confirm Pages success, live Lgon/White compact states and complete
+UCF/FSU versus unavailable Michigan/Placements; verify deployed JSON, map Ratings
+and preservation. Record the final pushed clean checkpoint, then **STOP**.
+
+## Previous: public presentation redesign — 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
 Baseline `b98b46d`; release `da093d1` is pushed to main and deployed by successful

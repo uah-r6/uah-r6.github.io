@@ -2,4 +2,4 @@
 @media(max-width:850px){.round.curated-round{grid-template-columns:32px 42px minmax(110px,1fr)45px}.round-highlights{grid-column:1/-1;padding-left:0;padding-top:3px;flex-wrap:nowrap}.highlight-pill{min-width:0}}
 @media(max-width:540px){.round.curated-round{gap:8px;padding:10px 12px;grid-template-columns:28px 34px minmax(80px,1fr)42px;font-size:11px}.highlight-pill{font-size:10px;padding:4px 5px}.highlight-player{max-width:84px}.series-trend-detail .exact-series-rating{font-size:26px}.series-trend-detail .trend-context{min-width:170px}.series-trend-detail{gap:12px}}
 
-.trend-point.trend-point-partial{fill:#141f2b;stroke:var(--accent);stroke-width:2.5}.trend-point.trend-point-partial:hover,.trend-point.trend-point-partial:focus{fill:#141f2b}.trend-partial-label{display:block;color:#aebcca;font-size:9px;letter-spacing:.12em;font-weight:600;margin-top:5px}
+.rating-trend .trend-pending{margin:14px 0;color:#d6e1eb;font-size:13px}.rating-trend .trend-heading .section-aside{white-space:normal}

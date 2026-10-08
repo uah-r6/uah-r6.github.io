@@ -4,7 +4,7 @@ import json
 import pytest
 
 from r6stats.export import export
-from r6stats.series_export import SeriesProjection, player_total
+from r6stats.series_export import SeriesProjection, player_total, series_rating_complete
 from r6stats.stats.calculate import empty, aggregate
 from r6stats.stats.rating_v3 import SiegeStyleV3Rating
 from r6stats.credited_refresh import store
@@ -53,10 +53,53 @@ def test_partial_coverage_preserves_every_display_count_and_manual_adjustment():
     assert (total['maps'], total['rounds'], total['rating_maps'], total['rating_rounds']) == (2, 27, 1, 12)
     assert total['kills'] == 25 and total['deaths'] == a['display']['deaths'] + b['display']['deaths'] - 1
     assert total['kost_rounds'] == a['display']['kost_rounds'] + b['display']['kost_rounds']
-    assert total['rating'] == a['rating']['rating']
+    assert total['rating'] is None
     assert [a, b] == before
     assert player_total([b], 'siege_style_v3')['rating'] is None
     assert player_total([], 'siege_style_v3')['rating'] is None
+
+
+@pytest.mark.parametrize('eligible', [(True, True), (True, False), (True, False, False), (True, True, True)])
+def test_only_complete_series_have_a_rating_and_keep_all_performance(eligible, monkeypatch):
+    records = [record(str(i), 10+i, 5+i, ok) for i, ok in enumerate(eligible)]
+    calls = []
+    def evaluate(rows, version):
+        calls.append((rows, version))
+        return aggregate(rows, version)
+    monkeypatch.setattr('r6stats.series_export.aggregate', evaluate)
+    total = player_total(records, 'siege_style_v3')
+    complete = all(eligible)
+    assert series_rating_complete(total) == complete
+    assert (total['rating'] is not None) == complete
+    assert len(calls) == int(complete)  # Do not even evaluate incomplete aggregates.
+    if complete:
+        assert calls[0] == ([r['rating'] for r in records], 'siege_style_v3')
+    assert total['maps'] == len(records)
+    assert total['rating_maps'] == sum(eligible)
+    assert total['rating_rounds'] == sum(r['display']['rounds'] for r, ok in zip(records, eligible) if ok)
+    for key in ('rounds', 'kills', 'deaths', 'kost_rounds', 'opening_kills', 'plants', 'disables', 'clutches'):
+        assert total[key] == sum(r['display'][key] for r in records)
+
+
+def test_full_map_count_with_missing_round_evidence_still_abstains():
+    a, b = record('a', 10, 6), record('b', 12, 8)
+    b['rating']['rounds'] = 11
+    total = player_total([a, b], 'siege_style_v3')
+    assert (total['rating_maps'], total['maps'], total['rating_rounds'], total['rounds']) == (2, 2, 21, 22)
+    assert total['rating'] is None
+    zero = player_total([record('zero', 0, 0)], 'siege_style_v3')
+    assert zero['rating'] is None and not series_rating_complete(zero)
+
+
+@pytest.mark.parametrize('role', ['roster', 'sub'])
+def test_each_appearance_track_requires_complete_rating(role):
+    projection = SeriesProjection('siege_style_v3')
+    for mid, eligible in [('a', True), ('b', False)]:
+        projection.add(metadata(), map_public(mid), {42: {**record(mid, 12, 8, eligible), 'appearance_role': role}})
+    player = projection.documents({42: dict(slug='player', name='Player', status='Active')})[0]['players'][0]
+    assert player['appearance_role'] == role
+    assert player['rating'] is None
+    assert (player['maps'], player['rounds'], player['rating_maps'], player['rating_rounds']) == (2, 24, 1, 12)
 
 
 def metadata():
@@ -80,8 +123,10 @@ def test_internal_identity_username_changes_substitution_and_logical_rehost_map_
     by_slug = {p['slug']: p for p in doc['players']}
     assert by_slug['same-player']['name'] == 'New username'
     assert (by_slug['same-player']['maps'], by_slug['same-player']['rounds']) == (2, 27)
+    assert by_slug['same-player']['rating'] is not None  # Third map was not played.
     substitute = by_slug['substitute']
     assert (substitute['maps'], substitute['rounds'], substitute['rating_maps'], substitute['rating_rounds']) == (2, 15, 1, 6)
+    assert substitute['rating'] is None
     with pytest.raises(ValueError, match='Duplicate logical'):
         projection.add(metadata(), map_public('logical-rehost'), {})
     with pytest.raises(ValueError, match='Duplicate logical'):

@@ -61,6 +61,189 @@
   },
   "players": [
     {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "status": "Active",
+      "rounds": 24,
+      "kills": 19,
+      "deaths": 17,
+      "headshots": 8,
+      "opening_kills": 4,
+      "opening_deaths": 1,
+      "refrag_kills": 1,
+      "deaths_traded": 2,
+      "kills_traded": 2,
+      "untraded_kills": 17,
+      "untraded_deaths": 15,
+      "pivot_kills": 12,
+      "pivot_deaths": 13,
+      "plants": 1,
+      "disables": 0,
+      "teamkills": 1,
+      "survived": 7,
+      "kost_rounds": 16,
+      "rounds_won": 14,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 7,
+      "operators": {
+        "Attack": {
+          "Twitch": 6,
+          "Rauora": 1,
+          "Zofia": 2,
+          "Grim": 1,
+          "Nomad": 1,
+          "Lion": 1
+        },
+        "Defense": {
+          "Goyo": 4,
+          "Ela": 3,
+          "Wamai": 1,
+          "Mozzie": 2,
+          "Solis": 2
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 12,
+          "kills": 10,
+          "deaths": 10,
+          "kd": 1.0,
+          "kpr": 0.8333333333333334
+        },
+        "Defense": {
+          "rounds": 12,
+          "kills": 9,
+          "deaths": 7,
+          "kd": 1.2857142857142858,
+          "kpr": 0.75
+        }
+      },
+      "maps": 2,
+      "rating": null,
+      "kd": 1.1176470588235294,
+      "kpr": 0.7916666666666666,
+      "kost": 0.6666666666666666,
+      "srv": 0.2916666666666667,
+      "hs": 0.42105263157894735,
+      "entry_diff": 3,
+      "kd_diff": 2,
+      "objectives": 1,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12,
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 19,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 3,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 1,
+      "rating_rounds": 12,
+      "appearance_role": "roster"
+    },
+    {
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
+      "status": "Active",
+      "rounds": 24,
+      "kills": 13,
+      "deaths": 13,
+      "headshots": 2,
+      "opening_kills": 0,
+      "opening_deaths": 1,
+      "refrag_kills": 3,
+      "deaths_traded": 2,
+      "kills_traded": 2,
+      "untraded_kills": 11,
+      "untraded_deaths": 11,
+      "pivot_kills": 6,
+      "pivot_deaths": 6,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 11,
+      "kost_rounds": 16,
+      "rounds_won": 14,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 2,
+      "operators": {
+        "Attack": {
+          "Sens": 2,
+          "Flores": 1,
+          "Ram": 6,
+          "Lion": 1,
+          "Gridlock": 1,
+          "Sledge": 1
+        },
+        "Defense": {
+          "Castle": 4,
+          "Melusi": 2,
+          "Wamai": 1,
+          "Mira": 1,
+          "Mute": 1,
+          "Fenrir": 3
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 12,
+          "kills": 5,
+          "deaths": 10,
+          "kd": 0.5,
+          "kpr": 0.4166666666666667
+        },
+        "Defense": {
+          "rounds": 12,
+          "kills": 8,
+          "deaths": 3,
+          "kd": 2.6666666666666665,
+          "kpr": 0.6666666666666666
+        }
+      },
+      "maps": 2,
+      "rating": null,
+      "kd": 1.0,
+      "kpr": 0.5416666666666666,
+      "kost": 0.6666666666666666,
+      "srv": 0.4583333333333333,
+      "hs": 0.15384615384615385,
+      "entry_diff": -1,
+      "kd_diff": 0,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "legacy_finisher_v1": 12,
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 13,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 1,
+      "rating_rounds": 12,
+      "appearance_role": "roster"
+    },
+    {
       "slug": "lgon",
       "name": "Lgon",
       "status": "Active",
@@ -126,7 +309,7 @@
         }
       },
       "maps": 2,
-      "rating": 1.4342647708955862,
+      "rating": null,
       "kd": 1.2666666666666666,
       "kpr": 0.7916666666666666,
       "kost": 0.625,
@@ -217,7 +400,7 @@
         }
       },
       "maps": 2,
-      "rating": 1.2423486832783355,
+      "rating": null,
       "kd": 1.5,
       "kpr": 0.875,
       "kost": 0.7083333333333334,
@@ -238,97 +421,6 @@
         "2": 2,
         "3": 1,
         "4": 1,
-        "5": 0
-      },
-      "rating_maps": 1,
-      "rating_rounds": 12,
-      "appearance_role": "roster"
-    },
-    {
-      "slug": "azooznewzz",
-      "name": "AzoozNewzz",
-      "status": "Active",
-      "rounds": 24,
-      "kills": 19,
-      "deaths": 17,
-      "headshots": 8,
-      "opening_kills": 4,
-      "opening_deaths": 1,
-      "refrag_kills": 1,
-      "deaths_traded": 2,
-      "kills_traded": 2,
-      "untraded_kills": 17,
-      "untraded_deaths": 15,
-      "pivot_kills": 12,
-      "pivot_deaths": 13,
-      "plants": 1,
-      "disables": 0,
-      "teamkills": 1,
-      "survived": 7,
-      "kost_rounds": 16,
-      "rounds_won": 14,
-      "clutches": 0,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "multikill_extra": 7,
-      "operators": {
-        "Attack": {
-          "Twitch": 6,
-          "Rauora": 1,
-          "Zofia": 2,
-          "Grim": 1,
-          "Nomad": 1,
-          "Lion": 1
-        },
-        "Defense": {
-          "Goyo": 4,
-          "Ela": 3,
-          "Wamai": 1,
-          "Mozzie": 2,
-          "Solis": 2
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 12,
-          "kills": 10,
-          "deaths": 10,
-          "kd": 1.0,
-          "kpr": 0.8333333333333334
-        },
-        "Defense": {
-          "rounds": 12,
-          "kills": 9,
-          "deaths": 7,
-          "kd": 1.2857142857142858,
-          "kpr": 0.75
-        }
-      },
-      "maps": 2,
-      "rating": 1.2379969588814805,
-      "kd": 1.1176470588235294,
-      "kpr": 0.7916666666666666,
-      "kost": 0.6666666666666666,
-      "srv": 0.2916666666666667,
-      "hs": 0.42105263157894735,
-      "entry_diff": 3,
-      "kd_diff": 2,
-      "objectives": 1,
-      "kill_source_rounds": {
-        "legacy_finisher_v1": 12,
-        "stable_uid_scoreboard_delta_v1": 12
-      },
-      "kill_source": "mixed_whole_map_sources",
-      "finisher_kills": 19,
-      "headshot_source": "legacy_finisher_v1",
-      "event_feature_source": "legacy_finisher_v1",
-      "multikill_sizes": {
-        "2": 3,
-        "3": 2,
-        "4": 0,
         "5": 0
       },
       "rating_maps": 1,
@@ -399,7 +491,7 @@
         }
       },
       "maps": 2,
-      "rating": 0.934669056494805,
+      "rating": null,
       "kd": 0.875,
       "kpr": 0.5833333333333334,
       "kost": 0.5416666666666666,
@@ -418,98 +510,6 @@
       "event_feature_source": "legacy_finisher_v1",
       "multikill_sizes": {
         "2": 5,
-        "3": 0,
-        "4": 0,
-        "5": 0
-      },
-      "rating_maps": 1,
-      "rating_rounds": 12,
-      "appearance_role": "roster"
-    },
-    {
-      "slug": "dinofireking",
-      "name": "DinoFireKing",
-      "status": "Active",
-      "rounds": 24,
-      "kills": 13,
-      "deaths": 13,
-      "headshots": 2,
-      "opening_kills": 0,
-      "opening_deaths": 1,
-      "refrag_kills": 3,
-      "deaths_traded": 2,
-      "kills_traded": 2,
-      "untraded_kills": 11,
-      "untraded_deaths": 11,
-      "pivot_kills": 6,
-      "pivot_deaths": 6,
-      "plants": 0,
-      "disables": 0,
-      "teamkills": 0,
-      "survived": 11,
-      "kost_rounds": 16,
-      "rounds_won": 14,
-      "clutches": 0,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "multikill_extra": 2,
-      "operators": {
-        "Attack": {
-          "Sens": 2,
-          "Flores": 1,
-          "Ram": 6,
-          "Lion": 1,
-          "Gridlock": 1,
-          "Sledge": 1
-        },
-        "Defense": {
-          "Castle": 4,
-          "Melusi": 2,
-          "Wamai": 1,
-          "Mira": 1,
-          "Mute": 1,
-          "Fenrir": 3
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 12,
-          "kills": 5,
-          "deaths": 10,
-          "kd": 0.5,
-          "kpr": 0.4166666666666667
-        },
-        "Defense": {
-          "rounds": 12,
-          "kills": 8,
-          "deaths": 3,
-          "kd": 2.6666666666666665,
-          "kpr": 0.6666666666666666
-        }
-      },
-      "maps": 2,
-      "rating": 0.8424268250764505,
-      "kd": 1.0,
-      "kpr": 0.5416666666666666,
-      "kost": 0.6666666666666666,
-      "srv": 0.4583333333333333,
-      "hs": 0.15384615384615385,
-      "entry_diff": -1,
-      "kd_diff": 0,
-      "objectives": 0,
-      "kill_source_rounds": {
-        "legacy_finisher_v1": 12,
-        "stable_uid_scoreboard_delta_v1": 12
-      },
-      "kill_source": "mixed_whole_map_sources",
-      "finisher_kills": 13,
-      "headshot_source": "legacy_finisher_v1",
-      "event_feature_source": "legacy_finisher_v1",
-      "multikill_sizes": {
-        "2": 2,
         "3": 0,
         "4": 0,
         "5": 0

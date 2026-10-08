@@ -133,11 +133,10 @@ def verify(url, output, admin):
         expect(page.get_by_role('dialog',name='KOST explained')).to_be_visible()
         page.keyboard.press('Escape')
         go('players/lgon')
-        point = page.locator('.trend-point').first
-        point.focus(); page.keyboard.press('ArrowRight')
-        expect(page.locator('.trend-point').nth(1)).to_be_focused()
-        expect(page.locator('.trend-partial-label')).to_have_text('PARTIAL')
-        checks.append('team switch retains section/Sub query; main selector preserves Career/sort; keyboard stat help and partial Series Rating trend interaction retained')
+        expect(page.locator('.rating-trend svg')).to_have_count(0)
+        expect(page.locator('.trend-pending')).to_contain_text('another fully rated series')
+        expect(page.locator('.exact-series-rating')).to_contain_text('1.42')
+        checks.append('team switch retains section/Sub query; main selector preserves Career/sort; keyboard stat help and complete-only compact Series Rating summary retained')
 
         fixture = browser.new_page(viewport={'width':390,'height':960})
         fixture.on('pageerror',lambda e: errors.append(str(e)))

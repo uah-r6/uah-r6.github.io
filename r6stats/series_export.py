@@ -6,6 +6,13 @@ from r6stats.manual_kd import apply_display_kd
 from r6stats.stats.calculate import aggregate
 
 
+def series_rating_complete(stats):
+    """Trusted coverage must include every map/round in this player's track."""
+    return (stats['maps'] > 0 and stats['rounds'] > 0 and
+            stats['rating_maps'] == stats['maps'] and
+            stats['rating_rounds'] == stats['rounds'])
+
+
 def player_total(records, version):
     """Each record is one logical played map, already bound to an internal ID."""
     if len({r['map_id'] for r in records}) != len(records):
@@ -17,8 +24,9 @@ def player_total(records, version):
     eligible = [r['rating'] for r in records if r['rating'] is not None and version == 'siege_style_v3']
     # Re-evaluate the existing model on additive trusted counts, never average
     # rounded/displayed map Ratings. Null is a real eligibility abstention.
-    shown.update(rating=aggregate(eligible, 'siege_style_v3')['rating'] if eligible else None,
-                 rating_maps=len(eligible), rating_rounds=sum(r['rounds'] for r in eligible))
+    shown.update(rating_maps=len(eligible), rating_rounds=sum(r['rounds'] for r in eligible))
+    shown['rating'] = (aggregate(eligible, 'siege_style_v3')['rating']
+                       if series_rating_complete(shown) else None)
     return shown
 
 

@@ -20,8 +20,8 @@ export function SeriesPage({teams}:{teams:Team[]}){
  {data.demo&&<div className="demo">DEMO DATA · Synthetic maps</div>}
  <div className="series-map-cards" aria-label="Recorded map results">{data.maps.map(m=><MapSummary key={m.id} map={m} teamName={data.team_name}/>)}</div>
  <div className="section-title"><div><span className="eyebrow">ACROSS RECORDED MAPS</span><h2>Series Player Stats</h2></div></div>
- <p className="series-coverage-note">Series Rating uses the same frozen v3 model on combined eligible inputs. Display statistics include every recorded map each player played.</p>
- {!anyRated&&<p className="unrated-series" role="status">No eligible Series Ratings yet. Recorded performance is still shown.</p>}
+ <p className="series-coverage-note">Series Rating requires trusted evidence for every map and round a player played. Coverage is player-specific. All recorded performance remains visible.</p>
+ {!anyRated&&<p className="unrated-series" role="status">Complete Series Ratings are unavailable for this matchup. Recorded performance is still shown.</p>}
  <PlayerStats players={data.players} historical showCoverage/>
  {data.notes&&<section className="panel series-notes"><h2>Series notes</h2><p>{data.notes}</p></section>}
  </div>

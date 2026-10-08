@@ -1,12 +1,13 @@
 """Export and publish only generated public statistics."""
 import json
+import math
 import shutil
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
 from r6stats.export import export
-from r6stats.series_export import player_series
+from r6stats.series_export import player_series, series_rating_complete
 
 DATA_PATHSPEC = ":(glob)web/public/data/**/*.json"
 
@@ -120,11 +121,16 @@ def validate_public_data(root: Path) -> int:
                    for k in ('series_id', 'team_slug', 'team_name', 'season', 'opponent', 'week', 'notes')):
                 raise ValueError('Website series map metadata differs.')
         for player in series.get('players', []):
-            if (player['slug'] not in player_slugs or
-                    not 0 <= player['rating_rounds'] <= player['rounds'] or
-                    not 0 <= player['rating_maps'] <= player['maps'] or
-                    ((player['rating'] is None) != (player['rating_rounds'] == 0))):
+            if player['slug'] not in player_slugs:
                 raise ValueError('Website Series Rating player or coverage is invalid.')
+            tracks = [player] + ([player['roster_stats']] if 'roster_stats' in player else [])
+            for track in tracks:
+                if (not 0 <= track['rating_rounds'] <= track['rounds'] or
+                        not 0 <= track['rating_maps'] <= track['maps'] or
+                        ((track['rating'] is not None) != series_rating_complete(track)) or
+                        (track['rating'] is not None and
+                         (not isinstance(track['rating'], (int, float)) or not math.isfinite(track['rating'])))):
+                    raise ValueError('Website Series Rating player or coverage is invalid.')
     series_documents = {d['id']: d for name, d in documents.items() if name.startswith('series/')}
     if series_documents:
         for name, document in documents.items():

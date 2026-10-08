@@ -174,8 +174,13 @@ rosters remain unrated. Normal/rehost imports automatically attempt this evidenc
 collection after the core map and archive succeed; exact failures appear beside
 the successful import with a local repair button. Secondary Rating failures never
 undo valid match data, and these maintenance actions do not publish.
-Partial Series Rating trend points are hollow, with **PARTIAL** and exact
-player-specific coverage in their detail. See [the complete historical evidence
+Series Rating is available only when trusted evidence covers every map and round
+the player played in that series. Incomplete series show a dash with coverage;
+all other performance remains visible. Rating Trend includes complete regular-
+roster Series Ratings only, with a line graph after two fully rated series.
+Until then, a compact summary shows the latest complete Rating when available.
+Individual map and Season/Career Ratings retain their trusted-map behavior.
+See [the complete historical evidence
 audit and repair safeguards](docs/RATING_EVIDENCE.md) and the
 [nine-map production repair](docs/RATING_EVIDENCE_PRODUCTION.md).
 

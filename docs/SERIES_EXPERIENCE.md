@@ -14,22 +14,35 @@ Rating, with unrated players retained below rated players. Desktop tables and
 phone cards reuse the existing stat definitions, sorting and help components.
 Visible secondary text shows each player's rated maps and rounds.
 
-The normal player trend is **one exported Rating per series from regular roster appearances only**. Substitute-only series are excluded. Mixed-role series use only roster map inputs in the normal trend; the series participant table still uses all played eligible maps and shows a SUB badge. See [substitute architecture](SUBSTITUTES.md).
+The normal player trend contains **complete exported Series Ratings from regular
+roster appearances only**. Substitute-only series are excluded. Mixed-role series
+use only regular-roster inputs in normal history; the Series table retains all
+applicable appearances and its SUB badge. Each track requires complete coverage
+of the player's own participation. See [substitute architecture](SUBSTITUTES.md).
 Hover, keyboard focus, click or tap selects the exact two-decimal Rating and
 opponent/date/recorded W–L/team/coverage context. Arrow keys select adjacent
 points. Season profiles contain that season's series; career profiles include
 all teams chronologically. Same-date ordering uses recorded export order rather
-than invented start times. Unrated series are omitted, never plotted as zero.
-Single-series and empty charts are supported. Map Ratings and recent-map links
-remain available.
+than invented start times. Incomplete series remain in history but never become
+points or recent Rating controls. Zero or one complete series renders **no SVG
+or line graph**: a compact message explains that two fully rated series are
+required, with the latest complete Rating shown when one exists. Map Ratings and
+recent-map links remain available.
 
 ## Calculation and coverage
 
-`r6stats/series_export.py` combines trusted **counts** from existing
+`r6stats/series_export.py.series_rating_complete` is the authoritative export and
+publishing rule: nonzero played maps/rounds, `rating_maps == maps` and
+`rating_rounds == rounds`. Denominators are actual player participation, not
+total series maps. A player who played two of three maps requires those two maps
+and their rounds. Regular and substitute tracks use the same rule.
+
+Only when complete, the projection combines trusted **counts** from existing
 `rating_inputs_v3.load_inputs` results, then calls the existing aggregate engine
 and frozen `siege_style_v3` model once. Cached or rounded map Ratings are not
 inputs. Formula, coefficients, trade window and all eligibility gates are
-unchanged. An ineligible map never contributes to the Series Rating.
+unchanged. Incomplete series return `rating: null`; no partial aggregate is
+calculated or exposed as a Series Rating.
 
 Display statistics independently aggregate **all recorded maps that the player
 played**, using current credited K/D, finisher HS denominator, KOST, entry,
@@ -37,14 +50,17 @@ objectives, clutch and manual K/D display policies. This preserves the existing
 distinction between displayed performance and eligible Rating evidence.
 
 `rating_maps / maps` and `rating_rounds / rounds` are player-specific. Maps where
-a substitute did not play do not enter that player's denominators. No eligible
-rounds means `rating: null`, displayed as **—**. A partially eligible series may
-still have a Rating, with its exact coverage visible.
+a player did not play do not enter that player's denominators. Missing any
+relevant map or round means `rating: null`, displayed as **—**, with coverage
+retained. Complete Series Ratings evaluate the unchanged model once.
 
-Partial trend points use hollow rings and a subtle **PARTIAL** in the selected
-detail. A point is partial only when its own eligible map or round count is
-below that player's played count. Full points remain filled. Historical archive
-audits and guarded local repair are documented in [Rating evidence](RATING_EVIDENCE.md).
+The frontend also refuses stale numeric series entries with incomplete coverage.
+All chart points are complete and filled. Map Ratings are unchanged. Season and
+Career Ratings independently aggregate trusted eligible map inputs in `export.py`;
+they do not consume Series Ratings and retain existing coverage semantics.
+Profile summary Partial Rating labels still apply to those broader aggregates.
+Historical evidence gaps remain abstentions; no evidence repair is part of this
+pass. See [Rating evidence](RATING_EVIDENCE.md).
 
 ### Mathematical relationship to map Ratings
 
@@ -136,10 +152,13 @@ credited evidence abstains from multikill/clutch labels; its independently
 verified plant remains. Older objective gaps do not become eligible Rating maps
 merely because individual highlight evidence is valid.
 
-Current Series Rating coverage for all five players is Placements **1/3 maps,
+Blue Series coverage for all five players is Placements **1/3 maps,
 10/38 rounds**, Michigan **1/2 maps, 12/24 rounds**, and UCF **2/2 maps, 20/20
-rounds**. This preserves four eligible maps/42 rounds and seven recorded
-maps/82 rounds.
+rounds**. Only UCF retains a numeric Series Rating; Placements and Michigan are
+unavailable. White FSU keeps complete player-specific coverage and numeric Series
+Ratings, including its substitute. Each current normal profile has just one
+complete series, so no line graph appears. All six eligible maps / 63 rounds and
+nine recorded maps / 103 rounds are preserved.
 
 ## UX reference and verification
 
@@ -157,15 +176,16 @@ npm.cmd test
 npm.cmd run build
 npm.cmd run build:admin
 Pop-Location
-.\.venv\Scripts\python.exe scripts/verify-series-experience-ui.py
-.\.venv\Scripts\python.exe scripts/verify-public-presentation-ui.py
-.\.venv\Scripts\python.exe scripts/verify-public-polish-ui.py
+.\.venv\Scripts\python.exe scripts/verify-complete-series-ui.py
+.\.venv\Scripts\python.exe scripts/verify-series-completeness-preservation.py
+.\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py
+.\.venv\Scripts\python.exe scripts/verify-substitutes-ui.py
 ```
 
 Each browser script also accepts `--url https://uah-r6.github.io/` for read-only
 production checks. Evidence and preservation reports are ignored under
-`data/research/series-experience-20261007/`. The suites exercise the requested
-1440/1150/768/390px widths, actual Series Ratings, visible coverage, mouse/focus/
-touch context, zero/one/two highlight groups, all historical map routes, fixtures
-for Alumni, substitutions and missing Ratings, existing embeds and other routes.
+`data/research/series-completeness-20261008/`. The suites exercise
+1440/1100/768/390px widths, actual complete/unavailable Series Ratings, coverage,
+mouse/focus/keyboard context, zero/one/two-complete graph states, stale numeric
+partial fixtures, multiple teams, long names, substitutions and compact embeds.
 No imports, reparses, database writes or real cloud submissions are required.

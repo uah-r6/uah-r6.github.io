@@ -16,6 +16,19 @@ Run `npm.cmd test` and `npm.cmd run build` in `web`. From the repository root, r
 
 ## Appearance scopes
 
+Series Rating requires trusted evidence for every map and round the player
+actually played in the applicable appearance track. Missing any relevant evidence
+makes Series Rating unavailable (`null`), with coverage and all other performance
+retained. Maps the player did not play are not required. Complete Series Ratings
+evaluate the unchanged frozen model once over combined trusted inputs.
+
+Normal trends contain complete regular-roster Series Ratings only. Incomplete
+series remain recorded but supply no partial number or hollow point. Fewer than
+two complete series shows a compact summary; two or more shows the accessible
+line graph. Individual map and independent Season/Career Ratings are unchanged.
+The current browser gate is `scripts/verify-complete-series-ui.py`, locally or
+with `--url https://uah-r6.github.io/`, at 1440/1100/768/390px.
+
 Normal team, season and global Career player statistics and Rating trends include
 regular roster appearances only. The Subs view and player Substitute Stats use
 the same frozen model and input eligibility for actual substitute appearances,

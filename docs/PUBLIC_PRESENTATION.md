@@ -2,6 +2,11 @@
 
 ## Program and team presentation (2026-10-08)
 
+Series Rating availability was subsequently corrected to complete-only coverage.
+Normal trends now contain complete regular-roster Series Ratings and draw a line
+only after two complete series. Broader Season/Career profile summary Ratings
+retain their existing trusted-map coverage. See [Series experience](SERIES_EXPERIENCE.md).
+
 The public site is a program hub with a compact UAH Rainbow Six hero, Player Stats
 and Submit Replays actions, selected-period summary, logo-forward team cards and
 the latest four recorded series. Counts and latest matchups come from the existing
@@ -39,8 +44,8 @@ Obsolete small card/header/series-hero styling was removed from the earlier CSS
 files. Shared tables, help, compact embeds, uploader and admin keep their components.
 TeamLogo lookup, fallback and all original PNG bytes are preserved.
 
-The four layouts are checked at **1440/1100/768/390px**, including actual full- and
-partial-rated series, all nine maps, both teams, normal/sub profiles, Methodology,
+The four layouts are checked at **1440/1100/768/390px**, including series with
+complete or unavailable Ratings, all nine maps, both teams, normal/sub profiles, Methodology,
 Submit Replays and both embeds. Screenshots are inspected as well as DOM assertions.
 Phone score sections stack deliberately; table/nav scrolling remains confined to
 those elements. Focus and reduced-motion behavior remain available. Future empty
@@ -52,7 +57,8 @@ Current focused verification:
 ```powershell
 .\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py
 .\.venv\Scripts\python.exe scripts/verify-public-redesign-ui.py --url https://uah-r6.github.io/ --output data/research/public-redesign-20261008/live
-.\.venv\Scripts\python.exe scripts/verify-public-redesign-preservation.py
+.\.venv\Scripts\python.exe scripts/verify-complete-series-ui.py
+.\.venv\Scripts\python.exe scripts/verify-series-completeness-preservation.py
 .\.venv\Scripts\python.exe scripts/verify-substitutes-ui.py
 .\.venv\Scripts\python.exe scripts/verify-logical-submissions-ui.py
 ```
@@ -140,9 +146,11 @@ An actual authenticated Google Sites editor session is not part of these tests.
 
 ## What is displayed
 
-- Player Rating trends use **exported `siege_style_v3` Series Ratings**, calculated
-  once from combined trusted eligible map counts. Ineligible, missing or invalid
-  values are omitted, never converted to zero. Context shows player-specific map
+- Player Rating trends use **complete exported `siege_style_v3` Series Ratings**,
+  calculated once from all trusted counts for the player's relevant participation.
+  Incomplete, missing or invalid values are omitted, never converted to zero.
+  Zero or one complete series has a compact summary with no graph; two or more
+  renders a line. Context shows player-specific map
   and round coverage. Season/career scoping comes from the requested public
   profile; no Rating is recalculated in the frontend. See
   [Series experience](SERIES_EXPERIENCE.md) for the formula and trust rules.

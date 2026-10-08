@@ -186,6 +186,19 @@ def test_sub_only_profiles_and_team_specific_career_and_mixed_series_trend(tmp_p
         assert series['players'][0]['appearance_role']=='mixed'
         assert series['players'][0]['rounds']==4
         assert validate_public_data(tmp_path)>0
+        roles = [dict(r) for r in db.execute('SELECT * FROM map_player_appearances')]
+        # Incomplete SUB map makes the combined participant Rating unavailable;
+        # its complete regular-roster map still supplies the normal trend.
+        inputs[list(inputs)[0]] = None
+        generate()
+        normal_after = load('players/our0/career.json')
+        assert {k:v for k,v in normal_after.items() if k!='sub_teams'} == {k:v for k,v in normal.items() if k!='sub_teams'}
+        participant = load('series/'+old_series+'.json')['players'][0]
+        assert participant['rating'] is None
+        assert (participant['rating_maps'], participant['maps'], participant['rating_rounds'], participant['rounds']) == (1, 2, 2, 4)
+        assert participant['roster_stats']['rating'] == point['rating']
+        assert roles == [dict(r) for r in db.execute('SELECT * FROM map_player_appearances')]
+        assert validate_public_data(tmp_path)>0
 
 
 def test_migration_is_idempotent_atomic_and_preserves_old_bindings(tmp_path):

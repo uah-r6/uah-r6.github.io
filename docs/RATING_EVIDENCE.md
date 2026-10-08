@@ -1,5 +1,20 @@
 # Historical Rating evidence audit — 2026-10-07
 
+## Current Series Rating availability (2026-10-08)
+
+Series Rating requires complete player-specific map **and** round coverage.
+Incomplete series use `rating: null`, with coverage and all other performance
+retained. Normal trends contain complete regular-roster Series Ratings only and
+need two complete series before drawing a line. The shared series projection
+and publishing validator enforce this rule. See [Series experience](SERIES_EXPERIENCE.md).
+
+Blue Placements (1/3 maps, 10/38 rounds) and Michigan (1/2 maps, 12/24 rounds)
+are unavailable for all five players. UCF (2/2 maps, 20/20 rounds) stays numeric.
+White FSU retains complete player-specific coverage and numeric Series Ratings,
+including its substitute. No map Rating, Season/Career Rating, formula, evidence
+or archive changed. The older partial aggregate numbers below are historical
+diagnostics and no longer public Series Ratings.
+
 Baseline: `1b00f59`. All seven production maps and every participating player
 were audited through the existing frozen `siege_style_v3` load/prepare path.
 All seven archives verified Healthy against their manifests. Archive health
@@ -45,7 +60,7 @@ audit, database backup, hash baseline, browser reports and preservation report
 are kept privately in the ignored evidence-repair research directory. Raw
 replays and private identities are not published.
 
-## Every player's unchanged Series Rating
+## Historical eligible-input aggregates (superseded public semantics)
 
 Coverage below applies to every listed player, using actual participation.
 
@@ -60,8 +75,8 @@ Coverage below applies to every listed player, using actual participation.
 All 15 player/series rows were recomputed independently from the actual eligible
 map raw inputs, evaluated once by the existing formula, and compared within
 `1e-12` with exported values and round-weighted full-precision map Ratings.
-There is no rounded-map arithmetic averaging. Existing partial points remain
-valid; the missing maps are not treated as zero.
+There is no rounded-map arithmetic averaging. Those partial aggregates are now
+historical diagnostics and unavailable publicly; missing maps are never zero.
 
 ## Local maintenance
 
@@ -101,7 +116,7 @@ When a future archive extraction genuinely supports repair:
    check preserves exports; Regenerate Website Data remains a separate action.
    Publishing is separate and stages only intended generated public JSON.
 
-## Public presentation and verification
+## Historical public presentation and verification (superseded)
 
 Partial Rating trend points are hollow rings. Their selected detail displays a
 subtle **PARTIAL** below the prominent Rating and precise player map/round

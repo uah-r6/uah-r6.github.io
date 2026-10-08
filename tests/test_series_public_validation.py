@@ -33,6 +33,9 @@ def test_all_actual_series_highlights_and_profile_references_validate(tmp_path):
     (lambda d: d['recorded_maps'].update(wins=9), 'result'),
     (lambda d: d['players'][0].update(rating_rounds=999), 'coverage'),
     (lambda d: d['players'][0].update(rating=None), 'coverage'),
+    (lambda d: d['players'][0].update(rating_maps=1), 'coverage'),
+    (lambda d: d['players'][0].update(rating_rounds=19), 'coverage'),
+    (lambda d: d['players'][0].update(rating=float('nan')), 'coverage'),
     (lambda d: d.update(archive_path='private'), 'private'),
 ])
 def test_rejects_series_inconsistency_and_private_fields(tmp_path, change, reason):
@@ -50,6 +53,18 @@ def test_rejects_frontend_series_rating_drift_and_missing_series(tmp_path):
     shutil.copyfile(PUBLIC / 'players/lgon/career.json', root / 'players/lgon/career.json')
     (root / 'series/40bf93b16f97.json').unlink()
     with pytest.raises(ValueError, match='reference'):
+        validate_public_data(tmp_path)
+
+
+def test_rejects_numeric_partial_series_and_incomplete_roster_projection(tmp_path):
+    root = candidate(tmp_path)
+    edit(root, 'series/170b708e12f1.json', lambda d: d['players'][0].update(rating=1.5))
+    with pytest.raises(ValueError, match='coverage'):
+        validate_public_data(tmp_path)
+    shutil.copyfile(PUBLIC / 'series/170b708e12f1.json', root / 'series/170b708e12f1.json')
+    edit(root, 'series/40bf93b16f97.json', lambda d: d['players'][0].update(
+        roster_stats=dict(rating=1.5, maps=2, rounds=20, rating_maps=1, rating_rounds=10)))
+    with pytest.raises(ValueError, match='coverage'):
         validate_public_data(tmp_path)
 
 
