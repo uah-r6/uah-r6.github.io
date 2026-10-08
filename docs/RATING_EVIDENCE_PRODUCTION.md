@@ -2,6 +2,13 @@
 
 ## Current deep recovery: nine eligible maps
 
+Release `a14e57b` is pushed and live, with successful
+[Pages deployment](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37855146633).
+All 49 live JSON documents equal validated local values. Live four-width browser
+checks verify all nine maps, four series and nine profiles, including Lgon's
+three complete trend points, White's one-series summary and unchanged public
+presentation. No JS errors or unintended mutations. Recovery is complete.
+
 Baseline `e179add`. The three previously blocked maps now pass full frozen v3
 preparation; the original six retain exact per-round feature rows and map
 Ratings. All nine archives and manifests remain unchanged and Healthy.

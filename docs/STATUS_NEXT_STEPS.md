@@ -1,6 +1,9 @@
 ## Current: deep Rating evidence recovery — 2026-10-08
 
-Local repair and all release gates are complete; deployment verification follows.
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Release `a14e57b` deployed successfully in
+[Pages run 37855146633](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37855146633).
+This final documentation checkpoint records the verified recovery.
 Baseline `e179add`. All **nine maps / 103 rounds** now pass the whole-map frozen
 v3 input path. Kafe, Placements Border and Michigan Chalet are recovered through
 generic structurally validated replay proofs, never guessed actors or counters.
@@ -48,6 +51,12 @@ versus provenance classification, offsets, sources and all preservation results.
   browser gates pass at **1440/1100/768/390px**, with no JS errors or unintended
   mutations. Screenshots inspected at every width. Public/admin frontend source
   and bundles, formula, branding, uploader and Worker remain unchanged.
+- Live verification passes: all **49 deployed JSON documents exactly match**
+  local validated values. All nine profiles, all four series and all nine maps
+  pass browser checks at the four widths; the 33-route presentation regression
+  and zero/one/two-complete/stale-partial fixtures pass live. Lgon has three
+  genuine complete points; White retains its one-series summary. Live screenshots
+  were inspected at every width. No JS errors or unintended mutations occurred.
 
 Verification: `scripts/verify-deep-rating-recovery.py verify`,
 `scripts/verify-complete-series-ui.py`, `scripts/verify-public-redesign-ui.py`,
@@ -57,7 +66,7 @@ Ignored backup/evidence/reports: `data/research/deep-rating-recovery-20261008/`.
 The older baseline-specific preservation scripts describe previous checkpoints;
 use the deep-recovery verifier for the current production state.
 
-**STOP after release, live verification and the final clean checkpoint.**
+**STOP. This focused recovery is complete and live.**
 No map-history fallback, further fitting or unrelated feature is planned.
 
 ## Earlier: complete Series Ratings and trends — 2026-10-08

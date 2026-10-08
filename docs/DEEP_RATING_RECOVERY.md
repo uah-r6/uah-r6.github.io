@@ -201,3 +201,18 @@ The existing TestClient deprecation and Windows pytest-cache permission warnings
 remain nonfatal. No public/admin source layout or bundled asset changed. Broad
 33-route and focused nine-profile/four-series checks pass at four widths with
 no JS errors or unintended mutations; substitute regression passes.
+
+## Deployment verification
+
+Release **`a14e57b`**, pushed to `main`, deployed successfully in
+[Pages run 37855146633](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37855146633).
+All **49 live JSON documents** exactly match the validated local exports.
+The focused nine-profile/four-series check and broad 33-route check passed live
+at **1440, 1100, 768 and 390px**. Every map's displayed Ratings/scores and every
+series participant's Rating/coverage match exports; all five Blue profiles have
+three complete points and White retains one-series summaries. Zero/one/two-point,
+stale partial, long-opponent and multi-team fixtures still enforce complete-only
+semantics. Screenshots were inspected at every width; no JS errors or unintended
+mutations occurred. Final production preservation and SQLite integrity checks
+passed after browser verification. The repository checkpoint is clean and pushed.
+**Stop: all three maps are defensibly recovered; no blocker remains.**
