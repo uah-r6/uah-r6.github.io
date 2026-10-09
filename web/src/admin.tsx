@@ -9,6 +9,7 @@ import { teamTheme } from './theme'
 import {TeamLogo} from './TeamLogo'
 import { SubmissionsPage, type SubmissionHandoff } from './adminSubmissions'
 import {existingRosterIdentity} from './roster'
+import {AdminMapPool} from './AdminMapPool'
 
 type Page = 'submissions' | 'teams' | 'dashboard' | 'replays' | 'roster' | 'seasons' | 'matches' | 'statistics' | 'publish' | 'settings'
 type Season = { slug: string; name: string; active: number; start_date: string | null; end_date: string | null }
@@ -77,6 +78,8 @@ function App() {
   const [handoff,setHandoff]=useState<SubmissionHandoff|null>(null),[pending,setPending]=useState(0)
   useEffect(()=>{const refresh=()=>api<{pending_count?:number}>('/submissions/storage').then(s=>setPending(s.pending_count||0)).catch(()=>{});void refresh();const timer=setInterval(()=>void refresh(),60000);return()=>clearInterval(timer)},[])
   const [page, setPage] = useState<Page>('dashboard')
+  const [poolDirty,setPoolDirty]=useState(false)
+  useEffect(()=>{const update=(event:Event)=>setPoolDirty((event as CustomEvent<boolean>).detail);window.addEventListener('uah-map-pool-dirty',update);return()=>window.removeEventListener('uah-map-pool-dirty',update)},[])
   const [teams,setTeams]=useState<Team[]>([]),[seasons,setSeasons]=useState<Season[]>([])
   const [teamId,setTeamId]=useState<number|null>(null),[selectedSeason,setSelectedSeason]=useState('')
   const loadScope=()=>Promise.all([api<Team[]>('/teams'),api<Season[]>('/seasons')]).then(([ts,ss])=>{
@@ -89,8 +92,9 @@ function App() {
   useEffect(()=>{const update=(event:Event)=>{const slug=(event as CustomEvent<string>).detail;setSelectedSeason(slug);localStorage.setItem('uah-admin-season',slug)};window.addEventListener('uah-active-season',update);return()=>window.removeEventListener('uah-active-season',update)},[])
   adminScope={team_id:teamId,season_slug:selectedSeason}
   const selectedTeam=teams.find(t=>t.id===teamId)
-  const selectTeam=(id:number|null)=>{setTeamId(id);if(id!==null)localStorage.setItem('uah-admin-team',String(id));else localStorage.removeItem('uah-admin-team')}
-  const selectSeason=(slug:string)=>{setSelectedSeason(slug);localStorage.setItem('uah-admin-season',slug)}
+  const discardPool=()=>!poolDirty||window.confirm('Discard unsaved map-pool changes?')
+  const selectTeam=(id:number|null)=>{if(!discardPool())return;setTeamId(id);if(id!==null)localStorage.setItem('uah-admin-team',String(id));else localStorage.removeItem('uah-admin-team')}
+  const selectSeason=(slug:string)=>{if(!discardPool())return;setSelectedSeason(slug);localStorage.setItem('uah-admin-season',slug)}
   const scopedReady=teamId!==null&&!!selectedSeason
 
   const [notice, setNotice] = useState<{ text: string; error: boolean } | null>(null)
@@ -99,7 +103,7 @@ function App() {
     <aside className="admin-sidebar">
       <div className="admin-brand"><img src="/brand/uah-esports-logo.png" alt="UAH Esports"/><div><strong>UAH R6</strong><small>LOCAL ADMINISTRATION</small></div></div>
       <div className="sidebar-label">WORKSPACE</div>
-      <nav>{nav.map(item => <button key={item.id} className={page === item.id ? 'selected' : ''} onClick={() => { setPage(item.id); setNotice(null) }}>{item.icon}<span>{item.title}{item.id==='submissions'&&pending>0?` (${pending})`:null}</span><ChevronRight size={15} /></button>)}</nav>
+      <nav>{nav.map(item => <button key={item.id} className={page === item.id ? 'selected' : ''} onClick={() => { if(item.id!==page&&!discardPool())return;setPage(item.id); setNotice(null) }}>{item.icon}<span>{item.title}{item.id==='submissions'&&pending>0?` (${pending})`:null}</span><ChevronRight size={15} /></button>)}</nav>
       <div className="sidebar-foot"><span className="live-dot" /> Running on this PC<br /><small>127.0.0.1 · private local API</small></div>
     </aside>
     <div className="admin-main">
@@ -394,6 +398,7 @@ function SeasonsPage({ notify }: { notify: (text: string, error?: boolean) => vo
   async function activate(slug: string) { try { await api(`/seasons/${slug}/activate`, 'POST', {}); notify('Active season changed.'); await load() } catch (error) { setError((error as Error).message) } }
   return <><PageHead label="SEMESTER HISTORY" title="Seasons" description="The active season is the default for new imports. Rename or date a season without changing its permanent identifier or historical maps." /><ErrorBox message={error} />
     <form className="admin-panel season-create" onSubmit={event => void create(event)}><label>New season name<input value={name} onChange={event => setName(event.target.value)} required placeholder="Fall 2026" /></label><label>Start date (optional)<input type="date" value={startDate} onChange={event => setStartDate(event.target.value)} /></label><label>End date (optional)<input type="date" value={endDate} onChange={event => setEndDate(event.target.value)} /></label><Button type="submit" disabled={!name.trim()}><Plus size={16} /> Create season</Button></form>
+    <AdminMapPool seasons={seasons} initialSeason={adminScope.season_slug} api={api} notify={notify}/>
     <div className="season-list">{seasons.map(row => <SeasonRow key={row.slug} season={row} activate={activate} after={load} notify={notify} />)}{!seasons.length && <div className="admin-empty">Create your first NECC season to begin.</div>}</div>
   </>
 }

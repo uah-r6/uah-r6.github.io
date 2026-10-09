@@ -14,6 +14,7 @@ export function MatchDiscovery({index,season,team}:{index:Index;season:string;te
   const ready=data?.slug===season&&(!team||data.team?.slug===team.slug)
   const period=season==='career'?'Career':index.seasons.find(s=>s.slug===season)?.name||season
   useEffect(()=>{document.title=`${team?.name||'Program'} Matches · ${period} | UAH R6`},[team,period])
+  useEffect(()=>{if(params.get('sort')==='team'){const next=new URLSearchParams(params);next.delete('sort');setParams(next,{replace:true})}},[params,setParams])
   const update=(change:Partial<MatchFilters>,replace=false)=>setParams(matchQuery(params,{...filters,...change},season,!!team),{replace})
   const groups=ready?discoverSeries(data.matches,filters):[]
   const selectedTeam=index.teams.find(t=>t.slug===filters.team)
@@ -24,7 +25,7 @@ export function MatchDiscovery({index,season,team}:{index:Index;season:string;te
       {!team&&<label>Team<select aria-label="Match team" value={filters.team} onChange={e=>update({team:e.target.value})}><option value="">All UAH Teams</option>{index.teams.map(t=><option key={t.id} value={t.slug}>{t.name}</option>)}</select></label>}
       <label className="opponent-control">Opponent<input type="search" aria-label="Opponent" list="recorded-opponents" placeholder="Search opponents…" value={filters.opponent} onChange={e=>update({opponent:e.target.value},true)}/></label>
       <datalist id="recorded-opponents">{opponentSuggestions(ready?data.matches:[],filters.team).map(name=><option value={name} key={name}/>)}</datalist>
-      <label>Sort<select aria-label="Match sort" value={filters.sort} onChange={e=>update({sort:e.target.value as MatchFilters['sort']})}><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="team">UAH Team</option><option value="opponent">Opponent</option></select></label>
+      <label>Sort<select aria-label="Match sort" value={filters.sort} onChange={e=>update({sort:e.target.value as MatchFilters['sort']})}><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="opponent">Opponent</option></select></label>
       <button className="button" onClick={()=>setParams(clearMatchFilters(params,season,team?.slug))}>Clear filters</button>
     </div>
     {!ready?<div className="empty">{error||'Loading matches…'}</div>:<>

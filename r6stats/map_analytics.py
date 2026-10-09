@@ -67,3 +67,13 @@ def build_analytics(team_slug, period, period_name, matches):
     return {'schema_version': 1, 'team_slug': team_slug, 'period': period,
             'period_name': period_name, 'catalog_source': 'tracker-supported replay maps',
             'maps': sorted(maps.values(), key=lambda m: (-m['maps_played'], m['name']))}
+
+
+def project_pool(analytics, pool):
+    """Select cards without changing counts; retain played historical details."""
+    selected = {m['slug'] for m in pool['maps']}
+    records = {m['slug']: m for m in analytics['maps']}
+    return {**analytics, 'schema_version': 2, 'pool': pool,
+            'maps': [records[m['slug']] for m in pool['maps']],
+            'historical_maps': [m for m in analytics['maps']
+                                if m['slug'] not in selected and m['maps_played']]}

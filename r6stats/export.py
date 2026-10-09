@@ -5,7 +5,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from r6stats.parser.models import Match
-from r6stats.map_analytics import build_analytics
+from r6stats.map_analytics import build_analytics, project_pool
+from r6stats.db import map_pool
 from r6stats.series_export import SeriesProjection, player_series
 from r6stats.round_highlights import curate, objective_match
 from r6stats.db import teams as team_repo
@@ -260,8 +261,9 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                             [sum(r['delta'][i] for r in records) for i in (0, 1)])})
             name = "Career" if view == "career" else next(s["name"] for s in seasons if s["slug"] == view)
             write(root / 'teams' / team['slug'] / 'maps' / f'{view}.json',
-                  build_analytics(team['slug'], view, name,
-                                  [m for scope in selected for m in team_round_maps[scope]]))
+                  project_pool(build_analytics(team['slug'], view, name,
+                                  [m for scope in selected for m in team_round_maps[scope]]),
+                               map_pool.public_pool(db, view, active)))
             write(root / "teams" / team["slug"] / f"{view}.json",
                   {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster, "sub_players": sorted(substitutes, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True)})
         career_summary = json.loads((root / "teams" / team["slug"] / "career.json").read_text(encoding="utf-8"))

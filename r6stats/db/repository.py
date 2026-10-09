@@ -5,7 +5,7 @@ from uuid import uuid4
 
 from r6stats.parser.models import Match
 from r6stats.eligibility import is_custom_game
-from r6stats.db import teams, appearances
+from r6stats.db import teams, appearances, map_pool
 
 SCHEMA = """
 PRAGMA foreign_keys=ON;
@@ -87,6 +87,7 @@ def connect(path: str | Path = "data/r6stats.sqlite") -> sqlite3.Connection:
     db.commit()
     teams.migrate(db)
     appearances.migrate(db)
+    map_pool.migrate(db)
     return db
 
 

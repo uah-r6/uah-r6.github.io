@@ -24,9 +24,14 @@ test('team/opponent combined filters preserve entire series',()=>{
 })
 test('all useful sorts and deterministic chronological tiebreaks',()=>{
   assert.deepEqual(ids('sort=oldest'),[['m'],['b1','b2'],['w1']])
-  assert.deepEqual(ids('sort=team'),[['b1','b2'],['m'],['w1']])
+  assert.deepEqual(ids('sort=team'),[['w1'],['b1','b2'],['m']])
   assert.deepEqual(ids('sort=opponent'),[['w1'],['b1','b2'],['m']])
   assert.deepEqual(ids('team=blue&sort=oldest'),[['m'],['b1','b2']])
+})
+test('legacy team sorting falls back to newest while team filtering remains intact',()=>{
+  assert.equal(filter('sort=team').sort,'newest')
+  assert.deepEqual(ids('team=blue&sort=team&opponent=UCF'),[['b1','b2']])
+  assert.deepEqual(ids('team=white&sort=team'),[['w1']])
 })
 test('team scope overrides hostile URL team and suggestions never leak teams',()=>{
   assert.equal(filter('team=white','blue').team,'blue')

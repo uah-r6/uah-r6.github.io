@@ -1,3 +1,46 @@
+## Current: competitive map pool and match sort cleanup - 2026-10-08
+
+**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/LIVE CHECKS PENDING.**
+Baseline `3a7ced2`. Only competitive-pool administration/presentation and redundant
+match-sort removal. See [MAP_ANALYTICS.md](MAP_ANALYTICS.md).
+
+- Local Admin -> Seasons -> Competitive Map Pool selects canonical maps per season,
+  shows count/saved/unsaved state, requires explicit save, warns before discarding
+  edits and confirms empty pools. Invalid/duplicate maps, aliases, malformed
+  requests and nonexistent seasons cannot erase configuration. Ordering is
+  alphabetical. No external map-pool lookup or synchronization exists.
+- Four new local SQLite tables persist configuration. Migration was tested first
+  against a production copy and is atomic/idempotent. All 23 existing tables are
+  exactly unchanged. No intended competitive list existed, so existing seasons
+  preserve the prior 26-map display until the user narrows it in Admin. This is not
+  an official Ubisoft pool. New seasons start unconfigured; no pool is guessed.
+- Public schema v2 carries pool metadata, selected grid records and played
+  out-of-pool historical records. Direct historical details and match links remain
+  valid. Season selects its own pool; Career selects the active season's pool with
+  all historical team results. Without an active season, latest configured season
+  is used. Blue and White share membership, never statistics.
+- Match sort options are Newest, Oldest and Opponent; UAH Team was removed from
+  sorting only. Team filters, opponent search, series grouping and period remain.
+  Legacy sort=team URLs normalize to newest without losing filters.
+- All 49 statistical JSON documents match baseline except export timestamp.
+  All four analytics documents retain every numerical map/side/site value.
+  All nine map Ratings remain eligible, all archives Healthy, protected parser,
+  Rating, brand, Worker and replay hashes unchanged. No import/reparse occurred.
+- 806 Python tests plus six subtests passed (one optional replay smoke skipped),
+  70 frontend tests, 19 Worker tests, Go tests/vet and both builds passed.
+- Real isolated admin API/SQLite browser save/reload/isolation/empty-warning and
+  unsaved-navigation tests pass at 1440/1100/768/390px. Real production CMD launcher,
+  local public pool/narrowed-fixture/historical-route checks and 33-route public/admin
+  regressions pass at all widths. Production admin browser checks are read-only.
+
+Private baseline, production/trial backup and evidence:
+`data/research/competitive-map-pool-20261008/` (ignored).
+Backup SHA-256: `ebcd6f44cddd8d20fa50b55cbc9e19c86edd321d440c3eac6ab7c99a361ab219`.
+Release/deployment/live verification and final clean checkpoint remain next.
+**STOP after this pass. No R6TV/spatial work.**
+
+---
+
 ## Current: match discovery and map analytics - 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**

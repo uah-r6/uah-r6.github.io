@@ -2,7 +2,7 @@ import type {Match, Team} from './publicTypes.ts'
 import {seriesGroups} from './presentation.ts'
 import {resolveTeam} from './scope.ts'
 
-export const MATCH_SORTS = ['newest', 'oldest', 'team', 'opponent'] as const
+export const MATCH_SORTS = ['newest', 'oldest', 'opponent'] as const
 export type MatchSort = typeof MATCH_SORTS[number]
 export type MatchFilters = {team:string;opponent:string;sort:MatchSort}
 
@@ -33,8 +33,7 @@ export function discoverSeries(matches:Match[], filters:MatchFilters) {
   const date=(s:typeof groups[number])=>s.maps.reduce((latest,m)=>m.date>latest?m.date:latest,'')
   return groups.sort((a,b)=>{
     const first=a.maps[0],second=b.maps[0]
-    const alpha=filters.sort==='team'?first.team_name.localeCompare(second.team_name):
-      filters.sort==='opponent'?first.opponent.localeCompare(second.opponent):0
+    const alpha=filters.sort==='opponent'?first.opponent.localeCompare(second.opponent):0
     return alpha||(filters.sort==='oldest'?date(a).localeCompare(date(b)):date(b).localeCompare(date(a)))||a.key.localeCompare(b.key)
   })
 }

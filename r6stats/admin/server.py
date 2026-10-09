@@ -15,13 +15,15 @@ from urllib.parse import urlparse
 from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, StrictBool, StrictStr, ConfigDict
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from r6stats.cli import fingerprint
 from r6stats.db import repository as repo
 from r6stats.db import teams as organizations
 from r6stats.db import appearances
+from r6stats.db import map_pool
+from r6stats.map_catalog import CATALOG
 from r6stats.eligibility import is_custom_game, rejection_message, scan_label
 from r6stats.export import export
 from r6stats import manual_kd
@@ -69,6 +71,12 @@ class SeasonCreate(BaseModel):
 
 class SeasonUpdate(SeasonCreate):
     pass
+
+
+class MapPoolUpdate(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    map_slugs: list[StrictStr] = Field(max_length=len(CATALOG))
+    confirm_empty: StrictBool = False
 
 
 class PlayerCreate(BaseModel):
@@ -525,6 +533,16 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
         repo.season_activate(db, slug)
         export(db, read_settings(root), root / "web/public/data")
         return {"ok": True}
+
+    @app.get('/api/admin/seasons/{slug}/map-pool')
+    def get_map_pool(slug: str, db: DB):
+        return {**map_pool.load(db, slug), 'catalog': map_pool.ORDERED_CATALOG}
+
+    @app.put('/api/admin/seasons/{slug}/map-pool')
+    def save_map_pool(slug: str, payload: MapPoolUpdate, db: DB):
+        saved = map_pool.save(db, slug, payload.map_slugs, payload.confirm_empty)
+        export(db, read_settings(root), root / 'web/public/data')
+        return {**saved, 'catalog': map_pool.ORDERED_CATALOG}
 
     @app.get("/api/admin/roster")
     def roster(db: DB, team_id: int | None = None):

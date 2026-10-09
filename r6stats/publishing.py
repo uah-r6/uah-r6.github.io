@@ -7,7 +7,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from r6stats.export import export
-from r6stats.map_analytics import build_analytics
+from r6stats.map_analytics import build_analytics, project_pool
+from r6stats.map_catalog import CATALOG
 from r6stats.series_export import player_series, series_rating_complete
 
 DATA_PATHSPEC = ":(glob)web/public/data/**/*.json"
@@ -80,8 +81,31 @@ def validate_public_data(root: Path) -> int:
                         period != 'career' and match.get('season') != period):
                     raise ValueError(f'Website team match ownership differs: {name}')
             analytics_name = f'teams/{slug}/maps/{period}.json'
-            expected_analytics = build_analytics(slug, period, scope['name'],
-                [documents[f"matches/{m['id']}.json"] for m in matches])
+            analytics = documents.get(analytics_name, {})
+            pool = analytics.get('pool', {})
+            canonical = {m['slug']: m['name'] for m in CATALOG}
+            pool_maps = pool.get('maps', [])
+            season_names = {s['slug']: s['name'] for s in index.get('seasons', [])}
+            pool_season = pool.get('season')
+            if (set(pool) != {'season','season_name','configured','maps'} or
+                type(pool.get('configured')) is not bool or
+                (pool_season is not None and pool.get('season_name') != season_names.get(pool_season)) or
+                (period != 'career' and pool_season != period) or
+                (period == 'career' and index.get('active_season') and pool_season != index['active_season']) or
+                (not pool['configured'] and pool_maps) or
+                len({m.get('slug') for m in pool_maps}) != len(pool_maps) or
+                any(m.get('slug') not in canonical or m.get('name') != canonical.get(m.get('slug')) for m in pool_maps) or
+                pool_maps != sorted(pool_maps, key=lambda m:m['name'])):
+                raise ValueError(f'Website competitive map pool is invalid: {analytics_name}')
+            if pool_season:
+                reference = documents.get(f'teams/{slug}/maps/{pool_season}.json', {}).get('pool')
+                if reference != pool:
+                    raise ValueError(f'Website Career map pool differs from its season: {analytics_name}')
+            if any(documents.get(f'teams/{other["slug"]}/maps/{period}.json', {}).get('pool') != pool
+                   for other in index.get('teams', [])):
+                raise ValueError(f'Website competitive map pool differs between teams: {analytics_name}')
+            expected_analytics = project_pool(build_analytics(slug, period, scope['name'],
+                [documents[f"matches/{m['id']}.json"] for m in matches]), pool)
             if documents.get(analytics_name) != expected_analytics:
                 raise ValueError(f'Website map analytics are missing or inconsistent: {analytics_name}')
             if any(p['slug'] not in player_slugs for p in scope.get('players', [])):

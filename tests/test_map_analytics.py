@@ -25,7 +25,7 @@ def match(mid='logical', team='blue', season='fall-2026', name='NighthavenLabsY1
 
 
 def find(document, name='Nighthaven Labs'):
-    return next(m for m in document['maps'] if m['name'] == name)
+    return next(m for m in document['maps'] + document.get('historical_maps', []) if m['name'] == name)
 
 
 def test_exact_rounds_sides_sites_and_map_order():
@@ -158,6 +158,8 @@ def test_substitutes_do_not_change_owner_round_analytics(tmp_path):
     root = tmp_path / 'public'
     with closing(repo.connect(tmp_path / 'db.sqlite')) as db:
         seed(db)
+        from r6stats.db import map_pool
+        map_pool.save(db, 'fall-2026', ['bank'])
         for pid in range(1, 6):
             repo.roster_update(db, pid, substitute_eligible=True)
         repo.insert_map(db, replay(), 'sub-white', 0, 'Opponent', organization_team_id=2)

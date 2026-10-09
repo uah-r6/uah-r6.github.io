@@ -1,5 +1,20 @@
 # Public presentation and Google Sites embeds
 
+## Competitive map pools and match sort cleanup (2026-10-08)
+
+Public Maps now uses a season-specific competitive pool configured under local
+**Admin → Seasons → Competitive Map Pool**. Canonical supported maps remain a
+separate catalog. Career shows the active season's pool with Career team results;
+without an active season it falls back to the latest configured season. Unplayed
+selected maps remain empty cards; removed played maps retain historical detail
+URLs. Grid order is alphabetical. Existing visible maps were preserved once during
+migration because no trusted intended pool existed; the user can narrow it in Admin.
+This initial list is not an official Ubisoft pool.
+
+Matches sort options are Newest, Oldest and Opponent. UAH Team sorting was removed;
+the Team filter is unchanged. Legacy `sort=team` URLs normalize to Newest without
+losing team/opponent/period context. See [MAP_ANALYTICS.md](MAP_ANALYTICS.md).
+
 ## Match discovery and Maps (2026-10-08)
 
 Matches now has URL-backed team/opponent/sort filters, preserving whole series
