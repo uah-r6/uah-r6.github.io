@@ -189,3 +189,11 @@ Migration was first tested on a copy; all 23 original tables and numerical recor
 were preserved. The real CMD launcher applied migration and opened Chrome.
 Admin editor save/reload/isolation/empty-confirmation tests use an isolated fixture
 database only; checks of the actual production admin are read-only.
+
+Competitive-pool release `5bfd256` passed
+[Pages deployment](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37864885384).
+806 Python tests plus six subtests passed (one optional real-replay smoke skipped),
+70 frontend tests, 19 Worker tests, Go tests/vet and both builds passed. Isolated
+admin saves and local/live public plus actual admin browser checks pass at
+1440/1100/768/390px, including the existing 33-route regression. All 53 live JSON
+documents match local exports exactly. All nine Ratings and archives remain valid.

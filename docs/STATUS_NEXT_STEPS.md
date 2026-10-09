@@ -1,6 +1,9 @@
 ## Current: competitive map pool and match sort cleanup - 2026-10-08
 
-**IMPLEMENTED AND LOCALLY VERIFIED; RELEASE/LIVE CHECKS PENDING.**
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Release `5bfd256` deployed successfully in
+[Pages run 37864885384](https://github.com/uah-r6/uah-r6.github.io/actions/runs/37864885384).
+This final documentation checkpoint records the verified release.
 Baseline `3a7ced2`. Only competitive-pool administration/presentation and redundant
 match-sort removal. See [MAP_ANALYTICS.md](MAP_ANALYTICS.md).
 
@@ -36,7 +39,16 @@ match-sort removal. See [MAP_ANALYTICS.md](MAP_ANALYTICS.md).
 Private baseline, production/trial backup and evidence:
 `data/research/competitive-map-pool-20261008/` (ignored).
 Backup SHA-256: `ebcd6f44cddd8d20fa50b55cbc9e19c86edd321d440c3eac6ab7c99a361ab219`.
-Release/deployment/live verification and final clean checkpoint remain next.
+- All **53 live JSON documents match local exports exactly**. Live browser tests
+  at 1440/1100/768/390px pass for Blue/White season/Career Maps, narrowed-pool
+  fixtures, unplayed selected maps, retained out-of-pool historical details and
+  match links, global/team Matches and legacy sort URLs. The 33-route public/admin
+  regression also passes live. No JavaScript error, overflow or production API
+  mutation occurred. Actual launcher admin editor remains responsive at all widths.
+- To set the actual desired competitive list, open local Admin -> Seasons ->
+  Competitive Map Pool, choose Fall 2026, select maps and Save Map Pool, then
+  Publish Website. The initial 26-map list was preserved safely; no official
+  competitive pool was guessed. Subsequent seasons are configured independently.
 **STOP after this pass. No R6TV/spatial work.**
 
 ---
