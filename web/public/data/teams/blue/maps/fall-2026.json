@@ -41,21 +41,21 @@
       "slug": "border",
       "name": "Border",
       "supported": true,
-      "maps_played": 3,
-      "map_wins": 2,
+      "maps_played": 4,
+      "map_wins": 3,
       "map_losses": 1,
-      "rounds": 37,
-      "wins": 20,
-      "losses": 17,
+      "rounds": 47,
+      "wins": 27,
+      "losses": 20,
       "attack": {
-        "rounds": 19,
-        "wins": 8,
-        "losses": 11
+        "rounds": 25,
+        "wins": 12,
+        "losses": 13
       },
       "defense": {
-        "rounds": 18,
-        "wins": 12,
-        "losses": 6
+        "rounds": 22,
+        "wins": 15,
+        "losses": 7
       },
       "unknown_side": {
         "rounds": 0,
@@ -67,51 +67,63 @@
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 8,
-            "wins": 5,
-            "losses": 3
+            "rounds": 12,
+            "wins": 8,
+            "losses": 4
           },
           {
             "site": "1F Bathroom, 1F Tellers",
             "unknown": false,
-            "rounds": 6,
+            "rounds": 7,
             "wins": 2,
-            "losses": 4
+            "losses": 5
           },
           {
             "site": "1F Ventilation Room, 1F Workshop",
             "unknown": false,
-            "rounds": 5,
-            "wins": 1,
+            "rounds": 6,
+            "wins": 2,
             "losses": 4
           }
         ],
         "Defense": [
           {
-            "site": "1F Bathroom, 1F Tellers",
+            "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 7,
-            "wins": 5,
+            "rounds": 8,
+            "wins": 6,
             "losses": 2
           },
           {
-            "site": "2F Armory Lockers, 2F Archives",
+            "site": "1F Bathroom, 1F Tellers",
             "unknown": false,
-            "rounds": 6,
-            "wins": 4,
-            "losses": 2
+            "rounds": 8,
+            "wins": 5,
+            "losses": 3
           },
           {
             "site": "1F Ventilation Room, 1F Workshop",
             "unknown": false,
-            "rounds": 5,
-            "wins": 3,
+            "rounds": 6,
+            "wins": 4,
             "losses": 2
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "e67c30608158",
+          "series_id": "bcdadcecac5e",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "West Point",
+          "date": "2026-10-14",
+          "map": "Border",
+          "our_score": 7,
+          "their_score": 3,
+          "result": "WIN"
+        },
         {
           "id": "8af0a6db6c39",
           "series_id": "40bf93b16f97",
@@ -275,21 +287,21 @@
       "slug": "fortress",
       "name": "Fortress",
       "supported": true,
-      "maps_played": 1,
-      "map_wins": 1,
+      "maps_played": 2,
+      "map_wins": 2,
       "map_losses": 0,
-      "rounds": 10,
-      "wins": 7,
-      "losses": 3,
+      "rounds": 21,
+      "wins": 14,
+      "losses": 7,
       "attack": {
-        "rounds": 4,
-        "wins": 3,
-        "losses": 1
+        "rounds": 10,
+        "wins": 7,
+        "losses": 3
       },
       "defense": {
-        "rounds": 6,
-        "wins": 4,
-        "losses": 2
+        "rounds": 11,
+        "wins": 7,
+        "losses": 4
       },
       "unknown_side": {
         "rounds": 0,
@@ -301,16 +313,16 @@
           {
             "site": "2F Bathroom, 2F Commander's Office",
             "unknown": false,
-            "rounds": 2,
-            "wins": 2,
-            "losses": 0
+            "rounds": 5,
+            "wins": 4,
+            "losses": 1
           },
           {
             "site": "2F Dormitory, 2F Games Room",
             "unknown": false,
-            "rounds": 1,
-            "wins": 1,
-            "losses": 0
+            "rounds": 4,
+            "wins": 3,
+            "losses": 1
           },
           {
             "site": "1F Waiting Room, 1F Cafeteria",
@@ -324,28 +336,40 @@
           {
             "site": "2F Dormitory, 2F Games Room",
             "unknown": false,
-            "rounds": 2,
-            "wins": 2,
-            "losses": 0
-          },
-          {
-            "site": "1F Waiting Room, 1F Cafeteria",
-            "unknown": false,
-            "rounds": 2,
-            "wins": 1,
+            "rounds": 4,
+            "wins": 3,
             "losses": 1
           },
           {
             "site": "2F Bathroom, 2F Commander's Office",
             "unknown": false,
-            "rounds": 2,
-            "wins": 1,
+            "rounds": 4,
+            "wins": 2,
+            "losses": 2
+          },
+          {
+            "site": "1F Waiting Room, 1F Cafeteria",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 2,
             "losses": 1
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "6cf538b7474e",
+          "series_id": "bcdadcecac5e",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "West Point",
+          "date": "2026-10-14",
+          "map": "Fortress",
+          "our_score": 7,
+          "their_score": 4,
+          "result": "WIN"
+        },
         {
           "id": "d64d5478cdb3",
           "series_id": "170b708e12f1",
