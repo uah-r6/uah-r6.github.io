@@ -5,6 +5,7 @@ import {useData} from './publicData'
 import {bestSite,rateLabel,siteLabel,sortSites} from './mapAnalytics'
 import {displayDate} from './publicView'
 import './discovery.css'
+import {OpeningStats} from './OpeningStats'
 
 function RoundRecord({label,counts}:{label:string;counts:RoundCounts}) {
   return <div className="map-round-stat"><span>{label}</span><strong>{rateLabel(counts)}</strong><small>{counts.rounds?`${counts.wins}–${counts.losses} · ${counts.rounds} rounds`:'No recorded rounds'}</small></div>
@@ -32,6 +33,7 @@ export function TeamMaps({team,season,mapSlug}:{team:Team;season:string;mapSlug?
     <Link className="map-back" to={base+query}>← All maps</Link>
     <header className="map-detail-hero"><span className="eyebrow">MAP PERFORMANCE / {data.period_name.toUpperCase()}</span><h2>{map.name}</h2>{map.maps_played?<p>{map.maps_played} recorded {map.maps_played===1?'map':'maps'} · Map record <b>{map.map_wins}–{map.map_losses}</b></p>:<p>No recorded maps yet.</p>}</header>
     {explanation}
+    <OpeningStats stats={map.opening_engagements}/>
     {!data.pool.maps.some(m=>m.slug===map.slug)&&<p className="map-scope-note">Not in the selected competitive map pool. Historical results remain available.</p>}
     {!!map.maps_played&&<><MapNumbers map={map}/>{!!map.unknown_side.rounds&&<p className="map-scope-note">{map.unknown_side.rounds} rounds have an unknown side and remain in overall totals.</p>}
       <div className="map-site-grid"><SiteList label="Defense sites" sites={map.sites.Defense}/><SiteList label="Attack vs sites" sites={map.sites.Attack}/>{!!map.sites.Unknown.length&&<SiteList label="Unknown side sites" sites={map.sites.Unknown}/>}</div>

@@ -28,7 +28,7 @@ test('current exported participation preserves normal and substitute separation'
   const data=load(`teams/${team}/${period}.json`)
   assert.equal(data.players.length,team==='blue'?5:4)
   assert.equal(data.sub_players.length,team==='blue'?0:1)
-  for(const player of data.players)assert.equal(player.rounds,team==='blue'?82:21)
+  for(const player of data.players)assert.equal(player.rounds,data.matches.reduce((n,m)=>n+(load(`matches/${m.id}.json`).players.find(p=>p.slug===player.slug&&p.appearance_role==='roster')?.rounds||0),0))
   for(const player of data.sub_players){
    assert.equal(player.slug,'dinoted11')
    assert.equal(player.rounds,21)

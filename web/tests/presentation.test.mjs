@@ -13,11 +13,12 @@ test('embed independently follows active season and validates explicit overrides
  assert.equal(embedSeason(seasons,'spring-2027','missing'),null)
 })
 test('trend keeps exact exported v3 values, chronology and eligibility',()=>{
- const copy=structuredClone(profile.matches),points=ratingHistory(copy)
+ const ids=['d64d5478cdb3','8a6357ff307c','5adc26f7a402','076d2b6b02bc','b595ffaaec57','8af0a6db6c39','9db26f1b6ca7']
+ const historical=profile.matches.filter(m=>ids.includes(m.id)),copy=structuredClone(historical),points=ratingHistory(copy)
  assert.equal(points.length,7)
  assert.deepEqual(points.map(p=>p.id),['d64d5478cdb3','8a6357ff307c','5adc26f7a402','076d2b6b02bc','b595ffaaec57','8af0a6db6c39','9db26f1b6ca7'])
  for(const p of points)assert.equal(p.rating,profile.matches.find(m=>m.id===p.id).rating)
- assert.deepEqual(copy,profile.matches)
+ assert.deepEqual(copy,historical)
  assert.equal(ratingHistory([{...copy[0],rating:null}]).length,0)
  assert.equal(ratingHistory([{...copy[0],rating:0}])[0].rating,0) // valid numeric zero is not fabricated
  assert.equal(ratingHistory([{...copy[0],rating:NaN}]).length,0)
@@ -29,7 +30,8 @@ test('career history combines teams and seasons without separate synthetic serie
  assert.deepEqual(ratingHistory(maps).map(m=>m.team_slug),['blue','white'])
 })
 test('series records use authoritative ID, scope and logical maps once',()=>{
- const groups=seriesGroups([...profile.matches,profile.matches[0]])
+ const historical=profile.matches.filter(m=>['Placements','University of Michigan','UCF'].includes(m.opponent))
+ const groups=seriesGroups([...historical,historical[0]])
  assert.equal(groups.length,3);assert.equal(groups[0].maps.length,2)
  assert.deepEqual(groups.map(g=>[g.wins,g.losses]),[[2,0],[2,0],[2,1]])
  const map=profile.matches[0]

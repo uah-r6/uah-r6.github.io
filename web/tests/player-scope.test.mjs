@@ -39,6 +39,7 @@ test('team season/career exports preserve map ownership and distinct scopes',()=
   assert.ok(white.matches.every(m=>m.team_slug==='white'))
  }
  // Global Career profiles retain their separate cross-team source and splits.
- assert.equal(load('players/lgon/career.json').rounds,82)
- assert.equal(load('players/lgon/career.json').series_ratings.length,3)
+ const career=load('players/lgon/career.json')
+ assert.equal(career.rounds,career.matches.reduce((n,m)=>n+load(`matches/${m.id}.json`).players.find(p=>p.slug==='lgon').rounds,0))
+ assert.equal(career.series_ratings.length,new Set(career.matches.map(m=>m.series_id)).size)
 })

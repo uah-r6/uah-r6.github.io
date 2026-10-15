@@ -1,3 +1,44 @@
+## Current: team opening engagements and Google Sites embed - 2026-10-15
+
+Implementation and local verification complete from clean baseline `7ea1bbe`
+(11 maps). Release/deployment verification is recorded in the next checkpoint.
+Only the UAH NECC stats project was changed; Siege Atlas remains untouched.
+See [full definitions, source audit, QA results and embed sizing](OPENING_ENGAGEMENTS_EMBED.md).
+
+- Team opening statistics delegate each logical round to the existing public
+  Entry calculation. No native Rating semantics or replay parsing was added.
+  Combined raw counts are divided after aggregation; ATK/DEF samples are visible
+  directly below each headline. No-kill rounds are excluded; zero denominators
+  display a dash. Selected rehost rounds, side swaps, substitutes and historical
+  team ownership follow the existing normalized data.
+- Team season/Career Overview, series, individual map and aggregate map detail
+  pages show Opening Kill %, Opening Kill Conversion % and Opening Death Recovery %.
+  New round facts and summaries export without copying them into player profiles.
+  Publishing validates aggregates against their logical-round facts.
+- Blue Fall: 64/103 = 62.1% opening, 48/64 = 75.0% conversion, 15/39 = 38.5%
+  recovery. White: 10/21 = 47.6%, 5/10 = 50.0%, 1/11 = 9.1%. West Point series,
+  Fortress and four-appearance Border were checked, eight source rounds inspected,
+  and all 11 maps reconcile with unchanged display Entry totals.
+- Embed-only #f3f3f3 background, regular dark Arial type, fine gray dividers,
+  full width/12px gutters, no app/team banner or frame. All columns, links,
+  sorting and keyboard help remain. 800px+ fits; narrower widths scroll inside
+  the table. Content has no minimum viewport height; Google Sites controls its
+  iframe height. Normal standalone styling remains intact.
+- 819 Python tests plus six subtests passed (one optional replay smoke skipped),
+  72 frontend, 19 Worker, Go tests/vet and both builds passed. Focused browser
+  checks: embeds 1200/1000/800/600/390px; opening scopes 1440/1100/768/390px.
+  The 36-route regression also passed four widths without JS errors/API writes.
+- SQLite was opened read-only for export and QA. All 27 tables are exactly equal
+  to the ignored pre-change backup. All 56 public documents preserve existing
+  values except generated_at; new opening fields only. All 11 archive hashes/
+  manifests are unchanged and Healthy; all 11 maps retain v3 eligibility.
+  Parser, stats engine, Rating sources, correction/evidence snapshots and histories
+  remain unchanged. Private evidence: data/research/opening-embed-20261015/.
+
+Do not expand into other statistics, Rating changes or spatial work.
+
+---
+
 ## Current: competitive map pool and match sort cleanup - 2026-10-08
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**

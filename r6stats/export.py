@@ -6,6 +6,7 @@ from pathlib import Path
 
 from r6stats.parser.models import Match
 from r6stats.map_analytics import build_analytics, project_pool
+from r6stats.opening_engagements import round_facts, summarize, summarize_maps
 from r6stats.db import map_pool
 from r6stats.series_export import SeriesProjection, player_series
 from r6stats.round_highlights import curate, objective_match
@@ -99,6 +100,10 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                   "team_slug": by_id[row["team_id"]]["slug"], "team_name": by_id[row["team_id"]]["name"]}
         if version == "siege_style_v3":
             public.update(rating_version=version, rating_exclusion=reason)
+        # Derive from sealed, selected normalized rounds with the exact public
+        # Entry implementation. No replay parse, roster lookup or Rating change.
+        openings = round_facts(match, row['our_team'], window, display_version)
+        opening_summary = summarize(openings.values())
         if row["demo"]:
             demo_seasons.add(row["season_slug"])
         public_players = []
@@ -159,14 +164,18 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         highlights = curate(objective_match(db, row, match), credit if not corrections else None,
                             records, historical_bindings, identities, row['our_team'])
         rounds = [{"number": r.number, "side": next((p.side for p in r.players if p.team == row["our_team"]), "Unknown"),
-                   "result": "Win" if r.winner == row["our_team"] else "Loss", "site": r.site, "highlights": highlights.get(r.number, [])}
+                   "result": "Win" if r.winner == row["our_team"] else "Loss", "site": r.site, "highlights": highlights.get(r.number, []),
+                   "opening": openings[r.number]['opening']}
                   for r in match.rounds]
-        write(root / "matches" / f"{row['id']}.json", {**public, "players": public_players, "rounds": rounds})
+        write(root / "matches" / f"{row['id']}.json", {**public, "players": public_players, "rounds": rounds,
+              'opening_engagements': opening_summary})
         season_matches[row["season_slug"]].append(public)
         team_maps[(row["team_id"], row["season_slug"])].append(public)
         team_round_maps[(row["team_id"], row["season_slug"])].append({**public, 'rounds': rounds})
     roster_series = {d['id']: d for d in roster_series_projection.documents(identities)}
+    round_maps = {m['id']: m for maps in team_round_maps.values() for m in maps}
     for document in series_projection.documents(identities):
+        document['opening_engagements'] = summarize_maps([round_maps[m['id']] for m in document['maps']])
         regular = {p['slug']: p for p in roster_series[document['id']]['players']}
         for player in document['players']:
             if player['slug'] in regular:
@@ -265,7 +274,9 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                   [m for scope in selected for m in team_round_maps[scope]]),
                                map_pool.public_pool(db, view, active)))
             write(root / "teams" / team["slug"] / f"{view}.json",
-                  {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster, "sub_players": sorted(substitutes, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True)})
+                  {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster,
+                   "opening_engagements": summarize_maps([round_maps[m['id']] for m in matches]),
+                   "sub_players": sorted(substitutes, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True)})
         career_summary = json.loads((root / "teams" / team["slug"] / "career.json").read_text(encoding="utf-8"))
         metadata.update(maps=career_summary["maps"], rounds=career_summary["rounds"], roster_count=len(roster))
         write(root / "teams" / team["slug"] / "index.json", {**metadata, "roster": roster,

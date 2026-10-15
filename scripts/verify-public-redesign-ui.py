@@ -109,7 +109,7 @@ def verify(url, output, admin):
                     assert page.locator('.profile-key-stats dd').all_text_contents() == [f'{data["rating"]:.2f}',f'{data["kills"]}–{data["deaths"]}',f'{round(data["kost"]*100)}%',f'{data["opening_kills"]}–{data["opening_deaths"]}']
                     expect(page.locator('.profile-head .team-logo img')).to_have_attribute('src','/brand/teams/'+data['team_splits'][0]['team_slug']+'.png')
                 elif route.startswith('embed/'):
-                    assert page.locator('.embed-team-identity').bounding_box()['height'] <= 38
+                    assert page.locator('.embed-team-identity').count() == 0
                     assert page.locator('.public-hero,.topbar').count()==0
                 page.screenshot(path=str(output / f'{route.replace("/","-").replace("?","-") or "home"}-{width}.png'), full_page=True)
                 page.screenshot(path=str(output / f'viewport-{route.replace("/","-").replace("?","-") or "home"}-{width}.png'))
@@ -137,7 +137,7 @@ def verify(url, output, admin):
         complete=[s for s in history if s['rating'] is not None]
         expect(page.locator('.rating-trend svg')).to_have_count(int(len(complete)>=2))
         expect(page.locator('.trend-point')).to_have_count(len(complete) if len(complete)>=2 else 0)
-        expect(page.locator('.trend-detail')).to_contain_text('UCF')
+        expect(page.locator('.trend-detail')).to_contain_text(complete[0]['opponent'])
         checks.append('team switch retains section/Sub query; main selector preserves Career/sort; keyboard stat help and complete-only compact Series Rating summary retained')
 
         fixture = browser.new_page(viewport={'width':390,'height':960})

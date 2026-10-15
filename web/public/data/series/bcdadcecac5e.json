@@ -504,5 +504,47 @@
       "rating_rounds": 21,
       "appearance_role": "roster"
     }
-  ]
+  ],
+  "opening_engagements": {
+    "overall": {
+      "eligible_rounds": 21,
+      "opening_kills": 14,
+      "opening_kill_wins": 11,
+      "opening_deaths": 7,
+      "opening_death_wins": 3,
+      "opening_kill_pct": 0.6666666666666666,
+      "conversion_pct": 0.7857142857142857,
+      "recovery_pct": 0.42857142857142855
+    },
+    "attack": {
+      "eligible_rounds": 12,
+      "opening_kills": 9,
+      "opening_kill_wins": 6,
+      "opening_deaths": 3,
+      "opening_death_wins": 2,
+      "opening_kill_pct": 0.75,
+      "conversion_pct": 0.6666666666666666,
+      "recovery_pct": 0.6666666666666666
+    },
+    "defense": {
+      "eligible_rounds": 9,
+      "opening_kills": 5,
+      "opening_kill_wins": 5,
+      "opening_deaths": 4,
+      "opening_death_wins": 1,
+      "opening_kill_pct": 0.5555555555555556,
+      "conversion_pct": 1.0,
+      "recovery_pct": 0.25
+    },
+    "unknown_side": {
+      "eligible_rounds": 0,
+      "opening_kills": 0,
+      "opening_kill_wins": 0,
+      "opening_deaths": 0,
+      "opening_death_wins": 0,
+      "opening_kill_pct": null,
+      "conversion_pct": null,
+      "recovery_pct": null
+    }
+  }
 }

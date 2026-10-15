@@ -2,6 +2,7 @@
 from copy import deepcopy
 
 from r6stats.map_catalog import CATALOG, identity
+from r6stats.opening_engagements import summarize
 
 
 def counts():
@@ -16,6 +17,7 @@ def increment(record, won):
 def empty_map(metadata):
     return {**metadata, 'maps_played': 0, 'map_wins': 0, 'map_losses': 0,
             **counts(), 'attack': counts(), 'defense': counts(), 'unknown_side': counts(),
+            'opening_engagements': summarize([]),
             'sites': {'Attack': [], 'Defense': [], 'Unknown': []}, 'matches': []}
 
 
@@ -23,6 +25,7 @@ def build_analytics(team_slug, period, period_name, matches):
     maps = {m['slug']: empty_map(m) for m in CATALOG}
     seen = {}
     site_counts = {}
+    opening_rounds = {}
     for match in matches:
         if match['team_slug'] != team_slug or (period != 'career' and match['season'] != period):
             raise ValueError('Map analytics ownership/period differs from its scope.')
@@ -37,6 +40,7 @@ def build_analytics(team_slug, period, period_name, matches):
         metadata = identity(match['map'])
         target = maps.setdefault(metadata['slug'], empty_map(metadata))
         target['maps_played'] += 1
+        opening_rounds.setdefault(metadata['slug'], []).extend(match['rounds'])
         target['map_wins' if match['result'] == 'WIN' else 'map_losses'] += 1
         target['matches'].append({k: match[k] for k in (
             'id', 'series_id', 'season', 'team_slug', 'opponent', 'date',
@@ -61,6 +65,7 @@ def build_analytics(team_slug, period, period_name, matches):
     for (map_slug, side, _), site in site_counts.items():
         maps[map_slug]['sites'][side].append(site)
     for map_ in maps.values():
+        map_['opening_engagements'] = summarize(opening_rounds.get(map_['slug'], []))
         for sites in map_['sites'].values():
             sites.sort(key=lambda s: (-s['rounds'], -s['wins'] / s['rounds'], s['site']))
         map_['matches'].sort(key=lambda m: (m['date'], m['id']), reverse=True)

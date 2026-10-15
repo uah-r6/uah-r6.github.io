@@ -469,7 +469,8 @@
           ],
           "emphasis": "objective"
         }
-      ]
+      ],
+      "opening": "death"
     },
     {
       "number": 2,
@@ -486,7 +487,8 @@
           ],
           "emphasis": "notable"
         }
-      ]
+      ],
+      "opening": "kill"
     },
     {
       "number": 3,
@@ -502,56 +504,64 @@
           ],
           "emphasis": "objective"
         }
-      ]
+      ],
+      "opening": "kill"
     },
     {
       "number": 4,
       "side": "Attack",
       "result": "Win",
       "site": "1F Bathroom, 1F Tellers",
-      "highlights": []
+      "highlights": [],
+      "opening": "kill"
     },
     {
       "number": 5,
       "side": "Attack",
       "result": "Loss",
       "site": "1F Bathroom, 1F Tellers",
-      "highlights": []
+      "highlights": [],
+      "opening": "death"
     },
     {
       "number": 6,
       "side": "Attack",
       "result": "Loss",
       "site": "1F Ventilation Room, 1F Workshop",
-      "highlights": []
+      "highlights": [],
+      "opening": "kill"
     },
     {
       "number": 7,
       "side": "Defense",
       "result": "Loss",
       "site": "2F Armory Lockers, 2F Archives",
-      "highlights": []
+      "highlights": [],
+      "opening": "death"
     },
     {
       "number": 8,
       "side": "Defense",
       "result": "Win",
       "site": "1F Bathroom, 1F Tellers",
-      "highlights": []
+      "highlights": [],
+      "opening": "kill"
     },
     {
       "number": 9,
       "side": "Defense",
       "result": "Loss",
       "site": "1F Ventilation Room, 1F Workshop",
-      "highlights": []
+      "highlights": [],
+      "opening": "death"
     },
     {
       "number": 10,
       "side": "Defense",
       "result": "Win",
       "site": "2F Armory Lockers, 2F Archives",
-      "highlights": []
+      "highlights": [],
+      "opening": "kill"
     },
     {
       "number": 11,
@@ -567,7 +577,50 @@
           ],
           "emphasis": "strong"
         }
-      ]
+      ],
+      "opening": "death"
     }
-  ]
+  ],
+  "opening_engagements": {
+    "overall": {
+      "eligible_rounds": 11,
+      "opening_kills": 6,
+      "opening_kill_wins": 5,
+      "opening_deaths": 5,
+      "opening_death_wins": 2,
+      "opening_kill_pct": 0.5454545454545454,
+      "conversion_pct": 0.8333333333333334,
+      "recovery_pct": 0.4
+    },
+    "attack": {
+      "eligible_rounds": 6,
+      "opening_kills": 4,
+      "opening_kill_wins": 3,
+      "opening_deaths": 2,
+      "opening_death_wins": 1,
+      "opening_kill_pct": 0.6666666666666666,
+      "conversion_pct": 0.75,
+      "recovery_pct": 0.5
+    },
+    "defense": {
+      "eligible_rounds": 5,
+      "opening_kills": 2,
+      "opening_kill_wins": 2,
+      "opening_deaths": 3,
+      "opening_death_wins": 1,
+      "opening_kill_pct": 0.4,
+      "conversion_pct": 1.0,
+      "recovery_pct": 0.3333333333333333
+    },
+    "unknown_side": {
+      "eligible_rounds": 0,
+      "opening_kills": 0,
+      "opening_kill_wins": 0,
+      "opening_deaths": 0,
+      "opening_death_wins": 0,
+      "opening_kill_pct": null,
+      "conversion_pct": null,
+      "recovery_pct": null
+    }
+  }
 }

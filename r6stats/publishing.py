@@ -10,6 +10,7 @@ from r6stats.export import export
 from r6stats.map_analytics import build_analytics, project_pool
 from r6stats.map_catalog import CATALOG
 from r6stats.series_export import player_series, series_rating_complete
+from r6stats.opening_engagements import summarize_maps
 
 DATA_PATHSPEC = ":(glob)web/public/data/**/*.json"
 
@@ -65,6 +66,20 @@ def validate_public_data(root: Path) -> int:
             if f"players/{slug}/{season['slug']}.json" not in documents:
                 raise ValueError(f"Website player season data is missing: {slug} / {season['slug']}")
     player_slugs = {p['slug'] for p in index.get('players', [])}
+    # Recompute every scope from its published logical-round facts. Invalid
+    # fractions or stale aggregate caches cannot pass the publishing gate.
+    for name, document in documents.items():
+        if name.startswith('matches/'):
+            for round_ in document.get('rounds', []):
+                if 'opening' not in round_ or round_['opening'] not in (None, 'kill', 'death'):
+                    raise ValueError(f'Website opening round fact is invalid: {name}')
+            sources = [document]
+        elif name.startswith('series/') or (name.startswith('teams/') and '/maps/' not in name and 'matches' in document):
+            sources = [documents[f"matches/{m['id']}.json"] for m in document['matches' if name.startswith('teams/') else 'maps']]
+        else:
+            continue
+        if document.get('opening_engagements') != summarize_maps(sources):
+            raise ValueError(f'Website opening engagements are inconsistent: {name}')
     for team in index.get('teams', []):
         slug = team['slug']
         for period in [s['slug'] for s in index.get('seasons', [])] + ['career']:

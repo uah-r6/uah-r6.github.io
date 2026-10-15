@@ -30,6 +30,48 @@
         "wins": 0,
         "losses": 0
       },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
+      },
       "sites": {
         "Attack": [],
         "Defense": [],
@@ -61,6 +103,48 @@
         "rounds": 0,
         "wins": 0,
         "losses": 0
+      },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 7,
+          "opening_kills": 4,
+          "opening_kill_wins": 0,
+          "opening_deaths": 3,
+          "opening_death_wins": 0,
+          "opening_kill_pct": 0.5714285714285714,
+          "conversion_pct": 0.0,
+          "recovery_pct": 0.0
+        },
+        "attack": {
+          "eligible_rounds": 6,
+          "opening_kills": 3,
+          "opening_kill_wins": 0,
+          "opening_deaths": 3,
+          "opening_death_wins": 0,
+          "opening_kill_pct": 0.5,
+          "conversion_pct": 0.0,
+          "recovery_pct": 0.0
+        },
+        "defense": {
+          "eligible_rounds": 1,
+          "opening_kills": 1,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": 1.0,
+          "conversion_pct": 0.0,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
       },
       "sites": {
         "Attack": [
@@ -137,6 +221,48 @@
         "wins": 0,
         "losses": 0
       },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
+      },
       "sites": {
         "Attack": [],
         "Defense": [],
@@ -168,6 +294,48 @@
         "rounds": 0,
         "wins": 0,
         "losses": 0
+      },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
       },
       "sites": {
         "Attack": [],
@@ -201,6 +369,48 @@
         "wins": 0,
         "losses": 0
       },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
+      },
       "sites": {
         "Attack": [],
         "Defense": [],
@@ -232,6 +442,48 @@
         "rounds": 0,
         "wins": 0,
         "losses": 0
+      },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
       },
       "sites": {
         "Attack": [],
@@ -265,6 +517,48 @@
         "wins": 0,
         "losses": 0
       },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
+      },
       "sites": {
         "Attack": [],
         "Defense": [],
@@ -296,6 +590,48 @@
         "rounds": 0,
         "wins": 0,
         "losses": 0
+      },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 14,
+          "opening_kills": 6,
+          "opening_kill_wins": 5,
+          "opening_deaths": 8,
+          "opening_death_wins": 1,
+          "opening_kill_pct": 0.42857142857142855,
+          "conversion_pct": 0.8333333333333334,
+          "recovery_pct": 0.125
+        },
+        "attack": {
+          "eligible_rounds": 7,
+          "opening_kills": 2,
+          "opening_kill_wins": 2,
+          "opening_deaths": 5,
+          "opening_death_wins": 1,
+          "opening_kill_pct": 0.2857142857142857,
+          "conversion_pct": 1.0,
+          "recovery_pct": 0.2
+        },
+        "defense": {
+          "eligible_rounds": 7,
+          "opening_kills": 4,
+          "opening_kill_wins": 3,
+          "opening_deaths": 3,
+          "opening_death_wins": 0,
+          "opening_kill_pct": 0.5714285714285714,
+          "conversion_pct": 0.75,
+          "recovery_pct": 0.0
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
       },
       "sites": {
         "Attack": [
@@ -378,6 +714,48 @@
         "rounds": 0,
         "wins": 0,
         "losses": 0
+      },
+      "opening_engagements": {
+        "overall": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "attack": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "defense": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        },
+        "unknown_side": {
+          "eligible_rounds": 0,
+          "opening_kills": 0,
+          "opening_kill_wins": 0,
+          "opening_deaths": 0,
+          "opening_death_wins": 0,
+          "opening_kill_pct": null,
+          "conversion_pct": null,
+          "recovery_pct": null
+        }
       },
       "sites": {
         "Attack": [],

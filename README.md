@@ -268,6 +268,12 @@ $env:R6_TEST_REPLAY_PATH = "C:\path\to\complete\Match-folder"
 
 ## Data and methods
 
+Team Overview, series, individual maps and aggregate map detail pages now show
+Opening Kill %, Opening Kill Conversion % and Opening Death Recovery %, with a
+combined headline and visible ATK/DEF raw samples. The Google Sites
+`#/embed/blue/player-stats` route uses a compact light presentation independently
+of the normal dark site. See [definitions, real-data QA and embed sizing](docs/OPENING_ENGAGEMENTS_EMBED.md).
+
 `data/*.sqlite`, raw replays, ZIPs, parsed data, and private settings are ignored by Git. The committed website JSON omits Ubisoft profile IDs and all opponent player identities. The default `siege_style_v3` Rating uses its frozen nine-feature model and eight-second legacy trade policy; it is neither official Ubisoft EPS nor official SiegeGG Rating. Both previous `siege_style_v2` and `collegiate_v1` formulas remain selectable. KOST counts a round once if any of Kill, verified Objective, Survival, or Traded death applies. A 1vX clutch counts once when a player first becomes their team's only living player against one to five living opponents and their team wins the round; X is fixed at that first moment. Plants and disables remain stored and visible in detailed statistics. `siege_style_v2` has no separate player-objective coefficient: its weights remain frozen from research conducted before trustworthy actor attribution was available. Verified objectives can still qualify a round for KOST.
 
 The local parser now requires a validated objective completion plus a unique completing interaction owner, stable UID, correct side, and supported body/lifecycle evidence. A unique +100 score change or near-zero timer is insufficient. Canceled attempts do not receive credit, and unsupported or ambiguous evidence remains unresolved. Installing the parser does not correct stored maps automatically. Recalculation rejects historical objective credits that give a plant to a defender, a disable to an attacker, or an event to the wrong team. Stored replay events remain available for later parser repair. The local website JSON only reflects a recalculation after **Statistics → Recalculate Statistics**; nothing is published until **Publish Website** is used.
