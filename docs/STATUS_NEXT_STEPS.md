@@ -1,7 +1,10 @@
 ## Current: team opening engagements and Google Sites embed - 2026-10-15
 
-Implementation and local verification complete from clean baseline `7ea1bbe`
-(11 maps). Release/deployment verification is recorded in the next checkpoint.
+**COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
+Release `3478160` deployed successfully in
+[Pages run 38690029730](https://github.com/uah-r6/uah-r6.github.io/actions/runs/38690029730).
+This final documentation checkpoint records the verified release from clean
+baseline `7ea1bbe` (11 maps).
 Only the UAH NECC stats project was changed; Siege Atlas remains untouched.
 See [full definitions, source audit, QA results and embed sizing](OPENING_ENGAGEMENTS_EMBED.md).
 
@@ -35,7 +38,15 @@ See [full definitions, source audit, QA results and embed sizing](OPENING_ENGAGE
   Parser, stats engine, Rating sources, correction/evidence snapshots and histories
   remain unchanged. Private evidence: data/research/opening-embed-20261015/.
 
-Do not expand into other statistics, Rating changes or spatial work.
+- All 56 live JSON documents match local exports exactly. The focused browser
+  suite passed live for both embeds at all five widths and opening stats at all
+  four public widths. The 36-route regression passed live too, with no JavaScript
+  errors, page overflow or API writes. Production preservation rechecked PASS.
+- Commit/push verification confirmed local HEAD == origin/main == remote main;
+  release working tree was clean. This final docs checkpoint adds no runtime/data
+  changes. See the full report for definitions, sample sizes and iframe limits.
+
+**STOP.** Do not expand into other statistics, Rating changes or spatial work.
 
 ---
 

@@ -206,3 +206,14 @@ browser suite and the **36-route public regression at four widths** passed.
 No JavaScript errors or API mutations were observed. The optional integration
 test skip and existing Starlette test-client deprecation warning are unrelated
 to this change.
+
+## Release and live verification
+
+Release **`3478160`** is pushed and deployed successfully:
+[Pages run 38690029730](https://github.com/uah-r6/uah-r6.github.io/actions/runs/38690029730).
+All **56 live JSON documents match local exports exactly**. The focused opening
+and embed browser suite passed against the deployed site at every listed width,
+and the **36-route regression passed live at four widths**. No JavaScript errors,
+page overflow or API mutations were observed. Local HEAD, origin/main and remote
+main agreed after push; the tree was clean before this final documentation-only
+checkpoint. This completes the requested pass.
