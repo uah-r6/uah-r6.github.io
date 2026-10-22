@@ -83,21 +83,21 @@
       "slug": "border",
       "name": "Border",
       "supported": true,
-      "maps_played": 4,
+      "maps_played": 5,
       "map_wins": 3,
-      "map_losses": 1,
-      "rounds": 47,
-      "wins": 27,
-      "losses": 20,
+      "map_losses": 2,
+      "rounds": 55,
+      "wins": 28,
+      "losses": 27,
       "attack": {
-        "rounds": 25,
-        "wins": 12,
-        "losses": 13
+        "rounds": 31,
+        "wins": 13,
+        "losses": 18
       },
       "defense": {
-        "rounds": 22,
+        "rounds": 24,
         "wins": 15,
-        "losses": 7
+        "losses": 9
       },
       "unknown_side": {
         "rounds": 0,
@@ -106,34 +106,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 47,
-          "opening_kills": 25,
-          "opening_kill_wins": 19,
-          "opening_deaths": 22,
+          "eligible_rounds": 55,
+          "opening_kills": 26,
+          "opening_kill_wins": 20,
+          "opening_deaths": 29,
           "opening_death_wins": 8,
-          "opening_kill_pct": 0.5319148936170213,
-          "conversion_pct": 0.76,
-          "recovery_pct": 0.36363636363636365
+          "opening_kill_pct": 0.4727272727272727,
+          "conversion_pct": 0.7692307692307693,
+          "recovery_pct": 0.27586206896551724
         },
         "attack": {
-          "eligible_rounds": 25,
-          "opening_kills": 14,
-          "opening_kill_wins": 8,
-          "opening_deaths": 11,
+          "eligible_rounds": 31,
+          "opening_kills": 15,
+          "opening_kill_wins": 9,
+          "opening_deaths": 16,
           "opening_death_wins": 4,
-          "opening_kill_pct": 0.56,
-          "conversion_pct": 0.5714285714285714,
-          "recovery_pct": 0.36363636363636365
+          "opening_kill_pct": 0.4838709677419355,
+          "conversion_pct": 0.6,
+          "recovery_pct": 0.25
         },
         "defense": {
-          "eligible_rounds": 22,
+          "eligible_rounds": 24,
           "opening_kills": 11,
           "opening_kill_wins": 11,
-          "opening_deaths": 11,
+          "opening_deaths": 13,
           "opening_death_wins": 4,
-          "opening_kill_pct": 0.5,
+          "opening_kill_pct": 0.4583333333333333,
           "conversion_pct": 1.0,
-          "recovery_pct": 0.36363636363636365
+          "recovery_pct": 0.3076923076923077
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -151,32 +151,32 @@
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 12,
+            "rounds": 14,
             "wins": 8,
-            "losses": 4
+            "losses": 6
           },
           {
             "site": "1F Bathroom, 1F Tellers",
             "unknown": false,
-            "rounds": 7,
+            "rounds": 9,
             "wins": 2,
-            "losses": 5
+            "losses": 7
           },
           {
             "site": "1F Ventilation Room, 1F Workshop",
             "unknown": false,
-            "rounds": 6,
-            "wins": 2,
-            "losses": 4
+            "rounds": 8,
+            "wins": 3,
+            "losses": 5
           }
         ],
         "Defense": [
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 8,
+            "rounds": 10,
             "wins": 6,
-            "losses": 2
+            "losses": 4
           },
           {
             "site": "1F Bathroom, 1F Tellers",
@@ -196,6 +196,18 @@
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "3e1ce794abf2",
+          "series_id": "6ff6c295e0a2",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "Manitoba",
+          "date": "2026-10-21",
+          "map": "Border",
+          "our_score": 1,
+          "their_score": 7,
+          "result": "LOSS"
+        },
         {
           "id": "e67c30608158",
           "series_id": "bcdadcecac5e",
@@ -455,21 +467,21 @@
       "slug": "fortress",
       "name": "Fortress",
       "supported": true,
-      "maps_played": 2,
+      "maps_played": 3,
       "map_wins": 2,
-      "map_losses": 0,
-      "rounds": 21,
-      "wins": 14,
-      "losses": 7,
+      "map_losses": 1,
+      "rounds": 31,
+      "wins": 17,
+      "losses": 14,
       "attack": {
-        "rounds": 10,
-        "wins": 7,
-        "losses": 3
+        "rounds": 16,
+        "wins": 8,
+        "losses": 8
       },
       "defense": {
-        "rounds": 11,
-        "wins": 7,
-        "losses": 4
+        "rounds": 15,
+        "wins": 9,
+        "losses": 6
       },
       "unknown_side": {
         "rounds": 0,
@@ -478,34 +490,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 21,
-          "opening_kills": 15,
-          "opening_kill_wins": 12,
-          "opening_deaths": 6,
-          "opening_death_wins": 2,
-          "opening_kill_pct": 0.7142857142857143,
-          "conversion_pct": 0.8,
-          "recovery_pct": 0.3333333333333333
+          "eligible_rounds": 31,
+          "opening_kills": 18,
+          "opening_kill_wins": 13,
+          "opening_deaths": 13,
+          "opening_death_wins": 4,
+          "opening_kill_pct": 0.5806451612903226,
+          "conversion_pct": 0.7222222222222222,
+          "recovery_pct": 0.3076923076923077
         },
         "attack": {
-          "eligible_rounds": 10,
-          "opening_kills": 7,
-          "opening_kill_wins": 6,
-          "opening_deaths": 3,
-          "opening_death_wins": 1,
-          "opening_kill_pct": 0.7,
-          "conversion_pct": 0.8571428571428571,
-          "recovery_pct": 0.3333333333333333
-        },
-        "defense": {
-          "eligible_rounds": 11,
+          "eligible_rounds": 16,
           "opening_kills": 8,
           "opening_kill_wins": 6,
-          "opening_deaths": 3,
-          "opening_death_wins": 1,
-          "opening_kill_pct": 0.7272727272727273,
+          "opening_deaths": 8,
+          "opening_death_wins": 2,
+          "opening_kill_pct": 0.5,
           "conversion_pct": 0.75,
-          "recovery_pct": 0.3333333333333333
+          "recovery_pct": 0.25
+        },
+        "defense": {
+          "eligible_rounds": 15,
+          "opening_kills": 10,
+          "opening_kill_wins": 7,
+          "opening_deaths": 5,
+          "opening_death_wins": 2,
+          "opening_kill_pct": 0.6666666666666666,
+          "conversion_pct": 0.7,
+          "recovery_pct": 0.4
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -523,51 +535,63 @@
           {
             "site": "2F Bathroom, 2F Commander's Office",
             "unknown": false,
+            "rounds": 8,
+            "wins": 5,
+            "losses": 3
+          },
+          {
+            "site": "2F Dormitory, 2F Games Room",
+            "unknown": false,
+            "rounds": 6,
+            "wins": 3,
+            "losses": 3
+          },
+          {
+            "site": "1F Waiting Room, 1F Cafeteria",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Bathroom, 2F Commander's Office",
+            "unknown": false,
+            "rounds": 6,
+            "wins": 2,
+            "losses": 4
+          },
+          {
+            "site": "2F Dormitory, 2F Games Room",
+            "unknown": false,
             "rounds": 5,
             "wins": 4,
             "losses": 1
           },
           {
-            "site": "2F Dormitory, 2F Games Room",
+            "site": "1F Waiting Room, 1F Cafeteria",
             "unknown": false,
             "rounds": 4,
             "wins": 3,
-            "losses": 1
-          },
-          {
-            "site": "1F Waiting Room, 1F Cafeteria",
-            "unknown": false,
-            "rounds": 1,
-            "wins": 0,
-            "losses": 1
-          }
-        ],
-        "Defense": [
-          {
-            "site": "2F Dormitory, 2F Games Room",
-            "unknown": false,
-            "rounds": 4,
-            "wins": 3,
-            "losses": 1
-          },
-          {
-            "site": "2F Bathroom, 2F Commander's Office",
-            "unknown": false,
-            "rounds": 4,
-            "wins": 2,
-            "losses": 2
-          },
-          {
-            "site": "1F Waiting Room, 1F Cafeteria",
-            "unknown": false,
-            "rounds": 3,
-            "wins": 2,
             "losses": 1
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "45df1ff535b6",
+          "series_id": "6ff6c295e0a2",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "Manitoba",
+          "date": "2026-10-21",
+          "map": "Fortress",
+          "our_score": 3,
+          "their_score": 7,
+          "result": "LOSS"
+        },
         {
           "id": "6cf538b7474e",
           "series_id": "bcdadcecac5e",
