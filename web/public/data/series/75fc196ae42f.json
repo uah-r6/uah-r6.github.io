@@ -1,0 +1,549 @@
+{
+  "id": "75fc196ae42f",
+  "series_id": "75fc196ae42f",
+  "team_slug": "white",
+  "team_name": "UAH White",
+  "season": "fall-2026",
+  "opponent": "NC State Black",
+  "week": "",
+  "notes": "",
+  "demo": false,
+  "date": "2026-10-21",
+  "season_name": "Fall 2026",
+  "rating_version": "siege_style_v3",
+  "maps": [
+    {
+      "id": "f6b47d188e06",
+      "series_id": "75fc196ae42f",
+      "season": "fall-2026",
+      "opponent": "NC State Black",
+      "date": "2026-10-21",
+      "week": "",
+      "notes": "",
+      "map": "Clubhouse",
+      "mode": "Bomb",
+      "our_score": 3,
+      "their_score": 7,
+      "result": "LOSS",
+      "demo": false,
+      "rating_eligible": true,
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null
+    },
+    {
+      "id": "461366e5ceec",
+      "series_id": "75fc196ae42f",
+      "season": "fall-2026",
+      "opponent": "NC State Black",
+      "date": "2026-10-21",
+      "week": "",
+      "notes": "",
+      "map": "Chalet",
+      "mode": "Bomb",
+      "our_score": 0,
+      "their_score": 7,
+      "result": "LOSS",
+      "demo": false,
+      "rating_eligible": true,
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "rating_version": "siege_style_v3",
+      "rating_exclusion": null
+    }
+  ],
+  "rounds": 17,
+  "recorded_maps": {
+    "count": 2,
+    "wins": 0,
+    "losses": 2
+  },
+  "players": [
+    {
+      "slug": "flex-uah",
+      "name": "Flex.UAH",
+      "status": "Active",
+      "rounds": 17,
+      "kills": 10,
+      "deaths": 16,
+      "headshots": 8,
+      "opening_kills": 0,
+      "opening_deaths": 2,
+      "refrag_kills": 1,
+      "deaths_traded": 0,
+      "kills_traded": 1,
+      "untraded_kills": 9,
+      "untraded_deaths": 16,
+      "pivot_kills": 10,
+      "pivot_deaths": 7,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 1,
+      "kost_rounds": 5,
+      "rounds_won": 3,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 1,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 5,
+      "operators": {
+        "Attack": {
+          "Flores": 1,
+          "Ram": 1,
+          "Kali": 2,
+          "Blackbeard": 1,
+          "IQ": 1,
+          "Dokkaebi": 1,
+          "Fuze": 1,
+          "Rauora": 1,
+          "Grim": 1
+        },
+        "Defense": {
+          "Valkyrie": 2,
+          "Mute": 4,
+          "Kapkan": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 10,
+          "kills": 1,
+          "deaths": 10,
+          "kd": 0.1,
+          "kpr": 0.1
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 9,
+          "deaths": 6,
+          "kd": 1.5,
+          "kpr": 1.2857142857142858
+        }
+      },
+      "maps": 2,
+      "rating": 0.6685686499313854,
+      "kd": 0.625,
+      "kpr": 0.5882352941176471,
+      "kost": 0.29411764705882354,
+      "srv": 0.058823529411764705,
+      "hs": 0.8,
+      "entry_diff": -2,
+      "kd_diff": -6,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 17
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 10,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 1,
+        "5": 0
+      },
+      "rating_maps": 2,
+      "rating_rounds": 17,
+      "appearance_role": "roster"
+    },
+    {
+      "slug": "gloop",
+      "name": "Gloop...",
+      "status": "Active",
+      "rounds": 17,
+      "kills": 8,
+      "deaths": 15,
+      "headshots": 3,
+      "opening_kills": 1,
+      "opening_deaths": 1,
+      "refrag_kills": 0,
+      "deaths_traded": 2,
+      "kills_traded": 2,
+      "untraded_kills": 6,
+      "untraded_deaths": 13,
+      "pivot_kills": 5,
+      "pivot_deaths": 3,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 2,
+      "kost_rounds": 7,
+      "rounds_won": 3,
+      "clutches": 1,
+      "clutch_1v1": 1,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 2,
+      "operators": {
+        "Attack": {
+          "Thatcher": 1,
+          "Montagne": 6,
+          "Dokkaebi": 1,
+          "Finka": 2
+        },
+        "Defense": {
+          "Bandit": 5,
+          "Smoke": 2
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 10,
+          "kills": 3,
+          "deaths": 10,
+          "kd": 0.3,
+          "kpr": 0.3
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 5,
+          "deaths": 5,
+          "kd": 1.0,
+          "kpr": 0.7142857142857143
+        }
+      },
+      "maps": 2,
+      "rating": 0.6379215429827454,
+      "kd": 0.5333333333333333,
+      "kpr": 0.47058823529411764,
+      "kost": 0.4117647058823529,
+      "srv": 0.11764705882352941,
+      "hs": 0.375,
+      "entry_diff": 0,
+      "kd_diff": -7,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 17
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 8,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 2,
+      "rating_rounds": 17,
+      "appearance_role": "roster"
+    },
+    {
+      "slug": "ctrlaltdyleted",
+      "name": "CtrlAltDyleted",
+      "status": "Active",
+      "rounds": 17,
+      "kills": 7,
+      "deaths": 16,
+      "headshots": 4,
+      "opening_kills": 0,
+      "opening_deaths": 1,
+      "refrag_kills": 2,
+      "deaths_traded": 3,
+      "kills_traded": 2,
+      "untraded_kills": 5,
+      "untraded_deaths": 13,
+      "pivot_kills": 6,
+      "pivot_deaths": 6,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 1,
+      "kost_rounds": 7,
+      "rounds_won": 3,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 1,
+      "operators": {
+        "Attack": {
+          "Maverick": 1,
+          "Hibana": 2,
+          "Zofia": 2,
+          "Thermite": 4,
+          "Glaz": 1
+        },
+        "Defense": {
+          "Thorn": 2,
+          "Denari": 2,
+          "Skopos": 1,
+          "Jager": 1,
+          "Bandit": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 10,
+          "kills": 4,
+          "deaths": 10,
+          "kd": 0.4,
+          "kpr": 0.4
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 3,
+          "deaths": 6,
+          "kd": 0.5,
+          "kpr": 0.42857142857142855
+        }
+      },
+      "maps": 2,
+      "rating": 0.5438009021403039,
+      "kd": 0.4375,
+      "kpr": 0.4117647058823529,
+      "kost": 0.4117647058823529,
+      "srv": 0.058823529411764705,
+      "hs": 0.5714285714285714,
+      "entry_diff": -1,
+      "kd_diff": -9,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 17
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 7,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 2,
+      "rating_rounds": 17,
+      "appearance_role": "roster"
+    },
+    {
+      "slug": "nachofries-08",
+      "name": "Nachofries_08",
+      "status": "Active",
+      "rounds": 17,
+      "kills": 6,
+      "deaths": 15,
+      "headshots": 3,
+      "opening_kills": 2,
+      "opening_deaths": 5,
+      "refrag_kills": 1,
+      "deaths_traded": 0,
+      "kills_traded": 1,
+      "untraded_kills": 5,
+      "untraded_deaths": 15,
+      "pivot_kills": 5,
+      "pivot_deaths": 7,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 2,
+      "kost_rounds": 5,
+      "rounds_won": 3,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 1,
+      "operators": {
+        "Attack": {
+          "Striker": 3,
+          "Twitch": 4,
+          "Solid Snake": 1,
+          "Zofia": 2
+        },
+        "Defense": {
+          "Ela": 2,
+          "Azami": 1,
+          "Mute": 1,
+          "Sentry": 1,
+          "Melusi": 1,
+          "Fenrir": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 10,
+          "kills": 5,
+          "deaths": 9,
+          "kd": 0.5555555555555556,
+          "kpr": 0.5
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 1,
+          "deaths": 6,
+          "kd": 0.16666666666666666,
+          "kpr": 0.14285714285714285
+        }
+      },
+      "maps": 2,
+      "rating": 0.4545022712242748,
+      "kd": 0.4,
+      "kpr": 0.35294117647058826,
+      "kost": 0.29411764705882354,
+      "srv": 0.11764705882352941,
+      "hs": 0.5,
+      "entry_diff": -3,
+      "kd_diff": -9,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 17
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 6,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 2,
+      "rating_rounds": 17,
+      "appearance_role": "roster"
+    },
+    {
+      "slug": "jellyholic-uah",
+      "name": "Jellyholic.UAH",
+      "status": "Active",
+      "rounds": 17,
+      "kills": 3,
+      "deaths": 17,
+      "headshots": 2,
+      "opening_kills": 1,
+      "opening_deaths": 4,
+      "refrag_kills": 2,
+      "deaths_traded": 1,
+      "kills_traded": 2,
+      "untraded_kills": 1,
+      "untraded_deaths": 16,
+      "pivot_kills": 2,
+      "pivot_deaths": 7,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 0,
+      "kost_rounds": 4,
+      "rounds_won": 3,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 0,
+      "operators": {
+        "Attack": {
+          "Sledge": 1,
+          "Grim": 1,
+          "Capitao": 4,
+          "Ram": 2,
+          "Twitch": 1,
+          "Lion": 1
+        },
+        "Defense": {
+          "Castle": 4,
+          "Wamai": 1,
+          "Vigil": 1,
+          "Goyo": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 10,
+          "kills": 3,
+          "deaths": 10,
+          "kd": 0.3,
+          "kpr": 0.3
+        },
+        "Defense": {
+          "rounds": 7,
+          "kills": 0,
+          "deaths": 7,
+          "kd": 0.0,
+          "kpr": 0.0
+        }
+      },
+      "maps": 2,
+      "rating": 0.25310136527548066,
+      "kd": 0.17647058823529413,
+      "kpr": 0.17647058823529413,
+      "kost": 0.23529411764705882,
+      "srv": 0.0,
+      "hs": 0.6666666666666666,
+      "entry_diff": -3,
+      "kd_diff": -14,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 17
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 3,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_maps": 2,
+      "rating_rounds": 17,
+      "appearance_role": "roster"
+    }
+  ],
+  "opening_engagements": {
+    "overall": {
+      "eligible_rounds": 17,
+      "opening_kills": 4,
+      "opening_kill_wins": 1,
+      "opening_deaths": 13,
+      "opening_death_wins": 2,
+      "opening_kill_pct": 0.23529411764705882,
+      "conversion_pct": 0.25,
+      "recovery_pct": 0.15384615384615385
+    },
+    "attack": {
+      "eligible_rounds": 10,
+      "opening_kills": 3,
+      "opening_kill_wins": 0,
+      "opening_deaths": 7,
+      "opening_death_wins": 0,
+      "opening_kill_pct": 0.3,
+      "conversion_pct": 0.0,
+      "recovery_pct": 0.0
+    },
+    "defense": {
+      "eligible_rounds": 7,
+      "opening_kills": 1,
+      "opening_kill_wins": 1,
+      "opening_deaths": 6,
+      "opening_death_wins": 2,
+      "opening_kill_pct": 0.14285714285714285,
+      "conversion_pct": 1.0,
+      "recovery_pct": 0.3333333333333333
+    },
+    "unknown_side": {
+      "eligible_rounds": 0,
+      "opening_kills": 0,
+      "opening_kill_wins": 0,
+      "opening_deaths": 0,
+      "opening_death_wins": 0,
+      "opening_kill_pct": null,
+      "conversion_pct": null,
+      "recovery_pct": null
+    }
+  }
+}

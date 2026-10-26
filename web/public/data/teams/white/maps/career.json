@@ -200,21 +200,21 @@
       "slug": "chalet",
       "name": "Chalet",
       "supported": true,
-      "maps_played": 0,
+      "maps_played": 1,
       "map_wins": 0,
-      "map_losses": 0,
-      "rounds": 0,
+      "map_losses": 1,
+      "rounds": 7,
       "wins": 0,
-      "losses": 0,
+      "losses": 7,
       "attack": {
-        "rounds": 0,
+        "rounds": 6,
         "wins": 0,
-        "losses": 0
+        "losses": 6
       },
       "defense": {
-        "rounds": 0,
+        "rounds": 1,
         "wins": 0,
-        "losses": 0
+        "losses": 1
       },
       "unknown_side": {
         "rounds": 0,
@@ -223,34 +223,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 0,
-          "opening_kills": 0,
+          "eligible_rounds": 7,
+          "opening_kills": 2,
           "opening_kill_wins": 0,
-          "opening_deaths": 0,
+          "opening_deaths": 5,
           "opening_death_wins": 0,
-          "opening_kill_pct": null,
-          "conversion_pct": null,
-          "recovery_pct": null
+          "opening_kill_pct": 0.2857142857142857,
+          "conversion_pct": 0.0,
+          "recovery_pct": 0.0
         },
         "attack": {
-          "eligible_rounds": 0,
-          "opening_kills": 0,
+          "eligible_rounds": 6,
+          "opening_kills": 2,
           "opening_kill_wins": 0,
-          "opening_deaths": 0,
+          "opening_deaths": 4,
           "opening_death_wins": 0,
-          "opening_kill_pct": null,
-          "conversion_pct": null,
-          "recovery_pct": null
+          "opening_kill_pct": 0.3333333333333333,
+          "conversion_pct": 0.0,
+          "recovery_pct": 0.0
         },
         "defense": {
-          "eligible_rounds": 0,
+          "eligible_rounds": 1,
           "opening_kills": 0,
           "opening_kill_wins": 0,
-          "opening_deaths": 0,
+          "opening_deaths": 1,
           "opening_death_wins": 0,
-          "opening_kill_pct": null,
+          "opening_kill_pct": 0.0,
           "conversion_pct": null,
-          "recovery_pct": null
+          "recovery_pct": 0.0
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -264,31 +264,74 @@
         }
       },
       "sites": {
-        "Attack": [],
-        "Defense": [],
+        "Attack": [
+          {
+            "site": "1F Bar, 1F Gaming Room",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          },
+          {
+            "site": "2F Master Bedroom, 2F Office",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          },
+          {
+            "site": "B Wine Cellar, B Snowmobile Garage",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Master Bedroom, 2F Office",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
+          }
+        ],
         "Unknown": []
       },
-      "matches": []
+      "matches": [
+        {
+          "id": "461366e5ceec",
+          "series_id": "75fc196ae42f",
+          "season": "fall-2026",
+          "team_slug": "white",
+          "opponent": "NC State Black",
+          "date": "2026-10-21",
+          "map": "Chalet",
+          "our_score": 0,
+          "their_score": 7,
+          "result": "LOSS"
+        }
+      ]
     },
     {
       "slug": "clubhouse",
       "name": "Clubhouse",
       "supported": true,
-      "maps_played": 0,
+      "maps_played": 1,
       "map_wins": 0,
-      "map_losses": 0,
-      "rounds": 0,
-      "wins": 0,
-      "losses": 0,
+      "map_losses": 1,
+      "rounds": 10,
+      "wins": 3,
+      "losses": 7,
       "attack": {
-        "rounds": 0,
+        "rounds": 4,
         "wins": 0,
-        "losses": 0
+        "losses": 4
       },
       "defense": {
-        "rounds": 0,
-        "wins": 0,
-        "losses": 0
+        "rounds": 6,
+        "wins": 3,
+        "losses": 3
       },
       "unknown_side": {
         "rounds": 0,
@@ -297,34 +340,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 0,
-          "opening_kills": 0,
-          "opening_kill_wins": 0,
-          "opening_deaths": 0,
-          "opening_death_wins": 0,
-          "opening_kill_pct": null,
-          "conversion_pct": null,
-          "recovery_pct": null
+          "eligible_rounds": 10,
+          "opening_kills": 2,
+          "opening_kill_wins": 1,
+          "opening_deaths": 8,
+          "opening_death_wins": 2,
+          "opening_kill_pct": 0.2,
+          "conversion_pct": 0.5,
+          "recovery_pct": 0.25
         },
         "attack": {
-          "eligible_rounds": 0,
-          "opening_kills": 0,
+          "eligible_rounds": 4,
+          "opening_kills": 1,
           "opening_kill_wins": 0,
-          "opening_deaths": 0,
+          "opening_deaths": 3,
           "opening_death_wins": 0,
-          "opening_kill_pct": null,
-          "conversion_pct": null,
-          "recovery_pct": null
+          "opening_kill_pct": 0.25,
+          "conversion_pct": 0.0,
+          "recovery_pct": 0.0
         },
         "defense": {
-          "eligible_rounds": 0,
-          "opening_kills": 0,
-          "opening_kill_wins": 0,
-          "opening_deaths": 0,
-          "opening_death_wins": 0,
-          "opening_kill_pct": null,
-          "conversion_pct": null,
-          "recovery_pct": null
+          "eligible_rounds": 6,
+          "opening_kills": 1,
+          "opening_kill_wins": 1,
+          "opening_deaths": 5,
+          "opening_death_wins": 2,
+          "opening_kill_pct": 0.16666666666666666,
+          "conversion_pct": 1.0,
+          "recovery_pct": 0.4
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -338,11 +381,68 @@
         }
       },
       "sites": {
-        "Attack": [],
-        "Defense": [],
+        "Attack": [
+          {
+            "site": "2F Gym, 2F Bedroom",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 0,
+            "losses": 2
+          },
+          {
+            "site": "2F CCTV Room, 2F Cash Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          {
+            "site": "B Church, B Arsenal Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
+          }
+        ],
+        "Defense": [
+          {
+            "site": "2F Gym, 2F Bedroom",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 2,
+            "losses": 1
+          },
+          {
+            "site": "2F CCTV Room, 2F Cash Room",
+            "unknown": false,
+            "rounds": 2,
+            "wins": 1,
+            "losses": 1
+          },
+          {
+            "site": "B Church, B Arsenal Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
+          }
+        ],
         "Unknown": []
       },
-      "matches": []
+      "matches": [
+        {
+          "id": "f6b47d188e06",
+          "series_id": "75fc196ae42f",
+          "season": "fall-2026",
+          "team_slug": "white",
+          "opponent": "NC State Black",
+          "date": "2026-10-21",
+          "map": "Clubhouse",
+          "our_score": 3,
+          "their_score": 7,
+          "result": "LOSS"
+        }
+      ]
     },
     {
       "slug": "fortress",
