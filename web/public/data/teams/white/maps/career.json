@@ -317,20 +317,20 @@
       "slug": "clubhouse",
       "name": "Clubhouse",
       "supported": true,
-      "maps_played": 1,
-      "map_wins": 0,
+      "maps_played": 2,
+      "map_wins": 1,
       "map_losses": 1,
-      "rounds": 10,
-      "wins": 3,
+      "rounds": 17,
+      "wins": 10,
       "losses": 7,
       "attack": {
-        "rounds": 4,
-        "wins": 0,
+        "rounds": 5,
+        "wins": 1,
         "losses": 4
       },
       "defense": {
-        "rounds": 6,
-        "wins": 3,
+        "rounds": 12,
+        "wins": 9,
         "losses": 3
       },
       "unknown_side": {
@@ -340,34 +340,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 10,
-          "opening_kills": 2,
-          "opening_kill_wins": 1,
-          "opening_deaths": 8,
-          "opening_death_wins": 2,
-          "opening_kill_pct": 0.2,
-          "conversion_pct": 0.5,
-          "recovery_pct": 0.25
+          "eligible_rounds": 17,
+          "opening_kills": 5,
+          "opening_kill_wins": 4,
+          "opening_deaths": 12,
+          "opening_death_wins": 6,
+          "opening_kill_pct": 0.29411764705882354,
+          "conversion_pct": 0.8,
+          "recovery_pct": 0.5
         },
         "attack": {
-          "eligible_rounds": 4,
+          "eligible_rounds": 5,
           "opening_kills": 1,
           "opening_kill_wins": 0,
-          "opening_deaths": 3,
-          "opening_death_wins": 0,
-          "opening_kill_pct": 0.25,
+          "opening_deaths": 4,
+          "opening_death_wins": 1,
+          "opening_kill_pct": 0.2,
           "conversion_pct": 0.0,
-          "recovery_pct": 0.0
+          "recovery_pct": 0.25
         },
         "defense": {
-          "eligible_rounds": 6,
-          "opening_kills": 1,
-          "opening_kill_wins": 1,
-          "opening_deaths": 5,
-          "opening_death_wins": 2,
-          "opening_kill_pct": 0.16666666666666666,
+          "eligible_rounds": 12,
+          "opening_kills": 4,
+          "opening_kill_wins": 4,
+          "opening_deaths": 8,
+          "opening_death_wins": 5,
+          "opening_kill_pct": 0.3333333333333333,
           "conversion_pct": 1.0,
-          "recovery_pct": 0.4
+          "recovery_pct": 0.625
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -385,8 +385,8 @@
           {
             "site": "2F Gym, 2F Bedroom",
             "unknown": false,
-            "rounds": 2,
-            "wins": 0,
+            "rounds": 3,
+            "wins": 1,
             "losses": 2
           },
           {
@@ -408,28 +408,40 @@
           {
             "site": "2F Gym, 2F Bedroom",
             "unknown": false,
-            "rounds": 3,
-            "wins": 2,
+            "rounds": 5,
+            "wins": 4,
             "losses": 1
           },
           {
             "site": "2F CCTV Room, 2F Cash Room",
             "unknown": false,
-            "rounds": 2,
-            "wins": 1,
+            "rounds": 4,
+            "wins": 3,
             "losses": 1
           },
           {
             "site": "B Church, B Arsenal Room",
             "unknown": false,
-            "rounds": 1,
-            "wins": 0,
+            "rounds": 3,
+            "wins": 2,
             "losses": 1
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "b577e9c0a932",
+          "series_id": "651eaa636954",
+          "season": "fall-2026",
+          "team_slug": "white",
+          "opponent": "Niner Esports Gold",
+          "date": "2026-10-28",
+          "map": "Clubhouse",
+          "our_score": 7,
+          "their_score": 0,
+          "result": "WIN"
+        },
         {
           "id": "f6b47d188e06",
           "series_id": "75fc196ae42f",
@@ -670,21 +682,21 @@
       "slug": "nighthaven-labs",
       "name": "Nighthaven Labs",
       "supported": true,
-      "maps_played": 1,
-      "map_wins": 0,
+      "maps_played": 2,
+      "map_wins": 1,
       "map_losses": 1,
-      "rounds": 14,
-      "wins": 6,
-      "losses": 8,
+      "rounds": 28,
+      "wins": 14,
+      "losses": 14,
       "attack": {
-        "rounds": 7,
-        "wins": 3,
-        "losses": 4
+        "rounds": 14,
+        "wins": 6,
+        "losses": 8
       },
       "defense": {
-        "rounds": 7,
-        "wins": 3,
-        "losses": 4
+        "rounds": 14,
+        "wins": 8,
+        "losses": 6
       },
       "unknown_side": {
         "rounds": 0,
@@ -693,34 +705,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 14,
-          "opening_kills": 6,
-          "opening_kill_wins": 5,
-          "opening_deaths": 8,
-          "opening_death_wins": 1,
-          "opening_kill_pct": 0.42857142857142855,
-          "conversion_pct": 0.8333333333333334,
-          "recovery_pct": 0.125
+          "eligible_rounds": 28,
+          "opening_kills": 10,
+          "opening_kill_wins": 7,
+          "opening_deaths": 18,
+          "opening_death_wins": 7,
+          "opening_kill_pct": 0.35714285714285715,
+          "conversion_pct": 0.7,
+          "recovery_pct": 0.3888888888888889
         },
         "attack": {
-          "eligible_rounds": 7,
-          "opening_kills": 2,
+          "eligible_rounds": 14,
+          "opening_kills": 3,
           "opening_kill_wins": 2,
-          "opening_deaths": 5,
-          "opening_death_wins": 1,
-          "opening_kill_pct": 0.2857142857142857,
-          "conversion_pct": 1.0,
-          "recovery_pct": 0.2
+          "opening_deaths": 11,
+          "opening_death_wins": 4,
+          "opening_kill_pct": 0.21428571428571427,
+          "conversion_pct": 0.6666666666666666,
+          "recovery_pct": 0.36363636363636365
         },
         "defense": {
-          "eligible_rounds": 7,
-          "opening_kills": 4,
-          "opening_kill_wins": 3,
-          "opening_deaths": 3,
-          "opening_death_wins": 0,
-          "opening_kill_pct": 0.5714285714285714,
-          "conversion_pct": 0.75,
-          "recovery_pct": 0.0
+          "eligible_rounds": 14,
+          "opening_kills": 7,
+          "opening_kill_wins": 5,
+          "opening_deaths": 7,
+          "opening_death_wins": 3,
+          "opening_kill_pct": 0.5,
+          "conversion_pct": 0.7142857142857143,
+          "recovery_pct": 0.42857142857142855
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -738,44 +750,63 @@
           {
             "site": "2F Command Center, 2F Servers",
             "unknown": false,
-            "rounds": 4,
-            "wins": 2,
-            "losses": 2
+            "rounds": 7,
+            "wins": 4,
+            "losses": 3
           },
           {
             "site": "B Assembly, B Tank",
             "unknown": false,
-            "rounds": 3,
-            "wins": 1,
-            "losses": 2
+            "rounds": 6,
+            "wins": 2,
+            "losses": 4
+          },
+          {
+            "site": "1F Storage, 1F Control Room",
+            "unknown": false,
+            "rounds": 1,
+            "wins": 0,
+            "losses": 1
           }
         ],
         "Defense": [
           {
             "site": "2F Command Center, 2F Servers",
             "unknown": false,
-            "rounds": 3,
-            "wins": 2,
-            "losses": 1
+            "rounds": 6,
+            "wins": 3,
+            "losses": 3
           },
           {
             "site": "B Assembly, B Tank",
             "unknown": false,
-            "rounds": 2,
-            "wins": 1,
+            "rounds": 5,
+            "wins": 4,
             "losses": 1
           },
           {
             "site": "1F Kitchen, 1F Cafeteria",
             "unknown": false,
-            "rounds": 2,
-            "wins": 0,
+            "rounds": 3,
+            "wins": 1,
             "losses": 2
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "5c8647f0cede",
+          "series_id": "651eaa636954",
+          "season": "fall-2026",
+          "team_slug": "white",
+          "opponent": "Niner Esports Gold",
+          "date": "2026-10-28",
+          "map": "Nighthaven Labs",
+          "our_score": 8,
+          "their_score": 6,
+          "result": "WIN"
+        },
         {
           "id": "035ff71d4884",
           "series_id": "ada4becd7c74",
