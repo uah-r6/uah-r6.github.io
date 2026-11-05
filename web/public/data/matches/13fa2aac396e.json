@@ -1,0 +1,626 @@
+{
+  "id": "13fa2aac396e",
+  "series_id": "d539e8a41f66",
+  "season": "fall-2026",
+  "opponent": "LSU",
+  "date": "2026-11-04",
+  "week": "",
+  "notes": "",
+  "map": "Border",
+  "mode": "Bomb",
+  "our_score": 5,
+  "their_score": 7,
+  "result": "LOSS",
+  "demo": false,
+  "rating_eligible": true,
+  "team_slug": "blue",
+  "team_name": "UAH Blue",
+  "rating_version": "siege_style_v3",
+  "rating_exclusion": null,
+  "players": [
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "status": "Active",
+      "appearance_role": "roster",
+      "rounds": 12,
+      "kills": 3,
+      "deaths": 11,
+      "headshots": 1,
+      "opening_kills": 0,
+      "opening_deaths": 3,
+      "refrag_kills": 1,
+      "deaths_traded": 1,
+      "kills_traded": 0,
+      "untraded_kills": 3,
+      "untraded_deaths": 10,
+      "pivot_kills": 1,
+      "pivot_deaths": 6,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 1,
+      "kost_rounds": 3,
+      "rounds_won": 5,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 1,
+      "operators": {
+        "Attack": {
+          "Nomad": 1,
+          "Zofia": 1,
+          "Twitch": 4
+        },
+        "Defense": {
+          "Thorn": 1,
+          "Mozzie": 2,
+          "Solis": 3
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 6,
+          "kills": 1,
+          "deaths": 6,
+          "kd": 0.16666666666666666,
+          "kpr": 0.16666666666666666
+        },
+        "Defense": {
+          "rounds": 6,
+          "kills": 2,
+          "deaths": 5,
+          "kd": 0.4,
+          "kpr": 0.3333333333333333
+        }
+      },
+      "rating": 0.3646277134384165,
+      "kd": 0.2727272727272727,
+      "kpr": 0.25,
+      "kost": 0.25,
+      "srv": 0.08333333333333333,
+      "hs": 0.3333333333333333,
+      "entry_diff": -3,
+      "kd_diff": -8,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 3,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_rounds": 12,
+      "rating_maps": 1
+    },
+    {
+      "slug": "dinofireking",
+      "name": "DinoFireKing",
+      "status": "Active",
+      "appearance_role": "roster",
+      "rounds": 12,
+      "kills": 7,
+      "deaths": 9,
+      "headshots": 3,
+      "opening_kills": 0,
+      "opening_deaths": 1,
+      "refrag_kills": 3,
+      "deaths_traded": 1,
+      "kills_traded": 2,
+      "untraded_kills": 5,
+      "untraded_deaths": 8,
+      "pivot_kills": 6,
+      "pivot_deaths": 4,
+      "plants": 1,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 3,
+      "kost_rounds": 6,
+      "rounds_won": 5,
+      "clutches": 1,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 1,
+      "clutch_1v5": 0,
+      "multikill_extra": 3,
+      "operators": {
+        "Attack": {
+          "Sens": 1,
+          "Hibana": 1,
+          "Blackbeard": 1,
+          "Gridlock": 1,
+          "Grim": 1,
+          "Ace": 1
+        },
+        "Defense": {
+          "Mira": 1,
+          "Echo": 1,
+          "Goyo": 1,
+          "Kaid": 3
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 6,
+          "kills": 4,
+          "deaths": 4,
+          "kd": 1.0,
+          "kpr": 0.6666666666666666
+        },
+        "Defense": {
+          "rounds": 6,
+          "kills": 3,
+          "deaths": 5,
+          "kd": 0.6,
+          "kpr": 0.5
+        }
+      },
+      "rating": 0.9022773969852445,
+      "kd": 0.7777777777777778,
+      "kpr": 0.5833333333333334,
+      "kost": 0.5,
+      "srv": 0.25,
+      "hs": 0.42857142857142855,
+      "entry_diff": -1,
+      "kd_diff": -2,
+      "objectives": 1,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 7,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "rating_rounds": 12,
+      "rating_maps": 1
+    },
+    {
+      "slug": "lgon",
+      "name": "Lgon",
+      "status": "Active",
+      "appearance_role": "roster",
+      "rounds": 12,
+      "kills": 9,
+      "deaths": 9,
+      "headshots": 5,
+      "opening_kills": 0,
+      "opening_deaths": 2,
+      "refrag_kills": 1,
+      "deaths_traded": 0,
+      "kills_traded": 2,
+      "untraded_kills": 7,
+      "untraded_deaths": 9,
+      "pivot_kills": 7,
+      "pivot_deaths": 5,
+      "plants": 1,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 3,
+      "kost_rounds": 6,
+      "rounds_won": 5,
+      "clutches": 1,
+      "clutch_1v1": 1,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 4,
+      "operators": {
+        "Attack": {
+          "Deimos": 1,
+          "Ram": 1,
+          "Ace": 1,
+          "Zofia": 1,
+          "Sledge": 1,
+          "Striker": 1
+        },
+        "Defense": {
+          "Castle": 1,
+          "Ela": 4,
+          "Mozzie": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 6,
+          "kills": 6,
+          "deaths": 5,
+          "kd": 1.2,
+          "kpr": 1.0
+        },
+        "Defense": {
+          "rounds": 6,
+          "kills": 3,
+          "deaths": 4,
+          "kd": 0.75,
+          "kpr": 0.5
+        }
+      },
+      "rating": 0.9572059518891686,
+      "kd": 1.0,
+      "kpr": 0.75,
+      "kost": 0.5,
+      "srv": 0.25,
+      "hs": 0.5555555555555556,
+      "entry_diff": -2,
+      "kd_diff": 0,
+      "objectives": 1,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 9,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 1,
+        "3": 0,
+        "4": 1,
+        "5": 0
+      },
+      "rating_rounds": 12,
+      "rating_maps": 1
+    },
+    {
+      "slug": "ohwowjay",
+      "name": "OhWowJay",
+      "status": "Active",
+      "appearance_role": "roster",
+      "rounds": 12,
+      "kills": 17,
+      "deaths": 9,
+      "headshots": 9,
+      "opening_kills": 2,
+      "opening_deaths": 1,
+      "refrag_kills": 0,
+      "deaths_traded": 3,
+      "kills_traded": 4,
+      "untraded_kills": 13,
+      "untraded_deaths": 6,
+      "pivot_kills": 15,
+      "pivot_deaths": 5,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 3,
+      "kost_rounds": 10,
+      "rounds_won": 5,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 7,
+      "operators": {
+        "Attack": {
+          "Twitch": 1,
+          "Grim": 1,
+          "Nomad": 4
+        },
+        "Defense": {
+          "Goyo": 2,
+          "Warden": 4
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 6,
+          "kills": 7,
+          "deaths": 4,
+          "kd": 1.75,
+          "kpr": 1.1666666666666667
+        },
+        "Defense": {
+          "rounds": 6,
+          "kills": 10,
+          "deaths": 5,
+          "kd": 2.0,
+          "kpr": 1.6666666666666667
+        }
+      },
+      "rating": 1.546567014275694,
+      "kd": 1.8888888888888888,
+      "kpr": 1.4166666666666667,
+      "kost": 0.8333333333333334,
+      "srv": 0.25,
+      "hs": 0.5294117647058824,
+      "entry_diff": 1,
+      "kd_diff": 8,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 17,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 4,
+        "3": 0,
+        "4": 1,
+        "5": 0
+      },
+      "rating_rounds": 12,
+      "rating_maps": 1
+    },
+    {
+      "slug": "tallman3-14",
+      "name": "Tallman3.14",
+      "status": "Active",
+      "appearance_role": "roster",
+      "rounds": 12,
+      "kills": 3,
+      "deaths": 12,
+      "headshots": 2,
+      "opening_kills": 1,
+      "opening_deaths": 2,
+      "refrag_kills": 1,
+      "deaths_traded": 1,
+      "kills_traded": 0,
+      "untraded_kills": 3,
+      "untraded_deaths": 11,
+      "pivot_kills": 3,
+      "pivot_deaths": 8,
+      "plants": 0,
+      "disables": 0,
+      "teamkills": 0,
+      "survived": 0,
+      "kost_rounds": 4,
+      "rounds_won": 5,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 0,
+      "operators": {
+        "Attack": {
+          "Blitz": 1,
+          "Capitao": 2,
+          "Montagne": 3
+        },
+        "Defense": {
+          "Sentry": 3,
+          "Mute": 2,
+          "Smoke": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 6,
+          "kills": 1,
+          "deaths": 6,
+          "kd": 0.16666666666666666,
+          "kpr": 0.16666666666666666
+        },
+        "Defense": {
+          "rounds": 6,
+          "kills": 2,
+          "deaths": 6,
+          "kd": 0.3333333333333333,
+          "kpr": 0.3333333333333333
+        }
+      },
+      "rating": 0.3693819386934484,
+      "kd": 0.25,
+      "kpr": 0.25,
+      "kost": 0.3333333333333333,
+      "srv": 0.0,
+      "hs": 0.6666666666666666,
+      "entry_diff": -1,
+      "kd_diff": -9,
+      "objectives": 0,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 12
+      },
+      "kill_source": "stable_uid_scoreboard_delta_v1",
+      "finisher_kills": 3,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "rating_rounds": 12,
+      "rating_maps": 1
+    }
+  ],
+  "rounds": [
+    {
+      "number": 1,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": [],
+      "opening": "death"
+    },
+    {
+      "number": 2,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [],
+      "opening": "death"
+    },
+    {
+      "number": 3,
+      "side": "Attack",
+      "result": "Win",
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "4K",
+            "Plant"
+          ],
+          "emphasis": "strong"
+        }
+      ],
+      "opening": "death"
+    },
+    {
+      "number": 4,
+      "side": "Attack",
+      "result": "Win",
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": [
+        {
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "labels": [
+            "1v2",
+            "3K"
+          ],
+          "emphasis": "strong"
+        }
+      ],
+      "opening": "kill"
+    },
+    {
+      "number": 5,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [],
+      "opening": "death"
+    },
+    {
+      "number": 6,
+      "side": "Attack",
+      "result": "Loss",
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": [],
+      "opening": "death"
+    },
+    {
+      "number": 7,
+      "side": "Defense",
+      "result": "Win",
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": [
+        {
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "labels": [
+            "1v1"
+          ],
+          "emphasis": "notable"
+        }
+      ],
+      "opening": "death"
+    },
+    {
+      "number": 8,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": [],
+      "opening": "death"
+    },
+    {
+      "number": 9,
+      "side": "Defense",
+      "result": "Win",
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [],
+      "opening": "kill"
+    },
+    {
+      "number": 10,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "2F Armory Lockers, 2F Archives",
+      "highlights": [],
+      "opening": "death"
+    },
+    {
+      "number": 11,
+      "side": "Defense",
+      "result": "Win",
+      "site": "1F Bathroom, 1F Tellers",
+      "highlights": [
+        {
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "labels": [
+            "4K"
+          ],
+          "emphasis": "strong"
+        }
+      ],
+      "opening": "kill"
+    },
+    {
+      "number": 12,
+      "side": "Defense",
+      "result": "Loss",
+      "site": "1F Ventilation Room, 1F Workshop",
+      "highlights": [],
+      "opening": "death"
+    }
+  ],
+  "opening_engagements": {
+    "overall": {
+      "eligible_rounds": 12,
+      "opening_kills": 3,
+      "opening_kill_wins": 3,
+      "opening_deaths": 9,
+      "opening_death_wins": 2,
+      "opening_kill_pct": 0.25,
+      "conversion_pct": 1.0,
+      "recovery_pct": 0.2222222222222222
+    },
+    "attack": {
+      "eligible_rounds": 6,
+      "opening_kills": 1,
+      "opening_kill_wins": 1,
+      "opening_deaths": 5,
+      "opening_death_wins": 1,
+      "opening_kill_pct": 0.16666666666666666,
+      "conversion_pct": 1.0,
+      "recovery_pct": 0.2
+    },
+    "defense": {
+      "eligible_rounds": 6,
+      "opening_kills": 2,
+      "opening_kill_wins": 2,
+      "opening_deaths": 4,
+      "opening_death_wins": 1,
+      "opening_kill_pct": 0.3333333333333333,
+      "conversion_pct": 1.0,
+      "recovery_pct": 0.25
+    },
+    "unknown_side": {
+      "eligible_rounds": 0,
+      "opening_kills": 0,
+      "opening_kill_wins": 0,
+      "opening_deaths": 0,
+      "opening_death_wins": 0,
+      "opening_kill_pct": null,
+      "conversion_pct": null,
+      "recovery_pct": null
+    }
+  }
+}

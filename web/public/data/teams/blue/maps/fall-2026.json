@@ -83,21 +83,21 @@
       "slug": "border",
       "name": "Border",
       "supported": true,
-      "maps_played": 5,
+      "maps_played": 6,
       "map_wins": 3,
-      "map_losses": 2,
-      "rounds": 55,
-      "wins": 28,
-      "losses": 27,
+      "map_losses": 3,
+      "rounds": 67,
+      "wins": 33,
+      "losses": 34,
       "attack": {
-        "rounds": 31,
-        "wins": 13,
-        "losses": 18
+        "rounds": 37,
+        "wins": 15,
+        "losses": 22
       },
       "defense": {
-        "rounds": 24,
-        "wins": 15,
-        "losses": 9
+        "rounds": 30,
+        "wins": 18,
+        "losses": 12
       },
       "unknown_side": {
         "rounds": 0,
@@ -106,34 +106,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 55,
-          "opening_kills": 26,
-          "opening_kill_wins": 20,
-          "opening_deaths": 29,
-          "opening_death_wins": 8,
-          "opening_kill_pct": 0.4727272727272727,
-          "conversion_pct": 0.7692307692307693,
-          "recovery_pct": 0.27586206896551724
+          "eligible_rounds": 67,
+          "opening_kills": 29,
+          "opening_kill_wins": 23,
+          "opening_deaths": 38,
+          "opening_death_wins": 10,
+          "opening_kill_pct": 0.43283582089552236,
+          "conversion_pct": 0.7931034482758621,
+          "recovery_pct": 0.2631578947368421
         },
         "attack": {
-          "eligible_rounds": 31,
-          "opening_kills": 15,
-          "opening_kill_wins": 9,
-          "opening_deaths": 16,
-          "opening_death_wins": 4,
-          "opening_kill_pct": 0.4838709677419355,
-          "conversion_pct": 0.6,
-          "recovery_pct": 0.25
+          "eligible_rounds": 37,
+          "opening_kills": 16,
+          "opening_kill_wins": 10,
+          "opening_deaths": 21,
+          "opening_death_wins": 5,
+          "opening_kill_pct": 0.43243243243243246,
+          "conversion_pct": 0.625,
+          "recovery_pct": 0.23809523809523808
         },
         "defense": {
-          "eligible_rounds": 24,
-          "opening_kills": 11,
-          "opening_kill_wins": 11,
-          "opening_deaths": 13,
-          "opening_death_wins": 4,
-          "opening_kill_pct": 0.4583333333333333,
+          "eligible_rounds": 30,
+          "opening_kills": 13,
+          "opening_kill_wins": 13,
+          "opening_deaths": 17,
+          "opening_death_wins": 5,
+          "opening_kill_pct": 0.43333333333333335,
           "conversion_pct": 1.0,
-          "recovery_pct": 0.3076923076923077
+          "recovery_pct": 0.29411764705882354
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -151,51 +151,63 @@
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 14,
-            "wins": 8,
-            "losses": 6
+            "rounds": 17,
+            "wins": 9,
+            "losses": 8
           },
           {
             "site": "1F Bathroom, 1F Tellers",
             "unknown": false,
-            "rounds": 9,
-            "wins": 2,
+            "rounds": 10,
+            "wins": 3,
             "losses": 7
           },
           {
             "site": "1F Ventilation Room, 1F Workshop",
             "unknown": false,
-            "rounds": 8,
+            "rounds": 10,
             "wins": 3,
-            "losses": 5
+            "losses": 7
           }
         ],
         "Defense": [
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
+            "rounds": 12,
+            "wins": 7,
+            "losses": 5
+          },
+          {
+            "site": "1F Bathroom, 1F Tellers",
+            "unknown": false,
             "rounds": 10,
             "wins": 6,
             "losses": 4
           },
           {
-            "site": "1F Bathroom, 1F Tellers",
+            "site": "1F Ventilation Room, 1F Workshop",
             "unknown": false,
             "rounds": 8,
             "wins": 5,
             "losses": 3
-          },
-          {
-            "site": "1F Ventilation Room, 1F Workshop",
-            "unknown": false,
-            "rounds": 6,
-            "wins": 4,
-            "losses": 2
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "13fa2aac396e",
+          "series_id": "d539e8a41f66",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "LSU",
+          "date": "2026-11-04",
+          "map": "Border",
+          "our_score": 5,
+          "their_score": 7,
+          "result": "LOSS"
+        },
         {
           "id": "3e1ce794abf2",
           "series_id": "6ff6c295e0a2",
@@ -753,21 +765,21 @@
       "slug": "lair",
       "name": "Lair",
       "supported": true,
-      "maps_played": 1,
+      "maps_played": 2,
       "map_wins": 0,
-      "map_losses": 1,
-      "rounds": 10,
-      "wins": 3,
-      "losses": 7,
+      "map_losses": 2,
+      "rounds": 19,
+      "wins": 5,
+      "losses": 14,
       "attack": {
-        "rounds": 6,
-        "wins": 1,
-        "losses": 5
+        "rounds": 9,
+        "wins": 2,
+        "losses": 7
       },
       "defense": {
-        "rounds": 4,
-        "wins": 2,
-        "losses": 2
+        "rounds": 10,
+        "wins": 3,
+        "losses": 7
       },
       "unknown_side": {
         "rounds": 0,
@@ -776,33 +788,33 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 10,
-          "opening_kills": 7,
-          "opening_kill_wins": 3,
-          "opening_deaths": 3,
+          "eligible_rounds": 19,
+          "opening_kills": 11,
+          "opening_kill_wins": 5,
+          "opening_deaths": 8,
           "opening_death_wins": 0,
-          "opening_kill_pct": 0.7,
-          "conversion_pct": 0.42857142857142855,
+          "opening_kill_pct": 0.5789473684210527,
+          "conversion_pct": 0.45454545454545453,
           "recovery_pct": 0.0
         },
         "attack": {
-          "eligible_rounds": 6,
-          "opening_kills": 5,
-          "opening_kill_wins": 1,
-          "opening_deaths": 1,
+          "eligible_rounds": 9,
+          "opening_kills": 6,
+          "opening_kill_wins": 2,
+          "opening_deaths": 3,
           "opening_death_wins": 0,
-          "opening_kill_pct": 0.8333333333333334,
-          "conversion_pct": 0.2,
+          "opening_kill_pct": 0.6666666666666666,
+          "conversion_pct": 0.3333333333333333,
           "recovery_pct": 0.0
         },
         "defense": {
-          "eligible_rounds": 4,
-          "opening_kills": 2,
-          "opening_kill_wins": 2,
-          "opening_deaths": 2,
+          "eligible_rounds": 10,
+          "opening_kills": 5,
+          "opening_kill_wins": 3,
+          "opening_deaths": 5,
           "opening_death_wins": 0,
           "opening_kill_pct": 0.5,
-          "conversion_pct": 1.0,
+          "conversion_pct": 0.6,
           "recovery_pct": 0.0
         },
         "unknown_side": {
@@ -819,53 +831,65 @@
       "sites": {
         "Attack": [
           {
+            "site": "2F Master Office, 2F R6 Room",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 1,
+            "losses": 2
+          },
+          {
             "site": "B Lab Support, B Lab",
             "unknown": false,
-            "rounds": 2,
+            "rounds": 3,
             "wins": 1,
-            "losses": 1
+            "losses": 2
           },
           {
             "site": "1F Bunks, 1F Briefing",
             "unknown": false,
-            "rounds": 2,
+            "rounds": 3,
             "wins": 0,
-            "losses": 2
-          },
-          {
-            "site": "2F Master Office, 2F R6 Room",
-            "unknown": false,
-            "rounds": 2,
-            "wins": 0,
-            "losses": 2
+            "losses": 3
           }
         ],
         "Defense": [
           {
             "site": "2F Master Office, 2F R6 Room",
             "unknown": false,
-            "rounds": 2,
+            "rounds": 4,
             "wins": 1,
-            "losses": 1
-          },
-          {
-            "site": "B Lab Support, B Lab",
-            "unknown": false,
-            "rounds": 1,
-            "wins": 1,
-            "losses": 0
+            "losses": 3
           },
           {
             "site": "1F Bunks, 1F Briefing",
             "unknown": false,
-            "rounds": 1,
-            "wins": 0,
-            "losses": 1
+            "rounds": 3,
+            "wins": 1,
+            "losses": 2
+          },
+          {
+            "site": "B Lab Support, B Lab",
+            "unknown": false,
+            "rounds": 3,
+            "wins": 1,
+            "losses": 2
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "805cc1e54409",
+          "series_id": "d539e8a41f66",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "LSU",
+          "date": "2026-11-04",
+          "map": "Lair",
+          "our_score": 2,
+          "their_score": 7,
+          "result": "LOSS"
+        },
         {
           "id": "8171f81619b8",
           "series_id": "84fdf42b4de1",
