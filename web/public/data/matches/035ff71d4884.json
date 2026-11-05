@@ -13,6 +13,7 @@
   "result": "LOSS",
   "demo": false,
   "rating_eligible": true,
+  "exclude_from_stats": false,
   "team_slug": "white",
   "team_name": "UAH White",
   "rating_version": "siege_style_v3",

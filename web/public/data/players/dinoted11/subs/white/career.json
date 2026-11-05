@@ -104,12 +104,13 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
       "rating_exclusion": null,
-      "appearance_role": "sub",
-      "rating": 0.716238443398528
+      "rating": 0.716238443398528,
+      "appearance_role": "sub"
     },
     {
       "id": "5525677668c0",
@@ -126,12 +127,13 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
       "rating_exclusion": null,
-      "appearance_role": "sub",
-      "rating": 0.6250292462586454
+      "rating": 0.6250292462586454,
+      "appearance_role": "sub"
     }
   ]
 }

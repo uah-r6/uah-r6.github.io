@@ -111,6 +111,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
@@ -132,6 +133,7 @@
       "result": "WIN",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
@@ -153,6 +155,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
@@ -174,6 +177,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
@@ -195,6 +199,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
@@ -216,6 +221,7 @@
       "result": "LOSS",
       "demo": false,
       "rating_eligible": true,
+      "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
@@ -226,6 +232,7 @@
   "sub_teams": [],
   "series_ratings": [
     {
+      "exclude_from_stats": false,
       "id": "651eaa636954",
       "series_id": "651eaa636954",
       "team_slug": "white",
@@ -247,6 +254,7 @@
       "rounds": 21
     },
     {
+      "exclude_from_stats": false,
       "id": "75fc196ae42f",
       "series_id": "75fc196ae42f",
       "team_slug": "white",
@@ -268,6 +276,7 @@
       "rounds": 17
     },
     {
+      "exclude_from_stats": false,
       "id": "ada4becd7c74",
       "series_id": "ada4becd7c74",
       "team_slug": "white",

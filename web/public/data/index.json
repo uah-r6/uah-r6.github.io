@@ -17,8 +17,8 @@
       "active": 1,
       "display_order": 0,
       "aliases": [],
-      "maps": 15,
-      "rounds": 163,
+      "maps": 12,
+      "rounds": 125,
       "roster_count": 5
     },
     {
@@ -210,5 +210,5 @@
     }
   ],
   "rating_version": "siege_style_v3",
-  "generated_at": "2026-11-05T03:21:37.380076+00:00"
+  "generated_at": "2026-11-05T04:14:55.514092+00:00"
 }

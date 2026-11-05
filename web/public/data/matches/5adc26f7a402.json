@@ -13,6 +13,7 @@
   "result": "WIN",
   "demo": false,
   "rating_eligible": true,
+  "exclude_from_stats": true,
   "team_slug": "blue",
   "team_name": "UAH Blue",
   "rating_version": "siege_style_v3",
