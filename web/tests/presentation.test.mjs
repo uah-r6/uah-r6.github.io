@@ -15,8 +15,8 @@ test('embed independently follows active season and validates explicit overrides
 test('trend keeps exact exported v3 values, chronology and eligibility',()=>{
  const ids=['d64d5478cdb3','8a6357ff307c','5adc26f7a402','076d2b6b02bc','b595ffaaec57','8af0a6db6c39','9db26f1b6ca7']
  const historical=profile.matches.filter(m=>ids.includes(m.id)),copy=structuredClone(historical),points=ratingHistory(copy)
- assert.equal(points.length,7)
- assert.deepEqual(points.map(p=>p.id),['d64d5478cdb3','8a6357ff307c','5adc26f7a402','076d2b6b02bc','b595ffaaec57','8af0a6db6c39','9db26f1b6ca7'])
+ assert.equal(points.length,historical.filter(m=>!m.exclude_from_stats).length)
+ assert.deepEqual(points.map(p=>p.id),['d64d5478cdb3','8a6357ff307c','5adc26f7a402','076d2b6b02bc','b595ffaaec57','8af0a6db6c39','9db26f1b6ca7'].filter(id=>!historical.find(m=>m.id===id).exclude_from_stats))
  for(const p of points)assert.equal(p.rating,profile.matches.find(m=>m.id===p.id).rating)
  assert.deepEqual(copy,historical)
  assert.equal(ratingHistory([{...copy[0],rating:null}]).length,0)
@@ -26,7 +26,7 @@ test('trend keeps exact exported v3 values, chronology and eligibility',()=>{
  assert.equal(ratingHistory([copy[0]]).length,1)
 })
 test('career history combines teams and seasons without separate synthetic series',()=>{
- const maps=[{...profile.matches[0],id:'new',team_slug:'white',season:'spring-2027',date:'2027-02-01'},profile.matches.at(-1)]
+ const maps=[{...profile.matches[0],id:'new',team_slug:'white',season:'spring-2027',date:'2027-02-01'},{...profile.matches.at(-1),exclude_from_stats:false}]
  assert.deepEqual(ratingHistory(maps).map(m=>m.team_slug),['blue','white'])
 })
 test('series records use authoritative ID, scope and logical maps once',()=>{

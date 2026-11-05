@@ -72,13 +72,18 @@ def connect(path: str | Path = "data/r6stats.sqlite") -> sqlite3.Connection:
     db = sqlite3.connect(path, check_same_thread=False)
     db.row_factory = sqlite3.Row
     db.executescript(SCHEMA)
+    # Startup requests may open several connections at once. Serialize the
+    # schema check and ALTER so the new counting flag cannot race itself.
+    db.execute('BEGIN IMMEDIATE')
     # Existing local databases predate the optional season and map dates.
     for table, column in (("seasons", "start_date"), ("seasons", "end_date"),
                           ("maps", "played_on"), ("maps", "rehost_json"),
-                          ("maps", "replay_data_complete")):
+                          ("maps", "replay_data_complete"), ("series", "exclude_from_stats")):
         existing = {row["name"] for row in db.execute(f"PRAGMA table_info({table})")}
         if column not in existing:
-            definition = "INTEGER NOT NULL DEFAULT 1" if column == "replay_data_complete" else "TEXT"
+            definition = ("INTEGER NOT NULL DEFAULT 0 CHECK(exclude_from_stats IN (0,1))"
+                          if column == "exclude_from_stats" else
+                          "INTEGER NOT NULL DEFAULT 1" if column == "replay_data_complete" else "TEXT")
             db.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
     # Existing one-folder imports become explicit single-segment sources.
     db.execute("""INSERT INTO map_segments(map_id,segment_order,replay_id,fingerprint,source_name)
@@ -95,6 +100,17 @@ def slugify(name: str) -> str:
     import re
     slug = re.sub(r"[^a-z0-9]+", "-", name.strip().lower()).strip("-")
     return slug or "item"
+
+
+def series_statistics_set(db, series_id: str, exclude: bool) -> None:
+    """Change counting policy only, never map data or frozen Rating evidence."""
+    if type(exclude) is not bool:
+        raise ValueError('Series exclusion must be a checkbox value.')
+    with db:
+        result = db.execute('UPDATE series SET exclude_from_stats=? WHERE id=? AND demo=0',
+                            (int(exclude), series_id))
+        if result.rowcount != 1:
+            raise ValueError('Series not found.')
 
 
 def season_create(db, name: str, start_date: str | None = None,

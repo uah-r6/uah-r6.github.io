@@ -17,6 +17,7 @@ export function displayDate(value:string){
  const date=new Date(value+'T12:00:00Z')
  return Number.isFinite(date.getTime())?date.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}):value
 }
-export function mapRatingLabel(map:Pick<Match,'rating_eligible'|'rating_version'>){
+export function mapRatingLabel(map:Pick<Match,'rating_eligible'|'rating_version'|'exclude_from_stats'>){
+ if(map.exclude_from_stats)return 'No count'
  return map.rating_eligible===true&&map.rating_version==='siege_style_v3'?'Rating eligible':'Unrated map'
 }

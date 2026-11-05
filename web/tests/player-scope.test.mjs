@@ -33,13 +33,15 @@ test('team season/career exports preserve map ownership and distinct scopes',()=
  for(const period of ['fall-2026','career']){
   const blue=load(`teams/blue/${period}.json`),white=load(`teams/white/${period}.json`)
   assert.equal(blue.team.slug,'blue');assert.equal(white.team.slug,'white')
-  assert.equal(blue.players.length,5);assert.equal(white.players.length,4)
-  assert.equal(blue.sub_players.length,0);assert.equal(white.sub_players.length,1)
+  for(const data of [blue,white])for(const [role,field] of [['roster','players'],['sub','sub_players']]){
+   const expected=new Set(data.matches.filter(m=>!m.exclude_from_stats).flatMap(m=>load(`matches/${m.id}.json`).players.filter(p=>p.appearance_role===role).map(p=>p.slug)))
+   assert.deepEqual(new Set(data[field].map(p=>p.slug)),expected)
+  }
   assert.ok(blue.matches.every(m=>m.team_slug==='blue'))
   assert.ok(white.matches.every(m=>m.team_slug==='white'))
  }
  // Global Career profiles retain their separate cross-team source and splits.
  const career=load('players/lgon/career.json')
- assert.equal(career.rounds,career.matches.reduce((n,m)=>n+load(`matches/${m.id}.json`).players.find(p=>p.slug==='lgon').rounds,0))
+ assert.equal(career.rounds,career.matches.filter(m=>!m.exclude_from_stats).reduce((n,m)=>n+load(`matches/${m.id}.json`).players.find(p=>p.slug==='lgon').rounds,0))
  assert.equal(career.series_ratings.length,new Set(career.matches.map(m=>m.series_id)).size)
 })

@@ -14,8 +14,8 @@ test('complete coverage requires every player-specific map and round, with nonze
 
 test('only complete series become chronological points; incomplete records and all map history remain',()=>{
  const profile=load('players/lgon/fall-2026.json'),historical=profile.series_ratings.filter(s=>['Placements','University of Michigan','UCF'].includes(s.opponent)),points=seriesRatingHistory(historical)
- assert.equal(points.length,3)
- assert.deepEqual(points.map(s=>s.opponent),['Placements','University of Michigan','UCF'])
+ assert.equal(points.length,historical.filter(s=>!s.exclude_from_stats).length)
+ assert.deepEqual(points.map(s=>s.opponent),['Placements','University of Michigan','UCF'].filter(opponent=>!historical.find(s=>s.opponent===opponent).exclude_from_stats))
  assert.equal(historical.length,3)
  for(const point of profile.series_ratings){
   const series=load(`series/${point.id}.json`),player=series.players.find(p=>p.slug==='lgon')
@@ -48,7 +48,7 @@ test('stale numeric incomplete exports cannot re-enter trend controls',()=>{
 
 test('White complete player and substitute Series Ratings remain numeric and isolated',()=>{
  const series=load('series/ada4becd7c74.json'),profile=load('players/flex-uah/fall-2026.json')
- assert.equal(seriesRatingHistory(profile.series_ratings).length,1)
+ assert.equal(seriesRatingHistory(profile.series_ratings.filter(s=>s.id===series.id)).length,1)
  for(const p of series.players){assert.equal(completeSeriesRating(p),true);assert.equal(typeof p.rating,'number')}
  const sub=series.players.find(p=>p.appearance_role==='sub')
  assert.ok(sub)

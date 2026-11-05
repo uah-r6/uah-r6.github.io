@@ -16,7 +16,7 @@ type Season = { slug: string; name: string; active: number; start_date: string |
 type Team = {id:number;name:string;slug:string;primary_color:string;active:number;display_order:number}
 type Membership = {team_id:number;team_slug:string;team_name:string;start_date:string;end_date:string|null}
 type Player = {substitute_eligible:number;status:string;memberships:Membership[];in_selected_team:boolean; id: number; slug: string; display_name: string; username: string; tracked: number; profile_bound: boolean; aliases: string[] }
-type Series = { id: string; opponent: string; date: string; week: string; notes: string; season_slug: string; maps: number }
+type Series = { exclude_from_stats: boolean; id: string; opponent: string; date: string; week: string; notes: string; season_slug: string; maps: number }
 type Replay = { id: string; name: string; map?: string; timestamp?: string; match_type?: string; status: string; eligible: boolean; rehost_eligible?: boolean; tracked_count?: number; rounds?: number; score?: number[]; our_team?: number | null; duplicate?: boolean }
 type Appearance={player_id:number;name:string;appearance_role:'roster'|'sub';regular_team_name:string|null;classified_on:string}
 type Preview = {appearances?:Appearance[];organization_team:string;team_id:number;season_slug:string;season_name:string; preview_token: string; map: string; timestamp: string; match_type: string; game_mode: string; rounds: number; score: number[]; our_team: number | null; tracked_players: string[]; teams: { index: number; players: string[] }[]; ambiguous: string | null; duplicate: boolean; active_season: string | null; competition_if_confirmed: string }
@@ -436,7 +436,29 @@ function SeriesCard({ group, maps, seasonSeries, notify, after }: { group: Serie
   const [error, setError] = useState('')
   useEffect(() => { if (!editing) { setOpponent(group.opponent); setDate(group.date); setWeek(group.week || ''); setNotes(group.notes || '') } }, [group.opponent, group.date, group.week, group.notes, editing])
   async function save() { try { await api(`/series/${group.id}`, 'PATCH', { opponent, date, week, notes }); setEditing(false); notify('Matchup details updated. Public JSON refreshed.'); await after() } catch (error) { setError((error as Error).message) } }
-  return <section className="admin-panel series-card"><div className="admin-panel-head"><div><span className="eyebrow">{group.date} / {group.season_slug}{group.week ? ` / ${group.week}` : ''}</span><h2>vs {group.opponent}</h2></div><Button secondary onClick={() => setEditing(!editing)}>{editing ? 'Cancel' : 'Edit matchup'}</Button></div><div className="series-maps">{maps.map(map => <div key={map.id}><b>{map.map_name}<small> · {map.date}</small></b><span>{map.our_score} – {map.their_score}</span><small>{map.match_type}</small><Button secondary onClick={() => setSelectedMap(selectedMap === map.id ? '' : map.id)}>{selectedMap === map.id ? 'Close' : 'Open map'}</Button></div>)}</div>{selectedMap && <MatchDetailPanel key={selectedMap} mapId={selectedMap} seasonSeries={seasonSeries} after={after} onDeleted={() => setSelectedMap('')} notify={notify} />}{editing && <div className="form-grid"><label>Opponent<input value={opponent} onChange={event => setOpponent(event.target.value)} /></label><label>Matchup date<input type="date" value={date} onChange={event => setDate(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea value={notes} onChange={event => setNotes(event.target.value)} rows={3} /></label><Button disabled={!opponent.trim() || !date} onClick={() => void save()}>Save matchup</Button></div>}<ErrorBox message={error} /></section>
+  return <section className="admin-panel series-card"><div className="admin-panel-head"><div><span className="eyebrow">{group.date} / {group.season_slug}{group.week ? ` / ${group.week}` : ''}</span><h2>vs {group.opponent}</h2></div><Button secondary onClick={() => setEditing(!editing)}>{editing ? 'Cancel' : 'Edit matchup'}</Button></div><SeriesStatisticsControl group={group} after={after} notify={notify}/><div className="series-maps">{maps.map(map => <div key={map.id}><b>{map.map_name}<small> · {map.date}</small></b><span>{map.our_score} – {map.their_score}</span><small>{map.match_type}</small><Button secondary onClick={() => setSelectedMap(selectedMap === map.id ? '' : map.id)}>{selectedMap === map.id ? 'Close' : 'Open map'}</Button></div>)}</div>{selectedMap && <MatchDetailPanel key={selectedMap} mapId={selectedMap} seasonSeries={seasonSeries} after={after} onDeleted={() => setSelectedMap('')} notify={notify} />}{editing && <div className="form-grid"><label>Opponent<input value={opponent} onChange={event => setOpponent(event.target.value)} /></label><label>Matchup date<input type="date" value={date} onChange={event => setDate(event.target.value)} /></label><label>NECC week<input value={week} onChange={event => setWeek(event.target.value)} /></label><label className="wide">Notes<textarea value={notes} onChange={event => setNotes(event.target.value)} rows={3} /></label><Button disabled={!opponent.trim() || !date} onClick={() => void save()}>Save matchup</Button></div>}<ErrorBox message={error} /></section>
+}
+
+function SeriesStatisticsControl({group,after,notify}:{group:Series;after:()=>Promise<void>;notify:(text:string,error?:boolean)=>void}) {
+  const [excluded,setExcluded]=useState(group.exclude_from_stats)
+  const [busy,setBusy]=useState(false)
+  const [error,setError]=useState('')
+  useEffect(()=>setExcluded(group.exclude_from_stats),[group.exclude_from_stats])
+  async function change(value:boolean) {
+    setExcluded(value);setBusy(true);setError('')
+    try {
+      await api(`/series/${group.id}/statistics`,'PATCH',{exclude_from_stats:value})
+      notify(`${value?'Series excluded from':'Series restored to'} statistics. Local website data updated. Publish Website when ready.`)
+      await after()
+    } catch(error) {setExcluded(group.exclude_from_stats);setError((error as Error).message)}
+    finally {setBusy(false)}
+  }
+  return <div className="series-statistics-control">
+    <label><input type="checkbox" checked={excluded} disabled={busy} onChange={event=>void change(event.target.checked)} aria-describedby={`series-statistics-${group.id}`}/>Exclude this series from statistics (no count)</label>
+    <p id={`series-statistics-${group.id}`}>Applies to every map in this series. Excludes season/Career totals, Ratings and trends, operator usage, team records and aggregate map statistics. Match history and replay archives are kept. Uncheck to restore.</p>
+    <small role="status">{busy?'Saving statistics setting...':excluded?'No count - saved locally. Publish Website to update the public site.':'Counts toward statistics.'}</small>
+    <ErrorBox message={error}/>
+  </div>
 }
 
 function KDPlayerRow({ mapId, player, refresh, notify }: { mapId: string; player: KDPlayer; refresh: () => Promise<void>; notify: (text: string, error?: boolean) => void }) {

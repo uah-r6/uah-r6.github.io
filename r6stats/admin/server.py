@@ -181,6 +181,11 @@ class RehostImportRequest(ImportRequest):
     final_their_score: int = Field(ge=0, le=30)
 
 
+class SeriesStatisticsUpdate(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    exclude_from_stats: StrictBool
+
+
 class SeriesUpdate(BaseModel):
     opponent: str = Field(min_length=1, max_length=120)
     week: str = Field(default="", max_length=80)
@@ -955,7 +960,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
 
     @app.get("/api/admin/series")
     def series(db: DB, season: str | None = None, team_id: int | None = None):
-        query = """SELECT s.id,s.team_id,s.opponent,s.date,s.week,s.notes,se.slug AS season_slug,
+        query = """SELECT s.id,s.team_id,s.opponent,s.date,s.week,s.notes,s.exclude_from_stats,se.slug AS season_slug,
                    count(m.id) AS maps FROM series s JOIN seasons se ON se.id=s.season_id
                    LEFT JOIN maps m ON m.series_id=s.id WHERE s.demo=0"""
         params = []
@@ -966,7 +971,15 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
             query += " AND se.slug=?"
             params.append(season)
         query += " GROUP BY s.id ORDER BY s.date DESC,s.rowid DESC"
-        return [dict(row) for row in db.execute(query, params)]
+        return [{**dict(row), 'exclude_from_stats': bool(row['exclude_from_stats'])}
+                for row in db.execute(query, params)]
+
+    @app.patch('/api/admin/series/{series_id}/statistics')
+    def edit_series_statistics(series_id: str, payload: SeriesStatisticsUpdate, db: DB):
+        repo.series_statistics_set(db, series_id, payload.exclude_from_stats)
+        export(db, read_settings(root), root / 'web/public/data')
+        return {'ok': True, 'exclude_from_stats': payload.exclude_from_stats,
+                'message': 'Statistics setting saved. Local website data refreshed; publish when ready.'}
 
     @app.patch("/api/admin/series/{series_id}")
     def edit_series(series_id: str, payload: SeriesUpdate, db: DB):
@@ -982,7 +995,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
     @app.get("/api/admin/matches")
     def matches(db: DB, season: str | None = None, team_id: int | None = None):
         query = """SELECT m.id,m.team_id,m.map_name,m.match_type,m.game_mode,m.our_score,m.their_score,
-                   s.id AS series_id,s.opponent,s.date AS series_date,
+                   s.id AS series_id,s.opponent,s.exclude_from_stats,s.date AS series_date,
                    COALESCE(m.played_on,s.date) AS date,s.week,s.notes,s.competition,s.demo,
                    se.slug AS season_slug,se.name AS season_name
                    FROM maps m JOIN series s ON s.id=m.series_id JOIN seasons se ON se.id=s.season_id WHERE 1=1"""
@@ -1002,7 +1015,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                           m.our_score,m.their_score,m.normalized_json,m.rehost_json,
                           m.replay_data_complete,m.series_id,
                           COALESCE(m.played_on,s.date) AS date,s.date AS series_date,
-                          s.opponent,s.week,s.notes,s.competition,s.demo,
+                          s.opponent,s.week,s.notes,s.competition,s.demo,s.exclude_from_stats,
                           se.slug AS season_slug,se.name AS season_name
                           FROM maps m JOIN series s ON s.id=m.series_id
                           JOIN seasons se ON se.id=s.season_id WHERE m.id=? AND s.demo=0""",

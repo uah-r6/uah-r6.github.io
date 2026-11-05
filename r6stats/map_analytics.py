@@ -3,6 +3,7 @@ from copy import deepcopy
 
 from r6stats.map_catalog import CATALOG, identity
 from r6stats.opening_engagements import summarize
+from r6stats.stat_scope import counted
 
 
 def counts():
@@ -26,7 +27,7 @@ def build_analytics(team_slug, period, period_name, matches):
     seen = {}
     site_counts = {}
     opening_rounds = {}
-    for match in matches:
+    for match in counted(matches):
         if match['team_slug'] != team_slug or (period != 'career' and match['season'] != period):
             raise ValueError('Map analytics ownership/period differs from its scope.')
         mid = match['id']

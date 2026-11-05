@@ -22,3 +22,7 @@
 .sub-badge{font-size:10px;letter-spacing:.08em;border:1px solid currentColor;border-radius:4px;padding:2px 4px;line-height:1.2;flex-shrink:0}
 .sub-entry{display:inline-block;margin:8px 0 16px;color:var(--accent)}
 .substitute-profile .panel{margin-top:24px}
+
+.no-count-label{display:block;font-size:11px;color:var(--muted,#b3c2d0);padding:8px 0;line-height:1.5}
+.no-count-notice{border:1px solid var(--border,#425267);border-left:3px solid var(--accent);padding:16px 20px;margin:20px 0;font-size:14px;line-height:1.7}
+.no-count-notice p{color:var(--muted,#b3c2d0);margin:6px 0 0;max-width:90ch}

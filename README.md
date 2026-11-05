@@ -136,6 +136,22 @@ In **Seasons → Competitive Map Pool**, choose the season, select its maps from
 
 The **Dashboard** shows the active season, tracked roster count, real maps, last import, last successful publish, and database integrity. **Matches** defaults to the active season. Open any map to review its rounds, edit its date or series grouping, change opponent/week/notes, or delete an accidental import after a confirmation dialog. Deletion removes that map's rounds and events, recalculates public aggregates, and retains roster identities. To correct stored replay-derived fields after a parser fix, paste that map's original replay folder path into **Reparse this map**. Reparse verifies the replay ID and content fingerprint, replaces rounds in one transaction, and preserves season, opponent, date, week, notes, series, map ID, and player identities. It regenerates local website data without publishing. **Statistics** has separate **Recalculate Statistics** and **Regenerate Website Data** actions. Both read stored normalized matches and rebuild derived values; there is no separate aggregate cache to become stale. **Publish** validates and submits generated website data to GitHub. These routine tasks do not require CLI commands.
 
+### Mark a series as no count
+
+In **Matches**, find the series and check **Exclude this series from statistics
+(no count)**. It saves immediately and regenerates local website data. Then use
+**Publish → Publish Website** to update the public site. Uncheck it to restore
+the series to statistics; no replay reparse or re-import is needed.
+
+Every map in that series is excluded from season/Career totals and leaderboards,
+Ratings and trends, operator usage, team records, and aggregate map/site/opening
+statistics, including substitute totals. Match history, individual map/series
+performance, Rating evidence, player identities and replay archives are retained.
+Public history and detail pages clearly label the exclusion. New maps added to
+that series inherit the setting; new series count by default. Moving a map uses
+its destination series' setting. Ordinary metadata edits and recalculation keep
+the setting. See [series statistics policy](docs/SERIES_STATISTICS_EXCLUSION.md).
+
 ## Import an NECC map in your browser
 
 Open **Import replay**, then click **Scan replay folder**. The scan lists the 12 most recent replay folders and match types without importing anything. Custom Games with a complete set of rounds are eligible for normal manual selection. Ranked, Standard, Quick Match, and other matchmaking types are ineligible. A one-round Custom Game cannot be imported as a normal map, but can be selected as a segment of an explicitly confirmed rehost. You may also paste the path to one complete match folder or a ZIP containing exactly one whole match folder.

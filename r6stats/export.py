@@ -16,6 +16,7 @@ from r6stats.manual_kd import apply_display_kd
 from r6stats.objective_refresh import rating_stats
 from r6stats.credited_refresh import aggregate_display, display_stats, load as load_credit
 from r6stats.stats.calculate import RATING_VERSION, RATING_VERSIONS, aggregate, calculate_match
+from r6stats.stat_scope import counted
 
 
 def write(path: Path, value) -> None:
@@ -61,7 +62,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     identities = {p['id']: {'slug': p['slug'], 'name': p['display_name'], 'status': p['status']} for p in players}
     organizations = [dict(r) for r in db.execute("SELECT * FROM teams ORDER BY display_order,id")]
     by_id = {t["id"]: t for t in organizations}
-    rows = db.execute("""SELECT m.*, s.opponent,s.date,s.week,s.notes,s.demo,s.id AS series_public,
+    rows = db.execute("""SELECT m.*, s.opponent,s.date,s.week,s.notes,s.demo,s.exclude_from_stats,s.id AS series_public,
                           se.slug AS season_slug, se.name AS season_name, s.date AS series_date FROM maps m JOIN series s ON s.id=m.series_id
                           JOIN seasons se ON se.id=s.season_id
                           ORDER BY COALESCE(m.played_on,s.date) DESC,m.rowid DESC""").fetchall()
@@ -97,6 +98,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                   "our_score": row["our_score"], "their_score": row["their_score"],
                   "result": "WIN" if row["our_score"] > row["their_score"] else "LOSS",
                   "demo": bool(row["demo"]), "rating_eligible": rating_eligible,
+                  "exclude_from_stats": bool(row["exclude_from_stats"]),
                   "team_slug": by_id[row["team_id"]]["slug"], "team_name": by_id[row["team_id"]]["name"]}
         if version == "siege_style_v3":
             public.update(rating_version=version, rating_exclusion=reason)
@@ -129,10 +131,15 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     'rating': rating_raw if rating_eligible else None,
                     'delta': (correction['final_kills'] - raw['kills'], correction['final_deaths'] - raw['deaths']) if correction else (0, 0)}
                 scope = (row["team_id"], row["season_slug"])
+                history = {**public, 'rating': rating_raw['rating'] if rating_eligible else None}
+                if roles[p['id']] == 'sub':
+                    sub_matches[scope][p['slug']].append({**history, 'appearance_role': 'sub'})
+                else:
+                    player_matches[p['slug']][row['season_slug']].append(history)
+                if public['exclude_from_stats']:
+                    continue
                 if roles[p['id']] == 'sub':
                     sub_records[scope][p['slug']].append(series_participants[p['id']])
-                    sub_matches[scope][p['slug']].append({**public, 'appearance_role': 'sub',
-                        'rating': rating_raw['rating'] if rating_eligible else None})
                     continue
                 team_inputs[scope][p["slug"]].append(raw)
                 if rating_eligible:
@@ -147,10 +154,8 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     adjustment = season_adjustments[row["season_slug"]][p["slug"]]
                     adjustment[0] += correction["final_kills"] - raw["kills"]
                     adjustment[1] += correction["final_deaths"] - raw["deaths"]
-                player_matches[p["slug"]][row["season_slug"]].append(
-                    {**public, "rating": rating_raw["rating"] if rating_eligible else None})
         metadata = {'id': row['series_public'], 'series_id': row['series_public'],
-                    **{key: public[key] for key in ('team_slug', 'team_name', 'season', 'opponent', 'week', 'notes', 'demo')},
+                    **{key: public[key] for key in ('team_slug', 'team_name', 'season', 'opponent', 'week', 'notes', 'demo', 'exclude_from_stats')},
                     'date': row['series_date'], 'season_name': row['season_name']}
         series_projection.add(metadata, public, series_participants)
         roster_series_projection.add(metadata, public, {pid: record for pid, record in series_participants.items() if record['appearance_role'] == 'roster'})
@@ -204,12 +209,14 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                   {**item, "season": slug, "matches": player_matches[p["slug"]][slug]})
         leaderboard.sort(key=lambda p: p["rating"] if p["rating"] is not None else float("-inf"), reverse=True)
         matches = season_matches[slug]
+        included = counted(matches)
         write(root / "seasons" / f"{slug}.json",
               {"slug": slug, "name": season["name"], "start_date": season["start_date"],
                "end_date": season["end_date"], "demo": slug in demo_seasons,
-               "maps": len(matches), "wins": sum(m["result"] == "WIN" for m in matches),
-               "rounds_won": sum(m["our_score"] for m in matches),
-               "rounds": sum(m["our_score"] + m["their_score"] for m in matches),
+               "maps": len(included), "excluded_maps": len(matches) - len(included),
+               "wins": sum(m["result"] == "WIN" for m in included),
+               "rounds_won": sum(m["our_score"] for m in included),
+               "rounds": sum(m["our_score"] + m["their_score"] for m in included),
                "players": leaderboard, "matches": matches, "rating_version": version})
     for p in players:
         all_stats = [s for season in season_stats.values() for s in season[p["slug"]]]
@@ -235,10 +242,12 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
         return result
 
     def summary(matches, leaderboard, slug, name):
-        return {"slug": slug, "name": name, "maps": len(matches),
-                "wins": sum(m["result"] == "WIN" for m in matches),
-                "rounds": sum(m["our_score"] + m["their_score"] for m in matches),
-                "rounds_won": sum(m["our_score"] for m in matches), "matches": matches,
+        included = counted(matches)
+        return {"slug": slug, "name": name, "maps": len(included),
+                "excluded_maps": len(matches) - len(included),
+                "wins": sum(m["result"] == "WIN" for m in included),
+                "rounds": sum(m["our_score"] + m["their_score"] for m in included),
+                "rounds_won": sum(m["our_score"] for m in included), "matches": matches,
                 "players": sorted(leaderboard, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True),
                 "rating_version": version}
 
@@ -275,7 +284,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                map_pool.public_pool(db, view, active)))
             write(root / "teams" / team["slug"] / f"{view}.json",
                   {**summary(matches, leaderboard, view, name), "team": metadata, "roster": roster,
-                   "opening_engagements": summarize_maps([round_maps[m['id']] for m in matches]),
+                   "opening_engagements": summarize_maps([round_maps[m['id']] for m in counted(matches)]),
                    "sub_players": sorted(substitutes, key=lambda p: p["rating"] if p["rating"] is not None else -float("inf"), reverse=True)})
         career_summary = json.loads((root / "teams" / team["slug"] / "career.json").read_text(encoding="utf-8"))
         metadata.update(maps=career_summary["maps"], rounds=career_summary["rounds"], roster_count=len(roster))
@@ -304,7 +313,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                     splits.append({"team_slug": team["slug"], "team_name": team["name"], **total(raws, ratings, delta)})
             sub_teams = []
             for team in organizations:
-                ever = any(sub_records[(team['id'], se['slug'])][p['slug']] for se in seasons)
+                ever = any(sub_matches[(team['id'], se['slug'])][p['slug']] for se in seasons)
                 if not ever:
                     continue
                 selected = [(team['id'], se['slug']) for se in seasons if view == 'career' or se['slug'] == view]
@@ -337,7 +346,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                                       "rating_description": (
                                           "Independent raw eight-feature Siege-style Rating. Historical objective upgrades preserve original v2 Rating inputs; displayed objectives and KOST use corrected data."
                                           if version == "siege_style_v2" else
-                                          "Independently final-tested nine-feature native-order Rating. Complete credited kills, multikills and KOST Kill; verified core objectives; native first opposing finisher opening and triangular clutch size X(X+1)/2; frozen legacy 8-second trade features. Only eligible maps contribute to Rating; rating_rounds/rating_maps report coverage. Display statistics retain all historical maps and legacy event chronology. Not an official SiegeGG or Ubisoft formula."
+                                          "Independently final-tested nine-feature native-order Rating. Complete credited kills, multikills and KOST Kill; verified core objectives; native first opposing finisher opening and triangular clutch size X(X+1)/2; frozen legacy 8-second trade features. Only eligible maps contribute to Rating; rating_rounds/rating_maps report coverage. Display statistics retain counted historical maps and legacy event chronology. Series marked no count stay in history but are excluded from aggregate statistics, Ratings, trends and team records. Not an official SiegeGG or Ubisoft formula."
                                           if version == "siege_style_v3" else "Collegiate V1 composite Rating.")})
     for path in root.rglob("*.json"):
         json.loads(path.read_text(encoding="utf-8"))

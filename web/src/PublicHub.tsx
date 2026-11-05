@@ -31,7 +31,7 @@ function TeamCard({team,season,period}:{team:Team;season:string;period:string}){
  return <Link className="team-card" style={teamTheme(team.primary_color)} to={`/teams/${team.slug}`}>
   <div className="team-card-title"><span className="eyebrow">{team.active?'NECC TEAM':'TEAM ARCHIVE'}</span><span>{period}</span></div>
   <div className="team-card-identity"><TeamLogo team={team} size="lg" decorative/><div><h2>{team.name}</h2><p>{team.roster_count} active players</p></div></div>
-  {ready&&data.maps>0?<dl className="team-card-record"><div><dt>Map record</dt><dd>{data.wins}–{data.maps-data.wins}</dd></div><div><dt>Maps played</dt><dd>{data.maps}</dd></div></dl>:<p className="team-card-empty">{ready?'No matches recorded for this period yet.':'Loading team record…'}</p>}
+  {ready&&data.maps>0?<dl className="team-card-record"><div><dt>Map record</dt><dd>{data.wins}–{data.maps-data.wins}</dd></div><div><dt>Maps played</dt><dd>{data.maps}</dd></div></dl>:<p className="team-card-empty">{ready?(data.matches.length?'All recorded maps are marked no count.':'No matches recorded for this period yet.'):'Loading team record…'}</p>}
   {latest&&<div className="team-card-latest"><span>Latest recorded matchup</span><strong>vs {latest.maps[0].opponent}</strong><small>Recorded maps: {latest.wins}–{latest.losses}</small></div>}
   <div className="team-card-action">View team <span aria-hidden="true">↗</span></div>{error&&<small>{error}</small>}
  </Link>
@@ -41,7 +41,7 @@ export function TeamHeader({team,season}:{team:Team;season:string}){
  const ready=data?.team?.slug===team.slug&&data.slug===season
  const latest=ready?recentSeries(data.matches,1)[0]:undefined
  return <header className="public-hero team-header">
-  <HeroIdentity team={team} title={team.name} eyebrow={`NECC / ${ready?data.name:season}`}><p>{ready&&!data.maps?'No matches recorded for this period yet.':'Roster, results and competitive performance.'}</p></HeroIdentity>
+  <HeroIdentity team={team} title={team.name} eyebrow={`NECC / ${ready?data.name:season}`}><p>{ready&&!data.maps?(data.matches.length?'All recorded maps are marked no count.':'No matches recorded for this period yet.'):'Roster, results and competitive performance.'}</p></HeroIdentity>
   <dl className="hero-facts"><div><dt>Map record</dt><dd>{ready&&data.maps?`${data.wins}–${data.maps-data.wins}`:'—'}</dd></div><div><dt>Maps</dt><dd>{ready?data.maps:'—'}</dd></div><div><dt>Rounds</dt><dd>{ready?data.rounds:'—'}</dd></div></dl>
   {latest&&<Link className="hero-footer" to={`/series/${latest.maps[0].series_id}`}><span>Latest matchup</span><strong>vs {latest.maps[0].opponent}</strong><span>Recorded maps: {latest.wins}–{latest.losses}</span><span aria-hidden="true">↗</span></Link>}
  </header>

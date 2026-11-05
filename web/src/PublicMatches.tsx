@@ -13,6 +13,7 @@ export function SeriesCard({maps,wins,losses,team}:{maps:Match[];wins:number;los
    <div className="series-card-identity"><TeamLogo team={{slug:first.team_slug,name:first.team_name}} decorative/><div><span className="team-chip">{first.team_name}</span><h2>vs {first.opponent}</h2><span className="section-aside">{displayDate(first.date)}{first.week?` · ${/^week\b/i.test(first.week)?first.week:'Week '+first.week}`:''}</span></div></div>
    <div><ScoreDisplay ours={wins} theirs={losses}/><span className="view-series">View series →</span></div>
   </Link>
+  {first.exclude_from_stats&&<NoCountNotice compact/>}
   <div className="series-maps">{maps.map(m=><Link key={m.id} to={`/matches/${m.id}`}><span>{m.map}</span><strong>{m.our_score}–{m.their_score}</strong><span className={`badge ${m.result.toLowerCase()}`}>{m.result==='WIN'?'W':m.result==='LOSS'?'L':m.result}</span><span aria-hidden="true">↗</span></Link>)}</div>
  </section>
 }
@@ -30,4 +31,8 @@ export function MapHero({map,period=map.season}:{map:Match;period?:string}){
   <HeroIdentity team={{slug:map.team_slug,name:map.team_name}} eyebrow={map.team_name} title={map.map}><p className="hero-opponent">vs {map.opponent}</p><div className="hero-meta"><span className={`badge ${map.result.toLowerCase()}`}>{map.result}</span><span>{period}</span><time dateTime={map.date}>{displayDate(map.date)}</time></div></HeroIdentity>
   <ScoreDisplay ours={map.our_score} theirs={map.their_score} label="Round score"/>
  </header>
+}
+
+export function NoCountNotice({compact=false}:{compact?:boolean}){
+ return <aside className={compact?'no-count-label':'no-count-notice'} aria-label="Statistics exclusion"><strong>Does not count toward statistics</strong>{!compact&&<p>This series and its maps are excluded from season and Career totals, Ratings and trends, operator usage, team records and aggregate map statistics. Recorded results and individual performance remain available below.</p>}</aside>
 }

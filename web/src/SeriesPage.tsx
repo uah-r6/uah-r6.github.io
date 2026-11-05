@@ -5,7 +5,7 @@ import {useData} from './publicData'
 import {PlayerStats} from './PlayerStats'
 import {teamTheme} from './theme'
 import {HeroIdentity,ScoreDisplay} from './PublicIdentity'
-import {MapSummary} from './PublicMatches'
+import {MapSummary,NoCountNotice} from './PublicMatches'
 import {displayDate} from './publicView'
 import {OpeningStats} from './OpeningStats'
 
@@ -19,6 +19,7 @@ export function SeriesPage({teams}:{teams:Team[]}){
  <Link className="back-series" to={`/teams/${data.team_slug}/matches`}>← {data.team_name} series</Link>
  <header className="public-hero series-hero"><HeroIdentity team={{slug:data.team_slug,name:data.team_name}} eyebrow={data.team_name} title={`vs ${data.opponent}`}><div className="hero-meta"><time dateTime={data.date}>{displayDate(data.date)}</time><span>{data.season_name}</span>{data.week&&<span>{/^week\b/i.test(data.week)?data.week:'Week '+data.week}</span>}</div></HeroIdentity><div><ScoreDisplay ours={data.recorded_maps.wins} theirs={data.recorded_maps.losses}/><p className="score-support">{data.maps.length} maps · {data.rounds} rounds</p></div></header>
  {data.demo&&<div className="demo">DEMO DATA · Synthetic maps</div>}
+ {data.exclude_from_stats&&<NoCountNotice/>}
  <OpeningStats stats={data.opening_engagements}/>
  <div className="series-map-cards" aria-label="Recorded map results">{data.maps.map(m=><MapSummary key={m.id} map={m} teamName={data.team_name}/>)}</div>
  <div className="section-title"><div><span className="eyebrow">ACROSS RECORDED MAPS</span><h2>Series Player Stats</h2></div></div>

@@ -11,6 +11,7 @@ from r6stats.map_analytics import build_analytics, project_pool
 from r6stats.map_catalog import CATALOG
 from r6stats.series_export import player_series, series_rating_complete
 from r6stats.opening_engagements import summarize_maps
+from r6stats.stat_scope import counted
 
 DATA_PATHSPEC = ":(glob)web/public/data/**/*.json"
 
@@ -42,6 +43,27 @@ def validate_public_data(root: Path) -> int:
             raise ValueError(f"Generated website JSON is invalid: {path.name}") from error
         inspect(document)
         documents[path.relative_to(data_root).as_posix()] = document
+    for name, document in documents.items():
+        if type(document.get('exclude_from_stats', False)) is not bool:
+            raise ValueError(f'Website series statistics exclusion is invalid: {name}')
+        for field in ('matches', 'maps'):
+            history = document.get(field)
+            if not isinstance(history, list):
+                continue
+            for match in history:
+                original = documents.get(f"matches/{match.get('id')}.json", {})
+                if (type(match.get('exclude_from_stats', False)) is not bool or
+                        match.get('exclude_from_stats', False) != original.get('exclude_from_stats', False)):
+                    raise ValueError(f'Website statistics exclusion differs from map history: {name}')
+        if (name.startswith('seasons/') or name.startswith('teams/')) and 'matches' in document:
+            history = document['matches']
+            included = counted(history)
+            if (document.get('maps') != len(included) or
+                    document.get('excluded_maps', len(history)-len(included)) != len(history)-len(included) or
+                    document.get('wins') != sum(m['result'] == 'WIN' for m in included) or
+                    document.get('rounds') != sum(m['our_score']+m['their_score'] for m in included) or
+                    document.get('rounds_won') != sum(m['our_score'] for m in included)):
+                raise ValueError(f'Website counted match totals differ: {name}')
     index = documents.get("index.json")
     method = documents.get("methodology.json")
     if not isinstance(index, dict) or not isinstance(method, dict):
@@ -53,7 +75,7 @@ def validate_public_data(root: Path) -> int:
         document = documents.get(name)
         if not isinstance(document, dict):
             raise ValueError(f"Website season data is missing: {name}")
-        if document.get("maps") != len(document.get("matches", [])):
+        if document.get("maps") != len(counted(document.get("matches", []))):
             raise ValueError(f"Website season map count is inconsistent: {name}")
         for match in document["matches"]:
             if f"matches/{match['id']}.json" not in documents:
@@ -78,6 +100,8 @@ def validate_public_data(root: Path) -> int:
             sources = [documents[f"matches/{m['id']}.json"] for m in document['matches' if name.startswith('teams/') else 'maps']]
         else:
             continue
+        if name.startswith('teams/'):
+            sources = counted(sources)
         if document.get('opening_engagements') != summarize_maps(sources):
             raise ValueError(f'Website opening engagements are inconsistent: {name}')
     for team in index.get('teams', []):
@@ -88,7 +112,7 @@ def validate_public_data(root: Path) -> int:
             if not isinstance(scope, dict) or scope.get('team', {}).get('slug') != slug:
                 raise ValueError(f'Website team scope is missing or incorrect: {name}')
             matches = scope.get('matches', [])
-            if scope.get('maps') != len(matches) or scope.get('rating_version') != index.get('rating_version'):
+            if scope.get('maps') != len(counted(matches)) or scope.get('rating_version') != index.get('rating_version'):
                 raise ValueError(f'Website team scope counts/version differ: {name}')
             for match in matches:
                 original = documents.get(f"matches/{match['id']}.json", {})
@@ -130,7 +154,7 @@ def validate_public_data(root: Path) -> int:
                 # unused eligible players cannot become leaderboard entries.
                 for role, field in [('roster', 'players'), ('sub', 'sub_players')]:
                     expected = {}
-                    for match in matches:
+                    for match in counted(matches):
                         for p in documents[f"matches/{match['id']}.json"].get('players', []):
                             if p.get('appearance_role', 'roster') == role:
                                 expected.setdefault(p['slug'], []).append(p)
@@ -166,7 +190,9 @@ def validate_public_data(root: Path) -> int:
         for m in maps:
             original = documents.get(f"matches/{m['id']}.json", {})
             if any(original.get(k) != series.get(k) or m.get(k) != series.get(k)
-                   for k in ('series_id', 'team_slug', 'team_name', 'season', 'opponent', 'week', 'notes')):
+                   for k in ('series_id', 'team_slug', 'team_name', 'season', 'opponent', 'week', 'notes')) or any(
+                       value.get('exclude_from_stats', False) != series.get('exclude_from_stats', False)
+                       for value in (original, m)):
                 raise ValueError('Website series map metadata differs.')
         for player in series.get('players', []):
             if player['slug'] not in player_slugs:
@@ -207,8 +233,10 @@ def validate_public_data(root: Path) -> int:
                     if p['slug'] == document['slug'] and p.get('appearance_role', 'roster') == 'roster':
                         expected[m['id']] = p
             ids = [m['id'] for m in document.get('matches', [])]
-            if (len(ids) != len(set(ids)) or set(ids) != set(expected) or document['maps'] != len(expected) or
-                    any(document[k] != sum(p[k] for p in expected.values()) for k in ('rounds', 'kills', 'deaths', 'plants', 'disables', 'clutches'))):
+            included = {mid: p for mid, p in expected.items()
+                        if not documents[f'matches/{mid}.json'].get('exclude_from_stats', False)}
+            if (len(ids) != len(set(ids)) or set(ids) != set(expected) or document['maps'] != len(included) or
+                    any(document[k] != sum(p[k] for p in included.values()) for k in ('rounds', 'kills', 'deaths', 'plants', 'disables', 'clutches'))):
                 raise ValueError('Website normal player profile contains incorrect appearance scope.')
             for team in document['sub_teams']:
                 profile = documents.get(f"players/{document['slug']}/subs/{team['team_slug']}/{period}.json")
@@ -223,7 +251,7 @@ def validate_public_data(root: Path) -> int:
                 document.get('season') != period or slug not in player_slugs):
             raise ValueError('Website substitute profile scope differs.')
         ids = [m['id'] for m in document.get('matches', [])]
-        if len(ids) != len(set(ids)) or document['maps'] != len(ids):
+        if len(ids) != len(set(ids)) or document['maps'] != len(counted(document.get('matches', []))):
             raise ValueError('Website substitute profile map inventory differs.')
         if entry is None:
             if document.get('rounds') or document.get('maps') or document.get('rating') is not None:

@@ -12,7 +12,7 @@ export function RatingTrend({series,teams}:{series:SeriesPoint[];teams:Team[]}){
  const x=(i:number)=>58+i*604/(points.length-1),y=(rating:number)=>180-(rating-min)*140/(max-min)
  return <section className="panel rating-trend" aria-label="Player Series Rating trend">
   <div className="trend-heading"><div><span className="eyebrow">SERIES BY SERIES</span><h2>Rating trend</h2></div><span className="section-aside">{points.length} of {series.length} series {points.length===1?'has a complete Rating':'have complete Ratings'}</span></div>
-  <p>Each point covers every map and round played as a regular roster member in that matchup. Incomplete series and substitute appearances are excluded.</p>
+  <p>Each point covers every map and round played as a regular roster member in that matchup. Series marked no count, incomplete series and substitute appearances are excluded.</p>
   {points.length<2?<p className="trend-pending">{points.length===1?'Rating trend will appear after another fully rated series.':'Rating trend will appear after two fully rated series.'}</p>:<svg className="trend-svg" viewBox="0 0 720 215" role="group" aria-label="Complete Series Ratings, oldest to newest">
    <text x="8" y="48">{decimal(max)}</text><text x="8" y="183">{decimal(min)}</text>
    <line x1="58" x2="662" y1={y(1)} y2={y(1)} className="trend-reference"/><text x="673" y={y(1)+4}>1.00</text>

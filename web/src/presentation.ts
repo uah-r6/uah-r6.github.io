@@ -6,7 +6,7 @@ export function embedSeason(seasons:{slug:string}[], active:string|null, explici
   return seasons.some(s=>s.slug===requested)?requested:null
 }
 export function ratingHistory(matches:Match[]):Match[] {
-  return matches.map((map,ordinal)=>({map,ordinal})).filter(({map})=>map.rating_eligible!==false&&map.rating_version==='siege_style_v3'&&typeof map.rating==='number'&&Number.isFinite(map.rating))
+  return matches.map((map,ordinal)=>({map,ordinal})).filter(({map})=>!map.exclude_from_stats&&map.rating_eligible!==false&&map.rating_version==='siege_style_v3'&&typeof map.rating==='number'&&Number.isFinite(map.rating))
     .sort((a,b)=>a.map.date.localeCompare(b.map.date)||b.ordinal-a.ordinal).map(({map})=>map)
 }
 export function seriesRatingHistory(series:SeriesPoint[]):SeriesPoint[]{
@@ -15,7 +15,7 @@ export function seriesRatingHistory(series:SeriesPoint[]):SeriesPoint[]{
     const key=JSON.stringify([point.id,point.team_slug,point.season])
     if(seen.has(key))return false
     seen.add(key)
-    return point.rating_version==='siege_style_v3'&&completeSeriesRating(point)&&typeof point.rating==='number'&&Number.isFinite(point.rating)
+    return !point.exclude_from_stats&&point.rating_version==='siege_style_v3'&&completeSeriesRating(point)&&typeof point.rating==='number'&&Number.isFinite(point.rating)
   }).sort((a,b)=>a.point.date.localeCompare(b.point.date)||b.ordinal-a.ordinal).map(({point})=>point)
 }
 export function completeSeriesRating(point:Pick<SeriesPoint,'maps'|'rating_maps'|'rounds'|'rating_rounds'>):boolean{

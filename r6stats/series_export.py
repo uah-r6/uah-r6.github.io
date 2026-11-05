@@ -69,6 +69,7 @@ class SeriesProjection:
 
 def player_series(document, player):
     """Small, public-only player-specific series history for season/career charts."""
-    return {**{k: document[k] for k in ('id', 'series_id', 'team_slug', 'team_name', 'season',
+    return {**({'exclude_from_stats': document['exclude_from_stats']} if 'exclude_from_stats' in document else {}),
+            **{k: document[k] for k in ('id', 'series_id', 'team_slug', 'team_name', 'season',
                                       'season_name', 'opponent', 'date', 'recorded_maps', 'rating_version')},
             **{k: player[k] for k in ('rating', 'rating_maps', 'rating_rounds', 'maps', 'rounds')}}
