@@ -83,21 +83,21 @@
       "slug": "border",
       "name": "Border",
       "supported": true,
-      "maps_played": 5,
-      "map_wins": 3,
+      "maps_played": 6,
+      "map_wins": 4,
       "map_losses": 2,
-      "rounds": 53,
-      "wins": 27,
-      "losses": 26,
+      "rounds": 62,
+      "wins": 34,
+      "losses": 28,
       "attack": {
-        "rounds": 30,
-        "wins": 12,
+        "rounds": 33,
+        "wins": 15,
         "losses": 18
       },
       "defense": {
-        "rounds": 23,
-        "wins": 15,
-        "losses": 8
+        "rounds": 29,
+        "wins": 19,
+        "losses": 10
       },
       "unknown_side": {
         "rounds": 0,
@@ -106,34 +106,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 53,
-          "opening_kills": 25,
-          "opening_kill_wins": 19,
-          "opening_deaths": 28,
-          "opening_death_wins": 8,
-          "opening_kill_pct": 0.4716981132075472,
-          "conversion_pct": 0.76,
-          "recovery_pct": 0.2857142857142857
+          "eligible_rounds": 62,
+          "opening_kills": 32,
+          "opening_kill_wins": 25,
+          "opening_deaths": 30,
+          "opening_death_wins": 9,
+          "opening_kill_pct": 0.5161290322580645,
+          "conversion_pct": 0.78125,
+          "recovery_pct": 0.3
         },
         "attack": {
-          "eligible_rounds": 30,
-          "opening_kills": 14,
-          "opening_kill_wins": 8,
-          "opening_deaths": 16,
-          "opening_death_wins": 4,
-          "opening_kill_pct": 0.4666666666666667,
-          "conversion_pct": 0.5714285714285714,
-          "recovery_pct": 0.25
+          "eligible_rounds": 33,
+          "opening_kills": 16,
+          "opening_kill_wins": 10,
+          "opening_deaths": 17,
+          "opening_death_wins": 5,
+          "opening_kill_pct": 0.48484848484848486,
+          "conversion_pct": 0.625,
+          "recovery_pct": 0.29411764705882354
         },
         "defense": {
-          "eligible_rounds": 23,
-          "opening_kills": 11,
-          "opening_kill_wins": 11,
-          "opening_deaths": 12,
+          "eligible_rounds": 29,
+          "opening_kills": 16,
+          "opening_kill_wins": 15,
+          "opening_deaths": 13,
           "opening_death_wins": 4,
-          "opening_kill_pct": 0.4782608695652174,
-          "conversion_pct": 1.0,
-          "recovery_pct": 0.3333333333333333
+          "opening_kill_pct": 0.5517241379310345,
+          "conversion_pct": 0.9375,
+          "recovery_pct": 0.3076923076923077
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -151,9 +151,16 @@
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 14,
-            "wins": 7,
+            "rounds": 16,
+            "wins": 9,
             "losses": 7
+          },
+          {
+            "site": "1F Bathroom, 1F Tellers",
+            "unknown": false,
+            "rounds": 9,
+            "wins": 3,
+            "losses": 6
           },
           {
             "site": "1F Ventilation Room, 1F Workshop",
@@ -161,41 +168,46 @@
             "rounds": 8,
             "wins": 3,
             "losses": 5
-          },
-          {
-            "site": "1F Bathroom, 1F Tellers",
-            "unknown": false,
-            "rounds": 8,
-            "wins": 2,
-            "losses": 6
           }
         ],
         "Defense": [
           {
             "site": "2F Armory Lockers, 2F Archives",
             "unknown": false,
-            "rounds": 10,
-            "wins": 6,
+            "rounds": 12,
+            "wins": 8,
             "losses": 4
           },
           {
             "site": "1F Bathroom, 1F Tellers",
             "unknown": false,
-            "rounds": 7,
-            "wins": 5,
+            "rounds": 9,
+            "wins": 7,
             "losses": 2
           },
           {
             "site": "1F Ventilation Room, 1F Workshop",
             "unknown": false,
-            "rounds": 6,
+            "rounds": 8,
             "wins": 4,
-            "losses": 2
+            "losses": 4
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "906de3be8e4b",
+          "series_id": "9d93dbe21a19",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "UF",
+          "date": "2026-11-11",
+          "map": "Border",
+          "our_score": 7,
+          "their_score": 2,
+          "result": "WIN"
+        },
         {
           "id": "13fa2aac396e",
           "series_id": "d539e8a41f66",
@@ -827,21 +839,21 @@
       "slug": "nighthaven-labs",
       "name": "Nighthaven Labs",
       "supported": true,
-      "maps_played": 2,
-      "map_wins": 1,
+      "maps_played": 3,
+      "map_wins": 2,
       "map_losses": 1,
-      "rounds": 20,
-      "wins": 11,
-      "losses": 9,
+      "rounds": 29,
+      "wins": 18,
+      "losses": 11,
       "attack": {
-        "rounds": 8,
-        "wins": 5,
-        "losses": 3
+        "rounds": 11,
+        "wins": 7,
+        "losses": 4
       },
       "defense": {
-        "rounds": 12,
-        "wins": 6,
-        "losses": 6
+        "rounds": 18,
+        "wins": 11,
+        "losses": 7
       },
       "unknown_side": {
         "rounds": 0,
@@ -850,34 +862,34 @@
       },
       "opening_engagements": {
         "overall": {
-          "eligible_rounds": 20,
-          "opening_kills": 10,
-          "opening_kill_wins": 8,
-          "opening_deaths": 10,
-          "opening_death_wins": 3,
-          "opening_kill_pct": 0.5,
-          "conversion_pct": 0.8,
-          "recovery_pct": 0.3
+          "eligible_rounds": 29,
+          "opening_kills": 16,
+          "opening_kill_wins": 14,
+          "opening_deaths": 13,
+          "opening_death_wins": 4,
+          "opening_kill_pct": 0.5517241379310345,
+          "conversion_pct": 0.875,
+          "recovery_pct": 0.3076923076923077
         },
         "attack": {
-          "eligible_rounds": 8,
-          "opening_kills": 3,
-          "opening_kill_wins": 3,
-          "opening_deaths": 5,
+          "eligible_rounds": 11,
+          "opening_kills": 5,
+          "opening_kill_wins": 5,
+          "opening_deaths": 6,
           "opening_death_wins": 2,
-          "opening_kill_pct": 0.375,
+          "opening_kill_pct": 0.45454545454545453,
           "conversion_pct": 1.0,
-          "recovery_pct": 0.4
+          "recovery_pct": 0.3333333333333333
         },
         "defense": {
-          "eligible_rounds": 12,
-          "opening_kills": 7,
-          "opening_kill_wins": 5,
-          "opening_deaths": 5,
-          "opening_death_wins": 1,
-          "opening_kill_pct": 0.5833333333333334,
-          "conversion_pct": 0.7142857142857143,
-          "recovery_pct": 0.2
+          "eligible_rounds": 18,
+          "opening_kills": 11,
+          "opening_kill_wins": 9,
+          "opening_deaths": 7,
+          "opening_death_wins": 2,
+          "opening_kill_pct": 0.6111111111111112,
+          "conversion_pct": 0.8181818181818182,
+          "recovery_pct": 0.2857142857142857
         },
         "unknown_side": {
           "eligible_rounds": 0,
@@ -895,22 +907,22 @@
           {
             "site": "2F Command Center, 2F Servers",
             "unknown": false,
+            "rounds": 5,
+            "wins": 3,
+            "losses": 2
+          },
+          {
+            "site": "1F Storage, 1F Control Room",
+            "unknown": false,
             "rounds": 4,
             "wins": 3,
             "losses": 1
           },
           {
-            "site": "1F Storage, 1F Control Room",
-            "unknown": false,
-            "rounds": 3,
-            "wins": 2,
-            "losses": 1
-          },
-          {
             "site": "B Assembly, B Tank",
             "unknown": false,
-            "rounds": 1,
-            "wins": 0,
+            "rounds": 2,
+            "wins": 1,
             "losses": 1
           }
         ],
@@ -918,28 +930,40 @@
           {
             "site": "1F Storage, 1F Control Room",
             "unknown": false,
-            "rounds": 4,
-            "wins": 2,
+            "rounds": 6,
+            "wins": 4,
             "losses": 2
           },
           {
             "site": "2F Command Center, 2F Servers",
             "unknown": false,
-            "rounds": 4,
-            "wins": 2,
+            "rounds": 6,
+            "wins": 4,
             "losses": 2
           },
           {
             "site": "B Assembly, B Tank",
             "unknown": false,
-            "rounds": 4,
-            "wins": 2,
-            "losses": 2
+            "rounds": 6,
+            "wins": 3,
+            "losses": 3
           }
         ],
         "Unknown": []
       },
       "matches": [
+        {
+          "id": "e5c8109d9f63",
+          "series_id": "9d93dbe21a19",
+          "season": "fall-2026",
+          "team_slug": "blue",
+          "opponent": "UF",
+          "date": "2026-11-11",
+          "map": "Nighthaven Labs",
+          "our_score": 7,
+          "their_score": 2,
+          "result": "WIN"
+        },
         {
           "id": "568a2d439ef7",
           "series_id": "84fdf42b4de1",
