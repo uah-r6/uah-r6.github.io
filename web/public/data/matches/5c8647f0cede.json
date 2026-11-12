@@ -64,6 +64,8 @@
           "rounds": 7,
           "kills": 5,
           "deaths": 5,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 1.0,
           "kpr": 0.7142857142857143
         },
@@ -71,6 +73,8 @@
           "rounds": 7,
           "kills": 5,
           "deaths": 3,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 1.6666666666666667,
           "kpr": 0.7142857142857143
         }
@@ -153,6 +157,8 @@
           "rounds": 7,
           "kills": 6,
           "deaths": 6,
+          "opening_kills": 1,
+          "opening_deaths": 2,
           "kd": 1.0,
           "kpr": 0.8571428571428571
         },
@@ -160,6 +166,8 @@
           "rounds": 7,
           "kills": 4,
           "deaths": 5,
+          "opening_kills": 0,
+          "opening_deaths": 3,
           "kd": 0.8,
           "kpr": 0.5714285714285714
         }
@@ -236,6 +244,8 @@
           "rounds": 7,
           "kills": 3,
           "deaths": 6,
+          "opening_kills": 0,
+          "opening_deaths": 3,
           "kd": 0.5,
           "kpr": 0.42857142857142855
         },
@@ -243,6 +253,8 @@
           "rounds": 7,
           "kills": 8,
           "deaths": 5,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 1.6,
           "kpr": 1.1428571428571428
         }
@@ -324,6 +336,8 @@
           "rounds": 7,
           "kills": 3,
           "deaths": 7,
+          "opening_kills": 0,
+          "opening_deaths": 1,
           "kd": 0.42857142857142855,
           "kpr": 0.42857142857142855
         },
@@ -331,6 +345,8 @@
           "rounds": 7,
           "kills": 10,
           "deaths": 5,
+          "opening_kills": 3,
+          "opening_deaths": 1,
           "kd": 2.0,
           "kpr": 1.4285714285714286
         }
@@ -408,6 +424,8 @@
           "rounds": 7,
           "kills": 10,
           "deaths": 4,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 2.5,
           "kpr": 1.4285714285714286
         },
@@ -415,6 +433,8 @@
           "rounds": 7,
           "kills": 4,
           "deaths": 5,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 0.8,
           "kpr": 0.5714285714285714
         }

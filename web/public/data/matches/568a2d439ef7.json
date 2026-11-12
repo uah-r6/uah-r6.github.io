@@ -67,6 +67,8 @@
           "rounds": 5,
           "kills": 4,
           "deaths": 4,
+          "opening_kills": 0,
+          "opening_deaths": 1,
           "kd": 1.0,
           "kpr": 0.8
         },
@@ -74,6 +76,8 @@
           "rounds": 6,
           "kills": 2,
           "deaths": 5,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 0.4,
           "kpr": 0.3333333333333333
         }
@@ -151,6 +155,8 @@
           "rounds": 5,
           "kills": 1,
           "deaths": 3,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 0.3333333333333333,
           "kpr": 0.2
         },
@@ -158,6 +164,8 @@
           "rounds": 6,
           "kills": 1,
           "deaths": 4,
+          "opening_kills": 1,
+          "opening_deaths": 0,
           "kd": 0.25,
           "kpr": 0.16666666666666666
         }
@@ -238,6 +246,8 @@
           "rounds": 5,
           "kills": 4,
           "deaths": 3,
+          "opening_kills": 0,
+          "opening_deaths": 2,
           "kd": 1.3333333333333333,
           "kpr": 0.8
         },
@@ -245,6 +255,8 @@
           "rounds": 6,
           "kills": 8,
           "deaths": 4,
+          "opening_kills": 0,
+          "opening_deaths": 0,
           "kd": 2.0,
           "kpr": 1.3333333333333333
         }
@@ -322,6 +334,8 @@
           "rounds": 5,
           "kills": 6,
           "deaths": 3,
+          "opening_kills": 1,
+          "opening_deaths": 0,
           "kd": 2.0,
           "kpr": 1.2
         },
@@ -329,6 +343,8 @@
           "rounds": 6,
           "kills": 5,
           "deaths": 4,
+          "opening_kills": 1,
+          "opening_deaths": 1,
           "kd": 1.25,
           "kpr": 0.8333333333333334
         }
@@ -409,6 +425,8 @@
           "rounds": 5,
           "kills": 3,
           "deaths": 4,
+          "opening_kills": 0,
+          "opening_deaths": 1,
           "kd": 0.75,
           "kpr": 0.6
         },
@@ -416,6 +434,8 @@
           "rounds": 6,
           "kills": 0,
           "deaths": 6,
+          "opening_kills": 0,
+          "opening_deaths": 3,
           "kd": 0.0,
           "kpr": 0.0
         }

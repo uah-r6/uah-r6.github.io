@@ -37,6 +37,8 @@
       "rounds": 0,
       "kills": 0,
       "deaths": 0,
+      "opening_kills": 0,
+      "opening_deaths": 0,
       "kd": null,
       "kpr": 0
     },
@@ -44,6 +46,8 @@
       "rounds": 0,
       "kills": 0,
       "deaths": 0,
+      "opening_kills": 0,
+      "opening_deaths": 0,
       "kd": null,
       "kpr": 0
     }

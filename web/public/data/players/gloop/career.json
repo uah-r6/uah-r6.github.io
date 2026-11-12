@@ -57,6 +57,8 @@
       "rounds": 39,
       "kills": 27,
       "deaths": 32,
+      "opening_kills": 5,
+      "opening_deaths": 9,
       "kd": 0.84375,
       "kpr": 0.6923076923076923
     },
@@ -64,6 +66,8 @@
       "rounds": 37,
       "kills": 31,
       "deaths": 21,
+      "opening_kills": 2,
+      "opening_deaths": 0,
       "kd": 1.4761904761904763,
       "kpr": 0.8378378378378378
     }
@@ -430,6 +434,8 @@
           "rounds": 39,
           "kills": 27,
           "deaths": 32,
+          "opening_kills": 5,
+          "opening_deaths": 9,
           "kd": 0.84375,
           "kpr": 0.6923076923076923
         },
@@ -437,6 +443,8 @@
           "rounds": 37,
           "kills": 31,
           "deaths": 21,
+          "opening_kills": 2,
+          "opening_deaths": 0,
           "kd": 1.4761904761904763,
           "kpr": 0.8378378378378378
         }

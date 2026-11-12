@@ -52,6 +52,8 @@
       "rounds": 13,
       "kills": 5,
       "deaths": 10,
+      "opening_kills": 0,
+      "opening_deaths": 2,
       "kd": 0.5,
       "kpr": 0.38461538461538464
     },
@@ -59,6 +61,8 @@
       "rounds": 8,
       "kills": 4,
       "deaths": 5,
+      "opening_kills": 1,
+      "opening_deaths": 1,
       "kd": 0.8,
       "kpr": 0.5
     }
