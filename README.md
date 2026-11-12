@@ -162,6 +162,12 @@ the setting. See [series statistics policy](docs/SERIES_STATISTICS_EXCLUSION.md)
 
 ## Import an NECC map in your browser
 
+Rehost segment path fields accept extracted folders or ZIP files. Each ZIP must
+contain one replay folder. The admin keeps a verified private extraction under
+`data/private/rehost-zip-cache/` so preview, confirmation and archive creation
+use the same physical files. Original downloads are unchanged. Select each
+segment separately in competitive order; unrelated maps must not be combined.
+
 Open **Import replay**, then click **Scan replay folder**. The scan lists the 12 most recent replay folders and match types without importing anything. Custom Games with a complete set of rounds are eligible for normal manual selection. Ranked, Standard, Quick Match, and other matchmaking types are ineligible. A one-round Custom Game cannot be imported as a normal map, but can be selected as a segment of an explicitly confirmed rehost. You may also paste the path to one complete match folder or a ZIP containing exactly one whole match folder.
 
 Locally generated Siege folders are named `Match-...` and contain `Match-...-R01.rec`, `-R02.rec`, and so on. The app takes round numbers from those filenames because current siege-dissect output numbers rounds from zero. Missing or duplicate physical round suffixes are rejected. The scan's **roster matches** count means distinct configured active Ubisoft usernames or linked profile IDs found across the replay's rounds; it does not imply that a Custom Game was an NECC match.

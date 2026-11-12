@@ -810,6 +810,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
 
     @app.post("/api/admin/replays/rehost/preview")
     def preview_rehost(payload: RehostPreviewRequest, db: DB):
+        from r6stats.replay_zip import replay_folder
         organization, season = import_context(db, payload.team_id, payload.season_slug)
         paths = []
         for source in payload.segments:
@@ -822,7 +823,7 @@ def create_app(root: Path = PROJECT_ROOT) -> FastAPI:
                     Path(source.path).expanduser())
             if path is None:
                 raise ValueError("Replay selection expired. Scan the folder again.")
-            paths.append(path)
+            paths.append(replay_folder(path, root/'data/private/rehost-zip-cache'))
         exclusions = [item.model_dump() for item in payload.exclusions]
         logical, manifest, digest = assemble_rehost(paths, exclusions)
         match = logical.match
