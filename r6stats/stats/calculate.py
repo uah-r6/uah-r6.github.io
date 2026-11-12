@@ -79,8 +79,9 @@ def calculate_rating(s: dict, version: str) -> float:
 
 def empty() -> dict:
     return {**dict.fromkeys(COUNTS, 0), "operators": {"Attack": {}, "Defense": {}},
-            "sides": {"Attack": {"rounds": 0, "kills": 0, "deaths": 0},
-                      "Defense": {"rounds": 0, "kills": 0, "deaths": 0}}}
+            "sides": {side: {"rounds": 0, "kills": 0, "deaths": 0,
+                             "opening_kills": 0, "opening_deaths": 0}
+                      for side in ("Attack", "Defense")}}
 
 
 def chronological(kills):
@@ -190,6 +191,8 @@ def calculate_match(match: Match, trade_window_seconds: float = 8,
                 side["rounds"] += 1
                 side["kills"] += s["kills"]
                 side["deaths"] += s["deaths"]
+                side["opening_kills"] += s["opening_kills"]
+                side["opening_deaths"] += s["opening_deaths"]
                 if player.operator != "Unknown":
                     ops = s["operators"][player.side]
                     ops[player.operator] = ops.get(player.operator, 0) + 1
@@ -201,8 +204,8 @@ def merge(target: dict, source: dict) -> None:
     for key in COUNTS:
         target[key] += source[key]
     for side in ("Attack", "Defense"):
-        for key in ("rounds", "kills", "deaths"):
-            target["sides"][side][key] += source["sides"][side][key]
+        for key in ("rounds", "kills", "deaths", "opening_kills", "opening_deaths"):
+            target["sides"][side][key] += source["sides"][side].get(key, 0)
         for op, count in source["operators"][side].items():
             target["operators"][side][op] = target["operators"][side].get(op, 0) + count
 

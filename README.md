@@ -17,6 +17,14 @@ Public routes use the existing hash router: `/#/teams/blue`, `/#/teams/blue/rost
 
 ## Public presentation and embeds
 
+Player profiles include an **Entry breakdown** for Attack and Defense: opening
+kills/deaths (Entry W–L), difference, success percentage and opening-duel sample
+with rounds played. Success is opening kills divided by opening kills plus
+opening deaths; no duels displays a dash. The breakdown uses the existing Entry
+definition and the selected season/Career and regular/substitute scope. Series
+marked no count are excluded. Side counts are additive public JSON fields;
+the Rating formula and existing totals are unchanged.
+
 Player Stats uses compact cards on phones and the sortable table on larger
 screens. Player profiles include trusted Series Rating trends, and Matches links
 to recorded-series pages with aggregate Player Stats and visible Rating coverage.
