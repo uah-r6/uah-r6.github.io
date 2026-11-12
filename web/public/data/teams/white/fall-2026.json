@@ -42,12 +42,12 @@
       "their_score": 2,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence"
+      "rating_exclusion": null
     },
     {
       "id": "b577e9c0a932",
@@ -261,7 +261,7 @@
         }
       },
       "maps": 8,
-      "rating": 1.084632464902109,
+      "rating": 1.0615652254186778,
       "kd": 1.1551724137931034,
       "kpr": 0.881578947368421,
       "kost": 0.5526315789473685,
@@ -284,8 +284,8 @@
         "4": 3,
         "5": 0
       },
-      "rating_rounds": 67,
-      "rating_maps": 7
+      "rating_rounds": 76,
+      "rating_maps": 8
     },
     {
       "slug": "nachofries-08",
@@ -356,7 +356,7 @@
         }
       },
       "maps": 8,
-      "rating": 0.9135664653183246,
+      "rating": 0.9861420661091044,
       "kd": 1.0784313725490196,
       "kpr": 0.7236842105263158,
       "kost": 0.6052631578947368,
@@ -379,8 +379,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 67,
-      "rating_maps": 7
+      "rating_rounds": 76,
+      "rating_maps": 8
     },
     {
       "slug": "gloop",
@@ -452,7 +452,7 @@
         }
       },
       "maps": 8,
-      "rating": 0.8875532644745094,
+      "rating": 0.9854671515031814,
       "kd": 1.0943396226415094,
       "kpr": 0.7631578947368421,
       "kost": 0.5789473684210527,
@@ -475,8 +475,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 67,
-      "rating_maps": 7
+      "rating_rounds": 76,
+      "rating_maps": 8
     },
     {
       "slug": "ctrlaltdyleted",
@@ -550,7 +550,7 @@
         }
       },
       "maps": 8,
-      "rating": 0.8782308470832052,
+      "rating": 0.9352908640648495,
       "kd": 0.7959183673469388,
       "kpr": 0.5131578947368421,
       "kost": 0.6447368421052632,
@@ -573,8 +573,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 67,
-      "rating_maps": 7
+      "rating_rounds": 76,
+      "rating_maps": 8
     },
     {
       "slug": "jellyholic-uah",
@@ -648,7 +648,7 @@
         }
       },
       "maps": 6,
-      "rating": 0.8605247998963185,
+      "rating": 0.8411712018354371,
       "kd": 0.7906976744186046,
       "kpr": 0.6181818181818182,
       "kost": 0.5454545454545454,
@@ -671,8 +671,8 @@
         "4": 1,
         "5": 0
       },
-      "rating_rounds": 46,
-      "rating_maps": 5
+      "rating_rounds": 55,
+      "rating_maps": 6
     }
   ],
   "rating_version": "siege_style_v3",

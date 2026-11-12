@@ -68,7 +68,7 @@
     }
   },
   "maps": 8,
-  "rating": 0.8875532644745094,
+  "rating": 0.9854671515031814,
   "kd": 1.0943396226415094,
   "kpr": 0.7631578947368421,
   "kost": 0.5789473684210527,
@@ -91,8 +91,8 @@
     "4": 0,
     "5": 0
   },
-  "rating_rounds": 67,
-  "rating_maps": 7,
+  "rating_rounds": 76,
+  "rating_maps": 8,
   "season": "fall-2026",
   "matches": [
     {
@@ -131,13 +131,13 @@
       "their_score": 2,
       "result": "WIN",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "exclude_from_stats": false,
       "team_slug": "white",
       "team_name": "UAH White",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence",
-      "rating": null
+      "rating_exclusion": null,
+      "rating": 1.714381643827739
     },
     {
       "id": "b577e9c0a932",
@@ -290,9 +290,9 @@
         "losses": 0
       },
       "rating_version": "siege_style_v3",
-      "rating": null,
-      "rating_maps": 1,
-      "rating_rounds": 8,
+      "rating": 1.6684213203008074,
+      "rating_maps": 2,
+      "rating_rounds": 17,
       "maps": 2,
       "rounds": 17
     },
@@ -442,7 +442,7 @@
         }
       },
       "maps": 8,
-      "rating": 0.8875532644745094,
+      "rating": 0.9854671515031814,
       "kd": 1.0943396226415094,
       "kpr": 0.7631578947368421,
       "kost": 0.5789473684210527,
@@ -465,8 +465,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 67,
-      "rating_maps": 7
+      "rating_rounds": 76,
+      "rating_maps": 8
     }
   ]
 }
