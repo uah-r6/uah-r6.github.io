@@ -68,6 +68,24 @@ def validate_public_data(root: Path) -> int:
     method = documents.get("methodology.json")
     if not isinstance(index, dict) or not isinstance(method, dict):
         raise ValueError("Website index or methodology JSON is missing.")
+    public_maps = {name[8:-5]: value for name, value in documents.items() if name.startswith('matches/')}
+    first_kills = documents.get('team-first-kills.json')
+    if public_maps and (not isinstance(first_kills, dict) or first_kills.get('schema_version') != 1):
+        raise ValueError('Team first-kill data is missing or invalid.')
+    first_maps = first_kills.get('maps') if first_kills else []
+    if not isinstance(first_maps, list) or {m.get('id') for m in first_maps} != set(public_maps) or len(first_maps) != len(public_maps):
+        raise ValueError('Team first-kill map inventory differs from public matches.')
+    for record in first_maps:
+        original = public_maps[record['id']]
+        if any(record.get(key) != original.get(key) for key in ('series_id','season','opponent','date','map','team_slug','exclude_from_stats','demo')):
+            raise ValueError('Team first-kill map metadata differs.')
+        rounds = record.get('rounds')
+        if not isinstance(rounds, list) or len(rounds) != len(original.get('rounds', [])):
+            raise ValueError('Team first-kill round inventory differs.')
+        for fact, public_round in zip(rounds, original['rounds']):
+            if any(fact.get(key) != public_round.get(key) for key in ('number','side','result')) or fact.get('status') not in ('recorded','no_kill','unresolved') or (
+                (fact['status'] == 'recorded') != bool(fact.get('player_slug') and fact.get('player_name'))):
+                raise ValueError('Team first-kill round fact is invalid.')
     if index.get("rating_version") != method.get("rating_version"):
         raise ValueError("Website rating versions do not agree.")
     for season in index.get("seasons", []):

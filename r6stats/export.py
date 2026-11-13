@@ -7,6 +7,7 @@ from pathlib import Path
 from r6stats.parser.models import Match
 from r6stats.map_analytics import build_analytics, project_pool
 from r6stats.opening_engagements import round_facts, summarize, summarize_maps
+from r6stats.team_first_kill import round_facts as first_kill_facts
 from r6stats.db import map_pool
 from r6stats.series_export import SeriesProjection, player_series
 from r6stats.round_highlights import curate, objective_match
@@ -60,6 +61,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     sub_records = defaultdict(lambda: defaultdict(list))
     sub_matches = defaultdict(lambda: defaultdict(list))
     identities = {p['id']: {'slug': p['slug'], 'name': p['display_name'], 'status': p['status']} for p in players}
+    team_first_kills = []
     organizations = [dict(r) for r in db.execute("SELECT * FROM teams ORDER BY display_order,id")]
     by_id = {t["id"]: t for t in organizations}
     rows = db.execute("""SELECT m.*, s.opponent,s.date,s.week,s.notes,s.demo,s.exclude_from_stats,s.id AS series_public,
@@ -165,6 +167,8 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
                 if key in historical_bindings and historical_bindings[key] != player_id:
                     raise ValueError('Ambiguous historical series player identity.')
                 historical_bindings[key] = player_id
+        team_first_kills.append({**{key: public[key] for key in ('id', 'series_id', 'season', 'opponent', 'date', 'map', 'team_slug', 'team_name', 'exclude_from_stats', 'demo')},
+                                 'rounds': first_kill_facts(match, row['our_team'], historical_bindings, identities)})
         records = json.loads(db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (row['id'],)).fetchone()[0]) if credit is not None else []
         highlights = curate(objective_match(db, row, match), credit if not corrections else None,
                             records, historical_bindings, identities, row['our_team'])
@@ -333,6 +337,7 @@ def export(db, config: dict, root: Path = Path("web/public/data")) -> None:
     for career in careers:
         career.pop('series_ratings', None)  # Trend history belongs to profiles, not table rows.
     write(root / "seasons" / "career.json", summary([m for ms in season_matches.values() for m in ms], careers, "career", "Program career"))
+    write(root / 'team-first-kills.json', {'schema_version': 1, 'maps': team_first_kills})
     write(root / "index.json", {"team": config["team"], "program": config.get("program", {"name": "UAH Rainbow Six Siege", "short_name": "UAH R6"}),
                                 "teams": public_teams, "active_season": active,
                                 "seasons": [{"slug": s["slug"], "name": s["name"],

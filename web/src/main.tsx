@@ -28,6 +28,7 @@ import {recentSeries} from './publicView'
 import './publicLayout.css'
 import {MatchDiscovery} from './MatchesPage'
 import {TeamMaps} from './TeamMaps'
+import {TeamFirstKills} from './TeamFirstKills'
 import {OpeningStats} from './OpeningStats'
 import './embed.css'
 const pct=(n:number)=>`${Math.round(n*100)}%`
@@ -55,7 +56,7 @@ function App(){
       <nav aria-label="Main navigation"><NavLink end to="/">Program</NavLink><NavLink to="/players?team=blue">Player Stats</NavLink><NavLink to="/matches">Matches</NavLink><NavLink to="/methodology">Methodology</NavLink><NavLink to="/submit">Submit Replays</NavLink></nav>
       {location.pathname!=='/submit'&&<label className="season-select">VIEW <select aria-label="Statistics period" value={viewSeason} onChange={e=>change(e.target.value)}>{index.seasons.map(s=><option key={s.slug} value={s.slug}>{s.name}</option>)}<option value="career">Career · all seasons</option></select></label>}
     </header>
-    <main><Routes><Route path="/submit" element={<SubmitPage teams={index.teams} seasons={index.seasons}/>}/><Route path="/" element={<ProgramHome index={index} season={season}/>}/><Route path="/teams/:teamSlug/*" element={<TeamView index={index} season={viewSeason}/>}/><Route path="/players" element={<MainPlayerStats index={index} season={season}/>}/><Route path="/players/:slug" element={<PlayerPage season={season} period={periodName(index,season)} teams={index.teams}/>}/><Route path="/matches" element={<MatchDiscovery index={index} season={viewSeason}/>}/><Route path="/series/:seriesId" element={<SeriesPage teams={index.teams}/>}/><Route path="/matches/:id" element={<MapPage teams={index.teams} seasons={index.seasons}/>}/><Route path="/methodology/*" element={<Methodology/>}/><Route path="*" element={<NotFound/>}/></Routes></main>
+    <main><Routes><Route path="/submit" element={<SubmitPage teams={index.teams} seasons={index.seasons}/>}/><Route path="/team-first-kills" element={<TeamFirstKills index={index}/>}/><Route path="/" element={<ProgramHome index={index} season={season}/>}/><Route path="/teams/:teamSlug/*" element={<TeamView index={index} season={viewSeason}/>}/><Route path="/players" element={<MainPlayerStats index={index} season={season}/>}/><Route path="/players/:slug" element={<PlayerPage season={season} period={periodName(index,season)} teams={index.teams}/>}/><Route path="/matches" element={<MatchDiscovery index={index} season={viewSeason}/>}/><Route path="/series/:seriesId" element={<SeriesPage teams={index.teams}/>}/><Route path="/matches/:id" element={<MapPage teams={index.teams} seasons={index.seasons}/>}/><Route path="/methodology/*" element={<Methodology/>}/><Route path="*" element={<NotFound/>}/></Routes></main>
     <footer><span>UAH Rainbow Six Siege · NECC statistics{index.generated_at&&<Freshness value={index.generated_at}/>}</span><Link to="/methodology">Definitions & Rating coverage</Link></footer>
   </div>
 }
