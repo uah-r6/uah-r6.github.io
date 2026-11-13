@@ -1,0 +1,2709 @@
+{
+  "schema_version": 1,
+  "maps": [
+    {
+      "id": "fb5e4b1e277e",
+      "series_id": "14277a1ef847",
+      "season": "fall-2026",
+      "opponent": "WVU Tech",
+      "date": "2026-11-11",
+      "map": "Clubhouse",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "4f6def246de3",
+      "series_id": "14277a1ef847",
+      "season": "fall-2026",
+      "opponent": "WVU Tech",
+      "date": "2026-11-11",
+      "map": "Nighthaven Labs",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "f27b1b830ee0",
+      "series_id": "14277a1ef847",
+      "season": "fall-2026",
+      "opponent": "WVU Tech",
+      "date": "2026-11-11",
+      "map": "Border",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "e5c8109d9f63",
+      "series_id": "9d93dbe21a19",
+      "season": "fall-2026",
+      "opponent": "UF",
+      "date": "2026-11-11",
+      "map": "Nighthaven Labs",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "906de3be8e4b",
+      "series_id": "9d93dbe21a19",
+      "season": "fall-2026",
+      "opponent": "UF",
+      "date": "2026-11-11",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "5d253393b170",
+      "series_id": "3caeefb3fa26",
+      "season": "fall-2026",
+      "opponent": "AVL",
+      "date": "2026-11-04",
+      "map": "Chalet",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "140cedd0f64e",
+      "series_id": "3caeefb3fa26",
+      "season": "fall-2026",
+      "opponent": "AVL",
+      "date": "2026-11-04",
+      "map": "Nighthaven Labs",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "13fa2aac396e",
+      "series_id": "d539e8a41f66",
+      "season": "fall-2026",
+      "opponent": "LSU",
+      "date": "2026-11-04",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "805cc1e54409",
+      "series_id": "d539e8a41f66",
+      "season": "fall-2026",
+      "opponent": "LSU",
+      "date": "2026-11-04",
+      "map": "Lair",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "b577e9c0a932",
+      "series_id": "651eaa636954",
+      "season": "fall-2026",
+      "opponent": "Niner Esports Gold",
+      "date": "2026-10-28",
+      "map": "Clubhouse",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "5c8647f0cede",
+      "series_id": "651eaa636954",
+      "season": "fall-2026",
+      "opponent": "Niner Esports Gold",
+      "date": "2026-10-28",
+      "map": "Nighthaven Labs",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 13,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 14,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "568a2d439ef7",
+      "series_id": "84fdf42b4de1",
+      "season": "fall-2026",
+      "opponent": "Lackawanna",
+      "date": "2026-10-28",
+      "map": "Nighthaven Labs",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "8171f81619b8",
+      "series_id": "84fdf42b4de1",
+      "season": "fall-2026",
+      "opponent": "Lackawanna",
+      "date": "2026-10-28",
+      "map": "Lair",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        }
+      ]
+    },
+    {
+      "id": "f6b47d188e06",
+      "series_id": "75fc196ae42f",
+      "season": "fall-2026",
+      "opponent": "NC State Black",
+      "date": "2026-10-21",
+      "map": "Clubhouse",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "461366e5ceec",
+      "series_id": "75fc196ae42f",
+      "season": "fall-2026",
+      "opponent": "NC State Black",
+      "date": "2026-10-21",
+      "map": "Chalet",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "jellyholic-uah",
+          "player_name": "Jellyholic.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "3e1ce794abf2",
+      "series_id": "6ff6c295e0a2",
+      "season": "fall-2026",
+      "opponent": "Manitoba",
+      "date": "2026-10-21",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "45df1ff535b6",
+      "series_id": "6ff6c295e0a2",
+      "season": "fall-2026",
+      "opponent": "Manitoba",
+      "date": "2026-10-21",
+      "map": "Fortress",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        }
+      ]
+    },
+    {
+      "id": "6cf538b7474e",
+      "series_id": "bcdadcecac5e",
+      "season": "fall-2026",
+      "opponent": "West Point",
+      "date": "2026-10-14",
+      "map": "Fortress",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "e67c30608158",
+      "series_id": "bcdadcecac5e",
+      "season": "fall-2026",
+      "opponent": "West Point",
+      "date": "2026-10-14",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "035ff71d4884",
+      "series_id": "ada4becd7c74",
+      "season": "fall-2026",
+      "opponent": "FSU Maroon",
+      "date": "2026-10-07",
+      "map": "Nighthaven Labs",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinoted11",
+          "player_name": "Dinoted11",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "nachofries-08",
+          "player_name": "Nachofries_08",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 13,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 14,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "5525677668c0",
+      "series_id": "ada4becd7c74",
+      "season": "fall-2026",
+      "opponent": "FSU Maroon",
+      "date": "2026-10-07",
+      "map": "Border",
+      "team_slug": "white",
+      "team_name": "UAH White",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ctrlaltdyleted",
+          "player_name": "CtrlAltDyleted",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinoted11",
+          "player_name": "Dinoted11",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "gloop",
+          "player_name": "Gloop...",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "flex-uah",
+          "player_name": "Flex.UAH",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "9db26f1b6ca7",
+      "series_id": "40bf93b16f97",
+      "season": "fall-2026",
+      "opponent": "UCF",
+      "date": "2026-10-06",
+      "map": "Nighthaven Labs",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "8af0a6db6c39",
+      "series_id": "40bf93b16f97",
+      "season": "fall-2026",
+      "opponent": "UCF",
+      "date": "2026-10-06",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "b595ffaaec57",
+      "series_id": "1a106d1b2f89",
+      "season": "fall-2026",
+      "opponent": "University of Michigan",
+      "date": "2026-09-30",
+      "map": "Chalet",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "076d2b6b02bc",
+      "series_id": "1a106d1b2f89",
+      "season": "fall-2026",
+      "opponent": "University of Michigan",
+      "date": "2026-09-30",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "5adc26f7a402",
+      "series_id": "170b708e12f1",
+      "season": "fall-2026",
+      "opponent": "Placements",
+      "date": "2026-09-23",
+      "map": "Kafe Dostoyevsky",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": true,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 13,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 14,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "8a6357ff307c",
+      "series_id": "170b708e12f1",
+      "season": "fall-2026",
+      "opponent": "Placements",
+      "date": "2026-09-23",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": true,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": null,
+          "player_name": null,
+          "status": "no_kill"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 13,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 14,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "d64d5478cdb3",
+      "series_id": "170b708e12f1",
+      "season": "fall-2026",
+      "opponent": "Placements",
+      "date": "2026-09-23",
+      "map": "Fortress",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": true,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        }
+      ]
+    }
+  ]
+}
