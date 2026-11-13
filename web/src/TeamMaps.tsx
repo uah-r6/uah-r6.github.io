@@ -40,7 +40,7 @@ export function TeamMaps({team,season,mapSlug}:{team:Team;season:string;mapSlug?
       <section className="map-history"><div className="section-title"><h3>Recent matches on {map.name}</h3></div><ul>{map.matches.map(m=><li key={m.id}><Link to={`/matches/${m.id}`}><span><b>vs {m.opponent}</b><small>{displayDate(m.date)}</small></span><span><strong>{m.our_score}–{m.their_score}</strong><span className={`badge ${m.result.toLowerCase()}`}>{m.result}</span></span></Link></li>)}</ul></section>
     </>}
   </section>
-  return <section className="team-maps"><div className="heading"><span className="eyebrow">TEAM / MAP PERFORMANCE</span><h2>Maps</h2><p>Map records, side performance and the sites behind each result.</p></div>{explanation}<p><Link to={`/team-first-kills?team=${team.slug}&season=${season}`}>Inspect who gets UAH?s first kill each round ?</Link></p>
+  return <section className="team-maps"><div className="heading"><span className="eyebrow">TEAM / MAP PERFORMANCE</span><h2>Maps</h2><p>Map records, side performance and the sites behind each result.</p></div>{explanation}<p><Link to={`/team-first-kills?team=${team.slug}&season=${season}`}>Inspect who gets UAH first kill each round</Link> | <Link to={`/team-first-deaths?team=${team.slug}&season=${season}`}>Inspect who dies first on UAH each round</Link></p>
     {!data.maps.length&&<div className="empty">{data.pool.configured?'No maps are in this competitive pool.':'Competitive map pool is not available for this period yet.'}</div>}
     <div className="map-analytics-grid">{data.maps.map(m=><article className={`map-analytics-card${m.maps_played?'':' unplayed'}`} key={m.slug}>
       <h3><Link to={`${base}/${m.slug}${query}`}>{m.name}</Link></h3>
