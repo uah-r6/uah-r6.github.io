@@ -129,7 +129,7 @@ func explicitEmptyParticipantInventory(h Header, initial []Player, data []byte, 
 	return map[string]any{"source": emptyInventorySource, "action_offset": h.ActionPhaseStartOffset, "slots": slots}
 }
 
-func explicitInventoryValid(h Header) bool {
+func explicitEmptyInventoryValid(h Header) bool {
 	if len(h.Players) != 9 || h.ParticipantEvidence == nil || !h.ActionPhaseDetected {
 		return false
 	}

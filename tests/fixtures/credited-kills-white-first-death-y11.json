@@ -1,0 +1,687 @@
+{
+  "provenance": {
+    "note": "Selected typed observations only; UIDs ordinalized and names anonymized; exact offsets/counters retained; no replay bytes.",
+    "replay_sha256": "83f9535f8b84a1794e620d27d8be2ef56b94d7a1c95e62dd390a0b8d1df2a2a0",
+    "round": 8
+  },
+  "evidence": {
+    "header": {
+      "gameVersion": "",
+      "codeVersion": 9966156,
+      "timestamp": "0001-01-01T00:00:00Z",
+      "matchType": {
+        "name": "MatchType(0)",
+        "id": 0
+      },
+      "map": {
+        "name": "Map(0)",
+        "id": 0
+      },
+      "recordingPlayerID": 0,
+      "additionalTags": "",
+      "gamemode": {
+        "name": "GameMode(0)",
+        "id": 0
+      },
+      "roundsPerMatch": 0,
+      "roundsPerMatchOvertime": 0,
+      "roundNumber": 7,
+      "overtimeRoundNumber": 0,
+      "teams": [
+        {
+          "name": "",
+          "startingScore": 5,
+          "score": 5,
+          "won": false,
+          "role": "Attack"
+        },
+        {
+          "name": "",
+          "startingScore": 2,
+          "score": 3,
+          "won": true,
+          "winCondition": "KilledOpponents",
+          "role": "Defense"
+        }
+      ],
+      "players": [
+        {
+          "id": 1,
+          "username": "Player1",
+          "teamIndex": 1,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 2,
+          "username": "Player2",
+          "teamIndex": 1,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 3,
+          "username": "Player3",
+          "teamIndex": 1,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 4,
+          "username": "Player4",
+          "teamIndex": 1,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 5,
+          "username": "Player5",
+          "teamIndex": 1,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 6,
+          "username": "Player6",
+          "teamIndex": 0,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 7,
+          "username": "Player7",
+          "teamIndex": 0,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 8,
+          "username": "Player8",
+          "teamIndex": 0,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 9,
+          "username": "Player9",
+          "teamIndex": 0,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        },
+        {
+          "id": 10,
+          "username": "Player10",
+          "teamIndex": 0,
+          "operator": {
+            "name": "Unknown",
+            "id": 0
+          },
+          "alliance": 0
+        }
+      ],
+      "actionPhaseStartOffset": 72761607,
+      "gmSettings": null,
+      "matchID": ""
+    },
+    "declarations": [
+      {
+        "offset": 38125,
+        "owner": 4027490721,
+        "slot": 949690859,
+        "component": 4027490712,
+        "class": 2710676760
+      },
+      {
+        "offset": 42275,
+        "owner": 4027490720,
+        "slot": 949690859,
+        "component": 4027490697,
+        "class": 2710676760
+      },
+      {
+        "offset": 46265,
+        "owner": 4027490719,
+        "slot": 949690859,
+        "component": 4027490682,
+        "class": 2710676760
+      },
+      {
+        "offset": 50679,
+        "owner": 4027490718,
+        "slot": 949690859,
+        "component": 4027490667,
+        "class": 2710676760
+      },
+      {
+        "offset": 54681,
+        "owner": 4027490717,
+        "slot": 949690859,
+        "component": 4027490652,
+        "class": 2710676760
+      },
+      {
+        "offset": 59832,
+        "owner": 4027490640,
+        "slot": 949690859,
+        "component": 4027490631,
+        "class": 2710676760
+      },
+      {
+        "offset": 63439,
+        "owner": 4027490639,
+        "slot": 949690859,
+        "component": 4027490616,
+        "class": 2710676760
+      },
+      {
+        "offset": 67253,
+        "owner": 4027490638,
+        "slot": 949690859,
+        "component": 4027490601,
+        "class": 2710676760
+      },
+      {
+        "offset": 70860,
+        "owner": 4027490637,
+        "slot": 949690859,
+        "component": 4027490586,
+        "class": 2710676760
+      },
+      {
+        "offset": 74674,
+        "owner": 4027490636,
+        "slot": 949690859,
+        "component": 4027490571,
+        "class": 2710676760
+      }
+    ],
+    "properties": [
+      {
+        "offset": 40116,
+        "entity": 4027490721,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 10
+      },
+      {
+        "offset": 44260,
+        "entity": 4027490720,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 7
+      },
+      {
+        "offset": 48435,
+        "entity": 4027490719,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 9
+      },
+      {
+        "offset": 52676,
+        "entity": 4027490718,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 8
+      },
+      {
+        "offset": 56843,
+        "entity": 4027490717,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 6
+      },
+      {
+        "offset": 61799,
+        "entity": 4027490640,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 2
+      },
+      {
+        "offset": 65613,
+        "entity": 4027490639,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 1
+      },
+      {
+        "offset": 69220,
+        "entity": 4027490638,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 3
+      },
+      {
+        "offset": 73034,
+        "entity": 4027490637,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 4
+      },
+      {
+        "offset": 76721,
+        "entity": 4027490636,
+        "tag": 3360019694,
+        "size": 8,
+        "bits": 5
+      },
+      {
+        "offset": 38159,
+        "entity": 4027490712,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 9
+      },
+      {
+        "offset": 42309,
+        "entity": 4027490697,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 8
+      },
+      {
+        "offset": 46299,
+        "entity": 4027490682,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 6
+      },
+      {
+        "offset": 50713,
+        "entity": 4027490667,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 4
+      },
+      {
+        "offset": 54715,
+        "entity": 4027490652,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 3
+      },
+      {
+        "offset": 59866,
+        "entity": 4027490631,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 7
+      },
+      {
+        "offset": 63473,
+        "entity": 4027490616,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 2
+      },
+      {
+        "offset": 67287,
+        "entity": 4027490601,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 3
+      },
+      {
+        "offset": 70894,
+        "entity": 4027490586,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 4
+      },
+      {
+        "offset": 74708,
+        "entity": 4027490571,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 8
+      },
+      {
+        "offset": 73063879,
+        "entity": 4027490712,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 10
+      },
+      {
+        "offset": 73132647,
+        "entity": 4027490682,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 7
+      },
+      {
+        "offset": 73261525,
+        "entity": 4027490601,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 4
+      },
+      {
+        "offset": 73278274,
+        "entity": 4027490586,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 5
+      },
+      {
+        "offset": 73294367,
+        "entity": 4027490586,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 6
+      },
+      {
+        "offset": 73348971,
+        "entity": 4027490586,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 7
+      },
+      {
+        "offset": 73442227,
+        "entity": 4027490601,
+        "tag": 2645676572,
+        "size": 4,
+        "bits": 5
+      }
+    ],
+    "finishes": [
+      {
+        "offset": 0,
+        "feedback": {
+          "type": {
+            "name": "Death",
+            "id": 1
+          },
+          "username": "Player5",
+          "time": "2:52",
+          "timeInSeconds": 172
+        }
+      },
+      {
+        "offset": 73064342,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player10",
+          "target": "Player2",
+          "headshot": true,
+          "time": "1:45",
+          "timeInSeconds": 105,
+          "weaponID": 10929932395
+        }
+      },
+      {
+        "offset": 73133162,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player9",
+          "target": "Player1",
+          "headshot": true,
+          "time": "1:33",
+          "timeInSeconds": 93,
+          "weaponID": 1366019316
+        }
+      },
+      {
+        "offset": 73261930,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player3",
+          "target": "Player10",
+          "headshot": true,
+          "time": "1:03",
+          "timeInSeconds": 63,
+          "weaponID": 1366019616
+        }
+      },
+      {
+        "offset": 73278460,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player4",
+          "target": "Player7",
+          "headshot": true,
+          "time": "0:59",
+          "timeInSeconds": 59,
+          "weaponID": 68967567508
+        }
+      },
+      {
+        "offset": 73294552,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player4",
+          "target": "Player9",
+          "headshot": true,
+          "time": "0:55",
+          "timeInSeconds": 55,
+          "weaponID": 68967567508
+        }
+      },
+      {
+        "offset": 73349139,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player4",
+          "target": "Player8",
+          "headshot": true,
+          "time": "0:36",
+          "timeInSeconds": 36,
+          "weaponID": 68967567508
+        }
+      },
+      {
+        "offset": 73442401,
+        "feedback": {
+          "type": {
+            "name": "Kill",
+            "id": 0
+          },
+          "username": "Player3",
+          "target": "Player6",
+          "headshot": true,
+          "time": "0:05",
+          "timeInSeconds": 5,
+          "weaponID": 1366019616
+        }
+      }
+    ]
+  },
+  "envelopes": [
+    {
+      "feedbackIndex": 0,
+      "startOffset": 72793401,
+      "endOffset": 72793480,
+      "legacyOffset": 0,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Death",
+          "id": 1
+        },
+        "username": "Player5",
+        "time": "2:52",
+        "timeInSeconds": 172
+      }
+    },
+    {
+      "feedbackIndex": 1,
+      "startOffset": 73064256,
+      "endOffset": 73064413,
+      "legacyOffset": 73064342,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player10",
+        "target": "Player2",
+        "headshot": true,
+        "time": "1:45",
+        "timeInSeconds": 105,
+        "weaponID": 10929932395
+      }
+    },
+    {
+      "feedbackIndex": 2,
+      "startOffset": 73133073,
+      "endOffset": 73133233,
+      "legacyOffset": 73133162,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player9",
+        "target": "Player1",
+        "headshot": true,
+        "time": "1:33",
+        "timeInSeconds": 93,
+        "weaponID": 1366019316
+      }
+    },
+    {
+      "feedbackIndex": 3,
+      "startOffset": 73261844,
+      "endOffset": 73262001,
+      "legacyOffset": 73261930,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player3",
+        "target": "Player10",
+        "headshot": true,
+        "time": "1:03",
+        "timeInSeconds": 63,
+        "weaponID": 1366019616
+      }
+    },
+    {
+      "feedbackIndex": 4,
+      "startOffset": 73278370,
+      "endOffset": 73278531,
+      "legacyOffset": 73278460,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player4",
+        "target": "Player7",
+        "headshot": true,
+        "time": "0:59",
+        "timeInSeconds": 59,
+        "weaponID": 68967567508
+      }
+    },
+    {
+      "feedbackIndex": 5,
+      "startOffset": 73294463,
+      "endOffset": 73294623,
+      "legacyOffset": 73294552,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player4",
+        "target": "Player9",
+        "headshot": true,
+        "time": "0:55",
+        "timeInSeconds": 55,
+        "weaponID": 68967567508
+      }
+    },
+    {
+      "feedbackIndex": 6,
+      "startOffset": 73349046,
+      "endOffset": 73349210,
+      "legacyOffset": 73349139,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player4",
+        "target": "Player8",
+        "headshot": true,
+        "time": "0:36",
+        "timeInSeconds": 36,
+        "weaponID": 68967567508
+      }
+    },
+    {
+      "feedbackIndex": 7,
+      "startOffset": 73442320,
+      "endOffset": 73442472,
+      "legacyOffset": 73442401,
+      "markerValid": true,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player3",
+        "target": "Player6",
+        "headshot": true,
+        "time": "0:05",
+        "timeInSeconds": 5,
+        "weaponID": 1366019616
+      }
+    }
+  ]
+}

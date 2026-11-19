@@ -8,7 +8,7 @@ test('complete coverage requires every player-specific map and round, with nonze
  const p=load('players/lgon/fall-2026.json').series_ratings[0]
  const before=structuredClone(p)
  assert.equal(completeSeriesRating(p),true)
- for(const changed of [{rating_maps:1},{rating_rounds:p.rounds-1},{maps:0,rating_maps:0},{rounds:0,rating_rounds:0},{rating_maps:3},{rating_rounds:p.rounds+1}])assert.equal(completeSeriesRating({...p,...changed}),false)
+ for(const changed of [{rating_maps:1},{rating_rounds:p.rounds-1},{maps:0,rating_maps:0},{rounds:0,rating_rounds:0},{rating_maps:p.maps+1},{rating_rounds:p.rounds+1}])assert.equal(completeSeriesRating({...p,...changed}),false)
  assert.deepEqual(p,before)
 })
 

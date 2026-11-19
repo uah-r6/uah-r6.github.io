@@ -46,12 +46,18 @@ def audit_map(db, archive_root, map_id):
     inputs, reason = load_inputs(db, map_id)
     prior = db.execute('SELECT * FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone() if db.execute("SELECT 1 FROM sqlite_master WHERE name='map_kill_credit'").fetchone() else None
     credit = validate_map_credit(json.loads(prior['evidence_json'])) if prior else None
+    display_credit_status = 'complete' if credit and credit['complete'] else 'incomplete' if credit else 'absent'
+    from r6stats.rating_credit_evidence import load as load_rating_credit
+    rating_records, _ = load_rating_credit(db, map_id)
+    if rating_records is not None:
+        credit = validate_map_credit(rating_records)
     sidecar = db.execute('SELECT 1 FROM map_v3_objective_evidence WHERE map_id=?', (map_id,)).fetchone() if db.execute("SELECT 1 FROM sqlite_master WHERE name='map_v3_objective_evidence'").fetchone() else None
     scope = db.execute('SELECT s.opponent,t.name AS team FROM series s JOIN teams t ON t.id=s.team_id WHERE s.id=?', (row['series_id'],)).fetchone()
     return dict(map_id=map_id, map=row['map_name'], series_id=row['series_id'], team=scope['team'], opponent=scope['opponent'],
         rounds=len(json.loads(row['normalized_json'])['rounds']), eligible=inputs is not None, exclusion=reason,
         archive=replay_archive.verify(db, archive_root, map_id),
-        credited_status='complete' if credit and credit['complete'] else 'incomplete' if credit else 'absent',
+        credited_status='complete (Rating only)' if rating_records is not None else display_credit_status,
+        display_credited_status=display_credit_status,
         credited_issues=credit['issues'] if credit else [], objective_status='sidecar present' if sidecar else 'normalized only')
 
 
@@ -85,11 +91,12 @@ def repair(db, archive_root: Path, map_id):
     changes, blockers = [], []
     rating_credit = None
     rating_credit_stored = False
+    needs_objective_inventory = False
     manifest_path = Path(before['archive']['path']) / 'manifest.json'
     source_hash = replay_archive.sha256(manifest_path)
     executable = parser_executable()
     parser_hash = replay_archive.sha256(Path(executable)) if executable else None
-    if before['credited_status'] != 'complete':
+    if not before['credited_status'].startswith('complete'):
         observation = credited_refresh.read_archive(db, archive_root, map_id)
         if observation is None:
             blockers.append('Trusted credited reader unavailable.')
@@ -101,10 +108,14 @@ def repair(db, archive_root: Path, map_id):
             else:
                 has_credit = db.execute("SELECT 1 FROM sqlite_master WHERE name='map_kill_credit'").fetchone()
                 prior = db.execute('SELECT * FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone() if has_credit else None
-                if prior and any(inventory_valid(r['credit']['players'],r['credit'].get('participantEvidence')) for r in records):
-                    # A recovered smaller actual roster must not silently replace
-                    # historical finisher counts in the display sidecar.
+                from r6stats.rating_credit_evidence import death_offset_recovery, uid_zero_recovery
+                empty_slot = any(inventory_valid(r['credit']['players'],r['credit'].get('participantEvidence')) for r in records)
+                if prior and (empty_slot or death_offset_recovery(json.loads(prior['evidence_json']), records)
+                              or uid_zero_recovery(json.loads(prior['evidence_json']), records)):
+                    # Proven participation/boundary recovery must not silently
+                    # replace historical finisher counts in the display sidecar.
                     rating_credit = (records, binary)
+                    needs_objective_inventory = empty_slot
                 elif prior:
                     credited_refresh.reconcile_incomplete(db, map_id, records, binary,
                         archive_root=archive_root, fingerprint=prior['fingerprint'], prior_sha256=prior['evidence_sha256'])
@@ -122,7 +133,7 @@ def repair(db, archive_root: Path, map_id):
     original = Match.from_dict(json.loads(row['normalized_json']))
     try:
         validate_objectives(original)
-        if rating_credit is not None:
+        if needs_objective_inventory:
             raise ValueError('Recovered participation requires a fresh archive objective inventory.')
     except ValueError:
         parsed = None

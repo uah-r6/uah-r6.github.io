@@ -26,20 +26,40 @@ type CreditSample struct {
 }
 
 type PlayerKillCredit struct {
-	UID       uint64         `json:"uid"`
-	ProfileID string         `json:"profileID,omitempty"`
-	Username  string         `json:"username"`
-	Team      int            `json:"team"`
-	Initial   *uint32        `json:"initial"`
-	Terminal  *uint32        `json:"terminal"`
-	Kills     *uint32        `json:"kills"`
-	Samples   []CreditSample `json:"samples"`
-	Reason    string         `json:"reason"`
+	UID        uint64            `json:"uid"`
+	ProfileID  string            `json:"profileID,omitempty"`
+	Username   string            `json:"username"`
+	Team       int               `json:"team"`
+	Initial    *uint32           `json:"initial"`
+	Terminal   *uint32           `json:"terminal"`
+	Kills      *uint32           `json:"kills"`
+	Samples    []CreditSample    `json:"samples"`
+	Reason     string            `json:"reason"`
+	CounterGap *CreditCounterGap `json:"counterGap,omitempty"`
+}
+
+// This records the physical source of a missing counter during an in-round
+// UID replacement. A later round must independently anchor the value; this
+// observation alone never supplies a kill count.
+type CreditCounterGap struct {
+	Source            string `json:"source"`
+	Owner             uint32 `json:"owner"`
+	OldUID            uint64 `json:"oldUID"`
+	NewUID            uint64 `json:"newUID"`
+	OldUIDOffset      int    `json:"oldUIDOffset"`
+	NewUIDOffset      int    `json:"newUIDOffset"`
+	OldScoreComponent uint32 `json:"oldScoreComponent"`
+	NewScoreComponent uint32 `json:"newScoreComponent"`
+	OldScoreOffset    int    `json:"oldScoreOffset"`
+	NewScoreOffset    int    `json:"newScoreOffset"`
+	OldSampleOffset   int    `json:"oldSampleOffset"`
+	NewSampleOffset   int    `json:"newSampleOffset"`
 }
 
 type CreditFinish struct {
-	Offset   int         `json:"offset"`
-	Feedback MatchUpdate `json:"feedback"`
+	Offset         int                     `json:"offset"`
+	Feedback       MatchUpdate             `json:"feedback"`
+	OffsetEvidence *NativeFeedbackEnvelope `json:"offsetEvidence,omitempty"`
 }
 
 type RoundKillCredit struct {
@@ -98,25 +118,12 @@ func ValidateKillCreditEvidence(in CreditStructuralEvidence) RoundKillCredit {
 }
 
 // ReadKillCredit uses the same decompression, header, operator and feedback
-// parser. Raw finishes retain their original owner/time. Counter increments
+// parser. Exact callback provenance can supply a standalone Death's missing
+// physical offset; raw feedback retains its original owner/time. Counter increments
 // have packet offsets only: no victim, downer or elimination time is guessed.
 func ReadKillCredit(in io.Reader) (Header, RoundKillCredit, error) {
-	r, err := NewReader(in)
-	if err != nil {
-		return Header{}, RoundKillCredit{}, err
-	}
-	data := r.b
-	finishes := []CreditFinish{}
-	err = r.Read()
-	if !Ok(err) {
-		return r.Header, RoundKillCredit{}, err
-	}
-	for _, f := range r.MatchFeedback {
-		if f.Type == Kill || f.Type == Death {
-			finishes = append(finishes, CreditFinish{Offset: int(f.killOffset), Feedback: f})
-		}
-	}
-	return r.Header, deriveKillCredit(r.Header, data, finishes), nil
+	header, credit, _, _, err := readKillCreditEnvelopes(in)
+	return header, credit, err
 }
 
 // Decode only explicitly framed properties, including inherited fields in a
@@ -233,6 +240,7 @@ func deriveKillCreditObservations(header Header, declarations []objectiveDeclara
 		reason := invalid[i]
 		if len(p.Samples) == 0 {
 			reason = "missing_direct_uid_counter"
+			p.CounterGap = inRoundUIDCounterGap(*p, header.ActionPhaseStartOffset, declarations, uidFields, counters)
 		} else {
 			first, last := p.Samples[0], p.Samples[len(p.Samples)-1]
 			if first.Offset >= firstFinish {
@@ -271,4 +279,83 @@ func deriveKillCreditObservations(header Header, declarations []objectiveDeclara
 		}
 	}
 	return result
+}
+
+func inRoundUIDCounterGap(p PlayerKillCredit, action int64, declarations []objectiveDeclaration, uidFields, counters []objectiveProperty) *CreditCounterGap {
+	if action <= 0 {
+		return nil
+	}
+	var owner uint32
+	var old, next objectiveProperty
+	for _, f := range uidFields {
+		if f.tag == objectiveUIDTag && f.size == 8 && f.bits == p.UID && f.offset < int(action) {
+			if owner != 0 {
+				return nil
+			}
+			owner, old = f.entity, f
+		}
+	}
+	if owner == 0 {
+		return nil
+	}
+	count := 0
+	for _, f := range uidFields {
+		if f.tag != objectiveUIDTag || f.size != 8 || f.entity != owner {
+			continue
+		}
+		count++
+		if f.bits != p.UID && f.bits != 0 && f.offset > int(action) {
+			next = f
+		}
+	}
+	if count != 2 || next.offset == 0 {
+		return nil
+	}
+	var before, after objectiveDeclaration
+	for _, d := range declarations {
+		if d.owner != owner || d.slot != creditScoreSlot || d.class != creditScoreClass || d.component == 0 {
+			continue
+		}
+		if d.offset < int(action) {
+			if before.offset != 0 {
+				return nil
+			}
+			before = d
+		} else {
+			if after.offset != 0 {
+				return nil
+			}
+			after = d
+		}
+	}
+	if before.offset == 0 || after.offset == 0 || before.component == after.component || after.offset > next.offset {
+		return nil
+	}
+	oldSample, newSample := 0, 0
+	for _, c := range counters {
+		if c.entity != before.component && c.entity != after.component {
+			continue
+		}
+		if c.size != 4 || c.bits != 0 {
+			return nil
+		}
+		if c.entity == before.component {
+			if c.offset < before.offset || c.offset >= int(action) || oldSample != 0 {
+				return nil
+			}
+			oldSample = c.offset
+		} else {
+			if c.offset < after.offset || c.offset >= next.offset || newSample != 0 {
+				return nil
+			}
+			newSample = c.offset
+		}
+	}
+	if oldSample == 0 || newSample == 0 {
+		return nil
+	}
+	return &CreditCounterGap{Source: "in_round_uid_replacement_zero_counters_v1", Owner: owner,
+		OldUID: p.UID, NewUID: next.bits, OldUIDOffset: old.offset, NewUIDOffset: next.offset,
+		OldScoreComponent: before.component, NewScoreComponent: after.component,
+		OldScoreOffset: before.offset, NewScoreOffset: after.offset, OldSampleOffset: oldSample, NewSampleOffset: newSample}
 }

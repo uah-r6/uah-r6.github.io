@@ -1,4 +1,92 @@
-## Current: team opening engagements and Google Sites embed - 2026-10-15
+## Current: Blue MIZ Black Chalet Rating recovery - 2026-11-18
+
+Fixed UAH Blue vs MIZ Black / Chalet / `969aff1ee48a` (2–7, nine rounds).
+The native replay directly contains two zero kill-counter samples for opponent
+`rec-_-` across an in-round UID replacement; R02 anchors the new UID and zero
+baseline. A callback-proven R02 Death boundary establishes one opponent plant.
+The historical display sidecar stays intact; a sealed Rating-only sidecar
+restores trusted v3 inputs. All three MIZ maps and five Blue Series Ratings are
+now eligible. No Rating formula or Blue displayed raw stat changed.
+
+Applied locally after a successful SQLite clone trial. Compared with the
+private pre-repair backup, only Chalet normalized objective data, one opponent
+plant row, one sealed Rating evidence row, and three audit rows differ. Other
+30 maps, original credit sidecars, snapshots, roster and archives are intact.
+87 public JSON files validate. 920 Python tests plus six subtests, 75 frontend
+tests, Go tests/vet, real R01/R02 smoke, and both web builds pass. See
+[the evidence report](BLUE_MIZ_RATING_REPAIR.md). Private backup and traces:
+`data/research/miz-blue-rating-20261118/` (ignored).
+
+---
+
+## Previous: White AVL inactive reconnect Rating repair - 2026-11-11
+
+Fixed White vs AVL / Nighthaven Labs / `140cedd0f64e` (7–2, nine rounds).
+R08's named nil-profile/invalid-UID/zero-operator slot was absent at action
+start and reconnected later with a zero-vitals inactive body. Its scoreboard
+restored four prior kills; those are never counted as new round kills. A new
+strict proof plus exact R07/R09 profile/UID/counter bridges validates the nine
+active participants. Ordinary missing rosters remain rejected.
+
+Applied through the actual CMD launcher/admin browser's target evidence repair.
+Map and AVL Series Ratings are available; all 23 maps are evidence-eligible.
+Placements remains no count. All 24 other database tables, 22 other map input
+sets and 265 archive/statistics hashes are unchanged. Only sealed evidence and
+audit rows were appended; displayed raw stats and the frozen formula are intact.
+74 JSON documents validated and local data regenerated; no publish/push/commit.
+897 Python tests plus six subtests, 75 frontend tests, Go tests/vet, actual R08
+smoke and both builds passed. Prior uncommitted Death recovery work preserved.
+See [evidence and verification](WHITE_AVL_RATING_REPAIR.md). Private backup and
+diagnostics: `data/research/white-avl-rating-20261111/`.
+
+---
+
+## Previous: series no-count checkbox - 2026-11-04
+
+Implemented the admin Matches checkbox **Exclude this series from statistics
+(no count)**. It saves a reversible series setting and regenerates local public
+JSON; **Publish Website** deploys it through the normal workflow. Source is
+committed locally for the next publish; no push/publication in this pass.
+Placements `170b708e12f1` is checked locally. All 21 maps remain in history;
+18 maps / 184 rounds count (Blue 12/125; White 6/59). Labels appear on public
+series, maps and history. Season/Career, operators, team records, aggregate map
+analytics, substitutes and Rating trends all honor the exclusion.
+
+All 26 other database tables, all 21 map input sets and all 246 protected
+archive/stats hashes remain identical. Prior uncommitted death-boundary work
+is preserved. 850 Python tests plus six subtests and 75 frontend tests passed;
+both builds, actual CMD/admin checkbox save/restore/reload, 20 static public
+browser checks at four widths, and validation of all 71 JSON documents passed.
+See [policy and verification](SERIES_STATISTICS_EXCLUSION.md).
+Ignored evidence: `data/research/series-no-count-20261104/`.
+
+---
+
+## Previous: White replay missing Death boundary - 2026-10-29
+
+Fixed and applied locally from baseline `1a31732`, preserving the user's pending
+18th-map export. White vs Niner Esports Gold / Nighthaven Labs / `5c8647f0cede`
+is now eligible through the actual CMD launcher/admin API. R08's first standalone
+Death had a legacy physical offset of zero; the already-proven native callback
+observer now supplies the exact offset to the production credited reader.
+The zero incorrectly rejected every baseline and broke R08/R09 continuity.
+
+The full map passes all counter/objective/native-order/v3 checks. Original
+finisher display totals remain intact via sealed Rating-only evidence; all 25
+other SQLite tables, all 216 protected hashes and all 17 previous map input sets
+are unchanged. All 18 maps now eligible; 67 generated JSON documents validated.
+No formula/action-boundary change, re-import, commit, push or publication.
+
+839 Python tests plus six subtests, Go tests/vet, actual R08 production-reader
+smoke and both builds passed. Frontend: 69/72 pass; three pre-existing assertions
+expect older White player/series counts and fail against today's data before
+the repair. Detailed proof, preservation and file list:
+[White replay repair](WHITE_REPLAY_DEATH_BOUNDARY_FIX.md).
+Ignored backups and evidence: `data/research/white-death-offset-20261029/`.
+
+---
+
+## Previous: team opening engagements and Google Sites embed - 2026-10-15
 
 **COMPLETE, PUSHED AND LIVE VERIFIED. STOP AFTER THIS PASS.**
 Release `3478160` deployed successfully in

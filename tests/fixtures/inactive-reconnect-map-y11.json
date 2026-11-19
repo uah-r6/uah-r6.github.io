@@ -1,0 +1,1594 @@
+{
+  "note": "Sanitized actual three-round absence/reconnect/return; names, profiles and UIDs replaced by ordinals. No raw replay bytes.",
+  "match": {
+    "replay_id": "inactive-reconnect-fixture",
+    "timestamp": "2026-11-04T19:18:59Z",
+    "map_name": "Nighthaven Labs",
+    "match_type": "CustomGameOnline",
+    "game_mode": "Bomb",
+    "rounds": [
+      {
+        "number": 1,
+        "site": "2F Command Center, 2F Servers",
+        "winner": 0,
+        "win_condition": "KilledOpponents",
+        "players": [
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000001",
+            "username": "Player1",
+            "team": 0,
+            "operator": "Mira",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000002",
+            "username": "Player2",
+            "team": 0,
+            "operator": "Wamai",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000003",
+            "username": "Player3",
+            "team": 0,
+            "operator": "Denari",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000005",
+            "username": "Player5",
+            "team": 0,
+            "operator": "Bandit",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000004",
+            "username": "Player4",
+            "team": 0,
+            "operator": "Ela",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000006",
+            "username": "Player6",
+            "team": 1,
+            "operator": "Dokkaebi",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000007",
+            "username": "Player7",
+            "team": 1,
+            "operator": "Ace",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-00000000000a",
+            "username": "Player10",
+            "team": 1,
+            "operator": "Montagne",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000008",
+            "username": "Player8",
+            "team": 1,
+            "operator": "Capitao",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000009",
+            "username": "Player9",
+            "team": 1,
+            "operator": "Thatcher",
+            "side": "Attack"
+          }
+        ],
+        "kills": [
+          {
+            "sequence": 0,
+            "remaining": 121.0,
+            "killer": "00000000-0000-0000-0000-000000000001",
+            "victim": "00000000-0000-0000-0000-000000000007",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": true
+          },
+          {
+            "sequence": 1,
+            "remaining": 100.0,
+            "killer": "00000000-0000-0000-0000-000000000008",
+            "victim": "00000000-0000-0000-0000-000000000004",
+            "killer_team": 1,
+            "victim_team": 0,
+            "headshot": true
+          },
+          {
+            "sequence": 2,
+            "remaining": 83.0,
+            "killer": "00000000-0000-0000-0000-000000000005",
+            "victim": "00000000-0000-0000-0000-000000000008",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": true
+          },
+          {
+            "sequence": 3,
+            "remaining": 69.0,
+            "killer": "00000000-0000-0000-0000-000000000003",
+            "victim": "00000000-0000-0000-0000-000000000009",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": true
+          },
+          {
+            "sequence": 4,
+            "remaining": 24.0,
+            "killer": "00000000-0000-0000-0000-000000000002",
+            "victim": "00000000-0000-0000-0000-00000000000a",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 5,
+            "remaining": 20.0,
+            "killer": "00000000-0000-0000-0000-000000000006",
+            "victim": "00000000-0000-0000-0000-000000000003",
+            "killer_team": 1,
+            "victim_team": 0,
+            "headshot": false
+          },
+          {
+            "sequence": 6,
+            "remaining": 17.0,
+            "killer": "00000000-0000-0000-0000-000000000001",
+            "victim": "00000000-0000-0000-0000-000000000006",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          }
+        ],
+        "objectives": [],
+        "starting_scores": [
+          4,
+          2
+        ],
+        "ending_scores": [
+          5,
+          2
+        ],
+        "objective_occurrences": []
+      },
+      {
+        "number": 2,
+        "site": "B Assembly, B Tank",
+        "winner": 0,
+        "win_condition": "KilledOpponents",
+        "players": [
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000001",
+            "username": "Player1",
+            "team": 0,
+            "operator": "Goyo",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000002",
+            "username": "Player2",
+            "team": 0,
+            "operator": "Sentry",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000003",
+            "username": "Player3",
+            "team": 0,
+            "operator": "Thorn",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000004",
+            "username": "Player4",
+            "team": 0,
+            "operator": "Vigil",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000005",
+            "username": "Player5",
+            "team": 0,
+            "operator": "Bandit",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000006",
+            "username": "Player6",
+            "team": 1,
+            "operator": "Dokkaebi",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000007",
+            "username": "Player7",
+            "team": 1,
+            "operator": "Twitch",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000008",
+            "username": "Player8",
+            "team": 1,
+            "operator": "Zofia",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000009",
+            "username": "Player9",
+            "team": 1,
+            "operator": "Thatcher",
+            "side": "Attack"
+          }
+        ],
+        "kills": [
+          {
+            "sequence": 0,
+            "remaining": 130.0,
+            "killer": "00000000-0000-0000-0000-000000000004",
+            "victim": "00000000-0000-0000-0000-000000000007",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 1,
+            "remaining": 119.0,
+            "killer": "00000000-0000-0000-0000-000000000008",
+            "victim": "00000000-0000-0000-0000-000000000001",
+            "killer_team": 1,
+            "victim_team": 0,
+            "headshot": true
+          },
+          {
+            "sequence": 2,
+            "remaining": 54.0,
+            "killer": "00000000-0000-0000-0000-000000000008",
+            "victim": "00000000-0000-0000-0000-000000000004",
+            "killer_team": 1,
+            "victim_team": 0,
+            "headshot": false
+          },
+          {
+            "sequence": 3,
+            "remaining": 25.0,
+            "killer": "00000000-0000-0000-0000-000000000005",
+            "victim": "00000000-0000-0000-0000-000000000008",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 4,
+            "remaining": 21.0,
+            "killer": "00000000-0000-0000-0000-000000000002",
+            "victim": "00000000-0000-0000-0000-000000000009",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 5,
+            "remaining": 11.0,
+            "killer": "00000000-0000-0000-0000-000000000002",
+            "victim": "00000000-0000-0000-0000-000000000006",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          }
+        ],
+        "objectives": [],
+        "starting_scores": [
+          5,
+          2
+        ],
+        "ending_scores": [
+          6,
+          2
+        ],
+        "objective_occurrences": []
+      },
+      {
+        "number": 3,
+        "site": "1F Kitchen, 1F Cafeteria",
+        "winner": 0,
+        "win_condition": "Time",
+        "players": [
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000001",
+            "username": "Player1",
+            "team": 0,
+            "operator": "Warden",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000002",
+            "username": "Player2",
+            "team": 0,
+            "operator": "Solis",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000003",
+            "username": "Player3",
+            "team": 0,
+            "operator": "Thorn",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000004",
+            "username": "Player4",
+            "team": 0,
+            "operator": "Vigil",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000005",
+            "username": "Player5",
+            "team": 0,
+            "operator": "Lesion",
+            "side": "Defense"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000006",
+            "username": "Player6",
+            "team": 1,
+            "operator": "Lion",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000007",
+            "username": "Player7",
+            "team": 1,
+            "operator": "Ace",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000008",
+            "username": "Player8",
+            "team": 1,
+            "operator": "Zofia",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-000000000009",
+            "username": "Player9",
+            "team": 1,
+            "operator": "Finka",
+            "side": "Attack"
+          },
+          {
+            "profile_id": "00000000-0000-0000-0000-00000000000a",
+            "username": "Player10",
+            "team": 1,
+            "operator": "Blitz",
+            "side": "Attack"
+          }
+        ],
+        "kills": [
+          {
+            "sequence": 0,
+            "remaining": 141.0,
+            "killer": "00000000-0000-0000-0000-000000000003",
+            "victim": "00000000-0000-0000-0000-00000000000a",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 1,
+            "remaining": 135.0,
+            "killer": "00000000-0000-0000-0000-000000000001",
+            "victim": "00000000-0000-0000-0000-000000000007",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 2,
+            "remaining": 129.0,
+            "killer": "00000000-0000-0000-0000-000000000002",
+            "victim": "00000000-0000-0000-0000-000000000008",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": false
+          },
+          {
+            "sequence": 3,
+            "remaining": 107.0,
+            "killer": "00000000-0000-0000-0000-000000000006",
+            "victim": "00000000-0000-0000-0000-000000000003",
+            "killer_team": 1,
+            "victim_team": 0,
+            "headshot": true
+          },
+          {
+            "sequence": 4,
+            "remaining": 89.0,
+            "killer": "00000000-0000-0000-0000-000000000005",
+            "victim": "00000000-0000-0000-0000-000000000009",
+            "killer_team": 0,
+            "victim_team": 1,
+            "headshot": true
+          }
+        ],
+        "objectives": [],
+        "starting_scores": [
+          6,
+          2
+        ],
+        "ending_scores": [
+          7,
+          2
+        ],
+        "objective_occurrences": []
+      }
+    ]
+  },
+  "records": [
+    {
+      "logical_round": 1,
+      "physical_round": 7,
+      "segment": "original",
+      "credit": {
+        "source": "stable_uid_scoreboard_delta_v1",
+        "complete": true,
+        "reason": "stable_uid_scoreboard_delta_v1",
+        "actionStartOffset": 72414215,
+        "players": [
+          {
+            "uid": 1,
+            "profileID": "00000000-0000-0000-0000-000000000001",
+            "username": "Player1",
+            "team": 0,
+            "initial": 3,
+            "terminal": 5,
+            "kills": 2,
+            "samples": [
+              {
+                "offset": 40358,
+                "value": 3,
+                "component": 4026603538,
+                "owner": 4026603547,
+                "declarationOffset": 40324
+              },
+              {
+                "offset": 72668082,
+                "value": 4,
+                "component": 4026603538,
+                "owner": 4026603547,
+                "declarationOffset": 40324
+              },
+              {
+                "offset": 73099310,
+                "value": 5,
+                "component": 4026603538,
+                "owner": 4026603547,
+                "declarationOffset": 40324
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 2,
+            "profileID": "00000000-0000-0000-0000-000000000002",
+            "username": "Player2",
+            "team": 0,
+            "initial": 5,
+            "terminal": 6,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 47779,
+                "value": 5,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 47745
+              },
+              {
+                "offset": 73073095,
+                "value": 6,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 47745
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 3,
+            "profileID": "00000000-0000-0000-0000-000000000003",
+            "username": "Player3",
+            "team": 0,
+            "initial": 6,
+            "terminal": 7,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 43965,
+                "value": 6,
+                "component": 4026603523,
+                "owner": 4026603546,
+                "declarationOffset": 43931
+              },
+              {
+                "offset": 72899156,
+                "value": 7,
+                "component": 4026603523,
+                "owner": 4026603546,
+                "declarationOffset": 43931
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 5,
+            "profileID": "00000000-0000-0000-0000-000000000005",
+            "username": "Player5",
+            "team": 0,
+            "initial": 9,
+            "terminal": 10,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 51466,
+                "value": 9,
+                "component": 4026603742,
+                "owner": 4026603551,
+                "declarationOffset": 51432
+              },
+              {
+                "offset": 72841882,
+                "value": 10,
+                "component": 4026603742,
+                "owner": 4026603551,
+                "declarationOffset": 51432
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 4,
+            "profileID": "00000000-0000-0000-0000-000000000004",
+            "username": "Player4",
+            "team": 0,
+            "initial": 2,
+            "terminal": 2,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 55073,
+                "value": 2,
+                "component": 4027422321,
+                "owner": 4026603544,
+                "declarationOffset": 55039
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 6,
+            "profileID": "00000000-0000-0000-0000-000000000006",
+            "username": "Player6",
+            "team": 1,
+            "initial": 1,
+            "terminal": 2,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 60739,
+                "value": 1,
+                "component": 4026603713,
+                "owner": 4026603722,
+                "declarationOffset": 60705
+              },
+              {
+                "offset": 73087680,
+                "value": 2,
+                "component": 4026603713,
+                "owner": 4026603722,
+                "declarationOffset": 60705
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 7,
+            "profileID": "00000000-0000-0000-0000-000000000007",
+            "username": "Player7",
+            "team": 1,
+            "initial": 2,
+            "terminal": 2,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 64889,
+                "value": 2,
+                "component": 4026603698,
+                "owner": 4026603721,
+                "declarationOffset": 64855
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 11,
+            "profileID": "00000000-0000-0000-0000-00000000000a",
+            "username": "Player10",
+            "team": 1,
+            "initial": 4,
+            "terminal": 4,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 69120,
+                "value": 4,
+                "component": 4026603683,
+                "owner": 4026603720,
+                "declarationOffset": 69086
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 8,
+            "profileID": "00000000-0000-0000-0000-000000000008",
+            "username": "Player8",
+            "team": 1,
+            "initial": 6,
+            "terminal": 7,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 77112,
+                "value": 6,
+                "component": 4026603661,
+                "owner": 4026603726,
+                "declarationOffset": 77078
+              },
+              {
+                "offset": 72766641,
+                "value": 7,
+                "component": 4026603661,
+                "owner": 4026603726,
+                "declarationOffset": 77078
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 9,
+            "profileID": "00000000-0000-0000-0000-000000000009",
+            "username": "Player9",
+            "team": 1,
+            "initial": 4,
+            "terminal": 4,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 73108,
+                "value": 4,
+                "component": 4026603676,
+                "owner": 4026603727,
+                "declarationOffset": 73074
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          }
+        ],
+        "finishes": [
+          {
+            "offset": 72668442,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player1",
+              "target": "Player7",
+              "headshot": true,
+              "time": "2:01",
+              "timeInSeconds": 121,
+              "weaponID": 44316587819
+            }
+          },
+          {
+            "offset": 72766806,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player8",
+              "target": "Player4",
+              "headshot": true,
+              "time": "1:40",
+              "timeInSeconds": 100,
+              "weaponID": 38581443640
+            }
+          },
+          {
+            "offset": 72842206,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player5",
+              "target": "Player8",
+              "headshot": true,
+              "time": "1:23",
+              "timeInSeconds": 83,
+              "weaponID": 1366019616
+            }
+          },
+          {
+            "offset": 72899628,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player3",
+              "target": "Player9",
+              "headshot": true,
+              "time": "1:09",
+              "timeInSeconds": 69,
+              "weaponID": 68967567508
+            }
+          },
+          {
+            "offset": 73073439,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player2",
+              "target": "Player10",
+              "headshot": false,
+              "time": "0:24",
+              "timeInSeconds": 24,
+              "weaponID": 133651070294
+            }
+          },
+          {
+            "offset": 73087868,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player6",
+              "target": "Player3",
+              "headshot": false,
+              "time": "0:20",
+              "timeInSeconds": 20,
+              "weaponID": 437464101745
+            }
+          },
+          {
+            "offset": 73099690,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player1",
+              "target": "Player6",
+              "headshot": false,
+              "time": "0:17",
+              "timeInSeconds": 17,
+              "weaponID": 44316587819
+            }
+          }
+        ]
+      }
+    },
+    {
+      "logical_round": 2,
+      "physical_round": 8,
+      "segment": "original",
+      "credit": {
+        "source": "stable_uid_scoreboard_delta_v1",
+        "complete": true,
+        "reason": "stable_uid_scoreboard_delta_v1",
+        "actionStartOffset": 72026634,
+        "players": [
+          {
+            "uid": 1,
+            "profileID": "00000000-0000-0000-0000-000000000001",
+            "username": "Player1",
+            "team": 0,
+            "initial": 5,
+            "terminal": 5,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 34296,
+                "value": 5,
+                "component": 4026603538,
+                "owner": 4026603547,
+                "declarationOffset": 34262
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 2,
+            "profileID": "00000000-0000-0000-0000-000000000002",
+            "username": "Player2",
+            "team": 0,
+            "initial": 6,
+            "terminal": 8,
+            "kills": 2,
+            "samples": [
+              {
+                "offset": 41717,
+                "value": 6,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 41683
+              },
+              {
+                "offset": 72595661,
+                "value": 7,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 41683
+              },
+              {
+                "offset": 72624835,
+                "value": 8,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 41683
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 3,
+            "profileID": "00000000-0000-0000-0000-000000000003",
+            "username": "Player3",
+            "team": 0,
+            "initial": 7,
+            "terminal": 7,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 37903,
+                "value": 7,
+                "component": 4026603523,
+                "owner": 4026603546,
+                "declarationOffset": 37869
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 4,
+            "profileID": "00000000-0000-0000-0000-000000000004",
+            "username": "Player4",
+            "team": 0,
+            "initial": 2,
+            "terminal": 3,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 49011,
+                "value": 2,
+                "component": 4027422321,
+                "owner": 4026603544,
+                "declarationOffset": 48977
+              },
+              {
+                "offset": 72208590,
+                "value": 3,
+                "component": 4027422321,
+                "owner": 4026603544,
+                "declarationOffset": 48977
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 5,
+            "profileID": "00000000-0000-0000-0000-000000000005",
+            "username": "Player5",
+            "team": 0,
+            "initial": 10,
+            "terminal": 11,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 45404,
+                "value": 10,
+                "component": 4026603742,
+                "owner": 4026603551,
+                "declarationOffset": 45370
+              },
+              {
+                "offset": 72581157,
+                "value": 11,
+                "component": 4026603742,
+                "owner": 4026603551,
+                "declarationOffset": 45370
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 6,
+            "profileID": "00000000-0000-0000-0000-000000000006",
+            "username": "Player6",
+            "team": 1,
+            "initial": 2,
+            "terminal": 2,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 54666,
+                "value": 2,
+                "component": 4026603713,
+                "owner": 4026603722,
+                "declarationOffset": 54632
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 7,
+            "profileID": "00000000-0000-0000-0000-000000000007",
+            "username": "Player7",
+            "team": 1,
+            "initial": 2,
+            "terminal": 2,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 58816,
+                "value": 2,
+                "component": 4026603698,
+                "owner": 4026603721,
+                "declarationOffset": 58782
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 8,
+            "profileID": "00000000-0000-0000-0000-000000000008",
+            "username": "Player8",
+            "team": 1,
+            "initial": 7,
+            "terminal": 9,
+            "kills": 2,
+            "samples": [
+              {
+                "offset": 66814,
+                "value": 7,
+                "component": 4026603661,
+                "owner": 4026603726,
+                "declarationOffset": 66780
+              },
+              {
+                "offset": 72254111,
+                "value": 8,
+                "component": 4026603661,
+                "owner": 4026603726,
+                "declarationOffset": 66780
+              },
+              {
+                "offset": 72476148,
+                "value": 9,
+                "component": 4026603661,
+                "owner": 4026603726,
+                "declarationOffset": 66780
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 9,
+            "profileID": "00000000-0000-0000-0000-000000000009",
+            "username": "Player9",
+            "team": 1,
+            "initial": 4,
+            "terminal": 4,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 62810,
+                "value": 4,
+                "component": 4026603676,
+                "owner": 4026603727,
+                "declarationOffset": 62776
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          }
+        ],
+        "finishes": [
+          {
+            "offset": 72208909,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player4",
+              "target": "Player7",
+              "headshot": false,
+              "time": "2:10",
+              "timeInSeconds": 130,
+              "weaponID": 78526932208
+            }
+          },
+          {
+            "offset": 72254270,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player8",
+              "target": "Player1",
+              "headshot": true,
+              "time": "1:59",
+              "timeInSeconds": 119,
+              "weaponID": 68967567352
+            }
+          },
+          {
+            "offset": 72476313,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player8",
+              "target": "Player4",
+              "headshot": false,
+              "time": "0:54",
+              "timeInSeconds": 54,
+              "weaponID": 68967567352
+            }
+          },
+          {
+            "offset": 72581507,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player5",
+              "target": "Player8",
+              "headshot": false,
+              "time": "0:25",
+              "timeInSeconds": 25,
+              "weaponID": 127174503990
+            }
+          },
+          {
+            "offset": 72596135,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player2",
+              "target": "Player9",
+              "headshot": false,
+              "time": "0:21",
+              "timeInSeconds": 21,
+              "weaponID": 161289761794
+            }
+          },
+          {
+            "offset": 72625271,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player2",
+              "target": "Player6",
+              "headshot": false,
+              "time": "0:11",
+              "timeInSeconds": 11,
+              "weaponID": 161289761794
+            }
+          }
+        ],
+        "participantEvidence": {
+          "action_offset": 72026634,
+          "inactive_reconnect": {
+            "username": "Player10",
+            "team": 1,
+            "slot_index": 9,
+            "owner": 4026603720,
+            "uid": 10,
+            "uid_offset": 72239711,
+            "absent_body_offset": 68989,
+            "body_component": 4027117197,
+            "body_offset": 72238731,
+            "score_component": 4027117196,
+            "score_offset": 72239058,
+            "body_fields": [
+              {
+                "offset": 72238765,
+                "entity": 4027117197,
+                "tag": 3379963429,
+                "size": 4,
+                "bits": 0
+              },
+              {
+                "offset": 72238775,
+                "entity": 4027117197,
+                "tag": 1923500305,
+                "size": 4,
+                "bits": 0
+              },
+              {
+                "offset": 72238785,
+                "entity": 4027117197,
+                "tag": 3671211777,
+                "size": 4,
+                "bits": 0
+              },
+              {
+                "offset": 72238805,
+                "entity": 4027117197,
+                "tag": 2077207936,
+                "size": 4,
+                "bits": 0
+              },
+              {
+                "offset": 72238815,
+                "entity": 4027117197,
+                "tag": 2784397543,
+                "size": 4,
+                "bits": 4
+              }
+            ],
+            "counters": [
+              {
+                "offset": 72239092,
+                "value": 0,
+                "component": 4027117196,
+                "owner": 4026603720,
+                "declarationOffset": 72239058
+              },
+              {
+                "offset": 72240335,
+                "value": 4,
+                "component": 4027117196,
+                "owner": 4026603720,
+                "declarationOffset": 72239058
+              }
+            ]
+          },
+          "slots": [
+            {
+              "name_offset": 34436,
+              "profile_id": "00000000-0000-0000-0000-000000000001",
+              "profile_offset": 36083,
+              "team": 0,
+              "uid": 1,
+              "uid_offset": 36229,
+              "username": "Player1"
+            },
+            {
+              "name_offset": 38043,
+              "profile_id": "00000000-0000-0000-0000-000000000003",
+              "profile_offset": 39897,
+              "team": 0,
+              "uid": 3,
+              "uid_offset": 40043,
+              "username": "Player3"
+            },
+            {
+              "name_offset": 41857,
+              "profile_id": "00000000-0000-0000-0000-000000000002",
+              "profile_offset": 43584,
+              "team": 0,
+              "uid": 2,
+              "uid_offset": 43730,
+              "username": "Player2"
+            },
+            {
+              "name_offset": 45544,
+              "profile_id": "00000000-0000-0000-0000-000000000005",
+              "profile_offset": 47191,
+              "team": 0,
+              "uid": 5,
+              "uid_offset": 47337,
+              "username": "Player5"
+            },
+            {
+              "name_offset": 49151,
+              "profile_id": "00000000-0000-0000-0000-000000000004",
+              "profile_offset": 51002,
+              "team": 0,
+              "uid": 4,
+              "uid_offset": 51148,
+              "username": "Player4"
+            },
+            {
+              "name_offset": 54806,
+              "profile_id": "00000000-0000-0000-0000-000000000006",
+              "profile_offset": 56477,
+              "team": 1,
+              "uid": 6,
+              "uid_offset": 56623,
+              "username": "Player6"
+            },
+            {
+              "name_offset": 58956,
+              "profile_id": "00000000-0000-0000-0000-000000000007",
+              "profile_offset": 60625,
+              "team": 1,
+              "uid": 7,
+              "uid_offset": 60771,
+              "username": "Player7"
+            },
+            {
+              "name_offset": 62950,
+              "profile_id": "00000000-0000-0000-0000-000000000009",
+              "profile_offset": 64629,
+              "team": 1,
+              "uid": 9,
+              "uid_offset": 64775,
+              "username": "Player9"
+            },
+            {
+              "name_offset": 66954,
+              "profile_id": "00000000-0000-0000-0000-000000000008",
+              "profile_offset": 68806,
+              "team": 1,
+              "uid": 8,
+              "uid_offset": 68952,
+              "username": "Player8"
+            },
+            {
+              "name_offset": 69086,
+              "operator_id": 0,
+              "operator_offset": 69182,
+              "profile_id": "00000000-0000-0000-0000-000000000000",
+              "profile_offset": 69754,
+              "uid": 18446744073709551615,
+              "uid_offset": 69847,
+              "username": "Player10"
+            }
+          ],
+          "source": "explicit_inactive_reconnect_participant_v1"
+        }
+      }
+    },
+    {
+      "logical_round": 3,
+      "physical_round": 9,
+      "segment": "original",
+      "credit": {
+        "source": "stable_uid_scoreboard_delta_v1",
+        "complete": true,
+        "reason": "stable_uid_scoreboard_delta_v1",
+        "actionStartOffset": 67990472,
+        "players": [
+          {
+            "uid": 1,
+            "profileID": "00000000-0000-0000-0000-000000000001",
+            "username": "Player1",
+            "team": 0,
+            "initial": 5,
+            "terminal": 6,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 2145,
+                "value": 5,
+                "component": 4026603538,
+                "owner": 4026603547,
+                "declarationOffset": 2111
+              },
+              {
+                "offset": 68189811,
+                "value": 6,
+                "component": 4026603538,
+                "owner": 4026603547,
+                "declarationOffset": 2111
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 2,
+            "profileID": "00000000-0000-0000-0000-000000000002",
+            "username": "Player2",
+            "team": 0,
+            "initial": 8,
+            "terminal": 9,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 9566,
+                "value": 8,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 9532
+              },
+              {
+                "offset": 68216611,
+                "value": 9,
+                "component": 4026603772,
+                "owner": 4026603545,
+                "declarationOffset": 9532
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 3,
+            "profileID": "00000000-0000-0000-0000-000000000003",
+            "username": "Player3",
+            "team": 0,
+            "initial": 7,
+            "terminal": 8,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 5752,
+                "value": 7,
+                "component": 4026603523,
+                "owner": 4026603546,
+                "declarationOffset": 5718
+              },
+              {
+                "offset": 68169007,
+                "value": 8,
+                "component": 4026603523,
+                "owner": 4026603546,
+                "declarationOffset": 5718
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 4,
+            "profileID": "00000000-0000-0000-0000-000000000004",
+            "username": "Player4",
+            "team": 0,
+            "initial": 3,
+            "terminal": 3,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 16860,
+                "value": 3,
+                "component": 4027422321,
+                "owner": 4026603544,
+                "declarationOffset": 16826
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 5,
+            "profileID": "00000000-0000-0000-0000-000000000005",
+            "username": "Player5",
+            "team": 0,
+            "initial": 11,
+            "terminal": 12,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 13253,
+                "value": 11,
+                "component": 4026603742,
+                "owner": 4026603551,
+                "declarationOffset": 13219
+              },
+              {
+                "offset": 68361533,
+                "value": 12,
+                "component": 4026603742,
+                "owner": 4026603551,
+                "declarationOffset": 13219
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 6,
+            "profileID": "00000000-0000-0000-0000-000000000006",
+            "username": "Player6",
+            "team": 1,
+            "initial": 2,
+            "terminal": 3,
+            "kills": 1,
+            "samples": [
+              {
+                "offset": 22521,
+                "value": 2,
+                "component": 4026603713,
+                "owner": 4026603722,
+                "declarationOffset": 22487
+              },
+              {
+                "offset": 68296461,
+                "value": 3,
+                "component": 4026603713,
+                "owner": 4026603722,
+                "declarationOffset": 22487
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 7,
+            "profileID": "00000000-0000-0000-0000-000000000007",
+            "username": "Player7",
+            "team": 1,
+            "initial": 2,
+            "terminal": 2,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 26670,
+                "value": 2,
+                "component": 4026603698,
+                "owner": 4026603721,
+                "declarationOffset": 26636
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 8,
+            "profileID": "00000000-0000-0000-0000-000000000008",
+            "username": "Player8",
+            "team": 1,
+            "initial": 9,
+            "terminal": 9,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 34817,
+                "value": 9,
+                "component": 4026603661,
+                "owner": 4026603726,
+                "declarationOffset": 34783
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 9,
+            "profileID": "00000000-0000-0000-0000-000000000009",
+            "username": "Player9",
+            "team": 1,
+            "initial": 4,
+            "terminal": 4,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 30813,
+                "value": 4,
+                "component": 4026603676,
+                "owner": 4026603727,
+                "declarationOffset": 30779
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          },
+          {
+            "uid": 10,
+            "profileID": "00000000-0000-0000-0000-00000000000a",
+            "username": "Player10",
+            "team": 1,
+            "initial": 4,
+            "terminal": 4,
+            "kills": 0,
+            "samples": [
+              {
+                "offset": 39233,
+                "value": 4,
+                "component": 4027117196,
+                "owner": 4026603720,
+                "declarationOffset": 39199
+              }
+            ],
+            "reason": "stable_uid_scoreboard_delta_v1"
+          }
+        ],
+        "finishes": [
+          {
+            "offset": 68169568,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player3",
+              "target": "Player10",
+              "headshot": false,
+              "time": "2:21",
+              "timeInSeconds": 141,
+              "weaponID": 372271879863
+            }
+          },
+          {
+            "offset": 68190282,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player1",
+              "target": "Player7",
+              "headshot": false,
+              "time": "2:15",
+              "timeInSeconds": 135,
+              "weaponID": 133651070294
+            }
+          },
+          {
+            "offset": 68217053,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player2",
+              "target": "Player8",
+              "headshot": false,
+              "time": "2:09",
+              "timeInSeconds": 129,
+              "weaponID": 44316587774
+            }
+          },
+          {
+            "offset": 68296050,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player6",
+              "target": "Player3",
+              "headshot": true,
+              "time": "1:47",
+              "timeInSeconds": 107,
+              "weaponID": 55586802030
+            }
+          },
+          {
+            "offset": 68361901,
+            "feedback": {
+              "type": {
+                "name": "Kill",
+                "id": 0
+              },
+              "username": "Player5",
+              "target": "Player9",
+              "headshot": true,
+              "time": "1:29",
+              "timeInSeconds": 89,
+              "weaponID": 53995319912
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

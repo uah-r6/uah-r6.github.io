@@ -5,7 +5,7 @@ No SQLite or filesystem writes occur here.
 """
 from collections import Counter
 from uuid import UUID
-from r6stats.participant_inventory import inventory_valid
+from r6stats.participant_inventory import inventory_valid, RECONNECT_SOURCE
 
 SOURCE = "stable_uid_scoreboard_delta_v1"
 
@@ -32,6 +32,8 @@ def validate_map_credit(records: list[dict]) -> dict:
     issues, resets, rounds = [], [], []
     seen_sources = set()
     previous = None
+    pending_reconnect = None
+    transitions = []
     for ordinal, record in enumerate(records, 1):
         logical = record["logical_round"]
         report = record["credit"]
@@ -45,6 +47,8 @@ def validate_map_credit(records: list[dict]) -> dict:
         current = {identity(p): p for p in players}
         proven_empty = (inventory_valid(players, report.get('participantEvidence'))
                         and report.get('actionStartOffset') == report['participantEvidence']['action_offset'])
+        reconnect = (report['participantEvidence']['inactive_reconnect'] if proven_empty and
+                     report['participantEvidence']['source'] == RECONNECT_SOURCE else None)
         valid = (report.get("complete") is True and len(current) == len(players)
                  and (len(players) == 10 or proven_empty)
                  and all(type(p.get("uid")) is int and p["uid"] > 0 for p in players)
@@ -60,6 +64,8 @@ def validate_map_credit(records: list[dict]) -> dict:
             issues.append({"round": logical, "reason": "incomplete_or_invalid_round_counters",
                            "players": [{"player": p["username"], "reason": p["reason"]}
                                        for p in players if p.get("kills") is None]})
+        if previous is None and reconnect:
+            issues.append({'round':logical,'reason':'inactive_reconnect_requires_verified_previous_round'})
         if previous is not None:
             previous_record, prior, prior_valid = previous
             if not prior_valid or not valid:
@@ -71,7 +77,40 @@ def validate_map_credit(records: list[dict]) -> dict:
                     and all(not key.startswith('uid:') and current[key]['username']==prior[key]['username'] for key in current))
                 reset = ((same_profiles or known_subset) and source[0] != previous_record["segment"]
                          and source[1] == 1 and all(p["initial"] == 0 for p in players))
-                if reset:
+                if reconnect:
+                    missing = set(prior)-set(current)
+                    known = (len(prior)==10 and len(current)==9 and len(missing)==1
+                             and set(current)<set(prior) and source[0]==previous_record['segment']
+                             and source[1]==previous_record['physical_round']+1)
+                    key = next(iter(missing)) if known else None
+                    p = prior[key] if known else None
+                    known = (known and not key.startswith('uid:') and p['username']==reconnect['username']
+                             and p['team']==reconnect['team'] and p['uid']!=reconnect['uid']
+                             and p['terminal']==reconnect['counters'][-1]['value']
+                             and all(all(prior[k][f]==current[k][f] for f in ('uid','profileID','username','team'))
+                                     and prior[k]['terminal']==current[k]['initial'] for k in current))
+                    if not known:
+                        issues.append({'round':logical,'reason':'unproven_inactive_reconnect_departure'})
+                    else:
+                        pending_reconnect = dict(key=key, prior=dict(prior), proof=reconnect,
+                                                 round=logical, segment=source[0], physical=source[1])
+                elif pending_reconnect:
+                    gap = pending_reconnect
+                    p = current.get(gap['key'])
+                    known = (len(current)==10 and current.keys()==gap['prior'].keys() and p is not None
+                             and source==(gap['segment'],gap['physical']+1)
+                             and p['uid']==gap['proof']['uid']
+                             and p['initial']==gap['proof']['counters'][-1]['value']
+                             and all(p[f]==gap['prior'][gap['key']][f] for f in ('profileID','username','team'))
+                             and all(all(prior[k][f]==current[k][f] for f in ('uid','profileID','username','team'))
+                                     and prior[k]['terminal']==current[k]['initial'] for k in prior))
+                    if not known:
+                        issues.append({'round':logical,'reason':'unproven_inactive_reconnect_return'})
+                    else:
+                        transitions.append({'round':gap['round'],'returned_round':logical,
+                            'source':RECONNECT_SOURCE,'profile':gap['key']})
+                        pending_reconnect = None
+                elif reset:
                     resets.append({"round": logical, "segment": source[0],
                                    "reason": ("new_R01_explicit_empty_slot_known_profiles_all_zero" if known_subset
                                               else "new_R01_same_ten_profiles_all_zero")})
@@ -87,12 +126,15 @@ def validate_map_credit(records: list[dict]) -> dict:
                        "segment": source[0], "physical_round": source[1],
                        "participant_evidence": report.get('participantEvidence')})
         previous = record, current, valid
+    if pending_reconnect:
+        issues.append({'round':pending_reconnect['round'],'reason':'inactive_reconnect_requires_verified_next_round'})
     totals = Counter()
     for r in rounds:
         if r["valid"]:
             totals.update({key: p["kills"] for key, p in r["players"].items()})
     complete = bool(rounds) and not issues
-    return {"source": SOURCE, "complete": complete, "issues": issues,
+    return {**({'participation_transitions':transitions} if transitions else {}),
+            "source": SOURCE, "complete": complete, "issues": issues,
             "resets": resets, "rounds": rounds,
             "totals": dict(totals) if complete else None,
             "observed_valid_round_totals": dict(totals)}

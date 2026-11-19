@@ -195,6 +195,14 @@ func (r *Reader) worker(start int, end int, wg *sync.WaitGroup, matches chan<- m
 
 // Read continues reading the replay past the header until the EOF.
 func (r *Reader) Read() (err error) {
+	// Capture exact native feedback callback boundaries for objective ownership.
+	// Legacy MatchFeedback offsets are restored after that one calculation.
+	objectiveEnvelopes := []NativeFeedbackEnvelope{}
+	if !r.readPartial {
+		if err = installFeedbackEnvelopeObserver(r, &objectiveEnvelopes); err != nil {
+			return err
+		}
+	}
 	numWorkers := 5
 	var wg sync.WaitGroup
 	channel := make(chan match, 300)
@@ -248,8 +256,24 @@ func (r *Reader) Read() (err error) {
 	if !r.readPartial {
 		r.roundEnd()
 		r.Header.ParticipantEvidence = explicitEmptyParticipantInventory(r.Header, r.recordedParticipants, r.b, r.MatchFeedback)
+		if r.Header.ParticipantEvidence == nil {
+			r.Header.ParticipantEvidence = inactiveReconnectInventory(r.Header, r.recordedParticipants, r.b, r.MatchFeedback)
+		}
 		r.resolveObjectiveOccurrences()
+		originalOffsets := make([]int, len(r.MatchFeedback))
+		for i := range r.MatchFeedback {
+			originalOffsets[i] = r.MatchFeedback[i].killOffset
+		}
+		_, observed := creditFinishesFromNativeEnvelopes(r.MatchFeedback, objectiveEnvelopes)
+		for _, f := range observed {
+			if f.OffsetEvidence != nil {
+				r.MatchFeedback[f.OffsetEvidence.FeedbackIndex].killOffset = f.Offset
+			}
+		}
 		r.resolveObjectiveActors()
+		for i := range r.MatchFeedback {
+			r.MatchFeedback[i].killOffset = originalOffsets[i]
+		}
 	}
 	r.b = nil
 	return err

@@ -1,0 +1,1288 @@
+{
+  "header": {
+    "gameVersion": "",
+    "codeVersion": 9984445,
+    "timestamp": "0001-01-01T00:00:00Z",
+    "matchType": {
+      "name": "MatchType(0)",
+      "id": 0
+    },
+    "map": {
+      "name": "Map(0)",
+      "id": 0
+    },
+    "recordingPlayerID": 0,
+    "additionalTags": "",
+    "gamemode": {
+      "name": "GameMode(0)",
+      "id": 0
+    },
+    "roundsPerMatch": 0,
+    "roundsPerMatchOvertime": 0,
+    "roundNumber": 0,
+    "overtimeRoundNumber": 0,
+    "teams": [
+      {
+        "name": "",
+        "startingScore": 5,
+        "score": 6,
+        "won": true,
+        "winCondition": "KilledOpponents",
+        "role": "Defense"
+      },
+      {
+        "name": "",
+        "startingScore": 2,
+        "score": 2,
+        "won": false,
+        "role": "Attack"
+      }
+    ],
+    "players": [
+      {
+        "id": 1,
+        "profileID": "00000000-0000-0000-0000-000000000001",
+        "username": "Player1",
+        "teamIndex": 0,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 2,
+        "profileID": "00000000-0000-0000-0000-000000000002",
+        "username": "Player2",
+        "teamIndex": 0,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 3,
+        "profileID": "00000000-0000-0000-0000-000000000003",
+        "username": "Player3",
+        "teamIndex": 0,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 4,
+        "profileID": "00000000-0000-0000-0000-000000000004",
+        "username": "Player4",
+        "teamIndex": 0,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 5,
+        "profileID": "00000000-0000-0000-0000-000000000005",
+        "username": "Player5",
+        "teamIndex": 0,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 6,
+        "profileID": "00000000-0000-0000-0000-000000000006",
+        "username": "Player6",
+        "teamIndex": 1,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 7,
+        "profileID": "00000000-0000-0000-0000-000000000007",
+        "username": "Player7",
+        "teamIndex": 1,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 8,
+        "profileID": "00000000-0000-0000-0000-000000000008",
+        "username": "Player8",
+        "teamIndex": 1,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      },
+      {
+        "id": 9,
+        "profileID": "00000000-0000-0000-0000-000000000009",
+        "username": "Player9",
+        "teamIndex": 1,
+        "operator": {
+          "name": "Unknown",
+          "id": 0
+        },
+        "alliance": 0
+      }
+    ],
+    "participantEvidence": {
+      "action_offset": 72026634,
+      "inactive_reconnect": {
+        "username": "Player10",
+        "team": 1,
+        "slot_index": 9,
+        "owner": 4026603720,
+        "uid": 10,
+        "uid_offset": 72239711,
+        "absent_body_offset": 68989,
+        "body_component": 4027117197,
+        "body_offset": 72238731,
+        "score_component": 4027117196,
+        "score_offset": 72239058,
+        "body_fields": [
+          {
+            "offset": 72238765,
+            "entity": 4027117197,
+            "tag": 3379963429,
+            "size": 4,
+            "bits": 0
+          },
+          {
+            "offset": 72238775,
+            "entity": 4027117197,
+            "tag": 1923500305,
+            "size": 4,
+            "bits": 0
+          },
+          {
+            "offset": 72238785,
+            "entity": 4027117197,
+            "tag": 3671211777,
+            "size": 4,
+            "bits": 0
+          },
+          {
+            "offset": 72238805,
+            "entity": 4027117197,
+            "tag": 2077207936,
+            "size": 4,
+            "bits": 0
+          },
+          {
+            "offset": 72238815,
+            "entity": 4027117197,
+            "tag": 2784397543,
+            "size": 4,
+            "bits": 4
+          }
+        ],
+        "counters": [
+          {
+            "offset": 72239092,
+            "value": 0,
+            "component": 4027117196,
+            "owner": 4026603720,
+            "declarationOffset": 72239058
+          },
+          {
+            "offset": 72240335,
+            "value": 4,
+            "component": 4027117196,
+            "owner": 4026603720,
+            "declarationOffset": 72239058
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name_offset": 34436,
+          "profile_id": "00000000-0000-0000-0000-000000000001",
+          "profile_offset": 36083,
+          "team": 0,
+          "uid": 1,
+          "uid_offset": 36229,
+          "username": "Player1"
+        },
+        {
+          "name_offset": 38043,
+          "profile_id": "00000000-0000-0000-0000-000000000003",
+          "profile_offset": 39897,
+          "team": 0,
+          "uid": 3,
+          "uid_offset": 40043,
+          "username": "Player3"
+        },
+        {
+          "name_offset": 41857,
+          "profile_id": "00000000-0000-0000-0000-000000000002",
+          "profile_offset": 43584,
+          "team": 0,
+          "uid": 2,
+          "uid_offset": 43730,
+          "username": "Player2"
+        },
+        {
+          "name_offset": 45544,
+          "profile_id": "00000000-0000-0000-0000-000000000005",
+          "profile_offset": 47191,
+          "team": 0,
+          "uid": 5,
+          "uid_offset": 47337,
+          "username": "Player5"
+        },
+        {
+          "name_offset": 49151,
+          "profile_id": "00000000-0000-0000-0000-000000000004",
+          "profile_offset": 51002,
+          "team": 0,
+          "uid": 4,
+          "uid_offset": 51148,
+          "username": "Player4"
+        },
+        {
+          "name_offset": 54806,
+          "profile_id": "00000000-0000-0000-0000-000000000006",
+          "profile_offset": 56477,
+          "team": 1,
+          "uid": 6,
+          "uid_offset": 56623,
+          "username": "Player6"
+        },
+        {
+          "name_offset": 58956,
+          "profile_id": "00000000-0000-0000-0000-000000000007",
+          "profile_offset": 60625,
+          "team": 1,
+          "uid": 7,
+          "uid_offset": 60771,
+          "username": "Player7"
+        },
+        {
+          "name_offset": 62950,
+          "profile_id": "00000000-0000-0000-0000-000000000009",
+          "profile_offset": 64629,
+          "team": 1,
+          "uid": 9,
+          "uid_offset": 64775,
+          "username": "Player9"
+        },
+        {
+          "name_offset": 66954,
+          "profile_id": "00000000-0000-0000-0000-000000000008",
+          "profile_offset": 68806,
+          "team": 1,
+          "uid": 8,
+          "uid_offset": 68952,
+          "username": "Player8"
+        },
+        {
+          "name_offset": 69086,
+          "operator_id": 0,
+          "operator_offset": 69182,
+          "profile_id": "00000000-0000-0000-0000-000000000000",
+          "profile_offset": 69754,
+          "uid": 18446744073709551615,
+          "uid_offset": 69847,
+          "username": "Player10"
+        }
+      ],
+      "source": "explicit_inactive_reconnect_participant_v1"
+    },
+    "actionPhaseDetected": true,
+    "actionPhaseStartOffset": 72026634,
+    "gmSettings": null,
+    "matchID": ""
+  },
+  "declarations": [
+    {
+      "offset": 32659,
+      "owner": 4026603547,
+      "slot": 3302773825,
+      "component": 4026603539,
+      "class": 1069979660
+    },
+    {
+      "offset": 32779,
+      "owner": 4026603547,
+      "slot": 971362792,
+      "component": 4026603543,
+      "class": 2075500375
+    },
+    {
+      "offset": 34262,
+      "owner": 4026603547,
+      "slot": 949690859,
+      "component": 4026603538,
+      "class": 2710676760
+    },
+    {
+      "offset": 34390,
+      "owner": 4026603547,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 34907,
+      "owner": 4026603547,
+      "slot": 1776561403,
+      "component": 4026603540,
+      "class": 1927427537
+    },
+    {
+      "offset": 35078,
+      "owner": 4026603547,
+      "slot": 1015707697,
+      "component": 4026603541,
+      "class": 1463912777
+    },
+    {
+      "offset": 36180,
+      "owner": 4026603547,
+      "slot": 1545811788,
+      "component": 4026603529,
+      "class": 1658948351
+    },
+    {
+      "offset": 36266,
+      "owner": 4026603546,
+      "slot": 3302773825,
+      "component": 4026603532,
+      "class": 1069979660
+    },
+    {
+      "offset": 36386,
+      "owner": 4026603546,
+      "slot": 971362792,
+      "component": 4026603520,
+      "class": 2075500375
+    },
+    {
+      "offset": 37869,
+      "owner": 4026603546,
+      "slot": 949690859,
+      "component": 4026603523,
+      "class": 2710676760
+    },
+    {
+      "offset": 37997,
+      "owner": 4026603546,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 38520,
+      "owner": 4026603546,
+      "slot": 1776561403,
+      "component": 4026603525,
+      "class": 1927427537
+    },
+    {
+      "offset": 38691,
+      "owner": 4026603546,
+      "slot": 1015707697,
+      "component": 4026603526,
+      "class": 1463912777
+    },
+    {
+      "offset": 39994,
+      "owner": 4026603546,
+      "slot": 1545811788,
+      "component": 4026603770,
+      "class": 1658948351
+    },
+    {
+      "offset": 40080,
+      "owner": 4026603545,
+      "slot": 3302773825,
+      "component": 4026603773,
+      "class": 1069979660
+    },
+    {
+      "offset": 40200,
+      "owner": 4026603545,
+      "slot": 971362792,
+      "component": 4026603761,
+      "class": 2075500375
+    },
+    {
+      "offset": 41683,
+      "owner": 4026603545,
+      "slot": 949690859,
+      "component": 4026603772,
+      "class": 2710676760
+    },
+    {
+      "offset": 41811,
+      "owner": 4026603545,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 42335,
+      "owner": 4026603545,
+      "slot": 1776561403,
+      "component": 4026603766,
+      "class": 1927427537
+    },
+    {
+      "offset": 42506,
+      "owner": 4026603545,
+      "slot": 1015707697,
+      "component": 4026603767,
+      "class": 1463912777
+    },
+    {
+      "offset": 43681,
+      "owner": 4026603545,
+      "slot": 1545811788,
+      "component": 4026603755,
+      "class": 1658948351
+    },
+    {
+      "offset": 43767,
+      "owner": 4026603551,
+      "slot": 3302773825,
+      "component": 4026603743,
+      "class": 1069979660
+    },
+    {
+      "offset": 43887,
+      "owner": 4026603551,
+      "slot": 971362792,
+      "component": 4026603731,
+      "class": 2075500375
+    },
+    {
+      "offset": 45370,
+      "owner": 4026603551,
+      "slot": 949690859,
+      "component": 4026603742,
+      "class": 2710676760
+    },
+    {
+      "offset": 45498,
+      "owner": 4026603551,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 46015,
+      "owner": 4026603551,
+      "slot": 1776561403,
+      "component": 4026603728,
+      "class": 1927427537
+    },
+    {
+      "offset": 46186,
+      "owner": 4026603551,
+      "slot": 1015707697,
+      "component": 4026603729,
+      "class": 1463912777
+    },
+    {
+      "offset": 47288,
+      "owner": 4026603551,
+      "slot": 1545811788,
+      "component": 4026603733,
+      "class": 1658948351
+    },
+    {
+      "offset": 47374,
+      "owner": 4026603544,
+      "slot": 3302773825,
+      "component": 4027422322,
+      "class": 1069979660
+    },
+    {
+      "offset": 47494,
+      "owner": 4026603544,
+      "slot": 971362792,
+      "component": 4027422326,
+      "class": 2075500375
+    },
+    {
+      "offset": 48977,
+      "owner": 4026603544,
+      "slot": 949690859,
+      "component": 4027422321,
+      "class": 2710676760
+    },
+    {
+      "offset": 49105,
+      "owner": 4026603544,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 49625,
+      "owner": 4026603544,
+      "slot": 1776561403,
+      "component": 4027422315,
+      "class": 1927427537
+    },
+    {
+      "offset": 49796,
+      "owner": 4026603544,
+      "slot": 1015707697,
+      "component": 4027422324,
+      "class": 1463912777
+    },
+    {
+      "offset": 51099,
+      "owner": 4026603544,
+      "slot": 1545811788,
+      "component": 4027422312,
+      "class": 1658948351
+    },
+    {
+      "offset": 52510,
+      "owner": 4026603722,
+      "slot": 3302773825,
+      "component": 4026603714,
+      "class": 1069979660
+    },
+    {
+      "offset": 52630,
+      "owner": 4026603722,
+      "slot": 971362792,
+      "component": 4026603718,
+      "class": 2075500375
+    },
+    {
+      "offset": 54632,
+      "owner": 4026603722,
+      "slot": 949690859,
+      "component": 4026603713,
+      "class": 2710676760
+    },
+    {
+      "offset": 54760,
+      "owner": 4026603722,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 55281,
+      "owner": 4026603722,
+      "slot": 1776561403,
+      "component": 4026603707,
+      "class": 1927427537
+    },
+    {
+      "offset": 55464,
+      "owner": 4026603722,
+      "slot": 1015707697,
+      "component": 4026603716,
+      "class": 1463912777
+    },
+    {
+      "offset": 56574,
+      "owner": 4026603722,
+      "slot": 1545811788,
+      "component": 4026603704,
+      "class": 1658948351
+    },
+    {
+      "offset": 56660,
+      "owner": 4026603721,
+      "slot": 3302773825,
+      "component": 4026603699,
+      "class": 1069979660
+    },
+    {
+      "offset": 56780,
+      "owner": 4026603721,
+      "slot": 971362792,
+      "component": 4026603703,
+      "class": 2075500375
+    },
+    {
+      "offset": 58782,
+      "owner": 4026603721,
+      "slot": 949690859,
+      "component": 4026603698,
+      "class": 2710676760
+    },
+    {
+      "offset": 58910,
+      "owner": 4026603721,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 59432,
+      "owner": 4026603721,
+      "slot": 1776561403,
+      "component": 4026603700,
+      "class": 1927427537
+    },
+    {
+      "offset": 59614,
+      "owner": 4026603721,
+      "slot": 1015707697,
+      "component": 4026603701,
+      "class": 1463912777
+    },
+    {
+      "offset": 60722,
+      "owner": 4026603721,
+      "slot": 1545811788,
+      "component": 4026603689,
+      "class": 1658948351
+    },
+    {
+      "offset": 60808,
+      "owner": 4026603727,
+      "slot": 3302773825,
+      "component": 4026603677,
+      "class": 1069979660
+    },
+    {
+      "offset": 60928,
+      "owner": 4026603727,
+      "slot": 971362792,
+      "component": 4026603665,
+      "class": 2075500375
+    },
+    {
+      "offset": 62776,
+      "owner": 4026603727,
+      "slot": 949690859,
+      "component": 4026603676,
+      "class": 2710676760
+    },
+    {
+      "offset": 62904,
+      "owner": 4026603727,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 63427,
+      "owner": 4026603727,
+      "slot": 1776561403,
+      "component": 4026603670,
+      "class": 1927427537
+    },
+    {
+      "offset": 63612,
+      "owner": 4026603727,
+      "slot": 1015707697,
+      "component": 4026603671,
+      "class": 1463912777
+    },
+    {
+      "offset": 64726,
+      "owner": 4026603727,
+      "slot": 1545811788,
+      "component": 4026603659,
+      "class": 1658948351
+    },
+    {
+      "offset": 64812,
+      "owner": 4026603726,
+      "slot": 3302773825,
+      "component": 4026603662,
+      "class": 1069979660
+    },
+    {
+      "offset": 64932,
+      "owner": 4026603726,
+      "slot": 971362792,
+      "component": 4026603650,
+      "class": 2075500375
+    },
+    {
+      "offset": 66780,
+      "owner": 4026603726,
+      "slot": 949690859,
+      "component": 4026603661,
+      "class": 2710676760
+    },
+    {
+      "offset": 66908,
+      "owner": 4026603726,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 67427,
+      "owner": 4026603726,
+      "slot": 1776561403,
+      "component": 4026603655,
+      "class": 1927427537
+    },
+    {
+      "offset": 67608,
+      "owner": 4026603726,
+      "slot": 1015707697,
+      "component": 4026603648,
+      "class": 1463912777
+    },
+    {
+      "offset": 68903,
+      "owner": 4026603726,
+      "slot": 1545811788,
+      "component": 4026603652,
+      "class": 1658948351
+    },
+    {
+      "offset": 68989,
+      "owner": 4026603720,
+      "slot": 3302773825,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 71878539,
+      "owner": 4026603547,
+      "slot": 3398287399,
+      "component": 4027134755,
+      "class": 4083884466
+    },
+    {
+      "offset": 71878640,
+      "owner": 4026603546,
+      "slot": 3398287399,
+      "component": 4027134754,
+      "class": 4083884466
+    },
+    {
+      "offset": 71878741,
+      "owner": 4026603545,
+      "slot": 3398287399,
+      "component": 4027134753,
+      "class": 4083884466
+    },
+    {
+      "offset": 71878842,
+      "owner": 4026603551,
+      "slot": 3398287399,
+      "component": 4027134752,
+      "class": 4083884466
+    },
+    {
+      "offset": 71878943,
+      "owner": 4026603544,
+      "slot": 3398287399,
+      "component": 4027134747,
+      "class": 4083884466
+    },
+    {
+      "offset": 71879044,
+      "owner": 4026603722,
+      "slot": 3398287399,
+      "component": 4027134759,
+      "class": 4083884466
+    },
+    {
+      "offset": 71879145,
+      "owner": 4026603721,
+      "slot": 3398287399,
+      "component": 4027134758,
+      "class": 4083884466
+    },
+    {
+      "offset": 71879246,
+      "owner": 4026603727,
+      "slot": 3398287399,
+      "component": 4027134757,
+      "class": 4083884466
+    },
+    {
+      "offset": 71879347,
+      "owner": 4026603726,
+      "slot": 3398287399,
+      "component": 4027134756,
+      "class": 4083884466
+    },
+    {
+      "offset": 71982414,
+      "owner": 4026603721,
+      "slot": 3341757110,
+      "component": 4027124341,
+      "class": 1742635640
+    },
+    {
+      "offset": 72026654,
+      "owner": 4026603547,
+      "slot": 3398287399,
+      "component": 4027127385,
+      "class": 4083884466
+    },
+    {
+      "offset": 72026755,
+      "owner": 4026603546,
+      "slot": 3398287399,
+      "component": 4027127384,
+      "class": 4083884466
+    },
+    {
+      "offset": 72026874,
+      "owner": 4026603545,
+      "slot": 3398287399,
+      "component": 4027127391,
+      "class": 4083884466
+    },
+    {
+      "offset": 72026993,
+      "owner": 4026603551,
+      "slot": 3398287399,
+      "component": 4027127390,
+      "class": 4083884466
+    },
+    {
+      "offset": 72027112,
+      "owner": 4026603544,
+      "slot": 3398287399,
+      "component": 4027127377,
+      "class": 4083884466
+    },
+    {
+      "offset": 72027213,
+      "owner": 4026603722,
+      "slot": 3398287399,
+      "component": 4027127389,
+      "class": 4083884466
+    },
+    {
+      "offset": 72027314,
+      "owner": 4026603721,
+      "slot": 3398287399,
+      "component": 4027127388,
+      "class": 4083884466
+    },
+    {
+      "offset": 72027415,
+      "owner": 4026603727,
+      "slot": 3398287399,
+      "component": 4027127379,
+      "class": 4083884466
+    },
+    {
+      "offset": 72027516,
+      "owner": 4026603726,
+      "slot": 3398287399,
+      "component": 4027127378,
+      "class": 4083884466
+    },
+    {
+      "offset": 72238731,
+      "owner": 4026603720,
+      "slot": 3302773825,
+      "component": 4027117197,
+      "class": 1069979660
+    },
+    {
+      "offset": 72238851,
+      "owner": 4026603720,
+      "slot": 971362792,
+      "component": 4027117185,
+      "class": 2075500375
+    },
+    {
+      "offset": 72239058,
+      "owner": 4026603720,
+      "slot": 949690859,
+      "component": 4027117196,
+      "class": 2710676760
+    },
+    {
+      "offset": 72239264,
+      "owner": 4026603720,
+      "slot": 1240235415,
+      "component": 4027117434,
+      "class": 1768172781
+    },
+    {
+      "offset": 72239313,
+      "owner": 4026603720,
+      "slot": 1776561403,
+      "component": 4027117190,
+      "class": 1927427537
+    },
+    {
+      "offset": 72239484,
+      "owner": 4026603720,
+      "slot": 1015707697,
+      "component": 4027117191,
+      "class": 1463912777
+    },
+    {
+      "offset": 72239662,
+      "owner": 4026603720,
+      "slot": 1545811788,
+      "component": 4027117435,
+      "class": 1658948351
+    },
+    {
+      "offset": 72626583,
+      "owner": 4026603547,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72626691,
+      "owner": 4026603546,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72626762,
+      "owner": 4026603545,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72626837,
+      "owner": 4026603551,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72626862,
+      "owner": 4026603544,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72626995,
+      "owner": 4026603722,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72627020,
+      "owner": 4026603721,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72627138,
+      "owner": 4026603727,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    },
+    {
+      "offset": 72627239,
+      "owner": 4026603726,
+      "slot": 3398287399,
+      "component": 0,
+      "class": 0
+    }
+  ],
+  "properties": [
+    {
+      "offset": 36229,
+      "entity": 4026603547,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 1
+    },
+    {
+      "offset": 40043,
+      "entity": 4026603546,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 3
+    },
+    {
+      "offset": 43730,
+      "entity": 4026603545,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 2
+    },
+    {
+      "offset": 47337,
+      "entity": 4026603551,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 5
+    },
+    {
+      "offset": 51148,
+      "entity": 4026603544,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 4
+    },
+    {
+      "offset": 56623,
+      "entity": 4026603722,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 6
+    },
+    {
+      "offset": 60771,
+      "entity": 4026603721,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 7
+    },
+    {
+      "offset": 64775,
+      "entity": 4026603727,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 9
+    },
+    {
+      "offset": 68952,
+      "entity": 4026603726,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 8
+    },
+    {
+      "offset": 72239711,
+      "entity": 4026603720,
+      "tag": 3360019694,
+      "size": 8,
+      "bits": 10
+    },
+    {
+      "offset": 34296,
+      "entity": 4026603538,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 5
+    },
+    {
+      "offset": 37903,
+      "entity": 4026603523,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 7
+    },
+    {
+      "offset": 41717,
+      "entity": 4026603772,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 6
+    },
+    {
+      "offset": 45404,
+      "entity": 4026603742,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 10
+    },
+    {
+      "offset": 49011,
+      "entity": 4027422321,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 2
+    },
+    {
+      "offset": 54666,
+      "entity": 4026603713,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 2
+    },
+    {
+      "offset": 58816,
+      "entity": 4026603698,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 2
+    },
+    {
+      "offset": 62810,
+      "entity": 4026603676,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 4
+    },
+    {
+      "offset": 66814,
+      "entity": 4026603661,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 7
+    },
+    {
+      "offset": 72208590,
+      "entity": 4027422321,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 3
+    },
+    {
+      "offset": 72239092,
+      "entity": 4027117196,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 0
+    },
+    {
+      "offset": 72240335,
+      "entity": 4027117196,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 4
+    },
+    {
+      "offset": 72254111,
+      "entity": 4026603661,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 8
+    },
+    {
+      "offset": 72476148,
+      "entity": 4026603661,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 9
+    },
+    {
+      "offset": 72581157,
+      "entity": 4026603742,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 11
+    },
+    {
+      "offset": 72595661,
+      "entity": 4026603772,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 7
+    },
+    {
+      "offset": 72624835,
+      "entity": 4026603772,
+      "tag": 2645676572,
+      "size": 4,
+      "bits": 8
+    }
+  ],
+  "finishes": [
+    {
+      "offset": 72208909,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player4",
+        "target": "Player7",
+        "headshot": false,
+        "time": "2:10",
+        "timeInSeconds": 130,
+        "weaponID": 78526932208
+      }
+    },
+    {
+      "offset": 72254270,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player8",
+        "target": "Player1",
+        "headshot": true,
+        "time": "1:59",
+        "timeInSeconds": 119,
+        "weaponID": 68967567352
+      }
+    },
+    {
+      "offset": 72476313,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player8",
+        "target": "Player4",
+        "headshot": false,
+        "time": "0:54",
+        "timeInSeconds": 54,
+        "weaponID": 68967567352
+      }
+    },
+    {
+      "offset": 72581507,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player5",
+        "target": "Player8",
+        "headshot": false,
+        "time": "0:25",
+        "timeInSeconds": 25,
+        "weaponID": 127174503990
+      }
+    },
+    {
+      "offset": 72596135,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player2",
+        "target": "Player9",
+        "headshot": false,
+        "time": "0:21",
+        "timeInSeconds": 21,
+        "weaponID": 161289761794
+      }
+    },
+    {
+      "offset": 72625271,
+      "feedback": {
+        "type": {
+          "name": "Kill",
+          "id": 0
+        },
+        "username": "Player2",
+        "target": "Player6",
+        "headshot": false,
+        "time": "0:11",
+        "timeInSeconds": 11,
+        "weaponID": 161289761794
+      }
+    }
+  ]
+}

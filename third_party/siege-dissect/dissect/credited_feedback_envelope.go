@@ -1,8 +1,8 @@
 package dissect
 
-// Opt-in development reader. Native callback ownership recovers a Death
+// Shared credited-reader provenance. Native callback ownership recovers a Death
 // envelope boundary without rewriting frozen MatchFeedback or guessing from
-// neighboring packets. The original ReadKillCredit stays unchanged.
+// neighboring packets. The diagnostic retains the original offsets separately.
 import (
 	"bytes"
 	"fmt"
@@ -84,6 +84,7 @@ func creditFinishesFromNativeEnvelopes(feedback []MatchUpdate, envelopes []Nativ
 					e.Feedback.Username == f.Username && e.Feedback.Target == f.Target && e.Feedback.Time == f.Time &&
 					e.Feedback.TimeInSeconds == f.TimeInSeconds {
 					observed.Offset = e.StartOffset
+					observed.OffsetEvidence = &e
 				}
 			}
 		}
@@ -93,6 +94,15 @@ func creditFinishesFromNativeEnvelopes(feedback []MatchUpdate, envelopes []Nativ
 }
 
 func ReadKillCreditNativeEnvelopes(in io.Reader) (Header, RoundKillCredit, []CreditFinish, []NativeFeedbackEnvelope, error) {
+	header, credit, original, envelopes, err := readKillCreditEnvelopes(in)
+	credit.Source = NativeCreditedKillSource
+	if credit.Complete {
+		credit.Reason = NativeCreditedKillSource
+	}
+	return header, credit, original, envelopes, err
+}
+
+func readKillCreditEnvelopes(in io.Reader) (Header, RoundKillCredit, []CreditFinish, []NativeFeedbackEnvelope, error) {
 	r, err := NewReader(in)
 	if err != nil {
 		return Header{}, RoundKillCredit{}, nil, nil, err
@@ -107,9 +117,5 @@ func ReadKillCreditNativeEnvelopes(in io.Reader) (Header, RoundKillCredit, []Cre
 	}
 	original, observed := creditFinishesFromNativeEnvelopes(r.MatchFeedback, envelopes)
 	credit := deriveKillCredit(r.Header, data, observed)
-	credit.Source = NativeCreditedKillSource
-	if credit.Complete {
-		credit.Reason = NativeCreditedKillSource
-	}
 	return r.Header, credit, original, envelopes, nil
 }

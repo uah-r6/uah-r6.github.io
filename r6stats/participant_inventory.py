@@ -3,13 +3,15 @@
 Never fills a missing identity/counter or accepts a nine-player header alone.
 """
 from collections import Counter
+from copy import deepcopy
 from uuid import UUID
 
 SOURCE = 'explicit_ten_slot_empty_participant_v1'
 EMPTY_UID = (1 << 64) - 1
+RECONNECT_SOURCE = 'explicit_inactive_reconnect_participant_v1'
 
 
-def inventory_valid(players, proof, *, allow_team_remap=False):
+def _empty_inventory_valid(players, proof, *, allow_team_remap=False):
     if not isinstance(proof, dict) or proof.get('source') != SOURCE or len(players) != 9:
         return False
     def item(p):
@@ -52,4 +54,58 @@ def inventory_valid(players, proof, *, allow_team_remap=False):
         pairs = {(bound[p,n][0], t) for p,n,t,uid in expected}
         return pairs == {(0,0),(1,1)} or (allow_team_remap and pairs == {(0,1),(1,0)})
     except (KeyError, TypeError, ValueError, AttributeError):
+        return False
+
+
+def inventory_valid(players, proof, *, allow_team_remap=False):
+    if not isinstance(proof, dict) or proof.get('source') != RECONNECT_SOURCE:
+        return _empty_inventory_valid(players, proof, allow_team_remap=allow_team_remap)
+    try:
+        r, slots, action = proof['inactive_reconnect'], proof['slots'], proof['action_offset']
+        integer = lambda v: type(v) is int
+        keys = ('team','slot_index','owner','uid','uid_offset','absent_body_offset',
+                'body_component','body_offset','score_component','score_offset')
+        if (not all(integer(r[k]) for k in keys) or not integer(action) or len(slots) != 10
+                or not 1 <= r['slot_index'] <= 9 or r['team'] != r['slot_index']//5
+                or not isinstance(r['username'],str) or not r['username']
+                or not 0 < r['uid'] < EMPTY_UID or r['owner'] <= 0
+                or r['body_component'] <= 0 or r['score_component'] <= 0
+                or r['body_component'] == r['score_component']):
+            return False
+        slot, previous = slots[r['slot_index']], slots[r['slot_index']-1]
+        if (slot['username'] != r['username'] or slot['profile_id'] != str(UUID(int=0))
+                or type(slot['uid']) is not int or slot['uid'] != EMPTY_UID
+                or not integer(slot['operator_id']) or slot['operator_id'] != 0
+                or not previous['uid_offset']+13 < r['absent_body_offset'] < slot['name_offset'] < action
+                or not action < r['body_offset'] < r['score_offset'] < r['uid_offset']):
+            return False
+        fields = r['body_fields']
+        tags = {0xc9762625,0x72a64911,0xdad23f01,0x7bcfad80,0xa5f688e7}
+        if (len(fields) != 5 or {f['tag'] for f in fields} != tags
+                or [f['offset'] for f in fields] != sorted({f['offset'] for f in fields})):
+            return False
+        for f in fields:
+            if (not all(integer(f[k]) for k in ('offset','entity','tag','size','bits'))
+                    or f['entity'] != r['body_component'] or f['size'] != 4
+                    or not r['body_offset'] < f['offset'] < r['uid_offset']
+                    or f['bits'] != (4 if f['tag']==0xa5f688e7 else 0)):
+                return False
+        a,b = r['counters']
+        for s in (a,b):
+            if (not all(integer(s[k]) for k in ('offset','value','component','owner','declarationOffset'))
+                    or s['owner'] != r['owner'] or s['component'] != r['score_component']
+                    or s['declarationOffset'] != r['score_offset'] or not 0 <= s['value'] <= 250):
+                return False
+        if not r['score_offset'] < a['offset'] < r['uid_offset'] < b['offset'] or a['value'] != 0:
+            return False
+        # The nine active identities must pass the original complete ten-slot
+        # proof. Only this independently proven inactive slot is canonicalized.
+        canonical = deepcopy(proof)
+        canonical['source'] = SOURCE
+        canonical['slots'][r['slot_index']].update(username='', profile_id='')
+        if not _empty_inventory_valid(players, canonical, allow_team_remap=allow_team_remap):
+            return False
+        active = [s for i,s in enumerate(slots) if i != r['slot_index']]
+        return all(r['uid'] != s['uid'] and r['username'] != s['username'] for s in active)
+    except (KeyError, TypeError, ValueError, AttributeError, IndexError):
         return False

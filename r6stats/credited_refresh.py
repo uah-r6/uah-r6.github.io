@@ -165,6 +165,14 @@ def read_archive(db, archive_root, map_id, executable=None):
             cache.write_text(json.dumps(dict(observation=observation,binary_sha256=binary,replay_sha256=digest,
                 payload_sha256=hashlib.sha256(payload.encode()).hexdigest()),sort_keys=True),encoding='utf-8')
         records.append(dict(logical_round=logical,physical_round=physical,segment=segment,credit=observation['credit']))
+    prior = (db.execute('SELECT evidence_json FROM map_kill_credit WHERE map_id=?', (map_id,)).fetchone()
+             if db is not None and db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='map_kill_credit'").fetchone()
+             else None)
+    if prior:
+        old = json.loads(prior['evidence_json'])
+        if not validate_map_credit(old)['complete']:
+            from r6stats.rating_credit_evidence import apply_uid_zero_recovery
+            records = apply_uid_zero_recovery(old, records) or records
     return records, binary
 
 
