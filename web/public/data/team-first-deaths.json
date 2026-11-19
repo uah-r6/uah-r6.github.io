@@ -2,6 +2,320 @@
   "schema_version": 1,
   "maps": [
     {
+      "id": "1117c1e1fbcb",
+      "series_id": "322593609acf",
+      "season": "fall-2026",
+      "opponent": "MIZ Black",
+      "date": "2026-11-18",
+      "map": "Fortress",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "e3b1cc9cd5fd",
+      "series_id": "322593609acf",
+      "season": "fall-2026",
+      "opponent": "MIZ Black",
+      "date": "2026-11-18",
+      "map": "Border",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "tallman3-14",
+          "player_name": "Tallman3.14",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 10,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 11,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 12,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 13,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 14,
+          "side": "Attack",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
+      "id": "969aff1ee48a",
+      "series_id": "322593609acf",
+      "season": "fall-2026",
+      "opponent": "MIZ Black",
+      "date": "2026-11-18",
+      "map": "Chalet",
+      "team_slug": "blue",
+      "team_name": "UAH Blue",
+      "exclude_from_stats": false,
+      "demo": false,
+      "rounds": [
+        {
+          "number": 1,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 2,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "ohwowjay",
+          "player_name": "OhWowJay",
+          "status": "recorded"
+        },
+        {
+          "number": 3,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 4,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        },
+        {
+          "number": 5,
+          "side": "Defense",
+          "result": "Loss",
+          "player_slug": "azooznewzz",
+          "player_name": "AzoozNewzz",
+          "status": "recorded"
+        },
+        {
+          "number": 6,
+          "side": "Defense",
+          "result": "Win",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 7,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 8,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "dinofireking",
+          "player_name": "DinoFireKing",
+          "status": "recorded"
+        },
+        {
+          "number": 9,
+          "side": "Attack",
+          "result": "Loss",
+          "player_slug": "lgon",
+          "player_name": "Lgon",
+          "status": "recorded"
+        }
+      ]
+    },
+    {
       "id": "fb5e4b1e277e",
       "series_id": "14277a1ef847",
       "season": "fall-2026",
