@@ -46,5 +46,7 @@ database belongs in Git.
 The real R01/R02 Go replay smoke test and strict synthetic refusal tests pass.
 Go `test ./...` and `vet ./...` pass. Both web builds pass. Frontend tests pass
 75/75 after making the series coverage fixture independent of the newest map
-count. The full Python suite and publication status are recorded in the
-checkpoint after completion.
+count. The Python suite passes 920 tests and six subtests (one optional test
+skipped). Source commit `fedc8b8` and public data commit `ee3972a` were pushed.
+The GitHub Pages deployment completed successfully, and the live Chalet and
+MIZ series JSON both report complete numeric Ratings.

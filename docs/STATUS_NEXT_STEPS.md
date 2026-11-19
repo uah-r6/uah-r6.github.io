@@ -16,6 +16,10 @@ plant row, one sealed Rating evidence row, and three audit rows differ. Other
 tests, Go tests/vet, real R01/R02 smoke, and both web builds pass. See
 [the evidence report](BLUE_MIZ_RATING_REPAIR.md). Private backup and traces:
 `data/research/miz-blue-rating-20261118/` (ignored).
+Source `fedc8b8` and public data `ee3972a` were pushed. Pages deployment
+completed successfully; live Chalet and MIZ series JSON confirm numeric
+Ratings. The unrelated untracked `web/public/team-first-*` redirects remain
+untouched.
 
 ---
 
