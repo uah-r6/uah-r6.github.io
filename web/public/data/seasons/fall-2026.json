@@ -91,7 +91,7 @@
         }
       },
       "maps": 17,
-      "rating": 1.447393613079088,
+      "rating": 1.4333513545814491,
       "kd": 1.8017241379310345,
       "kpr": 1.1807909604519775,
       "kost": 0.7570621468926554,
@@ -114,8 +114,8 @@
         "4": 7,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "flex-uah",
@@ -329,7 +329,7 @@
         }
       },
       "maps": 17,
-      "rating": 1.0944675744669747,
+      "rating": 1.0664821224114258,
       "kd": 1.2333333333333334,
       "kpr": 0.8361581920903954,
       "kost": 0.5706214689265536,
@@ -352,117 +352,8 @@
         "4": 4,
         "5": 1
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
-    },
-    {
-      "slug": "azooznewzz",
-      "name": "AzoozNewzz",
-      "status": "Active",
-      "rounds": 177,
-      "kills": 126,
-      "deaths": 128,
-      "headshots": 67,
-      "opening_kills": 17,
-      "opening_deaths": 15,
-      "refrag_kills": 12,
-      "deaths_traded": 16,
-      "kills_traded": 14,
-      "untraded_kills": 113,
-      "untraded_deaths": 112,
-      "pivot_kills": 77,
-      "pivot_deaths": 78,
-      "plants": 3,
-      "disables": 0,
-      "teamkills": 2,
-      "survived": 49,
-      "kost_rounds": 105,
-      "rounds_won": 91,
-      "clutches": 0,
-      "clutch_1v1": 0,
-      "clutch_1v2": 0,
-      "clutch_1v3": 0,
-      "clutch_1v4": 0,
-      "clutch_1v5": 0,
-      "multikill_extra": 49,
-      "operators": {
-        "Attack": {
-          "Thatcher": 7,
-          "Gridlock": 12,
-          "Zofia": 6,
-          "Grim": 3,
-          "Twitch": 20,
-          "Ace": 11,
-          "Solid Snake": 1,
-          "Sledge": 1,
-          "Thermite": 4,
-          "Lion": 4,
-          "Nomad": 8,
-          "Ram": 5,
-          "Dokkaebi": 1,
-          "Striker": 1,
-          "Ying": 1,
-          "Rauora": 1
-        },
-        "Defense": {
-          "Ela": 36,
-          "Solis": 12,
-          "Mozzie": 13,
-          "Fenrir": 8,
-          "Goyo": 6,
-          "Thorn": 7,
-          "Bandit": 3,
-          "Wamai": 3,
-          "Smoke": 2,
-          "Azami": 1
-        }
-      },
-      "sides": {
-        "Attack": {
-          "rounds": 86,
-          "kills": 62,
-          "deaths": 64,
-          "opening_kills": 7,
-          "opening_deaths": 9,
-          "kd": 0.96875,
-          "kpr": 0.7209302325581395
-        },
-        "Defense": {
-          "rounds": 91,
-          "kills": 64,
-          "deaths": 64,
-          "opening_kills": 10,
-          "opening_deaths": 6,
-          "kd": 1.0,
-          "kpr": 0.7032967032967034
-        }
-      },
-      "maps": 17,
-      "rating": 0.988329867799446,
-      "kd": 0.984375,
-      "kpr": 0.711864406779661,
-      "kost": 0.5932203389830508,
-      "srv": 0.2768361581920904,
-      "hs": 0.5275590551181102,
-      "entry_diff": 2,
-      "kd_diff": -2,
-      "objectives": 3,
-      "kill_source_rounds": {
-        "stable_uid_scoreboard_delta_v1": 156,
-        "legacy_finisher_v1": 21
-      },
-      "kill_source": "mixed_whole_map_sources",
-      "finisher_kills": 127,
-      "headshot_source": "legacy_finisher_v1",
-      "event_feature_source": "legacy_finisher_v1",
-      "multikill_sizes": {
-        "2": 26,
-        "3": 10,
-        "4": 1,
-        "5": 0
-      },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "nachofries-08",
@@ -563,6 +454,115 @@
       },
       "rating_rounds": 108,
       "rating_maps": 11
+    },
+    {
+      "slug": "azooznewzz",
+      "name": "AzoozNewzz",
+      "status": "Active",
+      "rounds": 177,
+      "kills": 126,
+      "deaths": 128,
+      "headshots": 67,
+      "opening_kills": 17,
+      "opening_deaths": 15,
+      "refrag_kills": 12,
+      "deaths_traded": 16,
+      "kills_traded": 14,
+      "untraded_kills": 113,
+      "untraded_deaths": 112,
+      "pivot_kills": 77,
+      "pivot_deaths": 78,
+      "plants": 3,
+      "disables": 0,
+      "teamkills": 2,
+      "survived": 49,
+      "kost_rounds": 105,
+      "rounds_won": 91,
+      "clutches": 0,
+      "clutch_1v1": 0,
+      "clutch_1v2": 0,
+      "clutch_1v3": 0,
+      "clutch_1v4": 0,
+      "clutch_1v5": 0,
+      "multikill_extra": 49,
+      "operators": {
+        "Attack": {
+          "Thatcher": 7,
+          "Gridlock": 12,
+          "Zofia": 6,
+          "Grim": 3,
+          "Twitch": 20,
+          "Ace": 11,
+          "Solid Snake": 1,
+          "Sledge": 1,
+          "Thermite": 4,
+          "Lion": 4,
+          "Nomad": 8,
+          "Ram": 5,
+          "Dokkaebi": 1,
+          "Striker": 1,
+          "Ying": 1,
+          "Rauora": 1
+        },
+        "Defense": {
+          "Ela": 36,
+          "Solis": 12,
+          "Mozzie": 13,
+          "Fenrir": 8,
+          "Goyo": 6,
+          "Thorn": 7,
+          "Bandit": 3,
+          "Wamai": 3,
+          "Smoke": 2,
+          "Azami": 1
+        }
+      },
+      "sides": {
+        "Attack": {
+          "rounds": 86,
+          "kills": 62,
+          "deaths": 64,
+          "opening_kills": 7,
+          "opening_deaths": 9,
+          "kd": 0.96875,
+          "kpr": 0.7209302325581395
+        },
+        "Defense": {
+          "rounds": 91,
+          "kills": 64,
+          "deaths": 64,
+          "opening_kills": 10,
+          "opening_deaths": 6,
+          "kd": 1.0,
+          "kpr": 0.7032967032967034
+        }
+      },
+      "maps": 17,
+      "rating": 0.9702827183855559,
+      "kd": 0.984375,
+      "kpr": 0.711864406779661,
+      "kost": 0.5932203389830508,
+      "srv": 0.2768361581920904,
+      "hs": 0.5275590551181102,
+      "entry_diff": 2,
+      "kd_diff": -2,
+      "objectives": 3,
+      "kill_source_rounds": {
+        "stable_uid_scoreboard_delta_v1": 156,
+        "legacy_finisher_v1": 21
+      },
+      "kill_source": "mixed_whole_map_sources",
+      "finisher_kills": 127,
+      "headshot_source": "legacy_finisher_v1",
+      "event_feature_source": "legacy_finisher_v1",
+      "multikill_sizes": {
+        "2": 26,
+        "3": 10,
+        "4": 1,
+        "5": 0
+      },
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "gloop",
@@ -973,7 +973,7 @@
         }
       },
       "maps": 17,
-      "rating": 0.8127832442427565,
+      "rating": 0.8020659117925727,
       "kd": 0.6386554621848739,
       "kpr": 0.4293785310734463,
       "kost": 0.6045197740112994,
@@ -996,8 +996,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "tallman3-14",
@@ -1084,7 +1084,7 @@
         }
       },
       "maps": 17,
-      "rating": 0.7114800101217662,
+      "rating": 0.7152399200599082,
       "kd": 0.5234375,
       "kpr": 0.3785310734463277,
       "kost": 0.4971751412429379,
@@ -1107,8 +1107,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     }
   ],
   "matches": [
@@ -1168,12 +1168,12 @@
       "their_score": 7,
       "result": "LOSS",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "exclude_from_stats": false,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence"
+      "rating_exclusion": null
     },
     {
       "id": "fb5e4b1e277e",

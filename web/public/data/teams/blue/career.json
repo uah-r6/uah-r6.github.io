@@ -63,12 +63,12 @@
       "their_score": 7,
       "result": "LOSS",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "exclude_from_stats": false,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence"
+      "rating_exclusion": null
     },
     {
       "id": "e5c8109d9f63",
@@ -510,7 +510,7 @@
         }
       },
       "maps": 17,
-      "rating": 1.447393613079088,
+      "rating": 1.4333513545814491,
       "kd": 1.8017241379310345,
       "kpr": 1.1807909604519775,
       "kost": 0.7570621468926554,
@@ -533,8 +533,8 @@
         "4": 7,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "lgon",
@@ -624,7 +624,7 @@
         }
       },
       "maps": 17,
-      "rating": 1.0944675744669747,
+      "rating": 1.0664821224114258,
       "kd": 1.2333333333333334,
       "kpr": 0.8361581920903954,
       "kost": 0.5706214689265536,
@@ -647,8 +647,8 @@
         "4": 4,
         "5": 1
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "azooznewzz",
@@ -733,7 +733,7 @@
         }
       },
       "maps": 17,
-      "rating": 0.988329867799446,
+      "rating": 0.9702827183855559,
       "kd": 0.984375,
       "kpr": 0.711864406779661,
       "kost": 0.5932203389830508,
@@ -756,8 +756,8 @@
         "4": 1,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "dinofireking",
@@ -849,7 +849,7 @@
         }
       },
       "maps": 17,
-      "rating": 0.8127832442427565,
+      "rating": 0.8020659117925727,
       "kd": 0.6386554621848739,
       "kpr": 0.4293785310734463,
       "kost": 0.6045197740112994,
@@ -872,8 +872,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     },
     {
       "slug": "tallman3-14",
@@ -960,7 +960,7 @@
         }
       },
       "maps": 17,
-      "rating": 0.7114800101217662,
+      "rating": 0.7152399200599082,
       "kd": 0.5234375,
       "kpr": 0.3785310734463277,
       "kost": 0.4971751412429379,
@@ -983,8 +983,8 @@
         "4": 0,
         "5": 0
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     }
   ],
   "rating_version": "siege_style_v3",

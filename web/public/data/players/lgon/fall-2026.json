@@ -86,7 +86,7 @@
     }
   },
   "maps": 17,
-  "rating": 1.0944675744669747,
+  "rating": 1.0664821224114258,
   "kd": 1.2333333333333334,
   "kpr": 0.8361581920903954,
   "kost": 0.5706214689265536,
@@ -109,8 +109,8 @@
     "4": 4,
     "5": 1
   },
-  "rating_rounds": 168,
-  "rating_maps": 16,
+  "rating_rounds": 177,
+  "rating_maps": 17,
   "season": "fall-2026",
   "matches": [
     {
@@ -171,13 +171,13 @@
       "their_score": 7,
       "result": "LOSS",
       "demo": false,
-      "rating_eligible": false,
+      "rating_eligible": true,
       "exclude_from_stats": false,
       "team_slug": "blue",
       "team_name": "UAH Blue",
       "rating_version": "siege_style_v3",
-      "rating_exclusion": "Incomplete credited-kill evidence",
-      "rating": null
+      "rating_exclusion": null,
+      "rating": 0.544087017374514
     },
     {
       "id": "e5c8109d9f63",
@@ -572,9 +572,9 @@
         "losses": 1
       },
       "rating_version": "siege_style_v3",
-      "rating": null,
-      "rating_maps": 2,
-      "rating_rounds": 25,
+      "rating": 0.7415551725011056,
+      "rating_maps": 3,
+      "rating_rounds": 34,
       "maps": 3,
       "rounds": 34
     },
@@ -852,7 +852,7 @@
         }
       },
       "maps": 17,
-      "rating": 1.0944675744669747,
+      "rating": 1.0664821224114258,
       "kd": 1.2333333333333334,
       "kpr": 0.8361581920903954,
       "kost": 0.5706214689265536,
@@ -875,8 +875,8 @@
         "4": 4,
         "5": 1
       },
-      "rating_rounds": 168,
-      "rating_maps": 16
+      "rating_rounds": 177,
+      "rating_maps": 17
     }
   ]
 }
